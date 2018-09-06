@@ -1,0 +1,446 @@
+<script type="text/html" id="secondTable">
+    <table class="table table-striped table-bordered dataTables-expand no-header second-table">
+        <tbody>
+            <tr>
+                <td></td>
+                <td>2016</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+<script type="text/html" id="thirdTable">
+    <table class="table table-striped table-bordered third-table">
+        <thead>
+            <tr>
+                <th>Mese</th>
+                <th>Importo mensile spettante già liquidato</th>
+                <th>Importo mensile conguaglio</th>
+                <th>Nuovo importo mensile tredicesima maturata</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GENNAIO</td>
+                <td>€ 420,00</td>
+                <td>€ 15,00</td>
+                <td>€ 35,00</td>
+            </tr>
+            <tr>
+                <td>FEBBRAIO</td>
+                <td>€ 420,00</td>
+                <td>€ 15,00</td>
+                <td>€ 35,00</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Elabora conguaglio</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li class="active">
+                <strong>Elabora conguaglio</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins" id="filters">
+                <div class="ibox-title" >
+                    <h5> Periodo di riferimento per elaborare il conguaglio </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <h3>Seleziona un periodo di riferimento per elaborare il conguaglio</h3>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label>Data (*) (dal, al)</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-sm" id="posSearch">Cerca</button>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins m-t-lg" id="posResults" style="display:none;">
+                <div class="ibox-title" >
+                    <h5> Elenco posizioni estratte </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <table class="table table-striped table-bordered" id="posTable">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-2">Posizione</th>
+                                        <th class="col-md-2">Cognome</th>
+                                        <th class="col-md-2">Nome</th>
+                                        <th class="col-md-2">Codice fiscale</th>
+                                        <th class="col-md-2">Data di nascita</th>
+                                        <th class="col-md-2 text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox" name="select_all" value="1"> <i></i></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="visualizza_posizione.html">771263</a></td>
+                                        <td>Rossi</td>
+                                        <td>Maria</td>                                        
+                                        <td>RSSMRO70A41F2052</td>
+                                        <td>12/07/1986</td>
+                                        <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox"> <i></i></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="visualizza_posizione.html">883625</a></td>
+                                        <td>Bianchi</td>
+                                        <td>Paolo</td>
+                                        <td>BNCPLO54P23C567L</td>
+                                        <td>23/09/1954</td>
+                                        <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox"> <i></i></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="visualizza_posizione.html">883243</a></td>                                        
+                                        <td>Verdi</td>
+                                        <td>Marco</td>
+                                        <td>VRDMRC43H24C567A</td>
+                                        <td>24/12/1943</td>
+                                        <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox"> <i></i></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="visualizza_posizione.html">992477</a></td>                                        
+                                        <td>Rossi</td>
+                                        <td>Luca</td>
+                                        <td>RSSLCA34G08T564I</td>
+                                        <td>08/07/1934</td>
+                                        <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox"> <i></i></div></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-sm" id="posRun">Esegui conguaglio</button>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins" id="conguaglioDone" style="display:none;">
+                <div class="ibox-title" >
+                    <h5>Conguaglio per le posizioni estratte</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered dataTables-expand" id="table1">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Posizione</th>
+                                        <th>Cognome</th>
+                                        <th>Nome</th>
+                                        <th>Conguaglio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>773456</td>
+                                        <td>Rossi</td>
+                                        <td>Maria</td>
+                                        <td>€ 20.400,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>883625</td>
+                                        <td>Bianchi</td>
+                                        <td>Paolo</td>
+                                        <td>€ 14.300,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>883243</td>
+                                        <td>Verdi</td>
+                                        <td>Marco</td>
+                                        <td>€ 24.890,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>992477</td>
+                                        <td>Rossi</td>
+                                        <td>Luca</td>
+                                        <td>€ 10.175,00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-right m-t-lg col-md-12">
+                            <button class="btn btn-primary btn-sm main-button-padding" id="print">Stampa</button>
+                            <button class="btn btn-primary btn-sm main-button-padding m-l-md" id="save">Conferma</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $('#posSearch').click(function() {
+        $("#posResults").show();
+    });
+
+    $('#posRun').click(function() {
+        $("#filters").hide();
+        $("#posResults").hide();
+        $("#conguaglioDone").show();
+    });
+
+// Updates "Select all" control in a data table
+//
+function updateDataTableSelectAllCtrl(table){
+   var $table             = table.table().node();
+   var $chkbox_all        = $('tbody input[type="checkbox"]', $table);
+   var $chkbox_checked    = $('tbody input[type="checkbox"]:checked', $table);
+   var chkbox_select_all  = $('thead input[name="select_all"]', $table);
+
+   // If none of the checkboxes are checked
+   if($chkbox_checked.length === 0){
+      //chkbox_select_all.checked = false;
+       chkbox_select_all.parent().removeClass('checked');
+      if('indeterminate' in chkbox_select_all){
+         chkbox_select_all.indeterminate = false;
+      }
+
+   // If all of the checkboxes are checked
+   } else if ($chkbox_checked.length === $chkbox_all.length){
+//      chkbox_select_all.checked = true;
+      chkbox_select_all.parent().addClass('checked');
+      if('indeterminate' in chkbox_select_all){
+         chkbox_select_all.indeterminate = false;
+      }
+
+   // If some of the checkboxes are checked
+   } else {
+      //chkbox_select_all.checked = true;
+       chkbox_select_all.parent().removeClass('checked');
+      if('indeterminate' in chkbox_select_all){
+         chkbox_select_all.indeterminate = true;
+      }
+   }
+}
+
+$(document).ready(function (){
+   // Array holding selected row IDs
+   var rows_selected = [];
+   var table = $('#posTable').DataTable({
+      'columnDefs': [{
+         'targets': 5,
+         'searchable': false,
+         'orderable': false,
+         'width': '1%',
+         'className': 'dt-body-center',
+      }],
+        'searching': false,
+        'responsive': true,
+        'lengthChange': false,
+      'order': [[2, 'asc']],
+      'rowCallback': function(row, data, dataIndex){
+         // Get row ID
+         var rowId = data[0];
+
+         // If row ID is in the list of selected row IDs
+         if($.inArray(rowId, rows_selected) !== -1){
+            $(row).find('input[type="checkbox"]').prop('checked', true);
+            $(row).addClass('selected');
+         }
+      }
+   });
+
+   // Handle click on checkbox
+   $('#posTable tbody .checkbox .iCheck-helper').on('click', function(e){
+      var $row = $(this).closest('tr');
+
+      // Get row data
+      var data = table.row($row).data();
+
+      // Get row ID
+      var rowId = data[0];
+
+      // Determine whether row ID is in the list of selected row IDs
+      var index = $.inArray(rowId, rows_selected);
+
+      // If checkbox is checked and row ID is not in list of selected row IDs
+      if(this.checked && index === -1){
+         rows_selected.push(rowId);
+
+      // Otherwise, if checkbox is not checked and row ID is in list of selected row IDs
+      } else if (!this.checked && index !== -1){
+         rows_selected.splice(index, 1);
+      }
+
+      if(this.checked){
+         $row.addClass('selected');
+      } else {
+         $row.removeClass('selected');
+      }
+
+      // Update state of "Select all" control
+      updateDataTableSelectAllCtrl(table);
+
+      // Prevent click event from propagating to parent
+      e.stopPropagation();
+   });
+
+   // Handle click on table cells with checkboxes
+   $('#posTable').on('click', 'tbody td, thead th:first-child', function(e){
+      $(this).parent().find('.checkbox .iCheck-helper').trigger('click');
+   });
+
+   // Handle click on "Select all" control
+   $('thead .checkbox .iCheck-helper', table.table().container()).on('click', function(e){
+      if($(this).parent().hasClass('checked')) {
+        $('#posTable tbody .checkbox .iCheck-helper').each(function( index ) {
+            if (!$(this).parent().hasClass('checked')) {
+                $(this).trigger('click');
+            }
+          });
+      } else {
+          $('#posTable tbody .checkbox .iCheck-helper').each(function( index ) {
+            if ($(this).parent().hasClass('checked')) {
+                $(this).trigger('click');
+            }
+          });
+      }
+
+      // Prevent click event from propagating to parent
+      e.stopPropagation();
+   });
+
+   // Handle table draw event
+   table.on('draw', function(){
+      // Update state of "Select all" control
+      updateDataTableSelectAllCtrl(table);
+   });
+
+});
+
+
+    /* Expand tables */
+    var table = $('.dataTables-expand').DataTable({
+       "columns": [
+           {
+               "className":'details-control text-center pointer',
+               "orderable":false,
+               "data":null,
+               "defaultContent": '<i class="fa fa-chevron-down" aria-hidden="true"></i>'
+           },
+           null,
+           null,
+           null,
+           null
+       ],
+       order: [[1, 'desc']],
+       searching: false,
+       responsive: true,
+       lengthChange: false
+   });
+
+
+   var table1 = $('#table1').DataTable();
+   // Add event listener for opening and closing details
+   $('.dataTables-expand').on('click', 'td.details-control', function () {
+       var tr = $(this).closest('tr');
+       var row = table1.row( tr );
+       if (row.length < 1) {
+            $('.second-table').each(function( index ) {
+                var table = $(this).DataTable();
+                if (table.row(tr).length > 0) {
+                    row = table.row( tr );
+                }
+            });
+
+          if ( row.child.isShown() ) {
+               // This row is already open - close it
+               row.child.hide();
+               tr.removeClass('shown');
+           }
+           else {
+               // Open this row
+               row.child($('#thirdTable').html()).show();
+               tr.addClass('shown');
+           }
+       }
+       else {
+           if ( row.child.isShown() ) {
+               // This row is already open - close it
+               row.child.hide();
+               tr.removeClass('shown');
+           }
+           else {
+               // Open this row
+               row.child($('#secondTable').html()).show();
+               var table = $(row.child()).find('table').DataTable({
+                   "columns": [
+                       {
+                           "className":'details-control text-center pointer',
+                           "orderable":false,
+                           "data":null,
+                           "defaultContent": '<i class="fa fa-chevron-down" aria-hidden="true"></i>'
+                       },
+                       null
+                   ],
+                   order: [],
+                   searching: false,
+                   responsive: true,
+                   lengthChange: false,
+                    paging: false,
+                    'sDom': 't'
+               });
+
+               tr.addClass('shown');
+           }
+       }
+
+   } );
+
+</script>

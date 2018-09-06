@@ -1,0 +1,385 @@
+@charset "UTF-8";
+.dataTables_filter {
+  display: none; }
+
+h2.small {
+  font-size: 18px;
+  line-height: 26px; }
+
+.inline-block {
+  display: inline-block; }
+
+.pointer {
+  cursor: pointer; }
+
+.bold {
+  font-weight: bold !important; }
+
+.primary-text {
+  color: #318F7B; }
+
+.initial-font {
+  font-size: initial !important; }
+
+.evidence {
+  border-width: 2px !important;
+  border-color: #aae2d6 !important; }
+
+li.expandable.active {
+  border-left: none; }
+  li.expandable.active > a,
+  li.expandable.active > a:focus {
+    color: #a7b1c2; }
+
+li.expandable.selected {
+  border-left: 4px solid #19aa8d; }
+  li.expandable.selected > a,
+  li.expandable.selected > a:focus {
+    color: #fff; }
+
+.fa-cross:before {
+  content: "†"; }
+
+a {
+  color: #318F7B; }
+  a:hover {
+    color: #2a7c6b; }
+
+a.secondary {
+  color: #999; }
+  a.secondary:hover {
+    color: #8c8c8c; }
+
+.checkbox label,
+.radio label {
+  padding-left: 0; }
+
+.m-t-md {
+  margin-top: 20px !important; }
+
+.m-t-lg {
+  margin-top: 30px !important; }
+
+.inmodal .modal-icon {
+  font-size: 50px; }
+
+.panel-heading .btn {
+  margin-bottom: 0; }
+
+.form-separator::after {
+  height: 1px;
+  content: '';
+  display: block;
+  border-top: 1px dashed #ddd;
+  margin-top: 20px !important; }
+
+.form-separator-solid::after {
+  height: 1px;
+  content: '';
+  display: block;
+  border-top: 1px solid #ddd;
+  margin-top: 20px !important; }
+
+.popover {
+  max-width: 440px; }
+  .popover .popover-title {
+    margin-top: 0; }
+
+.custom-popover div {
+  margin-bottom: 5px; }
+  .custom-popover div span:first-child {
+    font-weight: bold; }
+
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0; }
+
+.button-bar button {
+  min-width: 100px; }
+
+.btn-full {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px; }
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 18px; }
+
+.btn-sm {
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.main-button-padding {
+  padding: 10px 40px; }
+
+.panel-heading.collapsed .panel-toolbox {
+  float: right; }
+  .panel-heading.collapsed .panel-toolbox > i.fa-chevron-down :before {
+    content: "\f078"; }
+
+.panel-heading .panel-toolbox {
+  float: right; }
+  .panel-heading .panel-toolbox > i.fa-chevron-down :before {
+    content: "\f077"; }
+
+.toolbox-parent-row > td {
+  line-height: 2rem !important; }
+
+.toolbox-row {
+  text-align: center;
+  font-size: 2rem; }
+  .toolbox-row > a {
+    padding-right: 5px; }
+
+/*
+ *
+ *   sub menù tool
+ *
+*/
+.floating-menu {
+  position: fixed;
+  top: 13px;
+  right: 0px;
+  overflow: hidden;
+  z-index: 1001; }
+
+.floating-menu-box {
+  margin-right: -220px;
+  position: relative;
+  z-index: 2000;
+  transition-duration: 0.8s;
+  opacity: 0.5; }
+
+.floating-menu-box.show {
+  margin-right: 0px;
+  opacity: 1; }
+
+.spin-icon {
+  background: #1ab394;
+  position: absolute;
+  padding: 7px 10px 7px 13px;
+  border-radius: 20px 0px 0px 20px;
+  font-size: 16px;
+  top: 0;
+  left: 0px;
+  width: 40px;
+  color: #fff;
+  cursor: pointer; }
+
+.floating-menu-items {
+  width: 220px;
+  margin-left: 40px;
+  background: #f3f3f4;
+  border: 1px solid #e2e2e2; }
+
+.floating-menu-items .title {
+  background: #efefef;
+  text-align: center;
+  font-weight: 600;
+  display: block;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-bottom: 1px solid #e2e2e0; }
+
+/******************************/
+/* visualizza_domanda         */
+/******************************/
+.option-bold {
+  font-weight: bold !important; }
+
+.iradio_square-green {
+  margin-right: 5px !important; }
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-bottom-color: white !important; }
+
+.tab-pane {
+  padding-top: 15px; }
+
+/******************************/
+/* end visualizza_domanda         */
+/******************************/
+/******************************/
+/* _elenco_prestazioni         */
+/******************************/
+.details-control {
+  width: 15px; }
+
+.shown .details-control i:before {
+  content: "\f077"; }
+
+.secondary-table th {
+  background-color: #E5E5E5 !important; }
+
+.secondary-table td {
+  background-color: #EFEFEF !important; }
+
+.secondary-table.table-bordered > tbody > tr > td,
+.secondary-table.table-bordered > tbody > tr > th,
+.secondary-table.table-bordered > tfoot > tr > td,
+.secondary-table.table-bordered > tfoot > tr > th,
+.secondary-table.table-bordered > thead > tr > td,
+.secondary-table.table-bordered > thead > tr > th {
+  border: 1px solid white; }
+
+.secondary-table .no-header {
+  background-color: white !important;
+  border: none !important; }
+
+/******************************/
+/* end _elenco_prestazioni    */
+/******************************/
+/******************************/
+/*     ricerca_evidenza       */
+/******************************/
+.fullwidth {
+  width: 100%; }
+
+.input-group-custom {
+  padding: 6px 12px;
+  vertical-align: middle;
+  display: table-cell; }
+
+/******************************/
+/* end ricerca_evidenza       */
+/******************************/
+/******************************/
+/*     filtri per colonna     */
+/******************************/
+.row-filter th {
+  padding: 0 !important; }
+  .row-filter th .column-filter {
+    border: none;
+    background-color: #f8f8f8;
+    font-weight: normal;
+    height: 37px;
+    padding-left: 8px;
+    width: 100%;
+    font-size: 12px; }
+  .row-filter th .column-filter:focus {
+    border-color: #1ab394; }
+
+input[type=search] {
+  margin-left: 10px; }
+
+/******************************/
+/*  end filtri per colonna    */
+/******************************/
+/****************************+++++++++++++**/
+/*    visualizza_dettaglio_liquidazione    */
+/*******************************************/
+#collapseLiquidazione {
+  /*
+ .sub-dettaglio-liquidazione {
+   // padding: 0 !important;
+    table {
+        margin-bottom: 0;
+        border-color: #F5F5F5;
+        border: none;
+        .no-header {
+            background-color: white;
+            border: none;
+        }
+        tr {
+            background-color: #EFEFEF;
+            border-color: #F5F5F5;
+            td {
+                border-color: #F5F5F5;
+            }
+        }
+        thead {
+            tr th {
+                background-color: #E5E5E5;
+                border-color: #F5F5F5;
+            }
+        }
+    }
+}
+    */ }
+  #collapseLiquidazione > .panel-body {
+    padding: 0; }
+    #collapseLiquidazione > .panel-body > table {
+      margin-bottom: 0; }
+  #collapseLiquidazione .space {
+    padding-left: 40px; }
+  #collapseLiquidazione .p-l-sm {
+    padding-left: 15px; }
+  #collapseLiquidazione .p-r-sx {
+    padding-right: 10px; }
+  #collapseLiquidazione .panel-footer .info-title {
+    display: inline; }
+  #collapseLiquidazione .panel-footer .info {
+    display: inline;
+    width: 186px;
+    padding-left: 8px;
+    border-left: 1px solid white;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    height: 38px;
+    vertical-align: middle; }
+    #collapseLiquidazione .panel-footer .info span {
+      line-height: 38px; }
+  #collapseLiquidazione .secondary-table {
+    border: none; }
+  #collapseLiquidazione #show-table-prestazioni, #collapseLiquidazione #show-table-associazioni {
+    color: inherit; }
+
+/****************************+++++++++++++**/
+/*  end visualizza_dettaglio_liquidazione  */
+/*******************************************/
+/****************************++++++++++**/
+/*    modifica_importo_da_recuperare    */
+/****************************************/
+.notes {
+  min-height: 80px; }
+
+/*******************************************/
+/**   end modifica_importo_da_recuperare   */
+/*******************************************/
+/***************************/
+/**   Expand table         */
+/***************************/
+table.no-header > thead {
+  display: none; }
+
+table.dataTable.second-table {
+  margin-top: 0 !important; }
+
+/***************************/
+/**  end expand table      */
+/***************************/
+/***************************/
+/**   Elabora conguaglio   */
+/***************************/
+table thead th.sorting_disabled {
+  background-color: transparent; }
+
+/****************************/
+/**  End elabora conguaglio */
+/****************************/
+/******************************/
+/**   Genera comunicazione    */
+/******************************/
+#modelliTab .fa-eye {
+  font-size: 20px; }
+
+#modelliTab .center {
+  vertical-align: middle; }
+
+/******************************/
+/**  End Genera comunicazione */
+/******************************/
+.chosen-container .search-field input {
+  min-width: 220px !important; }
+
+.table > thead.price > tr > th {
+  min-width: 70px; }
+
+.negative {
+  color: #ed5565; }

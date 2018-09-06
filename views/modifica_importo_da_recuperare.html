@@ -1,0 +1,222 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Predisponi/modifica importo da recuperare</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="elabora_liquidazione_mensile.html" >Elabora liquidazione mensile</a>
+            </li>
+            <li class="active">
+                <strong>Predisponi/modifica importo da recuperare</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <!-- <%- partial("_pannello_sintesi_anagrafica") %> -->
+        <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> Predisponi/modifica importo da recuperare </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Data (*)</label>
+                            <div>
+                                <div class="input-group date m-t-xs">
+                                    <input type="text" class="form-control" value="01/06/2015"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Tipo di recupero (*)</label>
+                            <select class="form-control">
+                                <option>Seleziona</option>
+                                <option>Compensazione</option>
+                                <option>Recupero esterno</option>
+                                <option>ESPRO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Data scadenza restituzione (*)</label>
+                            <div>
+                                <div class="input-group date m-t-xs">
+                                   <input type="text" class="form-control" value="01/07/2015"> <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Calcolo interessi</label>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="c"> <i></i> Sì </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox"> <input icheck ng-model="" type="radio" name="c"> <i></i> No </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>RATEIZZAZIONE</h3>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Rateizzazione</label>
+                            <div class="row" id="payment-installments">
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="rateizzazione" value="yes"><i></i> Sì </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="rateizzazione" value="no" checked><i></i> No </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Importo rata mensile</label>
+                            <div class="input-group"> <input type="text" class="form-control installment" disabled="disabled"> <span class="input-group-addon">€</span></div>
+                        </div>
+                    </div>
+                    <h3>DATI DECRETO</h3>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Tipo decreto</label>
+                            <select class="form-control installment" disabled="disabled">
+                                <option>Seleziona</option>
+                                <option>Decreto per recupero</option>
+                                <option>Decreto rinuncia recupero</option>
+                                <option>Decreto per ricorso</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Numero decreto</label>
+                            <input type="text" class="form-control installment" disabled="disabled"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Data decreto</label>
+                            <div>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control installment" disabled="disabled" value="01/07/2015"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"><div class="col-md-12 form-separator"></div></div>
+                    <div class="row m-t-lg">
+                        <div class="col-md-4 form-group">
+                            <label>Importo capitale da recuperare (*)</label>
+                            <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">€</span></div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Importo interessi legali da recuperare</label>
+                            <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">€</span></div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Importo interessi di rateizzazione</label>
+                            <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">€</span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group pull-right">
+                            <label>Importo totale da recuperare</label>
+                            <div class="input-group m-b"> <input type="text" class="form-control" readonly> <span class="input-group-addon">€</span></div>
+                        </div>
+                    </div>
+                    <div class="row"><div class="col-md-12 form-separator"></div></div>
+                    <h3 class="m-t-lg">Rinuncia alla riscossione coattiva</h3>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label></label>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="rinuncia"> <i></i> <strong>Sì</strong> </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="rinuncia"> <i></i> <strong>No</strong> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Tipo decreto</label>
+                            <select class="form-control">
+                                <option>Seleziona</option>
+                                <option>Decreto 1</option>
+                                <option>Decreto 2</option>
+                                <option>Decreto 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Numero decreto</label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Data decreto</label>
+                            <div>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" value="01/07/2015"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"><div class="col-md-12 form-separator"></div></div>
+                    <h3 class="m-t-lg">Annullato</h3>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label></label>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="a"> <i></i> <strong>Sì</strong> </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox"><input icheck ng-model="" type="radio" name="a"> <i></i> <strong>No</strong> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <label>Motivo annullamento</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <h3>Note</h3> <textarea class="notes form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-right m-t-lg col-md-12">
+                            <a class="btn btn-white btn-sm main-button-padding" id="cancel" href="visualizza_anagrafica.html">Annulla</a>
+                            <a class="btn btn-primary btn-sm main-button-padding m-l-md" id="save" href="visualizza_anagrafica.html">Salva</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+     $(document).ready(function() {
+        $("#payment-installments .iCheck-helper").click(function(){
+        //$("input[name='rateizzazione']").click(function(){
+            if($('input:radio[name=rateizzazione]:checked').val() === 'no') {
+//            if ($(this).val() === 'yes') {
+                $('.installment').attr('disabled', 'disabled');
+            }
+            else {
+                $('.installment').removeAttr('disabled', 'disabled');
+            }
+        });
+     });
+</script>

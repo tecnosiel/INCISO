@@ -1,0 +1,142 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Predisponi/modifica inserimento erede</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="inserimento_anagrafica.html">Inserimento anagrafica</a>
+            </li>
+            <li class="active">
+                <strong>Predisponi/modifica inserimento erede</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <!-- <%- partial("_pannello_sintesi_anagrafica") %> -->
+        <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" >
+                    <h5> Dati erede </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#dati" aria-controls="dati" role="tab" data-toggle="tab">Dati</a></li>
+                        <li role="presentation"><a href="#liquidazione" aria-controls="profile" role="tab" data-toggle="tab">Liquidazione</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="dati">
+                            <div>
+                                <h3 class="m-t-lg">Dati erede</h3>
+                                <div>
+                                    <span>cerca anagrafica</span>
+                                    <button type="button" class="m-l-sm btn btn-xs btn-primary" data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-search"></i></button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 form-group"><label>Nome</label> <input type="text" class="form-control" value="Marco" readonly></div>
+                                    <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" class="form-control" value="Bianchi" readonly></div>
+                                    <div class="col-md-4 form-group"><label>Codice fiscale</label> <input type="text" class="form-control" value="RSSMRA53A36Q9382" readonly></div>
+                                    <div class="col-md-4 form-group">
+                                        <label>Data di nascita</label>
+                                        <input type="text" class="form-control" value="15/10/1953" readonly>
+                                    </div>
+
+                                    <div class="col-md-4 form-group"><label>Nazione</label>
+                                        <input type="text" class="form-control" value="Italia" readonly>
+                                    </div>
+                                    <div class="col-md-4 form-group"><label>Provincia</label>
+                                        <input type="text" class="form-control" value="Trento" readonly>
+                                    </div>
+                                    <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" class="form-control" value="Trento" readonly></div>
+                                </div>
+                            </div>
+                            <div class="row"><div class="col-md-12 form-separator"></div></div>
+                            <div>
+                                <h3 class="m-t-lg">Indirizzo</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary pull-right m-t-lg">Inserisci indirizzo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"><div class="col-md-12 form-separator"></div></div>
+                            <div class="row">
+                                <h3></h3>
+                                <div class="col-md-4 form-group"><label>Percentuale di eredità (*)</label>
+                                    <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">%</span></div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label>Obbligo denuncia di successione (*)</label>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="checkbox"><input icheck ng-model="" type="radio" name="a"> <i></i> Sì </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="checkbox"><input icheck ng-model="" type="radio" name="a"> <i></i> No </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="liquidazione">
+                            <h3 class="m-t-lg">Coordinate per la liquidazione degli importi spettanti (*)</h3>
+                            <h4>Scegliere la domiciliazione degli importi</h4>
+                            <div class="row m-t-lg">
+                                <div class="col-md-4 form-group">
+                                    <label>Coordinate bancarie</label>
+                                    <div class="m-t-md m-b-xs"><span>IBAN</span></div>
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label>&nbsp;</label>
+                                    <div class="m-t-md m-b-xs"><span>Intestatario conto</span></div>
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label>Bonifico domiciliato alla posta</label>
+                                    <div class="m-t-md m-b-xs"><span>Codice fiscale</span></div>
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="row"><div class="col-md-12 form-separator"></div></div>
+                            <h3 class="m-t-lg">Importo liquidato erede</h3>
+                            <div class="row">
+                                <div class="col-md-4"><label>Importo totale da liquidare</label><input type="text" class="form-control" readonly value="€ 1.567,00"/></div>
+                                <div class="col-md-4"><label>Importo liquidato</label><input type="text" class="form-control" readonly value="€ 3.168,00"/></div>
+                                <div class="col-md-4"><label>Data liquidazione</label><input type="text" class="form-control" readonly value="12/11/2016"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="visualizza_liquidazione.html" class="btn btn-primary pull-right m-t-lg">Visualizza dettaglio importo liquidato</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-md">
+                <div class="button-bar text-right">
+                    <button class="btn btn-sm btn-white">Annulla</button>
+                    <button class="btn btn-sm btn-primary">Salva</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

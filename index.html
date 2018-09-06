@@ -1,0 +1,203 @@
+<!--
+*
+* INSPINIA - Responsive Admin Theme
+* Version 2.7.1
+*
+-->
+
+<!DOCTYPE html>
+<html ng-app="inspinia">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INCISO</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- iCheck -->
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <!-- Datepicker -->
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="css/plugins/dataTables/select.dataTables.min.css" rel="stylesheet">
+
+    <!-- Chosen Plugin -->
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
+</head>
+
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+
+<body ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
+
+    <!-- Main view  -->
+    <div ui-view></div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/plugins/datapicker/bootstrap-datepicker.it.js"></script>
+
+    <!-- Data Tables -->
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="js/plugins/dataTables/dataTables.responsive.js"></script>
+
+    <!-- Chosen -->
+    <script src="js/plugins/chosen/chosen.jquery.js"></script>
+
+    <!-- Main Angular scripts-->
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-sanitize.min.js"></script>
+
+    <script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="js/angular-translate/angular-translate.min.js"></script>
+    <script src="js/ui-router/angular-ui-router.min.js"></script>
+    <script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+    <script src="js/plugins/angular-idle/angular-idle.js"></script>
+
+    <!-- Jquery App Script -->
+    <script>
+        $('[data-toggle=popover]').on('click', function () {
+            $('[data-toggle=popover]').each(function () {
+                $(this).popover('hide');
+            });
+        });
+
+        $('body').on('click', function (e) {
+            $('[data-toggle=popover]').each(function () {
+                // hide any open popovers when the anywhere else in the body is clicked
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    $(this).popover('hide');
+                }
+            });
+        });
+
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
+
+        $(document).ready(function () {
+
+            // -------------------------------------------------
+            // $('.i-checks').iCheck({ checkboxClass: 'icheckbox_square-green', radioClass: 'iradio_square-green' });
+            // $('input').iCheck({
+            //     checkboxClass: 'icheckbox_square-green',
+            //     radioClass: 'iradio_square-green'
+            // });
+
+            /****   PAGING  *****/
+            var table = $('.dataTables-paged').not('.order-desc').DataTable({
+                searching: false,
+                responsive: true,
+                lengthChange: false
+            });
+
+            var tableNoOrderd = $('.dataTables-paged.order-desc').DataTable({
+                "searching": false,
+                "responsive": true,
+                "lengthChange": false,
+            });
+
+            tableNoOrderd.order([0, 'desc']).draw();
+            /**** END PAGING *****/
+
+            /**** COLUMN FILTERING *****/
+            // Setup - add a text input to each footer cell
+            $('.dataTables-filtered tfoot th').each(function () {
+                var title = $(this).text();
+                if (!$(this).hasClass("no-filter")) {
+                    $(this).html('<input type="text" class="column-filter" placeholder="Search ' + title + '" />');
+                }
+            });
+
+            // Get filtered data table
+            var tableFiltered = $('.dataTables-filtered').DataTable({
+                searching: true,
+                responsive: true,
+                lengthChange: false
+            });
+
+            if (tableFiltered.columns().length > 0) {
+                // Apply the search
+                tableFiltered.columns().eq(0).each(function (index) {
+                    var that = tableFiltered.column(index);
+
+                    $('input', that.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+            }
+            /**** END COLUMN FILTERING *****/
+
+            $('.floating-menu-box').on('click', function () {
+                if ($(this).hasClass("show")) {
+                    $(this).removeClass('show');
+                }
+                else {
+                    $(this).addClass('show');
+                }
+            });
+
+        });
+
+    </script>
+
+    <!-- Anglar App Script -->
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/services-http.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+
+</body>
+
+</html>

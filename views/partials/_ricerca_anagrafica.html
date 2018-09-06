@@ -1,0 +1,83 @@
+<div ng-controller="_ricercaAnagraficaCtrl as _ricAnag">
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Cognome</label>
+            <input type="text" class="form-control" ng-model="_ricAnag.findCognome">
+        </div>
+        <div class="col-md-6 form-group">
+            <label>Nome</label>
+            <input type="text" class="form-control" ng-model="_ricAnag.findNome">
+        </div>
+        <div class="col-md-6 form-group">
+            <label>Codice Fiscale</label>
+            <input type="text" class="form-control" ng-model="_ricAnag.findCodiceFiscale">
+        </div>
+        <div class="col-md-6 form-group">
+            <label>Data di nascita</label>
+            <div class="input-group date">
+                <input type="text" class="form-control" placeholder="dd/MM/yyyy" ng-model="_ricAnag.findDataDiNascita">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+        <div id="filtri_deceduto">
+            <div class="col-md-6 form-group">
+                <label>Numero faldone archiviazione</label>
+                <input type="text" class="form-control" value="">
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Anno di scarto</label>
+                <input type="text" class="form-control">
+            </div>
+
+        </div>
+    </div>
+    <div class="row text-right">
+        <div class="col-sm-12">
+            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()" >Cerca</button>
+        </div>
+    </div>
+    <div class="row" id="anagResults" style="display:none;">
+        <div>
+            <table class="table table-striped table-bordered dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Cognome</th>
+                        <th>Nome</th>
+                        <th>Codice fiscale</th>
+                        <th>Data di nascita</th>
+                        <th>Data decesso</th>
+                        <th class="modal-select"></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in _ricAnag.risposta">
+                    <tr>
+                        <td>{{item.Cognome}}</td>
+                        <td>{{item.Nome}}</td>
+                        <td><a class="" onclick="javascript:event.stopPropagation();" data-container="body" data-toggle="popover"
+                                data-placement="top" data-html="true" data-content='<%- partial("_popover_anagrafica") %>'>{{item.CodiceFiscale}}</a></td>
+                        <td>{{item.DataDiNascita}}</td>
+                        <td>{{item.DataDiDecesso}}</td>
+                        <td class="modal-select">
+                            <a href="<%- url %>">
+                                <i class="fa fa-arrow-circle-right" aria-hidden="true" data-dismiss="<%- url=='#' ? 'modal' : '' %>"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+    $('.dataTables-example').dataTable({ searching: false, responsive: true, lengthChange: false });
+
+    $('#anagSearch').click(function () {
+        $("#anagResults").show();
+    });
+</script>

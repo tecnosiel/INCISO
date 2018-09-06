@@ -1,0 +1,37 @@
+<!-- Wrapper-->
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+         
+        <h1>Home Page</h1>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+
+<script>
+    $("#filtri_deceduto").hide();
+    $("input[name$='payment']").on("ifChecked", function () {
+        var test = $(this).val();
+
+        if (test == 1) {
+            $("#iban").show();
+            $("#posta").hide();
+        } else {
+            $("#iban").hide();
+            $("#posta").show();
+        }
+    });
+</script>
+<!-- End wrapper-->

@@ -1,0 +1,243 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Ricerca evidenza</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li class="active">
+                <strong>Ricerca evidenza</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> Ricerca evidenza </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Tipo evidenza</label>
+                            <select class="form-control" name="account">
+                                <option>Permesso di soggiorno</option>
+                                <option>Trasferimento - cambio residenza</option>
+                                <option>Controllo reddito</option>
+                                <option>Domanda da sospendere - mancanza requisiti</option>
+                                <option>Prestazione sospesa - dati reddito</option>
+                                <option>Prestazione sospesa - assegno di cura</option>
+                                <option>Prestazione sospesa - casa di lungodegenza</option>
+                                <option>Prestazione da negare - soglia di reddito</option>
+                                <option>Prestazione da negare - soglia incremento</option>
+                                <option>Prestazione concessa</option>
+                                <option>Prestazione da revocare - fascia d'età</option>
+                                <option>Prestazione da revocare - soglia di reddito</option>
+                                <option>Prestazione da revocare - soglia incremento</option>
+                                <option>Prestazione da ripristinare - dati reddito</option>
+                                <option>Prestazione da ripristinare – assegno di cura</option>
+                                <option>Prestazione da ripristinare – casa di lungodegenza</option>
+                                <option>Prestazione da concedere – fascia di età</option>
+                                <option>Importo da recuperare eredi</option>
+                                <option>Importo da recuperare</option>
+                                <option>Importo da recuperare – Procura della Repubblica</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Posizione</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Tipo prestazione</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Data decorrenza</label>
+                            <div class="input-group fullwidth">
+                                <span class="input-group-custom">dal</span>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <span class="input-group-custom">al</span>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Data scadenza</label>
+                            <div class="input-group fullwidth">
+                                <span class="input-group-custom">dal</span>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <span class="input-group-custom">al</span>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Data chiusura</label>
+                            <div class="input-group fullwidth">
+                                <span class="input-group-custom">dal</span>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <span class="input-group-custom">al</span>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Cognome</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>Codice fiscale</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Data di nascita</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-sm" id="posSearch">Cerca</button>
+                    </div>
+                    <div id="posResults" style="display:none;" class="m-t-lg">
+                        <div>
+                            <table class="table table-striped table-bordered" id="ricerca-evidenze">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-1">Data decorrenza</th>
+                                        <th class="col-md-1">Tipo evidenza</th>
+                                        <th class="col-md-3">Descrizione</th>
+                                        <th class="col-md-1">Data scadenza</th>
+                                        <th class="col-md-1">Posizione</th>
+                                        <th class="col-md-1">Cognome</th>
+                                        <th class="col-md-1">Mome</th>
+                                        <th class="col-md-1">Codice Fiscale</th>
+                                        <th class="col-md-1">Dettaglio</th>
+                                        <th class="col-md-1"></th>
+                                        <th class="col-md-1 text-center">
+                                            <div class="checkbox"><input icheck ng-model="" type="checkbox" name="select_all" value="1"> <i></i></div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>12/05/2015</td>
+                                        <td>Controllo reddito</td>
+                                        <td>Controllo reddito – anno successivo</td>
+                                        <td>12/07/2013</td>
+                                        <td>8798548</td>
+                                        <td>Rossi</td>
+                                        <td>Mario</td>
+                                        <td>RSSMRA70A41F2052</td>
+                                        <td class="text-center">
+                                            <a data-toggle="popover" data-trigger="hover" title="Dettaglio evidenza" data-placement="top" data-html="true" data-content="<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>">
+                                                <i class="fa fa-info-circle"></i>
+                                            </a>
+                                        </td>
+                                        <td class="text-center"><a><i class="fa fa-eye"></i></a></td>
+                                        <td class="text-center">
+                                            <div class="checkbox"><input icheck ng-model="" type="checkbox"><i></i></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>30/06/2015</td>
+                                        <td>Importo da recuperare</td>
+                                        <td>Importo da recuperare – liquidazione</td>
+                                        <td>31/12/2015</td>
+                                        <td>1258745</td>
+                                        <td>Rossi</td>
+                                        <td>Mario</td>
+                                        <td>RSSMRA70A41F2052</td>
+                                        <td class="text-center">
+                                            <a data-toggle="popover" data-trigger="hover" title="Dettaglio evidenza" data-placement="top" data-html="true" data-content="<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>">
+                                                <i class="fa fa-info-circle"></i>
+                                            </a>
+                                        </td>
+                                        <td class="text-center"><a><i class="fa fa-eye"></i></a></td>
+                                        <td class="text-center">
+                                            <div class="checkbox"><input icheck ng-model="" type="checkbox"><i></i></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right m-t-lg">
+                            <a class="btn btn-sm btn-primary">Inserisci nuova evidenza</a>
+                            <a class="btn btn-sm btn-primary">Genera comunicazione</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $('#posSearch').click(function () {
+        $("#posResults").show();
+    });
+
+    $('#ricerca-evidenze').DataTable({
+        'columnDefs': [{
+            'targets': 8,
+            'searchable': false,
+            'orderable': false,
+        }, {
+            'targets': 9,
+            'searchable': false,
+            'orderable': false,
+        },
+        {
+            'targets': 10,
+            'searchable': false,
+            'orderable': false,
+        }],
+        order: [[3, "asc"]],
+        searching: false,
+        responsive: true,
+        lengthChange: false
+    });
+
+</script>
