@@ -1,43 +1,46 @@
-<div class="custom-popover">
-    <div class="row">
-        <div class="col-md-12">
-            <span>Nome:</span>
-            <span>Maria</span>
-        </div>
-        <div class="col-md-12">
-            <span>Cognome:</span>
-            <span>Rossi</span>
-        </div>
-        <div class="col-md-12">
-            <span>Codice fiscale:</span>
-            <span>RSSMRA70A41F2052</span>
-        </div>
-        <div class="col-md-12">
-            <span>Data di nascita:</span>
-            <span>05/01/1970</span>
-        </div>
-        <div class="col-md-12">
-            <span>Sesso:</span>
-            <span>F</span>
-        </div>
-        <div class="col-md-12">
-            <span>Luogo di nascita:</span>
-            <span>Bolzano</span>
-        </div>
-        <div class="col-md-12">
-            <span>Nazionalità:</span>
-            <span>Italiana</span>
-        </div>
-        <div class="col-md-12">
-            <span>Residenza:</span>
-            <span>via Luigi Cadorna, 53 - 39100 Bolzano BZ</span>
-        </div>
-        <div class="col-md-12">
-            <span>Domicilio:</span>
-            <span>via Armando Diaz, 2 - 39100 Bolzano BZ</span>
-        </div>
-        <div class="col-md-12 m-t-sm">
-            <a href="visualizza_anagrafica.html" class="btn-primary btn btn-sm btn-block">Visualizza anagrafica</a>
+<div class="popover-content" >
+    <div class="custom-popover">
+        
+        <div class="row">
+            <div class="col-md-12" style="word-break: keep-all;">
+                <span>Nome:</span>
+                <span>{{dataPopover.Nome}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Cognome:</span>
+                <span>{{dataPopover.Cognome}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Codice fiscale:</span>
+                <span>{{dataPopover.CodiceFiscale}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Data di nascita:</span>
+                <span>{{dataPopover.DataDiNascita}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Sesso:</span>
+                <span>{{dataPopover.Sesso}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Luogo di nascita:</span>
+                <span>{{dataPopover.LuogoDiNascita}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Nazionalità:</span>
+                <span>{{dataPopover.Nazionalita}}</span>
+            </div>
+            <div class="col-md-12" style="word-break: keep-all;">
+                <span>Residenza:</span>
+                <span>{{dataPopover.Residenza}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Domicilio:</span>
+                <span>{{dataPopover.Domicilio}}</span>
+            </div>
+            <div class="col-md-12 m-t-sm">
+                <a ui-sref="anagrafica.visualizza_anagrafica" class="btn-primary btn btn-sm btn-block">Visualizza anagrafica</a>
+            </div>
         </div>
     </div>
 </div>

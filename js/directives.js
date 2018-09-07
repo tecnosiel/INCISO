@@ -1,5 +1,5 @@
 /**
- * INSPINIA - Responsive Admin Theme
+ * INCISO - Gestione invalidi civili, ciechi civili e sordi
  *
  * Main directives.js file
  * Define directives for used plugin
@@ -34,7 +34,8 @@ function pageTitle($rootScope, $timeout) {
         link: function(scope, element) {
             var listener = function(event, toState, toParams, fromState, fromParams) {
                 // Default title - load on Dashboard 1
-                var title = 'INSPINIA | Responsive Admin Theme';
+                // var title = 'INSPINIA | Responsive Admin Theme';
+                var title = 'INCISO | Gestione invalidi civili, ciechi civili e sordi';
                 // Create your own title pattern
                 if (toState.data && toState.data.pageTitle) title = 'INSPINIA | ' + toState.data.pageTitle;
                 $timeout(function() {

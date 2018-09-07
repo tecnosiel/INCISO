@@ -1,5 +1,5 @@
 /**
- * CONCISO - Responsive Admin Theme
+ * INCISO - Responsive Admin Theme
  *
  */
 (function() {
@@ -9,7 +9,8 @@
     "ui.bootstrap", // Ui Bootstrap
     "pascalprecht.translate", // Angular Translate
     "ngIdle", // Idle timer
-    "ngSanitize" // ngSanitize
+    "ngSanitize", // ngSanitize
+    "angular-popover" // angular-popover
   ]);
 })();
 

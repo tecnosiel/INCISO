@@ -1,8 +1,8 @@
 /**
- * INSPINIA - Responsive Admin Theme
+ * INCISO - Gestione invalidi civili, ciechi civili e sordi
  *
  * Main controller.js file
- * Define controllers with data used in Inspinia theme
+ * Definisce tutti i controllers usati in Inciso divisi per view
  *
  *
  * Functions (controllers)
@@ -53,12 +53,19 @@
 
 /**
  * _ricerca_anagrafica - controller
- * Contains data used in ricerca_anagrafica view
+ * Contiene i dati usati nella view _ricerca_anagrafica
  *
  */
-function _ricercaAnagraficaCtrl(httpServices) {
+function _ricercaAnagraficaCtrl($scope, httpServices) {
   this.find = function() {
     this.risposta = httpServices._ricercaAnagraficaRicerca.get("mockUrl");
+  };
+
+  this.findCodFis = function(cCodFis) {
+    $scope.dataPopover = httpServices._ricercaAnagraficaRicerca.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
   };
 
   /**
@@ -68,13 +75,13 @@ function _ricercaAnagraficaCtrl(httpServices) {
   this.findNome = "xxxxxxxxxxxxxxxx";
   this.findCodiceFiscale = "xxxxxxxxxxxxxxxx";
   this.findDataDiNascita = "xx/xx/xxxx";
+  this.findNumeroFaldoneArchiviazione = "xxxx";
+  this.findAnnoDiScarto = "xxxx"
 }
-
-// =====================================================================
 
 /**
  * MainCtrl - controller
- * Contains several global data used in different view
+ * Contiene dati globali usati in differenti view
  *
  */
 function MainCtrl($http) {

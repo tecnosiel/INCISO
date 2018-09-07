@@ -1,9 +1,10 @@
+
+
 /**
- * INSPINIA - Responsive Admin Theme
+ * INCISO - Gestione invalidi civili, ciechi civili e sordi
  *
- * Inspinia theme use AngularUI Router to manage routing and views
- * Each view are defined as state.
- * Initial there are written state for all view in theme.
+ * INCISO usa AngularUI Router per gestione routing e views
+ * Ciascuna view viene stata definita come stato.
  *
  */
 function config(
@@ -84,6 +85,10 @@ function config(
     .state("anagrafica.inserimento_anagrafica", {
       url: "/inserimento_anagrafica",
       templateUrl: "views/inserimento_anagrafica.html"
+    })
+    .state("anagrafica.visualizza_anagrafica", {
+      url: "/visualizza_anagrafica",
+      templateUrl: "views/visualizza_anagrafica.html"
     })
     // liquidazione ------------------------------------------------------------
     .state("liquidazione", {
