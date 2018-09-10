@@ -6,9 +6,14 @@ function config($translateProvider) {
   $translateProvider
     .translations("it", {
       // Label Generali
-      HOME:"Home",
+      SALVA: "Salva",
+      CHIUDI: "Chiudi",
+      HOME: "Home",
       CERCA: "Cerca",
       SBLOCCA_CAMPI: "Sblocca Campi",
+      INIZIO_VALIDITA:"Inizio validità",
+      FINE_VALIDITA:"Fine validità",
+
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua",
       ITALIANO: "Italiano",
@@ -16,6 +21,23 @@ function config($translateProvider) {
       LOG_OUT: "Esci",
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi",
+
+      // Label Indirizzi
+      TIPO_INDIRIZZO:"Tipo indirizzo",
+      ATTUALE:"Attuale",
+      ATTIVO:"Attivo",
+      INDIRIZZO_CODIFICATO:"Indirizzo codificato",
+      INDIRIZZO_NON_CODIFICATO:"Indirizzo non codificato",
+      NAZIONE: "Nazione",
+      COMUNE: "Comune",
+      CAP: "C.A.P.",
+      FRAZIONE: "Frazione",
+      VIA: "Via",
+      LOCALITA: "Località",
+      MASO: "Maso",
+      INDIRIZZO_COMPLETO: "Indirizzo completo",
+      N_CIVICO:"N.Civico",
+      USA_INDIRIZZO:"Usa indirizzo",
 
       // Label Anagrafiche
       CODICE_FISCALE: "Codice fiscale",
@@ -40,10 +62,12 @@ function config($translateProvider) {
       ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
         "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA",
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
-      ELENCO_EVIDENZE:"ELENCO EVIDENZE",
-      POSIZIONE_ESPRO:"POSIZIONE ESPRO",
+      ELENCO_EVIDENZE: "ELENCO EVIDENZE",
+      POSIZIONE_ESPRO: "POSIZIONE ESPRO",
 
-      VISUALIZZA_DATI_ANAGRAFICI:"Visualizza dati anagrafici",
+      VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
+
+      GESTIONE_INDIRIZZI: "Gestione Indirizzi",
 
       // Label elementi menu
       NUOVA_DOMANDA: "Nuova Domanda",
@@ -90,10 +114,15 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      HOME:"Home DE",
+      SALVA: "Salva DE",
+      CHIUDI: "Chiudi DE",
+      HOME: "Home DE",
       // Label Generali
       CERCA: "Cerca DE",
       SBLOCCA_CAMPI: "Sblocca Campi DE",
+      INIZIO_VALIDITA:"Inizio validità DE",
+      FINE_VALIDITA:"Fine validità DE",
+
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua DE",
       ITALIANO: "Italiano DE",
@@ -101,6 +130,23 @@ function config($translateProvider) {
       LOG_OUT: "Esci DE",
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi DE",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
+
+      // Label Indirizzi
+      TIPO_INDIRIZZO:"Tipo indirizzo DE",
+      ATTUALE:"Attuale DE",
+      ATTIVO:"Attivo DE",
+      INDIRIZZO_CODIFICATO:"Indirizzo codificato DE",
+      INDIRIZZO_NON_CODIFICATO:"Indirizzo non codificato DE",
+      NAZIONE: "Nazione DE",
+      COMUNE: "Comune DE",
+      CAP: "C.A.P. DE",
+      FRAZIONE: "Frazione DE",
+      VIA: "Via DE",
+      LOCALITA: "Località DE",
+      MASO: "Maso DE",
+      INDIRIZZO_COMPLETO: "Indirizzo completo DE",
+      N_CIVICO:"N.Civico DE",
+      USA_INDIRIZZO:"Usa indirizzo DE",
 
       // Label Anagrafiche
       CODICE_FISCALE: "Codice fiscale DE",
@@ -125,11 +171,12 @@ function config($translateProvider) {
       ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
         "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA DE",
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
-      ELENCO_EVIDENZE:"ELENCO EVIDENZE DE",
-      POSIZIONE_ESPRO:"POSIZIONE ESPRO DE",
+      ELENCO_EVIDENZE: "ELENCO EVIDENZE DE",
+      POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
 
-      VISUALIZZA_DATI_ANAGRAFICI:"Visualizza dati anagrafici DE",
+      VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici DE",
 
+      GESTIONE_INDIRIZZI: "Gestione Indirizzi DE",
 
       // Label elementi menu
       NUOVA_DOMANDA: "Nuova Domanda DE",

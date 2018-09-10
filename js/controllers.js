@@ -8,7 +8,8 @@
  * Functions (controllers)
  *  - MainCtrl
  *  - _ricercaAnagraficaCtrl
- *
+ *  - modalGestioneIndirizziCtrl
+ * 
  *  - dashboardFlotOne
  *  - dashboardFlotTwo
  *  - dashboardFlotFive
@@ -56,7 +57,7 @@
  * Contiene i dati usati nella view _ricerca_anagrafica
  *
  */
-function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal ) {
+function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal) {
   $rootScope.editDatiAssistito = true;
 
   this.find = function() {
@@ -67,7 +68,6 @@ function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal ) {
   };
 
   this.findCodFis = function(cCodFis) {
-
     $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
@@ -76,10 +76,15 @@ function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal ) {
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
-    alert("evviva")
+    // var modalInstance = $uibModal.open({
+    //   templateUrl: "./../views/gestione_indirizzi.html"
+    //   // controller: "ModalInstanceCtrl"
+    // });
+
     var modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_indirizzi.html",
-      // controller: "ModalInstanceCtrl"
+      controller: modalGestioneIndirizziCtrl,
+      windowClass: "animated flipInY"
     });
   };
 
@@ -94,93 +99,15 @@ function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal ) {
   this.findAnnoDiScarto = "";
 }
 
-/**
- * gestioneIndirizziCtrl - controller
- * Contiene i dati usati nella view gestioneIndirizzi
- *
- */
-function gestioneIndirizziCtrl($scope, $uibModal) {
-  $scope.camillo = "aaaaaaaaaaaaaaaaaaaaaaaaa";
-  $scope.open1 = function() {
-    var modalInstance = $uibModal.open({
-      templateUrl: "views/modal_example1.html",
-      controller: "ModalInstanceCtrl"
-    });
+function modalGestioneIndirizziCtrl($scope, $uibModalInstance) {
+  $scope.ok = function() {
+    $uibModalInstance.close();
+  };
+
+  $scope.cancel = function() {
+    $uibModalInstance.dismiss("cancel");
   };
 }
-
-
-function ModalInstanceCtrl ($scope, $uibModalInstance) {
-
-  alert("xxxxxxxxxxxxxxxxxxxxxxxxxx")
-
-  $scope.ok = function () {
-      $uibModalInstance.close();
-  };
-
-  $scope.cancel = function () {
-      $uibModalInstance.dismiss('cancel');
-  };
-
-
-  $scope.states = [
-      'Alabama',
-      'Alaska',
-      'Arizona',
-      'Arkansas',
-      'California',
-      'Colorado',
-      'Connecticut',
-      'Delaware',
-      'Florida',
-      'Georgia',
-      'Hawaii',
-      'Idaho',
-      'Illinois',
-      'Indiana',
-      'Iowa',
-      'Kansas',
-      'Kentucky',
-      'Louisiana',
-      'Maine',
-      'Maryland',
-      'Massachusetts',
-      'Michigan',
-      'Minnesota',
-      'Mississippi',
-      'Missouri',
-      'Montana',
-      'Nebraska',
-      'Nevada',
-      'New Hampshire',
-      'New Jersey',
-      'New Mexico',
-      'New York',
-      'North Carolina',
-      'North Dakota',
-      'Ohio',
-      'Oklahoma',
-      'Oregon',
-      'Pennsylvania',
-      'Rhode Island',
-      'South Carolina',
-      'South Dakota',
-      'Tennessee',
-      'Texas',
-      'Utah',
-      'Vermont',
-      'Virginia',
-      'Washington',
-      'West Virginia',
-      'Wisconsin',
-      'Wyoming'
-  ];
-
-};
-
-
-
-
 
 /**
  * MainCtrl - controller

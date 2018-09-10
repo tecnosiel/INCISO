@@ -4087,3 +4087,10 @@ body.skin-3 {
 .modal-xlg {
     width: 70%;
 }
+
+/* Custom */
+
+.inmodal .modal-header {
+  padding: 12px 15px;
+  text-align: center;
+}
