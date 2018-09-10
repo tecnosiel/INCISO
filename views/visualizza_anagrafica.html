@@ -6,13 +6,13 @@
                 <a href="index.html">Home</a>
             </li>
             <li>
-                <a href="ricerca_anagrafica.html">Ricerca dati anagrafici</a>
+                <a href="ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
             </li>
             <li class="active">
                 <strong>Maria Rossi</strong>
             </li>
         </ol>
-    </div>  
+    </div>
     <div class="col-lg-2">
 
     </div>
@@ -21,8 +21,14 @@
     <div class="row">
         <!-- <%- partial("_pannello_sintesi_anagrafica") %> -->
         <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
-
     </div>
+
+    <div class="row text-left">
+        <div class="col-sm-12">
+            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'SBLOCCA_CAMPI' | translate }}</button>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default m-t-lg">
@@ -35,12 +41,18 @@
                 <div id="collapseDatiGenerali" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control" value="Maria"></div>
-                            <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control" value="Rossi"></div>
-                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" readonly class="form-control" value="Bianchi"></div>
-                            <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" readonly class="form-control" value="RSSMRA53A36Q4526"></div>
-                            <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" readonly class="form-control" value="F"></div>
-                            <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" readonly class="form-control" value="Coniugata"></div>
+                            <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
+                                    value="Maria"></div>
+                            <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
+                                    value="Rossi"></div>
+                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" readonly
+                                    class="form-control" value="Bianchi"></div>
+                            <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" readonly class="form-control"
+                                    value="RSSMRA53A36Q4526"></div>
+                            <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" readonly class="form-control"
+                                    value="F"></div>
+                            <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" readonly class="form-control"
+                                    value="Coniugata"></div>
                         </div>
                     </div>
                 </div>
@@ -56,11 +68,16 @@
                 <div id="collapseDataNascita" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" readonly class="form-control" value="01/01/1930"></div>
-                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" readonly class="form-control" value="Milano"></div>
-                            <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" readonly class="form-control" value="Milano"></div>
-                            <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" readonly class="form-control" value="Italia"></div>
-                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control" value="01/01/1980"></div>
+                            <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" readonly class="form-control"
+                                    value="01/01/1930"></div>
+                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" readonly
+                                    class="form-control" value="Milano"></div>
+                            <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" readonly class="form-control"
+                                    value="Milano"></div>
+                            <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" readonly class="form-control"
+                                    value="Italia"></div>
+                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
+                                    value="01/01/1980"></div>
                         </div>
                     </div>
                 </div>
@@ -83,10 +100,12 @@
                                 <label>Extracomunitario</label>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck ng-model="" type="radio" name="b" disabled='disabled'> <i></i> Sì </label></div>
+                                        <div class="checkbox"><label> <input icheck ng-model="" type="radio" name="b" disabled='disabled'>                                                <i></i>
+                                                Sì </label></div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck ng-model="" type="radio" name="b" checked disabled='disabled'> <i></i> No </label></div>
+                                        <div class="checkbox"><label> <input icheck ng-model="" type="radio" name="b" checked
+                                                    disabled='disabled'> <i></i> No </label></div>
                                     </div>
                                 </div>
                             </div>
@@ -94,16 +113,23 @@
 
                         <h3 class="m-t-lg">Permesso di soggiorno</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" readonly class="form-control" value="Lorem ipsum dolor"></div>
-                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" readonly class="form-control" value="01/01/2020"></div>
-                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" readonly class="form-control" value="01/01/2020"></div>
+                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" readonly class="form-control"
+                                    value="Lorem ipsum dolor"></div>
+                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" readonly class="form-control"
+                                    value="01/01/2020"></div>
+                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" readonly class="form-control"
+                                    value="01/01/2020"></div>
                         </div>
                         <h3 class="m-t-lg">Riferimenti di contatto</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" readonly class="form-control" value="0461 912585"></div>
-                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" readonly class="form-control" value="0461 923452"></div>
-                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" readonly class="form-control" value="mrossi@gmail.com"></div>
-                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" readonly class="form-control" value="mrossi@gmail.com"></div>
+                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" readonly
+                                    class="form-control" value="0461 912585"></div>
+                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" readonly
+                                    class="form-control" value="0461 923452"></div>
+                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" readonly class="form-control"
+                                    value="mrossi@gmail.com"></div>
+                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" readonly class="form-control"
+                                    value="mrossi@gmail.com"></div>
                             <div class="col-md-12 form-group"><label>Note</label> <textarea readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
                         </div>
                     </div>
@@ -111,6 +137,7 @@
             </div>
 
             <div class="panel panel-default m-t-lg">
+
                 <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseIndirizzi">
                     ELENCO INDIRIZZI
                     <div class="panel-toolbox">
@@ -124,34 +151,74 @@
                                 <tr>
                                     <th class="col-md-2">Tipo</th>
                                     <th class="col-md-3">Indirizzo</th>
-                                    <th class="col-md-3">Validità</th>
-                                    <th class="col-md-4">Note</th>
+                                    <th class="col-md-2">Validità</th>
+                                    <th class="col-md-3">Note</th>
+                                    <th class="col-md-1"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Indirizzo abitazione</td>
-                                    <td><p class="m-b-xs">Via Gian Domenico Tomagnosi, 32</p><p class="m-b-xs">38122 </p>Trento</td>
+                                    <td>
+                                        <p class="m-b-xs">Via Gian Domenico Tomagnosi, 32</p>
+                                        <p class="m-b-xs">38122 </p>Trento
+                                    </td>
                                     <td>dal 01/01/2010 al 01/01/2015</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td style="font-size: 18px; text-align: center">
+                                        <a href="user.html"><i class="fa fa-pencil"></i></a>
+                                        <a href="user.html"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Indirizzo lavoro</td>
-                                    <td><p class="m-b-xs">Piazza Raffaello Sanzio, 13</p><p class="m-b-xs">38122 </p>Trento</td>
+                                    <td>
+                                        <p class="m-b-xs">Piazza Raffaello Sanzio, 13</p>
+                                        <p class="m-b-xs">38122 </p>Trento
+                                    </td>
                                     <td>dal 01/01/2010 al 01/01/2015</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td style="font-size: 18px; text-align: center">
+                                        <a href="user.html"><i class="fa fa-pencil"></i></a>
+                                        <a href="user.html"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Indirizzo secondario</td>
-                                    <td><p class="m-b-xs">Via del Suffragio, 2</p><p class="m-b-xs">38122 </p>Trento</td>
+                                    <td>
+                                        <p class="m-b-xs">Via del Suffragio, 2</p>
+                                        <p class="m-b-xs">38122 </p>Trento
+                                    </td>
                                     <td>dal 01/01/2010 al 01/01/2015</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td style="font-size: 18px; text-align: center">
+                                        <a href="user.html"><i class="fa fa-pencil"></i></a>
+                                        <a href="user.html"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
 
                             </tbody>
                         </table>
+
+                        <div class="row text-right">
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'CREA_NUOVO_INDIRIZZO'
+                                    | translate }}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
 
             <div class="panel panel-default m-t-lg">
@@ -175,17 +242,20 @@
                                 <tr>
                                     <td>778767</td>
                                     <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
-                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti per fascicolo</a></td>
+                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti
+                                            per fascicolo</a></td>
                                 </tr>
                                 <tr>
                                     <td>885963</td>
                                     <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
-                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti per fascicolo</a></td>
+                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti
+                                            per fascicolo</a></td>
                                 </tr>
                                 <tr>
                                     <td>993423</td>
                                     <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
-                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti per fascicolo</a></td>
+                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti
+                                            per fascicolo</a></td>
                                 </tr>
 
                             </tbody>
@@ -204,7 +274,8 @@
                 <div id="collapsePensioni" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text" readonly class="form-control" value="Invalidità, infortunio"></div>
+                            <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text" readonly class="form-control"
+                                    value="Invalidità, infortunio"></div>
                         </div>
                     </div>
                 </div>
@@ -220,9 +291,12 @@
                 <div id="collapseDecesso" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control" value="10/01/2016"></div>
-                            <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text" readonly class="form-control" value="357434"></div>
-                            <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text" readonly class="form-control" value="2016"></div>
+                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
+                                    value="10/01/2016"></div>
+                            <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text" readonly class="form-control"
+                                    value="357434"></div>
+                            <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text" readonly
+                                    class="form-control" value="2016"></div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquEredi">
@@ -236,21 +310,22 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <table class="table table-bordered table-striped dataTables-paged">
-                                            <thead>
-                                                <tr>
-                                                    <th class="col-md-3">Data calcolo simulazione</th>
-                                                    <th class="col-md-3">Importo spettante</th>
-                                                    <th class="col-md-4"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>30/06/2016</td>
-                                                    <td>€ 56.800,00</td>
-                                                    <td class="text-center"><a href="visualizza_liquidazione.html" >Visualizza dettaglio simulazione</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-3">Data calcolo simulazione</th>
+                                                        <th class="col-md-3">Importo spettante</th>
+                                                        <th class="col-md-4"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>30/06/2016</td>
+                                                        <td>€ 56.800,00</td>
+                                                        <td class="text-center"><a href="visualizza_liquidazione.html">Visualizza
+                                                                dettaglio simulazione</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -334,14 +409,16 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            </div>
-                                            <div class="text-right col-md-12">
-                                                <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAnagrafica">Aggiungi erede</a>
-                                            </div>
+                                        </div>
+                                        <div class="text-right col-md-12">
+                                            <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAnagrafica">Aggiungi
+                                                erede
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -364,6 +441,7 @@
                                             <th>Reddito assistito</th>
                                             <th>Reddito coniuge</th>
                                             <th>Valido per gli anni successivi</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -371,24 +449,49 @@
                                             <td>2014</td>
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
-                                            <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox" disabled> <i></i></div></td>
+                                            <td class="text-center">
+                                                <div class="checkbox"><input icheck ng-model="" type="checkbox" disabled>                                                    <i></i></div>
+                                            </td>
+                                            <td style="font-size: 18px; text-align: center">
+                                                <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
+                                            </td>
+
                                         </tr>
                                         <tr>
                                             <td>2013</td>
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
-                                            <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox" checked disabled> <i></i></div></td>
+                                            <td class="text-center">
+                                                <div class="checkbox"><input icheck ng-model="" type="checkbox" checked disabled>                                                    <i></i></div>
+                                            </td>
+                                            <td style="font-size: 18px; text-align: center">
+                                                <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>2012</td>
                                             <td colspan="2" class="text-center">Nessun reddito percepito</td>
                                             <td style="display:none"></td>
-                                            <td class="text-center"><div class="checkbox"><input icheck ng-model="" type="checkbox" disabled> <i></i></div></td>
+                                            <td class="text-center">
+                                                <div class="checkbox"><input icheck ng-model="" type="checkbox" disabled>                                                    <i></i></div>
+                                            </td>
+                                            <td style="font-size: 18px; text-align: center">
+                                                <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
+                                            </td>
+
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+
+                        <div class="row text-right">
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'INSERISCI_REDDITO'
+                                    | translate }}</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -405,39 +508,39 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <table class="table table-bordered table-striped dataTables-paged">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-1">Num. Posizione</th>
-                                        <th class="col-md-2">Data domanda</th>
-                                        <th class="col-md-2">Tipo associazione</th>
-                                        <th class="col-md-2">Inizio iscrizione</th>
-                                        <th class="col-md-2">Fine iscrizione</th>
-                                        <th class="col-md-3">Elenco ritenute di categoria recuperate</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>778767</td>
-                                        <td>05/03/2011</td>
-                                        <td>ANMIC</td>
-                                        <td>02/04/2013</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>993423</td>
-                                        <td>07/08/2012</td>
-                                        <td>UICI</td>
-                                        <td>07/08/2012</td>
-                                        <td>07/08/2016</td>
-                                        <td>
-                                            <div><label>Data recupero</label> 15/03/2014</div>
-                                            <div><label>Importo recuperato</label> € 12.349,00</div>
-                                            <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1">Num. Posizione</th>
+                                            <th class="col-md-2">Data domanda</th>
+                                            <th class="col-md-2">Tipo associazione</th>
+                                            <th class="col-md-2">Inizio iscrizione</th>
+                                            <th class="col-md-2">Fine iscrizione</th>
+                                            <th class="col-md-3">Elenco ritenute di categoria recuperate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>778767</td>
+                                            <td>05/03/2011</td>
+                                            <td>ANMIC</td>
+                                            <td>02/04/2013</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>993423</td>
+                                            <td>07/08/2012</td>
+                                            <td>UICI</td>
+                                            <td>07/08/2012</td>
+                                            <td>07/08/2016</td>
+                                            <td>
+                                                <div><label>Data recupero</label> 15/03/2014</div>
+                                                <div><label>Importo recuperato</label> € 12.349,00</div>
+                                                <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -454,9 +557,15 @@
                 <div id="collapsePosContabili" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#ElencoLiquidazioni" role="tab" data-toggle="tab">Elenco liquidazioni</a></li>
-                            <li role="presentation"><a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">Elenco importi riaccreditati</a></li>
-                            <li role="presentation"><a href="#ImportiRecup" role="tab" data-toggle="tab">Elenco importi da recuperare</a></li>
+                            <li role="presentation" class="active"><a href="#ElencoLiquidazioni" role="tab" data-toggle="tab">Elenco
+                                    liquidazioni
+                                </a></li>
+                            <li role="presentation"><a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">Elenco importi
+                                    riaccreditati
+                                </a></li>
+                            <li role="presentation"><a href="#ImportiRecup" role="tab" data-toggle="tab">Elenco importi da
+                                    recuperare
+                                </a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -528,73 +637,76 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="ElencoRiaccreditati">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-bordered table-striped dataTables-paged">
-                                        <thead>
-                                            <tr>
-                                                <th class="col-md-4">Data riaccredito</th>
-                                                <th class="col-md-4">Importo riaccreditato</th>
-                                                <th class="col-md-4">Data liquidazione arretrato</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>18/11/2015</td>
-                                                <td>€ 864,00</td>
-                                                <td>01/01/2016</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-md-4">Data riaccredito</th>
+                                                    <th class="col-md-4">Importo riaccreditato</th>
+                                                    <th class="col-md-4">Data liquidazione arretrato</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>18/11/2015</td>
+                                                    <td>€ 864,00</td>
+                                                    <td>01/01/2016</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div class="col-sm-12 text-right">
-                                        <a type="button" class="btn btn-primary btn-sm" href="modifica_riaccredito.html">Predisponi importo riaccreditato</a>
+                                        <a type="button" class="btn btn-primary btn-sm" href="modifica_riaccredito.html">Predisponi
+                                            importo riaccreditato</a>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="ImportiRecup">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-bordered table-striped dataTables-paged">
-                                        <thead>
-                                            <tr>
-                                                <th class="col-md-2">Data (ultima modifica)</th>
-                                                <th class="col-md-2">Tipo di recupero</th>
-                                                <th class="col-md-2">Tot. da recuperare</th>
-                                                <th class="col-md-2">Recuperato</th>
-                                                <th class="col-md-1">Restituito</th>
-                                                <th class="col-md-2">Rimanente da recuperare</th>
-                                                <th class="col-md-1"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>23/02/2016</td>
-                                                <td>compensazione</td>
-                                                <td>
-                                                    <div><label>Capitale</label> € 435,00</div>
-                                                    <div><label>Interessi legali</label> € 8,7</div>
-                                                    <label>Interessi di rateizzazione</label> € 4,35
-                                                </td>
-                                                <td>
-                                                    <div>€ 108,75</div>
-                                                    <a data-toggle="modal" data-target="#modalImportiRecuperati">Dettaglio</a>
-                                                </td>
-                                                <td></td>
-                                                <td>€ 339,30</td>
-                                                <td>
-                                                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-md-2">Data (ultima modifica)</th>
+                                                    <th class="col-md-2">Tipo di recupero</th>
+                                                    <th class="col-md-2">Tot. da recuperare</th>
+                                                    <th class="col-md-2">Recuperato</th>
+                                                    <th class="col-md-1">Restituito</th>
+                                                    <th class="col-md-2">Rimanente da recuperare</th>
+                                                    <th class="col-md-1"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>23/02/2016</td>
+                                                    <td>compensazione</td>
+                                                    <td>
+                                                        <div><label>Capitale</label> € 435,00</div>
+                                                        <div><label>Interessi legali</label> € 8,7</div>
+                                                        <label>Interessi di rateizzazione</label> € 4,35
+                                                    </td>
+                                                    <td>
+                                                        <div>€ 108,75</div>
+                                                        <a data-toggle="modal" data-target="#modalImportiRecuperati">Dettaglio</a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>€ 339,30</td>
+                                                    <td>
+                                                        <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div class="col-sm-12 text-right">
-                                        <a type="button" class="btn btn-primary btn-sm" href="modifica_importo_da_recuperare.html">Predisponi importo da recuperare</a>
-                                        <a type="button" class="btn btn-primary btn-sm" href="modifica_restituito.html">Predisponi importo restituito</a>
+                                        <a type="button" class="btn btn-primary btn-sm" href="modifica_importo_da_recuperare.html">Predisponi
+                                            importo da recuperare</a>
+                                        <a type="button" class="btn btn-primary btn-sm" href="modifica_restituito.html">Predisponi
+                                            importo restituito</a>
                                     </div>
                                 </div>
                             </div>
@@ -613,7 +725,9 @@
                 <div id="collapseEvidenze" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12 form-group"><%- partial("_elenco_evidenze") %></div>
+                            <div class="col-md-12 form-group">
+                                <%- partial("_elenco_evidenze") %>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -677,24 +791,26 @@
                 <h4 class="modal-title">Dettaglio importi recuperati</h4>
             </div>
             <div class="modal-body">
-                    <h3 class="m-t-md">Elenco importi recuperati per compensazione</h3>
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="col-md-3">Data</th>
-                                <th class="col-md-3">Importo recuperato</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01/03/2016</td>
-                                <td>€ 108,75</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="row"><div class="col-md-12 form-separator"></div></div>
-                    <h3 class="m-t-lg">Elenco importi restituiti</h3>
-                    <h4 class="warning">Nessun importo restituito</h4>
+                <h3 class="m-t-md">Elenco importi recuperati per compensazione</h3>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col-md-3">Data</th>
+                            <th class="col-md-3">Importo recuperato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01/03/2016</td>
+                            <td>€ 108,75</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12 form-separator"></div>
+                </div>
+                <h3 class="m-t-lg">Elenco importi restituiti</h3>
+                <h4 class="warning">Nessun importo restituito</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
@@ -732,14 +848,16 @@
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><i class="fa fa-search"></i> Ricerca dati anagrafici</h4>
+                <h4 class="modal-title"><i class="fa fa-search"></i> {{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</h4>
                 <small class="font-bold">Inserisci i dati e avvia la ricerca</small>
             </div>
             <div class="modal-body">
                 <%- partial("_ricerca_anagrafica", { url: "modifica_erede.html"}) %>
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-primary" data-dismiss="modal">Inserisci nuova anagrafica</a>
+                <a type="button" class="btn btn-primary" data-dismiss="modal">{{ 'INSERISCI_NUOVA_ANAGRAFICA' | translate
+                    }}
+                </a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

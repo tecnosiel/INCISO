@@ -28,15 +28,16 @@
 
             <!-- domanda---------------------------------------- -->
             <li ui-sref-active="active">
-                <a ui-sref="domande.nuova_domanda"><i class="fa fa-diamond"></i> <span class="nav-label">{{ 'NUOVA_DOMANDA' | translate
-                        }}
+                <a ui-sref="domande.nuova_domanda"><i class="fa fa-file-text"></i> <span class="nav-label">{{ 'NUOVA_DOMANDA'
+                        | translate }}
                     </span> </a>
             </li>
 
             <!-- posizione---------------------------------------- -->
             <li ng-class="{active: $state.includes('anagrafica')}">
-                <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'POSIZIONE' | translate }}</span><span
-                        class="fa arrow"></span></a>
+                <a href=""><i class="fa fa-user" aria-hidden="true"></i> <span class="nav-label">{{ 'POSIZIONE' | translate
+                        }}
+                    </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a ui-sref="posizione.ricerca_posizione">{{ 'RICERCA_POSIZIONE' | translate }}</a></li>
                 </ul>
@@ -44,7 +45,9 @@
 
             <!-- anagrafica---------------------------------------- -->
             <li ng-class="{active: $state.includes('anagrafica')}">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'ANAGRAFICA' | translate }}</span>
+                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span class="nav-label">{{ 'ANAGRAFICA' | translate
+                        }}
+                    </span>
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('anagrafica')}">
                     <li ui-sref-active="active"><a ui-sref="anagrafica.ricerca_anagrafica">{{ 'RICERCA_ANAGRAFICA' | translate
@@ -57,7 +60,9 @@
             </li>
             <!-- liquidazione---------------------------------------- -->
             <li ng-class="{active: $state.includes('liquidazione')}">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'LIQUIDAZIONE' | translate }}</span>
+                <a href="#"><i class="fa fa-money" aria-hidden="true"></i> <span class="nav-label">{{ 'LIQUIDAZIONE' | translate
+                        }}
+                    </span>
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('liquidazione')}">
                     <li ui-sref-active="active"><a ui-sref="liquidazione.ricerca_liquidazione">{{ 'RICERCA_LIQUIDAZIONE'
@@ -76,7 +81,8 @@
             </li>
             <!-- evidenze---------------------------------------- -->
             <li ng-class="{active: $state.includes('evidenze')}">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'EVIDENZE' | translate }}</span>
+                <a href="#"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span class="nav-label">{{ 'EVIDENZE'
+                        | translate }}</span>
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('evidenze')}">
                     <li ui-sref-active="active"><a ui-sref="evidenze.ricerca_evidenza">{{ 'RICERCA_EVIDENZA' | translate
@@ -88,7 +94,9 @@
             </li>
             <!-- documenti---------------------------------------- -->
             <li ng-class="{active: $state.includes('documenti')}">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'DOCUMENTI' | translate }}</span>
+                <a href="#"><i class="fa fa-book" aria-hidden="true"></i> <span class="nav-label">{{ 'DOCUMENTI' | translate
+                        }}
+                    </span>
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('documenti')}">
                     <li ui-sref-active="active"><a ui-sref="documenti.ricerca_documenti">{{ 'RICERCA_DOCUMENTI' | translate
@@ -97,14 +105,19 @@
                 </ul>
             </li>
             <!-- genera comunicazione---------------------------------------- -->
+            <!-- <i class="fa fa-envelope"></i> -->
+
             <li ui-sref-active="active">
-                <a ui-sref="comunicazione.genera_comunicazione"><i class="fa fa-diamond"></i> <span class="nav-label">{{ 'GENERA_COMUNICAZIONE'
-                        | translate }}
+                <a ui-sref="comunicazione.genera_comunicazione"><i class="fa fa-envelope"></i> <span class="nav-label">{{
+                        'GENERA_COMUNICAZIONE' | translate }}
                     </span> </a>
             </li>
+
             <!-- associazioni---------------------------------------- -->
             <li ng-class="{active: $state.includes('associazioni')}">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">{{ 'ASSOCIAZIONI' | translate }}</span>
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">{{ 'ASSOCIAZIONI' | translate
+                        }}
+                    </span>
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('associazioni')}">
                     <li ui-sref-active="active"><a ui-sref="associazioni.ricerca_associazione">{{ 'RICERCA_ASSOCIAZIONE'
@@ -113,6 +126,27 @@
                     <li ui-sref-active="active"><a ui-sref="associazioni.nuova_associazione">{{ 'NUOVA_ASSOCIAZIONE' | translate
                             }}
                         </a></li>
+                </ul>
+            </li>
+
+            <!-- procedure---------------------------------------- -->
+
+            <li class="expandable">
+                <a href="#">
+                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                    <span class="nav-label">{{ 'PROCEDURE' | translate }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li class="">
+                        <a href="#">{{ 'PROCEDURA_CONTROLLO_6' | translate }}</a>
+                    </li>
+                    <li class="">
+                        <a href="#">{{ 'PROCEDURA_INVIO_CASELLARIO' | translate }}</a>
+                    </li>
+                    <li class="">
+                        <a href="#">{{ 'PROCEDURA_DI_SCARTO' | translate }}</a>
+                    </li>
                 </ul>
             </li>
 

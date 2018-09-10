@@ -10,18 +10,18 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <!--<li>-->
-                <!--<span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>-->
+            <!--<span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>-->
             <!--</li>-->
             <li uib-dropdown>
                 <a class="count-info" href uib-dropdown-toggle>
-                    Language
+                    <i class="fa fa-language"></i> {{ 'CAMBIA_LINGUA' | translate }}
                 </a>
                 <ul uib-dropdown-menu class="animated fadeInRight m-t-xs" ng-controller="translateCtrl">
-                    <li><a ng-click="changeLanguage('it')">Italiano</a></li>
-                    <li><a ng-click="changeLanguage('de')">Tedesco</a></li>
+                    <li><a ng-click="changeLanguage('it')">{{ 'ITALIANO' | translate }}</a></li>
+                    <li><a ng-click="changeLanguage('de')">{{ 'TEDESCO' | translate }}</a></li>
                 </ul>
             </li>
-            <li uib-dropdown>
+            <!-- <li uib-dropdown>
                 <a class="count-info" href uib-dropdown-toggle>
                     <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                 </a>
@@ -48,7 +48,8 @@
 
                             <div>
                                 <small class="pull-right text-navy">5h ago</small>
-                                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>.
+                                <br>
                                 <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
                             </div>
                         </div>
@@ -71,13 +72,13 @@
                     <li>
                         <div class="text-center link-block">
                             <a ui-sref="mailbox.inbox">
-                                <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                <i class="fa fa-envelope"></i> <strong>{{ 'LEGGI_TUTTI_I_MESSAGGI' | translate }}</strong>
                             </a>
                         </div>
                     </li>
                 </ul>
-            </li>
-            <li uib-dropdown>
+            </li> -->
+            <!-- <li uib-dropdown>
                 <a class="count-info" href uib-dropdown-toggle>
                     <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
                 </a>
@@ -112,16 +113,16 @@
                     <li>
                         <div class="text-center link-block">
                             <a ui-sref="miscellaneous.notify">
-                                <strong>See All Alerts</strong>
+                                <strong>{{ 'VEDI_TUTTI_GLI_AVVISI' | translate }}</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </div>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <a ui-sref="login">
-                    <i class="fa fa-sign-out"></i> Log out
+                    <i class="fa fa-sign-out"></i> {{ 'LOG_OUT' | translate }}
                 </a>
             </li>
             <li>

@@ -1,5 +1,3 @@
-
-
 /**
  * INCISO - Gestione invalidi civili, ciechi civili e sordi
  *
@@ -12,8 +10,12 @@ function config(
   $urlRouterProvider,
   $ocLazyLoadProvider,
   IdleProvider,
-  KeepaliveProvider
+  KeepaliveProvider,
+  $locationProvider
 ) {
+  // Elimina # da Url ma da problemi su reload page
+  // $locationProvider.html5Mode(true);
+
   // Configure Idle settings
   IdleProvider.idle(5); // in seconds
   IdleProvider.timeout(120); // in seconds
@@ -33,12 +35,12 @@ function config(
       templateUrl: "views/home"
     })
     // domanda --------------------------------------------------------------
-    .state("domande", {
+    .state("XXXdomande", {
       abstract: true,
       url: "/domande",
       templateUrl: "views/common/content.html"
     })
-    .state("domande.nuova_domanda", {
+    .state("XXXdomande.nuova_domanda", {
       url: "/nuova_domanda",
       templateUrl: "views/nuova_domanda.html",
       data: { pageTitle: "Nuova Domanda" },
@@ -56,18 +58,18 @@ function config(
         }
       }
     })
-    .state("domande.domanda", {
+    .state("XXXdomande.domanda", {
       url: "/domanda",
       templateUrl: "views/domanda.html",
       data: { pageTitle: "Domanda" }
     })
     // posizione --------------------------------------------------------------
-    .state("posizione", {
+    .state("XXXposizione", {
       abstract: true,
       url: "/posizione",
       templateUrl: "views/common/content.html"
     })
-    .state("posizione.ricerca_posizione", {
+    .state("XXXposizione.ricerca_posizione", {
       url: "/ricerca_posizione",
       templateUrl: "views/ricerca_posizione.html"
     })
@@ -91,95 +93,95 @@ function config(
       templateUrl: "views/visualizza_anagrafica.html"
     })
     // liquidazione ------------------------------------------------------------
-    .state("liquidazione", {
+    .state("XXXliquidazione", {
       abstract: true,
       url: "/liquidazione",
       templateUrl: "views/common/content.html"
     })
-    .state("liquidazione.ricerca_liquidazione", {
+    .state("XXXliquidazione.ricerca_liquidazione", {
       url: "/ricerca_liquidazione",
       templateUrl: "views/ricerca_liquidazione.html"
     })
-    .state("liquidazione.elabora_liquidazione_mensile", {
+    .state("XXXliquidazione.elabora_liquidazione_mensile", {
       url: "/elabora_liquidazione_mensile",
       templateUrl: "views/elabora_liquidazione_mensile.html"
     })
-    .state("liquidazione.elabora_conguaglio", {
+    .state("XXXliquidazione.elabora_conguaglio", {
       url: "/elabora_conguaglio",
       templateUrl: "views/elabora_conguaglio.html"
     })
-    .state("liquidazione.elabora_liquidazione_eredi", {
+    .state("XXXliquidazione.elabora_liquidazione_eredi", {
       url: "/elabora_liquidazione_eredi",
       templateUrl: "views/elabora_liquidazione_eredi.html"
     })
     // evidenze --------------------------------------------------------------
-    .state("evidenze", {
+    .state("XXXevidenze", {
       abstract: true,
       url: "/evidenze",
       templateUrl: "views/common/content.html"
     })
-    .state("evidenze.ricerca_evidenza", {
+    .state("XXXevidenze.ricerca_evidenza", {
       url: "/ricerca_evidenza",
       templateUrl: "views/ricerca_evidenza.html"
     })
-    .state("evidenze.nuova_evidenza", {
+    .state("XXXevidenze.nuova_evidenza", {
       url: "/nuova_evidenza",
       templateUrl: "views/nuova_evidenza.html"
     })
 
     // documenti --------------------------------------------------------------
-    .state("documenti", {
+    .state("XXXdocumenti", {
       abstract: true,
       url: "/documenti",
       templateUrl: "views/common/content.html"
     })
-    .state("documenti.ricerca_documenti", {
+    .state("XXXdocumenti.ricerca_documenti", {
       url: "/ricerca_documenti",
       templateUrl: "views/ricerca_documenti.html"
     })
     // genera comunicazione ----------------------------------------------------
-    .state("comunicazione", {
+    .state("XXXcomunicazione", {
       abstract: true,
       url: "/comunicazione",
       templateUrl: "views/common/content.html"
     })
-    .state("comunicazione.genera_comunicazione", {
+    .state("XXXcomunicazione.genera_comunicazione", {
       url: "/genera_comunicazione",
       templateUrl: "views/genera_comunicazione.html"
     })
     // associazioni ------------------------------------------------------------
-    .state("associazioni", {
+    .state("XXXassociazioni", {
       abstract: true,
       url: "/associazioni",
       templateUrl: "views/common/content.html"
     })
-    .state("associazioni.ricerca_associazione", {
+    .state("XXXassociazioni.ricerca_associazione", {
       url: "/ricerca_associazione",
       templateUrl: "views/ricerca_associazione.html"
     })
-    .state("associazioni.visualizza_associazione", {
+    .state("XXXassociazioni.visualizza_associazione", {
       url: "/visualizza_associazione",
       templateUrl: "views/visualizza_associazione.html"
     })
-    .state("associazioni.nuova_associazione", {
+    .state("XXXassociazioni.nuova_associazione", {
       url: "/nuova_associazione",
       templateUrl: "views/nuova_associazione.html"
     })
     // liquidazioni ------------------------------------------------------------
-    .state("liquidazioni", {
+    .state("XXXliquidazioni", {
       abstract: true,
       url: "/liquidazioni",
       templateUrl: "views/common/content.html"
     })
-    .state("liquidazioni.visualizza_liquidazione", {
+    .state("XXXliquidazioni.visualizza_liquidazione", {
       url: "/visualizza_liquidazione",
       templateUrl: "views/visualizza_liquidazione.html"
     })
-    .state("liquidazioni.visualizza_posizione", {
+    .state("XXXliquidazioni.visualizza_posizione", {
       url: "/visualizza_posizione",
       templateUrl: "views/visualizza_posizione.html"
     })
-    .state("liquidazioni.visualizza_domanda", {
+    .state("XXXliquidazioni.visualizza_domanda", {
       url: "/visualizza_domanda",
       templateUrl: "views/visualizza_domanda.html"
     })

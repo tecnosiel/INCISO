@@ -36,7 +36,7 @@
     </div>
     <div class="row text-right">
         <div class="col-sm-12">
-            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">Cerca</button>
+            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'CERCA' | translate }}</button>
         </div>
     </div>
 
@@ -60,7 +60,7 @@
                         <!-- <td><a class="" onclick="javascript:event.stopPropagation();" data-container="body" data-toggle="popover"
                                 data-placement="top" data-html="true" data-content='<%- partial("_popover_anagrafica") %>'>{{item.CodiceFiscale}}</a></td> -->
                         <td><a ng-click="_ricAnag.findCodFis(item.CodiceFiscale)" angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
-                                style="position: relative;" close-on-mouseleave="true">{{item.CodiceFiscale}}</a></td>
+                                style="position: relative;">{{item.CodiceFiscale}}</a></td>
                         <td>{{item.DataDiNascita}}</td>
                         <td>{{item.DataDiDecesso}}</td>
                         <td class="modal-select">

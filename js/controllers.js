@@ -71,12 +71,12 @@ function _ricercaAnagraficaCtrl($scope, httpServices) {
   /**
    * campi adoperati per la ricerca
    */
-  this.findCognome = "xxxxxxxxxxxxxxxx";
-  this.findNome = "xxxxxxxxxxxxxxxx";
-  this.findCodiceFiscale = "xxxxxxxxxxxxxxxx";
-  this.findDataDiNascita = "xx/xx/xxxx";
-  this.findNumeroFaldoneArchiviazione = "xxxx";
-  this.findAnnoDiScarto = "xxxx"
+  this.findCognome = "";
+  this.findNome = "";
+  this.findCodiceFiscale = "";
+  this.findDataDiNascita = "";
+  this.findNumeroFaldoneArchiviazione = "";
+  this.findAnnoDiScarto = "";
 }
 
 /**
@@ -84,7 +84,16 @@ function _ricercaAnagraficaCtrl($scope, httpServices) {
  * Contiene dati globali usati in differenti view
  *
  */
-function MainCtrl($http) {
+function MainCtrl($translate, $http) {
+  /**
+   * language - Setta la lingua di partenza ad Italiano. In caso contrario verrebbe settata ad
+   * Inglese
+   */
+
+  this.$onInit = function() {
+    $translate.use("it");
+  };
+
   /**
    * countries - Used as duallistbox in form advanced view
    */

@@ -5,7 +5,18 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-      // Label Ricerca Anagrafica
+      // Label Generali
+      CERCA: "Cerca",
+      SBLOCCA_CAMPI: "Sblocca Campi",
+      // Label Top Nav Bar
+      CAMBIA_LINGUA: "Cambia lingua",
+      ITALIANO: "Italiano",
+      TEDESCO: "Tedesco",
+      LOG_OUT: "Esci",
+      VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi",
+      LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi",
+
+      // Label Anagrafiche
       CODICE_FISCALE: "Codice fiscale",
       COGNOME: "Cognome",
       NOME: "Nome",
@@ -13,6 +24,10 @@ function config($translateProvider) {
       DATA_DECESSO: "Data decesso",
       NUMERO_FALDONE_ARCHIVIAZIONE: "Numero faldone archiviazione",
       ANNO_DI_SCARTO: "Anno di scarto",
+      RICERCA_DATI_ANAGRAFICI: "Ricerca dati anagrafici",
+      INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica",
+      CREA_NUOVO_INDIRIZZO: "Crea nuovo indirizzo",
+      INSERISCI_REDDITO:"Inserisci reddito",
 
       // Label elementi menu
       NUOVA_DOMANDA: "Nuova Domanda",
@@ -44,6 +59,12 @@ function config($translateProvider) {
       RICERCA_ASSOCIAZIONE: "Ricerca associazione",
       NUOVA_ASSOCIAZIONE: "Nuova associazione",
       // -------
+      PROCEDURE: "Procedure",
+      PROCEDURA_CONTROLLO_6: "Procedura controllo 6%",
+      PROCEDURA_INVIO_CASELLARIO: "Procedura invio casellario",
+      PROCEDURA_DI_SCARTO: "Procedura di scarto (skartierung)",
+
+      // -------
       // Define some custom text
       WELCOME: "Benvenuto Camillo",
       MESSAGEINFO: "hai 42 messaggi e 6 notifiche.",
@@ -51,8 +72,20 @@ function config($translateProvider) {
       DEMO:
         "Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-"
     })
+
     .translations("de", {
-      // Label Ricerca Anagrafica
+      // Label Generali
+      CERCA: "Cerca DE",
+      SBLOCCA_CAMPI: "Sblocca Campi DE",
+      // Label Top Nav Bar
+      CAMBIA_LINGUA: "Cambia lingua DE",
+      ITALIANO: "Italiano DE",
+      TEDESCO: "Tedesco DE",
+      LOG_OUT: "Esci DE",
+      VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi DE",
+      LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
+
+      // Label Anagrafiche
       CODICE_FISCALE: "Codice fiscale DE",
       COGNOME: "Cognome DE",
       NOME: "Nome DE",
@@ -60,6 +93,10 @@ function config($translateProvider) {
       DATA_DECESSO: "Data decesso DE",
       NUMERO_FALDONE_ARCHIVIAZIONE: "Numero faldone archiviazione DE",
       ANNO_DI_SCARTO: "Anno di scarto DE",
+      RICERCA_DATI_ANAGRAFICI: "Ricerca dati anagrafici DE",
+      INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica DE",
+      CREA_NUOVO_INDIRIZZO: "Crea nuovo indirizzo DE",
+      INSERISCI_REDDITO:"Inserisci reddito DE",
 
       // Label elementi menu
       NUOVA_DOMANDA: "Nuova Domanda DE",
@@ -90,6 +127,10 @@ function config($translateProvider) {
       RICERCA_ASSOCIAZIONE: "Ricerca associazione DE",
       NUOVA_ASSOCIAZIONE: "Nuova associazione DE",
       // -------
+      PROCEDURE: "Procedure DE",
+      PROCEDURA_CONTROLLO_6: "Procedura controllo 6% DE",
+      PROCEDURA_INVIO_CASELLARIO: "Procedura invio casellario DE",
+      PROCEDURA_DI_SCARTO: "Procedura di scarto (skartierung) DE",
 
       // Define some custom text
       WELCOME: "Benvenuto Camillo DE",
