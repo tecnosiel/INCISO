@@ -24,16 +24,44 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Ungherese",
-      Residenza: "viale Giusti Antonia, 53 - 39100 Milano MI",
-      Domicilio: "via Tal dei Tali, 2 - 39100 Bolzano BZ",
+
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validida: "dal 01/01/2010 al 02/02/2011",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validida: "dal 01/01/2010 al 02/02/2014",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validida: "dal 01/01/2010 al 02/02/2011",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true
+      Extracomunitario: true,
 
+      PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+      PermessoDiSoggiornoDataRilascio: "01/01/2020",
+      PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      Email: "mrossi@gmail.com",
+      Pec: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
     },
     {
       CodiceFiscale: "QTGSRO60A11Q2055",
@@ -47,13 +75,43 @@ mochDbTable = function(table) {
       Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
       Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
 
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      ],
+
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true
+      Extracomunitario: true,
 
+      PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+      PermessoDiSoggiornoDataRilascio: "01/01/2020",
+      PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      Email: "mrossi@gmail.com",
+      Pec: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
     },
     {
       CodiceFiscale: "RTSDRO70A10W2056",
@@ -66,14 +124,43 @@ mochDbTable = function(table) {
       Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
       Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
 
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validida: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      ],
+
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true
+      Extracomunitario: true,
 
-
+      PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+      PermessoDiSoggiornoDataRilascio: "01/01/2020",
+      PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      Email: "mrossi@gmail.com",
+      Pec: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
     },
     {
       CodiceFiscale: "VSYFRO70A10E2652",
@@ -86,14 +173,43 @@ mochDbTable = function(table) {
       Residenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
       Domicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
 
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      ],
+
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true
+      Extracomunitario: true,
 
-
+      PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+      PermessoDiSoggiornoDataRilascio: "01/01/2020",
+      PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      Email: "mrossi@gmail.com",
+      Pec: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
     },
     {
       CodiceFiscale: "WSSGRO70A10T2066",
@@ -106,14 +222,43 @@ mochDbTable = function(table) {
       Residenza: "via Giocchino Murat, 53 - 89112 Roma RM",
       Domicilio: "via Armando Diaz, 2 - 84094 Roma RM",
 
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      ],
+
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true
+      Extracomunitario: true,
 
-
+      PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+      PermessoDiSoggiornoDataRilascio: "01/01/2020",
+      PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0123 456789",
+      Email: "mrossi@gmail.com",
+      Pec: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
     }
   ];
 

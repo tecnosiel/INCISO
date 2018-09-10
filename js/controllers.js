@@ -56,16 +56,29 @@
  * Contiene i dati usati nella view _ricerca_anagrafica
  *
  */
-function _ricercaAnagraficaCtrl($scope, httpServices) {
+function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal ) {
+  $rootScope.editDatiAssistito = true;
+
   this.find = function() {
-    this.risposta = httpServices._ricercaAnagraficaRicerca.get("mockUrl");
+    this.rispostaRicercaDatiAnagrafici = httpServices._ricercaAnagraficaRicerca.get(
+      "mockUrl"
+    );
+    debugger;
   };
 
   this.findCodFis = function(cCodFis) {
-    $scope.dataPopover = httpServices._ricercaAnagraficaRicerca.findCodFis(
+    $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
     );
+  };
+
+  $rootScope.creaNuovoIndirizzo = function() {
+    alert("evviva")
+    var modalInstance = $uibModal.open({
+      templateUrl: "views/gestione_indirizzi.html",
+      controller: "ModalInstanceCtrl"
+    });
   };
 
   /**
@@ -80,11 +93,97 @@ function _ricercaAnagraficaCtrl($scope, httpServices) {
 }
 
 /**
+ * gestioneIndirizziCtrl - controller
+ * Contiene i dati usati nella view gestioneIndirizzi
+ *
+ */
+function gestioneIndirizziCtrl($scope, $uibModal) {
+  $scope.camillo = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+  $scope.open1 = function() {
+    var modalInstance = $uibModal.open({
+      templateUrl: "views/modal_example1.html",
+      controller: "ModalInstanceCtrl"
+    });
+  };
+}
+
+
+function ModalInstanceCtrl ($scope, $uibModalInstance) {
+
+  $scope.ok = function () {
+      $uibModalInstance.close();
+  };
+
+  $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+  };
+
+
+  $scope.states = [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'Arkansas',
+      'California',
+      'Colorado',
+      'Connecticut',
+      'Delaware',
+      'Florida',
+      'Georgia',
+      'Hawaii',
+      'Idaho',
+      'Illinois',
+      'Indiana',
+      'Iowa',
+      'Kansas',
+      'Kentucky',
+      'Louisiana',
+      'Maine',
+      'Maryland',
+      'Massachusetts',
+      'Michigan',
+      'Minnesota',
+      'Mississippi',
+      'Missouri',
+      'Montana',
+      'Nebraska',
+      'Nevada',
+      'New Hampshire',
+      'New Jersey',
+      'New Mexico',
+      'New York',
+      'North Carolina',
+      'North Dakota',
+      'Ohio',
+      'Oklahoma',
+      'Oregon',
+      'Pennsylvania',
+      'Rhode Island',
+      'South Carolina',
+      'South Dakota',
+      'Tennessee',
+      'Texas',
+      'Utah',
+      'Vermont',
+      'Virginia',
+      'Washington',
+      'West Virginia',
+      'Wisconsin',
+      'Wyoming'
+  ];
+
+};
+
+
+
+
+
+/**
  * MainCtrl - controller
  * Contiene dati globali usati in differenti view
  *
  */
-function MainCtrl($translate, $http) {
+function MainCtrl($scope, $rootScope, $translate, $http) {
   /**
    * language - Setta la lingua di partenza ad Italiano. In caso contrario verrebbe settata ad
    * Inglese
@@ -2750,68 +2849,68 @@ function modalDemoCtrl($scope, $uibModal) {
   };
 }
 
-function ModalInstanceCtrl($scope, $uibModalInstance) {
-  $scope.ok = function() {
-    $uibModalInstance.close();
-  };
+// function ModalInstanceCtrl($scope, $uibModalInstance) {
+//   $scope.ok = function() {
+//     $uibModalInstance.close();
+//   };
 
-  $scope.cancel = function() {
-    $uibModalInstance.dismiss("cancel");
-  };
+//   $scope.cancel = function() {
+//     $uibModalInstance.dismiss("cancel");
+//   };
 
-  $scope.states = [
-    "Alabama",
-    "Alaska",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "Montana",
-    "Nebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming"
-  ];
-}
+//   $scope.states = [
+//     "Alabama",
+//     "Alaska",
+//     "Arizona",
+//     "Arkansas",
+//     "California",
+//     "Colorado",
+//     "Connecticut",
+//     "Delaware",
+//     "Florida",
+//     "Georgia",
+//     "Hawaii",
+//     "Idaho",
+//     "Illinois",
+//     "Indiana",
+//     "Iowa",
+//     "Kansas",
+//     "Kentucky",
+//     "Louisiana",
+//     "Maine",
+//     "Maryland",
+//     "Massachusetts",
+//     "Michigan",
+//     "Minnesota",
+//     "Mississippi",
+//     "Missouri",
+//     "Montana",
+//     "Nebraska",
+//     "Nevada",
+//     "New Hampshire",
+//     "New Jersey",
+//     "New Mexico",
+//     "New York",
+//     "North Carolina",
+//     "North Dakota",
+//     "Ohio",
+//     "Oklahoma",
+//     "Oregon",
+//     "Pennsylvania",
+//     "Rhode Island",
+//     "South Carolina",
+//     "South Dakota",
+//     "Tennessee",
+//     "Texas",
+//     "Utah",
+//     "Vermont",
+//     "Virginia",
+//     "Washington",
+//     "West Virginia",
+//     "Wisconsin",
+//     "Wyoming"
+//   ];
+// }
 
 /**
  * ionSlider - Controller for data for Ion Slider plugin

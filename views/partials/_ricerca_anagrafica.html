@@ -1,22 +1,22 @@
-<div ng-controller="_ricercaAnagraficaCtrl as _ricAnag">
+<div ng-controller="_ricercaAnagraficaCtrl as _ricAnagCtrl">
 
     <div class="row">
         <div class="col-md-6 form-group">
             <label>{{ 'COGNOME' | translate }}</label>
-            <input type="text" class="form-control" ng-model="_ricAnag.findCognome" placeholder="Inserire cognome da ricercare">
+            <input type="text" class="form-control" ng-model="_ricAnagCtrl.findCognome" placeholder="Inserire cognome da ricercare">
         </div>
         <div class="col-md-6 form-group">
             <label>{{ 'NOME' | translate }}</label>
-            <input type="text" class="form-control" ng-model="_ricAnag.findNome" placeholder="Inserire nome da ricercare">
+            <input type="text" class="form-control" ng-model="_ricAnagCtrl.findNome" placeholder="Inserire nome da ricercare">
         </div>
         <div class="col-md-6 form-group">
             <label>{{ 'CODICE_FISCALE' | translate }}</label>
-            <input type="text" class="form-control" ng-model="_ricAnag.findCodiceFiscale" placeholder="Codice fiscale da ricercare">
+            <input type="text" class="form-control" ng-model="_ricAnagCtrl.findCodiceFiscale" placeholder="Codice fiscale da ricercare">
         </div>
         <div class="col-md-6 form-group">
             <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
             <div class="input-group date">
-                <input type="text" class="form-control" ng-model="_ricAnag.findDataDiNascita" placeholder="Data nascita da ricercare formato dd/MM/yyyy">
+                <input type="text" class="form-control" ng-model="_ricAnagCtrl.findDataDiNascita" placeholder="Data nascita da ricercare formato dd/MM/yyyy">
                 <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </span>
@@ -25,18 +25,18 @@
         <div id="filtri_deceduto">
             <div class="col-md-6 form-group">
                 <label>{{ 'NUMERO_FALDONE_ARCHIVIAZIONE' | translate }}</label>
-                <input type="text" class="form-control" ng-model="_ricAnag.findNumeroFaldoneArchiviazione" placeholder="Numero faldone archiviazione da ricercare">
+                <input type="text" class="form-control" ng-model="_ricAnagCtrl.findNumeroFaldoneArchiviazione" placeholder="Numero faldone archiviazione da ricercare">
             </div>
             <div class="col-md-6 form-group">
                 <label>{{ 'ANNO_DI_SCARTO' | translate }}</label>
-                <input type="text" class="form-control" ng-model="_ricAnag.findAnnoDiScarto" placeholder="Anno di scarto da ricercare">
+                <input type="text" class="form-control" ng-model="_ricAnagCtrl.findAnnoDiScarto" placeholder="Anno di scarto da ricercare">
             </div>
 
         </div>
     </div>
     <div class="row text-right">
         <div class="col-sm-12">
-            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'CERCA' | translate }}</button>
+            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnagCtrl.find()">{{ 'CERCA' | translate }}</button>
         </div>
     </div>
 
@@ -53,13 +53,13 @@
                         <th class="modal-select"></th>
                     </tr>
                 </thead>
-                <tbody ng-repeat="item in _ricAnag.risposta">
+                <tbody ng-repeat="item in _ricAnagCtrl.rispostaRicercaDatiAnagrafici">
                     <tr>
                         <td>{{item.Cognome}}</td>
                         <td>{{item.Nome}}</td>
                         <!-- <td><a class="" onclick="javascript:event.stopPropagation();" data-container="body" data-toggle="popover"
                                 data-placement="top" data-html="true" data-content='<%- partial("_popover_anagrafica") %>'>{{item.CodiceFiscale}}</a></td> -->
-                        <td><a ng-click="_ricAnag.findCodFis(item.CodiceFiscale)" angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
+                        <td><a ng-click="_ricAnagCtrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
                                 style="position: relative;">{{item.CodiceFiscale}}</a></td>
                         <td>{{item.DataDiNascita}}</td>
                         <td>{{item.DataDiDecesso}}</td>

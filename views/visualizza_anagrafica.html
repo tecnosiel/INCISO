@@ -25,7 +25,8 @@
 
     <div class="row text-left">
         <div class="col-sm-12">
-            <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'SBLOCCA_CAMPI' | translate }}</button>
+            <button class="btn" ng-class="editDatiAssistito ? 'btn-primary':'btn-danger'" id="anagSearch" ng-click="editDatiAssistito = !editDatiAssistito">{{
+                'SBLOCCA_CAMPI' | translate }}</button>
         </div>
     </div>
 
@@ -41,18 +42,18 @@
                 <div id="collapseDatiGenerali" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Nome</label> <input type="text" ng-model="_ricAnag.risposta.Nome" readonly class="form-control"
-                                    value="Maria"></div>
-                            <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" ng-model="_ricAnag.risposta.Cognome" readonly class="form-control"
-                                    value="Rossi"></div>
-                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" ng-model="_ricAnag.risposta.CognomeAcquisito" readonly
-                                    class="form-control" value="Bianchi"></div>
-                            <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" ng-model="_ricAnag.risposta.CodiceFiscale" readonly class="form-control"
-                                    value="RSSMRA53A36Q4526"></div>
-                            <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" ng-model="_ricAnag.risposta.Sesso" readonly class="form-control"
-                                    value="F"></div>
-                            <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" ng-model="_ricAnag.risposta.StatoCivile" readonly class="form-control"
-                                    value="Coniugata"></div>
+                            <div class="col-md-4 form-group"><label>Nome</label> <input type="text" ng-model="datiAssistito.Nome"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" ng-model="datiAssistito.Cognome"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" ng-model="datiAssistito.CognomeAcquisito"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" ng-model="datiAssistito.CodiceFiscale"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" ng-model="datiAssistito.Sesso"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" ng-model="datiAssistito.StatoCivile"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
                         </div>
                     </div>
                 </div>
@@ -68,16 +69,16 @@
                 <div id="collapseDataNascita" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" ng-model="_ricAnag.risposta.DataDiNascita" readonly class="form-control"
-                                    value="01/01/1930"></div>
-                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" ng-model="_ricAnag.risposta.LuogoDiNascita" readonly
-                                    class="form-control" value="Milano"></div>
-                            <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="_ricAnag.risposta.ProvinciaDiNascita" readonly class="form-control"
-                                    value="Milano"></div>
-                            <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="_ricAnag.risposta.NazioneDiNascita" readonly class="form-control"
-                                    value="Italia"></div>
-                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-model="_ricAnag.risposta.DataDiDecesso" readonly class="form-control"
-                                    value="01/01/1980"></div>
+                            <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="Milano"></div>
+                            <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-model="datiAssistito.DataDiDecesso"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
                         </div>
                     </div>
                 </div>
@@ -89,22 +90,23 @@
                     <div class="panel-toolbox">
                         <i class="fa fa-chevron-down"></i>
                     </div>
+
                 </div>
                 <div id="collapseAltriDati" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label>Cittadinanza</label>
-                                <input type="text" ng-model="_ricAnag.risposta.cittadinanza" readonly class="form-control" value="Italiana"></div>
+                                <input type="text" ng-model="datiAssistito.cittadinanza" ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group">
                                 <label>Extracomunitario</label>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck ng-model="" type="radio" name="b" disabled='disabled'>                                                <i></i>
+                                        <div class="checkbox"><label> <input icheck type="radio" name="b" disabled='disabled'>                                                <i></i>
                                                 Sì </label></div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck ng-model="" type="radio" name="b" checked
+                                        <div class="checkbox"><label> <input icheck type="radio" name="b" checked
                                                     disabled='disabled'> <i></i> No </label></div>
                                     </div>
                                 </div>
@@ -113,24 +115,25 @@
 
                         <h3 class="m-t-lg">Permesso di soggiorno</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" ng-model="_ricAnag.risposta.permessoDiSoggiornoTipoPermesso" readonly class="form-control"
-                                    value="Lorem ipsum dolor"></div>
-                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" ng-model="_ricAnag.risposta.permessoDiSoggiornoDataRilascio" readonly class="form-control"
-                                    value="01/01/2020"></div>
-                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" ng-model="_ricAnag.risposta.permessoDiSoggiornoValidoFinoAl" readonly class="form-control"
-                                    value="01/01/2020"></div>
+                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="Lorem ipsum dolor"></div>
+                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="01/01/2020"></div>
+                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="01/01/2020"></div>
                         </div>
                         <h3 class="m-t-lg">Riferimenti di contatto</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" ng-model="_ricAnag.risposta.telefonoPrincipale" readonly
-                                    class="form-control" value="0461 912585"></div>
-                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" ng-model="_ricAnag.risposta.telefonoSecondario" readonly
-                                    class="form-control" value="0461 923452"></div>
-                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" ng-model="_ricAnag.risposta.email" readonly class="form-control"
-                                    value="mrossi@gmail.com"></div>
-                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" readonly ng-model="_ricAnag.risposta.pec" class="form-control"
-                                    value="mrossi@gmail.com"></div>
-                            <div class="col-md-12 form-group"><label>Note</label> <textarea ng-model="_ricAnag.risposta.note" readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
+                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" ng-model="datiAssistito.TelefonoPrincipale"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" ng-model="datiAssistito.TelefonoSecondario"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" ng-model="datiAssistito.Email"
+                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" ng-readonly="editDatiAssistito"
+                                    ng-model="datiAssistito.Pec" class="form-control"></div>
+                            <div class="col-md-12 form-group"><label>Note</label> <textarea ng-model="datiAssistito.Note"
+                                    ng-readonly="editDatiAssistito" class="form-control"></textarea></div>
                         </div>
                     </div>
                 </div>
@@ -157,61 +160,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Indirizzo abitazione</td>
+                                <tr ng-repeat="item in datiAssistito.Indirizzi">
+                                    <td>{{item.Tipo}}</td>
                                     <td>
-                                        <p class="m-b-xs">Via Gian Domenico Tomagnosi, 32</p>
-                                        <p class="m-b-xs">38122 </p>Trento
+                                        {{item.Indirizzo}}
                                     </td>
-                                    <td>dal 01/01/2010 al 01/01/2015</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                    <td>{{item.Validita}}</td>
+                                    <td>{{item.Note}}</td>
                                     <td style="font-size: 18px; text-align: center">
                                         <a href="xxxxx.html"><i class="fa fa-pencil"></i></a>
                                         <a href="xxxxx.html"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Indirizzo lavoro</td>
-                                    <td>
-                                        <p class="m-b-xs">Piazza Raffaello Sanzio, 13</p>
-                                        <p class="m-b-xs">38122 </p>Trento
-                                    </td>
-                                    <td>dal 01/01/2010 al 01/01/2015</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
-                                    <td style="font-size: 18px; text-align: center">
-                                        <a href="xxxxx.html"><i class="fa fa-pencil"></i></a>
-                                        <a href="xxxxx.html"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Indirizzo secondario</td>
-                                    <td>
-                                        <p class="m-b-xs">Via del Suffragio, 2</p>
-                                        <p class="m-b-xs">38122 </p>Trento
-                                    </td>
-                                    <td>dal 01/01/2010 al 01/01/2015</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
-                                    <td style="font-size: 18px; text-align: center">
-                                        <a href="xxxxx.html"><i class="fa fa-pencil"></i></a>
-                                        <a href="xxxxx.html"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-
                             </tbody>
                         </table>
 
                         <div class="row text-right">
                             <div class="col-sm-12">
-                                <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'CREA_NUOVO_INDIRIZZO'
+                                <button class="btn btn-primary" id="anagSearch" ng-click="creaNuovoIndirizzo()">{{ 'CREA_NUOVO_INDIRIZZO'
                                     | translate }}</button>
                             </div>
                         </div>
@@ -274,8 +240,8 @@
                 <div id="collapsePensioni" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text" readonly class="form-control"
-                                    value="Invalidità, infortunio"></div>
+                            <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text" ng-readonly="editDatiAssistito"
+                                    class="form-control" value="Invalidità, infortunio"></div>
                         </div>
                     </div>
                 </div>
@@ -291,11 +257,11 @@
                 <div id="collapseDecesso" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
-                                    value="10/01/2016"></div>
-                            <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text" readonly class="form-control"
-                                    value="357434"></div>
-                            <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text" readonly
+                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-readonly="editDatiAssistito"
+                                    class="form-control" value="10/01/2016"></div>
+                            <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text" ng-readonly="editDatiAssistito"
+                                    class="form-control" value="357434"></div>
+                            <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text" ng-readonly="editDatiAssistito"
                                     class="form-control" value="2016"></div>
                         </div>
                         <div class="panel panel-default">
@@ -450,7 +416,7 @@
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck ng-model="" type="checkbox" disabled>                                                    <i></i></div>
+                                                <div class="checkbox"><input icheck type="checkbox" disabled>                                                    <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -462,7 +428,7 @@
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck ng-model="" type="checkbox" checked disabled>                                                    <i></i></div>
+                                                <div class="checkbox"><input icheck type="checkbox" checked disabled>                                                    <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -473,7 +439,7 @@
                                             <td colspan="2" class="text-center">Nessun reddito percepito</td>
                                             <td style="display:none"></td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck ng-model="" type="checkbox" disabled>                                                    <i></i></div>
+                                                <div class="checkbox"><input icheck type="checkbox" disabled>                                                    <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
