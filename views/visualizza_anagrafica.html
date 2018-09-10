@@ -41,17 +41,17 @@
                 <div id="collapseDatiGenerali" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Nome</label> <input type="text" ng-model="_ricAnag.risposta.Nome" readonly class="form-control"
                                     value="Maria"></div>
-                            <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" ng-model="_ricAnag.risposta.Cognome" readonly class="form-control"
                                     value="Rossi"></div>
-                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" readonly
+                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" ng-model="_ricAnag.risposta.CognomeAcquisito" readonly
                                     class="form-control" value="Bianchi"></div>
-                            <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" ng-model="_ricAnag.risposta.CodiceFiscale" readonly class="form-control"
                                     value="RSSMRA53A36Q4526"></div>
-                            <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" ng-model="_ricAnag.risposta.Sesso" readonly class="form-control"
                                     value="F"></div>
-                            <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" ng-model="_ricAnag.risposta.StatoCivile" readonly class="form-control"
                                     value="Coniugata"></div>
                         </div>
                     </div>
@@ -68,15 +68,15 @@
                 <div id="collapseDataNascita" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" ng-model="_ricAnag.risposta.DataDiNascita" readonly class="form-control"
                                     value="01/01/1930"></div>
-                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" readonly
+                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" ng-model="_ricAnag.risposta.LuogoDiNascita" readonly
                                     class="form-control" value="Milano"></div>
-                            <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="_ricAnag.risposta.ProvinciaDiNascita" readonly class="form-control"
                                     value="Milano"></div>
-                            <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="_ricAnag.risposta.NazioneDiNascita" readonly class="form-control"
                                     value="Italia"></div>
-                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-model="_ricAnag.risposta.DataDiDecesso" readonly class="form-control"
                                     value="01/01/1980"></div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label>Cittadinanza</label>
-                                <input type="text" readonly class="form-control" value="Italiana"></div>
+                                <input type="text" ng-model="_ricAnag.risposta.cittadinanza" readonly class="form-control" value="Italiana"></div>
                             <div class="col-md-4 form-group">
                                 <label>Extracomunitario</label>
                                 <div class="row">
@@ -113,24 +113,24 @@
 
                         <h3 class="m-t-lg">Permesso di soggiorno</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" ng-model="_ricAnag.risposta.permessoDiSoggiornoTipoPermesso" readonly class="form-control"
                                     value="Lorem ipsum dolor"></div>
-                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" ng-model="_ricAnag.risposta.permessoDiSoggiornoDataRilascio" readonly class="form-control"
                                     value="01/01/2020"></div>
-                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" ng-model="_ricAnag.risposta.permessoDiSoggiornoValidoFinoAl" readonly class="form-control"
                                     value="01/01/2020"></div>
                         </div>
                         <h3 class="m-t-lg">Riferimenti di contatto</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" readonly
+                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" ng-model="_ricAnag.risposta.telefonoPrincipale" readonly
                                     class="form-control" value="0461 912585"></div>
-                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" readonly
+                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" ng-model="_ricAnag.risposta.telefonoSecondario" readonly
                                     class="form-control" value="0461 923452"></div>
-                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" ng-model="_ricAnag.risposta.email" readonly class="form-control"
                                     value="mrossi@gmail.com"></div>
-                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" readonly class="form-control"
+                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" readonly ng-model="_ricAnag.risposta.pec" class="form-control"
                                     value="mrossi@gmail.com"></div>
-                            <div class="col-md-12 form-group"><label>Note</label> <textarea readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
+                            <div class="col-md-12 form-group"><label>Note</label> <textarea ng-model="_ricAnag.risposta.note" readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
                         </div>
                     </div>
                 </div>
@@ -726,7 +726,9 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <%- partial("_elenco_evidenze") %>
+                                <!-- <%- partial("_elenco_evidenze") %> -->
+                                <div ng-include="'views/partials/_elenco_evidenze.html'"></div>
+
                             </div>
                         </div>
                     </div>

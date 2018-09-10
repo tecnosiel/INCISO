@@ -25,7 +25,15 @@ mochDbTable = function(table) {
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Ungherese",
       Residenza: "viale Giusti Antonia, 53 - 39100 Milano MI",
-      Domicilio: "via Tal dei Tali, 2 - 39100 Bolzano BZ"
+      Domicilio: "via Tal dei Tali, 2 - 39100 Bolzano BZ",
+
+      CognomeAcquisito: "Alfano Acquisito",
+      StatoCivile: "Coniugata",
+      ProvinciaDiNascita: "Milano",
+      NazioneDiNascita: "Italia",
+      Cittadinanza: "Italiana",
+      Extracomunitario: true
+
     },
     {
       CodiceFiscale: "QTGSRO60A11Q2055",
@@ -37,7 +45,15 @@ mochDbTable = function(table) {
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
-      Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ"
+      Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
+
+      CognomeAcquisito: "Alfano Acquisito",
+      StatoCivile: "Coniugata",
+      ProvinciaDiNascita: "Milano",
+      NazioneDiNascita: "Italia",
+      Cittadinanza: "Italiana",
+      Extracomunitario: true
+
     },
     {
       CodiceFiscale: "RTSDRO70A10W2056",
@@ -48,7 +64,16 @@ mochDbTable = function(table) {
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Inglese",
       Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
-      Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ"
+      Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
+
+      CognomeAcquisito: "Alfano Acquisito",
+      StatoCivile: "Coniugata",
+      ProvinciaDiNascita: "Milano",
+      NazioneDiNascita: "Italia",
+      Cittadinanza: "Italiana",
+      Extracomunitario: true
+
+
     },
     {
       CodiceFiscale: "VSYFRO70A10E2652",
@@ -59,7 +84,16 @@ mochDbTable = function(table) {
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
-      Domicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE"
+      Domicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
+
+      CognomeAcquisito: "Alfano Acquisito",
+      StatoCivile: "Coniugata",
+      ProvinciaDiNascita: "Milano",
+      NazioneDiNascita: "Italia",
+      Cittadinanza: "Italiana",
+      Extracomunitario: true
+
+
     },
     {
       CodiceFiscale: "WSSGRO70A10T2066",
@@ -70,7 +104,16 @@ mochDbTable = function(table) {
       LuogoDiNascita: "Roma",
       Nazionalita: "Italiana",
       Residenza: "via Giocchino Murat, 53 - 89112 Roma RM",
-      Domicilio: "via Armando Diaz, 2 - 84094 Roma RM"
+      Domicilio: "via Armando Diaz, 2 - 84094 Roma RM",
+
+      CognomeAcquisito: "Alfano Acquisito",
+      StatoCivile: "Coniugata",
+      ProvinciaDiNascita: "Milano",
+      NazioneDiNascita: "Italia",
+      Cittadinanza: "Italiana",
+      Extracomunitario: true
+
+
     }
   ];
 
