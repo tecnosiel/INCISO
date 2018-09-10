@@ -9,7 +9,7 @@
                 <a href="ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
             </li>
             <li class="active">
-                <strong>Maria Rossi</strong>
+                <strong>{{datiAssistito.Nome}} {{datiAssistito.Cognome}}</strong>
             </li>
         </ol>
     </div>
@@ -92,48 +92,52 @@
                     </div>
 
                 </div>
+
                 <div id="collapseAltriDati" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label>Cittadinanza</label>
-                                <input type="text" ng-model="datiAssistito.cittadinanza" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group">
                                 <label>Extracomunitario</label>
-                                <div class="row">
+                                PROBLEMAJQUERYDAANALIZZARE
+                                <!-- Il problema lo genera il codice sottostante che se abilitato rompe angular -->
+                                <!-- <div class="row">
                                     <div class="col-md-6">
                                         <div class="checkbox"><label> <input icheck type="radio" name="b" disabled='disabled'>                                                <i></i>
                                                 Sì </label></div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck type="radio" name="b" checked
-                                                    disabled='disabled'> <i></i> No </label></div>
+                                        <div class="checkbox"><label> <input icheck type="radio" name="b" checked disabled='disabled'>                                                <i></i>
+                                                No </label></div>
                                     </div>
-                                </div>
+                                </div> -->
+
                             </div>
                         </div>
-
                         <h3 class="m-t-lg">Permesso di soggiorno</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Tipo permesso</label> <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="Lorem ipsum dolor"></div>
-                            <div class="col-md-4 form-group"><label>Data rilascio</label> <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="01/01/2020"></div>
-                            <div class="col-md-4 form-group"><label>Valido fino al</label> <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="01/01/2020"></div>
+                            <div class="col-md-4 form-group"><label>Tipo permesso</label>
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso" ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group">
+                                <label>Data rilascio</label>
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio" ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Valido fino al</label>
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl" ng-readonly="editDatiAssistito" class="form-control"></div>
                         </div>
                         <h3 class="m-t-lg">Riferimenti di contatto</h3>
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" ng-model="datiAssistito.TelefonoPrincipale"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
-                            <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" ng-model="datiAssistito.TelefonoSecondario"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
-                            <div class="col-md-4 form-group"><label>Email</label> <input type="text" ng-model="datiAssistito.Email"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
-                            <div class="col-md-4 form-group"><label>PEC</label> <input type="text" ng-readonly="editDatiAssistito"
-                                    ng-model="datiAssistito.Pec" class="form-control"></div>
-                            <div class="col-md-12 form-group"><label>Note</label> <textarea ng-model="datiAssistito.Note"
-                                    ng-readonly="editDatiAssistito" class="form-control"></textarea></div>
+                            <div class="col-md-4 form-group"><label>Telefono principale</label>
+                                <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Telefono secondario</label>
+                                <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Email</label>
+                                <input type="text" ng-model="datiAssistito.Email" ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>PEC</label>
+                                <input type="text" ng-readonly="editDatiAssistito" ng-model="datiAssistito.Pec" class="form-control"></div>
+                            <div class="col-md-12 form-group"><label>Note</label>
+                                <textarea ng-model="datiAssistito.Note" ng-readonly="editDatiAssistito" class="form-control"></textarea></div>
                         </div>
                     </div>
                 </div>
@@ -399,7 +403,9 @@
                 <div id="collapseElencoRedditi" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            PROBLEMAJQUERYDAANALIZZARE
+                            <!-- Il problema lo genera il codice sottostante che se abilitato rompe angular -->
+                            <!-- <div class="col-md-12">
                                 <table class="table table-bordered table-striped dataTables-paged order-desc">
                                     <thead>
                                         <tr>
@@ -416,7 +422,7 @@
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck type="checkbox" disabled>                                                    <i></i></div>
+                                                <div class="checkbox"><input icheck type="checkbox" disabled> <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -428,7 +434,7 @@
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck type="checkbox" checked disabled>                                                    <i></i></div>
+                                                <div class="checkbox"><input icheck type="checkbox" checked disabled> <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -439,7 +445,7 @@
                                             <td colspan="2" class="text-center">Nessun reddito percepito</td>
                                             <td style="display:none"></td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck type="checkbox" disabled>                                                    <i></i></div>
+                                                <div class="checkbox"><input icheck type="checkbox" disabled> <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -448,7 +454,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row text-right">

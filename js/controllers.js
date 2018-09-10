@@ -67,17 +67,19 @@ function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal ) {
   };
 
   this.findCodFis = function(cCodFis) {
+
     $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
     );
+    debugger;
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
     alert("evviva")
     var modalInstance = $uibModal.open({
-      templateUrl: "views/gestione_indirizzi.html",
-      controller: "ModalInstanceCtrl"
+      templateUrl: "./../views/gestione_indirizzi.html",
+      // controller: "ModalInstanceCtrl"
     });
   };
 
@@ -109,6 +111,8 @@ function gestioneIndirizziCtrl($scope, $uibModal) {
 
 
 function ModalInstanceCtrl ($scope, $uibModalInstance) {
+
+  alert("xxxxxxxxxxxxxxxxxxxxxxxxxx")
 
   $scope.ok = function () {
       $uibModalInstance.close();
