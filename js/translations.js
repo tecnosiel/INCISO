@@ -6,6 +6,7 @@ function config($translateProvider) {
   $translateProvider
     .translations("it", {
       // Label Generali
+      HOME:"Home",
       CERCA: "Cerca",
       SBLOCCA_CAMPI: "Sblocca Campi",
       // Label Top Nav Bar
@@ -27,7 +28,22 @@ function config($translateProvider) {
       RICERCA_DATI_ANAGRAFICI: "Ricerca dati anagrafici",
       INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica",
       CREA_NUOVO_INDIRIZZO: "Crea nuovo indirizzo",
-      INSERISCI_REDDITO:"Inserisci reddito",
+      INSERISCI_REDDITO: "Inserisci reddito",
+      DATI_GENERALI: "DATI GENERALI",
+      DATI_DI_NASCITA: "DATI DI NASCITA",
+      ALTRI_DATI: "ALTRI DATI",
+      ELENCO_INDIRIZZI: "ELENCO INDIRIZZI",
+      ELENCO_POSIZIONI: "ELENCO POSIZIONI",
+      PENSIONI: "PENSIONI",
+      DECESSO: "DECESSO",
+      ELENCO_REDDITI: "ELENCO REDDITI",
+      ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
+        "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA",
+      POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
+      ELENCO_EVIDENZE:"ELENCO EVIDENZE",
+      POSIZIONE_ESPRO:"POSIZIONE ESPRO",
+
+      VISUALIZZA_DATI_ANAGRAFICI:"Visualizza dati anagrafici",
 
       // Label elementi menu
       NUOVA_DOMANDA: "Nuova Domanda",
@@ -74,6 +90,7 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      HOME:"Home DE",
       // Label Generali
       CERCA: "Cerca DE",
       SBLOCCA_CAMPI: "Sblocca Campi DE",
@@ -96,7 +113,23 @@ function config($translateProvider) {
       RICERCA_DATI_ANAGRAFICI: "Ricerca dati anagrafici DE",
       INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica DE",
       CREA_NUOVO_INDIRIZZO: "Crea nuovo indirizzo DE",
-      INSERISCI_REDDITO:"Inserisci reddito DE",
+      INSERISCI_REDDITO: "Inserisci reddito DE",
+      DATI_GENERALI: "DATI GENERALI DE",
+      DATI_DI_NASCITA: "DATI DI NASCITA DE",
+      ALTRI_DATI: "ALTRI DATI DE",
+      ELENCO_INDIRIZZI: "ELENCO INDIRIZZI DE",
+      ELENCO_POSIZIONI: "ELENCO POSIZIONI DE",
+      PENSIONI: "PENSIONI DE",
+      DECESSO: "DECESSO DE",
+      ELENCO_REDDITI: "ELENCO REDDITI DE",
+      ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
+        "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA DE",
+      POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
+      ELENCO_EVIDENZE:"ELENCO EVIDENZE DE",
+      POSIZIONE_ESPRO:"POSIZIONE ESPRO DE",
+
+      VISUALIZZA_DATI_ANAGRAFICI:"Visualizza dati anagrafici DE",
+
 
       // Label elementi menu
       NUOVA_DOMANDA: "Nuova Domanda DE",
