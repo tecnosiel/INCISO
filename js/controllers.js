@@ -109,6 +109,7 @@ function modalGestioneIndirizziCtrl($scope, $uibModalInstance) {
   };
 }
 
+
 /**
  * MainCtrl - controller
  * Contiene dati globali usati in differenti view

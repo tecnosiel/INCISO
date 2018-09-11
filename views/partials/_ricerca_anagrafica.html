@@ -42,32 +42,24 @@
 
     <div class="row" id="anagResults" style="display:none;">
         <div>
-            <table class="table table-striped table-bordered dataTables-example">
+            <table id="tabellaRisultatiRicercaAnagrafica" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>{{ 'COGNOME' | translate }}</th>
                         <th>{{ 'NOME' | translate }}</th>
                         <th>{{ 'CODICE_FISCALE' | translate }}</th>
                         <th>{{ 'DATA_DI_NASCITA' | translate }}</th>
-                        <th> {{ 'DATA_DECESSO' | translate }}Data decesso</th>
-                        <th class="modal-select"></th>
+                        <th> {{ 'DATA_DECESSO' | translate }}</th>
                     </tr>
                 </thead>
                 <tbody ng-repeat="item in _ricAnagCtrl.rispostaRicercaDatiAnagrafici">
                     <tr>
                         <td>{{item.Cognome}}</td>
                         <td>{{item.Nome}}</td>
-                        <!-- <td><a class="" onclick="javascript:event.stopPropagation();" data-container="body" data-toggle="popover"
-                                data-placement="top" data-html="true" data-content='<%- partial("_popover_anagrafica") %>'>{{item.CodiceFiscale}}</a></td> -->
                         <td><a ng-click="_ricAnagCtrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
                                 style="position: relative;">{{item.CodiceFiscale}}</a></td>
                         <td>{{item.DataDiNascita}}</td>
                         <td>{{item.DataDiDecesso}}</td>
-                        <td class="modal-select">
-                            <a href="<%- url %>">
-                                <i class="fa fa-arrow-circle-right" aria-hidden="true" data-dismiss="<%- url=='#' ? 'modal' : '' %>"></i>
-                            </a>
-                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -78,8 +70,8 @@
 </div>
 <script>
 
-    $('.dataTables-example').dataTable({ searching: false, responsive: true, lengthChange: false });
-
+    // $('.tabellaRisultatiRicercaAnagrafica').dataTable({ searching: true, responsive: true, lengthChange: false });
+    $('#tabellaRisultatiRicercaAnagrafica').DataTable({ searching: true, responsive: true, lengthChange: false });
     $('#anagSearch').click(function () {
         $("#anagResults").show();
     });
