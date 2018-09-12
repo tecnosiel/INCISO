@@ -46,8 +46,8 @@
                                     ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" ng-model="datiAssistito.Cognome"
                                     ng-readonly="editDatiAssistito" class="form-control"></div>
-                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" ng-model="datiAssistito.CognomeAcquisito"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                            <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text"
+                                    ng-model="datiAssistito.CognomeAcquisito" ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" ng-model="datiAssistito.CodiceFiscale"
                                     ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" ng-model="datiAssistito.Sesso"
@@ -71,8 +71,9 @@
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
                                     ng-readonly="editDatiAssistito" class="form-control"></div>
-                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="Milano"></div>
+                            <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text"
+                                    ng-model="datiAssistito.LuogoDiNascita" ng-readonly="editDatiAssistito" class="form-control"
+                                    value="Milano"></div>
                             <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
                                     ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
@@ -98,40 +99,48 @@
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label>Cittadinanza</label>
-                                <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group">
                                 <label>Extracomunitario</label>
-                                PROBLEMAJQUERYDAANALIZZARE
+                                <!-- PROBLEMAJQUERYDAANALIZZARE -->
                                 <!-- Il problema lo genera il codice sottostante che se abilitato rompe angular -->
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck type="radio" name="b" disabled='disabled'>                                                <i></i>
+                                        <div class="checkbox"><label> <input icheck ng-model="XXX" type="radio" name="b"
+                                                    disabled='disabled'> <i></i>
                                                 Sì </label></div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck type="radio" name="b" checked disabled='disabled'>                                                <i></i>
+                                        <div class="checkbox"><label> <input icheck ng-model="XXX" type="radio" name="b"
+                                                    checked disabled='disabled'> <i></i>
                                                 No </label></div>
                                     </div>
-                                </div> -->
+                                </div>
 
                             </div>
                         </div>
                         <h3 class="m-t-lg">Permesso di soggiorno</h3>
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Tipo permesso</label>
-                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso" ng-readonly="editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group">
                                 <label>Data rilascio</label>
-                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio" ng-readonly="editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Valido fino al</label>
-                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl" ng-readonly="editDatiAssistito"
+                                    class="form-control"></div>
                         </div>
                         <h3 class="m-t-lg">Riferimenti di contatto</h3>
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Telefono principale</label>
-                                <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Telefono secondario</label>
-                                <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Email</label>
                                 <input type="text" ng-model="datiAssistito.Email" ng-readonly="editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>PEC</label>
@@ -181,7 +190,8 @@
 
                         <div class="row text-right">
                             <div class="col-sm-12">
-                                <button class="btn btn-primary" id="anagSearch" ng-click="creaNuovoIndirizzo()">{{ 'CREA_NUOVO_INDIRIZZO'
+                                <button class="btn btn-primary" id="anagSearch" ng-click="creaNuovoIndirizzo()">{{
+                                    'CREA_NUOVO_INDIRIZZO'
                                     | translate }}</button>
                             </div>
                         </div>
@@ -212,19 +222,22 @@
                                 <tr>
                                     <td>778767</td>
                                     <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
-                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti
+                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
+                                            documenti
                                             per fascicolo</a></td>
                                 </tr>
                                 <tr>
                                     <td>885963</td>
                                     <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
-                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti
+                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
+                                            documenti
                                             per fascicolo</a></td>
                                 </tr>
                                 <tr>
                                     <td>993423</td>
                                     <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
-                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco documenti
+                                    <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
+                                            documenti
                                             per fascicolo</a></td>
                                 </tr>
 
@@ -244,8 +257,8 @@
                 <div id="collapsePensioni" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text" ng-readonly="editDatiAssistito"
-                                    class="form-control" value="Invalidità, infortunio"></div>
+                            <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="Invalidità, infortunio"></div>
                         </div>
                     </div>
                 </div>
@@ -263,10 +276,10 @@
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-readonly="editDatiAssistito"
                                     class="form-control" value="10/01/2016"></div>
-                            <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text" ng-readonly="editDatiAssistito"
-                                    class="form-control" value="357434"></div>
-                            <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text" ng-readonly="editDatiAssistito"
-                                    class="form-control" value="2016"></div>
+                            <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="357434"></div>
+                            <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text"
+                                    ng-readonly="editDatiAssistito" class="form-control" value="2016"></div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquEredi">
@@ -331,7 +344,8 @@
                                                         <td>50%</td>
                                                         <td>€ 28.400,00</td>
                                                         <td>30/06/2016</td>
-                                                        <td class="text-center"><a>Visualizza dettaglio importo liquidato</a></td>
+                                                        <td class="text-center"><a>Visualizza dettaglio importo
+                                                                liquidato</a></td>
                                                         <td class="text-center">
                                                             <a title="modifica">
                                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -344,7 +358,8 @@
                                                         <td>25%</td>
                                                         <td>€ 14.200,00</td>
                                                         <td>30/06/2016</td>
-                                                        <td class="text-center"><a>Visualizza dettaglio importo liquidato</a></td>
+                                                        <td class="text-center"><a>Visualizza dettaglio importo
+                                                                liquidato</a></td>
                                                         <td class="text-center">
                                                             <a title="modifica">
                                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -357,7 +372,8 @@
                                                         <td>15%</td>
                                                         <td>€ 14.200,00</td>
                                                         <td>30/06/2016</td>
-                                                        <td class="text-center"><a>Visualizza dettaglio importo liquidato</a></td>
+                                                        <td class="text-center"><a>Visualizza dettaglio importo
+                                                                liquidato</a></td>
                                                         <td class="text-center">
                                                             <a title="modifica">
                                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -370,7 +386,8 @@
                                                         <td>10%</td>
                                                         <td>€ 5.680,00</td>
                                                         <td>30/06/2016</td>
-                                                        <td class="text-center"><a>Visualizza dettaglio importo liquidato</a></td>
+                                                        <td class="text-center"><a>Visualizza dettaglio importo
+                                                                liquidato</a></td>
                                                         <td class="text-center">
                                                             <a title="modifica">
                                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -403,10 +420,11 @@
                 <div id="collapseElencoRedditi" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            PROBLEMAJQUERYDAANALIZZARE
+                            PROBLEMAJQUERYDAANALIZZARE:LA TABELLA NON FUNZIONA X I DATI DINAMICI DI ANGULAR
                             <!-- Il problema lo genera il codice sottostante che se abilitato rompe angular -->
-                            <!-- <div class="col-md-12">
-                                <table class="table table-bordered table-striped dataTables-paged order-desc">
+                            <div class="col-md-12">
+
+                                <table id="tabellaRedditi" class="table table-bordered table-striped dataTables-paged order-desc">
                                     <thead>
                                         <tr>
                                             <th>Anno</th>
@@ -422,7 +440,8 @@
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck type="checkbox" disabled> <i></i></div>
+                                                <div class="checkbox"><input icheck ng-model="XXX" type="checkbox"
+                                                        disabled> <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -434,7 +453,8 @@
                                             <td>€ 10.543,00</td>
                                             <td>€ 5.800,00</td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck type="checkbox" checked disabled> <i></i></div>
+                                                <div class="checkbox"><input icheck ng-model="XXX" type="checkbox"
+                                                        checked disabled> <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -445,7 +465,8 @@
                                             <td colspan="2" class="text-center">Nessun reddito percepito</td>
                                             <td style="display:none"></td>
                                             <td class="text-center">
-                                                <div class="checkbox"><input icheck type="checkbox" disabled> <i></i></div>
+                                                <div class="checkbox"><input icheck ng-model="XXX" type="checkbox"
+                                                        disabled> <i></i></div>
                                             </td>
                                             <td style="font-size: 18px; text-align: center">
                                                 <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
@@ -454,12 +475,13 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div> -->
+                            </div>
                         </div>
 
                         <div class="row text-right">
                             <div class="col-sm-12">
-                                <button class="btn btn-primary" id="anagSearch" ng-click="_ricAnag.find()">{{ 'INSERISCI_REDDITO'
+                                <button class="btn btn-primary" id="anagSearch" ng-click="creaNuovoReddito()">{{
+                                    'INSERISCI_REDDITO'
                                     | translate }}</button>
                             </div>
                         </div>
@@ -532,10 +554,12 @@
                             <li role="presentation" class="active"><a href="#ElencoLiquidazioni" role="tab" data-toggle="tab">Elenco
                                     liquidazioni
                                 </a></li>
-                            <li role="presentation"><a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">Elenco importi
+                            <li role="presentation"><a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">Elenco
+                                    importi
                                     riaccreditati
                                 </a></li>
-                            <li role="presentation"><a href="#ImportiRecup" role="tab" data-toggle="tab">Elenco importi da
+                            <li role="presentation"><a href="#ImportiRecup" role="tab" data-toggle="tab">Elenco importi
+                                    da
                                     recuperare
                                 </a></li>
                         </ul>
@@ -668,7 +692,8 @@
                                                     <td></td>
                                                     <td>€ 339,30</td>
                                                     <td>
-                                                        <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
+                                                        <a title="note" data-toggle="popover" data-placement="top"
+                                                            data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -829,7 +854,8 @@
                 <%- partial("_ricerca_anagrafica", { url: "modifica_erede.html"}) %>
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-primary" data-dismiss="modal">{{ 'INSERISCI_NUOVA_ANAGRAFICA' | translate
+                <a type="button" class="btn btn-primary" data-dismiss="modal">{{ 'INSERISCI_NUOVA_ANAGRAFICA' |
+                    translate
                     }}
                 </a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -837,3 +863,8 @@
         </div>
     </div>
 </div>
+<script>
+
+    $('#tabellaRedditi').DataTable({ searching: true, responsive: true, lengthChange: false });
+
+</script>

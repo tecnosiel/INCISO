@@ -11,8 +11,8 @@ function config($translateProvider) {
       HOME: "Home",
       CERCA: "Cerca",
       SBLOCCA_CAMPI: "Sblocca Campi",
-      INIZIO_VALIDITA:"Inizio validità",
-      FINE_VALIDITA:"Fine validità",
+      INIZIO_VALIDITA: "Inizio validità",
+      FINE_VALIDITA: "Fine validità",
 
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua",
@@ -22,12 +22,15 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi",
 
+      // Label Redditi
+      GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
+
       // Label Indirizzi
-      TIPO_INDIRIZZO:"Tipo indirizzo",
-      ATTUALE:"Attuale",
-      ATTIVO:"Attivo",
-      INDIRIZZO_CODIFICATO:"Indirizzo codificato",
-      INDIRIZZO_NON_CODIFICATO:"Indirizzo non codificato",
+      TIPO_INDIRIZZO: "Tipo indirizzo",
+      ATTUALE: "Attuale",
+      ATTIVO: "Attivo",
+      INDIRIZZO_CODIFICATO: "Indirizzo codificato",
+      INDIRIZZO_NON_CODIFICATO: "Indirizzo non codificato",
       NAZIONE: "Nazione",
       COMUNE: "Comune",
       CAP: "C.A.P.",
@@ -36,8 +39,8 @@ function config($translateProvider) {
       LOCALITA: "Località",
       MASO: "Maso",
       INDIRIZZO_COMPLETO: "Indirizzo completo",
-      N_CIVICO:"N.Civico",
-      USA_INDIRIZZO:"Usa indirizzo",
+      N_CIVICO: "N.Civico",
+      USA_INDIRIZZO: "Usa indirizzo",
 
       // Label Anagrafiche
       CODICE_FISCALE: "Codice fiscale",
@@ -120,8 +123,8 @@ function config($translateProvider) {
       // Label Generali
       CERCA: "Cerca DE",
       SBLOCCA_CAMPI: "Sblocca Campi DE",
-      INIZIO_VALIDITA:"Inizio validità DE",
-      FINE_VALIDITA:"Fine validità DE",
+      INIZIO_VALIDITA: "Inizio validità DE",
+      FINE_VALIDITA: "Fine validità DE",
 
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua DE",
@@ -131,12 +134,15 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi DE",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
 
+      // Label Redditi
+      GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso DE",
+
       // Label Indirizzi
-      TIPO_INDIRIZZO:"Tipo indirizzo DE",
-      ATTUALE:"Attuale DE",
-      ATTIVO:"Attivo DE",
-      INDIRIZZO_CODIFICATO:"Indirizzo codificato DE",
-      INDIRIZZO_NON_CODIFICATO:"Indirizzo non codificato DE",
+      TIPO_INDIRIZZO: "Tipo indirizzo DE",
+      ATTUALE: "Attuale DE",
+      ATTIVO: "Attivo DE",
+      INDIRIZZO_CODIFICATO: "Indirizzo codificato DE",
+      INDIRIZZO_NON_CODIFICATO: "Indirizzo non codificato DE",
       NAZIONE: "Nazione DE",
       COMUNE: "Comune DE",
       CAP: "C.A.P. DE",
@@ -145,8 +151,8 @@ function config($translateProvider) {
       LOCALITA: "Località DE",
       MASO: "Maso DE",
       INDIRIZZO_COMPLETO: "Indirizzo completo DE",
-      N_CIVICO:"N.Civico DE",
-      USA_INDIRIZZO:"Usa indirizzo DE",
+      N_CIVICO: "N.Civico DE",
+      USA_INDIRIZZO: "Usa indirizzo DE",
 
       // Label Anagrafiche
       CODICE_FISCALE: "Codice fiscale DE",

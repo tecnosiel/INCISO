@@ -9,7 +9,8 @@
  *  - MainCtrl
  *  - _ricercaAnagraficaCtrl
  *  - modalGestioneIndirizziCtrl
- * 
+ *  - modalGestioneRedditiCtrl
+ *
  *  - dashboardFlotOne
  *  - dashboardFlotTwo
  *  - dashboardFlotFive
@@ -57,13 +58,46 @@
  * Contiene i dati usati nella view _ricerca_anagrafica
  *
  */
-function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal) {
+function _ricercaAnagraficaCtrl(
+  $scope,
+  $rootScope,
+  httpServices,
+  $uibModal,
+  $filter,
+  NgTableParams
+) {
   $rootScope.editDatiAssistito = true;
 
+  var self = this;
+  self.tableParams = new NgTableParams(
+    {
+      count: 5,
+      // initial sort order
+      sorting: { cognome: "desc" }
+    },
+    {
+      counts: [5, 10, 20],
+      dataset: httpServices._ricercaAnagraficaRicerca.get("mockUrl")
+    }
+  );
+
+  this.cols = [
+    { field: "Cognome", title: "Cognome", sortable: "Cognome", show: true },
+    { field: "Nome", title: "Nome", sortable: "Nome", show: true },
+    { field: "CodiceFiscale", title: "Codice Fiscale", show: true },
+    { field: "DataDiNascita", title: "Data Nascita", show: true },
+    { field: "DataDiDecesso", title: "Data Decesso", show: true }
+  ];
+
   this.find = function() {
-    this.rispostaRicercaDatiAnagrafici = httpServices._ricercaAnagraficaRicerca.get(
+    // this.rispostaRicercaDatiAnagrafici = httpServices._ricercaAnagraficaRicerca.get(
+    //   "mockUrl"
+    // );
+
+    self.tableParams.data = httpServices._ricercaAnagraficaRicerca.get(
       "mockUrl"
     );
+
     debugger;
   };
 
@@ -76,14 +110,17 @@ function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal) {
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
-    // var modalInstance = $uibModal.open({
-    //   templateUrl: "./../views/gestione_indirizzi.html"
-    //   // controller: "ModalInstanceCtrl"
-    // });
-
     var modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_indirizzi.html",
       controller: modalGestioneIndirizziCtrl,
+      windowClass: "animated flipInY"
+    });
+  };
+
+  $rootScope.creaNuovoReddito = function() {
+    var modalInstance = $uibModal.open({
+      templateUrl: "./../views/gestione_redditi.html",
+      controller: modalGestioneRedditiCtrl,
       windowClass: "animated flipInY"
     });
   };
@@ -97,8 +134,15 @@ function _ricercaAnagraficaCtrl($scope, $rootScope, httpServices, $uibModal) {
   this.findDataDiNascita = "";
   this.findNumeroFaldoneArchiviazione = "";
   this.findAnnoDiScarto = "";
+
+  debugger;
 }
 
+/**
+ * modalGestioneIndirizziCtrl - controller
+ * Controller per la gestione della modale degli indirizzi
+ *
+ */
 function modalGestioneIndirizziCtrl($scope, $uibModalInstance) {
   $scope.ok = function() {
     $uibModalInstance.close();
@@ -109,6 +153,20 @@ function modalGestioneIndirizziCtrl($scope, $uibModalInstance) {
   };
 }
 
+/**
+ * modalGestioneRedditiCtrl - controller
+ * Controller per la gestione della modale dei redditi
+ *
+ */
+function modalGestioneRedditiCtrl($scope, $uibModalInstance) {
+  $scope.ok = function() {
+    $uibModalInstance.close();
+  };
+
+  $scope.cancel = function() {
+    $uibModalInstance.dismiss("cancel");
+  };
+}
 
 /**
  * MainCtrl - controller

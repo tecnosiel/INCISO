@@ -10,7 +10,8 @@
     "pascalprecht.translate", // Angular Translate
     "ngIdle", // Idle timer
     "ngSanitize", // ngSanitize
-    "angular-popover" // angular-popover
+    "angular-popover", // angular-popover
+    "ngTable" // ngTable
   ]);
 })();
 
