@@ -103,8 +103,6 @@ function visualizzaAnagraficaCtrl(
   runMode
 ) {
   $rootScope.editMode = (runMode == "NUOVOINSERIMENTO") ? true : false;
-  alert(runMode);
-  debugger;
 }
 
 /**
