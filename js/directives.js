@@ -33,11 +33,10 @@ function pageTitle($rootScope, $timeout) {
     link: function(scope, element) {
       var listener = function(event, toState, toParams, fromState, fromParams) {
         // Default title - load on Dashboard 1
-        // var title = 'INSPINIA | Responsive Admin Theme';
         var title = "INCISO | Gestione invalidi civili, ciechi civili e sordi";
         // Create your own title pattern
         if (toState.data && toState.data.pageTitle)
-          title = "INSPINIA | " + toState.data.pageTitle;
+          title = "INCISO | " + toState.data.pageTitle;
         $timeout(function() {
           element.text(title);
         });
@@ -421,7 +420,7 @@ function touchSpin() {
  * Collega tutte le funzioni al modulo principale
  */
 angular
-  .module("inspinia")
+  .module("inciso")
   .directive("pageTitle", pageTitle)
   .directive("sideNavigation", sideNavigation)
   .directive("iboxTools", iboxTools)

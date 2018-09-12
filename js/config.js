@@ -35,12 +35,12 @@ function config(
       templateUrl: "views/home"
     })
     // domanda --------------------------------------------------------------
-    .state("XXXdomande", {
+    .state("domande", {
       abstract: true,
       url: "/domande",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXdomande.nuova_domanda", {
+    .state("domande.nuova_domanda", {
       url: "/nuova_domanda",
       templateUrl: "views/nuova_domanda.html",
       data: { pageTitle: "Nuova Domanda" },
@@ -58,18 +58,18 @@ function config(
         }
       }
     })
-    .state("XXXdomande.domanda", {
+    .state("domande.domanda", {
       url: "/domanda",
       templateUrl: "views/domanda.html",
       data: { pageTitle: "Domanda" }
     })
     // posizione --------------------------------------------------------------
-    .state("XXXposizione", {
+    .state("posizione", {
       abstract: true,
       url: "/posizione",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXposizione.ricerca_posizione", {
+    .state("posizione.ricerca_posizione", {
       url: "/ricerca_posizione",
       templateUrl: "views/ricerca_posizione.html"
     })
@@ -98,7 +98,7 @@ function config(
     })
 
     .state("anagrafica.inserimento_anagrafica", {
-      url: "/visualizza_anagrafica",
+      url: "/inserimento_anagrafica",
       templateUrl: "views/visualizza_anagrafica.html",
       controller: "visualizzaAnagraficaCtrl as visAnaCtrl",
       resolve: {
@@ -109,95 +109,95 @@ function config(
     })
 
     // liquidazione ------------------------------------------------------------
-    .state("XXXliquidazione", {
+    .state("liquidazione", {
       abstract: true,
       url: "/liquidazione",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXliquidazione.ricerca_liquidazione", {
+    .state("liquidazione.ricerca_liquidazione", {
       url: "/ricerca_liquidazione",
       templateUrl: "views/ricerca_liquidazione.html"
     })
-    .state("XXXliquidazione.elabora_liquidazione_mensile", {
+    .state("liquidazione.elabora_liquidazione_mensile", {
       url: "/elabora_liquidazione_mensile",
       templateUrl: "views/elabora_liquidazione_mensile.html"
     })
-    .state("XXXliquidazione.elabora_conguaglio", {
+    .state("liquidazione.elabora_conguaglio", {
       url: "/elabora_conguaglio",
       templateUrl: "views/elabora_conguaglio.html"
     })
-    .state("XXXliquidazione.elabora_liquidazione_eredi", {
+    .state("liquidazione.elabora_liquidazione_eredi", {
       url: "/elabora_liquidazione_eredi",
       templateUrl: "views/elabora_liquidazione_eredi.html"
     })
     // evidenze --------------------------------------------------------------
-    .state("XXXevidenze", {
+    .state("evidenze", {
       abstract: true,
       url: "/evidenze",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXevidenze.ricerca_evidenza", {
+    .state("evidenze.ricerca_evidenza", {
       url: "/ricerca_evidenza",
       templateUrl: "views/ricerca_evidenza.html"
     })
-    .state("XXXevidenze.nuova_evidenza", {
+    .state("evidenze.nuova_evidenza", {
       url: "/nuova_evidenza",
       templateUrl: "views/nuova_evidenza.html"
     })
 
     // documenti --------------------------------------------------------------
-    .state("XXXdocumenti", {
+    .state("documenti", {
       abstract: true,
       url: "/documenti",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXdocumenti.ricerca_documenti", {
+    .state("documenti.ricerca_documenti", {
       url: "/ricerca_documenti",
       templateUrl: "views/ricerca_documenti.html"
     })
     // genera comunicazione ----------------------------------------------------
-    .state("XXXcomunicazione", {
+    .state("comunicazione", {
       abstract: true,
       url: "/comunicazione",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXcomunicazione.genera_comunicazione", {
+    .state("comunicazione.genera_comunicazione", {
       url: "/genera_comunicazione",
       templateUrl: "views/genera_comunicazione.html"
     })
     // associazioni ------------------------------------------------------------
-    .state("XXXassociazioni", {
+    .state("associazioni", {
       abstract: true,
       url: "/associazioni",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXassociazioni.ricerca_associazione", {
+    .state("associazioni.ricerca_associazione", {
       url: "/ricerca_associazione",
       templateUrl: "views/ricerca_associazione.html"
     })
-    .state("XXXassociazioni.visualizza_associazione", {
+    .state("associazioni.visualizza_associazione", {
       url: "/visualizza_associazione",
       templateUrl: "views/visualizza_associazione.html"
     })
-    .state("XXXassociazioni.nuova_associazione", {
+    .state("associazioni.nuova_associazione", {
       url: "/nuova_associazione",
       templateUrl: "views/nuova_associazione.html"
     })
     // liquidazioni ------------------------------------------------------------
-    .state("XXXliquidazioni", {
+    .state("liquidazioni", {
       abstract: true,
       url: "/liquidazioni",
       templateUrl: "views/common/content.html"
     })
-    .state("XXXliquidazioni.visualizza_liquidazione", {
+    .state("liquidazioni.visualizza_liquidazione", {
       url: "/visualizza_liquidazione",
       templateUrl: "views/visualizza_liquidazione.html"
     })
-    .state("XXXliquidazioni.visualizza_posizione", {
+    .state("liquidazioni.visualizza_posizione", {
       url: "/visualizza_posizione",
       templateUrl: "views/visualizza_posizione.html"
     })
-    .state("XXXliquidazioni.visualizza_domanda", {
+    .state("liquidazioni.visualizza_domanda", {
       url: "/visualizza_domanda",
       templateUrl: "views/visualizza_domanda.html"
     })
@@ -254,7 +254,7 @@ function config(
     });
 }
 angular
-  .module("inspinia")
+  .module("inciso")
   .config(config)
   .run(function($rootScope, $state) {
     $rootScope.$state = $state;

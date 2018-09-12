@@ -1,5 +1,5 @@
 /**
- * INSPINIA - Responsive Admin Theme
+ * INNCISO - Comune Bolzano
  *
  */
 function config($translateProvider) {
@@ -11,6 +11,7 @@ function config($translateProvider) {
       HOME: "Home",
       CERCA: "Cerca",
       SBLOCCA_CAMPI: "Sblocca Campi",
+      BLOCCA_CAMPI: "Blocca Campi",
       INIZIO_VALIDITA: "Inizio validità",
       FINE_VALIDITA: "Fine validità",
       ANNO:"Anno",
@@ -128,6 +129,7 @@ function config($translateProvider) {
       // Label Generali
       CERCA: "Cerca DE",
       SBLOCCA_CAMPI: "Sblocca Campi DE",
+      BLOCCA_CAMPI: "Blocca Campi DE",
       INIZIO_VALIDITA: "Inizio validità DE",
       FINE_VALIDITA: "Fine validità DE",
       ANNO:"Anno DE",
@@ -238,4 +240,4 @@ function config($translateProvider) {
   $translateProvider.preferredLanguage("en");
 }
 
-angular.module("inspinia").config(config);
+angular.module("inciso").config(config);

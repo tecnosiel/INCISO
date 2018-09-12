@@ -1,11 +1,15 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
+        <h2 ng-if="editModeAnagrafe">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</h2>
+        <h2 ng-if="!editModeAnagrafe">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">{{ 'HOME' | translate }}</a>
             </li>
-            <li>
+            <li ng-if="editModeAnagrafe">
+                <a href="ricerca_anagrafica.html">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</a>
+            </li>
+            <li ng-if="!editModeAnagrafe">
                 <a href="ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
             </li>
             <li class="active">
@@ -19,14 +23,16 @@
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <!-- <%- partial("_pannello_sintesi_anagrafica") %> -->
+    <div ng-if="!editModeAnagrafe" class="row">
         <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
     </div>
-
-    <div class="row text-left">
-        <div class="col-sm-12">
-            <button class="btn" ng-class="editDatiAssistito ? 'btn-primary':'btn-danger'" id="anagSearch" ng-click="editDatiAssistito = !editDatiAssistito">{{
+    <div ng-if="!editModeAnagrafe" class="row text-left">
+        <div ng-if="!visAnaCtrl.editDatiAssistito" class="col-sm-12">
+            <button class="btn btn-danger" ng-click="visAnaCtrl.editDatiAssistito = !visAnaCtrl.editDatiAssistito">{{
+                'BLOCCA_CAMPI' | translate }}</button>
+        </div>
+        <div ng-if="visAnaCtrl.editDatiAssistito" class="col-sm-12">
+            <button class="btn btn-primary" ng-click="visAnaCtrl.editDatiAssistito = !visAnaCtrl.editDatiAssistito">{{
                 'SBLOCCA_CAMPI' | translate }}</button>
         </div>
     </div>
@@ -44,17 +50,18 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Nome</label> <input type="text" ng-model="datiAssistito.Nome"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" ng-model="datiAssistito.Cognome"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text"
-                                    ng-model="datiAssistito.CognomeAcquisito" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-model="datiAssistito.CognomeAcquisito" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" ng-model="datiAssistito.CodiceFiscale"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" ng-model="datiAssistito.Sesso"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Stato civile</label> <input type="text" ng-model="datiAssistito.StatoCivile"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                         </div>
                     </div>
                 </div>
@@ -71,16 +78,16 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text"
-                                    ng-model="datiAssistito.LuogoDiNascita" ng-readonly="editDatiAssistito" class="form-control"
-                                    value="Milano"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" ng-model="datiAssistito.LuogoDiNascita"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-model="datiAssistito.DataDiDecesso"
-                                    ng-readonly="editDatiAssistito" class="form-control"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                         </div>
                     </div>
                 </div>
@@ -100,7 +107,7 @@
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <label>Cittadinanza</label>
-                                <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="editDatiAssistito"
+                                <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control"></div>
                             <div class="col-md-4 form-group">
                                 <label>Extracomunitario</label>
@@ -124,30 +131,33 @@
                         <h3 class="m-t-lg">Permesso di soggiorno</h3>
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Tipo permesso</label>
-                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso" ng-readonly="editDatiAssistito"
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control"></div>
                             <div class="col-md-4 form-group">
                                 <label>Data rilascio</label>
-                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio" ng-readonly="editDatiAssistito"
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Valido fino al</label>
-                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl" ng-readonly="editDatiAssistito"
+                                <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control"></div>
                         </div>
                         <h3 class="m-t-lg">Riferimenti di contatto</h3>
                         <div class="row">
                             <div class="col-md-4 form-group"><label>Telefono principale</label>
-                                <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="editDatiAssistito"
+                                <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Telefono secondario</label>
-                                <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="editDatiAssistito"
+                                <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control"></div>
                             <div class="col-md-4 form-group"><label>Email</label>
-                                <input type="text" ng-model="datiAssistito.Email" ng-readonly="editDatiAssistito" class="form-control"></div>
+                                <input type="text" ng-model="datiAssistito.Email" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                    class="form-control"></div>
                             <div class="col-md-4 form-group"><label>PEC</label>
-                                <input type="text" ng-readonly="editDatiAssistito" ng-model="datiAssistito.Pec" class="form-control"></div>
+                                <input type="text" ng-readonly="visAnaCtrl.editDatiAssistito" ng-model="datiAssistito.Pec"
+                                    class="form-control"></div>
                             <div class="col-md-12 form-group"><label>Note</label>
-                                <textarea ng-model="datiAssistito.Note" ng-readonly="editDatiAssistito" class="form-control"></textarea></div>
+                                <textarea ng-model="datiAssistito.Note" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                    class="form-control"></textarea></div>
                         </div>
                     </div>
                 </div>
@@ -259,7 +269,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="Invalidità, infortunio"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Invalidità, infortunio"></div>
                         </div>
                     </div>
                 </div>
@@ -275,12 +285,12 @@
                 <div id="collapseDecesso" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-readonly="editDatiAssistito"
+                            <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" ng-readonly="visAnaCtrl.editDatiAssistito"
                                     class="form-control" value="10/01/2016"></div>
                             <div class="col-md-4 form-group"><label>Numero faldone</label> <input type="text"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="357434"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="357434"></div>
                             <div class="col-md-4 form-group"><label>Anno di scarto IN-CI-SO</label> <input type="text"
-                                    ng-readonly="editDatiAssistito" class="form-control" value="2016"></div>
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="2016"></div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquEredi">
@@ -725,7 +735,6 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <!-- <%- partial("_elenco_evidenze") %> -->
                                 <div ng-include="'views/partials/_elenco_evidenze.html'"></div>
 
                             </div>
@@ -831,7 +840,6 @@
                 <h4 class="modal-title">Documenti per fascicolo</h4>
             </div>
             <div class="modal-body">
-                <!-- <%- partial("_elenco_documenti") %> -->
                 <div ng-include="'views/partials/_elenco_documenti.html'"></div>
             </div>
             <div class="modal-footer">

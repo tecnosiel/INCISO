@@ -749,4 +749,4 @@ function httpServices($http) {
  *
  * Collega tutte le funzioni al modulo
  */
-angular.module("inspinia").factory("httpServices", httpServices);
+angular.module("inciso").factory("httpServices", httpServices);

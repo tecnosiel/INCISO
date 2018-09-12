@@ -26,8 +26,6 @@ function _ricercaAnagraficaCtrl(
   $filter,
   NgTableParams
 ) {
-  $rootScope.editDatiAssistito = true;
-
   var self = this;
   self.tableParams = new NgTableParams(
     {
@@ -102,7 +100,10 @@ function visualizzaAnagraficaCtrl(
   NgTableParams,
   runMode
 ) {
-  $rootScope.editMode = (runMode == "NUOVOINSERIMENTO") ? true : false;
+  this.editDatiAssistito = true;
+  alert(runMode);
+  $rootScope.editModeAnagrafe = runMode == "NUOVOINSERIMENTO" ? true : false;
+  debugger;
 }
 
 /**
@@ -166,7 +167,7 @@ function MainCtrl($scope, $rootScope, $translate, $http) {
  * Collega tutte le funzioni al modulo
  */
 angular
-  .module("inspinia")
+  .module("inciso")
   .controller("MainCtrl", MainCtrl)
   .controller("translateCtrl", translateCtrl)
   .controller("visualizzaAnagraficaCtrl", visualizzaAnagraficaCtrl)
