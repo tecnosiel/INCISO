@@ -100,9 +100,14 @@ function visualizzaAnagraficaCtrl(
   NgTableParams,
   runMode
 ) {
-  this.editDatiAssistito = true;
-  alert(runMode);
-  $rootScope.editModeAnagrafe = runMode == "NUOVOINSERIMENTO" ? true : false;
+  if (runMode == "NUOVOINSERIMENTO") {
+    this.editDatiAssistito = false;
+    $rootScope.inserimentoAnagrafe = true;
+  }else{
+    this.editDatiAssistito = true;
+    $rootScope.inserimentoAnagrafe = false;
+
+  }
   debugger;
 }
 

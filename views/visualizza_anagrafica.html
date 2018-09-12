@@ -1,15 +1,15 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2 ng-if="editModeAnagrafe">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</h2>
-        <h2 ng-if="!editModeAnagrafe">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
+        <h2 ng-if="inserimentoAnagrafe">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</h2>
+        <h2 ng-if="!inserimentoAnagrafe">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">{{ 'HOME' | translate }}</a>
             </li>
-            <li ng-if="editModeAnagrafe">
+            <li ng-if="inserimentoAnagrafe">
                 <a href="ricerca_anagrafica.html">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</a>
             </li>
-            <li ng-if="!editModeAnagrafe">
+            <li ng-if="!inserimentoAnagrafe">
                 <a href="ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
             </li>
             <li class="active">
@@ -23,10 +23,10 @@
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div ng-if="!editModeAnagrafe" class="row">
+    <div ng-if="!inserimentoAnagrafe" class="row">
         <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
     </div>
-    <div ng-if="!editModeAnagrafe" class="row text-left">
+    <div ng-if="!inserimentoAnagrafe" class="row text-left">
         <div ng-if="!visAnaCtrl.editDatiAssistito" class="col-sm-12">
             <button class="btn btn-danger" ng-click="visAnaCtrl.editDatiAssistito = !visAnaCtrl.editDatiAssistito">{{
                 'BLOCCA_CAMPI' | translate }}</button>
