@@ -418,7 +418,7 @@ function touchSpin() {
 
 /**
  *
- * Pass all functions into module
+ * Collega tutte le funzioni al modulo principale
  */
 angular
   .module("inspinia")

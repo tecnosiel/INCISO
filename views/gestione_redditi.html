@@ -6,15 +6,21 @@
     <div class="modal-body">
 
         <div class="row">
-            <div class="col-md-4 form-group"><label>{{ "TIPO_INDIRIZZO" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
+            <div class="col-md-2 form-group"><label>{{ "ANNO" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
                     ng-readonly="editDatiAssistito" class="form-control"></div>
-            <div class="col-md-4 form-group"><label>{{ "ATTUALE" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                    ng-readonly="editDatiAssistito" class="form-control" value="Milano"></div>
+            <div class="col-md-6 form-group"><label>{{ "VALIDO_PER_ANNI_SUCCESSIVI" | translate}}</label>
+                <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="editDatiAssistito" class="form-control"
+                    value="Milano"> -->
+                <div class="checkbox"><input icheck type="checkbox" ng-model="xxx"> <i></i>
+                </div>
+
+            </div>
+
             <div class="col-md-4 form-group"><label>{{ "ATTIVO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
                     ng-readonly="editDatiAssistito" class="form-control"></div>
         </div>
 
-        <table class="table table-bordered table-striped">
+        <!-- <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th class="col-md-2">Nazione</th>
@@ -41,18 +47,18 @@
                 </tr>
             </tbody>
         </table>
+ -->
 
-
-        <div class="row text-right">
+        <!-- <div class="row text-right">
             <div class="col-sm-12">
                 <button class="btn btn-primary" id="anagSearch" ng-click="alert('da implementare')">{{ 'USA_INDIRIZZO' |
                     translate }}</button>
             </div>
-        </div>
+        </div> -->
 
         <div class="panel panel-default m-t-lg">
             <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoCodificato">
-                {{ 'INDIRIZZO_CODIFICATO' | translate }}
+                {{ 'REDDITI_PERCEPITI_ASSISTITO' | translate }}
                 <div class="panel-toolbox">
                     <i class="fa fa-chevron-down"></i>
                 </div>
@@ -60,16 +66,17 @@
             <div id="collapseIndirizzoCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "COMUNE" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control" value="Milano"></div>
-                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "FRAZIONE" | translate}}</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-8 form-group"><label>{{ "VIA" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiDecesso"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.DataDiNascita" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "COMUNE" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="editDatiAssistito" class="form-control"
+                                value="Milano"></div>
+                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "FRAZIONE" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-8 form-group"><label>{{ "VIA" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.DataDiDecesso" ng-readonly="editDatiAssistito" class="form-control"></div>
                     </div>
                 </div>
             </div>
@@ -77,7 +84,7 @@
 
         <div class="panel panel-default m-t-lg">
             <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoNonCodificato">
-                {{ 'INDIRIZZO_NON_CODIFICATO' | translate }}
+                {{ 'REDDITI_PERCEPITI_CONIUGE' | translate }}
                 <div class="panel-toolbox">
                     <i class="fa fa-chevron-down"></i>
                 </div>
@@ -85,32 +92,22 @@
             <div id="collapseIndirizzoNonCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>{{ "LOCALITA" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control" value="Milano"></div>
-                        <div class="col-md-4 form-group"><label>{{ "MASO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-10 form-group"><label>{{ "VIA" | translate}}</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                ng-readonly="editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-12 form-group"><label>{{ "INDIRIZZO_COMPLETO" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.DataDiDecesso" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "LOCALITA" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.DataDiNascita" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="editDatiAssistito" class="form-control"
+                                value="Milano"></div>
+                        <div class="col-md-4 form-group"><label>{{ "MASO" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-10 form-group"><label>{{ "VIA" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-12 form-group"><label>{{ "INDIRIZZO_COMPLETO" | translate}}</label> <input
+                                type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="editDatiAssistito"
+                                class="form-control"></div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-4 form-group"><label>{{ "N_CIVICO" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                    ng-readonly="editDatiAssistito" class="form-control"></div>
-            <div class="col-md-4 form-group"><label>{{ "INIZIO_VALIDITA" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                    ng-readonly="editDatiAssistito" class="form-control" value="Milano"></div>
-            <div class="col-md-4 form-group"><label>{{ "FINE_VALIDITA" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                    ng-readonly="editDatiAssistito" class="form-control"></div>
-        </div>
-
-
-
 
     </div>
     <div class="modal-footer">

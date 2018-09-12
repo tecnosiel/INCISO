@@ -747,6 +747,6 @@ function httpServices($http) {
 
 /**
  *
- * Pass all functions into module
+ * Collega tutte le funzioni al modulo
  */
 angular.module("inspinia").factory("httpServices", httpServices);

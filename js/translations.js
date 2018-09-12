@@ -13,6 +13,7 @@ function config($translateProvider) {
       SBLOCCA_CAMPI: "Sblocca Campi",
       INIZIO_VALIDITA: "Inizio validità",
       FINE_VALIDITA: "Fine validità",
+      ANNO:"Anno",
 
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua",
@@ -24,6 +25,10 @@ function config($translateProvider) {
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
+      VALIDO_PER_ANNI_SUCCESSIVI:"Valido per anni successivi",
+      REDDITI_PERCEPITI_ASSISTITO:"Redditi percepiti dall'assistito",
+      REDDITI_PERCEPITI_CONIUGE:"Redditi percepiti dal coniuge",
+
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo",
@@ -125,6 +130,7 @@ function config($translateProvider) {
       SBLOCCA_CAMPI: "Sblocca Campi DE",
       INIZIO_VALIDITA: "Inizio validità DE",
       FINE_VALIDITA: "Fine validità DE",
+      ANNO:"Anno DE",
 
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua DE",
@@ -136,6 +142,9 @@ function config($translateProvider) {
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso DE",
+      VALIDO_PER_ANNI_SUCCESSIVI:"Valido per anni successivi DE",
+      REDDITI_PERCEPITI_ASSISTITO:"Redditi percepiti dall'assistito DE",
+      REDDITI_PERCEPITI_CONIUGE:"Redditi percepiti dal coniuge DE",
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo DE",

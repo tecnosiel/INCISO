@@ -85,13 +85,31 @@ function config(
       templateUrl: "views/ricerca_anagrafica.html"
     })
     .state("anagrafica.inserimento_anagrafica", {
-      url: "/inserimento_anagrafica",
-      templateUrl: "views/inserimento_anagrafica.html"
-    })
-    .state("anagrafica.visualizza_anagrafica", {
       url: "/visualizza_anagrafica",
       templateUrl: "views/visualizza_anagrafica.html"
     })
+    .state("anagrafica.visualizza_anagrafica", {
+      url: "/visualizza_anagrafica",
+      templateUrl: "views/visualizza_anagrafica.html",
+      controller: "visualizzaAnagraficaCtrl as visAnaCtrl",
+      resolve: {
+        runMode: function() {
+          return "NUOVOINSERIMENTO";
+        }
+      }
+    })
+
+    .state("anagrafica.inserimento_anagrafica", {
+      url: "/visualizza_anagrafica",
+      templateUrl: "views/visualizza_anagrafica.html",
+      controller: "visualizzaAnagraficaCtrl as visAnaCtrl",
+      resolve: {
+        runMode: function() {
+          return "NUOVOINSERIMENTO";
+        }
+      }
+    })
+    
     // liquidazione ------------------------------------------------------------
     .state("XXXliquidazione", {
       abstract: true,
