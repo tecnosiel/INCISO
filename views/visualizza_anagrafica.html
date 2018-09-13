@@ -100,27 +100,43 @@
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
                                     <label>Sesso</label>
-                                    <!-- <input type="text" name="sesso" ng-model="datiAssistito.Sesso" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control" required>
-                                </div> -->
-                                    <div>
-                                        <label class="checkbox-inline">
-                                            <input icheck type="radio" name="sesso" ng-model="datiAssistito.Sesso"
-                                                ng-readonly="visAnaCtrl.editDatiAssistito">
-                                            Maschile
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input icheck type="radio" name="sesso" ng-model="datiAssistito.Sesso"
-                                                ng-readonly="visAnaCtrl.editDatiAssistito">
-                                            Femminile
-                                        </label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Maschile"
+                                                        name="sesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                                    <i></i>
+                                                    Maschile
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Femminile"
+                                                        name="sesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                                    <i></i>
+                                                    Femminile
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
+
 
                                 <div class="col-md-4 form-group">
                                     <label>Stato civile</label>
-                                    <input type="text" name="statocivile" ng-model="datiAssistito.StatoCivile"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required></div>
+                                    <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                        <option></option>
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                    </select>
+                                </div>
 
                                 <!-- --------------------------  -->
 
@@ -139,19 +155,51 @@
                     <div id="collapseDataNascita" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-4 form-group"><label>Data di nascita</label> <input type="text"
-                                        ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control"></div>
-                                <div class="col-md-4 form-group"><label>Luogo di nascita</label> <input type="text"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" ng-model="datiAssistito.LuogoDiNascita"
-                                        class="form-control"></div>
+
+                                <div class="col-md-4 form-group">
+                                    <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
+                                    <div class="input-group date">
+                                        <input type="text" name="datadinascita" ng-model="datiAssistito.DataDiNascita"
+                                            ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"  required>
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <p ng-show="userForm.datadinascita.$invalid && !userForm.datadinascita.$pristine"
+                                        class="help-block">{{
+                                        'DATA_DI_NASCITA' | translate }}
+                                        obbligatorio.</p>
+                                </div>
+
+                                <div class="col-md-4 form-group">
+                                    <label>Luogo di nascita</label>
+                                    <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"  required>
+                                    <p ng-show="userForm.luogodinascita.$invalid && !userForm.luogodinascita.$pristine"
+                                        class="help-block">Luogo di Nascita obbligatorio.</p>
+                                </div>
+    
                                 <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                                <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text"
-                                        ng-model="datiAssistito.DataDiDecesso" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control"></div>
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                </div>
+
+                                <div class="col-md-4 form-group">
+                                    <label>{{ 'DATA_DI_DECESSO' | translate }}</label>
+                                    <div class="input-group date">
+                                        <input type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                            class="form-control">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -923,7 +971,8 @@
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
-                    <h4 class="modal-title"><i class="fa fa-search"></i> {{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</h4>
+                    <h4 class="modal-title"><i class="fa fa-search"></i> {{ 'RICERCA_DATI_ANAGRAFICI' | translate
+                        }}</h4>
                     <small class="font-bold">Inserisci i dati e avvia la ricerca</small>
                 </div>
                 <div class="modal-body">
