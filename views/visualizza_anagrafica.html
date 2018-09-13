@@ -553,18 +553,16 @@
                     </div>
                     <div id="collapseElencoRedditi" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <div class="row">
-                                PROBLEMAJQUERYDAANALIZZARE:LA TABELLA NON FUNZIONA X I DATI DINAMICI DI ANGULAR
-                                <!-- Il problema lo genera il codice sottostante che se abilitato rompe angular -->
-                                <div class="col-md-12">
 
-                                    <table id="tabellaRedditi" class="table table-bordered table-striped dataTables-paged order-desc">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table datatable="ng" dt-options="visAnaCtrl.dtOptions" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Anno</th>
-                                                <th>Reddito assistito</th>
-                                                <th>Reddito coniuge</th>
-                                                <th>Valido per gli anni successivi</th>
+                                                <th>{{'ANNO' | translate}} </th>
+                                                <th>{{'REDDITO_ASSISTITO' | translate}} </th>
+                                                <th>{{'REDDITO_CONIUGE' | translate}} </th>
+                                                <th>{{ 'VALIDO_PER_GLI_ANNI_SUCCESSIVI' | translate }}</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -577,8 +575,8 @@
                                                 </td>
                                                 <td>{{item.RedditoConiuge}}</td>
                                                 <td class="text-center">
-                                                    <div class="checkbox"><input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
-                                                            disabled> <i></i></div>
+                                                    <div class="checkbox"><input icheck ng-model="item.ValidoPerGliAnniSuccessivi"
+                                                            type="checkbox" disabled> <i></i></div>
                                                 </td>
 
                                                 <td style="font-size: 18px; text-align: center">
@@ -978,9 +976,3 @@
 
     </div>
 </form>
-
-<script>
-
-    $('#tabellaRedditi').DataTable({ searching: true, responsive: true, lengthChange: false });
-
-</script>

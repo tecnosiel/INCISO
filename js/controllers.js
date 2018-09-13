@@ -24,25 +24,43 @@ function _ricercaAnagraficaCtrl(
   httpServices,
   $uibModal,
   $filter,
-  NgTableParams
+  NgTableParams,
+  DTOptionsBuilder
 ) {
-  var self = this;
-  self.tableParams = new NgTableParams(
-    {
-      count: 5,
-      // initial sort order
-      sorting: { cognome: "desc" }
-    },
-    {
-      counts: [5, 10, 20],
-      dataset: httpServices._ricercaAnagraficaRicerca.get("mockUrl")
-    }
-  );
+  self = this;
+
+  // https://www.datatables.net/reference/option/
+  this.dtOptions = DTOptionsBuilder.newOptions()
+    .withOption("paging", true)
+    .withOption("searching", true)
+    .withOption("info", true)
+    .withOption("lengthChange", false);
+
+  // var self = this;
+  // self.tableParams = new NgTableParams(
+  //   {
+  //     count: 5,
+  //     // initial sort order
+  //     sorting: { cognome: "desc" }
+  //   },
+  //   {
+  //     counts: [5, 10, 20],
+  //     dataset: httpServices._ricercaAnagraficaRicerca.get("mockUrl")
+  //   }
+  // );
+
+  // this.find = function() {
+  //   self.tableParams.data = httpServices._ricercaAnagraficaRicerca.get(
+  //     "mockUrl"
+  //   );
+  // };
 
   this.find = function() {
-    self.tableParams.data = httpServices._ricercaAnagraficaRicerca.get(
+    self.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
       "mockUrl"
     );
+
+    debugger;
   };
 
   this.findCodFis = function(cCodFis) {
@@ -50,6 +68,7 @@ function _ricercaAnagraficaCtrl(
       "mockUrl",
       cCodFis
     );
+    debugger;
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
@@ -93,8 +112,16 @@ function visualizzaAnagraficaCtrl(
   $uibModal,
   $filter,
   NgTableParams,
-  runMode
+  runMode,
+  DTOptionsBuilder
 ) {
+  // https://www.datatables.net/reference/option/
+  this.dtOptions = DTOptionsBuilder.newOptions()
+    .withOption("paging", true)
+    .withOption("searching", true)
+    .withOption("info", true)
+    .withOption("lengthChange", false);
+
   if (runMode == "NUOVOINSERIMENTO") {
     this.editDatiAssistito = false;
     this.inserimentoAnagrafe = true;

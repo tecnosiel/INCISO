@@ -30,6 +30,10 @@ function config($translateProvider) {
       REDDITI_PERCEPITI_ASSISTITO:"Redditi percepiti dall'assistito",
       REDDITI_PERCEPITI_CONIUGE:"Redditi percepiti dal coniuge",
 
+      REDDITO_ASSISTITO : "Reddito assistito",
+      REDDITO_CONIUGE:"Reddito coniuge",
+      VALIDO_PER_GLI_ANNI_SUCCESSIVI:"Valido per gli anni successivi",
+
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo",
@@ -148,6 +152,11 @@ function config($translateProvider) {
       VALIDO_PER_ANNI_SUCCESSIVI:"Valido per anni successivi DE",
       REDDITI_PERCEPITI_ASSISTITO:"Redditi percepiti dall'assistito DE",
       REDDITI_PERCEPITI_CONIUGE:"Redditi percepiti dal coniuge DE",
+
+      REDDITO_ASSISTITO : "Reddito assistito DE",
+      REDDITO_CONIUGE:"Reddito coniuge DE",
+      VALIDO_PER_GLI_ANNI_SUCCESSIVI:"Valido per gli anni successivi DE",
+
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo DE",

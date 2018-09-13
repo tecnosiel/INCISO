@@ -82,7 +82,8 @@ function config(
     })
     .state("anagrafica.ricerca_anagrafica", {
       url: "/ricerca_anagrafica",
-      templateUrl: "views/ricerca_anagrafica.html"
+      templateUrl: "views/ricerca_anagrafica.html",
+      controller: "_ricercaAnagraficaCtrl as _ricAnagCtrl"
     })
 
     .state("anagrafica.visualizza_anagrafica", {
@@ -94,7 +95,6 @@ function config(
           return "VISUALIZZA";
         }
       }
-
     })
 
     .state("anagrafica.inserimento_anagrafica", {
