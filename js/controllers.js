@@ -43,8 +43,6 @@ function _ricercaAnagraficaCtrl(
     self.tableParams.data = httpServices._ricercaAnagraficaRicerca.get(
       "mockUrl"
     );
-
-    debugger;
   };
 
   this.findCodFis = function(cCodFis) {
@@ -52,7 +50,6 @@ function _ricercaAnagraficaCtrl(
       "mockUrl",
       cCodFis
     );
-    debugger;
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
@@ -80,8 +77,6 @@ function _ricercaAnagraficaCtrl(
   this.findDataDiNascita = "";
   this.findNumeroFaldoneArchiviazione = "";
   this.findAnnoDiScarto = "";
-
-  debugger;
 }
 
 /**
@@ -115,8 +110,6 @@ function visualizzaAnagraficaCtrl(
       alert("la tua Form è valida");
     }
   };
-
-  debugger;
 }
 
 /**

@@ -26,7 +26,12 @@
 <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 
     <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button>
+    <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
+    <div ng-if="!visAnaCtrl.editDatiAssistito" class="col-sm-12">
+        <br>
+        <button type="submit" class="btn btn-primary" ng-click="" ng-disabled="userForm.$invalid">{{
+            'REGISTRA' | translate }}</button>
+    </div>
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div ng-if="!visAnaCtrl.inserimentoAnagrafe" class="row">
@@ -160,7 +165,7 @@
                                     <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
                                     <div class="input-group date">
                                         <input type="text" name="datadinascita" ng-model="datiAssistito.DataDiNascita"
-                                            ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"  required>
+                                            ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
@@ -174,15 +179,21 @@
                                 <div class="col-md-4 form-group">
                                     <label>Luogo di nascita</label>
                                     <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"  required>
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
                                     <p ng-show="userForm.luogodinascita.$invalid && !userForm.luogodinascita.$pristine"
                                         class="help-block">Luogo di Nascita obbligatorio.</p>
                                 </div>
-    
-                                <div class="col-md-4 form-group"><label>Provincia</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+
+                                <div class="col-md-4 form-group">
+                                    <label>Provincia</label>
+                                    <input type="text" name="provinciadinascita" ng-model="datiAssistito.ProvinciaDiNascita"
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                    <p ng-show="userForm.provinciadinascita.$invalid && !userForm.provinciadinascita.$pristine"
+                                        class="help-block">Provincia di Nascita obbligatoria.</p>
+
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
                                         ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
@@ -849,8 +860,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <div ng-include="'views/partials/_elenco_evidenze.html'"></div>
-
+                                    <div ng-include="'/views/partials/_elenco_evidenze.html'"></div>
                                 </div>
                             </div>
                         </div>
