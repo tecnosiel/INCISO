@@ -569,43 +569,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>2014</td>
-                                                <td>€ 10.543,00</td>
-                                                <td>€ 5.800,00</td>
+
+                                            <tr ng-repeat="item in datiAssistito.Redditi">
+                                                <td>{{item.Anno}}</td>
+                                                <td>
+                                                    {{item.RedditoAssistito}}
+                                                </td>
+                                                <td>{{item.RedditoConiuge}}</td>
                                                 <td class="text-center">
-                                                    <div class="checkbox"><input icheck ng-model="XXX" type="checkbox"
+                                                    <div class="checkbox"><input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
                                                             disabled> <i></i></div>
                                                 </td>
-                                                <td style="font-size: 18px; text-align: center">
-                                                    <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
-                                                </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>2013</td>
-                                                <td>€ 10.543,00</td>
-                                                <td>€ 5.800,00</td>
-                                                <td class="text-center">
-                                                    <div class="checkbox"><input icheck ng-model="XXX" type="checkbox"
-                                                            checked disabled> <i></i></div>
-                                                </td>
                                                 <td style="font-size: 18px; text-align: center">
-                                                    <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
+                                                    <a href="xxxxx.html"><i class="fa fa-pencil"></i></a>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2012</td>
-                                                <td colspan="2" class="text-center">Nessun reddito percepito</td>
-                                                <td style="display:none"></td>
-                                                <td class="text-center">
-                                                    <div class="checkbox"><input icheck ng-model="XXX" type="checkbox"
-                                                            disabled> <i></i></div>
-                                                </td>
-                                                <td style="font-size: 18px; text-align: center">
-                                                    <a href="xxxx.html"><i class="fa fa-pencil"></i></a>
-                                                </td>
-
                                             </tr>
                                         </tbody>
                                     </table>
