@@ -23,14 +23,14 @@
             </div>
         </div>
         <div id="filtri_deceduto">
-            <div class="col-md-6 form-group">
+            <div class="col-md-6 form-group has-warning">
                 <label>{{ 'NUMERO_FALDONE_ARCHIVIAZIONE' | translate }}</label>
-                <input type="text" class="form-control" ng-model="_ricAnagCtrl.findNumeroFaldoneArchiviazione"
+                <input type="number" class="form-control" ng-model="_ricAnagCtrl.findNumeroFaldoneArchiviazione"
                     placeholder="Numero faldone archiviazione da ricercare">
             </div>
-            <div class="col-md-6 form-group">
+            <div class="col-md-6 form-group has-error">
                 <label>{{ 'ANNO_DI_SCARTO' | translate }}</label>
-                <input type="text" class="form-control" ng-model="_ricAnagCtrl.findAnnoDiScarto" placeholder="Anno di scarto da ricercare">
+                <input type="number" class="form-control" ng-model="_ricAnagCtrl.findAnnoDiScarto" placeholder="Anno di scarto da ricercare">
             </div>
 
         </div>

@@ -102,12 +102,20 @@ function visualizzaAnagraficaCtrl(
 ) {
   if (runMode == "NUOVOINSERIMENTO") {
     this.editDatiAssistito = false;
-    $rootScope.inserimentoAnagrafe = true;
-  }else{
+    this.inserimentoAnagrafe = true;
+  } else {
     this.editDatiAssistito = true;
-    $rootScope.inserimentoAnagrafe = false;
-
+    this.inserimentoAnagrafe = false;
   }
+
+  // function to submit the form after all validation has occurred
+  $scope.submitForm = function(isValid) {
+    // check to make sure the form is completely valid
+    if (isValid) {
+      alert("la tua Form è valida");
+    }
+  };
+
   debugger;
 }
 
