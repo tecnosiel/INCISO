@@ -4707,6 +4707,13 @@ body.skin-3 {
 
 /* Custom */
 
+.custom-popover div {
+  margin-bottom: 5px;
+  width: 500px;
+  font-size: 15px;
+  color: black;
+}
+
 .inmodal .modal-header {
   padding: 12px 15px;
   text-align: center;
