@@ -15,6 +15,75 @@
  *
  */
 mochDbTable = function(table) {
+
+  // ---------------------------------------------------
+  // ANAGRAFE
+  // ---------------------------------------------------
+
+  let tabDomande = [
+    {
+      CodiceFiscale: "RSSARO70A10F2052",
+      Cognome: "Alfano",
+      Nome: "Camillo",
+      DataDiNascita: "01/01/1930",
+      DataDiDecesso: "-"
+    },
+    {
+      CodiceFiscale: "QTGSRO60A11Q2055",
+      Cognome: "Hammond",
+      Nome: "John",
+      DataDiNascita: "01/01/1970",
+      DataDiDecesso: "-"
+    },
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930"
+    },
+    {
+      CodiceFiscale: "VSYFRO70A10E2652",
+      Cognome: "Mathews",
+      Nome: "Suzanne",
+      DataDiNascita: "01/01/1966",
+      DataDiDecesso: "-"
+    },
+    {
+      CodiceFiscale: "WSSGRO70A10T2066",
+      Cognome: "Schidner",
+      Nome: "Robert",
+      DataDiNascita: "01/04/1950",
+      DataDiDecesso: "01/01/1930"
+    },
+
+    {
+      CodiceFiscale: "1234567890123456",
+      Cognome: "Alfano-1111",
+      Nome: "Camillo-1111",
+      DataDiNascita: "01/01/1930",
+      DataDiDecesso: "-"
+    },
+    {
+      CodiceFiscale: "3456735790GHJDAE",
+      Cognome: "Hammond222222",
+      Nome: "John22",
+      DataDiNascita: "01/01/1970",
+      DataDiDecesso: "-"
+    },
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930"
+    }
+  ];
+
+  // ---------------------------------------------------
+  // ANAGRAFE
+  // ---------------------------------------------------
+
   let tabAnagrafe = [
     {
       CodiceFiscale: "RSSARO70A10F2052",
@@ -2295,8 +2364,11 @@ mochDbTable = function(table) {
     case "anagrafe":
       return tabAnagrafe;
       break;
+    case "domande":
+      return tabDomande;
+      break;
     default:
-      alert("Tabella In MochDb inesistente");
+      alert("Tabella In MochDb SERVICES-HTTP inesistente");
       break;
   }
 };

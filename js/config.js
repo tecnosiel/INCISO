@@ -83,13 +83,13 @@ function config(
     .state("anagrafica.ricerca_anagrafica", {
       url: "/ricerca_anagrafica",
       templateUrl: "views/ricerca_anagrafica.html",
-      controller: "_ricercaAnagraficaCtrl as _ricAnagCtrl"
+      controller: "anagrafeCtrl as _ricAnagCtrl"
     })
 
     .state("anagrafica.visualizza_anagrafica", {
       url: "/visualizza_anagrafica",
       templateUrl: "views/visualizza_anagrafica.html",
-      controller: "visualizzaAnagraficaCtrl as visAnaCtrl",
+      controller: "visualizzaAnagrafeCtrlCtrl as visAnaCtrl",
       resolve: {
         runMode: function() {
           return "VISUALIZZA";
@@ -100,7 +100,7 @@ function config(
     .state("anagrafica.inserimento_anagrafica", {
       url: "/inserimento_anagrafica",
       templateUrl: "views/visualizza_anagrafica.html",
-      controller: "visualizzaAnagraficaCtrl as visAnaCtrl",
+      controller: "visualizzaAnagrafeCtrlCtrl as visAnaCtrl",
       resolve: {
         runMode: function() {
           return "NUOVOINSERIMENTO";

@@ -7,18 +7,35 @@
  *
  * Functions (controllers)
  *  - MainCtrl
- *  - _ricercaAnagraficaCtrl
+ *  - anagrafeCtrl
  *  - modalGestioneIndirizziCtrl
  *  - modalGestioneRedditiCtrl
  *  - translateCtrl
  */
 
 /**
- * _ricerca_anagrafica - controller
- * Contiene i dati usati nella view _ricerca_anagrafica
+ * domandeCtrl - controller
+ * Controller Principale di gestione delle domande
  *
  */
-function _ricercaAnagraficaCtrl(
+function domandaCtrl(
+  $scope,
+  $rootScope,
+  httpServices,
+  $uibModal,
+  $filter,
+  NgTableParams,
+  DTOptionsBuilder
+) {
+
+}
+
+/**
+ * _ricerca_anagrafica - controller
+ * Controller Principale di gestione delle anagrafiche
+ *
+ */
+function anagrafeCtrl(
   $scope,
   $rootScope,
   httpServices,
@@ -98,13 +115,13 @@ function _ricercaAnagraficaCtrl(
 }
 
 /**
- * visualizzaAnagraficaCtrl - controller
+ * visualizzaAnagrafeCtrlCtrl - controller
  * Controller per la gestione dell' anagrafica
  *
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagraficaCtrl(
+function visualizzaAnagrafeCtrlCtrl(
   $scope,
   $rootScope,
   httpServices,
@@ -202,5 +219,6 @@ angular
   .module("inciso")
   .controller("MainCtrl", MainCtrl)
   .controller("translateCtrl", translateCtrl)
-  .controller("visualizzaAnagraficaCtrl", visualizzaAnagraficaCtrl)
-  .controller("_ricercaAnagraficaCtrl", _ricercaAnagraficaCtrl);
+  .controller("visualizzaAnagrafeCtrlCtrl", visualizzaAnagrafeCtrlCtrl)
+  .controller("anagrafeCtrl", anagrafeCtrl)
+  .controller("domandeCtrl", domandeCtrl);

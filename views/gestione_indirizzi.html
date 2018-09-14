@@ -12,10 +12,66 @@
         <div class="row">
             <div class="col-md-4 form-group"><label>{{ "TIPO_INDIRIZZO" | translate}}</label> <input type="text"
                     ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-            <div class="col-md-4 form-group"><label>{{ "ATTUALE" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Milano"></div>
-            <div class="col-md-4 form-group"><label>{{ "ATTIVO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+            <!-- <div class="col-md-4 form-group"><label>{{ "ATTUALE" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
+                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Milano"></div> -->
+            <div class="col-md-4 form-group">
+                <label>{{ "ATTIVO" | translate}}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.IndirizzoAttuale" type="radio" value="Si" name="sesso"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <i></i>
+                                Si
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.IndirizzoAttuale" type="radio" value="No" name="sesso"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <i></i>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="col-md-4 form-group"><label>{{ "ATTIVO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
+                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div> -->
+
+            <div class="col-md-4 form-group">
+                <label>{{ "ATTIVO" | translate}}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.IndirizzoAttivo" type="radio" value="Si" name="sesso"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <i></i>
+                                Si
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.IndirizzoAttivo" type="radio" value="No" name="sesso"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <i></i>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div>
 
         <table class="table table-bordered table-striped">

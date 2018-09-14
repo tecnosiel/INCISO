@@ -14,7 +14,7 @@ function config($translateProvider) {
       BLOCCA_CAMPI: "Blocca Campi",
       INIZIO_VALIDITA: "Inizio validità",
       FINE_VALIDITA: "Fine validità",
-      ANNO:"Anno",
+      ANNO: "Anno",
 
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua",
@@ -24,22 +24,31 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi",
 
+      // Label Domanda
+      NUOVA_DOMANDA: "Nuova domanda",
+      RICERCA_ASSISTITO: "Ricerca assistito",
+      TIPOLOGIA_DI_ASSISTENZA_RICHIESTA: "Tipologia di assistenza richiesta",
+      CERCA_ASSISTITO: "Cerca assistito",
+      ORDINAMENTO: "Ordinamento",
+      ORDINA_PER: "Ordina per",
+      RISULTATI_DELLA_RICERCA: "Risultati della ricerca",
+      INCLUDI_DECEDUTI: "Includi deceduti",
+
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
-      VALIDO_PER_ANNI_SUCCESSIVI:"Valido per anni successivi",
-      REDDITI_PERCEPITI_ASSISTITO:"Redditi percepiti dall'assistito",
-      REDDITI_PERCEPITI_CONIUGE:"Redditi percepiti dal coniuge",
+      VALIDO_PER_ANNI_SUCCESSIVI: "Valido per anni successivi",
+      REDDITI_PERCEPITI_ASSISTITO: "Redditi percepiti dall'assistito",
+      REDDITI_PERCEPITI_CONIUGE: "Redditi percepiti dal coniuge",
 
-      REDDITO_ASSISTITO : "Reddito assistito",
-      REDDITO_CONIUGE:"Reddito coniuge",
-      VALIDO_PER_GLI_ANNI_SUCCESSIVI:"Valido per gli anni successivi",
+      REDDITO_ASSISTITO: "Reddito assistito",
+      REDDITO_CONIUGE: "Reddito coniuge",
+      VALIDO_PER_GLI_ANNI_SUCCESSIVI: "Valido per gli anni successivi",
 
-      TIPOLOGIA_DI_REDDITO:"Tipologia di reddito",
-      VALORE_REDDITO:"Valore reddito",
+      TIPOLOGIA_DI_REDDITO: "Tipologia di reddito",
+      VALORE_REDDITO: "Valore reddito",
 
-      NESSUN_REDDITO_PERCEPITO:"Nessun reddito percepito",
-      TOTALE:"Totale",
-
+      NESSUN_REDDITO_PERCEPITO: "Nessun reddito percepito",
+      TOTALE: "Totale",
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo",
@@ -143,7 +152,7 @@ function config($translateProvider) {
       BLOCCA_CAMPI: "Blocca Campi DE",
       INIZIO_VALIDITA: "Inizio validità DE",
       FINE_VALIDITA: "Fine validità DE",
-      ANNO:"Anno DE",
+      ANNO: "Anno DE",
 
       // Label Top Nav Bar
       CAMBIA_LINGUA: "Cambia lingua DE",
@@ -153,21 +162,25 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi DE",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
 
+      // Label Domanda
+      NUOVA_DOMANDA: "Nuova domanda DE",
+      RICERCA_ASSISTITO: "Ricerca assistito DE",
+
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso DE",
-      VALIDO_PER_ANNI_SUCCESSIVI:"Valido per anni successivi DE",
-      REDDITI_PERCEPITI_ASSISTITO:"Redditi percepiti dall'assistito DE",
-      REDDITI_PERCEPITI_CONIUGE:"Redditi percepiti dal coniuge DE",
+      VALIDO_PER_ANNI_SUCCESSIVI: "Valido per anni successivi DE",
+      REDDITI_PERCEPITI_ASSISTITO: "Redditi percepiti dall'assistito DE",
+      REDDITI_PERCEPITI_CONIUGE: "Redditi percepiti dal coniuge DE",
 
-      REDDITO_ASSISTITO : "Reddito assistito DE",
-      REDDITO_CONIUGE:"Reddito coniuge DE",
-      VALIDO_PER_GLI_ANNI_SUCCESSIVI:"Valido per gli anni successivi DE",
+      REDDITO_ASSISTITO: "Reddito assistito DE",
+      REDDITO_CONIUGE: "Reddito coniuge DE",
+      VALIDO_PER_GLI_ANNI_SUCCESSIVI: "Valido per gli anni successivi DE",
 
-      TIPOLOGIA_DI_REDDITO:"Tipologia di reddito DE",
-      VALORE_REDDITO:"Valore reddito DE",
+      TIPOLOGIA_DI_REDDITO: "Tipologia di reddito DE",
+      VALORE_REDDITO: "Valore reddito DE",
 
-      NESSUN_REDDITO_PERCEPITO:"Nessun reddito percepito DE",
-      TOTALE:"Totale DE",
+      NESSUN_REDDITO_PERCEPITO: "Nessun reddito percepito DE",
+      TOTALE: "Totale DE",
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo DE",

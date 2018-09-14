@@ -1,0 +1,511 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Nuova domanda</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">{{ 'HOME' | translate }}</a>
+            </li>
+            <li>
+                <a href="nuova_domanda.html">Ricerca assistito</a>
+            </li>
+            <li class="active">
+                <strong>Nuova domanda</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> Dati anagrafici assistito &nbsp;</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
+                                value="Maria"></div>
+                        <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
+                                value="Rossi"></div>
+                        <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" readonly
+                                class="form-control" value="Bianchi"></div>
+                        <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" readonly
+                                class="form-control" value="RSSMRA70A41F2052"></div>
+                        <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" readonly class="form-control"
+                                value="F"></div>
+                        <div class="col-md-2 form-group"><label>Data di nascita</label> <input type="text" readonly
+                                class="form-control" value="05/01/1970"></div>
+                        <div class="col-md-2 form-group"><label>Luogo di nascita</label> <input type="text" readonly
+                                class="form-control" value="Bolzano"></div>
+                        <div class="col-md-2 form-group"><label>Cittadinanza</label> <input type="text" readonly class="form-control"
+                                value="Americana"></div>
+                        <div class="col-md-2 form-group"><label>Extracomunitario</label> <input type="text" readonly
+                                class="form-control" value="Sì"></div>
+                        <div class="col-md-4 form-group"><label>Permesso di soggiorno</label> <input type="text"
+                                readonly class="form-control" value="PS10222-08"></div>
+                        <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
+                                value="10/01/2015"></div>
+                        <div class="col-md-4 form-group"><label>Residenza</label> <input type="text" readonly class="form-control"
+                                value="via Luigi Cadorna, 53 - 39100 Bolzano BZ"></div>
+                        <div class="col-md-4 form-group"><label>Domicilio</label> <input type="text" readonly class="form-control"
+                                value="via Armando Diaz, 2 - 39100 Bolzano BZ"></div>
+                        <div class="col-md-4 form-group"><label>Altri indirizzi</label> <input type="text" readonly
+                                class="form-control" value="23, 49 St., Chicago, Illinois, USA"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Dati domanda</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="m-b-sm form-group">
+                        <div>
+                            <label>
+                                Tipologia di assistenza richiesta
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                            name="a" checked disabled> <i></i>
+                                        77 </label></div>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                            name="a" disabled> <i></i>
+                                        88 </label></div>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                            name="a" disabled> <i></i>
+                                        99 </label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Data (*)</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                        class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-4 form-group"><label>Data (*)</label> <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div> -->
+                        <div class="col-md-4 form-group"><label>Email</label> <input type="email" class="form-control"></div>
+                        <div class="col-md-2 form-group"><label>Numero protocollo</label>
+                            <input type="text" class="form-control" readonly="">
+
+                        </div>
+                        <div class="col-md-1 form-group"><label>Data</label>
+                            <input type="text" class="form-control" readonly="">
+                        </div>
+                        <div class="col-md-1 ">
+                            <label>&nbsp;</label>
+                            <span class="input-group-btn"> <button type="button" class="btn btn-primary btn-sm">Cerca</button></span>
+                        </div>
+                        <div class="col-md-8 form-group"><label>Provenienza (*)</label>
+                            <select class="form-control m-b" name="account">
+                                <option>Commissione sanitaria dell’Azienda Sanitaria (1)</option>
+                                <option>Presentata direttamente (2)</option>
+                                <option>Fuori provincia (3)</option>
+                                <option>Commissione del comprensorio sanitario di Bolzano (4)</option>
+                                <option>Commissione del comprensorio sanitario di Merano (5)</option>
+                                <option>Commissione del comprensorio sanitario di Bressanone (6)</option>
+                                <option>Commissione del comprensorio sanitario di Brunico (7)</option>
+                                <option>Commissione ricorsi (8)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 form-group"><label>Delega patronato</label>
+                            <select class="form-control m-b" name="account">
+                                <option>ACLI Bolzano</option>
+                                <option>ACLI Merano</option>
+                                <option>INAS Bolzano</option>
+                                <option>EPACA Bolzano</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div>
+                        <h3 class="m-t-lg">Legale rappresentante</h3>
+                        <div class="m-b-sm">
+                            <strong>Mario Rossi - RSSMRO70A10F2052</strong><button type="button" class="m-l-sm btn btn-xs btn-primary  "
+                                data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-pencil"></i></button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group"><label>Numero decreto</label> <input type="email" class="form-control"></div>
+                            <div class="col-md-6 form-group">
+                                <label>Data decreto</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                            class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group"><label>Tipo decreto</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX"
+                                                    type="radio" name="b"> <i></i>
+                                                Provvisorio </label></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX"
+                                                    type="radio" name="b"> <i></i>
+                                                Definitivo </label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Scadenza decreto</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                            class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div>
+                        <h3 class="m-t-lg">Altro legale rappresentante</h3>
+                        <div class="m-b-sm">
+                            <span>cerca anagrafica </span><button type="button" class="m-l-sm btn btn-xs btn-primary  "
+                                data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group"><label>Numero decreto</label> <input type="text" class="form-control"></div>
+                            <div class="col-md-6 form-group">
+                                <label>Data decreto</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                            class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group"><label>Tipo decreto</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX"
+                                                    type="radio" name="c"> <i></i>
+                                                Provvisorio </label></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX"
+                                                    type="radio" name="c"> <i></i>
+                                                Definitivo </label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Scadenza decreto</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                            class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div>
+                        <h3 class="m-t-lg">Curatore</h3>
+                        <div class="m-b-sm">
+                            <span>cerca anagrafica </span><button type="button" class="m-l-sm btn btn-xs btn-primary  "
+                                data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div>
+                        <h3 class="m-t-lg">Comunicazioni (*)</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                            name="lang"> <i></i>
+                                        Italiano
+                                    </label></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                            name="lang"> <i></i>
+                                        Tedesco
+                                    </label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div>
+                        <h3 class="m-t-lg">Modalità di pagamento</h3>
+                        <div class="row">
+                            <div class="col-md-12 m-b-md">
+                                <label class="radio-inline"> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                        value="1" id="inlineCheckbox1" name="payment"> <strong> Bonifico bancario</strong>
+                                </label>
+                                <label class="radio-inline m-l-lg"> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                        value="2" id="inlineCheckbox2" name="payment"> <strong> Bonifico domiciliato
+                                        alla posta</strong> </label>
+                            </div>
+                            <div id="iban" class="col-md-12" style="display:none;">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <label>IBAN</label> <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Codice BIC/SWIFT</label> <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group"><label>Intestatario conto</label> <input type="text" class="form-control"></div>
+                                <div class="form-group"><label>Note</label> <textarea class="form-control"></textarea></div>
+                            </div>
+                            <div id="posta" class="col-md-12" style="display:none;">
+                                <div class="form-group"><label>Codice fiscale</label> <input type="text" class="form-control"></div>
+                                <div class="form-group"><label>Delegato dell'incasso</label> <input type="text" class="form-control"></div>
+                                <div class="form-group"><label>Note</label> <textarea class="form-control"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div>
+                        <h3 class="m-t-lg">Associazioni di categoria</h3>
+                        <div>
+                            <table class="table table-bordered dataTables-paged">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-3">Tipo associazione</th>
+                                        <th class="col-md-3">Data inizio iscrizione</th>
+                                        <th class="col-md-3">Data fine iscrizione</th>
+                                        <th class="col-md-3">Ritenuta di categoria (quota mensile)</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="toolbox-parent-row">
+                                        <td>ANMIC</td>
+                                        <td>10/04/1986</td>
+                                        <td>-</td>
+                                        <td>103.32 €</td>
+                                        <td style="width:60px" class="toolbox-row">
+                                            <a title="visualizza">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
+                                            <a title="elimina">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-right  m-b-sm">
+                                <button class="btn btn-primary btn-sm  ">Aggiungi iscrizione</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group"><label class="m-t-lg">Note</label> <textarea class="form-control"></textarea></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Dati verbale</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <h3 class="">Protocollo azienda sanitaria</h3>
+                    <div class="row">
+                        <div class="col-md-6 form-group"><label>Numero protocollo</label> <input type="text" class="form-control"></div>
+                        <div class="col-md-6 form-group" id="data_1">
+                            <label>Data</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                        class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 form-group"><label>Percentuale di invalidità (*)</label> <input type="text"
+                                class="form-control" placeholder></div>
+                        <div class="col-md-6 form-group">
+                            <div>
+                                <label>Indennità di accompagnamento</label>
+                            </div>
+                            <div>
+                                <div class="inline-block">
+                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                                name="e"> <i></i>
+                                            Sì</label></div>
+                                </div>
+                                <div class="inline-block m-l-lg">
+                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                                name="e"> <i></i>
+                                            No </label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <div>
+                                <label>Patologia uditiva</label>
+                            </div>
+                            <div>
+                                <div class="inline-block">
+                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                                name="f"> <i></i>
+                                            Sì</label></div>
+                                </div>
+                                <div class="inline-block m-l-lg">
+                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                                name="f"> <i></i>
+                                            No </label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <div>
+                                <label>Riduzione del visus</label>
+                            </div>
+                            <div>
+                                <div class="inline-block">
+                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                                name="g"> <i></i>
+                                            Sì</label></div>
+                                </div>
+                                <div class="inline-block m-l-lg">
+                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
+                                                name="g"> <i></i>
+                                            No </label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-md-4 form-group">
+                                <div>
+                                    <label>Sordo</label>
+                                </div>
+                                <div>
+                                    <div class="inline-block">
+                                        <div class="checkbox"><label> <input icheck   type="radio" name="h"> <i></i> Sì</label></div>
+                                    </div>
+                                    <div class="inline-block m-l-lg">
+                                        <div class="checkbox"><label> <input icheck   type="radio" name="h"> <i></i> No </label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <div>
+                                    <label>Cieco civile</label>
+                                </div>
+                                <div>
+                                    <div class="inline-block">
+                                        <div class="checkbox"><label> <input icheck   type="radio" name="i"> <i></i> Cieco civile assoluto</label></div>
+                                    </div>
+                                    <div class="inline-block m-l-lg">
+                                        <div class="checkbox"><label> <input icheck   type="radio" name="i"> <i></i> Cieco civile con residuo visivo </label></div>
+                                    </div>
+                                    <div class="inline-block m-l-lg">
+                                        <div class="checkbox"><label> <input icheck   type="radio" name="i"> <i></i> Non cieco </label></div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        <div class="col-md-12 form-group"><label>Note verbale</label> <textarea class="form-control"></textarea></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Data decorrenza del diritto al pagamento</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-6 form-group" id="data_decorrenza">
+                            <label>Data</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
+                                        class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-md">
+                <div class="button-bar text-right">
+                    <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
+                    <!--                    <button class="btn btn-sm btn-primary">Inserisci</button>-->
+                    <a class="btn btn-sm btn-white" href="nuova_domanda.html">Annulla</a>
+                    <a class="btn btn-sm btn-primary" href="visualizza_domanda.html">Inserisci</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal inmodal" id="modalAnagrafica" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title"><i class="fa fa-search"></i> {{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</h4>
+                <small class="font-bold">Inserisci i dati e avvia la ricerca</small>
+            </div>
+            <div class="modal-body">
+                <div ng-include="'views/partials/_ricerca_anagrafica.html'"></div>
+
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-primary" data-dismiss="modal">{{ 'INSERISCI_NUOVA_ANAGRAFICA' |
+                    translate }}</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#filtri_deceduto").hide();
+    $("input[name$='payment']").on("ifChecked", function () {
+        var test = $(this).val();
+
+        if (test == 1) {
+            $("#iban").show();
+            $("#posta").hide();
+        } else {
+            $("#iban").hide();
+            $("#posta").show();
+        }
+    });
+</script>
