@@ -1,4 +1,9 @@
+<style>
+    .modal-dialog { min-width: 700px;}
+</style>
+
 <div class="inmodal">
+
     <div class="modal-header">
         <h4 class="modal-title">{{ 'GESTIONE_REDDITI' | translate }}</h4>
         <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
@@ -16,8 +21,34 @@
 
             </div>
 
-            <div class="col-md-4 form-group"><label>{{ "ATTIVO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+            <div class="col-md-4 form-group">
+                <label>{{ "ATTIVO" | translate}}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Si" name="sesso"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <i></i>
+                                Si
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.Sesso" type="radio" value="No" name="sesso"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <i></i>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
 
         <!-- <table class="table table-bordered table-striped">
@@ -66,21 +97,79 @@
             <div id="collapseIndirizzoCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "COMUNE" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"
-                                value="Milano"></div>
-                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "FRAZIONE" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-8 form-group"><label>{{ "VIA" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.DataDiDecesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                        <!-- --------------------------  -->
+                        <div class="col-md-6 form-group">
+                            <label>Tipologia di Reddito</label>
+                            <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
+                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                <option></option>
+                                <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
+                                <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
+                                <option>Altri redditi da fabbricati</option>
+                                <option>option 4</option>
+                            </select>
+                        </div>
+                        <!-- --------------------------  -->
+                        <div class="col-md-4 form-group">
+                            <label>Valore reddito</label>
+                            <input type="text" name="valorereddito" ng-model="datiAssistito.ValoreReddito" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control" required>
+                            <p ng-show="userForm.valorereddito.$invalid && !userForm.valorereddito.$pristine" class="help-block">
+                                Valore reddito obbligatorio.</p>
+                        </div>
+                        <!-- --------------------------  -->
+                        <div class="col-md-2">
+                            <label></label>
+                            <button class="btn btn-primary" id="anagSearch" ng-click="">
+                                {{'OK' | translate }}
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- ---------- -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table datatable="ng" dt-options="dtOptions" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>{{'TIPOLOGIA_DI_REDDITO' | translate}} </th>
+                                        <th>{{'VALORE_REDDITO' | translate}} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
+                                    <tr ng-repeat="item in datiAssistito.Redditi[1].DettagliAssistito">
+                                        <td>
+                                            {{item.Tipologia}}
+                                        </td>
+                                        <td>{{item.Valore}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ---------- -->
+                    <div class="row">
+                        <div class="col-md-8 form-group">
+                            <label>{{ "NESSUN_REDDITO_PERCEPITO" | translate}}</label>
+                            <div class="checkbox"><input icheck type="checkbox" ng-model="xxx"> <i></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ "TOTALE" | translate}}</label>
+                            <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
+                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
         <div class="panel panel-default m-t-lg">
             <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoNonCodificato">
@@ -95,12 +184,14 @@
                         <div class="col-md-4 form-group"><label>{{ "LOCALITA" | translate}}</label> <input type="text"
                                 ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                         <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"
-                                value="Milano"></div>
+                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control" value="Milano"></div>
                         <div class="col-md-4 form-group"><label>{{ "MASO" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control"></div>
                         <div class="col-md-10 form-group"><label>{{ "VIA" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control"></div>
                         <div class="col-md-12 form-group"><label>{{ "INDIRIZZO_COMPLETO" | translate}}</label> <input
                                 type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="visAnaCtrl.editDatiAssistito"
                                 class="form-control"></div>

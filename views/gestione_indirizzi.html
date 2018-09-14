@@ -1,3 +1,7 @@
+<style>
+    .modal-dialog { min-width: 700px;}
+</style>
+
 <div class="inmodal">
     <div class="modal-header">
         <h4 class="modal-title">{{ 'GESTIONE_INDIRIZZI' | translate }}</h4>
@@ -6,8 +10,8 @@
     <div class="modal-body">
 
         <div class="row">
-            <div class="col-md-4 form-group"><label>{{ "TIPO_INDIRIZZO" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+            <div class="col-md-4 form-group"><label>{{ "TIPO_INDIRIZZO" | translate}}</label> <input type="text"
+                    ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
             <div class="col-md-4 form-group"><label>{{ "ATTUALE" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
                     ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Milano"></div>
             <div class="col-md-4 form-group"><label>{{ "ATTIVO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
@@ -45,7 +49,8 @@
 
         <div class="row text-right">
             <div class="col-sm-12">
-                <button class="btn btn-primary" id="anagSearch" ng-click="alert('da implementare')">{{ 'USA_INDIRIZZO' |
+                <button class="btn btn-primary" id="anagSearch" ng-click="alert('da implementare')">{{ 'USA_INDIRIZZO'
+                    |
                     translate }}</button>
             </div>
         </div>
@@ -60,16 +65,19 @@
             <div id="collapseIndirizzoCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "COMUNE" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Milano"></div>
-                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "FRAZIONE" | translate}}</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-8 form-group"><label>{{ "VIA" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiDecesso"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "COMUNE" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control" value="Milano"></div>
+                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "FRAZIONE" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control"></div>
+                        <div class="col-md-8 form-group"><label>{{ "VIA" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.DataDiDecesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
                     </div>
                 </div>
             </div>
@@ -85,16 +93,20 @@
             <div id="collapseIndirizzoNonCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>{{ "LOCALITA" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Milano"></div>
-                        <div class="col-md-4 form-group"><label>{{ "MASO" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-10 form-group"><label>{{ "VIA" | translate}}</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-                        <div class="col-md-12 form-group"><label>{{ "INDIRIZZO_COMPLETO" | translate}}</label> <input type="text"
-                                ng-model="datiAssistito.DataDiDecesso" ng-readonly="editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "LOCALITA" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>{{ "CAP" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control" value="Milano"></div>
+                        <div class="col-md-4 form-group"><label>{{ "MASO" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control"></div>
+                        <div class="col-md-10 form-group"><label>{{ "VIA" | translate}}</label> <input type="text"
+                                ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                class="form-control"></div>
+                        <div class="col-md-12 form-group"><label>{{ "INDIRIZZO_COMPLETO" | translate}}</label> <input
+                                type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="editDatiAssistito"
+                                class="form-control"></div>
                     </div>
                 </div>
             </div>
@@ -103,10 +115,11 @@
         <div class="row">
             <div class="col-md-4 form-group"><label>{{ "N_CIVICO" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
                     ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
-            <div class="col-md-4 form-group"><label>{{ "INIZIO_VALIDITA" | translate}}</label> <input type="text" ng-model="datiAssistito.LuogoDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" value="Milano"></div>
-            <div class="col-md-4 form-group"><label>{{ "FINE_VALIDITA" | translate}}</label> <input type="text" ng-model="datiAssistito.ProvinciaDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+            <div class="col-md-4 form-group"><label>{{ "INIZIO_VALIDITA" | translate}}</label> <input type="text"
+                    ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"
+                    value="Milano"></div>
+            <div class="col-md-4 form-group"><label>{{ "FINE_VALIDITA" | translate}}</label> <input type="text"
+                    ng-model="datiAssistito.ProvinciaDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
         </div>
 
 

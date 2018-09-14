@@ -34,6 +34,12 @@ function config($translateProvider) {
       REDDITO_CONIUGE:"Reddito coniuge",
       VALIDO_PER_GLI_ANNI_SUCCESSIVI:"Valido per gli anni successivi",
 
+      TIPOLOGIA_DI_REDDITO:"Tipologia di reddito",
+      VALORE_REDDITO:"Valore reddito",
+
+      NESSUN_REDDITO_PERCEPITO:"Nessun reddito percepito",
+      TOTALE:"Totale",
+
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo",
@@ -157,6 +163,11 @@ function config($translateProvider) {
       REDDITO_CONIUGE:"Reddito coniuge DE",
       VALIDO_PER_GLI_ANNI_SUCCESSIVI:"Valido per gli anni successivi DE",
 
+      TIPOLOGIA_DI_REDDITO:"Tipologia di reddito DE",
+      VALORE_REDDITO:"Valore reddito DE",
+
+      NESSUN_REDDITO_PERCEPITO:"Nessun reddito percepito DE",
+      TOTALE:"Totale DE",
 
       // Label Indirizzi
       TIPO_INDIRIZZO: "Tipo indirizzo DE",

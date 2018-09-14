@@ -30,7 +30,7 @@ function _ricercaAnagraficaCtrl(
   self = this;
 
   // https://www.datatables.net/reference/option/
-  this.dtOptions = DTOptionsBuilder.newOptions()
+  $rootScope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("paging", true)
     .withOption("searching", true)
     .withOption("info", true)
@@ -68,7 +68,6 @@ function _ricercaAnagraficaCtrl(
       "mockUrl",
       cCodFis
     );
-    debugger;
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
@@ -116,7 +115,7 @@ function visualizzaAnagraficaCtrl(
   DTOptionsBuilder
 ) {
   // https://www.datatables.net/reference/option/
-  this.dtOptions = DTOptionsBuilder.newOptions()
+  $rootScope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("paging", true)
     .withOption("searching", true)
     .withOption("info", true)

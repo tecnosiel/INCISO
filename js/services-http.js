@@ -30,57 +30,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -161,57 +313,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -294,57 +598,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -427,57 +883,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -560,57 +1168,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -692,57 +1452,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -823,57 +1735,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
@@ -956,57 +2020,209 @@ mochDbTable = function(table) {
           Anno: "2018",
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2017",
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2016",
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2015",
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2014",
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2013",
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2012",
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2011",
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         },
         {
           Anno: "2010",
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
-          ValidoPerGliAnniSuccessivi: true
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
         }
-
       ],
       Indirizzi: [
         {
