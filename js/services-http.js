@@ -2373,6 +2373,39 @@ mochDbTable = function(table) {
   }
 };
 
+
+/**
+ * _ricercaAnagraficaRicerca - all services http for _ricercaAnagraficaRicerca
+ *
+ */
+
+domande = function($http) {
+  return {
+    //----------------------------------
+    // Chiamata Get Standard
+    //----------------------------------
+    find: function(url, data) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("domande");
+        alert("xxxxxxxxxxxxxxxxx")
+        debugger;
+        return response;
+      }
+
+      $http
+        .get(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Get Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Get Regular 3333333333333");
+        });
+    },
+
+  }
+}
 /**
  * _ricercaAnagraficaRicerca - all services http for _ricercaAnagraficaRicerca
  *
@@ -2497,7 +2530,8 @@ _ricercaAnagraficaRicerca = function($http) {
 
 function httpServices($http) {
   return {
-    _ricercaAnagraficaRicerca: _ricercaAnagraficaRicerca($http)
+    _ricercaAnagraficaRicerca: _ricercaAnagraficaRicerca($http),
+    domande: domande($http)
   };
 }
 

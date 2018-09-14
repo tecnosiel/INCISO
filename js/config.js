@@ -43,8 +43,8 @@ function config(
     .state("domande.nuova_domanda", {
       url: "/nuova_domanda",
       templateUrl: "views/nuova_domanda.html",
+      controller: "domandeCtrl as domCtrl",
       data: { pageTitle: "Nuova Domanda" },
-
       resolve: {
         loadPlugin: function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -89,7 +89,7 @@ function config(
     .state("anagrafica.visualizza_anagrafica", {
       url: "/visualizza_anagrafica",
       templateUrl: "views/visualizza_anagrafica.html",
-      controller: "visualizzaAnagrafeCtrlCtrl as visAnaCtrl",
+      controller: "visualizzaAnagrafeCtrl as visAnaCtrl",
       resolve: {
         runMode: function() {
           return "VISUALIZZA";
@@ -100,7 +100,7 @@ function config(
     .state("anagrafica.inserimento_anagrafica", {
       url: "/inserimento_anagrafica",
       templateUrl: "views/visualizza_anagrafica.html",
-      controller: "visualizzaAnagrafeCtrlCtrl as visAnaCtrl",
+      controller: "visualizzaAnagrafeCtrl as visAnaCtrl",
       resolve: {
         runMode: function() {
           return "NUOVOINSERIMENTO";

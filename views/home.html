@@ -22,16 +22,5 @@
 
 <script>
     $("#filtri_deceduto").hide();
-    $("input[name$='payment']").on("ifChecked", function () {
-        var test = $(this).val();
-
-        if (test == 1) {
-            $("#iban").show();
-            $("#posta").hide();
-        } else {
-            $("#iban").hide();
-            $("#posta").show();
-        }
-    });
 </script>
 <!-- End wrapper-->

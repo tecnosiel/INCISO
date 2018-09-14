@@ -1,16 +1,18 @@
 /**
  * INCISO - Gestione invalidi civili, ciechi civili e sordi
  *
- * Main controller.js file
- * Definisce tutti i controllers usati in Inciso divisi per view
+ * Controller.js file
+ * Definisce tutti i controllers usati in Inciso
  *
  *
- * Functions (controllers)
+ * Elenco Controllers adoperati:
+ *
  *  - MainCtrl
  *  - anagrafeCtrl
  *  - modalGestioneIndirizziCtrl
  *  - modalGestioneRedditiCtrl
  *  - translateCtrl
+ *
  */
 
 /**
@@ -18,7 +20,7 @@
  * Controller Principale di gestione delle domande
  *
  */
-function domandaCtrl(
+function domandeCtrl(
   $scope,
   $rootScope,
   httpServices,
@@ -27,11 +29,13 @@ function domandaCtrl(
   NgTableParams,
   DTOptionsBuilder
 ) {
-
+  this.find = function() {
+    self.elencoDomande = httpServices.domande.find("mockUrl");
+  };
 }
 
 /**
- * _ricerca_anagrafica - controller
+ * anagrafeCtrl - controller
  * Controller Principale di gestione delle anagrafiche
  *
  */
@@ -53,31 +57,10 @@ function anagrafeCtrl(
     .withOption("info", true)
     .withOption("lengthChange", false);
 
-  // var self = this;
-  // self.tableParams = new NgTableParams(
-  //   {
-  //     count: 5,
-  //     // initial sort order
-  //     sorting: { cognome: "desc" }
-  //   },
-  //   {
-  //     counts: [5, 10, 20],
-  //     dataset: httpServices._ricercaAnagraficaRicerca.get("mockUrl")
-  //   }
-  // );
-
-  // this.find = function() {
-  //   self.tableParams.data = httpServices._ricercaAnagraficaRicerca.get(
-  //     "mockUrl"
-  //   );
-  // };
-
   this.find = function() {
     self.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
       "mockUrl"
     );
-
-    debugger;
   };
 
   this.findCodFis = function(cCodFis) {
@@ -115,13 +98,13 @@ function anagrafeCtrl(
 }
 
 /**
- * visualizzaAnagrafeCtrlCtrl - controller
+ * visualizzaAnagrafeCtrl - controller
  * Controller per la gestione dell' anagrafica
  *
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagrafeCtrlCtrl(
+function visualizzaAnagrafeCtrl(
   $scope,
   $rootScope,
   httpServices,
@@ -219,6 +202,6 @@ angular
   .module("inciso")
   .controller("MainCtrl", MainCtrl)
   .controller("translateCtrl", translateCtrl)
-  .controller("visualizzaAnagrafeCtrlCtrl", visualizzaAnagrafeCtrlCtrl)
+  .controller("visualizzaAnagrafeCtrl", visualizzaAnagrafeCtrl)
   .controller("anagrafeCtrl", anagrafeCtrl)
   .controller("domandeCtrl", domandeCtrl);
