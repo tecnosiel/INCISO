@@ -30,8 +30,16 @@ function domandeCtrl(
   DTOptionsBuilder
 ) {
   this.find = function() {
-    self.elencoDomande = httpServices.domande.find("mockUrl");
+    this.elencoDomande = httpServices.domande.find("mockUrl");
   };
+
+  this.findCodFis = function(cCodFis) {
+    $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
+  };
+
 }
 
 /**
@@ -48,8 +56,6 @@ function anagrafeCtrl(
   NgTableParams,
   DTOptionsBuilder
 ) {
-  self = this;
-
   // https://www.datatables.net/reference/option/
   $rootScope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("paging", true)
@@ -58,7 +64,7 @@ function anagrafeCtrl(
     .withOption("lengthChange", false);
 
   this.find = function() {
-    self.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
+    this.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
       "mockUrl"
     );
   };

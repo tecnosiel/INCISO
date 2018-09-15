@@ -15,7 +15,6 @@
  *
  */
 mochDbTable = function(table) {
-
   // ---------------------------------------------------
   // ANAGRAFE
   // ---------------------------------------------------
@@ -26,35 +25,141 @@ mochDbTable = function(table) {
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "01/01/1930",
-      DataDiDecesso: "-"
+      DataDiDecesso: "03/01/2014",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1111",
+
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: true
     },
     {
       CodiceFiscale: "QTGSRO60A11Q2055",
       Cognome: "Hammond",
       Nome: "John",
       DataDiNascita: "01/01/1970",
-      DataDiDecesso: "-"
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "2222222",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: true
     },
     {
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
       DataDiNascita: "01/02/1650",
-      DataDiDecesso: "01/01/1930"
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "3333333",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: false
     },
     {
       CodiceFiscale: "VSYFRO70A10E2652",
       Cognome: "Mathews",
       Nome: "Suzanne",
       DataDiNascita: "01/01/1966",
-      DataDiDecesso: "-"
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "444444",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: false
     },
     {
       CodiceFiscale: "WSSGRO70A10T2066",
       Cognome: "Schidner",
       Nome: "Robert",
       DataDiNascita: "01/04/1950",
-      DataDiDecesso: "01/01/1930"
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "567890",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: false
     },
 
     {
@@ -62,21 +167,84 @@ mochDbTable = function(table) {
       Cognome: "Alfano-1111",
       Nome: "Camillo-1111",
       DataDiNascita: "01/01/1930",
-      DataDiDecesso: "-"
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "43170238",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: false
     },
     {
       CodiceFiscale: "3456735790GHJDAE",
       Cognome: "Hammond222222",
       Nome: "John22",
       DataDiNascita: "01/01/1970",
-      DataDiDecesso: "-"
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1251161",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: false
     },
     {
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
       DataDiNascita: "01/02/1650",
-      DataDiDecesso: "01/01/1930"
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1113451",
+      Storia: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ],
+
+      Duplicato: false
     }
   ];
 
@@ -2373,7 +2541,6 @@ mochDbTable = function(table) {
   }
 };
 
-
 /**
  * _ricercaAnagraficaRicerca - all services http for _ricercaAnagraficaRicerca
  *
@@ -2387,8 +2554,6 @@ domande = function($http) {
     find: function(url, data) {
       if (url == "mockUrl") {
         let response = mochDbTable("domande");
-        alert("xxxxxxxxxxxxxxxxx")
-        debugger;
         return response;
       }
 
@@ -2402,10 +2567,9 @@ domande = function($http) {
           //messaggio di errore per questo post
           alert("Get Regular 3333333333333");
         });
-    },
-
-  }
-}
+    }
+  };
+};
 /**
  * _ricercaAnagraficaRicerca - all services http for _ricercaAnagraficaRicerca
  *

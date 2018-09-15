@@ -163,13 +163,15 @@
 
                                 <div class="col-md-4 form-group">
                                     <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
-                                    <div class="input-group date">
+                                    
+                                    <div ng-class="{datePicherDisabled : visAnaCtrl.editDatiAssistito}" class="input-group date">
                                         <input type="text" name="datadinascita" ng-model="datiAssistito.DataDiNascita"
                                             ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
-                                        <span class="input-group-addon">
+                                        <span ng-class="{datePicherDisabled : visAnaCtrl.editDatiAssistito}" class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
+
                                     <p ng-show="userForm.datadinascita.$invalid && !userForm.datadinascita.$pristine"
                                         class="help-block">{{
                                         'DATA_DI_NASCITA' | translate }}
@@ -201,10 +203,10 @@
 
                                 <div class="col-md-4 form-group">
                                     <label>{{ 'DATA_DI_DECESSO' | translate }}</label>
-                                    <div class="input-group date">
+                                    <div ng-class="{datePicherDisabled : visAnaCtrl.editDatiAssistito}" class="input-group date">
                                         <input type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="visAnaCtrl.editDatiAssistito"
                                             class="form-control">
-                                        <span class="input-group-addon">
+                                        <span ng-class="{datePicherDisabled : visAnaCtrl.editDatiAssistito}" class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
@@ -556,7 +558,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <table datatable="ng" dt-options="visAnaCtrl.dtOptions" class="table table-bordered table-striped">
+                                    <table datatable="ng" dt-options="dtOptions" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>{{'ANNO' | translate}} </th>
@@ -976,3 +978,18 @@
 
     </div>
 </form>
+
+<script>
+    $(document).ready(function () {
+
+        $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            format: 'dd/mm/yyyy',
+            keyboardNavigation: false,
+            forceParse: true,
+            calendarWeeks: true,
+            autoclose: true
+            //orientation: 'bottom left'
+        });
+    })
+</script>

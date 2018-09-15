@@ -99,7 +99,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" id="btnSearch" ng-click="domCtrl.find()">{{ 'CERCA' | translate }}</button>
+                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" id="btnSearch"
+                                        ng-click="domCtrl.find()">{{ 'CERCA' | translate }}</button>
                                 </div>
 
                             </form>
@@ -138,218 +139,118 @@
                         <div class="col-md-12">
                             <h3 class="m-b-md">{{ 'RISULTATI_DELLA_RICERCA' | translate }}</h3>
 
+                            <!-- Messaggio di Attenzione Eventuale----------- -->
                             <div class="alert alert-danger">
                                 <strong class="m-r-md">*</strong> Codice fiscale duplicato, verificare anomalia.
                             </div>
 
-                            <div class="panel panel-default evidence">
-                                <div class="panel-heading pointer" data-toggle="collapse" href="#collapseOne">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h4>
-                                                <i title="deceduto" class="fa fa-cross"></i>
-                                                <a class="secondary" onclick="javascript:event.stopPropagation();"
-                                                    data-container="body" data-toggle="popover" data-placement="top"
-                                                    data-html="true" data-content='<%- partial("_popover_anagrafica") %>'>Maria
-                                                    Rossi
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="col-md-3 text-danger">
-                                            <h4>RSSMRA70A41F2052 *</h4>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span class="inline-block">Data di nascita:</span>
-                                            <h4 class="inline-block m-l-sm">01/01/1970</h4>
-                                        </div>
-                                        <div class="col-md-3 text-right">
-                                            <a ui-sref="domande.domanda" onclick="javascript:event.stopPropagation();">Inserisci
-                                                domanda
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse">
-                                    <div class="panel-body">
+                            <div ng-repeat="item in domCtrl.elencoDomande">
+                                <!-- Pannello Verde----------- -->
+                                <div class="panel panel-default" ng-class="{'evidence': item.Duplicato}">
+
+                                    <!-- ------------------- -->
+                                    <!-- parte 1 Visibile    -->
+                                    <!-- ------------------- -->
+
+                                    <div class="panel-heading pointer" data-toggle="collapse" href="#collapseOne">
                                         <div class="row">
+
                                             <div class="col-md-3">
-                                                <strong>Deceduto il 01/01/2016</strong>
+                                                <h4>
+                                                    <i ng-if="item.DataDiDecesso != '-'" title="deceduto" class="fa fa-cross"></i>
+                                                    <a ng-class="{'secondary': item.Duplicato}" ng-click="domCtrl.findCodFis(item.CodiceFiscale)"
+                                                        angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
+                                                        style="position: relative; z-index: 100;">
+                                                        {{item.Nome}} {{ item.Cognome }}
+                                                    </a>
+                                                </h4>
                                             </div>
+                                            <!-- ----------- -->
+                                            <div class="col-md-3 text-danger">
+                                                <h4>{{ item.CodiceFiscale }} <span ng-if="item.DataDiDecesso">*</span></h4>
+                                            </div>
+                                            <!-- ----------- -->
+
                                             <div class="col-md-3">
-                                                <strong>Numero Faldone: 2451</strong>
+                                                <span class="inline-block">Data di nascita:</span>
+                                                <h4 class="inline-block m-l-sm">{{ item.DataDiNascita }}</h4>
                                             </div>
-                                            <div class="col-md-3">
-                                                <strong>Anno di scarto: 2016</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row m-t-md">
-                                            <div class="col-md-12">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="col-md-4">Posizione</th>
-                                                            <th class="col-md-4">Fascicolo</th>
-                                                            <th class="col-md-4">Stato domanda</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="bold">
-                                                            <td>
-                                                                <a href="visualizza_posizione.html">771723</a>
-                                                            </td>
-                                                            <td>236</td>
-                                                            <td>
-                                                                <i class="fa fa-check text-navy" aria-hidden="true"></i>
-                                                                Concessa</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="visualizza_posizione.html">881476</a>
-                                                            </td>
-                                                            <td>236</td>
-                                                            <td>
-                                                                <i class="fa fa-circle-o text-warning" aria-hidden="true"></i>
-                                                                Revocata</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="visualizza_posizione.html">991826</a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-                                                            </td>
-                                                            <td>
-                                                                <i class="fa fa-times text-danger" aria-hidden="true"></i>
-                                                                Negata</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default evidence">
-                                <div class="panel-heading pointer" data-toggle="collapse" href="#collapseTwo">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h4>
-                                                <a onclick="javascript:event.stopPropagation();" data-container="body"
-                                                    data-toggle="popover" data-placement="top" data-html="true"
-                                                    data-content='<%- partial("_popover_anagrafica") %>'>Maria
-                                                    Rossi
+                                            <!-- ----------- -->
+
+                                            <div class="col-md-3 text-right">
+                                                <a ui-sref="domande.domanda" onclick="javascript:event.stopPropagation();">Inserisci
+                                                    domanda
                                                 </a>
-                                            </h4>
-                                        </div>
-                                        <div class="col-md-3 text-danger">
-                                            <h4>RSSMRA70A41F2052 *</h4>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span class="inline-block">Data di nascita:</span>
-                                            <h4 class="inline-block m-l-sm">01/01/1970</h4>
-                                        </div>
-                                        <div class="col-md-3 text-right">
-                                            <a ui-sref="domande.domanda" onclick="javascript:event.stopPropagation();">Inserisci
-                                                domanda
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="row m-t-md">
-                                            <div class="col-md-12">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="col-md-4">Posizione</th>
-                                                            <th class="col-md-4">Fascicolo</th>
-                                                            <th class="col-md-4">Stato domanda</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="bold">
-                                                            <td>
-                                                                <a href="visualizza_posizione.html">771118</a>
-                                                            </td>
-                                                            <td>236</td>
-                                                            <td>
-                                                                <i class="fa fa-check text-navy" aria-hidden="true"></i>
-                                                                Concessa</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="visualizza_posizione.html">881251</a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-                                                            </td>
-                                                            <td>
-                                                                <i class="fa fa-circle-o text-warning" aria-hidden="true"></i>
-                                                                Revocata</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
                                             </div>
+                                            <!-- ----------- -->
+
                                         </div>
                                     </div>
+
+                                    <!-- ------------------- -->
+                                    <!-- parte 2 Collassata  -->
+                                    <!-- ------------------- -->
+
+                                    <div id="collapseOne" class="panel-collapse collapse">
+                                        <div class="panel-body">
+
+                                            <!-- parte da visualizzare solo se deceduto  -->
+                                            <div ng-if="item.DataDiDecesso != '-'" class="row">
+                                                <div class="col-md-3">
+                                                    <strong>Deceduto il {{ item.DataDiDecesso }}</strong>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <strong>Numero Faldone: {{ item.NumeroFaldone }}</strong>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <strong>Anno di scarto: {{ item.AnnoDiScarto }}</strong>
+                                                </div>
+                                            </div>
+
+                                            <!-- parte da visualizzare sempre  -->
+                                            <div class="row m-t-md">
+                                                <div class="col-md-12">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="col-md-4">Posizione</th>
+                                                                <th class="col-md-4">Fascicolo</th>
+                                                                <th class="col-md-4">Stato domanda</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-class="{strong: itemChild.StatoDomanda === 'Concessa'}"
+                                                                ng-repeat="itemChild in item.Storia">
+                                                                <td>
+                                                                    <a href="visualizza_posizione.html">{{itemChild.Posizione}}</a>
+                                                                </td>
+                                                                <!-- ----- -->
+                                                                <td>{{itemChild.Fascicolo}}</td>
+                                                                <!-- ----- -->
+                                                                <td class="bold">
+                                                                    <i ng-if="itemChild.StatoDomanda == 'Concessa'"
+                                                                        class="fa fa-check text-navy" aria-hidden="true"></i>
+                                                                    <i ng-if="itemChild.StatoDomanda == 'Revocata'"
+                                                                        class="fa fa-circle-o text-warning" aria-hidden="true"></i>
+                                                                    <i ng-if="itemChild.StatoDomanda == 'Negata'" class="fa fa-times text-danger"
+                                                                        aria-hidden="true"></i>
+                                                                    {{itemChild.StatoDomanda}}
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading pointer" data-toggle="collapse" href="#collapseThree">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h4>
-                                                <a onclick="javascript:event.stopPropagation();" data-container="body"
-                                                    data-toggle="popover" data-placement="top" data-html="true"
-                                                    data-content='<%- partial("_popover_anagrafica") %>'>Maria
-                                                    Rossi
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <h4>RSSMRA57A41F2052</h4>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span class="inline-block">Data di nascita:</span>
-                                            <h4 class="inline-block m-l-sm">27/02/1957</h4>
-                                        </div>
-                                        <div class="col-md-3 text-right">
-                                            <a ui-sref="domande.domanda" onclick="javascript:event.stopPropagation();">Inserisci
-                                                domanda
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="row m-t-md">
-                                            <div class="col-md-12">
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="col-md-4">Posizione</th>
-                                                            <th class="col-md-4">Fascicolo</th>
-                                                            <th class="col-md-4">Stato domanda</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="visualizza_posizione.html">991442</a>
-                                                            </td>
-                                                            <td>236</td>
-                                                            <td>
-                                                                <i class="fa fa-check text-navy" aria-hidden="true"></i>
-                                                                Concessa</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <!-- Bottone Inserimento----------- -->
+
                             <div class="text-right">
                                 <button class="btn btn-primary btn-sm"> Inserisci assistito</button>
                             </div>

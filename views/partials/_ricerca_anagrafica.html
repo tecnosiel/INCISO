@@ -73,7 +73,7 @@
             </table> -->
 
         <!-- <table id="tabellaRisultatiRicercaAnagrafica" class="table table-striped table-bordered"> -->
-        <table datatable="ng" dt-options="_ricAnagCtrl.dtOptions" class="table table-bordered table-striped">
+        <table datatable="ng" dt-options="dtOptions" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>{{ 'COGNOME' | translate }}</th>
@@ -87,8 +87,10 @@
                 <tr ng-repeat="item in _ricAnagCtrl.elencoAssistiti">
                     <td>{{item.Cognome}}</td>
                     <td>{{item.Nome}}</td>
-                    <td><a ng-click="_ricAnagCtrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top"
-                            template-url="views/partials/_popover_anagrafica" style="position: relative;">{{item.CodiceFiscale}}</a></td>
+                    <td>
+                        <a ng-click="_ricAnagCtrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top"
+                            template-url="views/partials/_popover_anagrafica" style="position: relative; z-index: 100;">{{item.CodiceFiscale}}</a>
+                    </td>
                     <td>{{item.DataDiNascita}}</td>
                     <td>{{item.DataDiDecesso}}</td>
                 </tr>
