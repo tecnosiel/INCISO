@@ -165,6 +165,32 @@ function anagrafeCtrl(
     { name: "Cittadinanza 6", area: "Sud", disabled: false }
   ];
 
+  $rootScope.frazioni = [
+    { name: "Frazione 1", area: "Nord", disabled: false },
+    { name: "Frazione 2", area: "Nord", disabled: false },
+    { name: "Frazione 3", area: "Centro", disabled: true },
+    { name: "Frazione 4", area: "Centro", disabled: false },
+    { name: "Frazione 5", area: "Sud", disabled: false },
+    { name: "Frazione 6", area: "Sud", disabled: false }
+  ];
+
+  $rootScope.vie = [
+    { name: "Via tal dei tali 1", area: "Nord", disabled: false },
+    { name: "Via tal dei tali 2", area: "Nord", disabled: false },
+    { name: "Via tal dei tali 3", area: "Centro", disabled: true },
+    { name: "Via tal dei tali 4", area: "Centro", disabled: false },
+    { name: "Via tal dei tali 5", area: "Sud", disabled: false },
+    { name: "Via tal dei tali 6", area: "Sud", disabled: false }
+  ];
+
+  $rootScope.località = [
+    { name: "Località 1", area: "Nord", disabled: false },
+    { name: "Località 2", area: "Nord", disabled: false },
+    { name: "Località 3", area: "Centro", disabled: true },
+    { name: "Località 4", area: "Centro", disabled: false },
+    { name: "Località 5", area: "Sud", disabled: false },
+    { name: "Località 6", area: "Sud", disabled: false }
+  ];
 
   // impostiamo la provincia selezionata
   $rootScope.currentProvince = $rootScope.provinces[0];

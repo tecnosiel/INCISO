@@ -536,7 +536,7 @@ mochDbTable = function(table) {
           Frazione: "xxxxxx",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -550,7 +550,7 @@ mochDbTable = function(table) {
           Frazione: "xxxxxx",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -564,7 +564,7 @@ mochDbTable = function(table) {
           Frazione: "xxxxxx",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
       ],
@@ -819,7 +819,7 @@ mochDbTable = function(table) {
           Frazione: "11111111",
           Via: "111111111111",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -834,7 +834,7 @@ mochDbTable = function(table) {
           Frazione: "2222222",
           Via: "22222222222222",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -849,7 +849,7 @@ mochDbTable = function(table) {
           Frazione: "3333333",
           Via: "3333333333333333",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
@@ -1104,7 +1104,7 @@ mochDbTable = function(table) {
           Frazione: "12132",
           Via: "41234232",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1119,7 +1119,7 @@ mochDbTable = function(table) {
           Frazione: "333333",
           Via: "12313413",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1134,7 +1134,7 @@ mochDbTable = function(table) {
           Frazione: "xxx222",
           Via: "xxx223242121x",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
@@ -1389,7 +1389,7 @@ mochDbTable = function(table) {
           Frazione: "33333333",
           Via: "33xxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1404,7 +1404,7 @@ mochDbTable = function(table) {
           Frazione: "x23421xxxxx",
           Via: "x241342xxx",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1419,7 +1419,7 @@ mochDbTable = function(table) {
           Frazione: "x212xxxxx",
           Via: "2232xxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
@@ -1674,7 +1674,7 @@ mochDbTable = function(table) {
           Frazione: "11111",
           Via: "2222222222",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1689,7 +1689,7 @@ mochDbTable = function(table) {
           Frazione: "444444",
           Via: "xxxxx444444444",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1704,7 +1704,7 @@ mochDbTable = function(table) {
           Frazione: "xx5555x",
           Via: "xx555555555",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
@@ -1958,7 +1958,7 @@ mochDbTable = function(table) {
           Frazione: "xxxxxx",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -1972,7 +1972,7 @@ mochDbTable = function(table) {
           Frazione: "xxxxxx",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -1986,7 +1986,7 @@ mochDbTable = function(table) {
           Frazione: "xxxxxx",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
       ],
@@ -2241,7 +2241,7 @@ mochDbTable = function(table) {
           Frazione: "11111111",
           Via: "111111111111",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2256,7 +2256,7 @@ mochDbTable = function(table) {
           Frazione: "2222222",
           Via: "22222222222222",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2271,7 +2271,7 @@ mochDbTable = function(table) {
           Frazione: "3333333",
           Via: "3333333333333333",
           Civico: "6",
-
+          UsaIndirizzo:"No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
@@ -2526,7 +2526,7 @@ mochDbTable = function(table) {
           Frazione: "12132",
           Via: "41234232",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2541,7 +2541,7 @@ mochDbTable = function(table) {
           Frazione: "333333",
           Via: "12313413",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2556,7 +2556,7 @@ mochDbTable = function(table) {
           Frazione: "xxx222",
           Via: "xxx223242121x",
           Civico: "6",
-
+          UsaIndirizzo:"Si",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
