@@ -574,7 +574,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario:  "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -860,7 +860,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario:  "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -1145,7 +1145,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario:  "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -1430,7 +1430,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario:  "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -1715,7 +1715,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario:  "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -1996,7 +1996,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario:  "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -2282,7 +2282,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario: "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",
@@ -2567,7 +2567,7 @@ mochDbTable = function(table) {
       ProvinciaDiNascita: "Milano",
       NazioneDiNascita: "Italia",
       Cittadinanza: "Italiana",
-      Extracomunitario: true,
+      Extracomunitario: "Si",
 
       PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
       PermessoDiSoggiornoDataRilascio: "01/01/2020",

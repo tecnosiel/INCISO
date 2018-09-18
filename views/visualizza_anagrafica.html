@@ -102,7 +102,8 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Maschile"
-                                                        name="sesso" ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control">
+                                                        name="sesso" ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control"
+                                                        ng-checked="datiAssistito.Sesso == 'Maschile'">
                                                     <i></i>
                                                     Maschile
                                                 </label>
@@ -112,7 +113,8 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Femminile"
-                                                        name="sesso" ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control">
+                                                        name="sesso" ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control"
+                                                        ng-checked="datiAssistito.Sesso == 'Femminile'">
                                                     <i></i>
                                                     Femminile
                                                 </label>
@@ -172,25 +174,42 @@
 
                                 <div class="col-md-4 form-group">
                                     <label>Luogo di nascita</label>
-                                    <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                    <!-- <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required> -->
+                                    <select name="luogoDiNascita" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                        ng-options="comune.name for comune in comuni" class="form-control" required>
+                                        <option value="">Seleziona un comune</option>
+                                    </select>
+
                                     <p ng-show="userForm.luogodinascita.$invalid && !userForm.luogodinascita.$pristine"
                                         class="help-block">Luogo di Nascita obbligatorio.</p>
                                 </div>
 
                                 <div class="col-md-4 form-group">
                                     <label>Provincia</label>
-                                    <input type="text" name="provinciadinascita" ng-model="datiAssistito.ProvinciaDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                    <select name="provinciadinascita" ng-model="datiAssistito.ProvinciaDiNascita"
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" ng-options="province.name for province in provinces"
+                                        class="form-control" required>
+                                        <option value="">Seleziona una provincia</option>
+                                    </select>
                                     <p ng-show="userForm.provinciadinascita.$invalid && !userForm.provinciadinascita.$pristine"
                                         class="help-block">Provincia di Nascita obbligatoria.</p>
 
                                 </div>
+
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4 form-group"><label>Nazione</label> <input type="text" ng-model="datiAssistito.NazioneDiNascita"
-                                        ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <div class="col-md-4 form-group"><label>Nazione</label>
+                                    <!-- <input type="text" ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                        class="form-control"> -->
+
+                                    <select name="nazioneDiNascita" ng-model="datiAssistito.NazioneDiNascita"
+                                        ng-readonly="visAnaCtrl.editDatiAssistito" ng-options="nazione.name for nazione in nazioni"
+                                        class="form-control" required>
+                                        <option value="">Seleziona una nazione</option>
+                                    </select>
+
                                 </div>
 
                                 <div class="col-md-4 form-group">
@@ -224,22 +243,40 @@
                             <div class="row">
                                 <div class="col-md-4 form-group">
                                     <label>Cittadinanza</label>
-                                    <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control"></div>
+                                    <!-- <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                        class="form-control"> -->
+                                    <select name="cittadinanza" ng-model="datiAssistito.Cittadinanza" ng-readonly="visAnaCtrl.editDatiAssistito"
+                                        ng-options="cittadinanza.name for cittadinanza in cittadinanze" class="form-control"
+                                        required>
+                                        <option value="">Seleziona una cittadinanza</option>
+                                    </select>
+
+                                </div>
                                 <div class="col-md-4 form-group">
                                     <label>Extracomunitario</label>
-                                    <!-- PROBLEMAJQUERYDAANALIZZARE -->
-                                    <!-- Il problema lo genera il codice sottostante che se abilitato rompe angular -->
+
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="checkbox"><label> <input icheck ng-model="XXX" type="radio"
-                                                        name="b" disabled='disabled'> <i></i>
-                                                    Sì </label></div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="datiAssistito.Extracomunitario" type="radio"
+                                                        name="extracomunitario" ng-disabled="visAnaCtrl.editDatiAssistito"
+                                                        value="Si" ng-checked="datiAssistito.Extracomunitario == 'Si'">
+                                                    <i></i>
+                                                    Si
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="checkbox"><label> <input icheck ng-model="XXX" type="radio"
-                                                        name="b" checked disabled='disabled'> <i></i>
-                                                    No </label></div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="datiAssistito.Extracomunitario" type="radio"
+                                                        name="extracomunitario" ng-disabled="visAnaCtrl.editDatiAssistito"
+                                                        value="No" ng-checked="datiAssistito.Extracomunitario=='No'">
+                                                    <i></i>
+                                                    No
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -554,8 +591,9 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                        
-                                    <table datatable="ng" dt-column-defs="colonneTabElencoRedditi" dt-options="dtOptions" class="table table-bordered table-striped">
+
+                                    <table datatable="ng" dt-column-defs="colonneTabElencoRedditi" dt-options="dtOptions"
+                                        class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>{{'ANNO' | translate}} </th>
@@ -574,12 +612,17 @@
                                                 </td>
                                                 <td>{{item.RedditoConiuge}}</td>
                                                 <td class="text-center">
-                                                    <div class="checkbox"><input icheck ng-model="item.ValidoPerGliAnniSuccessivi"
-                                                            type="checkbox" disabled> <i></i></div>
+                                                    <div class="checkbox">
+                                                        <input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
+                                                            ng-disabled="visAnaCtrl.editDatiAssistito" value="Si"
+                                                            ng-checked="item.ValidoPerGliAnniSuccessivi=='Si'">
+                                                        <i></i>
+                                                    </div>
                                                 </td>
 
                                                 <td style="font-size: 18px; text-align: center">
-                                                    <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i class="fa fa-pencil"></i></a>
+                                                    <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i
+                                                            class="fa fa-pencil"></i></a>
                                                 </td>
 
                                             </tr>
