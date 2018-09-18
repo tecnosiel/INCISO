@@ -38,12 +38,12 @@ function config(
     .state("domande", {
       abstract: true,
       url: "/domande",
+      controller: "domandeCtrl as domCtrl",
       templateUrl: "views/common/content.html"
     })
     .state("domande.nuova_domanda", {
       url: "/nuova_domanda",
       templateUrl: "views/nuova_domanda.html",
-      controller: "domandeCtrl as domCtrl",
       data: { pageTitle: "Nuova Domanda" },
       resolve: {
         loadPlugin: function($ocLazyLoad) {
@@ -83,7 +83,7 @@ function config(
     .state("anagrafica.ricerca_anagrafica", {
       url: "/ricerca_anagrafica",
       templateUrl: "views/ricerca_anagrafica.html",
-      controller: "anagrafeCtrl as _ricAnagCtrl"
+      controller: "anagrafeCtrl as anagCtrl"
     })
 
     .state("anagrafica.visualizza_anagrafica", {

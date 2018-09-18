@@ -34,6 +34,7 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none;">
+                    <!-- Informazioni Da Prelevare dall'anagrafica -->
                     <div class="row">
                         <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
                                 value="Maria"></div>
@@ -84,15 +85,27 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="a" checked disabled> <i></i>
-                                        77 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="a" disabled> <i></i>
-                                        88 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="a" disabled> <i></i>
-                                        99 </label></div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input icheck ng-model="domanda.TipoDomanda" type="radio" name="tipoDomanda"
+                                            value="77" ng-checked="domanda.TipoDomanda == '77'" disabled> <i></i>
+                                        77
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input icheck ng-model="domanda.TipoDomanda" type="radio" name="tipoDomanda"
+                                            value="88" ng-checked="domanda.TipoDomanda == '88'" disabled> <i></i>
+                                        88
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input icheck ng-model="domanda.TipoDomanda" type="radio" name="tipoDomanda"
+                                            value="99" ng-checked="domanda.TipoDomanda == '99'" disabled> <i></i>
+                                        99
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,14 +113,15 @@
                         <div class="col-md-4 form-group">
                             <label>Data (*)</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
-                                        class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control" ng-model="domanda.DataDomanda" placeholder="dd/MM/yyyy"><span
+                                    class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                         <!-- <div class="col-md-4 form-group"><label>Data (*)</label> <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div> -->
-                        <div class="col-md-4 form-group"><label>Email</label> <input type="email" class="form-control"></div>
+                        <div class="col-md-4 form-group"><label>Email</label> <input ng-model="domanda.EmailDomanda"
+                                type="email" class="form-control"></div>
                         <div class="col-md-2 form-group"><label>Numero protocollo</label>
-                            <input type="text" class="form-control" readonly="">
+                            <input ng-model="domanda.NumeroProtocollo" type="text" class="form-control" readonly="">
 
                         </div>
                         <div class="col-md-1 form-group"><label>Data</label>
@@ -118,19 +132,19 @@
                             <span class="input-group-btn"> <button type="button" class="btn btn-primary btn-sm">Cerca</button></span>
                         </div>
                         <div class="col-md-8 form-group"><label>Provenienza (*)</label>
-                            <select class="form-control m-b" name="account">
-                                <option>Commissione sanitaria dell’Azienda Sanitaria (1)</option>
-                                <option>Presentata direttamente (2)</option>
-                                <option>Fuori provincia (3)</option>
-                                <option>Commissione del comprensorio sanitario di Bolzano (4)</option>
-                                <option>Commissione del comprensorio sanitario di Merano (5)</option>
-                                <option>Commissione del comprensorio sanitario di Bressanone (6)</option>
-                                <option>Commissione del comprensorio sanitario di Brunico (7)</option>
-                                <option>Commissione ricorsi (8)</option>
+                            <select class="form-control m-b" ng-model="domanda.Provenienza" name="account">
+                                <option value="1">Commissione sanitaria dell’Azienda Sanitaria (1)</option>
+                                <option value="2">Presentata direttamente (2)</option>
+                                <option value="3">Fuori provincia (3)</option>
+                                <option value="4">Commissione del comprensorio sanitario di Bolzano (4)</option>
+                                <option value="5">Commissione del comprensorio sanitario di Merano (5)</option>
+                                <option value="6">Commissione del comprensorio sanitario di Bressanone (6)</option>
+                                <option value="7">Commissione del comprensorio sanitario di Brunico (7)</option>
+                                <option value="8">Commissione ricorsi (8)</option>
                             </select>
                         </div>
                         <div class="col-md-4 form-group"><label>Delega patronato</label>
-                            <select class="form-control m-b" name="account">
+                            <select class="form-control m-b" name="account" ng-model="domanda.DelegaPatronato">
                                 <option>ACLI Bolzano</option>
                                 <option>ACLI Merano</option>
                                 <option>INAS Bolzano</option>
@@ -141,48 +155,73 @@
                     <div class="row">
                         <div class="col-md-12 form-separator"></div>
                     </div>
-                    <div>
-                        <h3 class="m-t-lg">Legale rappresentante</h3>
-                        <div class="m-b-sm">
-                            <strong>Mario Rossi - RSSMRO70A10F2052</strong><button type="button" class="m-l-sm btn btn-xs btn-primary  "
-                                data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-pencil"></i></button>
+
+                    <div ng-repeat="item in domanda.LegaliRappresentanti">
+                        <div>
+                            <h3 class="m-t-lg">Legale rappresentante</h3>
+                            <div class="m-b-sm" ng-model="domanda.DelegaPatronato">
+                                <strong>
+                                    {{item.Nome}} {{item.Cognome}} - {{item.CodiceFiscale}}
+                                </strong>
+                                <button type="button" class="m-l-sm btn btn-xs btn-primary  " data-toggle="modal"
+                                    data-target="#modalAnagrafica"><i class="fa fa-pencil"></i>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group"><label>Numero decreto</label>
+                                    <input ng-model="item.NumeroDecreto" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Data decreto</label>
+                                    <div class="input-group date">
+                                        <input ng-model="item.DataDecreto" type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group"><label>Tipo decreto</label>
+                                    <div class="row">
+                                        <!-- ------------ -->
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="item.TipoDecreto" type="radio" name="tipoDecreto + {{$index}}"
+                                                        value="Provvisorio" ng-checked="item.TipoDecreto == 'Provvisorio'">
+                                                    <i></i>
+                                                    Provvisorio
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- ------------ -->
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="item.TipoDecreto" type="radio" name="tipoDecreto + {{$index}}"
+                                                        value="Definitivo" ng-checked="item.TipoDecreto == 'Definitivo'">
+                                                    <i></i>
+                                                    Definitivo
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- ------------ -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Scadenza decreto</label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" ng-model="item.ScadenzaDecreto"
+                                            placeholder="dd/MM/yyyy">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 form-group"><label>Numero decreto</label> <input type="email" class="form-control"></div>
-                            <div class="col-md-6 form-group">
-                                <label>Data decreto</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
-                                            class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 form-group"><label>Tipo decreto</label>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX"
-                                                    type="radio" name="b"> <i></i>
-                                                Provvisorio </label></div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX"
-                                                    type="radio" name="b"> <i></i>
-                                                Definitivo </label></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Scadenza decreto</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
-                                            class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
+                            <div class="col-md-12 form-separator"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 form-separator"></div>
-                    </div>
-                    <div>
+                    <!-- <div>
                         <h3 class="m-t-lg">Altro legale rappresentante</h3>
                         <div class="m-b-sm">
                             <span>cerca anagrafica </span><button type="button" class="m-l-sm btn btn-xs btn-primary  "
@@ -222,7 +261,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-separator"></div>
-                    </div>
+                    </div> -->
                     <div>
                         <h3 class="m-t-lg">Curatore</h3>
                         <div class="m-b-sm">
@@ -237,16 +276,24 @@
                         <h3 class="m-t-lg">Comunicazioni (*)</h3>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="lang"> <i></i>
+                                <div class="checkbox">
+                                    <label>
+                                        <input icheck ng-model="domanda.Comunicazioni" value="Italiano" type="radio"
+                                            name="lang" ng-checked="domanda.Comunicazioni == 'Italiano'">
+                                        <i></i>
                                         Italiano
-                                    </label></div>
+                                    </label>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="lang"> <i></i>
+                                <div class="checkbox">
+                                    <label>
+                                        <input icheck ng-model="domanda.Comunicazioni" value="Tedesco" type="radio"
+                                            name="lang" ng-checked="domanda.Comunicazioni == 'Tedesco'">
+                                        <i></i>
                                         Tedesco
-                                    </label></div>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -257,13 +304,18 @@
                         <h3 class="m-t-lg">Modalità di pagamento</h3>
                         <div class="row">
                             <div class="col-md-12 m-b-md">
-                                <label class="radio-inline"> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                        value="1" id="inlineCheckbox1" name="payment"> <strong> Bonifico bancario</strong>
+                                <label class="radio-inline">
+                                    <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="1" id="inlineCheckbox1"
+                                        name="payment" ng-checked="domanda.ModalitaDiPagamento == '1'">
+                                    <strong> Bonifico bancario</strong>
                                 </label>
-                                <label class="radio-inline m-l-lg"> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                        value="2" id="inlineCheckbox2" name="payment"> <strong> Bonifico domiciliato
-                                        alla posta</strong> </label>
+                                <label class="radio-inline m-l-lg">
+                                    <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="2" id="inlineCheckbox2"
+                                        name="payment" ng-checked="domanda.ModalitaDiPagamento == '2'">
+                                    <strong> Bonifico domiciliato alla posta</strong>
+                                </label>
                             </div>
+
                             <div id="iban" class="col-md-12" style="display:none;">
                                 <div class="form-group">
                                     <div class="row">
@@ -327,7 +379,10 @@
                         <div class="col-md-12 form-separator"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 form-group"><label class="m-t-lg">Note</label> <textarea class="form-control"></textarea></div>
+                        <div class="col-md-12 form-group">
+                            <label class="m-t-lg">Note</label>
+                            <textarea ng-model="domanda.Note" class="form-control"></textarea>
+                        </div>
                     </div>
                 </div>
 
@@ -344,31 +399,48 @@
                 <div class="ibox-content">
                     <h3 class="">Protocollo azienda sanitaria</h3>
                     <div class="row">
-                        <div class="col-md-6 form-group"><label>Numero protocollo</label> <input type="text" class="form-control"></div>
+                        <div class="col-md-6 form-group">
+                            <label>Numero protocollo</label>
+                            <input ng-model="domanda.AziendaSanitaria.NumeroProtocollo" type="text" class="form-control">
+                        </div>
+
                         <div class="col-md-6 form-group" id="data_1">
                             <label>Data</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
-                                        class="fa fa-calendar"></i></span>
+                                <input ng-model="domanda.AziendaSanitaria.DataProtocollo" type="text" class="form-control"
+                                    placeholder="dd/MM/yyyy"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
 
-                        <div class="col-md-6 form-group"><label>Percentuale di invalidità (*)</label> <input type="text"
-                                class="form-control" placeholder></div>
+                        <div class="col-md-6 form-group">
+                            <label>Percentuale di invalidità (*)</label>
+                            <input ng-model="domanda.AziendaSanitaria.PercentualeDiInvalidita" type="text" class="form-control">
+                        </div>
+
                         <div class="col-md-6 form-group">
                             <div>
                                 <label>Indennità di accompagnamento</label>
                             </div>
                             <div>
                                 <div class="inline-block">
-                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                                name="e"> <i></i>
-                                            Sì</label></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
+                                                type="radio" value="Si" name="indennitaDiAccompagnamento" ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'Si'">
+                                            <i></i>
+                                            Si
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="inline-block m-l-lg">
-                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                                name="e"> <i></i>
-                                            No </label></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
+                                                type="radio" value="No" name="indennitaDiAccompagnamento" ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'No'">
+                                            <i></i>
+                                            No
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -378,34 +450,56 @@
                             </div>
                             <div>
                                 <div class="inline-block">
-                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                                name="f"> <i></i>
-                                            Sì</label></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva" type="radio"
+                                                name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'Si'">
+                                            <i></i>
+                                            Si
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="inline-block m-l-lg">
-                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                                name="f"> <i></i>
-                                            No </label></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva" type="radio"
+                                                name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'No'">
+                                            <i></i>
+                                            No
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6 form-group">
                             <div>
                                 <label>Riduzione del visus</label>
                             </div>
                             <div>
                                 <div class="inline-block">
-                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                                name="g"> <i></i>
-                                            Sì</label></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus" type="radio"
+                                                name="RiduzioneDelVisus" value="Si" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'Si'">
+                                            <i></i>
+                                            Si
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="inline-block m-l-lg">
-                                    <div class="checkbox"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                                name="g"> <i></i>
-                                            No </label></div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus" type="radio"
+                                                name="RiduzioneDelVisus" value="No" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'No'">
+                                            <i></i>
+                                            No
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                         <!--<div class="col-md-4 form-group">
                                 <div>
                                     <label>Sordo</label>
@@ -435,10 +529,16 @@
                                     </div>
                                 </div>
                             </div>-->
-                        <div class="col-md-12 form-group"><label>Note verbale</label> <textarea class="form-control"></textarea></div>
+
+                        <div class="col-md-12 form-group">
+                            <label>Note verbale</label>
+                            <textarea ng-model="domanda.AziendaSanitaria.NoteVerbale" class="form-control">
+
+                            </textarea></div>
                     </div>
                 </div>
             </div>
+
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Data decorrenza del diritto al pagamento</h5>
@@ -453,8 +553,11 @@
                         <div class="col-md-6 form-group" id="data_decorrenza">
                             <label>Data</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" placeholder="dd/MM/yyyy"><span class="input-group-addon"><i
-                                        class="fa fa-calendar"></i></span>
+                                <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text" class="form-control"
+                                    placeholder="dd/MM/yyyy">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
                             </div>
                         </div>
                     </div>

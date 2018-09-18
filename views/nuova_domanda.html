@@ -178,8 +178,11 @@
                                             <!-- ----------- -->
 
                                             <div class="col-md-3 text-right">
-                                                <a ui-sref="domande.domanda" onclick="javascript:event.stopPropagation();">Inserisci
-                                                    domanda
+                                                <!-- <a ui-sref="domande.domanda" ng-click="domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
+                                                    {{ 'INSERISCI_DOMANDA' | translate }}
+                                                </a> -->
+                                                <a ui-sref="domande.domanda" ng-click="domCtrl.inserisciDomanda()" onclick="javascript:event.stopPropagation();">
+                                                    {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a>
                                             </div>
                                             <!-- ----------- -->
@@ -220,7 +223,7 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr ng-class="{strong: itemChild.StatoDomanda === 'Concessa'}"
-                                                                ng-repeat="itemChild in item.Storia">
+                                                                ng-repeat="itemChild in item.DomandePresentate">
                                                                 <td>
                                                                     <a href="visualizza_posizione.html">{{itemChild.Posizione}}</a>
                                                                 </td>

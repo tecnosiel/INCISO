@@ -33,6 +33,7 @@ function config($translateProvider) {
       ORDINA_PER: "Ordina per",
       RISULTATI_DELLA_RICERCA: "Risultati della ricerca",
       INCLUDI_DECEDUTI: "Includi deceduti",
+      INSERISCI_DOMANDA:  "Inserisci domanda",
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
@@ -165,6 +166,14 @@ function config($translateProvider) {
       // Label Domanda
       NUOVA_DOMANDA: "Nuova domanda DE",
       RICERCA_ASSISTITO: "Ricerca assistito DE",
+      TIPOLOGIA_DI_ASSISTENZA_RICHIESTA: "Tipologia di assistenza richiesta DE",
+      CERCA_ASSISTITO: "Cerca assistito DE",
+      ORDINAMENTO: "Ordinamento DE",
+      ORDINA_PER: "Ordina per DE",
+      RISULTATI_DELLA_RICERCA: "Risultati della ricerca DE",
+      INCLUDI_DECEDUTI: "Includi deceduti DE",
+      INSERISCI_DOMANDA:  "Inserisci domanda DE",
+
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso DE",

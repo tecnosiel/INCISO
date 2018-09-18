@@ -1,5 +1,16 @@
 @charset "UTF-8";
 .datePicherDisabled {
-    pointer-events: none;
+    /* pointer-events: none; */
+    cursor: not-allowed;
     background-color: #EEEEEE
+}
+
+.anchorDisabled {
+    /* pointer-events: none; */
+    cursor: not-allowed;
+}
+
+.disabled {
+    /* pointer-events: none; */
+    cursor: not-allowed;
 }

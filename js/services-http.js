@@ -16,7 +16,7 @@
  */
 mochDbTable = function(table) {
   // ---------------------------------------------------
-  // ANAGRAFE
+  // DOMANDE
   // ---------------------------------------------------
 
   let tabDomande = [
@@ -29,21 +29,74 @@ mochDbTable = function(table) {
       AnnoDiScarto: "1234",
       NumeroFaldone: "1111",
 
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
-          StatoDomanda: "Concessa"
+          StatoDomanda: "Concessa",
+          // ----
+          TipoDomanda: "77",
+          DataDomanda: "",
+          EmailDomanda: "",
+          NumeroProtocollo: "",
+          DataProtocollo: "",
+          Provenienza: "",
+          DelegaPatronato: "",
+
+          LegaliRappresentanti: [
+            {
+              LegaleRappresentanteNome: "Mario",
+              LegaleRappresentanteCognome: "Rossi",
+              LegaleRappresentanteCodiceFiscale: "RSSMRO70A10F2052",
+              LegaleRappresentanteNumeroDecreto: "",
+              LegaleRappresentanteDataDecreto: "",
+              LegaleRappresentanteTipoDecreto: "",
+              LegaleRappresentanteScadenzaDecreto: ""
+            },
+            {
+              Nome: "",
+              Cognome: "",
+              CodiceFiscale: "",
+              NumeroDecreto: "",
+              DataDecreto: "",
+              TipoDecreto: "",
+              ScadenzaDecreto: ""
+            }
+          ],
+          Curatore: "",
+          Comunicazioni: "",
+          ModalitaDiPagamento: "",
+          AssociazioniDiCategoria: [
+            {
+              TipoAssociazione: "ANMIC",
+              DataInizioIscrizione: "10/04/1986",
+              DataFineIscrizione: "",
+              QuotaMensile: "103.32"
+            }
+          ],
+          Note: "",
+          AziendaSanitaria: {
+            NumeroProtocollo: "",
+            DataProtocollo: "",
+            PercentualeDiInvalidita: "",
+            IndennitaDiAccompagnamento: "",
+            PatologiaUditiva: "",
+            RiduzioneDelVisus: "",
+            NoteVerbale: "",
+            DataDecorenzaDelDirittoAlPagamento: ""
+          }
         },
         {
           Posizione: "123456",
           Fascicolo: "634",
           StatoDomanda: "Revocata"
+          // ----
         },
         {
           Posizione: "345765",
           Fascicolo: "123",
           StatoDomanda: "Negata"
+          // ----
         }
       ],
 
@@ -57,7 +110,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "1234",
       NumeroFaldone: "2222222",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -85,7 +138,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "1234",
       NumeroFaldone: "3333333",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -113,7 +166,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "1234",
       NumeroFaldone: "444444",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -141,7 +194,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "1234",
       NumeroFaldone: "567890",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -170,7 +223,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "1234",
       NumeroFaldone: "43170238",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -198,7 +251,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "1234",
       NumeroFaldone: "1251161",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -226,7 +279,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "1234",
       NumeroFaldone: "1113451",
-      Storia: [
+      DomandePresentate: [
         {
           Posizione: "771723",
           Fascicolo: "236",
@@ -2567,6 +2620,31 @@ domande = function($http) {
           //messaggio di errore per questo post
           alert("Get Regular 3333333333333");
         });
+    },
+    //----------------------------------
+    // Ricerca in Base Dati per Codice Fiscale
+    //----------------------------------
+    findCodFis: function(url, cCodFis) {
+      alert("xxxxxxxxxxxxxxxxxxxxx");
+      debugger;
+      if (url == "mockUrl") {
+        let response = mochDbTable("domande");
+
+        return response.find(function(obj) {
+          return obj.CodiceFiscale === cCodFis;
+        });
+      }
+
+      $http
+        .get(url, cCodFis, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Get Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Get Regular 3333333333333");
+        });
     }
   };
 };
@@ -2694,6 +2772,7 @@ _ricercaAnagraficaRicerca = function($http) {
 
 function httpServices($http) {
   return {
+    domande: domande($http),
     _ricercaAnagraficaRicerca: _ricercaAnagraficaRicerca($http),
     domande: domande($http)
   };

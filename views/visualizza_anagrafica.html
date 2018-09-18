@@ -25,14 +25,6 @@
 <!-- INIZIO VALIDAZIONE FORM -->
 <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 
-    <!-- SUBMIT BUTTON -->
-    <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
-    <div ng-if="!visAnaCtrl.editDatiAssistito" class="col-sm-12">
-        <br>
-        <button type="submit" class="btn btn-primary" ng-click="" ng-disabled="userForm.$invalid">{{
-            'REGISTRA' | translate }}</button>
-    </div>
-
     <div class="wrapper wrapper-content animated fadeInRight">
         <div ng-if="!visAnaCtrl.inserimentoAnagrafe" class="row">
             <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
@@ -110,7 +102,7 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Maschile"
-                                                        name="sesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                                        name="sesso" ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control">
                                                     <i></i>
                                                     Maschile
                                                 </label>
@@ -120,7 +112,7 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Femminile"
-                                                        name="sesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                                        name="sesso" ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control">
                                                     <i></i>
                                                     Femminile
                                                 </label>
@@ -163,7 +155,7 @@
 
                                 <div class="col-md-4 form-group">
                                     <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
-                                    
+
                                     <div ng-class="{datePicherDisabled : visAnaCtrl.editDatiAssistito}" class="input-group date">
                                         <input type="text" name="datadinascita" ng-model="datiAssistito.DataDiNascita"
                                             ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
@@ -317,8 +309,10 @@
                                         <td>{{item.Validita}}</td>
                                         <td>{{item.Note}}</td>
                                         <td style="font-size: 18px; text-align: center">
-                                            <a href="xxxxx.html"><i class="fa fa-pencil"></i></a>
-                                            <a href="xxxxx.html"><i class="fa fa-trash"></i></a>
+                                            <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i
+                                                    class="fa fa-pencil"></i></a>
+                                            <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i
+                                                    class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -326,7 +320,8 @@
 
                             <div class="row text-right">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-click="creaNuovoIndirizzo()">{{
+                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visAnaCtrl.editDatiAssistito"
+                                        ng-click="creaNuovoIndirizzo()">{{
                                         'CREA_NUOVO_INDIRIZZO'
                                         | translate }}</button>
                                 </div>
@@ -582,8 +577,9 @@
                                                 </td>
 
                                                 <td style="font-size: 18px; text-align: center">
-                                                    <a href="xxxxx.html"><i class="fa fa-pencil"></i></a>
+                                                    <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i class="fa fa-pencil"></i></a>
                                                 </td>
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -592,9 +588,10 @@
 
                             <div class="row text-right">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-click="creaNuovoReddito()">{{
-                                        'INSERISCI_REDDITO'
-                                        | translate }}</button>
+                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visAnaCtrl.editDatiAssistito"
+                                        ng-click="creaNuovoReddito()">
+                                        {{'INSERISCI_REDDITO' | translate }}
+                                    </button>
                                 </div>
                             </div>
 
@@ -888,8 +885,21 @@
                     </div>
                 </div>
 
+
+                <!-- SUBMIT BUTTON -->
+                <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
+                <div class="row text-right">
+                    <div ng-if="visAnaCtrl.inserimentoAnagrafe" class="col-sm-12" style="margin-top:5px;margin-bottom:15px">
+                        <button type="submit" class="btn btn-primary" ng-click="" ng-disabled="userForm.$invalid">{{
+                            'SALVA' | translate }}</button>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
+
     </div>
 
     <div class="modal inmodal" id="modalImportiRecuperati">
@@ -975,7 +985,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </form>
 
