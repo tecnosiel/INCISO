@@ -84,7 +84,8 @@
                                         <input type="text" placeholder="" class="form-control"></div>
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
-                                        <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div>
+                                        <input type="text" placeholder="dd/MM/yyyy" class="form-control js-date">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -181,7 +182,8 @@
                                                 <!-- <a ui-sref="domande.domanda" ng-click="domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a> -->
-                                                <a ui-sref="domande.domanda" ng-click="domCtrl.inserisciDomanda()" onclick="javascript:event.stopPropagation();">
+                                                <a ui-sref="domande.domanda" ng-click="domCtrl.inserisciDomanda()"
+                                                    onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a>
                                             </div>
@@ -202,10 +204,10 @@
                                                 <div class="col-md-3">
                                                     <strong>Deceduto il {{ item.DataDiDecesso }}</strong>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3 intero">
                                                     <strong>Numero Faldone: {{ item.NumeroFaldone }}</strong>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3 anno">
                                                     <strong>Anno di scarto: {{ item.AnnoDiScarto }}</strong>
                                                 </div>
                                             </div>

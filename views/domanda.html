@@ -24,6 +24,7 @@
 
     <div class="row">
         <div class="col-lg-12">
+
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5> Dati anagrafici assistito &nbsp;</h5>
@@ -67,6 +68,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Dati domanda</h5>
@@ -113,8 +115,8 @@
                         <div class="col-md-4 form-group">
                             <label>Data (*)</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="domanda.DataDomanda" placeholder="dd/MM/yyyy"><span
-                                    class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control js-date" ng-model="domanda.DataDomanda"
+                                    placeholder="dd/MM/yyyy"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                         <!-- <div class="col-md-4 form-group"><label>Data (*)</label> <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div> -->
@@ -169,12 +171,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 form-group"><label>Numero decreto</label>
-                                    <input ng-model="item.NumeroDecreto" type="text" class="form-control">
+                                    <input ng-model="item.NumeroDecreto" type="text" class="form-control intero">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label>Data decreto</label>
                                     <div class="input-group date">
-                                        <input ng-model="item.DataDecreto" type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                        <input ng-model="item.DataDecreto" type="text" class="form-control js-date"
+                                            placeholder="dd/MM/yyyy">
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
@@ -210,7 +213,7 @@
                                 <div class="col-md-6 form-group">
                                     <label>Scadenza decreto</label>
                                     <div class="input-group date">
-                                        <input type="text" class="form-control" ng-model="item.ScadenzaDecreto"
+                                        <input type="text" class="form-control js-date" ng-model="item.ScadenzaDecreto"
                                             placeholder="dd/MM/yyyy">
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -387,6 +390,7 @@
                 </div>
 
             </div>
+
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Dati verbale</h5>
@@ -401,20 +405,20 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Numero protocollo</label>
-                            <input ng-model="domanda.AziendaSanitaria.NumeroProtocollo" type="text" class="form-control">
+                            <input ng-model="domanda.AziendaSanitaria.NumeroProtocollo" type="text" class="form-control intero">
                         </div>
 
                         <div class="col-md-6 form-group" id="data_1">
                             <label>Data</label>
                             <div class="input-group date">
-                                <input ng-model="domanda.AziendaSanitaria.DataProtocollo" type="text" class="form-control"
+                                <input ng-model="domanda.AziendaSanitaria.DataProtocollo" type="text" class="form-control js-date"
                                     placeholder="dd/MM/yyyy"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label>Percentuale di invalidità (*)</label>
-                            <input ng-model="domanda.AziendaSanitaria.PercentualeDiInvalidita" type="text" class="form-control">
+                            <input ng-model="domanda.AziendaSanitaria.PercentualeDiInvalidita" type="text" class="form-control percentuale">
                         </div>
 
                         <div class="col-md-6 form-group">
@@ -534,6 +538,36 @@
                             <label>Note verbale</label>
                             <textarea ng-model="domanda.AziendaSanitaria.NoteVerbale" class="form-control">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </textarea></div>
                     </div>
                 </div>
@@ -552,8 +586,8 @@
                     <div class="row">
                         <div class="col-md-6 form-group" id="data_decorrenza">
                             <label>Data</label>
-                            <div class="input-group date">
-                                <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text" class="form-control"
+                            <div class="input-group js-date">
+                                <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text" class="form-control js-date"
                                     placeholder="dd/MM/yyyy">
                                 <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
@@ -563,6 +597,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="m-t-md">
                 <div class="button-bar text-right">
                     <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
@@ -611,4 +646,28 @@
             $("#posta").show();
         }
     });
+</script>
+
+<script>
+
+    // Custom scripts
+    $(document).ready(function () {
+
+        $('.ibox-title').click(function () {
+            var cl = $(this).find('.collapse-link');
+            var ibox = cl.closest('div.ibox');
+            var button = cl.find('i');
+            var content = ibox.find('div.ibox-content');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        });
+
+    });
+
+
 </script>

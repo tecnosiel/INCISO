@@ -133,7 +133,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "NAZIONE" | translate}}</label>
                             <select name="indirizzoCodificatoNazione" ng-model="indirizzoCodificato.Nazione"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" ng-options="nazione.name for nazione in nazioni"
+                                ng-disabled="visAnaCtrl.editDatiAssistito" ng-options="nazione.name for nazione in nazioni"
                                 class="form-control" required>
                                 <option value="">Seleziona nazione</option>
                             </select>
@@ -141,7 +141,7 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ "COMUNE" | translate}}</label>
-                            <select name="indirizzoCodificatoComune" ng-model="indirizzoCodificato.Comune" ng-readonly="visAnaCtrl.editDatiAssistito"
+                            <select name="indirizzoCodificatoComune" ng-model="indirizzoCodificato.Comune" ng-disabled="visAnaCtrl.editDatiAssistito"
                                 ng-options="comune.name for comune in comuni" class="form-control" required>
                                 <option value="">Seleziona comune</option>
                             </select>
@@ -154,7 +154,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "FRAZIONE" | translate}}</label>
                             <select name="indirizzoCodificatoFrazione" ng-model="indirizzoCodificato.Frazione"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" ng-options="frazione.name for frazione in frazioni"
+                                ng-disabled="visAnaCtrl.editDatiAssistito" ng-options="frazione.name for frazione in frazioni"
                                 class="form-control" required>
                                 <option value="">Seleziona frazione</option>
                             </select>
@@ -162,7 +162,7 @@
                         </div>
                         <div class="col-md-8 form-group">
                             <label>{{ "VIA" | translate}}</label>
-                            <select name="indirizzoCodificatoVia" ng-model="indirizzoCodificato.Via" ng-readonly="visAnaCtrl.editDatiAssistito"
+                            <select name="indirizzoCodificatoVia" ng-model="indirizzoCodificato.Via" ng-disabled="visAnaCtrl.editDatiAssistito"
                                 ng-options="via.name for via in vie" class="form-control" required>
                                 <option value="">Seleziona via</option>
                             </select>
@@ -188,7 +188,7 @@
                             <!-- <input type="text" ng-model="datiAssistito.DataDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
                                 class="form-control"> -->
                             <select name="indirizzoNonCodificatoLocalita" ng-model="indirizzoNonCodificato.Localita"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" ng-options="localita.name for localita in localitas"
+                                ng-disabled="visAnaCtrl.editDatiAssistito" ng-options="localita.name for localita in localitas"
                                 class="form-control" required>
                                 <option value="">Seleziona localita</option>
                             </select>
@@ -214,7 +214,7 @@
                             <label>{{ "VIA" | translate}}</label>
                             <!-- <input type="text" ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
                                 class="form-control"> -->
-                            <select name="indirizzoNonCodificatoVia" ng-model="indirizzoNonCodificato.Via" ng-readonly="visAnaCtrl.editDatiAssistito"
+                            <select name="indirizzoNonCodificatoVia" ng-model="indirizzoNonCodificato.Via" ng-disabled="visAnaCtrl.editDatiAssistito"
                                 ng-options="via.name for via in vie" class="form-control" required>
                                 <option value="">Seleziona via</option>
                             </select>
@@ -237,7 +237,7 @@
             <div class="col-md-4 form-group">
                 <label>{{ "N_CIVICO" | translate}}</label>
                 <input name="datiAssistito.NroCivico" type="text" ng-model="datiAssistito.NroCivico" ng-readonly="visAnaCtrl.editDatiAssistito"
-                    class="form-control">
+                    class="form-control" ui-number-mask>
             </div>
             <div class="col-md-4 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>

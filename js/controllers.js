@@ -26,7 +26,6 @@ function domandeCtrl(
   httpServices,
   $uibModal,
   $filter,
-  NgTableParams,
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {

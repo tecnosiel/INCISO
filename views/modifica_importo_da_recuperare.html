@@ -6,7 +6,7 @@
                 <a href="index.html">{{ 'HOME' | translate }}</a>
             </li>
             <li>
-                <a href="elabora_liquidazione_mensile.html" >Elabora liquidazione mensile</a>
+                <a href="elabora_liquidazione_mensile.html">Elabora liquidazione mensile</a>
             </li>
             <li class="active">
                 <strong>Predisponi/modifica importo da recuperare</strong>
@@ -33,7 +33,8 @@
                             <label>Data (*)</label>
                             <div>
                                 <div class="input-group date m-t-xs">
-                                    <input type="text" class="form-control" value="01/06/2015"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control js-date" value="01/06/2015"><span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +51,8 @@
                             <label>Data scadenza restituzione (*)</label>
                             <div>
                                 <div class="input-group date m-t-xs">
-                                   <input type="text" class="form-control" value="01/07/2015"> <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control" value="01/07/2015"> <span class="input-group-addon"><i
+                                            class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -60,10 +62,10 @@
                             <label>Calcolo interessi</label>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="c"> <i></i> Sì </div>
+                                    <div class="checkbox"><input icheck type="radio" name="c"> <i></i> Sì </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"> <input icheck   type="radio" name="c"> <i></i> No </div>
+                                    <div class="checkbox"> <input icheck type="radio" name="c"> <i></i> No </div>
                                 </div>
                             </div>
                         </div>
@@ -74,16 +76,19 @@
                             <label>Rateizzazione</label>
                             <div class="row" id="payment-installments">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="rateizzazione" value="yes"><i></i> Sì </div>
+                                    <div class="checkbox"><input icheck type="radio" name="rateizzazione" value="yes"><i></i>
+                                        Sì </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="rateizzazione" value="no" checked><i></i> No </div>
+                                    <div class="checkbox"><input icheck type="radio" name="rateizzazione" value="no"
+                                            checked><i></i> No </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Importo rata mensile</label>
-                            <div class="input-group"> <input type="text" class="form-control installment" disabled="disabled"> <span class="input-group-addon">€</span></div>
+                            <div class="input-group"> <input type="text" class="form-control installment" disabled="disabled">
+                                <span class="input-group-addon">€</span></div>
                         </div>
                     </div>
                     <h3>DATI DECRETO</h3>
@@ -99,18 +104,21 @@
                         </div>
                         <div class="col-md-4">
                             <label>Numero decreto</label>
-                            <input type="text" class="form-control installment" disabled="disabled"/>
+                            <input type="text" class="form-control installment" disabled="disabled" />
                         </div>
                         <div class="col-md-4">
                             <label>Data decreto</label>
                             <div>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control installment" disabled="disabled" value="01/07/2015"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control installment" disabled="disabled" value="01/07/2015"><span
+                                        class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row"><div class="col-md-12 form-separator"></div></div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
                     <div class="row m-t-lg">
                         <div class="col-md-4 form-group">
                             <label>Importo capitale da recuperare (*)</label>
@@ -131,17 +139,21 @@
                             <div class="input-group m-b"> <input type="text" class="form-control" readonly> <span class="input-group-addon">€</span></div>
                         </div>
                     </div>
-                    <div class="row"><div class="col-md-12 form-separator"></div></div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
                     <h3 class="m-t-lg">Rinuncia alla riscossione coattiva</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label></label>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="rinuncia"> <i></i> <strong>Sì</strong> </div>
+                                    <div class="checkbox"><input icheck type="radio" name="rinuncia"> <i></i> <strong>Sì</strong>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="rinuncia"> <i></i> <strong>No</strong> </div>
+                                    <div class="checkbox"><input icheck type="radio" name="rinuncia"> <i></i> <strong>No</strong>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +168,7 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Numero decreto</label>
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" />
                         </div>
                     </div>
                     <div class="row">
@@ -164,22 +176,27 @@
                             <label>Data decreto</label>
                             <div>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" value="01/07/2015"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control" value="01/07/2015"><span class="input-group-addon"><i
+                                            class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row"><div class="col-md-12 form-separator"></div></div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
                     <h3 class="m-t-lg">Annullato</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label></label>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="a"> <i></i> <strong>Sì</strong> </div>
+                                    <div class="checkbox"><input icheck type="radio" name="a"> <i></i> <strong>Sì</strong>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck   type="radio" name="a"> <i></i> <strong>No</strong> </div>
+                                    <div class="checkbox"><input icheck type="radio" name="a"> <i></i> <strong>No</strong>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -206,16 +223,16 @@
 </div>
 <script>
 
-     $(document).ready(function() {
-        $("#payment-installments .iCheck-helper").click(function(){
-        //$("input[name='rateizzazione']").click(function(){
-            if($('input:radio[name=rateizzazione]:checked').val() === 'no') {
-//            if ($(this).val() === 'yes') {
+    $(document).ready(function () {
+        $("#payment-installments .iCheck-helper").click(function () {
+            //$("input[name='rateizzazione']").click(function(){
+            if ($('input:radio[name=rateizzazione]:checked').val() === 'no') {
+                //            if ($(this).val() === 'yes') {
                 $('.installment').attr('disabled', 'disabled');
             }
             else {
                 $('.installment').removeAttr('disabled', 'disabled');
             }
         });
-     });
+    });
 </script>

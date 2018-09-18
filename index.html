@@ -46,12 +46,6 @@
     <!-- ng-popover-->
     <link href="css/plugins/ng-popover/angular-popover-modifyed.css" rel="stylesheet">
 
-    <!-- ng-popover-->
-    <link href="css/plugins/ng-table/ng-table.css" rel="stylesheet">
-
-    <!-- ng-popover-->
-    <link href="css/plugins/ng-table/ng-table.css" rel="stylesheet">
-
     <!-- css custom del sito-->
     <link href="css/custom.css" rel="stylesheet">
 
@@ -112,11 +106,6 @@
 
     <!-- ng-popover-->
     <script src="js/plugins/ng-popover/angular-popover.js"></script>
-
-    <!-- ng-table-->
-    <script src="js/plugins/ng-table/ng-table.js"></script>
-
-    <script src="js/angular/angular-resource.js"></script>
 
     <!-- Jquery App Script -->
     <script>
@@ -217,6 +206,166 @@
     <script src="js/services-http.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/controllers.js"></script>
+
+    <script>
+
+        // Procedure Custom per la gestione dati
+        // Queste procedure sono state sviluppate da 
+        // camillo alfano
+        // 
+
+        $(document).ready(function () {
+
+            $(".text-uppercase").keyup(function () {
+                this.value = this.value.toLocaleUpperCase();
+            });
+
+            // La forma Normale di quellq di sopra
+            //$(document).on('keyup', '.text-uppercase', function (event) {
+            //    this.value = this.value.toLocaleUpperCase();
+            //});
+
+            $(document).on('keyup', '.prv', function (event) {
+
+                if (this.value.length > 2) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('keyup', '.sino', function (event) {
+                if ($.isNumeric(this.value) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                } else if (this.value > 1) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('keyup', '.anno', function (event) {
+                debugger;
+                if ($.isNumeric(this.value) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                } else {
+                    if (this.value.length > 4) {
+                        //elimina l'ultimo carattere inserito
+                        this.value = this.value.slice(0, -1);
+                    }
+                }
+            });
+            $(document).on('keyup', '.mesi', function (event) {
+                if ($.isNumeric(this.value) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                } else if (this.value > 12) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('keyup', '.bimestri', function (event) {
+
+                if ($.isNumeric(this.value) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                } else if (this.value > 6) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('keyup', '.intero', function (event) {
+                if ($.isNumeric(this.value) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('keyup', '.percentuale', function (event) {
+                var v = this.value;
+                if (v.slice(-1) === ".") {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                var arr = v.split(',')
+                if (arr.length > 2) {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                if (arr[0].length > 3) {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                var vvv = v.replace(/,/g, "");
+                if (v.length > 6) {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                if ($.isNumeric(vvv) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('keyup', '.numeric-only', function (event) {
+                var v = this.value;
+                if (v.slice(-1) === ".") {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                if (v.split(',').length > 2) {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                if (v.substr(v.indexOf(',')).length > 3) {
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+                var vvv = v.replace(/,/g, "");
+                if ($.isNumeric(vvv) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+            $(document).on('click', '.numeric-only', function (event) {
+                if (this.value.indexOf('.') > -1) {
+                    this.value = this.value.split(".").join("");
+                    return;
+                }
+            });
+            $(document).on('keypress', '.js-date', function (event) {
+                if (event.keyCode < 47 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+
+                var len = this.value.length;
+
+                if (len > 9) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                    return;
+                }
+
+                // In posti particolari l'utente puo aggiungere lo slash
+                // 
+                if (len !== 1 || len !== 3) {
+                    if (event.keyCode == 47) {
+                        event.preventDefault();
+                    }
+                }
+
+                // Se non aggiungono lo slash la aggiungiamo noi
+                if (len === 2) {
+                    this.value += '/';
+                }
+
+                // Se non aggiungono lo slash la aggiungiamo noi
+                if (len === 5) {
+                    this.value += '/';
+                }
+            });
+
+        });
+
+    </script>
+
+
 
 </body>
 
