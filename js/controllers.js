@@ -27,7 +27,8 @@ function domandeCtrl(
   $uibModal,
   $filter,
   NgTableParams,
-  DTOptionsBuilder
+  DTOptionsBuilder,
+  DTColumnDefBuilder
 ) {
   this.DomandaVuota = {
     Posizione: "A Definirsi",
@@ -108,16 +109,25 @@ function domandeCtrl(
  * Controller Principale di gestione delle anagrafiche
  *
  */
-function anagrafeCtrl($rootScope, httpServices, $uibModal, DTOptionsBuilder, DTColumnDefBuilder) {
+function anagrafeCtrl(
+  $rootScope,
+  $scope,
+  httpServices,
+  $uibModal,
+  DTOptionsBuilder,
+  DTColumnDefBuilder
+) {
   $rootScope.datiAssistito = [];
 
   // https://www.datatables.net/reference/option/
   $rootScope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
-    .withOption("paging", true)
-    .withOption("searching", true)
-    .withOption("info", true)
     .withOption("lengthChange", false);
+
+  $rootScope.colonneTabElencoRedditi = [
+    DTColumnDefBuilder.newColumnDef(3).notSortable(),
+    DTColumnDefBuilder.newColumnDef(4).notSortable()
+  ];
 
   this.find = function() {
     this.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
@@ -167,20 +177,7 @@ function anagrafeCtrl($rootScope, httpServices, $uibModal, DTOptionsBuilder, DTC
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagrafeCtrl(
-  $scope,
-  $rootScope,
-  runMode,
-  DTOptionsBuilder,
-  DTColumnDefBuilder
-) {
-  // https://www.datatables.net/reference/option/
-  $rootScope.dtOptions = DTOptionsBuilder.newOptions()
-    .withOption("paging", true)
-    .withOption("searching", true)
-    .withOption("info", true)
-    .withOption("lengthChange", false);
-
+function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
   if (runMode == "NUOVOINSERIMENTO") {
     this.editDatiAssistito = false;
     this.inserimentoAnagrafe = true;
