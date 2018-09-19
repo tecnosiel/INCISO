@@ -149,7 +149,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "CAP" | translate}}</label>
                             <input name="indirizzoCodificatoCap" type="text" ng-model="indirizzoCodificato.Cap"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control intero">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ "FRAZIONE" | translate}}</label>
@@ -199,7 +199,7 @@
                             <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito"
                                 class="form-control" value="Milano"> -->
                             <input name="indirizzoNonCodificatoCap" type="text" ng-model="indirizzoNonCodificato.Cap"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control intero">
 
                         </div>
                         <div class="col-md-4 form-group">
@@ -237,27 +237,24 @@
             <div class="col-md-4 form-group">
                 <label>{{ "N_CIVICO" | translate}}</label>
                 <input name="datiAssistito.NroCivico" type="text" ng-model="datiAssistito.NroCivico" ng-readonly="visAnaCtrl.editDatiAssistito"
-                    class="form-control" ui-number-mask>
+                    class="form-control intero">
             </div>
             <div class="col-md-4 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>
                 <input name="datiAssistito.InizioValidita" type="text" ng-model="datiAssistito.InizioValidita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control js-date">
 
             </div>
             <div class="col-md-4 form-group">
                 <label>{{ "FINE_VALIDITA" | translate}}</label>
                 <input name="datiAssistito.FineValidita" type="text" ng-model="datiAssistito.FineValidita" ng-readonly="visAnaCtrl.editDatiAssistito"
-                    class="form-control">
+                    class="form-control js-date">
             </div>
         </div>
 
-
-
-
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="ok()">{{ 'SALVA' | translate }}</button>
-        <button type="button" class="btn btn-primary" ng-click="cancel()">{{ 'CHIUDI' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalSave('Indirizzi salvati!','Tutti gli indirizzi sono stati salvati correttamente.')">{{ 'SALVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalInstance.close()">{{ 'CHIUDI' | translate }}</button>
     </div>
 </div>

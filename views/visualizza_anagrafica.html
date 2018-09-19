@@ -43,13 +43,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer" data-toggle="collapse" href="#collapseDatiGenerali">
+                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseDatiGenerali">
                         {{ "DATI_GENERALI" | translate}}
                         <div class="panel-toolbox">
                             <i class="fa fa-chevron-down"></i>
                         </div>
                     </div>
-                    <div id="collapseDatiGenerali" class="panel-collapse collapse in">
+                    <div id="collapseDatiGenerali" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
 
@@ -303,13 +303,13 @@
                             <div class="row">
                                 <div class="col-md-4 form-group"><label>Telefono principale</label>
                                     <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control"></div>
+                                        class="form-control telefono"></div>
                                 <div class="col-md-4 form-group"><label>Telefono secondario</label>
                                     <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control"></div>
-                                <div class="col-md-4 form-group"><label>Email</label>
-                                    <input type="text" ng-model="datiAssistito.Email" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                        class="form-control"></div>
+                                        class="form-control telefono"></div>
+
+
+
                                 <div class="col-md-4 form-group"><label>PEC</label>
                                     <input type="text" ng-readonly="visAnaCtrl.editDatiAssistito" ng-model="datiAssistito.Pec"
                                         class="form-control"></div>
@@ -350,9 +350,10 @@
                                         <td>{{item.Validita}}</td>
                                         <td>{{item.Note}}</td>
                                         <td style="font-size: 18px; text-align: center">
-                                            <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i
+
+                                            <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" ng-click="visAnaCtrl.editIndirizzo()"><i
                                                     class="fa fa-pencil"></i></a>
-                                            <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i
+                                            <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" ng-click="visAnaCtrl.deleteIndirizzo()"><i
                                                     class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
@@ -529,7 +530,7 @@
                                                                     liquidato</a></td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}"
-                                                                    title="modifica">
+                                                                    ng-click="visAnaCtrl.editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -544,7 +545,7 @@
                                                                     liquidato</a></td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}"
-                                                                    title="modifica">
+                                                                    ng-click="visAnaCtrl.editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -559,7 +560,7 @@
                                                                     liquidato</a></td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}"
-                                                                    title="modifica">
+                                                                    ng-click="visAnaCtrl.editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -574,7 +575,7 @@
                                                                     liquidato</a></td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}"
-                                                                    title="modifica">
+                                                                    ng-click="visAnaCtrl.editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -625,10 +626,8 @@
 
                                             <tr ng-repeat="item in datiAssistito.Redditi">
                                                 <td>{{item.Anno}}</td>
-                                                <td>
-                                                    {{item.RedditoAssistito}}
-                                                </td>
-                                                <td>{{item.RedditoConiuge}}</td>
+                                                <td class="text-right">{{item.RedditoAssistito}}</td>
+                                                <td class="text-right">{{item.RedditoConiuge}}</td>
                                                 <td class="text-center">
                                                     <div class="checkbox">
                                                         <input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
@@ -639,8 +638,8 @@
                                                 </td>
 
                                                 <td style="font-size: 18px; text-align: center">
-                                                    <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}" href="xxxxx.html"><i
-                                                            class="fa fa-pencil"></i></a>
+                                                    <a ng-class="{anchorDisabled : visAnaCtrl.editDatiAssistito}"
+                                                        ng-click="visAnaCtrl.editReddito()"><i class="fa fa-pencil"></i></a>
                                                 </td>
 
                                             </tr>

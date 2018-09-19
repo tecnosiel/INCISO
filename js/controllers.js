@@ -9,8 +9,6 @@
  *
  *  - MainCtrl
  *  - anagrafeCtrl
- *  - modalGestioneIndirizziCtrl
- *  - modalGestioneRedditiCtrl
  *  - translateCtrl
  *
  */
@@ -200,6 +198,11 @@ function anagrafeCtrl(
     );
   };
 
+  // tutte le modali sono aperte in una variabile globale denominata $rootScope.modalInstance
+  // per la chiusura è sufficiente invocare il comando modalInstance.close() che è un metodo
+  // del plugin come specificato nella documentazione
+  // https://github.com/angular-ui/bootstrap/tree/master/src/modal/docs
+
   this.findCodFis = function(cCodFis) {
     $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
@@ -208,20 +211,18 @@ function anagrafeCtrl(
   };
 
   $rootScope.creaNuovoIndirizzo = function() {
-    var modalInstance = $uibModal.open({
+    $rootScope.modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_indirizzi.html",
-      controller: modalGestioneIndirizziCtrl,
       windowClass: "animated flipInY"
     });
   };
 
   $rootScope.creaNuovoReddito = function() {
-    alert("creaNuovoReddito");
-    var modalInstance = $uibModal.open({
+    $rootScope.modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_redditi.html",
-      controller: modalGestioneRedditiCtrl,
       windowClass: "animated flipInY"
     });
+    debugger;
   };
 
   /**
@@ -252,42 +253,61 @@ function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
     this.inserimentoAnagrafe = false;
   }
 
+  this.editIndirizzo = function() {
+    swal({
+      title: "Edit Indirizzo!",
+      text: "Qui ci sarà una maschera di edit!",
+      icon: "success",
+      button: "conferma!"
+    });
+  };
+
+  this.deleteIndirizzo = function() {
+    swal({
+      title: "Sei sicuro?",
+      text: "Una volta cancellato, non sarà possibile recuperarlo!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        swal("cancellato!", {
+          icon: "success"
+        });
+      } else {
+        swal("L' indirizzo è stato salvato!");
+      }
+    });
+  };
+
+  this.editReddito = function() {
+    swal({
+      title: "Edit Reddito!",
+      text: "Qui ci sarà una maschera di edit!",
+      icon: "success",
+      button: "conferma!"
+    });
+  };
+
+  this.editLiquidazione = function() {
+    swal({
+      title: "Edit Liquidazione!",
+      text: "Qui ci sarà una maschera di edit!",
+      icon: "success",
+      button: "conferma!"
+    });
+  };
+
+  $rootScope.modalSave = function(cTitolo, cSottoTitolo) {
+    swal(cTitolo, cSottoTitolo, "success");
+  };
+
   // function to submit the form after all validation has occurred
   $scope.submitForm = function(isValid) {
     // check to make sure the form is completely valid
     if (isValid) {
-      alert("la tua Form è valida");
+      // alert("la tua Form è valida");
     }
-  };
-}
-
-/**
- * modalGestioneIndirizziCtrl - controller
- * Controller per la gestione della modale degli indirizzi
- *
- */
-function modalGestioneIndirizziCtrl($scope, $uibModalInstance) {
-  $scope.ok = function() {
-    $uibModalInstance.close();
-  };
-
-  $scope.cancel = function() {
-    $uibModalInstance.dismiss("cancel");
-  };
-}
-
-/**
- * modalGestioneRedditiCtrl - controller
- * Controller per la gestione della modale dei redditi
- *
- */
-function modalGestioneRedditiCtrl($scope, $uibModalInstance) {
-  $scope.ok = function() {
-    $uibModalInstance.close();
-  };
-
-  $scope.cancel = function() {
-    $uibModalInstance.dismiss("cancel");
   };
 }
 

@@ -2,7 +2,7 @@
     .modal-dialog { min-width: 700px;}
 </style>
 
-<div class="inmodal">
+<div id="modaleRedditi" class="inmodal">
 
     <div class="modal-header">
         <h4 class="modal-title">{{ 'GESTIONE_REDDITI' | translate }}</h4>
@@ -11,12 +11,16 @@
     <div class="modal-body">
 
         <div class="row">
-            <div class="col-md-2 form-group"><label>{{ "ANNO" | translate}}</label> <input type="text" ng-model="datiAssistito.DataDiNascita"
-                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"></div>
+            <div class="col-md-2 form-group">
+                <label>{{ "ANNO" | translate}}</label>
+                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="visAnaCtrl.editDatiAssistito"
+                    class="form-control anno">
+            </div>
             <div class="col-md-6 form-group"><label>{{ "VALIDO_PER_ANNI_SUCCESSIVI" | translate}}</label>
                 <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control"
                     value="Milano"> -->
-                <div class="checkbox"><input icheck type="checkbox" ng-model="xxx"> <i></i>
+                <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.Redditi.ValidoPerAnniSuccessivi">
+                    <i></i>
                 </div>
 
             </div>
@@ -27,8 +31,8 @@
                     <div class="col-md-6">
                         <div class="checkbox">
                             <label>
-                                <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Si" name="sesso"
-                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
+                                    value="Si" name="sesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
                                 <i></i>
                                 Si
                             </label>
@@ -37,8 +41,8 @@
                     <div class="col-md-6">
                         <div class="checkbox">
                             <label>
-                                <input icheck ng-model="datiAssistito.Sesso" type="radio" value="No" name="sesso"
-                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
+                                    value="No" name="sesso" ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
                                 <i></i>
                                 No
                             </label>
@@ -51,42 +55,6 @@
 
         </div>
 
-        <!-- <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th class="col-md-2">Nazione</th>
-                    <th class="col-md-3">Comune</th>
-                    <th class="col-md-2">C.A.P.</th>
-                    <th class="col-md-3">Frazione</th>
-                    <th class="col-md-3">Via</th>
-                    <th class="col-md-3">Civico</th>
-                    <th class="col-md-1"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in datiAssistito.Indirizzi">
-                    <td>{{item.Nazione}}</td>
-                    <td>{{item.Comune}}</td>
-                    <td>{{item.Cap}}</td>
-                    <td>{{item.Frazione}}</td>
-                    <td>{{item.Via}}</td>
-                    <td>{{item.Civico}}</td>
-                    <td class="text-center">
-                        <div class="checkbox"><input icheck type="checkbox" ng-model="xxx"> <i></i></div>
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
- -->
-
-        <!-- <div class="row text-right">
-            <div class="col-sm-12">
-                <button class="btn btn-primary" id="anagSearch" ng-click="alert('da implementare')">{{ 'USA_INDIRIZZO' |
-                    translate }}</button>
-            </div>
-        </div> -->
-
         <div class="panel panel-default m-t-lg">
             <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoCodificato">
                 {{ 'REDDITI_PERCEPITI_ASSISTITO' | translate }}
@@ -96,36 +64,41 @@
             </div>
             <div id="collapseIndirizzoCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
+
+                    <!-- Nel div sottostante vengono adoperati campi temporanei per caricare la tabella -->
                     <div class="row">
                         <!-- --------------------------  -->
                         <div class="col-md-6 form-group">
                             <label>Tipologia di Reddito</label>
-                            <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
+                            <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
                                 ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control" required>
                                 <option></option>
                                 <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                 <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
                                 <option>Altri redditi da fabbricati</option>
-                                <option>option 4</option>
+                                <option>Questi valori verranno caricati dal BackEnd</option>
                             </select>
                         </div>
                         <!-- --------------------------  -->
                         <div class="col-md-4 form-group">
                             <label>Valore reddito</label>
-                            <input type="text" name="valorereddito" ng-model="datiAssistito.ValoreReddito" ng-readonly="visAnaCtrl.editDatiAssistito"
-                                class="form-control" required>
-                            <p ng-show="userForm.valorereddito.$invalid && !userForm.valorereddito.$pristine" class="help-block">
+                            <input type="text" name="valoreRedditoAssistito" ng-model="Tmp.ValoreRedditoAssistito"
+                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control importo text-right"
+                                style="float:right" required>
+                            <p ng-show="userForm.valoreRedditoAssistito.$invalid && !userForm.valoreRedditoAssistito.$pristine"
+                                class="help-block">
                                 Valore reddito obbligatorio.</p>
                         </div>
                         <!-- --------------------------  -->
                         <div class="col-md-2">
                             <label></label>
-                            <button class="btn btn-primary" id="anagSearch" ng-click="">
+                            <button style="margin-top:22px" class="btn btn-primary" ng-click="">
                                 {{'OK' | translate }}
                             </button>
                         </div>
 
                     </div>
+                    <!-- qui finisce il caricamento tabella -->
 
                     <!-- ---------- -->
                     <div class="row">
@@ -140,11 +113,11 @@
                                 <tbody>
 
                                     <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
-                                    <tr ng-repeat="item in datiAssistito.Redditi[1].DettagliAssistito">
+                                    <tr ng-repeat="item in datiAssistito.Redditi[0].DettagliAssistito">
                                         <td>
                                             {{item.Tipologia}}
                                         </td>
-                                        <td>{{item.Valore}}</td>
+                                        <td class="text-right">{{item.Valore}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -155,13 +128,14 @@
                     <div class="row">
                         <div class="col-md-8 form-group">
                             <label>{{ "NESSUN_REDDITO_PERCEPITO" | translate}}</label>
-                            <div class="checkbox"><input icheck type="checkbox" ng-model="xxx"> <i></i>
+                            <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.NessunRedditoPercepito">
+                                <i></i>
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ "TOTALE" | translate}}</label>
                             <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control text-right" disabled>
                         </div>
                     </div>
                 </div>
@@ -180,36 +154,44 @@
             <div id="collapseIndirizzoNonCodificato" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="panel-body">
+
+                        <!-- Nel div sottostante vengono adoperati campi temporanei per caricare la tabella -->
                         <div class="row">
                             <!-- --------------------------  -->
                             <div class="col-md-6 form-group">
                                 <label>Tipologia di Reddito</label>
-                                <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
+                                <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
                                     ng-disabled="visAnaCtrl.editDatiAssistito" class="form-control" required>
                                     <option></option>
                                     <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                     <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
                                     <option>Altri redditi da fabbricati</option>
-                                    <option>option 4</option>
+                                    <option>Questi valori verranno caricati dal BackEnd</option>
+                                </select>
+                                <select ng-model="currentProvince" ng-options="tipologiaDiReddito.name for tipologiaDiReddito in ">
+                                    <option value="">Seleziona un valore</option>
                                 </select>
                             </div>
                             <!-- --------------------------  -->
                             <div class="col-md-4 form-group">
                                 <label>Valore reddito</label>
-                                <input type="text" name="valorereddito" ng-model="datiAssistito.ValoreReddito"
-                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" required>
-                                <p ng-show="userForm.valorereddito.$invalid && !userForm.valorereddito.$pristine" class="help-block">
+                                <input type="text" name="valoreRedditoConiuge" ng-model="Tmp.ValoreRedditoConiuge"
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control importo text-right"
+                                    required>
+                                <p ng-show="userForm.valoreRedditoConiuge.$invalid && !userForm.valoreRedditoConiuge.$pristine"
+                                    class="help-block">
                                     Valore reddito obbligatorio.</p>
                             </div>
                             <!-- --------------------------  -->
                             <div class="col-md-2">
                                 <label></label>
-                                <button class="btn btn-primary" id="anagSearch" ng-click="">
+                                <button style="margin-top:22px" class="btn btn-primary" ng-click="">
                                     {{'OK' | translate }}
                                 </button>
                             </div>
 
                         </div>
+                        <!-- qui finisce il caricamento tabella -->
 
                         <!-- ---------- -->
                         <div class="row">
@@ -228,7 +210,7 @@
                                             <td>
                                                 {{item.Tipologia}}
                                             </td>
-                                            <td>{{item.Valore}}</td>
+                                            <td class="text-right">{{item.Valore}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -245,7 +227,7 @@
                             <div class="col-md-4 form-group">
                                 <label>{{ "TOTALE" | translate}}</label>
                                 <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control">
+                                    ng-readonly="visAnaCtrl.editDatiAssistito" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -255,7 +237,9 @@
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="ok()">{{ 'SALVA' | translate }}</button>
-        <button type="button" class="btn btn-primary" ng-click="cancel()">{{ 'CHIUDI' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalSave('Redditi salvati!','Tutti i redditi sono stati salvati correttamente.')">{{
+            'SALVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalInstance.close()">{{ 'CHIUDI' | translate
+            }}</button>
     </div>
 </div>

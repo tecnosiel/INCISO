@@ -118,13 +118,9 @@ h3 {
 
 .panel-heading.collapsed .panel-toolbox {
   float: right; }
-  .panel-heading.collapsed .panel-toolbox > i.fa-chevron-down :before {
-    content: "\f078"; }
 
 .panel-heading .panel-toolbox {
   float: right; }
-  .panel-heading .panel-toolbox > i.fa-chevron-down :before {
-    content: "\f077"; }
 
 .toolbox-parent-row > td {
   line-height: 2rem !important; }

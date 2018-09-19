@@ -107,6 +107,13 @@
     <!-- ng-popover-->
     <script src="js/plugins/ng-popover/angular-popover.js"></script>
 
+
+    <!-- sweetalert2-->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    
+    <!-- polyfill for ES6 Promises for IE11 and Android browser -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
+
     <!-- Jquery App Script -->
     <script>
         $('[data-toggle=popover]').on('click', function () {
@@ -278,6 +285,7 @@
                     this.value = this.value.slice(0, -1);
                 }
             });
+
             $(document).on('keyup', '.percentuale', function (event) {
                 var v = this.value;
                 if (v.slice(-1) === ".") {
@@ -303,7 +311,7 @@
                     this.value = this.value.slice(0, -1);
                 }
             });
-            $(document).on('keyup', '.numeric-only', function (event) {
+            $(document).on('keyup', '.importo', function (event) {
                 var v = this.value;
                 if (v.slice(-1) === ".") {
                     this.value = this.value.slice(0, -1);
@@ -323,12 +331,28 @@
                     this.value = this.value.slice(0, -1);
                 }
             });
-            $(document).on('click', '.numeric-only', function (event) {
+            $(document).on('click', '.importo', function (event) {
                 if (this.value.indexOf('.') > -1) {
                     this.value = this.value.split(".").join("");
                     return;
                 }
             });
+
+            $(document).on('keyup', '.telefono', function (event) {
+
+                var v = this.value;
+                if (v === " ") {
+                    return
+                }
+                var vvv = v.replace(/ /g, "");
+                if ($.isNumeric(vvv) === false) {
+                    //elimina l'ultimo carattere inserito
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+
+
+
             $(document).on('keypress', '.js-date', function (event) {
                 if (event.keyCode < 47 || event.keyCode > 57) {
                     event.preventDefault();
