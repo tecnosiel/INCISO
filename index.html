@@ -6,7 +6,7 @@
 -->
 
 <!DOCTYPE html>
-<html ng-app="inciso">
+<html>
 
 <head>
 
@@ -49,353 +49,374 @@
     <!-- css custom del sito-->
     <link href="css/custom.css" rel="stylesheet">
 
+
+
 </head>
 
+<!-- Angular App -->
 
-<!-- ControllerAs syntax -->
-
-<body ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
-
-    <!-- Main view  -->
+<body ng-app="inciso" ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy
+    id="page-top">
     <div ui-view></div>
+</body>
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery/jquery-2.1.1.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Mainly scripts -->
+<script src="js/jquery/jquery-2.1.1.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="js/inciso.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="js/inciso.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
 
-    <!-- jQuery UI -->
-    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- jQuery UI -->
+<script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-    <!-- GITTER -->
-    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
+<!-- GITTER -->
+<script src="js/plugins/gritter/jquery.gritter.min.js"></script>
 
-    <!-- iCheck -->
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
+<!-- iCheck -->
+<script src="js/plugins/iCheck/icheck.min.js"></script>
 
-    <!-- Data picker -->
-    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-    <script src="js/plugins/datapicker/bootstrap-datepicker.it.js"></script>
+<!-- Data picker -->
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="js/plugins/datapicker/bootstrap-datepicker.it.js"></script>
 
-    <!-- Data Tables -->
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="js/plugins/dataTables/dataTables.responsive.js"></script>
-
-
-    <!-- Chosen -->
-    <script src="js/plugins/chosen/chosen.jquery.js"></script>
-
-    <!-- Main Angular scripts-->
-    <script src="js/angular/angular.min.js"></script>
-    <script src="js/angular/angular-sanitize.min.js"></script>
-
-    <script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
-    <script src="js/angular-translate/angular-translate.min.js"></script>
-    <script src="js/ui-router/angular-ui-router.min.js"></script>
-    <script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
-    <script src="js/plugins/angular-idle/angular-idle.js"></script>
-
-    <!-- Data Tables -->
-    <script src="js/plugins/angular-datatables/angular-datatables.js"></script>
-
-    <!-- ng-popover-->
-    <script src="js/plugins/ng-popover/angular-popover.js"></script>
+<!-- Data Tables -->
+<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script src="js/plugins/dataTables/dataTables.responsive.js"></script>
 
 
-    <!-- sweetalert2-->
-    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
-    
-    <!-- polyfill for ES6 Promises for IE11 and Android browser -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
+<!-- Chosen -->
+<script src="js/plugins/chosen/chosen.jquery.js"></script>
 
-    <!-- ng-currency-->
-    <script src="js/plugins/ng-currency/ng-currency.min.js"></script>
-    
-    <script src="js/plugins/ng-currency/angular-locale_es-ar-custom"></script>
+<!-- Main Angular scripts-->
+<script src="js/angular/angular.min.js"></script>
+<script src="js/angular/angular-sanitize.min.js"></script>
 
-    <!-- Jquery App Script -->
-    <script>
-        $('[data-toggle=popover]').on('click', function () {
-            $('[data-toggle=popover]').each(function () {
+<script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="js/angular-translate/angular-translate.min.js"></script>
+<script src="js/ui-router/angular-ui-router.min.js"></script>
+<script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+<script src="js/plugins/angular-idle/angular-idle.js"></script>
+
+<!-- Data Tables -->
+<script src="js/plugins/angular-datatables/angular-datatables.js"></script>
+
+<!-- ng-popover-->
+<script src="js/plugins/ng-popover/angular-popover.js"></script>
+
+
+<!-- sweetalert2-->
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<!-- polyfill for ES6 Promises for IE11 and Android browser -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
+
+<!-- ng-currency-->
+<script src="js/plugins/ng-currency/ng-currency.min.js"></script>
+
+<script src="js/plugins/ng-currency/angular-locale_es-ar-custom"></script>
+
+
+<!-- Anglar App Script -->
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/services-http.js"></script>
+<script src="js/directives.js"></script>
+
+<script src="js/controllers/mainCtrl.js"></script>
+<script src="js/controllers/translateCtrl.js"></script>
+<script src="js/controllers/anagrafeCtrl.js"></script>
+<script src="js/controllers/domandeCtrl.js"></script>
+<script src="js/controllers/modalIndirizziCtrl.js"></script>
+<script src="js/controllers/modalRedditiCtrl.js"></script>
+<script src="js/controllers/visualizzaAnagrafeCtrl.js"></script>
+<script src="js/controllers/visualizzaDomandeCtrl.js"></script>
+
+<script>
+    /**
+     * Collega i controller al modulo inciso 
+     **/
+    angular
+        .module("inciso")
+        .controller("MainCtrl", MainCtrl)
+        .controller("translateCtrl", translateCtrl)
+        .controller("visualizzaAnagrafeCtrl", visualizzaAnagrafeCtrl)
+        .controller("anagrafeCtrl", anagrafeCtrl)
+        .controller("modalIndirizziCtrl", modalIndirizziCtrl)
+        .controller("modalRedditiCtrl", modalRedditiCtrl)
+        .controller("domandeCtrl", domandeCtrl);
+</script>
+
+<!-- Jquery App Script -->
+<script>
+    $('[data-toggle=popover]').on('click', function () {
+        $('[data-toggle=popover]').each(function () {
+            $(this).popover('hide');
+        });
+    });
+
+    $('body').on('click', function (e) {
+        $('[data-toggle=popover]').each(function () {
+            // hide any open popovers when the anywhere else in the body is clicked
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
                 $(this).popover('hide');
-            });
-        });
-
-        $('body').on('click', function (e) {
-            $('[data-toggle=popover]').each(function () {
-                // hide any open popovers when the anywhere else in the body is clicked
-                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                    $(this).popover('hide');
-                }
-            });
-        });
-
-        setTimeout(function () {
-            $('.input-group.date').datepicker({
-                todayBtn: "linked",
-                format: 'dd/mm/yyyy',
-                keyboardNavigation: false,
-                forceParse: true,
-                calendarWeeks: true,
-                autoclose: true
-                //orientation: 'bottom left'
-            });
-        }, 500);
-
-        $(document).ready(function () {
-
-            /****   PAGING  *****/
-            var table = $('.dataTables-paged').not('.order-desc').DataTable({
-                searching: false,
-                responsive: true,
-                lengthChange: false
-            });
-
-            var tableNoOrderd = $('.dataTables-paged.order-desc').DataTable({
-                "searching": false,
-                "responsive": true,
-                "lengthChange": false,
-            });
-
-            tableNoOrderd.order([0, 'desc']).draw();
-            /**** END PAGING *****/
-
-            /**** COLUMN FILTERING *****/
-            // Setup - add a text input to each footer cell
-            $('.dataTables-filtered tfoot th').each(function () {
-                var title = $(this).text();
-                if (!$(this).hasClass("no-filter")) {
-                    $(this).html('<input type="text" class="column-filter" placeholder="Search ' + title + '" />');
-                }
-            });
-
-            // Get filtered data table
-            var tableFiltered = $('.dataTables-filtered').DataTable({
-                searching: true,
-                responsive: true,
-                lengthChange: false
-            });
-
-            if (tableFiltered.columns().length > 0) {
-                // Apply the search
-                tableFiltered.columns().eq(0).each(function (index) {
-                    var that = tableFiltered.column(index);
-
-                    $('input', that.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });
             }
-            /**** END COLUMN FILTERING *****/
+        });
+    });
 
-            $('.floating-menu-box').on('click', function () {
-                if ($(this).hasClass("show")) {
-                    $(this).removeClass('show');
-                }
-                else {
-                    $(this).addClass('show');
-                }
-            });
+    setTimeout(function () {
+        $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            format: 'dd/mm/yyyy',
+            keyboardNavigation: false,
+            forceParse: true,
+            calendarWeeks: true,
+            autoclose: true
+            //orientation: 'bottom left'
+        });
+    }, 500);
 
+    $(document).ready(function () {
+
+        /****   PAGING  *****/
+        var table = $('.dataTables-paged').not('.order-desc').DataTable({
+            searching: false,
+            responsive: true,
+            lengthChange: false
         });
 
-    </script>
+        var tableNoOrderd = $('.dataTables-paged.order-desc').DataTable({
+            "searching": false,
+            "responsive": true,
+            "lengthChange": false,
+        });
 
-    <!-- Anglar App Script -->
-    <script src="js/app.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/services-http.js"></script>
-    <script src="js/directives.js"></script>
-    <script src="js/controllers.js"></script>
+        tableNoOrderd.order([0, 'desc']).draw();
+        /**** END PAGING *****/
 
-    <script>
+        /**** COLUMN FILTERING *****/
+        // Setup - add a text input to each footer cell
+        $('.dataTables-filtered tfoot th').each(function () {
+            var title = $(this).text();
+            if (!$(this).hasClass("no-filter")) {
+                $(this).html('<input type="text" class="column-filter" placeholder="Search ' + title + '" />');
+            }
+        });
 
-        // Procedure Custom per la gestione dati
-        // Queste procedure sono state sviluppate da 
-        // camillo alfano
-        // 
+        // Get filtered data table
+        var tableFiltered = $('.dataTables-filtered').DataTable({
+            searching: true,
+            responsive: true,
+            lengthChange: false
+        });
 
-        $(document).ready(function () {
+        if (tableFiltered.columns().length > 0) {
+            // Apply the search
+            tableFiltered.columns().eq(0).each(function (index) {
+                var that = tableFiltered.column(index);
 
-            $(".text-uppercase").keyup(function () {
-                this.value = this.value.toLocaleUpperCase();
-            });
-
-            // La forma Normale di quellq di sopra
-            //$(document).on('keyup', '.text-uppercase', function (event) {
-            //    this.value = this.value.toLocaleUpperCase();
-            //});
-
-            $(document).on('keyup', '.prv', function (event) {
-
-                if (this.value.length > 2) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
-            $(document).on('keyup', '.sino', function (event) {
-                if ($.isNumeric(this.value) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                } else if (this.value > 1) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
-            $(document).on('keyup', '.anno', function (event) {
-                debugger;
-                if ($.isNumeric(this.value) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                } else {
-                    if (this.value.length > 4) {
-                        //elimina l'ultimo carattere inserito
-                        this.value = this.value.slice(0, -1);
+                $('input', that.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
                     }
-                }
+                });
             });
-            $(document).on('keyup', '.mesi', function (event) {
-                if ($.isNumeric(this.value) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                } else if (this.value > 12) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
-            $(document).on('keyup', '.bimestri', function (event) {
+        }
+        /**** END COLUMN FILTERING *****/
 
-                if ($.isNumeric(this.value) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                } else if (this.value > 6) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
-            $(document).on('keyup', '.intero', function (event) {
-                if ($.isNumeric(this.value) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
+        $('.floating-menu-box').on('click', function () {
+            if ($(this).hasClass("show")) {
+                $(this).removeClass('show');
+            }
+            else {
+                $(this).addClass('show');
+            }
+        });
 
-            $(document).on('keyup', '.percentuale', function (event) {
-                var v = this.value;
-                if (v.slice(-1) === ".") {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                var arr = v.split(',')
-                if (arr.length > 2) {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                if (arr[0].length > 3) {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                var vvv = v.replace(/,/g, "");
-                if (v.length > 6) {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                if ($.isNumeric(vvv) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
-            $(document).on('keyup', '.importo', function (event) {
-                var v = this.value;
-                if (v.slice(-1) === ".") {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                if (v.split(',').length > 2) {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                if (v.substr(v.indexOf(',')).length > 3) {
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-                var vvv = v.replace(/,/g, "");
-                if ($.isNumeric(vvv) === false) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                }
-            });
-            $(document).on('click', '.importo', function (event) {
-                if (this.value.indexOf('.') > -1) {
-                    this.value = this.value.split(".").join("");
-                    return;
-                }
-            });
+    });
 
-            $(document).on('keyup', '.telefono', function (event) {
+</script>
 
-                var v = this.value;
-                if (v === " ") {
-                    return
-                }
-                var vvv = v.replace(/ /g, "");
-                if ($.isNumeric(vvv) === false) {
+<script>
+
+    // Procedure Custom per la gestione dati
+    // Queste procedure sono state sviluppate da 
+    // camillo alfano
+    // 
+
+    $(document).ready(function () {
+
+        $(".text-uppercase").keyup(function () {
+            this.value = this.value.toLocaleUpperCase();
+        });
+
+        // La forma Normale di quellq di sopra
+        //$(document).on('keyup', '.text-uppercase', function (event) {
+        //    this.value = this.value.toLocaleUpperCase();
+        //});
+
+        $(document).on('keyup', '.prv', function (event) {
+
+            if (this.value.length > 2) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('keyup', '.sino', function (event) {
+            if ($.isNumeric(this.value) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            } else if (this.value > 1) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('keyup', '.anno', function (event) {
+            debugger;
+            if ($.isNumeric(this.value) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            } else {
+                if (this.value.length > 4) {
                     //elimina l'ultimo carattere inserito
                     this.value = this.value.slice(0, -1);
                 }
-            });
+            }
+        });
+        $(document).on('keyup', '.mesi', function (event) {
+            if ($.isNumeric(this.value) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            } else if (this.value > 12) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('keyup', '.bimestri', function (event) {
+
+            if ($.isNumeric(this.value) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            } else if (this.value > 6) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('keyup', '.intero', function (event) {
+            if ($.isNumeric(this.value) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+
+        $(document).on('keyup', '.percentuale', function (event) {
+            var v = this.value;
+            if (v.slice(-1) === ".") {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            var arr = v.split(',')
+            if (arr.length > 2) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            if (arr[0].length > 3) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            var vvv = v.replace(/,/g, "");
+            if (v.length > 6) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            if ($.isNumeric(vvv) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('keyup', '.importo', function (event) {
+            var v = this.value;
+            if (v.slice(-1) === ".") {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            if (v.split(',').length > 2) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            if (v.substr(v.indexOf(',')).length > 3) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            var vvv = v.replace(/,/g, "");
+            if ($.isNumeric(vvv) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('click', '.importo', function (event) {
+            if (this.value.indexOf('.') > -1) {
+                this.value = this.value.split(".").join("");
+                return;
+            }
+        });
+
+        $(document).on('keyup', '.telefono', function (event) {
+
+            var v = this.value;
+            if (v === " ") {
+                return
+            }
+            var vvv = v.replace(/ /g, "");
+            if ($.isNumeric(vvv) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
 
 
 
-            $(document).on('keypress', '.js-date', function (event) {
-                if (event.keyCode < 47 || event.keyCode > 57) {
+        $(document).on('keypress', '.js-date', function (event) {
+            if (event.keyCode < 47 || event.keyCode > 57) {
+                event.preventDefault();
+            }
+
+            var len = this.value.length;
+
+            if (len > 9) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+
+            // In posti particolari l'utente puo aggiungere lo slash
+            // 
+            if (len !== 1 || len !== 3) {
+                if (event.keyCode == 47) {
                     event.preventDefault();
                 }
+            }
 
-                var len = this.value.length;
+            // Se non aggiungono lo slash la aggiungiamo noi
+            if (len === 2) {
+                this.value += '/';
+            }
 
-                if (len > 9) {
-                    //elimina l'ultimo carattere inserito
-                    this.value = this.value.slice(0, -1);
-                    return;
-                }
-
-                // In posti particolari l'utente puo aggiungere lo slash
-                // 
-                if (len !== 1 || len !== 3) {
-                    if (event.keyCode == 47) {
-                        event.preventDefault();
-                    }
-                }
-
-                // Se non aggiungono lo slash la aggiungiamo noi
-                if (len === 2) {
-                    this.value += '/';
-                }
-
-                // Se non aggiungono lo slash la aggiungiamo noi
-                if (len === 5) {
-                    this.value += '/';
-                }
-            });
-
+            // Se non aggiungono lo slash la aggiungiamo noi
+            if (len === 5) {
+                this.value += '/';
+            }
         });
 
-    </script>
+    });
 
-
-
-</body>
+</script>
 
 </html>

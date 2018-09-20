@@ -101,7 +101,7 @@
                                 </div>
                                 <div>
                                     <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" id="btnSearch"
-                                        ng-click="domCtrl.find()">{{ 'CERCA' | translate }}</button>
+                                        ng-click="$domCtrl.find()">{{ 'CERCA' | translate }}</button>
                                 </div>
 
                             </form>
@@ -145,7 +145,7 @@
                                 <strong class="m-r-md">*</strong> Codice fiscale duplicato, verificare anomalia.
                             </div>
 
-                            <div ng-repeat="item in domCtrl.elencoDomande">
+                            <div ng-repeat="item in $domCtrl.elencoDomande">
                                 <!-- Pannello Verde----------- -->
                                 <div class="panel panel-default" ng-class="{'evidence': item.Duplicato}">
 
@@ -159,7 +159,7 @@
                                             <div class="col-md-3">
                                                 <h4>
                                                     <i ng-if="item.DataDiDecesso != '-'" title="deceduto" class="fa fa-cross"></i>
-                                                    <a ng-class="{'secondary': item.Duplicato}" ng-click="domCtrl.findCodFis(item.CodiceFiscale)"
+                                                    <a ng-class="{'secondary': item.Duplicato}" ng-click="$domCtrl.findCodFis(item.CodiceFiscale)"
                                                         angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
                                                         style="position: relative; z-index: 100;">
                                                         {{item.Nome}} {{ item.Cognome }}
@@ -179,10 +179,10 @@
                                             <!-- ----------- -->
 
                                             <div class="col-md-3 text-right">
-                                                <!-- <a ui-sref="domande.domanda" ng-click="domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
+                                                <!-- <a ui-sref="domande.domanda" ng-click="$domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a> -->
-                                                <a ui-sref="domande.domanda" ng-click="domCtrl.inserisciDomanda()"
+                                                <a ui-sref="domande.domanda" ng-click="$domCtrl.inserisciDomanda()"
                                                     onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a>
