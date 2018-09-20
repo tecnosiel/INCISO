@@ -213,6 +213,7 @@ function anagrafeCtrl(
   $rootScope.creaNuovoIndirizzo = function() {
     $rootScope.modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_indirizzi.html",
+      controller: "modalIndirizziCtrl",
       windowClass: "animated flipInY"
     });
   };
@@ -220,6 +221,7 @@ function anagrafeCtrl(
   $rootScope.creaNuovoReddito = function() {
     $rootScope.modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_redditi.html",
+      controller: "modalRedditiCtrl",
       windowClass: "animated flipInY"
     });
     debugger;
@@ -321,6 +323,52 @@ function translateCtrl($translate, $scope) {
   };
 }
 
+function modalIndirizziCtrl($scope, $rootScope, $http) {
+  $scope.Tmp = {
+    IndirizzoCodificato: {
+      Nazione: "",
+      Comune: "",
+      Cap: "",
+      Frazione: "",
+      Via: ""
+    },
+    IndirizzoNonCodificato: {
+      Localita: "",
+      Cap: "",
+      Maso: "",
+      Via: "",
+      IndirizzoCompleto: ""
+    }
+  };
+
+  $scope.usaIndirizzo = function() {
+    var xxx = $rootScope.datiAssistito.Indirizzi.find(item => {
+      return item.UsaIndirizzo === "Si";
+    });
+    debugger;
+    if (xxx) {
+      $scope.Tmp.IndirizzoCodificato.Nazione = xxx.Nazione;
+      $scope.Tmp.IndirizzoCodificato.Comune = xxx.Comune;
+      $scope.Tmp.IndirizzoCodificato.Cap = xxx.Cap;
+      $scope.Tmp.IndirizzoCodificato.Frazione = xxx.Frazione;
+      $scope.Tmp.IndirizzoCodificato.Via = xxx.Via;
+
+      $scope.Tmp.IndirizzoNonCodificato.Localita = xxx.Comune;
+      $scope.Tmp.IndirizzoNonCodificato.Cap = xxx.Cap;
+      $scope.Tmp.IndirizzoNonCodificato.Maso = "";
+      $scope.Tmp.IndirizzoNonCodificato.Via = xxx.Via;
+      $scope.Tmp.IndirizzoNonCodificato.IndirizzoCompleto = xxx.Via + " " + xxx.Comune + " " + xxx.Cap + " " + xxx.Nazione ;
+
+      $scope.Tmp.NroCivico = xxx.Civico;
+
+      swal("Indirizzo correttamente copiato! Per verificare osservare il Cap dell'indirizzo codificato e l'indirizzo completo del non codifcato. Non viene copiato correttamente perche solo i valori delle options sono ammessi nelle select! ");
+
+    }
+  };
+}
+
+function modalRedditiCtrl($scope, $rootScope, $http) {}
+
 /**
  * MainCtrl - controller
  * Contiene dati globali usati in differenti view
@@ -347,4 +395,6 @@ angular
   .controller("translateCtrl", translateCtrl)
   .controller("visualizzaAnagrafeCtrl", visualizzaAnagrafeCtrl)
   .controller("anagrafeCtrl", anagrafeCtrl)
+  .controller("modalIndirizziCtrl", modalIndirizziCtrl)
+  .controller("modalRedditiCtrl", modalRedditiCtrl)
   .controller("domandeCtrl", domandeCtrl);

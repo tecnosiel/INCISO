@@ -41,7 +41,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
+            <div id="panels" class="col-lg-12">
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseDatiGenerali">
                         {{ "DATI_GENERALI" | translate}}
@@ -626,8 +626,8 @@
 
                                             <tr ng-repeat="item in datiAssistito.Redditi">
                                                 <td>{{item.Anno}}</td>
-                                                <td class="text-right">{{item.RedditoAssistito}}</td>
-                                                <td class="text-right">{{item.RedditoConiuge}}</td>
+                                                <td class="text-right">{{item.RedditoAssistito | currency : "€"}}</td>
+                                                <td class="text-right">{{item.RedditoConiuge | currency : "€" }}</td>
                                                 <td class="text-center">
                                                     <div class="checkbox">
                                                         <input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
@@ -1052,6 +1052,17 @@
 
 <script>
     $(document).ready(function () {
+
+        $(".panel-toolbox").click(function (event) {
+
+            if ($(this).find($(".fa")).hasClass('fa-chevron-down')) {
+                $(this).find($(".fa")).removeClass('fa-chevron-down').addClass('fa-chevron-up');
+            }
+            else if ($(this).find($(".fa")).hasClass('fa-chevron-up')) {
+                $(this).find($(".fa")).removeClass('fa-chevron-up').addClass('fa-chevron-down');
+            }
+
+        });
 
         $('.input-group.date').datepicker({
             todayBtn: "linked",

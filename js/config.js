@@ -13,7 +13,7 @@ function config(
   KeepaliveProvider,
   $locationProvider
 ) {
-  // Elimina # da Url ma da problemi su reload page
+  // L'istruzione sottostante elimina # dall' Url ma mi sembra dia problemi su reload page
   // $locationProvider.html5Mode(true);
 
   // Configure Idle settings
@@ -33,45 +33,6 @@ function config(
     .state("home", {
       url: "/home",
       templateUrl: "views/home"
-    })
-    // domanda --------------------------------------------------------------
-    .state("domande", {
-      abstract: true,
-      url: "/domande",
-      controller: "domandeCtrl as domCtrl",
-      templateUrl: "views/common/content.html"
-    })
-    .state("domande.nuova_domanda", {
-      url: "/nuova_domanda",
-      templateUrl: "views/nuova_domanda.html",
-      data: { pageTitle: "Nuova Domanda" },
-      resolve: {
-        loadPlugin: function($ocLazyLoad) {
-          return $ocLazyLoad.load([
-            {
-              files: [
-                "css/plugins/iCheck/custom.css",
-                "js/plugins/iCheck/icheck.min.js"
-              ]
-            }
-          ]);
-        }
-      }
-    })
-    .state("domande.domanda", {
-      url: "/domanda",
-      templateUrl: "views/domanda.html",
-      data: { pageTitle: "Domanda" }
-    })
-    // posizione --------------------------------------------------------------
-    .state("posizione", {
-      abstract: true,
-      url: "/posizione",
-      templateUrl: "views/common/content.html"
-    })
-    .state("posizione.ricerca_posizione", {
-      url: "/ricerca_posizione",
-      templateUrl: "views/ricerca_posizione.html"
     })
 
     // anagrafica --------------------------------------------------------------
@@ -106,6 +67,66 @@ function config(
           return "NUOVOINSERIMENTO";
         }
       }
+    })
+
+    // domanda --------------------------------------------------------------
+    .state("domande", {
+      abstract: true,
+      url: "/domande",
+      controller: "domandeCtrl as domCtrl",
+      templateUrl: "views/common/content.html"
+    })
+    .state("domande.nuova_domanda", {
+      url: "/nuova_domanda",
+      templateUrl: "views/nuova_domanda.html",
+      data: { pageTitle: "Nuova Domanda" },
+      resolve: {
+        loadPlugin: function($ocLazyLoad) {
+          // da verificare
+          return $ocLazyLoad.load([
+            {
+              files: [
+                "css/plugins/iCheck/custom.css",
+                "js/plugins/iCheck/icheck.min.js"
+              ]
+            }
+          ]);
+        }
+      }
+    })
+
+    .state("domande.visualizza_domanda", {
+      url: "/visualizza_domanda",
+      templateUrl: "views/visualizza_domanda.html",
+      data: { pageTitle: "Visualizza Domanda" },
+      resolve: {
+        loadPlugin: function($ocLazyLoad) {
+          // da verificare
+          return $ocLazyLoad.load([
+            {
+              files: [
+                "css/plugins/iCheck/custom.css",
+                "js/plugins/iCheck/icheck.min.js"
+              ]
+            }
+          ]);
+        }
+      }
+    })
+    .state("domande.domanda", {
+      url: "/domanda",
+      templateUrl: "views/domanda.html",
+      data: { pageTitle: "Domanda" }
+    })
+    // posizione --------------------------------------------------------------
+    .state("posizione", {
+      abstract: true,
+      url: "/posizione",
+      templateUrl: "views/common/content.html"
+    })
+    .state("posizione.ricerca_posizione", {
+      url: "/ricerca_posizione",
+      templateUrl: "views/ricerca_posizione.html"
     })
 
     // liquidazione ------------------------------------------------------------

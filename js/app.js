@@ -11,6 +11,7 @@
     "ngIdle", // Idle timer
     "ngSanitize", // ngSanitize
     "angular-popover", // angular-popover
-    "datatables" // datatable
+    "datatables", // datatable
+    "ng-currency" // ng-currency
   ]);
 })();
