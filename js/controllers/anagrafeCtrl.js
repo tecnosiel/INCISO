@@ -11,7 +11,6 @@ function anagrafeCtrl(
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
-  $rootScope.datiAssistito = [];
 
   // https://www.datatables.net/reference/option/
   $rootScope.dtOptions = DTOptionsBuilder.newOptions()
@@ -99,13 +98,6 @@ function anagrafeCtrl(
   // per la chiusura è sufficiente invocare il comando modalInstance.close() che è un metodo
   // del plugin come specificato nella documentazione
   // https://github.com/angular-ui/bootstrap/tree/master/src/modal/docs
-
-  this.findCodFis = function(cCodFis) {
-    $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
-  };
 
   $rootScope.creaNuovoIndirizzo = function() {
     $rootScope.modalInstance = $uibModal.open({

@@ -30,13 +30,14 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="a" checked> <i></i> 77 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="a"> <i></i>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
+                                            type="radio" name="a" ng-checked="findTipoAssistenzaRichiesta=='77'"> <i></i>
+                                        77 </label></div>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
+                                            type="radio" name="a" ng-checked="findTipoAssistenzaRichiesta=='88'"> <i></i>
                                         88 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="domandaAssistito.XXX" type="radio"
-                                            name="a"> <i></i>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
+                                            type="radio" name="a" ng-checked="findTipoAssistenzaRichiesta=='99'"> <i></i>
                                         99 </label></div>
                             </div>
                         </div>
@@ -73,26 +74,31 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'NOME' | translate }}</label>
-                                        <input type="text" placeholder="" class="form-control" value="Maria"></div>
+                                        <input type="text" placeholder="Nome da ricercare" class="form-control"
+                                            ng-model="findNome"></div>
+
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'COGNOME' | translate }}</label>
-                                        <input type="text" placeholder="" class="form-control" value="Rossi"></div>
+                                        <input type="text" placeholder="Cognome da ricercare" class="form-control"
+                                            ng-model="findCognome"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'CODICE_FISCALE' | translate }}</label>
-                                        <input type="text" placeholder="" class="form-control"></div>
+                                        <input type="text" placeholder="Codice fiscale da ricercare" class="form-control"
+                                            ng-model="findCodiceFiscale"></div>
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
-                                        <input type="text" placeholder="dd/MM/yyyy" class="form-control js-date">
+                                        <input type="text" placeholder="Data nascita da ricercare formato dd/MM/yyyy"
+                                            class="form-control js-date" ng-model="findDataDiNascita">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="checkbox">
                                             <label>
-                                                <input icheck ng-model="domandaAssistito.XXX" type="checkbox" value=""
-                                                    checked="">
+                                                <input icheck ng-model="findIncludiDeceduti" type="checkbox" value="Si"
+                                                    ng-checked="findIncludiDeceduti=='Si'">
                                                 <i></i>
                                                 {{ 'INCLUDI_DECEDUTI' | translate }}
                                             </label>
@@ -101,7 +107,7 @@
                                 </div>
                                 <div>
                                     <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" id="btnSearch"
-                                        ng-click="$domCtrl.find()">{{ 'CERCA' | translate }}</button>
+                                        ng-click="$domCtrl.findDomande()">{{ 'CERCA' | translate }}</button>
                                 </div>
 
                             </form>
@@ -182,7 +188,7 @@
                                                 <!-- <a ui-sref="domande.domanda" ng-click="$domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a> -->
-                                                <a ui-sref="domande.domanda" ng-click="$domCtrl.inserisciDomanda()"
+                                                <a ui-sref="domande.domanda" ng-click="$domCtrl.inserisciDomanda(item.CodiceFiscale)"
                                                     onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a>
@@ -257,7 +263,7 @@
                             <!-- Bottone Inserimento----------- -->
 
                             <div class="text-right">
-                                <button class="btn btn-primary btn-sm"> Inserisci assistito</button>
+                                <button class="btn btn-primary btn-sm"> {{ 'INSERISCI_ASSISTITO' | translate }}</button>
                             </div>
                         </div>
                     </div>

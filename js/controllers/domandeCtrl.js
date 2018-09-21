@@ -12,10 +12,19 @@ function domandeCtrl(
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
+  $scope.findIncludiDeceduti = "Si";
+  $scope.findTipoAssistenzaRichiesta = null;
+  $scope.findCognome = null;
+  $scope.findNome = null;
+  $scope.findCodiceFiscale = null;
+  $scope.findDataDiNascita = null;
+
   this.DomandaVuota = {
-    Posizione: "A Definirsi",
-    Fascicolo: "A Definirsi",
-    StatoDomanda: "In Itinere",
+    NroDomanda: "123456-12",
+    // ----
+    Posizione: "12345",
+    Fascicolo: "12345",
+    StatoDomanda: "Inserita",
     // ----
     TipoDomanda: "99",
     DataDomanda: "01/01/1111",
@@ -24,6 +33,7 @@ function domandeCtrl(
     DataProtocollo: "11/11/1111",
     Provenienza: "4",
     DelegaPatronato: "ACLI Merano",
+    Provenienza: "Presentata direttamente (2)",
 
     LegaliRappresentanti: [
       {
@@ -47,17 +57,37 @@ function domandeCtrl(
     ],
     Curatore: "io sono il curatore 111111",
     Comunicazioni: "Italiano",
-    ModalitaDiPagamento: "1",
+    ModalitaDiPagamento: {
+      Selezionata: "Banca",
+      Banca: {
+        IBAN: "IBAN",
+        BICSWIFT: "BICSWIFT",
+        Note: "note banca"
+      },
+
+      Posta: {
+        CodiceFiscale: "LFNCLL60D03E026T",
+        DelegatoIncasso: "DELEGATO INCASSO",
+        Note: "note POSTA"
+      }
+    },
+
     AssociazioniDiCategoria: [
       {
-        TipoAssociazione: "ANMIC",
+        TipoAssociazione: "xxx-ANMIC-xxx",
         DataInizioIscrizione: "10/04/1986",
         DataFineIscrizione: "",
         QuotaMensile: "103.32"
+      },
+      {
+        TipoAssociazione: "yyy-ANMIC-yyy",
+        DataInizioIscrizione: "10/04/1999",
+        DataFineIscrizione: "",
+        QuotaMensile: "303.00"
       }
     ],
 
-    Note: "quste sono le note generali o almno credo tali.....",
+    Note: "queste sono le note generali o almno credo tali.....",
 
     AziendaSanitaria: {
       NumeroProtocollo: "12345",
@@ -71,16 +101,17 @@ function domandeCtrl(
     }
   };
 
-  this.find = function() {
+  $scope.aggiungiIscrizione = function() {
+    swal("Qui va inserita la procedura di iscrizione!");
+  };
+
+  this.findDomande = function() {
+    debugger
     this.elencoDomande = httpServices.domande.find("mockUrl");
   };
 
-  this.findCodFis = function(cCodFis) {
-    $rootScope.domanda = httpServices.domande.findCodFis("mockUrl", cCodFis);
-    debugger;
-  };
-
-  this.inserisciDomanda = function() {
+  this.inserisciDomanda = function(cCodFis) {
+    $rootScope.findCodFis(cCodFis);
     $rootScope.domanda = this.DomandaVuota;
     debugger;
   };

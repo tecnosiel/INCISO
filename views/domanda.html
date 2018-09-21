@@ -21,7 +21,6 @@
     <div class="row">
         <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
     </div>
-
     <div class="row">
         <div class="col-lg-12">
 
@@ -37,42 +36,69 @@
                 <div class="ibox-content" style="display:none;">
                     <!-- Informazioni Da Prelevare dall'anagrafica -->
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
-                                value="Maria"></div>
-                        <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
-                                value="Rossi"></div>
-                        <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" readonly
-                                class="form-control" value="Bianchi"></div>
-                        <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" readonly
-                                class="form-control" value="RSSMRA70A41F2052"></div>
-                        <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" readonly class="form-control"
-                                value="F"></div>
-                        <div class="col-md-2 form-group"><label>Data di nascita</label> <input type="text" readonly
-                                class="form-control" value="05/01/1970"></div>
-                        <div class="col-md-2 form-group"><label>Luogo di nascita</label> <input type="text" readonly
-                                class="form-control" value="Bolzano"></div>
-                        <div class="col-md-2 form-group"><label>Cittadinanza</label> <input type="text" readonly class="form-control"
-                                value="Americana"></div>
-                        <div class="col-md-2 form-group"><label>Extracomunitario</label> <input type="text" readonly
-                                class="form-control" value="Sì"></div>
-                        <div class="col-md-4 form-group"><label>Permesso di soggiorno</label> <input type="text"
-                                readonly class="form-control" value="PS10222-08"></div>
-                        <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
-                                value="10/01/2015"></div>
-                        <div class="col-md-4 form-group"><label>Residenza</label> <input type="text" readonly class="form-control"
-                                value="via Luigi Cadorna, 53 - 39100 Bolzano BZ"></div>
-                        <div class="col-md-4 form-group"><label>Domicilio</label> <input type="text" readonly class="form-control"
-                                value="via Armando Diaz, 2 - 39100 Bolzano BZ"></div>
-                        <div class="col-md-4 form-group"><label>Altri indirizzi</label> <input type="text" readonly
-                                class="form-control" value="23, 49 St., Chicago, Illinois, USA"></div>
+                        <div class="col-md-4 form-group">
+                            <label>Nome</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Nome">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Cognome</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Cognome">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Cognome acquisito</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.CognomeAcquisito">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Codice Fiscale</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.CodiceFiscale">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Sesso</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Sesso">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Data di nascita</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.DataDiNascita">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Luogo di nascita</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.LuogoDiNascita">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Cittadinanza</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Cittadinanza">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Extracomunitario</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Extracomunitario">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Permesso di soggiorno</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.PermessoDiSoggiorno">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Data decesso</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.DataDiDecesso">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Residenza</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Residenza">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Domicilio</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.Domicilio">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Altri indirizzi</label>
+                            <input type="text" readonly class="form-control" ng-model="datiAssistito.AltriIndirizzi">
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- ------------------------------------------------------------------------ -->
-            <!-- FINE FORM DOMANDA -->
+            <!-- FINE INIZIO DOMANDA -->
             <!-- ------------------------------------------------------------------------ -->
-            <!-- https://www.tutlane.com/example/angularjs/angularjs-ng-pattern-email-validation-example -->
 
             <form name="domandaForm" ng-submit="submitForm(domandaForm.$valid)" novalidate>
                 <div class="ibox float-e-margins">
@@ -131,13 +157,8 @@
                             <!-- <div class="col-md-4 form-group"><label>Data (*)</label> <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div> -->
                             <div class="col-md-4 form-group">
                                 <label>Email</label>
-                                <input type="text" name="email" ng-model="domanda.EmailDomanda" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                <input type="email" name="email" ng-model="domanda.EmailDomanda" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
                                     class="form-control">
-                                <div class="col-md-4 form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" ng-model="datiAssistito.Email" ng-readonly="$visAnaCtrl.editDatiAssistito"
-                                        class="form-control">
-                                </div>
                                 <p ng-show="domandaForm.email.$invalid && !domandaForm.email.$pristine" class="help-block">Email
                                     non valida.</p>
                             </div>
@@ -154,6 +175,17 @@
                                 <label>&nbsp;</label>
                                 <span class="input-group-btn"> <button type="button" class="btn btn-primary btn-sm">Cerca</button></span>
                             </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4 form-group"><label>Delega patronato</label>
+                                <select class="form-control m-b" name="account" ng-model="domanda.DelegaPatronato">
+                                    <option>ACLI Bolzano</option>
+                                    <option>ACLI Merano</option>
+                                    <option>INAS Bolzano</option>
+                                    <option>EPACA Bolzano</option>
+                                </select>
+                            </div>
                             <div class="col-md-8 form-group"><label>Provenienza (*)</label>
                                 <select class="form-control m-b" ng-model="domanda.Provenienza" name="account">
                                     <option value="1">Commissione sanitaria dell’Azienda Sanitaria (1)</option>
@@ -166,14 +198,7 @@
                                     <option value="8">Commissione ricorsi (8)</option>
                                 </select>
                             </div>
-                            <div class="col-md-4 form-group"><label>Delega patronato</label>
-                                <select class="form-control m-b" name="account" ng-model="domanda.DelegaPatronato">
-                                    <option>ACLI Bolzano</option>
-                                    <option>ACLI Merano</option>
-                                    <option>INAS Bolzano</option>
-                                    <option>EPACA Bolzano</option>
-                                </select>
-                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-separator"></div>
@@ -283,251 +308,284 @@
                         <div class="row">
                             <div class="col-md-12 form-separator"></div>
                         </div>
+
+                        <!-- ------------ -->
                         <div>
                             <h3 class="m-t-lg">Modalità di pagamento</h3>
                             <div class="row">
                                 <div class="col-md-12 m-b-md">
                                     <label class="radio-inline">
-                                        <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="1" id="inlineCheckbox1"
-                                            name="payment" ng-checked="domanda.ModalitaDiPagamento == '1'">
+                                        <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="Banca"
+                                            name="payment" ng-checked="domanda.ModalitaDiPagamento == 'Banca'">
                                         <strong> Bonifico bancario</strong>
                                     </label>
                                     <label class="radio-inline m-l-lg">
-                                        <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="2" id="inlineCheckbox2"
-                                            name="payment" ng-checked="domanda.ModalitaDiPagamento == '2'">
+                                        <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="Posta"
+                                            name="payment" ng-checked="domanda.ModalitaDiPagamento == 'Posta'">
                                         <strong> Bonifico domiciliato alla posta</strong>
                                     </label>
                                 </div>
-
-                                <div id="iban" class="col-md-12" style="display:none;">
+                                <!-- ---------------- Banca -->
+                                <div ng-if="domanda.ModalitaDiPagamento === 'Banca'" class="col-md-12">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-9">
-                                                <label>IBAN</label> <input type="text" class="form-control">
+                                                <label>IBAN</label>
+                                                <input ng-model="domanda.ModalitaDiPagamento.Banca.IBAN" type="text"
+                                                    class="form-control intero">
+
                                             </div>
                                             <div class="col-md-3">
-                                                <label>Codice BIC/SWIFT</label> <input type="text" class="form-control">
+                                                <label>Codice BIC/SWIFT</label>
+                                                <input ng-model="domanda.ModalitaDiPagamento.Banca.BICSWIFT" type="text"
+                                                    class="form-control intero">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group"><label>Intestatario conto</label> <input type="text" class="form-control"></div>
-                                    <div class="form-group"><label>Note</label> <textarea class="form-control"></textarea></div>
+                                    <div class="form-group">
+                                        <label>Intestatario conto</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Note</label>
+                                        <textarea name="" id="" ng-model="domanda.ModalitaDiPagamento.Banca.Note" class="form-control"></textarea>
+                                    </div>
                                 </div>
-                                <div id="posta" class="col-md-12" style="display:none;">
-                                    <div class="form-group"><label>Codice fiscale</label> <input type="text" class="form-control"></div>
-                                    <div class="form-group"><label>Delegato dell'incasso</label> <input type="text"
-                                            class="form-control"></div>
-                                    <div class="form-group"><label>Note</label> <textarea class="form-control"></textarea></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 form-separator"></div>
-                        </div>
-                        <div>
-                            <h3 class="m-t-lg">Associazioni di categoria</h3>
-                            <div>
-                                <table class="table table-bordered dataTables-paged">
-                                    <thead>
-                                        <tr>
-                                            <th class="col-md-3">Tipo associazione</th>
-                                            <th class="col-md-3">Data inizio iscrizione</th>
-                                            <th class="col-md-3">Data fine iscrizione</th>
-                                            <th class="col-md-3">Ritenuta di categoria (quota mensile)</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="toolbox-parent-row">
-                                            <td>ANMIC</td>
-                                            <td>10/04/1986</td>
-                                            <td>-</td>
-                                            <td>103.32 €</td>
-                                            <td style="width:60px" class="toolbox-row">
-                                                <a title="visualizza">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                                <a title="elimina">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="text-right  m-b-sm">
-                                    <button class="btn btn-primary btn-sm  ">Aggiungi iscrizione</button>
+
+                                <!-- ---------------- Posta -->
+                                <div ng-if="domanda.ModalitaDiPagamento === 'Posta'" class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Codice fiscale</label>
+                                        <input type="text" ng-model="domanda.ModalitaDiPagamento.Posta.CodiceFiscale"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Delegato dell'incasso</label>
+                                        <input type="text" ng-model="domanda.ModalitaDiPagamento.Posta.DelegatoIncasso"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Note</label>
+                                        <textarea name="" id="" ng-model="domanda.ModalitaDiPagamento.Posta.Note" class="form-control"></textarea>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- ------------ -->
+                            <div class="row">
+                                <div class="col-md-12 form-separator"></div>
+                            </div>
+                            <!-- ------------ -->
+                            <div class="row">
+                                <h3 class="m-t-lg">Associazioni di categoria</h3>
+                                <div>
+                                    <table class="table table-bordered dataTables-paged">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-md-3">Tipo associazione</th>
+                                                <th class="col-md-3">Data inizio iscrizione</th>
+                                                <th class="col-md-3">Data fine iscrizione</th>
+                                                <th class="col-md-3">Ritenuta di categoria (quota mensile)</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in domanda.AssociazioniDiCategoria" class="toolbox-parent-row">
+                                                <td>{{item.TipoAssociazione}}</td>
+                                                <td>{{item.DataInizioIscrizione}}</td>
+                                                <td>{{item.DataFineIscrizione}}</td>
+                                                <td>{{item.RitenutaDiAcconto | currency }}</td>
+                                                <td style="width:60px" class="toolbox-row">
+                                                    <a title="visualizza">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a title="elimina">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                    <div class="text-right  m-b-sm">
+
+                                        <button type="button" class="btn btn-primary btn-sm" ng-click="aggiungiIscrizione()">{{
+                                            'AGGIUNGI_ISCRIZIONE' | translate }}</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-separator"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label class="m-t-lg">Note</label>
+                                    <textarea name="" id="" ng-model="domanda.AssociazioniDiCategoria.Note" class="form-control"></textarea>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 form-separator"></div>
+                        <!-- ------------ -->
+
+                    </div>
+
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Dati verbale</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <label class="m-t-lg">Note</label>
-                                <textarea ng-model="domanda.Note" class="form-control"></textarea>
+                        <div class="ibox-content">
+                            <h3 class="">Protocollo azienda sanitaria</h3>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Numero protocollo</label>
+                                    <input ng-model="domanda.AziendaSanitaria.NumeroProtocollo" type="text" class="form-control intero">
+                                </div>
+
+                                <div class="col-md-6 form-group" id="data_1">
+                                    <label>Data</label>
+                                    <div class="input-group date">
+                                        <input ng-model="domanda.AziendaSanitaria.DataProtocollo" type="text" class="form-control js-date"
+                                            placeholder="dd/MM/yyyy"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <label>Percentuale di invalidità (*)</label>
+                                    <input ng-model="domanda.AziendaSanitaria.PercentualeDiInvalidita" type="text"
+                                        class="form-control percentuale">
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <div>
+                                        <label>Indennità di accompagnamento</label>
+                                    </div>
+                                    <div>
+                                        <div class="inline-block">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
+                                                        type="radio" value="Si" name="indennitaDiAccompagnamento"
+                                                        ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'Si'">
+                                                    <i></i>
+                                                    Si
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="inline-block m-l-lg">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
+                                                        type="radio" value="No" name="indennitaDiAccompagnamento"
+                                                        ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'No'">
+                                                    <i></i>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div>
+                                        <label>Patologia uditiva</label>
+                                    </div>
+                                    <div>
+                                        <div class="inline-block">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva"
+                                                        type="radio" name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'Si'">
+                                                    <i></i>
+                                                    Si
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="inline-block m-l-lg">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva"
+                                                        type="radio" name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'No'">
+                                                    <i></i>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <div>
+                                        <label>Riduzione del visus</label>
+                                    </div>
+                                    <div>
+                                        <div class="inline-block">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus"
+                                                        type="radio" name="RiduzioneDelVisus" value="Si" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'Si'">
+                                                    <i></i>
+                                                    Si
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="inline-block m-l-lg">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus"
+                                                        type="radio" name="RiduzioneDelVisus" value="No" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'No'">
+                                                    <i></i>
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 form-group">
+                                    <label>Note verbale</label>
+                                    <textarea name="" id="" ng-model="domanda.AziendaSanitaria.NoteVerbale" class="form-control"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Dati verbale</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <h3 class="">Protocollo azienda sanitaria</h3>
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <label>Numero protocollo</label>
-                                <input ng-model="domanda.AziendaSanitaria.NumeroProtocollo" type="text" class="form-control intero">
-                            </div>
-
-                            <div class="col-md-6 form-group" id="data_1">
-                                <label>Data</label>
-                                <div class="input-group date">
-                                    <input ng-model="domanda.AziendaSanitaria.DataProtocollo" type="text" class="form-control js-date"
-                                        placeholder="dd/MM/yyyy"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <label>Percentuale di invalidità (*)</label>
-                                <input ng-model="domanda.AziendaSanitaria.PercentualeDiInvalidita" type="text" class="form-control percentuale">
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <div>
-                                    <label>Indennità di accompagnamento</label>
-                                </div>
-                                <div>
-                                    <div class="inline-block">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
-                                                    type="radio" value="Si" name="indennitaDiAccompagnamento"
-                                                    ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'Si'">
-                                                <i></i>
-                                                Si
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="inline-block m-l-lg">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
-                                                    type="radio" value="No" name="indennitaDiAccompagnamento"
-                                                    ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'No'">
-                                                <i></i>
-                                                No
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 form-group">
-                                <div>
-                                    <label>Patologia uditiva</label>
-                                </div>
-                                <div>
-                                    <div class="inline-block">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva" type="radio"
-                                                    name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'Si'">
-                                                <i></i>
-                                                Si
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="inline-block m-l-lg">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva" type="radio"
-                                                    name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'No'">
-                                                <i></i>
-                                                No
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <div>
-                                    <label>Riduzione del visus</label>
-                                </div>
-                                <div>
-                                    <div class="inline-block">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus"
-                                                    type="radio" name="RiduzioneDelVisus" value="Si" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'Si'">
-                                                <i></i>
-                                                Si
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="inline-block m-l-lg">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus"
-                                                    type="radio" name="RiduzioneDelVisus" value="No" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'No'">
-                                                <i></i>
-                                                No
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 form-group">
-                                <label>Note verbale</label>
-                                <textarea name="" id="" ng-model="domanda.AziendaSanitaria.NoteVerbale" class="form-control"></textarea>
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Data decorrenza del diritto al pagamento</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Data decorrenza del diritto al pagamento</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-md-6 form-group" id="data_decorrenza">
-                                <label>Data</label>
-                                <div class="input-group js-date">
-                                    <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text"
-                                        class="form-control js-date" placeholder="dd/MM/yyyy">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-md-6 form-group" id="data_decorrenza">
+                                    <label>Data</label>
+                                    <div class="input-group js-date">
+                                        <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text"
+                                            class="form-control js-date" placeholder="dd/MM/yyyy">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="m-t-md">
-                    <div class="button-bar text-right">
-                        <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
-                        <!--                    <button class="btn btn-sm btn-primary">Inserisci</button>-->
-                        <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
-                        <a class="btn btn-sm btn-primary" ui-sref="domande.visualizza_domanda">Inserisci</a>
+                    <div class="m-t-md">
+                        <div class="button-bar text-right">
+                            <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
+                            <!--                    <button class="btn btn-sm btn-primary">Inserisci</button>-->
+                            <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
+                            <a class="btn btn-sm btn-primary" ui-sref="domande.visualizza_domanda">Inserisci</a>
+                        </div>
                     </div>
-                </div>
             </form>
             <!-- ------------------------------------------------------------------------ -->
             <!-- FINE FORM DOMANDA -->

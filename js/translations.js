@@ -34,6 +34,8 @@ function config($translateProvider) {
       RISULTATI_DELLA_RICERCA: "Risultati della ricerca",
       INCLUDI_DECEDUTI: "Includi deceduti",
       INSERISCI_DOMANDA:  "Inserisci domanda",
+      INSERISCI_ASSISTITO : "Inserisci assistito",
+      AGGIUNGI_ISCRIZIONE : "Aggiungi iscrizione",
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
@@ -94,6 +96,7 @@ function config($translateProvider) {
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
       ELENCO_EVIDENZE: "ELENCO EVIDENZE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO",
+      INSERIMENTO_DATI_ANAGRAFICI:"Inserimento dati anagrafici",
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
 
@@ -173,6 +176,8 @@ function config($translateProvider) {
       RISULTATI_DELLA_RICERCA: "Risultati della ricerca DE",
       INCLUDI_DECEDUTI: "Includi deceduti DE",
       INSERISCI_DOMANDA:  "Inserisci domanda DE",
+      INSERISCI_ASSISTITO : "Inserisci assistito DE",
+      AGGIUNGI_ISCRIZIONE : "Aggiungi iscrizione DE",
 
 
       // Label Redditi
@@ -234,6 +239,8 @@ function config($translateProvider) {
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
       ELENCO_EVIDENZE: "ELENCO EVIDENZE DE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
+      INSERIMENTO_DATI_ANAGRAFICI:"Inserimento dati anagrafici DE",
+
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici DE",
 

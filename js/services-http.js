@@ -21,10 +21,10 @@ mochDbTable = function(table) {
 
   let tabDomande = [
     {
-      CodiceFiscale: "RSSARO70A10F2052",
+      CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
       Nome: "Camillo",
-      DataDiNascita: "01/01/1930",
+      DataDiNascita: "03/04/1960",
       DataDiDecesso: "03/01/2014",
       AnnoDiScarto: "1234",
       NumeroFaldone: "1111",
@@ -307,14 +307,300 @@ mochDbTable = function(table) {
 
   let tabAnagrafe = [
     {
+      CodiceFiscale: "LFNCLL60D03E026T",
+      Cognome: "Alfano",
+      Nome: "Camillo",
+      DataDiNascita: "01/01/1930",
+      DataDiDecesso: "-",
+      Sesso: "F",
+      LuogoDiNascita: "Bologna",
+      Nazionalita: "Italiana",
+      Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
+      Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
+      AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+      Redditi: [
+        {
+          Anno: "2018",
+          RedditoAssistito: "111111.45",
+          RedditoConiuge: "6578.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2017",
+          RedditoAssistito: "22222225.45",
+          RedditoConiuge: "222222228.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2016",
+          RedditoAssistito: "33333333.45",
+          RedditoConiuge: "33333333.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2015",
+          RedditoAssistito: "44444444.45",
+          RedditoConiuge: "44444444.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2014",
+          RedditoAssistito: "555555555.45",
+          RedditoConiuge: "5555555.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2013",
+          RedditoAssistito: "666666666.45",
+          RedditoConiuge: "6666666.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2012",
+          RedditoAssistito: "77777777.45",
+          RedditoConiuge: "7777777.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2011",
+          RedditoAssistito: "88888888.45",
+          RedditoConiuge: "88888888.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        },
+        {
+          Anno: "2010",
+          RedditoAssistito: "9999999.45",
+          RedditoConiuge: "999999.88",
+          ValidoPerGliAnniSuccessivi: true,
+          DettagliConiuge: [],
+          DettagliAssistito: [
+            {
+              Tipologia:
+                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "8868.00"
+            },
+            {
+              Tipologia:
+                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "11000.00"
+            },
+            {
+              Tipologia: "Altri redditi da fabbricati",
+              Valore: "763.00"
+            }
+          ]
+        }
+      ],
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "Si",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        }
+      ],
+
+      CognomeAcquisito: "Alfano Acquisito",
+      StatoCivile: "Coniugata",
+      ProvinciaDiNascita: "Milano",
+      NazioneDiNascita: "Italia",
+      Cittadinanza: "Italiana",
+      Extracomunitario: "Si",
+
+      PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+      PermessoDiSoggiornoDataRilascio: "01/01/2020",
+      PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      Email: "mrossi@gmail.com",
+      Pec: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+    },
+    {
       CodiceFiscale: "RSSARO70A10F2052",
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "01/01/1930",
       DataDiDecesso: "-",
-      LuogoDiNascita: "Bolzano",
-      Nazionalita: "Ungherese",
-
+      Sesso: "F",
+      LuogoDiNascita: "Bologna",
+      Nazionalita: "Italiana",
+      Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
+      Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
+      AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -597,7 +883,7 @@ mochDbTable = function(table) {
       Nazionalita: "Italiana",
       Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
       Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
-
+      AntriIndirizzi: "indirizzo di prova qòlwekrjòlqwekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -878,11 +1164,12 @@ mochDbTable = function(table) {
       Nome: "Khan",
       DataDiNascita: "01/02/1650",
       DataDiDecesso: "01/01/1930",
+      Sesso: "F",
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Inglese",
       Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
       Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
-
+      AntriIndirizzi: "qò lwe k rj ò lqwekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -1162,12 +1449,13 @@ mochDbTable = function(table) {
       Cognome: "Mathews",
       Nome: "Suzanne",
       DataDiNascita: "01/01/1966",
+      Sesso: "F",
       DataDiDecesso: "-",
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
       Domicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
-
+      AntriIndirizzi: "qòlwek rjòlq wekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -1447,12 +1735,13 @@ mochDbTable = function(table) {
       Cognome: "Schidner",
       Nome: "Robert",
       DataDiNascita: "01/04/1950",
+      Sesso: "M",
       DataDiDecesso: "01/01/1930",
       LuogoDiNascita: "Roma",
       Nazionalita: "Italiana",
-      Residenza: "via Giocchino Murat, 53 - 89112 Roma RM",
-      Domicilio: "via Armando Diaz, 2 - 84094 Roma RM",
-
+      Residenza: "via dell'Albergo Murat, 53 - 89112 Roma RM",
+      Domicilio: "via Bellini Diaz, 2 - 84094 Roma RM",
+      AntriIndirizzi: "qòlwekrjòlqw ekjròl qwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -1727,16 +2016,18 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
     },
-
     {
       CodiceFiscale: "1234567890123456",
       Cognome: "Alfano-1111",
       Nome: "Camillo-1111",
       DataDiNascita: "01/01/1930",
+      Sesso: "F",
       DataDiDecesso: "-",
       LuogoDiNascita: "Bolzano-11",
-      Nazionalita: "Ungherese.1111",
-
+      Nazionalita: "Italiana",
+      Residenza: "via Giocchino Murat, 53 - 89112 Roma RM",
+      Domicilio: "via Armando Diaz, 2 - 84094 Roma RM",
+      AntriIndirizzi: "indirizzo straniero 1 wekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -2013,13 +2304,13 @@ mochDbTable = function(table) {
       Cognome: "Hammond222222",
       Nome: "John22",
       DataDiNascita: "01/01/1970",
-      DataDiDecesso: "-",
       Sesso: "F",
+      DataDiDecesso: "-",
       LuogoDiNascita: "Bologna 2",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Belli, 53 - 39100 Bolzano BZ",
       Domicilio: "via Diaz Armandino, 2 - 39100 Bolzano BZ",
-
+      AntriIndirizzi: "indirizzo belga qòlwekrjòlqwekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",
@@ -2299,12 +2590,13 @@ mochDbTable = function(table) {
       Cognome: "Mudassar",
       Nome: "Khan",
       DataDiNascita: "01/02/1650",
+      Sesso: "F",
       DataDiDecesso: "01/01/1930",
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Inglese",
       Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
       Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
-
+      AntriIndirizzi: "indirizzo austriaco qòlwekrjòlqwekjròlqwkjer",
       Redditi: [
         {
           Anno: "2018",

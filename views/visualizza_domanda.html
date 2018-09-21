@@ -9,26 +9,21 @@
                 <a href="search.html">Visualizza domanda</a>
             </li>
             <li class="active">
-                <strong>Domanda 213123</strong>
+                <strong>Domanda {{domanda.NroDomanda}}</strong>
             </li>
         </ol>
     </div>
     <div class="col-lg-2 text-right m-t-md">
-        <br>
-        dddddddddddddddddddddddddddddddddddddddddddddddd <br>
-        <br>
         <h3>
             <span class="label label-warning initial-font" data-toggle="popover" data-container="body" data-trigger="hover"
-                data-html="true" data-content="<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>01/01/2006</label><br>Importo da recuperare: <label>549,00 €</label></div>"
-                data-placement="left">
+                data-html="true" data-content="{{camillo}}" data-placement="left">
                 <i class="fa fa-circle-o"></i> revocata </span>
         </h3>
-        <br>
-        yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy <br>
-        <br>
     </div>
 </div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
+    <br>
     <div class="row">
         <div class="col-md-4">
             <div class=" ibox float-e-margins">
@@ -36,7 +31,7 @@
                     <h5>Dati Assistito</h5>
                 </div>
                 <div class="ibox-content text-center">
-                    <h2 class="small"><strong>ROSSI MARIA</strong>&nbsp;-&nbsp;RSSMRA70A41F2052</h2>
+                    <h2 class="small"><strong>{{datiAssistito.Cognome}} {{datiAssistito.Nome}}</strong>&nbsp;-&nbsp;{{domanda.CodiceFiscale}}</h2>
                 </div>
             </div>
         </div>
@@ -46,7 +41,7 @@
                     <h5>Numero Posizione</h5>
                 </div>
                 <div class="ibox-content text-center">
-                    <h2>771723</h2>
+                    <h2>{{ domanda.Posizione }}</h2>
                 </div>
             </div>
         </div>
@@ -56,13 +51,14 @@
                     <h5>Numero Fascicolo</h5>
                 </div>
                 <div class="ibox-content text-center">
-                    <h2 class="small">2346282512</h2>
+                    <h2 class="small">{{domanda.Fascicolo}}</h2>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5> Dati anagrafici dell'assistito &nbsp;</h5>
@@ -73,38 +69,10 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none;">
-                    <div class="row">
-                        <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
-                                value="Maria"></div>
-                        <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
-                                value="Rossi"></div>
-                        <div class="col-md-4 form-group"><label>Cognome acquisito</label> <input type="text" readonly
-                                class="form-control" value="Bianchi"></div>
-                        <div class="col-md-4 form-group"><label>Codice Fiscale</label> <input type="text" readonly
-                                class="form-control" value="RSSMRA70A41F2052"></div>
-                        <div class="col-md-4 form-group"><label>Sesso</label> <input type="text" readonly class="form-control"
-                                value="F"></div>
-                        <div class="col-md-2 form-group"><label>Data di nascita</label> <input type="text" readonly
-                                class="form-control" value="05/01/1970"></div>
-                        <div class="col-md-2 form-group"><label>Luogo di nascita</label> <input type="text" readonly
-                                class="form-control" value="Bolzano"></div>
-                        <div class="col-md-2 form-group"><label>Cittadinanza</label> <input type="text" readonly class="form-control"
-                                value="Americana"></div>
-                        <div class="col-md-2 form-group"><label>Extracomunitario</label> <input type="text" readonly
-                                class="form-control" value="Sì"></div>
-                        <div class="col-md-4 form-group"><label>Permesso di soggiorno</label> <input type="text"
-                                readonly class="form-control" value="PS10222-08"></div>
-                        <div class="col-md-4 form-group"><label>Data decesso</label> <input type="text" readonly class="form-control"
-                                value="10/01/2015"></div>
-                        <div class="col-md-4 form-group"><label>Residenza</label> <input type="text" readonly class="form-control"
-                                value="via Luigi Cadorna, 53 - 39100 Bolzano BZ"></div>
-                        <div class="col-md-4 form-group"><label>Domicilio</label> <input type="text" readonly class="form-control"
-                                value="via Armando Diaz, 2 - 39100 Bolzano BZ"></div>
-                        <div class="col-md-4 form-group"><label>Altri indirizzi</label> <input type="text" readonly
-                                class="form-control" value="23, 49 St., Chicago, Illinois, USA"></div>
-                    </div>
+                    <div ng-include="'views/partials/_dati_anagrafici_assistito.html'"></div>
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5> Dati domanda </h5>
@@ -115,213 +83,10 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none;">
-                    <div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#dati" role="tab" data-toggle="tab">Dati</a></li>
-                            <li role="presentation"><a href="#legali" role="tab" data-toggle="tab">Legali
-                                    rappresentanti</a></li>
-                            <li role="presentation"><a href="#curatore" role="tab" data-toggle="tab">Curatore</a></li>
-                            <li role="presentation"><a href="#comunicazioni" role="tab" data-toggle="tab">Comunicazioni</a></li>
-                            <li role="presentation"><a href="#pagamento" role="tab" data-toggle="tab">Modalità
-                                    pagamento</a></li>
-                            <li role="presentation"><a href="#associazioni" role="tab" data-toggle="tab">Associazioni</a></li>
-                            <li role="presentation"><a href="#ricorso" role="tab" data-toggle="tab">Ricorso</a></li>
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="dati">
-                                <div>
-                                    <h3>Informazioni generali</h3>
-                                    <div class="row">
-                                        <div class="col-md-4 form-group"><label>Data domanda</label> <input type="text"
-                                                readonly class="form-control" value="05/06/2015"></div>
-                                        <div class="col-md-4 form-group"><label>Data decorrenza pagamento</label>
-                                            <input type="text" readonly class="form-control" value="10/07/2015"></div>
-                                        <div class="col-md-4 form-group"><label>Data chiusura ufficio</label>
-                                            <input type="text" readonly class="form-control" value="10/07/2015"></div>
-                                        <div class="col-md-4 form-group"><label>Numero e data protocollo</label>
-                                            <input type="text" readonly class="form-control" value="3456Q2323 - 10/07/2015"></div>
-                                        <div class="col-md-4 form-group"><label>Provenienza</label> <input type="text"
-                                                readonly class="form-control" value="Lorem ipsum"></div>
-                                        <div class="col-md-4 form-group"><label>Delega patronato</label> <input type="text"
-                                                readonly class="form-control" value="Lorem ipsum"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="m-t-lg">Stato domanda</h3>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="checkbox">
-                                                <h3> <i class="fa fa-circle-o text-warning" aria-hidden="true"></i>
-                                                    Revocata
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 form-group"><label>Data revoca</label> <input type="text"
-                                                readonly class="form-control" value="01/01/2020"></div>
-                                        <div class="col-md-4 form-group"><label>Motivo revoca</label> <input type="text"
-                                                readonly class="form-control" value="Lorem ipsum dolor sit amet"></div>
-                                        <div class="col-md-4 form-group"><label>Importo da recuperare</label>
-                                            <input type="text" readonly class="form-control" value="549,00 €"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="legali">
-                                <div>
-                                    <h3>Legale rappresentante</h3>
-                                    <div class="row">
-                                        <div class="col-md-4 form-group"><label>Nome</label> <input type="text"
-                                                readonly class="form-control" value="Paolo"></div>
-                                        <div class="col-md-4 form-group"><label>Cognome</label> <input type="text"
-                                                readonly class="form-control" value="Rossi"></div>
-                                        <div class="col-md-4 form-group"><label>Numero decreto</label> <input type="text"
-                                                readonly class="form-control" value="32234545"></div>
-                                        <div class="col-md-4 form-group"><label>Data decreto</label> <input type="text"
-                                                readonly class="form-control" value="01/01/2020"></div>
-                                        <div class="col-md-4 form-group"><label>Tipo decreto</label>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="checkbox"><label> <input icheck type="radio" name="r"
-                                                                checked disabled='disabled'><i></i> Provvisorio
-                                                        </label></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="checkbox"><label> <input icheck type="radio" name="r"
-                                                                disabled='disabled'> <i></i>
-                                                            Definitivo </label></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 form-group"><label>Scadenza decreto</label> <input type="text"
-                                                readonly class="form-control" value="01/01/2020"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="m-t-lg">Altro legale rappresentante</h3>
-                                    <div class="row">
-                                        <div class="col-md-4 form-group"><label>Nome</label> <input type="text"
-                                                readonly class="form-control" value="Rosa"></div>
-                                        <div class="col-md-4 form-group"><label>Cognome</label> <input type="text"
-                                                readonly class="form-control" value="Verdi"></div>
-                                        <div class="col-md-4 form-group"><label>Numero decreto</label> <input type="text"
-                                                readonly class="form-control" value="32234545"></div>
-                                        <div class="col-md-4 form-group"><label>Data decreto</label> <input type="text"
-                                                readonly class="form-control" value="01/01/2020"></div>
-                                        <div class="col-md-4 form-group"><label>Tipo decreto</label>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="checkbox"><label> <input icheck type="radio" name="b"
-                                                                checked disabled='disabled'> <i></i> Provvisorio
-                                                        </label></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="checkbox"><label> <input icheck type="radio" name="b"
-                                                                disabled='disabled'> <i></i>
-                                                            Definitivo </label></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 form-group"><label>Scadenza decreto</label> <input type="text"
-                                                readonly class="form-control" value="01/01/2020"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="curatore">
-                                <div>
-                                    <h3>Curatore</h3>
-                                    <div class="row">
-                                        <div class="col-md-4 form-group"><label>Nome</label> <input type="text"
-                                                readonly class="form-control" value="Rosa"></div>
-                                        <div class="col-md-4 form-group"><label>Cognome</label> <input type="text"
-                                                readonly class="form-control" value="Verdi"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="comunicazioni">
-                                <div>
-                                    <h3>Comunicazioni</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox"><label class="option-bold"> <input icheck type="radio"
-                                                        name="lang" checked disabled='disabled'> <i></i> Italiano
-                                                </label></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkbox"><label class="option-bold"> <input icheck type="radio"
-                                                        name="lang" disabled='disabled'> <i></i> Tedesco </label></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="pagamento">
-                                <div>
-                                    <h3>Modalità di pagamento</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox"><label class="option-bold"> <input icheck type="radio"
-                                                        name="lang" disabled='disabled' checked> <i></i> Bonifico
-                                                    Bancario </label></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group"><label>IBAN</label> <input type="text"
-                                                readonly class="form-control" value="IT02 L123 4512 3451 2345 6789 012"></div>
-                                        <div class="col-md-12 form-group"><label>Intestatario conto</label> <input type="text"
-                                                readonly class="form-control" value="Maria Rossi"></div>
-                                        <div class="col-md-12 form-group"><label>Note</label> <textarea readonly class="form-control"></textarea></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="associazioni">
-                                <div>
-                                    <h3>Associazioni di categoria</h3>
-                                    <div class="row">
-                                        <div class="col-md-6 form-group"><label>Tipo associazione</label> <input type="text"
-                                                readonly class="form-control" value="ANMIC"></div>
-                                        <div class="col-md-6 form-group"><label>Data inizio iscrizione</label>
-                                            <input type="text" readonly class="form-control" value="01/01/2014"></div>
-                                        <div class="col-md-6 form-group"><label>Data fine iscrizione</label> <input
-                                                type="text" readonly class="form-control" value="01/01/2020"></div>
-                                        <div class="col-md-6 form-group"><label>Ritenuta di categoria</label>
-                                            <input type="text" readonly class="form-control" value="6,00 "></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="ricorso">
-                                <div>
-                                    <h3>Ricorso</h3>
-                                    <div class="row">
-                                        <div class="col-md-4 form-group"><label>Data ricorso</label> <input type="text"
-                                                readonly class="form-control" value="01/01/2020"></div>
-                                        <div class="col-md-4 form-group"><label>Motivo ricorso</label> <input type="text"
-                                                readonly class="form-control" value="Lorem ipsum dolor sit amet"></div>
-                                        <div class="col-md-4 form-group"><label>Esito ricorso</label> <input type="text"
-                                                readonly class="form-control" value="Lorem ipsum dolor sit amet"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary btn-sm">MODIFICA RICORSO</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-separator-solid"></div>
-                    </div>
-                    <div>
-                        <h3 class="m-t-lg">Note</h3>
-                        <div class="row">
-                            <div class="col-md-12 form-group"><textarea readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
-                        </div>
-                    </div>
+                    <div ng-include="'views/partials/_dati_domanda.html'"></div>
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Elenco verbali</h5>
@@ -333,9 +98,9 @@
                 </div>
                 <div class="ibox-content" style="display:none">
                     <div ng-include="'views/partials/_elenco_verbali.html'"></div>
-
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Prestazioni</h5>
@@ -345,11 +110,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
-                    <div ng-include="'views/partials/_elenco_prestazioni.html'"></div>
+                <div class="ibox-content" style="display:none">
+                    CONVERTIRE PROTOTIPO _elenco_prestazioni
+                    <!-- <div ng-include="'views/partials/_elenco_prestazioni.html'"></div> -->
 
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Elenco evidenze</h5>
@@ -360,10 +127,12 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none">
-                    <div ng-include="'views/partials/_elenco_evidenze_domanda.html'"></div>
+                    CONVERTIRE PROTOTIPO _elenco_evidenze_domanda
+                    <!-- <div ng-include="'views/partials/_elenco_evidenze_domanda.html'"></div> -->
 
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Elenco documentazione</h5>
@@ -374,10 +143,12 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none">
-                    <div ng-include="'views/partials/_elenco_documenti.html'"></div>
+                    CONVERTIRE PROTOTIPO _elenco_documenti
+                    <!-- <div ng-include="'views/partials/_elenco_documenti.html'"></div> -->
 
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Elenco sospensioni della domanda</h5>
@@ -388,58 +159,10 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none">
-                    <div>
-                        <table class="table table-bordered table-striped dataTables-paged">
-                            <thead>
-                                <tr>
-                                    <th class="col-md-1">Data</th>
-                                    <th class="col-md-4">Motivo</th>
-                                    <th class="col-md-1">Scadenza</th>
-                                    <th class="col-md-1">Fine</th>
-                                    <th class="col-md-4">Note</th>
-                                    <th class="col-md-1"> </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td>Suspendisse id nulla sit amet ipsum suscipit consequat eu ut ex.</td>
-                                    <td class="text-center"><a title="modifica">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td>Lorem ipsum dolor sit amet.</td>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td>Suspendisse id nulla sit amet ipsum suscipit consequat eu ut ex.</td>
-                                    <td class="text-center"><a title="modifica">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td>Fusce sodales porta suscipit.</td>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td class="text-center">01/01/2020</td>
-                                    <td>Phasellus pulvinar tellus sed metus molestie.</td>
-                                    <td class="text-center"><a title="modifica">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                        <div class="text-right  m-b-sm">
-                            <button class="btn btn-primary btn-sm"> Crea sospensione </button>
-                        </div>
-                    </div>
+                    <div ng-include="'views/partials/_elenco_sospensioni.html'"></div>
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Log di sistema</h5>
@@ -451,9 +174,9 @@
                 </div>
                 <div class="ibox-content" style="display:none">
                     <div ng-include="'views/partials/_log.html'"></div>
-
                 </div>
             </div>
+            <!-- ------------------------------------------------------------------------ -->
         </div>
     </div>
 </div>
@@ -463,13 +186,13 @@
             <i class="fa fa-list-ul"></i>
         </div>
         <div class="floating-menu-items">
-            <div class="title"><a href="#">Modifica domanda</a></div>
-            <div class="title"><a href="#">Sospendi domanda</a></div>
-            <div class="title"><a href="#">Revoca domanda</a></div>
-            <div class="title"><a href="#">Nega domanda</a></div>
-            <div class="title"><a href="#">Inserisci nuovo verbale</a></div>
-            <div class="title"><a href="#">Inserisci nuovo evidenza</a></div>
-            <div class="title"><a href="#">Cancella domanda</a></div>
+            <div class="title"><a ng-click ="modificaDomanda()">Modifica domanda</a></div>
+            <div class="title"><a ng-click ="sospendiDomanda()">Sospendi domanda</a></div>
+            <div class="title"><a ng-click ="revocaDomanda()">Revoca domanda</a></div>
+            <div class="title"><a ng-click ="negaDomanda()">Nega domanda</a></div>
+            <div class="title"><a ng-click ="inserisciNuovoVerbale()">Inserisci nuovo verbale</a></div>
+            <div class="title"><a ng-click ="inserisciNuovaEvidenza()">Inserisci nuova evidenza</a></div>
+            <div class="title"><a ng-click ="cancellaDomanda()">Cancella domanda</a></div>
         </div>
     </div>
 </div>
@@ -478,6 +201,8 @@
     // Custom scripts
     $(document).ready(function () {
 
+        // inizializzazione popover
+        $('[data-toggle="popover"]').popover();
 
         $('.ibox-title').click(function () {
             var cl = $(this).find('.collapse-link');
@@ -495,5 +220,57 @@
 
     });
 
+    $('.floating-menu-box').on('click', function () {
+        if ($(this).hasClass("show")) {
+            $(this).removeClass('show');
+        }
+        else {
+            $(this).addClass('show');
+        }
+    });
+
+
 
 </script>
+
+
+
+
+<!-- <div class="row">
+        <h3 class="m-t-lg">Associazioni di categoria</h3>
+        <div>
+            <table class="table table-bordered dataTables-paged">
+                <thead>
+                    <tr>
+                        <th class="col-md-3">Tipo associazione</th>
+                        <th class="col-md-3">Data inizio iscrizione</th>
+                        <th class="col-md-3">Data fine iscrizione</th>
+                        <th class="col-md-3">Ritenuta di categoria (quota mensile)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in domanda.AssociazioniDiCategoria" class="toolbox-parent-row">
+                        <td>{{item.Tipo}}</td>
+                        <td>{{item..DataInizioIscrizione}}</td>
+                        <td>{{item..DataFineIscrizione}}</td>
+                        <td>{{item..RitenutaDiAcconto | currency }}</td>
+                        <td style="width:60px" class="toolbox-row">
+                            <a title="visualizza">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                            <a title="elimina">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right  m-b-sm">
+
+                <button type="button" class="btn btn-primary btn-sm" ng-click="aggiungiIscrizione()">{{
+                    'AGGIUNGI_ISCRIZIONE' | translate }}</button>
+
+            </div>
+        </div>
+    </div> -->

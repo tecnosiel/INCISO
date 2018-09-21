@@ -32,24 +32,24 @@ function config(
 
     .state("home", {
       url: "/home",
-      templateUrl: "views/home"
+      templateUrl: "/views/home"
     })
 
     // anagrafica --------------------------------------------------------------
     .state("anagrafica", {
       abstract: true,
       url: "/anagrafica",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("anagrafica.ricerca_anagrafica", {
       url: "/ricerca_anagrafica",
-      templateUrl: "views/ricerca_anagrafica.html",
+      templateUrl: "/views/ricerca_anagrafica.html",
       controller: "anagrafeCtrl as $anagCtrl"
     })
 
     .state("anagrafica.visualizza_anagrafica", {
       url: "/visualizza_anagrafica",
-      templateUrl: "views/visualizza_anagrafica.html",
+      templateUrl: "/views/visualizza_anagrafica.html",
       controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
       resolve: {
         runMode: function() {
@@ -60,7 +60,7 @@ function config(
 
     .state("anagrafica.inserimento_anagrafica", {
       url: "/inserimento_anagrafica",
-      templateUrl: "views/visualizza_anagrafica.html",
+      templateUrl: "/views/visualizza_anagrafica.html",
       controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
       resolve: {
         runMode: function() {
@@ -74,11 +74,11 @@ function config(
       abstract: true,
       url: "/domande",
       controller: "domandeCtrl as $domCtrl",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("domande.nuova_domanda", {
       url: "/nuova_domanda",
-      templateUrl: "views/nuova_domanda.html",
+      templateUrl: "/views/nuova_domanda.html",
       data: { pageTitle: "Nuova Domanda" },
       resolve: {
         loadPlugin: function($ocLazyLoad) {
@@ -86,8 +86,8 @@ function config(
           return $ocLazyLoad.load([
             {
               files: [
-                "css/plugins/iCheck/custom.css",
-                "js/plugins/iCheck/icheck.min.js"
+                "/css/plugins/iCheck/custom.css",
+                "/js/plugins/iCheck/icheck.min.js"
               ]
             }
           ]);
@@ -97,8 +97,8 @@ function config(
 
     .state("domande.visualizza_domanda", {
       url: "/visualizza_domanda",
-      templateUrl: "views/visualizza_domanda.html",
-      controller: "visualizzaDomandeCtrl as $visDomCtrl",
+      templateUrl: "/views/visualizza_domanda.html",
+      controller: "visualizzaDomandaCtrl as $visDomCtrl",
       data: { pageTitle: "Visualizza Domanda" },
       resolve: {
         loadPlugin: function($ocLazyLoad) {
@@ -106,8 +106,8 @@ function config(
           return $ocLazyLoad.load([
             {
               files: [
-                "css/plugins/iCheck/custom.css",
-                "js/plugins/iCheck/icheck.min.js"
+                "/css/plugins/iCheck/custom.css",
+                "/js/plugins/iCheck/icheck.min.js"
               ]
             }
           ]);
@@ -116,143 +116,143 @@ function config(
     })
     .state("domande.domanda", {
       url: "/domanda",
-      templateUrl: "views/domanda.html",
+      templateUrl: "/views/domanda.html",
       data: { pageTitle: "Domanda" }
     })
     // posizione --------------------------------------------------------------
     .state("posizione", {
       abstract: true,
       url: "/posizione",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("posizione.ricerca_posizione", {
       url: "/ricerca_posizione",
-      templateUrl: "views/ricerca_posizione.html"
+      templateUrl: "/views/ricerca_posizione.html"
     })
 
     // liquidazione ------------------------------------------------------------
     .state("liquidazione", {
       abstract: true,
       url: "/liquidazione",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("liquidazione.ricerca_liquidazione", {
       url: "/ricerca_liquidazione",
-      templateUrl: "views/ricerca_liquidazione.html"
+      templateUrl: "/views/ricerca_liquidazione.html"
     })
     .state("liquidazione.elabora_liquidazione_mensile", {
       url: "/elabora_liquidazione_mensile",
-      templateUrl: "views/elabora_liquidazione_mensile.html"
+      templateUrl: "/views/elabora_liquidazione_mensile.html"
     })
     .state("liquidazione.elabora_conguaglio", {
       url: "/elabora_conguaglio",
-      templateUrl: "views/elabora_conguaglio.html"
+      templateUrl: "/views/elabora_conguaglio.html"
     })
     .state("liquidazione.elabora_liquidazione_eredi", {
       url: "/elabora_liquidazione_eredi",
-      templateUrl: "views/elabora_liquidazione_eredi.html"
+      templateUrl: "/views/elabora_liquidazione_eredi.html"
     })
     // evidenze --------------------------------------------------------------
     .state("evidenze", {
       abstract: true,
       url: "/evidenze",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("evidenze.ricerca_evidenza", {
       url: "/ricerca_evidenza",
-      templateUrl: "views/ricerca_evidenza.html"
+      templateUrl: "/views/ricerca_evidenza.html"
     })
     .state("evidenze.nuova_evidenza", {
       url: "/nuova_evidenza",
-      templateUrl: "views/nuova_evidenza.html"
+      templateUrl: "/views/nuova_evidenza.html"
     })
 
     // documenti --------------------------------------------------------------
     .state("documenti", {
       abstract: true,
       url: "/documenti",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("documenti.ricerca_documenti", {
       url: "/ricerca_documenti",
-      templateUrl: "views/ricerca_documenti.html"
+      templateUrl: "/views/ricerca_documenti.html"
     })
     // genera comunicazione ----------------------------------------------------
     .state("comunicazione", {
       abstract: true,
       url: "/comunicazione",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("comunicazione.genera_comunicazione", {
       url: "/genera_comunicazione",
-      templateUrl: "views/genera_comunicazione.html"
+      templateUrl: "/views/genera_comunicazione.html"
     })
     // associazioni ------------------------------------------------------------
     .state("associazioni", {
       abstract: true,
       url: "/associazioni",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("associazioni.ricerca_associazione", {
       url: "/ricerca_associazione",
-      templateUrl: "views/ricerca_associazione.html"
+      templateUrl: "/views/ricerca_associazione.html"
     })
     .state("associazioni.visualizza_associazione", {
       url: "/visualizza_associazione",
-      templateUrl: "views/visualizza_associazione.html"
+      templateUrl: "/views/visualizza_associazione.html"
     })
     .state("associazioni.nuova_associazione", {
       url: "/nuova_associazione",
-      templateUrl: "views/nuova_associazione.html"
+      templateUrl: "/views/nuova_associazione.html"
     })
     // liquidazioni ------------------------------------------------------------
     .state("liquidazioni", {
       abstract: true,
       url: "/liquidazioni",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("liquidazioni.visualizza_liquidazione", {
       url: "/visualizza_liquidazione",
-      templateUrl: "views/visualizza_liquidazione.html"
+      templateUrl: "/views/visualizza_liquidazione.html"
     })
     .state("liquidazioni.visualizza_posizione", {
       url: "/visualizza_posizione",
-      templateUrl: "views/visualizza_posizione.html"
+      templateUrl: "/views/visualizza_posizione.html"
     })
     .state("liquidazioni.visualizza_domanda", {
       url: "/visualizza_domanda",
-      templateUrl: "views/visualizza_domanda.html"
+      templateUrl: "/views/visualizza_domanda.html"
     })
     // camillo --------------------------------------------------------------
     .state("app", {
       abstract: true,
       url: "/app",
-      templateUrl: "views/common/content.html"
+      templateUrl: "/views/common/content.html"
     })
     .state("app.contacts", {
       url: "/contacts",
-      templateUrl: "views/contacts.html",
+      templateUrl: "/views/contacts.html",
       data: { pageTitle: "Contacts" }
     })
     .state("app.contacts_2", {
       url: "/contacts_2",
-      templateUrl: "views/contacts_2.html",
+      templateUrl: "/views/contacts_2.html",
       data: { pageTitle: "Contacts 2" }
     })
     .state("app.profile", {
       url: "/profile",
-      templateUrl: "views/profile.html",
+      templateUrl: "/views/profile.html",
       data: { pageTitle: "Profile" }
     })
     .state("app.profile_2", {
       url: "/profile_2",
-      templateUrl: "views/profile_2.html",
+      templateUrl: "/views/profile_2.html",
       data: { pageTitle: "Profile_2" },
       resolve: {
         loadPlugin: function($ocLazyLoad) {
           return $ocLazyLoad.load([
             {
-              files: ["js/plugins/sparkline/jquery.sparkline.min.js"]
+              files: ["/js/plugins/sparkline/jquery.sparkline.min.js"]
             }
           ]);
         }
@@ -261,17 +261,17 @@ function config(
 
     .state("logins", {
       url: "/logins",
-      templateUrl: "views/login.html",
+      templateUrl: "/views/login.html",
       data: { pageTitle: "Login", specialClass: "gray-bg" }
     })
     .state("login_two_columns", {
       url: "/login_two_columns",
-      templateUrl: "views/login_two_columns.html",
+      templateUrl: "/views/login_two_columns.html",
       data: { pageTitle: "Login two columns", specialClass: "gray-bg" }
     })
     .state("lockscreen", {
       url: "/lockscreen",
-      templateUrl: "views/lockscreen.html",
+      templateUrl: "/views/lockscreen.html",
       data: { pageTitle: "Lockscreen", specialClass: "gray-bg" }
     });
 }
