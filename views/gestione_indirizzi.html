@@ -15,7 +15,7 @@
 
             <div class="col-md-4 form-group">
                 <label>{{ "TIPO_INDIRIZZO" | translate}}</label>
-                <select class="form-control m-b" name="TipoIndirizzo" ng-model="Tmp.TipoIndirizzo" ng-disabled="$visAnaCtrl.editDatiAssistito"
+                <select class="form-control m-b" name="TipoIndirizzo" ng-model="Tmp.TipoIndirizzo" ng-disabled="$visAnaCtrl.visDatiAssistito"
                     class="form-control">
                     <option></option>
                     <option>Domicilio</option>
@@ -34,7 +34,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck name="IndirizzoAttuale" ng-model="Tmp.IndirizzoAttuale" type="radio"
-                                    value="Si" ng-readonly="$visAnaCtrl.editDatiAssistito" ng-checked="datiAssistito.IndirizzoAttuale=='Si'"
+                                    value="Si" ng-readonly="$visAnaCtrl.visDatiAssistito" ng-checked="datiAssistito.IndirizzoAttuale=='Si'"
                                     class="form-control">
                                 <i></i>
                                 Si
@@ -45,7 +45,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck name="IndirizzoAttuale" ng-model="Tmp.IndirizzoAttuale" type="radio"
-                                    value="No" name="IndirizzoAttuale" ng-readonly="$visAnaCtrl.editDatiAssistito"
+                                    value="No" name="IndirizzoAttuale" ng-readonly="$visAnaCtrl.visDatiAssistito"
                                     ng-checked="datiAssistito.IndirizzoAttuale=='No'" class="form-control">
                                 <i></i>
                                 No
@@ -64,7 +64,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck name="IndirizzoAttivo" ng-model="Tmp.IndirizzoAttivo" type="radio" value="Si"
-                                    ng-readonly="$visAnaCtrl.editDatiAssistito" ng-checked="Tmp.IndirizzoAttivo=='Si'"
+                                    ng-readonly="$visAnaCtrl.visDatiAssistito" ng-checked="Tmp.IndirizzoAttivo=='Si'"
                                     class="form-control">
                                 <i></i>
                                 Si
@@ -75,7 +75,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck name="IndirizzoAttivo" ng-model="Tmp.IndirizzoAttivo" type="radio" value="No"
-                                    ng-readonly="$visAnaCtrl.editDatiAssistito" ng-checked="datiAssistito.IndirizzoAttivo=='No'"
+                                    ng-readonly="$visAnaCtrl.visDatiAssistito" ng-checked="datiAssistito.IndirizzoAttivo=='No'"
                                     class="form-control">
                                 <i></i>
                                 No
@@ -145,7 +145,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "NAZIONE" | translate}}</label>
                             <select name="indirizzoCodificatoNazione" ng-model="Tmp.IndirizzoCodificato.Nazione"
-                                ng-disabled="$visAnaCtrl.editDatiAssistito" ng-options="nazione.name for nazione in nazioni"
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
                                 class="form-control" required>
                                 <option value="">Seleziona nazione</option>
                             </select>
@@ -154,7 +154,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "COMUNE" | translate}}</label>
                             <select name="indirizzoCodificatoComune" ng-model="Tmp.IndirizzoCodificato.Comune"
-                                ng-disabled="$visAnaCtrl.editDatiAssistito" ng-options="comune.name for comune in comuni"
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="comune.name for comune in comuni"
                                 class="form-control" required>
                                 <option value="">Seleziona comune</option>
                             </select>
@@ -162,12 +162,12 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "CAP" | translate}}</label>
                             <input name="indirizzoCodificatoCap" type="text" ng-model="Tmp.IndirizzoCodificato.Cap"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control intero">
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control intero">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ "FRAZIONE" | translate}}</label>
                             <select name="indirizzoCodificatoFrazione" ng-model="Tmp.IndirizzoCodificato.Frazione"
-                                ng-disabled="$visAnaCtrl.editDatiAssistito" ng-options="frazione.name for frazione in frazioni"
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="frazione.name for frazione in frazioni"
                                 class="form-control" required>
                                 <option value="">Seleziona frazione</option>
                             </select>
@@ -175,7 +175,7 @@
                         </div>
                         <div class="col-md-8 form-group">
                             <label>{{ "VIA" | translate}}</label>
-                            <select name="indirizzoCodificatoVia" ng-model="Tmp.IndirizzoCodificato.Via" ng-disabled="$visAnaCtrl.editDatiAssistito"
+                            <select name="indirizzoCodificatoVia" ng-model="Tmp.IndirizzoCodificato.Via" ng-disabled="$visAnaCtrl.visDatiAssistito"
                                 ng-options="via.name for via in vie" class="form-control" required>
                                 <option value="">Seleziona via</option>
                             </select>
@@ -201,10 +201,10 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "LOCALITA" | translate}}</label>
                             <input name="indirizzoNonCodificatoLocalita" type="text" ng-model="Tmp.IndirizzoNonCodificato.Localita"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control intero">
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control intero">
 
                             <!-- <select name="indirizzoNonCodificatoLocalita" ng-model="Tmp.IndirizzoNonCodificato.Localita"
-                                ng-disabled="$visAnaCtrl.editDatiAssistito" ng-options="localita.name for localita in localitas"
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="localita.name for localita in localitas"
                                 class="form-control" required>
                                 <option value="">Seleziona localita</option>
                             </select> -->
@@ -213,22 +213,22 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "CAP" | translate}}</label>
                             <input name="indirizzoNonCodificatoCap" type="text" ng-model="Tmp.IndirizzoNonCodificato.Cap"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control intero">
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control intero">
 
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ "MASO" | translate}}</label>
                             <input name="indirizzoNonCodificatoMaso" type="text" ng-model="Tmp.IndirizzoNonCodificato.Maso"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control">
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control">
 
                         </div>
                         <div class="col-md-10 form-group">
                             <label>{{ "VIA" | translate}}</label>
                             <input name="indirizzoNonCodificatoVia" type="text" ng-model="Tmp.IndirizzoNonCodificato.Via"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control intero">
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control intero">
 
                             <!-- <select name="indirizzoNonCodificatoVia" ng-model="Tmp.IndirizzoNonCodificato.Via"
-                                ng-disabled="$visAnaCtrl.editDatiAssistito" ng-options="via.name for via in vie" class="form-control"
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="via.name for via in vie" class="form-control"
                                 required>
                                 <option value="">Seleziona via</option>
                             </select> -->
@@ -237,7 +237,7 @@
                         <div class="col-md-12 form-group">
                             <label>{{ "INDIRIZZO_COMPLETO" | translate}}</label>
                             <input name="indirizzoNonCodificatoIndirizzoCompleto" type="text" ng-model="Tmp.IndirizzoNonCodificato.IndirizzoCompleto"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control">
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control">
 
                         </div>
                     </div>
@@ -250,18 +250,18 @@
         <div class="row">
             <div class="col-md-4 form-group">
                 <label>{{ "N_CIVICO" | translate}}</label>
-                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" ng-readonly="$visAnaCtrl.editDatiAssistito"
+                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" ng-readonly="$visAnaCtrl.visDatiAssistito"
                     class="form-control intero">
             </div>
             <div class="col-md-4 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>
-                <input name="datiAssistito.InizioValidita" type="text" ng-model="Tmp.InizioValidita" ng-readonly="$visAnaCtrl.editDatiAssistito"
+                <input name="datiAssistito.InizioValidita" type="text" ng-model="Tmp.InizioValidita" ng-readonly="$visAnaCtrl.visDatiAssistito"
                     class="form-control js-date">
 
             </div>
             <div class="col-md-4 form-group">
                 <label>{{ "FINE_VALIDITA" | translate}}</label>
-                <input name="datiAssistito.FineValidita" type="text" ng-model="Tmp.FineValidita" ng-readonly="$visAnaCtrl.editDatiAssistito"
+                <input name="datiAssistito.FineValidita" type="text" ng-model="Tmp.FineValidita" ng-readonly="$visAnaCtrl.visDatiAssistito"
                     class="form-control js-date">
             </div>
         </div>

@@ -4,7 +4,7 @@
  *
  */
 
-function visualizzaDomandaCtrl($scope, $rootScope) {
+function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
   $scope.camillo =
     "<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>01/01/2006</label><br>Importo da recuperare: <label>549,00 €</label></div>";
 
@@ -21,6 +21,10 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
   //----
 
   $scope.modificaDomanda = function() {
+    debugger;
+    $rootScope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
+    debugger;
+    self = this;
     swal({
       title: "Desideri modificare la domanda?",
       // text:
@@ -30,11 +34,14 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-
+        self.$rootScope.$state.go("domande.domanda");
       } else {
-
       }
     });
+  };
+  sospendi = () => {
+    debugger;
+    $rootScope.domanda.StatoDomanda = "Sospesa";
   };
   $scope.sospendiDomanda = function() {
     swal({
@@ -46,6 +53,8 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
+        $rootScope.domanda.StatoDomanda = "Sospesa";
+        $scope.$apply();
         swal("La domanda è stata sospesa!", {
           icon: "success"
         });
@@ -54,7 +63,10 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
       }
     });
   };
+
   $scope.revocaDomanda = function() {
+    $rootScope.domanda.StatoDomanda = "Revocata";
+
     swal({
       title: "Desideri revocare la domanda?",
       // text:
@@ -64,6 +76,8 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
+        $rootScope.domanda.StatoDomanda = "Revocata";
+        $scope.$apply();
         swal("La domanda è stata revocata!", {
           icon: "success"
         });
@@ -72,9 +86,10 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
       }
     });
   };
+
   $scope.negaDomanda = function() {
     swal({
-      title: "Desideri nega la domanda?",
+      title: "Desideri negare la domanda?",
       // text:
       //   "Once deleted, you will not be able to recover this imaginary file!",
       icon: "warning",
@@ -82,6 +97,8 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
+        $rootScope.domanda.StatoDomanda = "Negata";
+        $scope.$apply();
         swal("La domanda è stata negata!", {
           icon: "success"
         });
@@ -89,32 +106,34 @@ function visualizzaDomandaCtrl($scope, $rootScope) {
         swal("La domanda non è stata modificata!");
       }
     });
-
   };
   $scope.inserisciNuovoVerbale = function() {
     swal("Inserimento verbale!", "...individuare procedura da chiamare!");
   };
   $scope.inserisciNuovaEvidenza = function() {
-    swal("Inserimento edidenza!", "...individuare procedura da chiamare!");
+    swal("Inserimento evidenza!", "...individuare procedura da chiamare!");
+  };
 
+  $scope.creaSospensione = function() {
+    swal("Creazione nuova sospensione!", "...individuare procedura da chiamare!");
   };
   $scope.cancellaDomanda = function() {
     swal({
       title: "Desideri cancellare la domanda?",
-      text:
-        "Ricorda: potrà essere recuperata!",
+      text: "Ricorda: potrà sempre essere recuperata!",
       icon: "warning",
       buttons: true,
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        swal("La domanda è stata revocata!", {
+        $rootScope.domanda.StatoDomanda = "Cancellata";
+        $scope.$apply();
+        swal("La domanda è stata cancellata!", {
           icon: "success"
         });
       } else {
         swal("La domanda non è stata modificata!");
       }
     });
-
   };
 }

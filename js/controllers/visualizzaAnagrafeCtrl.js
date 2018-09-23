@@ -7,11 +7,11 @@
 
 function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
   if (runMode == "NUOVOINSERIMENTO") {
-    this.editDatiAssistito = false;
+    this.visDatiAssistito = false;
     this.inserimentoAnagrafe = true;
     $rootScope.datiAssistito = [];
   } else {
-    this.editDatiAssistito = true;
+    this.visDatiAssistito = true;
     this.inserimentoAnagrafe = false;
   }
 

@@ -6,6 +6,7 @@
 function domandeCtrl(
   $scope,
   $rootScope,
+  $stateParams,
   httpServices,
   $uibModal,
   $filter,
@@ -20,6 +21,8 @@ function domandeCtrl(
   $scope.findDataDiNascita = null;
 
   this.DomandaVuota = {
+    OperazioneInCorso: "NUOVA_DOMANDA",
+    // ----
     NroDomanda: "123456-12",
     // ----
     Posizione: "12345",
@@ -106,13 +109,15 @@ function domandeCtrl(
   };
 
   this.findDomande = function() {
-    debugger
+    debugger;
     this.elencoDomande = httpServices.domande.find("mockUrl");
   };
 
-  this.inserisciDomanda = function(cCodFis) {
+  this.inserisciNuovaDomanda = function(cCodFis) {
+
     $rootScope.findCodFis(cCodFis);
     $rootScope.domanda = this.DomandaVuota;
+    $rootScope.domanda.OperazioneInCorso = "NUOVA_DOMANDA";
     debugger;
   };
 }

@@ -2917,8 +2917,6 @@ domande = function($http) {
     // Ricerca in Base Dati per Codice Fiscale
     //----------------------------------
     findCodFis: function(url, cCodFis) {
-      alert("xxxxxxxxxxxxxxxxxxxxx");
-      debugger;
       if (url == "mockUrl") {
         let response = mochDbTable("domande");
 

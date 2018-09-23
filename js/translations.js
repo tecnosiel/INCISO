@@ -33,9 +33,12 @@ function config($translateProvider) {
       ORDINA_PER: "Ordina per",
       RISULTATI_DELLA_RICERCA: "Risultati della ricerca",
       INCLUDI_DECEDUTI: "Includi deceduti",
-      INSERISCI_DOMANDA:  "Inserisci domanda",
-      INSERISCI_ASSISTITO : "Inserisci assistito",
-      AGGIUNGI_ISCRIZIONE : "Aggiungi iscrizione",
+      INSERISCI_DOMANDA: "Inserisci domanda",
+      VISUALIZZA_DOMANDA: "Visualizza domanda",
+      MODIFICA_DOMANDA: "Modifica domanda",
+      INSERISCI_ASSISTITO: "Inserisci assistito",
+      AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione",
+      RICERCA_ASSISTITO: "Ricerca assistito",
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
@@ -96,7 +99,7 @@ function config($translateProvider) {
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
       ELENCO_EVIDENZE: "ELENCO EVIDENZE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO",
-      INSERIMENTO_DATI_ANAGRAFICI:"Inserimento dati anagrafici",
+      INSERIMENTO_DATI_ANAGRAFICI: "Inserimento dati anagrafici",
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
 
@@ -175,9 +178,13 @@ function config($translateProvider) {
       ORDINA_PER: "Ordina per DE",
       RISULTATI_DELLA_RICERCA: "Risultati della ricerca DE",
       INCLUDI_DECEDUTI: "Includi deceduti DE",
-      INSERISCI_DOMANDA:  "Inserisci domanda DE",
-      INSERISCI_ASSISTITO : "Inserisci assistito DE",
-      AGGIUNGI_ISCRIZIONE : "Aggiungi iscrizione DE",
+      INSERISCI_DOMANDA: "Inserisci domanda DE",
+      VISUALIZZA_DOMANDA: "Visualizza domanda DE",
+      MODIFICA_DOMANDA: "Modifica domanda DE ",
+    
+      INSERISCI_ASSISTITO: "Inserisci assistito DE",
+      AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione DE",
+      RICERCA_ASSISTITO: "Ricerca assistito DE",
 
 
       // Label Redditi
@@ -239,8 +246,7 @@ function config($translateProvider) {
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
       ELENCO_EVIDENZE: "ELENCO EVIDENZE DE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
-      INSERIMENTO_DATI_ANAGRAFICI:"Inserimento dati anagrafici DE",
-
+      INSERIMENTO_DATI_ANAGRAFICI: "Inserimento dati anagrafici DE",
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici DE",
 

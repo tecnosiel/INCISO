@@ -5,11 +5,9 @@
  */
 function MainCtrl($scope, $rootScope, $translate, httpServices, $http) {
   /**
-   * language - Setta la lingua di partenza ad Italiano. In caso contrario verrebbe settata ad
-   * Inglese
+   * Anagrafe
    */
   $rootScope.datiAssistito = [];
-
   $rootScope.findCodFis = function(cCodFis) {
     $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
@@ -17,6 +15,18 @@ function MainCtrl($scope, $rootScope, $translate, httpServices, $http) {
     );
     debugger;
   };
+
+  /**
+   * Domande
+   */
+  $rootScope.domanda = {};
+  $rootScope.inizializzaDomanda = function() {
+    $rootScope.domanda.OperazioneInCorso = "NUOVA_DOMANDA";
+  };
+
+  /**
+   * Lingua partenza applicativo
+   */
 
   this.$onInit = function() {
     $translate.use("it");

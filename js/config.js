@@ -117,6 +117,7 @@ function config(
     .state("domande.domanda", {
       url: "/domanda",
       templateUrl: "/views/domanda.html",
+      controller: "domandaCtrl",
       data: { pageTitle: "Domanda" }
     })
     // posizione --------------------------------------------------------------

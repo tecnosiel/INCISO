@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>{{ 'NUOVA_DOMANDA' | translate }}</h2>
+        <h2>{{domanda.OperazioneInCorso | translate}}</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">{{ 'HOME' | translate }}</a>
@@ -12,6 +12,7 @@
     </div>
     <div class="col-lg-2"></div>
 </div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
 
     <div class="row">
@@ -188,7 +189,7 @@
                                                 <!-- <a ui-sref="domande.domanda" ng-click="$domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a> -->
-                                                <a ui-sref="domande.domanda" ng-click="$domCtrl.inserisciDomanda(item.CodiceFiscale)"
+                                                <a ui-sref="domande.domanda" ng-click="$domCtrl.inserisciNuovaDomanda(item.CodiceFiscale)"
                                                     onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a>

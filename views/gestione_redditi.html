@@ -13,11 +13,11 @@
         <div class="row">
             <div class="col-md-2 form-group">
                 <label>{{ "ANNO" | translate}}</label>
-                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="$visAnaCtrl.editDatiAssistito"
+                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="$visAnaCtrl.visDatiAssistito"
                     class="form-control anno">
             </div>
             <div class="col-md-6 form-group"><label>{{ "VALIDO_PER_ANNI_SUCCESSIVI" | translate}}</label>
-                <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control"
+                <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control"
                     value="Milano"> -->
                 <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.Redditi.ValidoPerAnniSuccessivi">
                     <i></i>
@@ -32,7 +32,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
-                                    value="Si" name="sesso" ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control">
+                                    value="Si" name="sesso" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control">
                                 <i></i>
                                 Si
                             </label>
@@ -42,7 +42,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
-                                    value="No" name="sesso" ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control">
+                                    value="No" name="sesso" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control">
                                 <i></i>
                                 No
                             </label>
@@ -71,7 +71,7 @@
                         <div class="col-md-6 form-group">
                             <label>Tipologia di Reddito</label>
                             <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
-                                ng-disabled="$visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
                                 <option></option>
                                 <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                 <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
@@ -83,7 +83,7 @@
                         <div class="col-md-4 form-group">
                             <label>Valore reddito</label>
                             <input type="text" name="valoreRedditoAssistito" ng-model="Tmp.ValoreRedditoAssistito"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control importo text-right"
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control importo text-right"
                                 style="float:right" ng-currency required>
                             <p ng-show="userForm.valoreRedditoAssistito.$invalid && !userForm.valoreRedditoAssistito.$pristine"
                                 class="help-block">
@@ -135,7 +135,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "TOTALE" | translate}}</label>
                             <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control text-right importo"
+                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control text-right importo"
                                 ng-currency disabled>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                             <div class="col-md-6 form-group">
                                 <label>Tipologia di Reddito</label>
                                 <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
-                                    ng-disabled="$visAnaCtrl.editDatiAssistito" class="form-control" required>
+                                    ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
                                     <option></option>
                                     <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                     <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
@@ -177,7 +177,7 @@
                             <div class="col-md-4 form-group">
                                 <label>Valore reddito</label>
                                 <input type="text" name="valoreRedditoConiuge" ng-model="Tmp.ValoreRedditoConiuge"
-                                    ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control text-right importo"
+                                    ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control text-right importo"
                                     ng-currency required>
                                 <p ng-show="userForm.valoreRedditoConiuge.$invalid && !userForm.valoreRedditoConiuge.$pristine"
                                     class="help-block">
@@ -228,7 +228,7 @@
                             <div class="col-md-4 form-group">
                                 <label>{{ "TOTALE" | translate}}</label>
                                 <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                    ng-readonly="$visAnaCtrl.editDatiAssistito" class="form-control" disabled>
+                                    ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
