@@ -70,14 +70,31 @@
                         <!-- --------------------------  -->
                         <div class="col-md-6 form-group">
                             <label>Tipologia di Reddito</label>
-                            <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
+
+                            <!-- <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
                                 ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
                                 <option></option>
                                 <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                 <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
                                 <option>Altri redditi da fabbricati</option>
                                 <option>Questi valori verranno caricati dal BackEnd</option>
-                            </select>
+                            </select> -->
+
+
+                            <ui-select name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
+                                ng-disabled="$visAnaCtrl.visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona tipo reddito">{{$select.selected.descrizione}}</ui-select-match>
+                                <ui-select-choices repeat="tipoReddito in tipoRedditi | filter: $select.search">
+                                    <span ng-bind-html="tipoReddito.descrizione | highlight: $select.search"></span>
+                                    <small ng-bind-html="tipoReddito.code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
+
+
+
+
+
                         </div>
                         <!-- --------------------------  -->
                         <div class="col-md-4 form-group">
@@ -161,17 +178,26 @@
                             <!-- --------------------------  -->
                             <div class="col-md-6 form-group">
                                 <label>Tipologia di Reddito</label>
-                                <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
+                                <!-- <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
                                     ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
                                     <option></option>
                                     <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                     <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
                                     <option>Altri redditi da fabbricati</option>
                                     <option>Questi valori verranno caricati dal BackEnd</option>
-                                </select>
-                                <!-- <select ng-model="currentProvince" ng-options="tipologiaDiReddito.name for tipologiaDiReddito in ">
-                                    <option value="">Seleziona un valore</option>
                                 </select> -->
+
+                                <ui-select name="tipologiaDiRedditoConiuge" ng-model="Tmp.TipologiaDiRedditoConiuge"
+                                    ng-disabled="$visAnaCtrl.visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                    <ui-select-match placeholder="Seleziona tipo reddito">{{$select.selected.descrizione}}</ui-select-match>
+                                    <ui-select-choices repeat="tipoReddito in tipoRedditi | filter: $select.search">
+                                        <span ng-bind-html="tipoReddito.descrizione | highlight: $select.search"></span>
+                                        <small ng-bind-html="tipoReddito.code | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                </ui-select>
+
+
+
                             </div>
                             <!-- --------------------------  -->
                             <div class="col-md-4 form-group">

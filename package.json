@@ -12,7 +12,8 @@
     "angular-datatables": "^0.6.2",
     "ng-currency": "^1.2.5",
     "ng-popover": "^2.0.0",
-    "sweetalert": "^2.1.0"
+    "sweetalert": "^2.1.0",
+    "ui-select": "^0.19.8"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

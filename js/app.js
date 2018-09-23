@@ -12,6 +12,8 @@
     "ngSanitize", // ngSanitize
     "angular-popover", // angular-popover
     "datatables", // datatable
-    "ng-currency" // ng-currency
+    "ng-currency", // ng-currency
+    "ui.select" //ui-select
   ]);
 })();
+
