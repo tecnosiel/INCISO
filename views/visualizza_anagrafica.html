@@ -351,7 +351,7 @@
                                         <td>{{item.Note}}</td>
                                         <td style="font-size: 18px; text-align: center">
 
-                                            <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}" ng-click="$visAnaCtrl.editIndirizzo()"><i
+                                            <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}" ng-click="$visAnaCtrl.editIndirizzo()"><i
                                                     class="fa fa-pencil"></i></a>
                                             <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}" ng-click="$visAnaCtrl.deleteIndirizzo()"><i
                                                     class="fa fa-trash"></i></a>
@@ -363,7 +363,7 @@
                             <div class="row text-right">
                                 <div class="col-sm-12">
                                     <button class="btn btn-primary" id="anagSearch" ng-disabled="$visAnaCtrl.visDatiAssistito"
-                                        ng-click="creaNuovoIndirizzo()">{{
+                                        ng-click="creaNuovoIndirizzo(-1)">{{
                                         'CREA_NUOVO_INDIRIZZO'
                                         | translate }}</button>
                                 </div>
@@ -639,7 +639,7 @@
 
                                                 <td style="font-size: 18px; text-align: center">
                                                     <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}"
-                                                        ng-click="$visAnaCtrl.editReddito()"><i class="fa fa-pencil"></i></a>
+                                                        ng-click="creaNuovoReddito($index)"><i class="fa fa-pencil"></i></a>
                                                 </td>
 
                                             </tr>
@@ -651,7 +651,7 @@
                             <div class="row text-right">
                                 <div class="col-sm-12">
                                     <button class="btn btn-primary" id="anagSearch" ng-disabled="$visAnaCtrl.visDatiAssistito"
-                                        ng-click="creaNuovoReddito()">
+                                        ng-click="creaNuovoReddito(0)">
                                         {{'INSERISCI_REDDITO' | translate }}
                                     </button>
                                 </div>

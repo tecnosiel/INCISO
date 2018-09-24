@@ -8,6 +8,8 @@
         <h4 class="modal-title">{{ 'GESTIONE_REDDITI' | translate }}</h4>
         <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
     </div>
+
+  
     <div class="modal-body">
 
         <div class="row">
@@ -130,7 +132,7 @@
                                 <tbody>
 
                                     <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
-                                    <tr ng-repeat="item in datiAssistito.Redditi[0].DettagliAssistito">
+                                    <tr ng-repeat="item in datiAssistito.Redditi[$index].DettagliAssistito">
                                         <td>
                                             {{item.Tipologia}}
                                         </td>
@@ -233,7 +235,7 @@
                                     <tbody>
 
                                         <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
-                                        <tr ng-repeat="item in datiAssistito.Redditi[1].DettagliAssistito">
+                                        <tr ng-repeat="item in datiAssistito.Redditi[$index].DettagliConiuge">
                                             <td>
                                                 {{item.Tipologia}}
                                             </td>

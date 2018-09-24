@@ -328,17 +328,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -351,17 +351,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -374,16 +374,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -397,16 +397,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -420,17 +420,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -466,16 +466,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -489,16 +489,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -512,16 +512,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -539,7 +539,7 @@ mochDbTable = function(table) {
           Frazione: "aaaaa",
           Via: "aaaaaxxxxxxxxxx",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -611,17 +611,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -634,17 +634,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -657,16 +657,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -680,16 +680,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -703,17 +703,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -749,16 +749,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -772,16 +772,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -795,21 +795,22 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
         }
       ],
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -822,7 +823,7 @@ mochDbTable = function(table) {
           Frazione: "aaaaa",
           Via: "aaaaaxxxxxxxxxx",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -894,17 +895,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -917,17 +918,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -940,16 +941,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -963,16 +964,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -986,17 +987,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -1032,16 +1033,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1055,16 +1056,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1078,16 +1079,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1120,7 +1121,7 @@ mochDbTable = function(table) {
           Frazione: "2222222",
           Via: "22222222222222",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1180,17 +1181,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -1203,17 +1204,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -1226,16 +1227,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1249,16 +1250,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1272,17 +1273,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -1318,16 +1319,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1341,16 +1342,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1364,16 +1365,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1391,7 +1392,7 @@ mochDbTable = function(table) {
           Frazione: "12132",
           Via: "41234232",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1466,17 +1467,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -1489,17 +1490,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -1512,16 +1513,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1535,16 +1536,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1558,17 +1559,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -1604,16 +1605,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1627,16 +1628,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1650,16 +1651,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1677,7 +1678,7 @@ mochDbTable = function(table) {
           Frazione: "33333333",
           Via: "33xxxxxxxxx",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -1752,17 +1753,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -1775,17 +1776,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -1798,16 +1799,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1821,16 +1822,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1844,17 +1845,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -1890,16 +1891,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1913,16 +1914,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1936,16 +1937,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -1978,7 +1979,7 @@ mochDbTable = function(table) {
           Frazione: "444444",
           Via: "xxxxx444444444",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2038,17 +2039,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -2061,17 +2062,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -2084,16 +2085,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2107,16 +2108,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2130,17 +2131,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -2176,16 +2177,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2199,16 +2200,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2222,16 +2223,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2249,7 +2250,7 @@ mochDbTable = function(table) {
           Frazione: "aaaaa",
           Via: "xxxxxxxxxxxxxxxx",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
         {
@@ -2321,17 +2322,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -2344,17 +2345,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -2367,16 +2368,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2390,16 +2391,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2413,17 +2414,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -2459,16 +2460,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2482,16 +2483,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2505,16 +2506,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2532,7 +2533,7 @@ mochDbTable = function(table) {
           Frazione: "11111111",
           Via: "111111111111",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2607,17 +2608,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88268.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "111Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -2630,17 +2631,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-              Valore: "8868.00"
+                "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              Valore: "88628.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-              Valore: "11000.00"
+                "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+              Valore: "112000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "2222Altri redditi da fabbricati",
+              Valore: "2763.00"
             }
           ]
         },
@@ -2653,16 +2654,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "333Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2676,16 +2677,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "4444Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2699,17 +2700,17 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
-              Valore: "763.00"
+              Tipologia: "5555Altri redditi da fabbricati",
+              Valore: "555763.00"
             }
           ]
         },
@@ -2745,16 +2746,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "66666Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2768,16 +2769,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "7777Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2791,16 +2792,16 @@ mochDbTable = function(table) {
           DettagliAssistito: [
             {
               Tipologia:
-                "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
               Valore: "8868.00"
             },
             {
               Tipologia:
-                "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
               Valore: "11000.00"
             },
             {
-              Tipologia: "Altri redditi da fabbricati",
+              Tipologia: "88888Altri redditi da fabbricati",
               Valore: "763.00"
             }
           ]
@@ -2818,7 +2819,7 @@ mochDbTable = function(table) {
           Frazione: "12132",
           Via: "41234232",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2833,7 +2834,7 @@ mochDbTable = function(table) {
           Frazione: "333333",
           Via: "12313413",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         },
@@ -2848,7 +2849,7 @@ mochDbTable = function(table) {
           Frazione: "xxx222",
           Via: "xxx223242121x",
           Civico: "6",
-          UsaIndirizzo: "Si",
+          UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }

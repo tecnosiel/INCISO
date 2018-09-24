@@ -11,7 +11,6 @@ function anagrafeCtrl(
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
-
   // https://www.datatables.net/reference/option/
   $rootScope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
@@ -99,7 +98,15 @@ function anagrafeCtrl(
   // del plugin come specificato nella documentazione
   // https://github.com/angular-ui/bootstrap/tree/master/src/modal/docs
 
-  $rootScope.creaNuovoIndirizzo = function() {
+  $rootScope.creaNuovoIndirizzo = function($index) {
+    if ($index > -1) {
+      $rootScope.datiAssistito.Indirizzi[$index].UsaIndirizzo = "Si";
+    } else {
+      $rootScope.datiAssistito.Indirizzi.forEach(function(element) {
+        element.UsaIndirizzo = "No";
+      });
+    }
+
     $rootScope.modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_indirizzi.html",
       controller: "modalIndirizziCtrl",
@@ -107,7 +114,8 @@ function anagrafeCtrl(
     });
   };
 
-  $rootScope.creaNuovoReddito = function() {
+  $rootScope.creaNuovoReddito = function($index) {
+    $rootScope.$index = $index;
     $rootScope.modalInstance = $uibModal.open({
       templateUrl: "./../views/gestione_redditi.html",
       controller: "modalRedditiCtrl",
