@@ -32,3 +32,10 @@ function MainCtrl($scope, $rootScope, $translate, httpServices, $http) {
     $translate.use("it");
   };
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("MainCtrl", MainCtrl);

@@ -16,6 +16,389 @@
  */
 mochDbTable = function(table) {
   // ---------------------------------------------------
+  // ASSOCIAZIONI
+  // ---------------------------------------------------
+
+  let tabAssociazioni = [
+    {
+      NomeAssociazione: "Confartigianato",
+      CodiceFiscale: "012345678955",
+      TipologiaDiAssistenza: "77",
+
+      Responsabile: "Mario Rossi",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      IBAN: "IT40 S054 2811 1010 0000 0123 456",
+      Email: "mrossi@gmail.com",
+      PEC: "mrossi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+      Indirizzi: {
+        SedePrincipale: {
+          Via: "11111-Via Gian Domenico Tomagnosi, 32",
+          Cap: "38122",
+          Comune: "11111-Trento"
+        },
+        AltroIndirizzo: {
+          Via: "11111-Piazza Duomo, 25",
+          Cap: "38122",
+          Comune: "11111-Trento"
+        }
+      },
+
+      ImportoRitenutaDiCategoria: "100.15",
+    
+      LiquidazioniMensili: [
+        {
+          DataPagamento: "12/04/2014",
+          ImportoTotale: "238.00",
+          NroAssistiti: "15"
+        },
+        {
+          DataPagamento: "12/05/2014",
+          ImportoTotale: "258.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/06/2014",
+          ImportoTotale: "338.00",
+          NroAssistiti: "18"
+        },
+        {
+          DataPagamento: "12/07/2014",
+          ImportoTotale: "438.00",
+          NroAssistiti: "16"
+        },
+        {
+          DataPagamento: "12/08/2014",
+          ImportoTotale: "38.00",
+          NroAssistiti: "10"
+        },
+        {
+          DataPagamento: "12/09/2014",
+          ImportoTotale: "278.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/10/2014",
+          ImportoTotale: "299.00",
+          NroAssistiti: "19"
+        }
+      ]
+    
+    
+    },
+
+    {
+      NomeAssociazione: "Confcommercio",
+      CodiceFiscale: "123450089022",
+      TipologiaDiAssistenza: "99",
+
+      Responsabile: "Giovanni Moscato",
+      TelefonoPrincipale: "0366 768798",
+      TelefonoSecondario: "0433 922451",
+      IBAN: "IT40 S054 2811 1010 0000 0123 456",
+      Email: "giovanni@tin.it",
+      PEC: "mgiovanni@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+      Indirizzi: {
+        SedePrincipale: {
+          Via: "22222-Via Gian Domenico Tomagnosi, 32",
+          Cap: "38122",
+          Comune: "22222-Trento"
+        },
+        AltroIndirizzo: {
+          Via: "22222-Piazza Duomo, 25",
+          Cap: "38122",
+          Comune: "22222-Trento"
+        }
+      },
+
+      ImportoRitenutaDiCategoria: "234.15"
+    },
+
+    {
+      NomeAssociazione: "Cral",
+      CodiceFiscale: "122226789011",
+      TipologiaDiAssistenza: "99",
+
+      Responsabile: "Giuseppe Garibaldi",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      IBAN: "IT40 S054 2811 1010 0000 0123 456",
+      Email: "ggaribaldi@gmail.com",
+      PEC: "ggaribaldi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+      Indirizzi: {
+        SedePrincipale: {
+          Via: "33333-Via Gian Domenico Tomagnosi, 32",
+          Cap: "38122",
+          Comune: "33333-Trento"
+        },
+        AltroIndirizzo: {
+          Via: "33333-Piazza Duomo, 25",
+          Cap: "38122",
+          Comune: "33333-Trento"
+        }
+      },
+
+      ImportoRitenutaDiCategoria: "222.15",
+    
+      LiquidazioniMensili: [
+        {
+          DataPagamento: "12/04/2014",
+          ImportoTotale: "238.00",
+          NroAssistiti: "15"
+        },
+        {
+          DataPagamento: "12/05/2014",
+          ImportoTotale: "258.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/06/2014",
+          ImportoTotale: "338.00",
+          NroAssistiti: "18"
+        },
+        {
+          DataPagamento: "12/07/2014",
+          ImportoTotale: "438.00",
+          NroAssistiti: "16"
+        },
+        {
+          DataPagamento: "12/08/2014",
+          ImportoTotale: "38.00",
+          NroAssistiti: "10"
+        },
+        {
+          DataPagamento: "12/09/2014",
+          ImportoTotale: "278.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/10/2014",
+          ImportoTotale: "299.00",
+          NroAssistiti: "19"
+        }
+      ]
+    
+    
+    },
+
+    {
+      NomeAssociazione: "AICS",
+      CodiceFiscale: "123345324890",
+      TipologiaDiAssistenza: "88",
+
+      Responsabile: "Tal dei tali ",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      IBAN: "IT40 S054 2811 1010 0000 0123 456",
+      Email: "ttali@gmail.com",
+      PEC: "ttali@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+      Indirizzi: {
+        SedePrincipale: {
+          Via: "44444-Via Gian Domenico Tomagnosi, 32",
+          Cap: "38122",
+          Comune: "44444-Trento"
+        },
+        AltroIndirizzo: {
+          Via: "44444-Piazza Duomo, 25",
+          Cap: "38122",
+          Comune: "44444-Trento"
+        }
+      },
+
+      ImportoRitenutaDiCategoria: "122.15",
+    
+      LiquidazioniMensili: [
+        {
+          DataPagamento: "12/04/2014",
+          ImportoTotale: "238.00",
+          NroAssistiti: "15"
+        },
+        {
+          DataPagamento: "12/05/2014",
+          ImportoTotale: "258.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/06/2014",
+          ImportoTotale: "338.00",
+          NroAssistiti: "18"
+        },
+        {
+          DataPagamento: "12/07/2014",
+          ImportoTotale: "438.00",
+          NroAssistiti: "16"
+        },
+        {
+          DataPagamento: "12/08/2014",
+          ImportoTotale: "38.00",
+          NroAssistiti: "10"
+        },
+        {
+          DataPagamento: "12/09/2014",
+          ImportoTotale: "278.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/10/2014",
+          ImportoTotale: "299.00",
+          NroAssistiti: "19"
+        }
+      ]
+        
+    },
+
+    {
+      NomeAssociazione: "UIL",
+      CodiceFiscale: "123456789078",
+      TipologiaDiAssistenza: "77",
+
+      Responsabile: "Carlo Gimondi",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      IBAN: "IT40 S054 2811 1010 0000 0123 456",
+      Email: "gimondi@gmail.com",
+      PEC: "gimondi@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+      Indirizzi: {
+        SedePrincipale: {
+          Via: "55555-Via Gian Domenico Tomagnosi, 32",
+          Cap: "38122",
+          Comune: "55555-Trento"
+        },
+        AltroIndirizzo: {
+          Via: "55555-Piazza Duomo, 25",
+          Cap: "38122",
+          Comune: "55555-Trento"
+        }
+      },
+
+      ImportoRitenutaDiCategoria: "130.15",
+    
+      LiquidazioniMensili: [
+        {
+          DataPagamento: "12/04/2014",
+          ImportoTotale: "238.00",
+          NroAssistiti: "15"
+        },
+        {
+          DataPagamento: "12/05/2014",
+          ImportoTotale: "258.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/06/2014",
+          ImportoTotale: "338.00",
+          NroAssistiti: "18"
+        },
+        {
+          DataPagamento: "12/07/2014",
+          ImportoTotale: "438.00",
+          NroAssistiti: "16"
+        },
+        {
+          DataPagamento: "12/08/2014",
+          ImportoTotale: "38.00",
+          NroAssistiti: "10"
+        },
+        {
+          DataPagamento: "12/09/2014",
+          ImportoTotale: "278.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/10/2014",
+          ImportoTotale: "299.00",
+          NroAssistiti: "19"
+        }
+      ]
+    
+    },
+
+    {
+      NomeAssociazione: "CGHL",
+      CodiceFiscale: "123456789087",
+      TipologiaDiAssistenza: "88",
+
+      Responsabile: "Vittorio Emanuele",
+      TelefonoPrincipale: "0461 912585",
+      TelefonoSecondario: "0461 923452",
+      IBAN: "IT40 S054 2811 1010 0000 0123 456",
+      Email: "vemanuele@gmail.com",
+      PEC: "vemanuele@gmail.com",
+      Note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+      Indirizzi: {
+        SedePrincipale: {
+          Via: "66666-Via Gian Domenico Tomagnosi, 32",
+          Cap: "38122",
+          Comune: "66666-Trento"
+        },
+        AltroIndirizzo: {
+          Via: "66666-Piazza Duomo, 25",
+          Cap: "38122",
+          Comune: "66666-Trento"
+        }
+      },
+
+      ImportoRitenutaDiCategoria: "200.15",
+
+      LiquidazioniMensili: [
+        {
+          DataPagamento: "12/04/2014",
+          ImportoTotale: "238.00",
+          NroAssistiti: "15"
+        },
+        {
+          DataPagamento: "12/05/2014",
+          ImportoTotale: "258.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/06/2014",
+          ImportoTotale: "338.00",
+          NroAssistiti: "18"
+        },
+        {
+          DataPagamento: "12/07/2014",
+          ImportoTotale: "438.00",
+          NroAssistiti: "16"
+        },
+        {
+          DataPagamento: "12/08/2014",
+          ImportoTotale: "38.00",
+          NroAssistiti: "10"
+        },
+        {
+          DataPagamento: "12/09/2014",
+          ImportoTotale: "278.00",
+          NroAssistiti: "17"
+        },
+        {
+          DataPagamento: "12/10/2014",
+          ImportoTotale: "299.00",
+          NroAssistiti: "19"
+        }
+      ]
+    
+    
+    }
+  ];
+  // ---------------------------------------------------
   // DOMANDE
   // ---------------------------------------------------
 
@@ -2881,6 +3264,9 @@ mochDbTable = function(table) {
     case "domande":
       return tabDomande;
       break;
+    case "associazioni":
+      return tabAssociazioni;
+      break;
     default:
       alert("Tabella In MochDb SERVICES-HTTP inesistente");
       break;
@@ -2888,7 +3274,61 @@ mochDbTable = function(table) {
 };
 
 /**
- * _ricercaAnagraficaRicerca - all services http for _ricercaAnagraficaRicerca
+ * associazioni - i servizi http per la gestione delle associazioni
+ *
+ */
+
+associazioni = function($http) {
+  return {
+    //----------------------------------
+    // Chiamata Get Standard
+    //----------------------------------
+    find: function(url, data) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("associazioni");
+        return response;
+      }
+
+      $http
+        .get(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Get Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Get Regular 3333333333333");
+        });
+    },
+
+    //----------------------------------
+    // Ricerca in Base Dati per Codice Fiscale
+    //----------------------------------
+    findCodFis: function(url, cCodFis) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("associazioni");
+
+        return response.find(function(obj) {
+          return obj.CodiceFiscale === cCodFis;
+        });
+      }
+
+      $http
+        .get(url, cCodFis, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Get Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Get Regular 3333333333333");
+        });
+    }
+  };
+};
+
+/**
+ * domande - i servizi http per la gestione delle domande
  *
  */
 
@@ -2940,7 +3380,7 @@ domande = function($http) {
   };
 };
 /**
- * _ricercaAnagraficaRicerca - all services http for _ricercaAnagraficaRicerca
+ * anagrafica - i servizi http per l'anagrafe
  *
  */
 
@@ -3072,6 +3512,7 @@ funzionalitaNonImplementata = function() {
 
 function httpServices($http) {
   return {
+    associazioni: associazioni($http),
     domande: domande($http),
     _ricercaAnagraficaRicerca: _ricercaAnagraficaRicerca($http),
     funzionalitaNonImplementata: funzionalitaNonImplementata

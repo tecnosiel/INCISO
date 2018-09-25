@@ -5,3 +5,10 @@
  */
 function domandaCtrl($scope, $stateParams) {
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("domandaCtrl", domandaCtrl);

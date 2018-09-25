@@ -115,7 +115,10 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
   };
 
   $scope.creaSospensione = function() {
-    swal("Creazione nuova sospensione!", "...individuare procedura da chiamare!");
+    swal(
+      "Creazione nuova sospensione!",
+      "...individuare procedura da chiamare!"
+    );
   };
   $scope.cancellaDomanda = function() {
     swal({
@@ -137,3 +140,10 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
     });
   };
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("visualizzaDomandaCtrl", visualizzaDomandaCtrl);

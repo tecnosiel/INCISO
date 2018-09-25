@@ -24,6 +24,12 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi",
 
+
+      // Label Associazioni
+      NOME_ASSOCIAZIONE:"Nome associazione",
+      TIPOLOGIA_DI_ASSISTENZA:"Tipologia di assistenza",
+      INSERISCI_NUOVA_ASSOCIAZIONE :"Inserisci nuova associazione",
+
       // Label Domanda
       NUOVA_DOMANDA: "Nuova domanda",
       RICERCA_ASSISTITO: "Ricerca assistito",
@@ -168,6 +174,11 @@ function config($translateProvider) {
       LOG_OUT: "Esci DE",
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi DE",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
+
+      // Label Associazioni
+      NOME_ASSOCIAZIONE:"Nome associazione DE",
+      TIPOLOGIA_DI_ASSISTENZA:"Tipologia di assistenza DE",
+      INSERISCI_NUOVA_ASSOCIAZIONE :"Inserisci nuova associazione DE",
 
       // Label Domanda
       NUOVA_DOMANDA: "Nuova domanda DE",

@@ -134,3 +134,10 @@ function anagrafeCtrl(
   this.findNumeroFaldoneArchiviazione = "";
   this.findAnnoDiScarto = "";
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("anagrafeCtrl", anagrafeCtrl);

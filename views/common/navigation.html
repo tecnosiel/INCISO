@@ -28,7 +28,7 @@
 
             <!-- domanda---------------------------------------- -->
             <li ui-sref-active="active">
-                <a ui-sref="domande.nuova_domanda" ng-click="inizializzaDomanda()" >
+                <a ui-sref="domande.nuova_domanda" ng-click="inizializzaDomanda()">
                     <i class="fa fa-file-text"></i>
                     <span class="nav-label">{{ 'NUOVA_DOMANDA' | translate }}
                     </span>
@@ -136,14 +136,18 @@
                     </span>
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('associazioni')}">
-                    <li ui-sref-active="active"><a ui-sref="associazioni.ricerca_associazione">{{
+                    <li ui-sref-active="active">
+                        <a ui-sref="associazioni.ricerca_associazione">{{
                             'RICERCA_ASSOCIAZIONE'
                             | translate }}
-                        </a></li>
-                    <li ui-sref-active="active"><a ui-sref="associazioni.nuova_associazione">{{ 'NUOVA_ASSOCIAZIONE' |
+                        </a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="associazioni.inserimento_associazione">{{ 'NUOVA_ASSOCIAZIONE' |
                             translate
                             }}
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

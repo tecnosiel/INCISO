@@ -191,6 +191,7 @@ function config(
     // associazioni ------------------------------------------------------------
     .state("associazioni", {
       abstract: true,
+      controller: "associazioniCtrl as $assCtrl",
       url: "/associazioni",
       templateUrl: "/views/common/content.html"
     })
@@ -200,12 +201,26 @@ function config(
     })
     .state("associazioni.visualizza_associazione", {
       url: "/visualizza_associazione",
-      templateUrl: "/views/visualizza_associazione.html"
+      templateUrl: "/views/visualizza_associazione.html",
+      controller: "visualizzaAssociazioneCtrl as $visAssCtrl",
+      resolve: {
+        runMode: function() {
+          return "VISUALIZZA";
+        }
+      }
     })
-    .state("associazioni.nuova_associazione", {
-      url: "/nuova_associazione",
-      templateUrl: "/views/nuova_associazione.html"
+    .state("associazioni.inserimento_associazione", {
+      url: "/inserimento_associazione",
+      templateUrl: "/views/visualizza_associazione.html",
+      controller: "visualizzaAssociazioneCtrl as $visAssCtrl",
+      resolve: {
+        runMode: function() {
+          return "NUOVOINSERIMENTO";
+        }
+      }
     })
+
+
     // liquidazioni ------------------------------------------------------------
     .state("liquidazioni", {
       abstract: true,

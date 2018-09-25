@@ -7,3 +7,10 @@ function translateCtrl($translate, $scope) {
     $scope.language = langKey;
   };
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("translateCtrl", translateCtrl);

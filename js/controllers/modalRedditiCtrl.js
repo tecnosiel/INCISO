@@ -16,3 +16,10 @@ function modalRedditiCtrl($scope, $rootScope, $http) {
       ];
     
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("modalRedditiCtrl", modalRedditiCtrl);

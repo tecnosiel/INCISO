@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
-                <div class="ibox-title" >
+                <div class="ibox-title">
                     <h5> Dati generali </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
@@ -32,36 +32,82 @@
 
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>Nome associazione</label> <input type="text" readonly class="form-control" value="Cral"></div>
-                        <div class="col-md-4 form-group"><label>Codice fiscale</label> <input type="text" readonly class="form-control" value="RSSMRA70A41F2052"></div>
+                        <div class="col-md-4 form-group">
+                            <label>Nome associazione</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.NomeAssociazione}}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Codice fiscale</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.CodiceFiscale}}">
+                        </div>
                         <div class="col-md-4 form-group">
                             <label>
                                 Tipologia di assistenza
                             </label>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="checkbox"><label> <input icheck   type="radio" disabled='disabled' name="a"> <i></i> 77 </label></div>
+                                    <div class="checkbox">
+                                        <label> <input ng-readonly="$visAssCtrl.visDatiAssociazione" icheck type="radio"
+                                                ng-model="$assCtrl.datiAssociazione.TipologiaDiAssistenza" ng-checked="$assCtrl.datiAssociazione.TipologiaDiAssistenza=='77'"
+                                                name="a">
+                                            <i></i> 77
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="checkbox"><label> <input icheck   type="radio" checked disabled='disabled' name="b"> <i></i> 88 </label></div>
+                                    <div class="checkbox">
+                                        <label> <input ng-readonly="$visAssCtrl.visDatiAssociazione" icheck type="radio"
+                                                ng-model="$assCtrl.datiAssociazione.TipologiaDiAssistenza" ng-checked="$assCtrl.datiAssociazione.TipologiaDiAssistenza=='88'"
+                                                name="b">
+                                            <i></i> 88
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="checkbox"><label> <input icheck   type="radio" disabled='disabled' name="c"> <i></i> 99 </label></div>
+                                    <div class="checkbox">
+                                        <label> <input ng-readonly="$visAssCtrl.visDatiAssociazione" icheck type="radio"
+                                                ng-model="$assCtrl.datiAssociazione.TipologiaDiAssistenza" ng-checked="$assCtrl.datiAssociazione.TipologiaDiAssistenza=='99'"
+                                                name="c">
+                                            <i></i> 99
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 form-group"><label>Responsabile</label> <input type="text" readonly class="form-control" value="Mario Rossi"></div>
-                        <div class="col-md-4 form-group"><label>Telefono principale</label> <input type="text" readonly class="form-control" value="0461 912585"></div>
-                        <div class="col-md-4 form-group"><label>Telefono secondario</label> <input type="text" readonly class="form-control" value="0461 923452"></div>
-                        <div class="col-md-4 form-group"><label>IBAN</label> <input type="text" readonly class="form-control" value="IT40 S054 2811 1010 0000 0123 456"></div>
-                        <div class="col-md-4 form-group"><label>Email</label> <input type="text" readonly class="form-control" value="mrossi@gmail.com"></div>
-                        <div class="col-md-4 form-group"><label>PEC</label> <input type="text" readonly class="form-control" value="mrossi@gmail.com"></div>
-                        <div class="col-md-12 form-group"><label>Note</label> <textarea readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
+                        <div class="col-md-4 form-group">
+                            <label>Responsabile</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.Responsabile}}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Telefono principale</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.TelefonoPrincipale}}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Telefono secondario</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.TelefonoSecondario}}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>IBAN</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.IBAN}}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Email</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.Email}}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>PEC</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.Pec}}">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Note</label>
+                            <textarea ng-model="$assCtrl.datiAssociazione.Note" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control"></textarea>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="ibox float-e-margins">
-                <div class="ibox-title" >
+                <div class="ibox-title">
                     <h5> Elenco indirizzi </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
@@ -73,18 +119,18 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-md-12"><label>Sede principale</label></div>
-                        <div class="col-md-12"><span>Via Gian Domenico Tomagnosi, 32</span></div>
-                        <div class="col-md-12"><span>38122</span></div>
-                        <div class="col-md-12"><span>Trento</span></div>
+                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.SedePrincipale.Via}}</span></div>
+                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.SedePrincipale.Cap}}</span></div>
+                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.SedePrincipale.Comune}}</span></div>
                         <div class="col-md-12 m-t-md"><label>Altro indirizzo</label></div>
-                        <div class="col-md-12"><span>Piazza Duomo, 25</span></div>
-                        <div class="col-md-12"><span>38122</span></div>
-                        <div class="col-md-12"><span>Trento</span></div>
+                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.AltroIndirizzo.Via}}</span></div>
+                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.AltroIndirizzo.Cap}}</span></div>
+                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.AltroIndirizzo.Comune}}</span></div>
                     </div>
                 </div>
             </div>
             <div class="ibox float-e-margins">
-                <div class="ibox-title" >
+                <div class="ibox-title">
                     <h5> Altri dati </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
@@ -95,12 +141,13 @@
 
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>Importo ritenuta di categoria (quota mensile)</label> <input type="text" readonly class="form-control" value="€ 3,50"></div>
+                        <div class="col-md-4 form-group"><label>Importo ritenuta di categoria (quota mensile)</label>
+                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.ImportoRitenutaDiCategoria | currency}} "></div>
                     </div>
                 </div>
             </div>
             <div class="ibox float-e-margins">
-                <div class="ibox-title" >
+                <div class="ibox-title">
                     <h5> Elenco ritenute sulle liquidazioni mensili </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
@@ -110,7 +157,9 @@
                 </div>
 
                 <div class="ibox-content">
-                    <table class="table table-bordered table-striped dataTables-paged">
+
+                    <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered dataTables-paged">
+
                         <thead>
                             <tr>
                                 <th class="col-md-4">Data</th>
@@ -118,26 +167,43 @@
                                 <th class="col-md-4">Numero di assistiti paganti</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            <tr>
-                                <td>12/04/2014</td>
-                                <td>€ 238,00</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>12/05/2014</td>
-                                <td>€ 568,00</td>
-                                <td>48</td>
-                            </tr>
-                            <tr>
-                                <td>12/06/2014</td>
-                                <td>€ 210,00</td>
-                                <td>12</td>
+                            <tr ng-repeat="item in $assCtrl.datiAssociazione.LiquidazioniMensili">
+                                <td>{{item.DataPagamento}}</td>
+                                <td>{{item.ImportoTotale | currency}}</td>
+                                <td>{{item.NroAssistiti}}</td>
                             </tr>
                         </tbody>
+
                     </table>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+    // Custom scripts
+    $(document).ready(function () {
+
+        $('.ibox-title').click(function () {
+            var cl = $(this).find('.collapse-link');
+            var ibox = cl.closest('div.ibox');
+            var button = cl.find('i');
+            var content = ibox.find('div.ibox-content');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        });
+
+    })
+
+
+</script>

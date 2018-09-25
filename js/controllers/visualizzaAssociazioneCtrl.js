@@ -5,15 +5,27 @@
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
+function visualizzaAssociazioneCtrl($scope, $rootScope, runMode) {
+
   if (runMode == "NUOVOINSERIMENTO") {
-    this.visDatiAssistito = false;
-    this.inserimentoAnagrafe = true;
-    $rootScope.datiAssistito = [];
+    alert("NUOVO INSERIMENTO");
+    this.visDatiAssociazione = false;
+    this.datiAssociazione = {};
   } else {
-    this.visDatiAssistito = true;
-    this.inserimentoAnagrafe = false;
+    this.visDatiAssociazione = true;
   }
+
+  this.find = function() {
+    this.elencoAssociazioni = httpServices.associazioni.find("mockUrl");
+  };
+
+  this.findCodFis = function(cCodFis) {
+    this.datiAssociazione = httpServices.associazioni.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
+    debugger;
+  };
 
   this.editIndirizzo = function() {
     swal({
@@ -78,4 +90,4 @@ function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
  **/
 angular
   .module("inciso")
-  .controller("visualizzaAnagrafeCtrl", visualizzaAnagrafeCtrl);
+  .controller("visualizzaAssociazioneCtrl", visualizzaAssociazioneCtrl);

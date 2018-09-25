@@ -121,3 +121,10 @@ function domandeCtrl(
     debugger;
   };
 }
+
+/**
+ * Collega il controller al modulo inciso
+ **/
+angular
+  .module("inciso")
+  .controller("domandeCtrl", domandeCtrl);
