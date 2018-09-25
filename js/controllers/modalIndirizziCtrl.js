@@ -4,6 +4,14 @@
  *
  */
 function modalIndirizziCtrl($scope, $rootScope, $http) {
+  $scope.modalSave = function(cTitolo, cSottoTitolo) {
+    swal(cTitolo, cSottoTitolo, "success");
+  };
+
+  $scope.modalClose = function() {
+    debugger;
+    self.modalInstance.close();
+  };
 
   $scope.nazioni = [
     { nome: "Afghanistan", code: "AF" },
@@ -251,7 +259,6 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
     { nome: "Zimbabwe", code: "ZW" }
   ];
 
-
   $scope.comuni = [
     { nome: "gdkqhgkjqw", code: "AF" },
     { nome: "wefewfefw1", code: "AF" },
@@ -302,8 +309,7 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
     { nome: "Comune 1", code: "AF" },
     { nome: "Comune 1", code: "AF" },
     { nome: "Comune 1", code: "AF" },
-    { nome: "Comune 1", code: "AF" },
-
+    { nome: "Comune 1", code: "AF" }
   ];
 
   $scope.frazioni = [
@@ -318,7 +324,7 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
     { nome: "Frazione 1", code: "AF" },
     { nome: "Frazione tal dei tali eee1", code: "AF" },
     { nome: "Frazione tal dei tali", code: "AF" },
-    { nome: "Frazione  aa a a a e rrrr eeeee 1", code: "AF" },
+    { nome: "Frazione  aa a a a e rrrr eeeee 1", code: "AF" }
   ];
 
   $scope.vie = [
@@ -333,10 +339,8 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
     { nome: "Viale 1", code: "AF" },
     { nome: "Via tal dei tali eee1", code: "AF" },
     { nome: "Via tal dei tali", code: "AF" },
-    { nome: "Via  aa a a a e rrrr eeeee 1", code: "AF" },
+    { nome: "Via  aa a a a e rrrr eeeee 1", code: "AF" }
   ];
-
-
 
   $scope.Tmp = {
     IndirizzoCodificato: {
@@ -356,7 +360,7 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
   };
 
   $scope.usaIndirizzo = function() {
-    var xxx = $rootScope.datiAssistito.Indirizzi.find(item => {
+    var xxx = $scope.datiAssistito.Indirizzi.find(item => {
       return item.UsaIndirizzo === "Si";
     });
     debugger;
@@ -386,6 +390,4 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
 /**
  * Collega il controller al modulo inciso
  **/
-angular
-  .module("inciso")
-  .controller("modalIndirizziCtrl", modalIndirizziCtrl);
+angular.module("inciso").controller("modalIndirizziCtrl", modalIndirizziCtrl);

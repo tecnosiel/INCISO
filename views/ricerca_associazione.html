@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <button class="btn btn-primary btn-sm" ng-click="$assCtrl.find()" id="posSearch">{{ "CERCA" |
+                        <button class="btn btn-primary btn-sm" ng-click="find()" id="posSearch">{{ "CERCA" |
                             translate}}</button>
                     </div>
                     <div id="posResults" style="display:none;" class="m-t-lg">
@@ -81,7 +81,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="item in $assCtrl.elencoAssociazioni">
+                                    <tr ng-repeat="item in elencoAssociazioni">
                                         <td>{{item.NomeAssociazione}}</td>
                                         <td>{{item.CodiceFiscale}}</td>
                                         <!-- <td>
@@ -90,7 +90,7 @@
                                         </td> -->
                                         <td>{{item.TipologiaDiAssistenza}}</td>
                                         <td class="text-center">
-                                            <a ui-sref="associazioni.visualizza_associazione" ng-click="$assCtrl.findCodFis(item.CodiceFiscale)"  >
+                                            <a ui-sref="associazioni.visualizza_associazione" ng-click="findCodFis(item.CodiceFiscale)"  >
                                                 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                             </a>
                                         </td>
@@ -102,7 +102,7 @@
                         </div>
 
                         <div class="text-right m-t-lg">
-                            <a class="btn btn-sm btn-primary">{{ "INSERISCI_NUOVA_ASSOCIAZIONE" | translate}}</a>
+                            <a ui-sref="associazioni.inserimento_associazione" class="btn btn-sm btn-primary">{{ "INSERISCI_NUOVA_ASSOCIAZIONE" | translate}}</a>
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in $anagCtrl.elencoAssistiti">
+                                <tr ng-repeat="item in elencoAssistiti">
                                     <td>{{item.Cognome}}</td>
                                     <td>{{item.Nome}}</td>
                                     <td>

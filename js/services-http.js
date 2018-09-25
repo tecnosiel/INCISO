@@ -34,21 +34,53 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-      Indirizzi: {
-        SedePrincipale: {
-          Via: "11111-Via Gian Domenico Tomagnosi, 32",
-          Cap: "38122",
-          Comune: "11111-Trento"
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
-        AltroIndirizzo: {
-          Via: "11111-Piazza Duomo, 25",
-          Cap: "38122",
-          Comune: "11111-Trento"
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
-      },
+      ],
 
       ImportoRitenutaDiCategoria: "100.15",
-    
+
       LiquidazioniMensili: [
         {
           DataPagamento: "12/04/2014",
@@ -86,8 +118,6 @@ mochDbTable = function(table) {
           NroAssistiti: "19"
         }
       ]
-    
-    
     },
 
     {
@@ -104,18 +134,50 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-      Indirizzi: {
-        SedePrincipale: {
-          Via: "22222-Via Gian Domenico Tomagnosi, 32",
-          Cap: "38122",
-          Comune: "22222-Trento"
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
-        AltroIndirizzo: {
-          Via: "22222-Piazza Duomo, 25",
-          Cap: "38122",
-          Comune: "22222-Trento"
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
-      },
+      ],
 
       ImportoRitenutaDiCategoria: "234.15"
     },
@@ -134,21 +196,53 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-      Indirizzi: {
-        SedePrincipale: {
-          Via: "33333-Via Gian Domenico Tomagnosi, 32",
-          Cap: "38122",
-          Comune: "33333-Trento"
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
-        AltroIndirizzo: {
-          Via: "33333-Piazza Duomo, 25",
-          Cap: "38122",
-          Comune: "33333-Trento"
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
-      },
+      ],
 
       ImportoRitenutaDiCategoria: "222.15",
-    
+
       LiquidazioniMensili: [
         {
           DataPagamento: "12/04/2014",
@@ -186,8 +280,6 @@ mochDbTable = function(table) {
           NroAssistiti: "19"
         }
       ]
-    
-    
     },
 
     {
@@ -204,21 +296,53 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-      Indirizzi: {
-        SedePrincipale: {
-          Via: "44444-Via Gian Domenico Tomagnosi, 32",
-          Cap: "38122",
-          Comune: "44444-Trento"
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
-        AltroIndirizzo: {
-          Via: "44444-Piazza Duomo, 25",
-          Cap: "38122",
-          Comune: "44444-Trento"
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
-      },
+      ],
 
       ImportoRitenutaDiCategoria: "122.15",
-    
+
       LiquidazioniMensili: [
         {
           DataPagamento: "12/04/2014",
@@ -256,7 +380,6 @@ mochDbTable = function(table) {
           NroAssistiti: "19"
         }
       ]
-        
     },
 
     {
@@ -273,21 +396,53 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-      Indirizzi: {
-        SedePrincipale: {
-          Via: "55555-Via Gian Domenico Tomagnosi, 32",
-          Cap: "38122",
-          Comune: "55555-Trento"
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
-        AltroIndirizzo: {
-          Via: "55555-Piazza Duomo, 25",
-          Cap: "38122",
-          Comune: "55555-Trento"
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
-      },
+      ],
 
       ImportoRitenutaDiCategoria: "130.15",
-    
+
       LiquidazioniMensili: [
         {
           DataPagamento: "12/04/2014",
@@ -325,7 +480,6 @@ mochDbTable = function(table) {
           NroAssistiti: "19"
         }
       ]
-    
     },
 
     {
@@ -342,18 +496,50 @@ mochDbTable = function(table) {
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-      Indirizzi: {
-        SedePrincipale: {
-          Via: "66666-Via Gian Domenico Tomagnosi, 32",
-          Cap: "38122",
-          Comune: "66666-Trento"
+      Indirizzi: [
+        {
+          Tipo: "Indirizzo abitazione",
+          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaxxxxxxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         },
-        AltroIndirizzo: {
-          Via: "66666-Piazza Duomo, 25",
-          Cap: "38122",
-          Comune: "66666-Trento"
+        {
+          Tipo: "Indirizzo lavoro",
+          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+          Validita: "dal 01/01/2010 al 02/02/2014",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "aaaaa",
+          Via: "aaaaaaaaaaxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        },
+        {
+          Tipo: "Indirizzo secondario",
+          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+          Validita: "dal 01/01/2010 al 02/02/2011",
+
+          Nazione: "Italia",
+          Comune: "Napoli",
+          Cap: "84092",
+          Frazione: "xxxxxx",
+          Via: "aaaaaxxxxxddxxxxx",
+          Civico: "6",
+          UsaIndirizzo: "No",
+          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
-      },
+      ],
 
       ImportoRitenutaDiCategoria: "200.15",
 
@@ -394,8 +580,6 @@ mochDbTable = function(table) {
           NroAssistiti: "19"
         }
       ]
-    
-    
     }
   ];
   // ---------------------------------------------------

@@ -21,6 +21,17 @@ function associazioniCtrl(
     DTColumnDefBuilder.newColumnDef(4).notSortable()
   ];
 
+  $scope.find = function() {
+    $scope.elencoAssociazioni = httpServices.associazioni.find("mockUrl");
+  };
+
+  $scope.findCodFis = function(cCodFis) {
+    $scope.datiAssociazione = httpServices.associazioni.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
+  };
+
 
 }
 

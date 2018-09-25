@@ -4,17 +4,6 @@
  *
  */
 function MainCtrl($scope, $rootScope, $translate, httpServices, $http) {
-  /**
-   * Anagrafe
-   */
-  $rootScope.datiAssistito = [];
-  $rootScope.findCodFis = function(cCodFis) {
-    $rootScope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
-    debugger;
-  };
 
   /**
    * Domande

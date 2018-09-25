@@ -1,20 +1,20 @@
 <div class="row">
     <div class="col-md-6 form-group">
         <label>{{ 'COGNOME' | translate }}</label>
-        <input type="text" class="form-control" ng-model="$anagCtrl.findCognome" placeholder="Cognome da ricercare">
+        <input type="text" class="form-control" ng-model="findCognome" placeholder="Cognome da ricercare">
     </div>
     <div class="col-md-6 form-group">
         <label>{{ 'NOME' | translate }}</label>
-        <input type="text" class="form-control" ng-model="$anagCtrl.findNome" placeholder="Nome da ricercare">
+        <input type="text" class="form-control" ng-model="findNome" placeholder="Nome da ricercare">
     </div>
     <div class="col-md-6 form-group">
         <label>{{ 'CODICE_FISCALE' | translate }}</label>
-        <input type="text" class="form-control" ng-model="$anagCtrl.findCodiceFiscale" placeholder="Codice fiscale da ricercare">
+        <input type="text" class="form-control" ng-model="findCodiceFiscale" placeholder="Codice fiscale da ricercare">
     </div>
     <div class="col-md-6 form-group">
         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
         <div class="input-group date">
-            <input type="text" class="form-control js-date" ng-model="$anagCtrl.findDataDiNascita"
+            <input type="text" class="form-control js-date" ng-model="findDataDiNascita"
                 placeholder="Data nascita da ricercare formato dd/MM/yyyy">
             <span class="input-group-addon">
                 <i class="fa fa-calendar"></i>
@@ -24,19 +24,19 @@
     <div id="filtri_deceduto">
         <div class="col-md-6 form-group">
             <label>{{ 'NUMERO_FALDONE_ARCHIVIAZIONE' | translate }}</label>
-            <input type="text" class="form-control intero" ng-model="$anagCtrl.findNumeroFaldoneArchiviazione"
+            <input type="text" class="form-control intero" ng-model="findNumeroFaldoneArchiviazione"
                 placeholder="Numero faldone archiviazione da ricercare">
         </div>
         <div class="col-md-6 form-group">
             <label>{{ 'ANNO_DI_SCARTO' | translate }}</label>
-            <input type="text" class="form-control anno" ng-model="$anagCtrl.findAnnoDiScarto" placeholder="Anno di scarto da ricercare">
+            <input type="text" class="form-control anno" ng-model="findAnnoDiScarto" placeholder="Anno di scarto da ricercare">
         </div>
 
     </div>
 </div>
 <div class="row text-right">
     <div class="col-sm-12">
-        <button class="btn btn-primary" id="anagSearch" ng-click="$anagCtrl.find()">{{ 'CERCA' | translate }}</button>
+        <button class="btn btn-primary" id="anagSearch" ng-click="find()">{{ 'CERCA' | translate }}</button>
     </div>
 </div>
 
@@ -53,7 +53,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in $anagCtrl.elencoAssistiti">
+            <tr ng-repeat="item in elencoAssistiti">
                 <td>{{item.Cognome}}</td>
                 <td>{{item.Nome}}</td>
                 <td>

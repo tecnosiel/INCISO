@@ -18,8 +18,21 @@
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
+
     <div class="row">
         <div class="col-lg-12">
+            <div ng-if="!inserimentoAssociazione" class="row text-left" style="margin-bottom:15px">
+                <div ng-if="!visDatiAssociazione" class="col-sm-12">
+                    <button class="btn btn-danger btnToggleBlock" ng-click="visDatiAssociazioneToggle()">{{
+                        'BLOCCA_CAMPI' | translate }}</button>
+                </div>
+                <div ng-if="visDatiAssociazione" class="col-sm-12">
+                    <button class="btn btn-primary btnToggleBlock" ng-click="visDatiAssociazioneToggle()">{{
+                        'SBLOCCA_CAMPI' | translate }}</button>
+                </div>
+            </div>
+
+            <!-- --------- -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5> Dati generali </h5>
@@ -34,11 +47,11 @@
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label>Nome associazione</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.NomeAssociazione}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.NomeAssociazione}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Codice fiscale</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.CodiceFiscale}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.CodiceFiscale}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>
@@ -47,27 +60,24 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="checkbox">
-                                        <label> <input ng-readonly="$visAssCtrl.visDatiAssociazione" icheck type="radio"
-                                                ng-model="$assCtrl.datiAssociazione.TipologiaDiAssistenza" ng-checked="$assCtrl.datiAssociazione.TipologiaDiAssistenza=='77'"
-                                                name="a">
+                                        <label> <input ng-readonly="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
+                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='77'" name="a">
                                             <i></i> 77
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="checkbox">
-                                        <label> <input ng-readonly="$visAssCtrl.visDatiAssociazione" icheck type="radio"
-                                                ng-model="$assCtrl.datiAssociazione.TipologiaDiAssistenza" ng-checked="$assCtrl.datiAssociazione.TipologiaDiAssistenza=='88'"
-                                                name="b">
+                                        <label> <input ng-readonly="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
+                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='88'" name="b">
                                             <i></i> 88
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="checkbox">
-                                        <label> <input ng-readonly="$visAssCtrl.visDatiAssociazione" icheck type="radio"
-                                                ng-model="$assCtrl.datiAssociazione.TipologiaDiAssistenza" ng-checked="$assCtrl.datiAssociazione.TipologiaDiAssistenza=='99'"
-                                                name="c">
+                                        <label> <input ng-readonly="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
+                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='99'" name="c">
                                             <i></i> 99
                                         </label>
                                     </div>
@@ -76,59 +86,91 @@
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Responsabile</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.Responsabile}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.Responsabile}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Telefono principale</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.TelefonoPrincipale}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.TelefonoPrincipale}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Telefono secondario</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.TelefonoSecondario}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.TelefonoSecondario}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>IBAN</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.IBAN}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.IBAN}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>Email</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.Email}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.Email}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>PEC</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.Pec}}">
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.Pec}}">
                         </div>
                         <div class="col-md-12 form-group">
                             <label>Note</label>
-                            <textarea ng-model="$assCtrl.datiAssociazione.Note" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control"></textarea>
+                            <textarea ng-model="datiAssociazione.Note" ng-readonly="visDatiAssociazione" class="form-control"></textarea>
                         </div>
 
                     </div>
                 </div>
             </div>
+            <!-- --------- -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Elenco indirizzi </h5>
+                    <h5> {{ "ELENCO_INDIRIZZI" | translate}} </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
                         </a>
                     </div>
                 </div>
-
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-md-12"><label>Sede principale</label></div>
-                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.SedePrincipale.Via}}</span></div>
-                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.SedePrincipale.Cap}}</span></div>
-                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.SedePrincipale.Comune}}</span></div>
-                        <div class="col-md-12 m-t-md"><label>Altro indirizzo</label></div>
-                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.AltroIndirizzo.Via}}</span></div>
-                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.AltroIndirizzo.Cap}}</span></div>
-                        <div class="col-md-12"><span>{{$assCtrl.datiAssociazione.Indirizzi.AltroIndirizzo.Comune}}</span></div>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-2">Tipo</th>
+                                    <th class="col-md-3">Indirizzo</th>
+                                    <th class="col-md-2">Validità</th>
+                                    <th class="col-md-3">Note</th>
+                                    <th class="col-md-1"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in datiAssociazione.Indirizzi">
+                                    <td>{{item.Tipo}}</td>
+                                    <td>
+                                        {{item.Indirizzo}}
+                                    </td>
+                                    <td>{{item.Validita}}</td>
+                                    <td>{{item.Note}}</td>
+                                    <td style="font-size: 18px; text-align: center">
+
+                                        <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssociazione}"><i
+                                                class="fa fa-pencil"></i></a>
+                                        <a ng-class="{anchorDisabled : visDatiAssociazione}" ng-click="deleteIndirizzo()"><i
+                                                class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row text-right">
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary" id="anagSearch" ng-disabled="visDatiAssociazione"
+                                    ng-click="creaNuovoIndirizzo(-1)">{{
+                                    'CREA_NUOVO_INDIRIZZO'
+                                    | translate }}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- --------- -->
+
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5> Altri dati </h5>
@@ -142,11 +184,12 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-md-4 form-group"><label>Importo ritenuta di categoria (quota mensile)</label>
-                            <input type="text" ng-readonly="$visAssCtrl.visDatiAssociazione" class="form-control" value="{{$assCtrl.datiAssociazione.ImportoRitenutaDiCategoria | currency}} "></div>
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.ImportoRitenutaDiCategoria | currency}} "></div>
                     </div>
                 </div>
             </div>
-            <div class="ibox float-e-margins">
+            <!-- --------- -->
+            <div ng-if="visDatiAssociazione" visDatiAssociazione class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5> Elenco ritenute sulle liquidazioni mensili </h5>
                     <div class="ibox-tools">
@@ -169,7 +212,7 @@
                         </thead>
 
                         <tbody>
-                            <tr ng-repeat="item in $assCtrl.datiAssociazione.LiquidazioniMensili">
+                            <tr ng-repeat="item in datiAssociazione.LiquidazioniMensili">
                                 <td>{{item.DataPagamento}}</td>
                                 <td>{{item.ImportoTotale | currency}}</td>
                                 <td>{{item.NroAssistiti}}</td>
@@ -180,6 +223,16 @@
 
                 </div>
             </div>
+
+            <!-- SUBMIT BUTTON -->
+            <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
+            <div class="row text-right">
+                <div ng-if="inserimentoAssociazione || !visDatiAssociazione" class="col-sm-12" style="margin-top:5px;margin-bottom:15px">
+                    <button type="submit" class="btn btn-primary" ng-click="salvaModulo()" ng-disabled="userForm.$invalid">{{
+                        'SALVA' | translate }}</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

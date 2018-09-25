@@ -39,23 +39,12 @@ function config(
     .state("anagrafica", {
       abstract: true,
       url: "/anagrafica",
-      templateUrl: "/views/common/content.html"
+      templateUrl: "/views/common/content.html",
+      controller: "anagrafeCtrl as $anagCtrl"
     })
     .state("anagrafica.ricerca_anagrafica", {
       url: "/ricerca_anagrafica",
-      templateUrl: "/views/ricerca_anagrafica.html",
-      controller: "anagrafeCtrl as $anagCtrl"
-    })
-
-    .state("anagrafica.visualizza_anagrafica", {
-      url: "/visualizza_anagrafica",
-      templateUrl: "/views/visualizza_anagrafica.html",
-      controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
-      resolve: {
-        runMode: function() {
-          return "VISUALIZZA";
-        }
-      }
+      templateUrl: "/views/ricerca_anagrafica.html"
     })
 
     .state("anagrafica.inserimento_anagrafica", {
@@ -65,6 +54,17 @@ function config(
       resolve: {
         runMode: function() {
           return "NUOVOINSERIMENTO";
+        }
+      }
+    })
+
+    .state("anagrafica.visualizza_anagrafica", {
+      url: "/visualizza_anagrafica",
+      templateUrl: "/views/visualizza_anagrafica.html",
+      controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+      resolve: {
+        runMode: function() {
+          return "VISUALIZZA";
         }
       }
     })
@@ -219,7 +219,6 @@ function config(
         }
       }
     })
-
 
     // liquidazioni ------------------------------------------------------------
     .state("liquidazioni", {

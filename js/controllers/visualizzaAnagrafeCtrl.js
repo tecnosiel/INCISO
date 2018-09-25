@@ -5,17 +5,60 @@
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
+function visualizzaAnagrafeCtrl($scope, $uibModal, runMode) {
   if (runMode == "NUOVOINSERIMENTO") {
-    this.visDatiAssistito = false;
-    this.inserimentoAnagrafe = true;
-    $rootScope.datiAssistito = [];
+    $scope.visDatiAssistito = false;
+    $scope.inserimentoAnagrafe = true;
+    $scope.datiAssistito = [];
   } else {
-    this.visDatiAssistito = true;
-    this.inserimentoAnagrafe = false;
+    $scope.visDatiAssistito = true;
+    $scope.inserimentoAnagrafe = false;
   }
 
-  this.editIndirizzo = function() {
+  $scope.visDatiAssistitoToggle = function() {
+    $scope.visDatiAssistito = !$scope.visDatiAssistito;
+  };
+
+  // serve per le modali
+  self = this;
+
+  $scope.creaNuovoIndirizzo = function($index) {
+
+    if ($scope.datiAssistito.Indirizzi) {
+      if ($index > -1) {
+        $scope.datiAssistito.Indirizzi[$index].UsaIndirizzo = "Si";
+      } else {
+        $scope.datiAssistito.Indirizzi.forEach(function(element) {
+          element.UsaIndirizzo = "No";
+        });
+      }
+
+      // nella modale gli Indirizzi sono in Indirizzi
+      $scope.Indirizzi = Object.assign({}, $scope.datiAssistito.Indirizzi);
+    }
+
+    // http://www.marcorpsa.com/ee/t1891.html
+    self.modalInstance = $uibModal.open({
+      templateUrl: "./../views/gestione_indirizzi.html",
+      controller: "modalIndirizziCtrl",
+      size: "lg",
+      scope: $scope,
+      windowClass: "animated flipInY"
+    });
+  };
+
+  $scope.creaNuovoReddito = function($index) {
+    $scope.$index = $index;
+    self.modalInstance = $uibModal.open({
+      templateUrl: "./../views/gestione_redditi.html",
+      controller: "modalRedditiCtrl",
+      size: "lg",
+      scope: $scope,
+      windowClass: "animated flipInY"
+    });
+  };
+
+  $scope.editIndirizzo = function() {
     swal({
       title: "Edit Indirizzo!",
       text: "Qui ci sarà una maschera di edit!",
@@ -24,7 +67,16 @@ function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
     });
   };
 
-  this.deleteIndirizzo = function() {
+  $scope.salvaModulo = function() {
+    swal({
+      title: "Salvataggio Dati!",
+      text: "I dati saranno controllati e salvati!",
+      icon: "success",
+      button: "conferma!"
+    });
+  };
+
+  $scope.deleteIndirizzo = function() {
     swal({
       title: "Sei sicuro?",
       text: "Una volta cancellato, non sarà possibile recuperarlo!",
@@ -42,7 +94,7 @@ function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
     });
   };
 
-  this.editReddito = function() {
+  $scope.editReddito = function() {
     swal({
       title: "Edit Reddito!",
       text: "Qui ci sarà una maschera di edit!",
@@ -51,17 +103,13 @@ function visualizzaAnagrafeCtrl($scope, $rootScope, runMode) {
     });
   };
 
-  this.editLiquidazione = function() {
+  $scope.editLiquidazione = function() {
     swal({
       title: "Edit Liquidazione!",
       text: "Qui ci sarà una maschera di edit!",
       icon: "success",
       button: "conferma!"
     });
-  };
-
-  $rootScope.modalSave = function(cTitolo, cSottoTitolo) {
-    swal(cTitolo, cSottoTitolo, "success");
   };
 
   // function to submit the form after all validation has occurred

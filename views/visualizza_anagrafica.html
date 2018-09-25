@@ -1,16 +1,16 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2 ng-if="$visAnaCtrl.inserimentoAnagrafe">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</h2>
-        <h2 ng-if="!$visAnaCtrl.inserimentoAnagrafe">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
+        <h2 ng-if="inserimentoAnagrafe">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</h2>
+        <h2 ng-if="!inserimentoAnagrafe">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">{{ 'HOME' | translate }}</a>
             </li>
-            <li ng-if="$visAnaCtrl.inserimentoAnagrafe">
+            <li ng-if="inserimentoAnagrafe">
                 <a href="ricerca_anagrafica.html">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</a>
             </li>
-            <li ng-if="!$visAnaCtrl.inserimentoAnagrafe">
-                <a href="$visAnaCtrl.ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
+            <li ng-if="!inserimentoAnagrafe">
+                <a href="ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
             </li>
             <li class="active">
                 <strong>{{datiAssistito.Nome}} {{datiAssistito.Cognome}}</strong>
@@ -26,16 +26,16 @@
 <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div ng-if="!$visAnaCtrl.inserimentoAnagrafe" class="row">
+        <div ng-if="!inserimentoAnagrafe" class="row">
             <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
         </div>
-        <div ng-if="!$visAnaCtrl.inserimentoAnagrafe" class="row text-left">
-            <div ng-if="!$visAnaCtrl.visDatiAssistito" class="col-sm-12">
-                <button class="btn btn-danger" ng-click="$visAnaCtrl.visDatiAssistito = !$visAnaCtrl.visDatiAssistito">{{
+        <div ng-if="!inserimentoAnagrafe" class="row text-left">
+            <div ng-if="!visDatiAssistito" class="col-sm-12">
+                <button class="btn btn-danger btnToggleBlock" ng-click="visDatiAssistitoToggle()">{{
                     'BLOCCA_CAMPI' | translate }}</button>
             </div>
-            <div ng-if="$visAnaCtrl.visDatiAssistito" class="col-sm-12">
-                <button class="btn btn-primary" ng-click="$visAnaCtrl.visDatiAssistito = !$visAnaCtrl.visDatiAssistito">{{
+            <div ng-if="visDatiAssistito" class="col-sm-12">
+                <button class="btn btn-primary btnToggleBlock" ng-click="visDatiAssistitoToggle()">{{
                     'SBLOCCA_CAMPI' | translate }}</button>
             </div>
         </div>
@@ -56,7 +56,7 @@
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
                                     <label>Nome</label>
-                                    <input type="text" name="nome" ng-model="datiAssistito.Nome" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <input type="text" name="nome" ng-model="datiAssistito.Nome" ng-readonly="visDatiAssistito"
                                         class="form-control" required>
                                     <p ng-show="userForm.nome.$invalid && !userForm.nome.$pristine" class="help-block">Nome
                                         obbligatorio.</p>
@@ -65,7 +65,7 @@
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
                                     <label>Cognome</label>
-                                    <input type="text" name="cognome" ng-model="datiAssistito.Cognome" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <input type="text" name="cognome" ng-model="datiAssistito.Cognome" ng-readonly="visDatiAssistito"
                                         class="form-control" required>
                                     <p ng-show="userForm.cognome.$invalid && !userForm.cognome.$pristine" class="help-block">
                                         Cognome obbligatorio.</p>
@@ -76,7 +76,7 @@
                                 <div class="col-md-4 form-group">
                                     <label>Cognome acquisito</label>
                                     <input type="text" name="cognomeacquisito" ng-model="datiAssistito.CognomeAcquisito"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control" required>
+                                        ng-readonly="visDatiAssistito" class="form-control" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -85,7 +85,7 @@
                                 <div class="col-md-4 form-group">
                                     <label>Codice Fiscale</label>
                                     <input type="text" name="codicefiscale" ng-model="datiAssistito.CodiceFiscale"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control" ng-minlength="16"
+                                        ng-readonly="visDatiAssistito" class="form-control" ng-minlength="16"
                                         ng-maxlength="16">
                                     <p ng-show="userForm.codicefiscale.$error.minlength" class="help-block">Codice
                                         Fiscale
@@ -102,7 +102,7 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Maschile"
-                                                        name="sesso" ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control"
+                                                        name="sesso" ng-disabled="visDatiAssistito" class="form-control"
                                                         ng-checked="datiAssistito.Sesso == 'Maschile'">
                                                     <i></i>
                                                     Maschile
@@ -113,7 +113,7 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Femminile"
-                                                        name="sesso" ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control"
+                                                        name="sesso" ng-disabled="visDatiAssistito" class="form-control"
                                                         ng-checked="datiAssistito.Sesso == 'Femminile'">
                                                     <i></i>
                                                     Femminile
@@ -128,7 +128,7 @@
                                 <div class="col-md-4 form-group">
                                     <label>Stato civile</label>
                                     <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
-                                        ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
+                                        ng-disabled="visDatiAssistito" class="form-control" required>
                                         <option></option>
                                         <option>option 1</option>
                                         <option>option 2</option>
@@ -158,11 +158,10 @@
                                 <div class="col-md-4 form-group">
                                     <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
 
-                                    <div ng-class="{datePicherDisabled : $visAnaCtrl.visDatiAssistito}" class="input-group date">
+                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
                                         <input type="text" name="datadinascita" ng-model="datiAssistito.DataDiNascita"
-                                            ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control js-date"
-                                            required>
-                                        <span ng-class="{datePicherDisabled : $visAnaCtrl.visDatiAssistito}" class="input-group-addon">
+                                            ng-readonly="visDatiAssistito" class="form-control js-date" required>
+                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
@@ -176,8 +175,8 @@
                                 <div class="col-md-4 form-group">
                                     <label>Luogo di nascita</label>
                                     <!-- <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control" required> -->
-                                    <select name="luogoDiNascita" ng-model="datiAssistito.LuogoDiNascita" ng-disabled="$visAnaCtrl.visDatiAssistito"
+                                        ng-readonly="visDatiAssistito" class="form-control" required> -->
+                                    <select name="luogoDiNascita" ng-model="datiAssistito.LuogoDiNascita" ng-disabled="visDatiAssistito"
                                         ng-options="comune.name for comune in comuni" class="form-control" required>
                                         <option value="">Seleziona un comune</option>
                                     </select>
@@ -189,7 +188,7 @@
                                 <div class="col-md-4 form-group">
                                     <label>Provincia</label>
                                     <select name="provinciadinascita" ng-model="datiAssistito.ProvinciaDiNascita"
-                                        ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="province.name for province in provinces"
+                                        ng-disabled="visDatiAssistito" ng-options="province.name for province in provinces"
                                         class="form-control" required>
                                         <option value="">Seleziona una provincia</option>
                                     </select>
@@ -202,11 +201,11 @@
 
                             <div class="row">
                                 <div class="col-md-4 form-group"><label>Nazione</label>
-                                    <!-- <input type="text" ng-model="datiAssistito.NazioneDiNascita" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <!-- <input type="text" ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visDatiAssistito"
                                         class="form-control"> -->
 
                                     <select name="nazioneDiNascita" ng-model="datiAssistito.NazioneDiNascita"
-                                        ng-disabled="$visAnaCtrl.visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
+                                        ng-disabled="visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
                                         class="form-control" required>
                                         <option value="">Seleziona una nazione</option>
                                     </select>
@@ -215,10 +214,10 @@
 
                                 <div class="col-md-4 form-group">
                                     <label>{{ 'DATA_DI_DECESSO' | translate }}</label>
-                                    <div ng-class="{datePicherDisabled : $visAnaCtrl.visDatiAssistito}" class="input-group date">
-                                        <input type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
+                                        <input type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="visDatiAssistito"
                                             class="form-control js-date">
-                                        <span ng-class="{datePicherDisabled : $visAnaCtrl.visDatiAssistito}" class="input-group-addon">
+                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
@@ -244,9 +243,9 @@
                             <div class="row">
                                 <div class="col-md-4 form-group">
                                     <label>Cittadinanza</label>
-                                    <!-- <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <!-- <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="visDatiAssistito"
                                         class="form-control"> -->
-                                    <select name="cittadinanza" ng-model="datiAssistito.Cittadinanza" ng-disabled="$visAnaCtrl.visDatiAssistito"
+                                    <select name="cittadinanza" ng-model="datiAssistito.Cittadinanza" ng-disabled="visDatiAssistito"
                                         ng-options="cittadinanza.name for cittadinanza in cittadinanze" class="form-control"
                                         required>
                                         <option value="">Seleziona una cittadinanza</option>
@@ -261,8 +260,8 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Extracomunitario" type="radio"
-                                                        name="extracomunitario" ng-disabled="$visAnaCtrl.visDatiAssistito"
-                                                        value="Si" ng-checked="datiAssistito.Extracomunitario == 'Si'">
+                                                        name="extracomunitario" ng-disabled="visDatiAssistito" value="Si"
+                                                        ng-checked="datiAssistito.Extracomunitario == 'Si'">
                                                     <i></i>
                                                     Si
                                                 </label>
@@ -272,8 +271,8 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input icheck ng-model="datiAssistito.Extracomunitario" type="radio"
-                                                        name="extracomunitario" ng-disabled="$visAnaCtrl.visDatiAssistito"
-                                                        value="No" ng-checked="datiAssistito.Extracomunitario=='No'">
+                                                        name="extracomunitario" ng-disabled="visDatiAssistito" value="No"
+                                                        ng-checked="datiAssistito.Extracomunitario=='No'">
                                                     <i></i>
                                                     No
                                                 </label>
@@ -287,40 +286,39 @@
                             <div class="row">
                                 <div class="col-md-4 form-group"><label>Tipo permesso</label>
                                     <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control"></div>
+                                        ng-readonly="visDatiAssistito" class="form-control"></div>
 
                                 <div class="col-md-4 form-group">
                                     <label>Data rilascio</label>
                                     <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control js-date"></div>
+                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div>
 
                                 <div class="col-md-4 form-group">
                                     <label>Valido fino al</label>
                                     <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control js-date"></div>
+                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div>
                             </div>
                             <h3 class="m-t-lg">Riferimenti di contatto</h3>
                             <div class="row">
                                 <div class="col-md-4 form-group"><label>Telefono principale</label>
-                                    <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="visDatiAssistito"
                                         class="form-control telefono"></div>
                                 <div class="col-md-4 form-group"><label>Telefono secondario</label>
-                                    <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                                    <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="visDatiAssistito"
                                         class="form-control telefono"></div>
 
 
 
                                 <div class="col-md-4 form-group"><label>PEC</label>
-                                    <input type="text" ng-readonly="$visAnaCtrl.visDatiAssistito" ng-model="datiAssistito.Pec"
+                                    <input type="text" ng-readonly="visDatiAssistito" ng-model="datiAssistito.Pec"
                                         class="form-control"></div>
                                 <div class="col-md-12 form-group"><label>Note</label>
-                                    <textarea ng-model="datiAssistito.Note" ng-readonly="$visAnaCtrl.visDatiAssistito"
-                                        class="form-control"></textarea></div>
+                                    <textarea ng-model="datiAssistito.Note" ng-readonly="visDatiAssistito" class="form-control"></textarea></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <!-- ------------------------------------------------------------------------- -->
                 <div class="panel panel-default m-t-lg">
 
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseIndirizzi">
@@ -351,18 +349,17 @@
                                         <td>{{item.Note}}</td>
                                         <td style="font-size: 18px; text-align: center">
 
-                                            <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}" ng-click="$visAnaCtrl.editIndirizzo()"><i
+                                            <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssistito}"><i
                                                     class="fa fa-pencil"></i></a>
-                                            <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}" ng-click="$visAnaCtrl.deleteIndirizzo()"><i
+                                            <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="deleteIndirizzo()"><i
                                                     class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-
                             <div class="row text-right">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="$visAnaCtrl.visDatiAssistito"
+                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visDatiAssistito"
                                         ng-click="creaNuovoIndirizzo(-1)">{{
                                         'CREA_NUOVO_INDIRIZZO'
                                         | translate }}</button>
@@ -371,6 +368,7 @@
                         </div>
                     </div>
 
+                    <!-- ------------------------------------------------------------------------- -->
 
                 </div>
 
@@ -431,7 +429,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text"
-                                        ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control" value="Invalidità, infortunio"></div>
+                                        ng-readonly="visDatiAssistito" class="form-control" value="Invalidità, infortunio"></div>
                             </div>
                         </div>
                     </div>
@@ -449,18 +447,16 @@
                             <div class="row">
                                 <div class="col-md-4 form-group">
                                     <label>Data decesso</label>
-                                    <input type="text" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control js-date"
+                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control js-date"
                                         value="10/01/2016">
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label>Numero faldone</label>
-                                    <input type="text" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control intero"
-                                        value="357434">
+                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control intero" value="357434">
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label>Anno di scarto IN-CI-SO</label>
-                                    <input type="text" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control anno"
-                                        value="2016">
+                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control anno" value="2016">
                                 </div>
                             </div>
                             <div class="panel panel-default">
@@ -529,8 +525,8 @@
                                                             <td class="text-center"><a>Visualizza dettaglio importo
                                                                     liquidato</a></td>
                                                             <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}"
-                                                                    ng-click="$visAnaCtrl.editLiquidazione()" title="modifica">
+                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
+                                                                    ng-click="editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -544,8 +540,8 @@
                                                             <td class="text-center"><a>Visualizza dettaglio importo
                                                                     liquidato</a></td>
                                                             <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}"
-                                                                    ng-click="$visAnaCtrl.editLiquidazione()" title="modifica">
+                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
+                                                                    ng-click="editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -559,8 +555,8 @@
                                                             <td class="text-center"><a>Visualizza dettaglio importo
                                                                     liquidato</a></td>
                                                             <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}"
-                                                                    ng-click="$visAnaCtrl.editLiquidazione()" title="modifica">
+                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
+                                                                    ng-click="editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -574,8 +570,8 @@
                                                             <td class="text-center"><a>Visualizza dettaglio importo
                                                                     liquidato</a></td>
                                                             <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}"
-                                                                    ng-click="$visAnaCtrl.editLiquidazione()" title="modifica">
+                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
+                                                                    ng-click="editLiquidazione()" title="modifica">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
@@ -584,7 +580,7 @@
                                                 </table>
                                             </div>
                                             <div class="text-right col-md-12">
-                                                <a class="btn btn-primary btn-sm" ng-disabled="$visAnaCtrl.visDatiAssistito"
+                                                <a class="btn btn-primary btn-sm" ng-disabled="visDatiAssistito"
                                                     data-toggle="modal" data-target="#modalAnagrafica">Aggiungi
                                                     erede
                                                 </a>
@@ -631,15 +627,14 @@
                                                 <td class="text-center">
                                                     <div class="checkbox">
                                                         <input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
-                                                            ng-disabled="$visAnaCtrl.visDatiAssistito" value="Si"
-                                                            ng-checked="item.ValidoPerGliAnniSuccessivi=='Si'">
+                                                            ng-disabled="visDatiAssistito" value="Si" ng-checked="item.ValidoPerGliAnniSuccessivi=='Si'">
                                                         <i></i>
                                                     </div>
                                                 </td>
 
                                                 <td style="font-size: 18px; text-align: center">
-                                                    <a ng-class="{anchorDisabled : $visAnaCtrl.visDatiAssistito}"
-                                                        ng-click="creaNuovoReddito($index)"><i class="fa fa-pencil"></i></a>
+                                                    <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="creaNuovoReddito($index)"><i
+                                                            class="fa fa-pencil"></i></a>
                                                 </td>
 
                                             </tr>
@@ -650,7 +645,7 @@
 
                             <div class="row text-right">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="$visAnaCtrl.visDatiAssistito"
+                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visDatiAssistito"
                                         ng-click="creaNuovoReddito(0)">
                                         {{'INSERISCI_REDDITO' | translate }}
                                     </button>
@@ -949,8 +944,8 @@
                 <!-- SUBMIT BUTTON -->
                 <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
                 <div class="row text-right">
-                    <div ng-if="$visAnaCtrl.inserimentoAnagrafe || !$visAnaCtrl.visDatiAssistito" class="col-sm-12" style="margin-top:5px;margin-bottom:15px">
-                        <button type="submit" class="btn btn-primary" ng-click="" ng-disabled="userForm.$invalid">{{
+                    <div ng-if="inserimentoAnagrafe || !visDatiAssistito" class="col-sm-12" style="margin-top:5px;margin-bottom:15px">
+                        <button type="submit" class="btn btn-primary" ng-click="salvaModulo()" ng-disabled="userForm.$invalid">{{
                             'SALVA' | translate }}</button>
                     </div>
                 </div>
@@ -1049,7 +1044,7 @@
 </form>
 
 <script>
-     // Custom scripts
+    // Custom scripts
     $(document).ready(function () {
 
         $('.panel').click(function () {

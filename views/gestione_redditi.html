@@ -1,6 +1,6 @@
-<style>
+<!-- <style>
     .modal-dialog { min-width: 700px;}
-</style>
+</style> -->
 
 <div id="modaleRedditi" class="inmodal">
 
@@ -15,11 +15,11 @@
         <div class="row">
             <div class="col-md-2 form-group">
                 <label>{{ "ANNO" | translate}}</label>
-                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="$visAnaCtrl.visDatiAssistito"
+                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="visDatiAssistito"
                     class="form-control anno">
             </div>
             <div class="col-md-6 form-group"><label>{{ "VALIDO_PER_ANNI_SUCCESSIVI" | translate}}</label>
-                <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control"
+                <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visDatiAssistito" class="form-control"
                     value="Milano"> -->
                 <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.Redditi.ValidoPerAnniSuccessivi">
                     <i></i>
@@ -34,7 +34,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
-                                    value="Si" name="sesso" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control">
+                                    value="Si" name="sesso" ng-readonly="visDatiAssistito" class="form-control">
                                 <i></i>
                                 Si
                             </label>
@@ -44,7 +44,7 @@
                         <div class="checkbox">
                             <label>
                                 <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
-                                    value="No" name="sesso" ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control">
+                                    value="No" name="sesso" ng-readonly="visDatiAssistito" class="form-control">
                                 <i></i>
                                 No
                             </label>
@@ -74,7 +74,7 @@
                             <label>Tipologia di Reddito</label>
 
                             <!-- <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
-                                ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
+                                ng-disabled="visDatiAssistito" class="form-control" required>
                                 <option></option>
                                 <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                 <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
@@ -84,7 +84,7 @@
 
 
                             <ui-select name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
-                                ng-disabled="$visAnaCtrl.visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
                                 <ui-select-match placeholder="Seleziona tipo reddito">{{$select.selected.descrizione}}</ui-select-match>
                                 <ui-select-choices repeat="tipoReddito in tipoRedditi | filter: $select.search">
                                     <span ng-bind-html="tipoReddito.descrizione | highlight: $select.search"></span>
@@ -102,7 +102,7 @@
                         <div class="col-md-4 form-group">
                             <label>Valore reddito</label>
                             <input type="text" name="valoreRedditoAssistito" ng-model="Tmp.ValoreRedditoAssistito"
-                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control importo text-right"
+                                ng-readonly="visDatiAssistito" class="form-control importo text-right"
                                 style="float:right" ng-currency required>
                             <p ng-show="userForm.valoreRedditoAssistito.$invalid && !userForm.valoreRedditoAssistito.$pristine"
                                 class="help-block">
@@ -154,7 +154,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "TOTALE" | translate}}</label>
                             <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control text-right importo"
+                                ng-readonly="visDatiAssistito" class="form-control text-right importo"
                                 ng-currency disabled>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                             <div class="col-md-6 form-group">
                                 <label>Tipologia di Reddito</label>
                                 <!-- <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
-                                    ng-disabled="$visAnaCtrl.visDatiAssistito" class="form-control" required>
+                                    ng-disabled="visDatiAssistito" class="form-control" required>
                                     <option></option>
                                     <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
                                     <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
@@ -190,7 +190,7 @@
                                 </select> -->
 
                                 <ui-select name="tipologiaDiRedditoConiuge" ng-model="Tmp.TipologiaDiRedditoConiuge"
-                                    ng-disabled="$visAnaCtrl.visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                    ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
                                     <ui-select-match placeholder="Seleziona tipo reddito">{{$select.selected.descrizione}}</ui-select-match>
                                     <ui-select-choices repeat="tipoReddito in tipoRedditi | filter: $select.search">
                                         <span ng-bind-html="tipoReddito.descrizione | highlight: $select.search"></span>
@@ -205,7 +205,7 @@
                             <div class="col-md-4 form-group">
                                 <label>Valore reddito</label>
                                 <input type="text" name="valoreRedditoConiuge" ng-model="Tmp.ValoreRedditoConiuge"
-                                    ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control text-right importo"
+                                    ng-readonly="visDatiAssistito" class="form-control text-right importo"
                                     ng-currency required>
                                 <p ng-show="userForm.valoreRedditoConiuge.$invalid && !userForm.valoreRedditoConiuge.$pristine"
                                     class="help-block">
@@ -256,7 +256,7 @@
                             <div class="col-md-4 form-group">
                                 <label>{{ "TOTALE" | translate}}</label>
                                 <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                    ng-readonly="$visAnaCtrl.visDatiAssistito" class="form-control" disabled>
+                                    ng-readonly="visDatiAssistito" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-primary" ng-click="modalSave('Redditi salvati!','Tutti i redditi sono stati salvati correttamente.')">{{
             'SALVA' | translate }}</button>
-        <button type="button" class="btn btn-primary" ng-click="modalInstance.close()">{{ 'CHIUDI' | translate
+        <button type="button" class="btn btn-primary" ng-click="modalClose()">{{ 'CHIUDI' | translate
             }}</button>
     </div>
 </div>

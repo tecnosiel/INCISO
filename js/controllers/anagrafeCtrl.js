@@ -4,24 +4,55 @@
  *
  */
 function anagrafeCtrl(
-  $rootScope,
   $scope,
   httpServices,
-  $uibModal,
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
+  /**
+   * campi e funzioni adoperati per la ricerca
+   */
+  $scope.findCognome = "";
+  $scope.findNome = "";
+  $scope.findCodiceFiscale = "";
+  $scope.findDataDiNascita = "";
+  $scope.findNumeroFaldoneArchiviazione = "";
+  $scope.findAnnoDiScarto = "";
+
+  $scope.find = function() {
+    $scope.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
+      "mockUrl"
+    );
+  };
+
+  /**
+   * variabile contenente i dati dell'assistito in esame
+   */
+
+  $scope.datiAssistito = [];
+
+  $scope.findCodFis = function(cCodFis) {
+    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
+    debugger;
+  };
+
   // https://www.datatables.net/reference/option/
-  $rootScope.dtOptions = DTOptionsBuilder.newOptions()
+  $scope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
     .withOption("lengthChange", false);
 
-  $rootScope.colonneTabElencoRedditi = [
+  $scope.colonneTabElencoRedditi = [
     DTColumnDefBuilder.newColumnDef(3).notSortable(),
     DTColumnDefBuilder.newColumnDef(4).notSortable()
   ];
 
-  $rootScope.provinces = [
+  /**
+   * variabili da sostituire con chiamate http
+   */
+  $scope.provinces = [
     { name: "Milano", area: "Nord", disabled: false },
     { name: "Torino", area: "Nord", disabled: false },
     { name: "Roma", area: "Centro", disabled: true },
@@ -30,7 +61,7 @@ function anagrafeCtrl(
     { name: "Palermo", area: "Sud", disabled: false }
   ];
 
-  $rootScope.comuni = [
+  $scope.comuni = [
     { name: "Comune1", area: "Nord", disabled: false },
     { name: "Comune2", area: "Nord", disabled: false },
     { name: "Comune3", area: "Centro", disabled: true },
@@ -39,7 +70,7 @@ function anagrafeCtrl(
     { name: "Comune6", area: "Sud", disabled: false }
   ];
 
-  $rootScope.nazioni = [
+  $scope.nazioni = [
     { name: "Italia", area: "Nord", disabled: false },
     { name: "Germania", area: "Nord", disabled: false },
     { name: "Finlandia", area: "Centro", disabled: true },
@@ -48,7 +79,7 @@ function anagrafeCtrl(
     { name: "Belgio", area: "Sud", disabled: false }
   ];
 
-  $rootScope.cittadinanze = [
+  $scope.cittadinanze = [
     { name: "Cittadinanza 1", area: "Nord", disabled: false },
     { name: "Cittadinanza 2", area: "Nord", disabled: false },
     { name: "Cittadinanza 3", area: "Centro", disabled: true },
@@ -57,7 +88,7 @@ function anagrafeCtrl(
     { name: "Cittadinanza 6", area: "Sud", disabled: false }
   ];
 
-  $rootScope.frazioni = [
+  $scope.frazioni = [
     { name: "Frazione 1", area: "Nord", disabled: false },
     { name: "Frazione 2", area: "Nord", disabled: false },
     { name: "Frazione 3", area: "Centro", disabled: true },
@@ -66,7 +97,7 @@ function anagrafeCtrl(
     { name: "Frazione 6", area: "Sud", disabled: false }
   ];
 
-  $rootScope.vie = [
+  $scope.vie = [
     { name: "Via tal dei tali 1", area: "Nord", disabled: false },
     { name: "Via tal dei tali 2", area: "Nord", disabled: false },
     { name: "Via tal dei tali 3", area: "Centro", disabled: true },
@@ -75,7 +106,7 @@ function anagrafeCtrl(
     { name: "Via tal dei tali 6", area: "Sud", disabled: false }
   ];
 
-  $rootScope.località = [
+  $scope.località = [
     { name: "Località 1", area: "Nord", disabled: false },
     { name: "Località 2", area: "Nord", disabled: false },
     { name: "Località 3", area: "Centro", disabled: true },
@@ -85,59 +116,10 @@ function anagrafeCtrl(
   ];
 
   // impostiamo la provincia selezionata
-  $rootScope.currentProvince = $rootScope.provinces[0];
-
-  this.find = function() {
-    this.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
-      "mockUrl"
-    );
-  };
-
-  // tutte le modali sono aperte in una variabile globale denominata $rootScope.modalInstance
-  // per la chiusura è sufficiente invocare il comando modalInstance.close() che è un metodo
-  // del plugin come specificato nella documentazione
-  // https://github.com/angular-ui/bootstrap/tree/master/src/modal/docs
-
-  $rootScope.creaNuovoIndirizzo = function($index) {
-    if ($index > -1) {
-      $rootScope.datiAssistito.Indirizzi[$index].UsaIndirizzo = "Si";
-    } else {
-      $rootScope.datiAssistito.Indirizzi.forEach(function(element) {
-        element.UsaIndirizzo = "No";
-      });
-    }
-
-    $rootScope.modalInstance = $uibModal.open({
-      templateUrl: "./../views/gestione_indirizzi.html",
-      controller: "modalIndirizziCtrl",
-      windowClass: "animated flipInY"
-    });
-  };
-
-  $rootScope.creaNuovoReddito = function($index) {
-    $rootScope.$index = $index;
-    $rootScope.modalInstance = $uibModal.open({
-      templateUrl: "./../views/gestione_redditi.html",
-      controller: "modalRedditiCtrl",
-      windowClass: "animated flipInY"
-    });
-    debugger;
-  };
-
-  /**
-   * campi adoperati per la ricerca
-   */
-  this.findCognome = "";
-  this.findNome = "";
-  this.findCodiceFiscale = "";
-  this.findDataDiNascita = "";
-  this.findNumeroFaldoneArchiviazione = "";
-  this.findAnnoDiScarto = "";
+  $scope.currentProvince = $scope.provinces[0];
 }
 
 /**
  * Collega il controller al modulo inciso
  **/
-angular
-  .module("inciso")
-  .controller("anagrafeCtrl", anagrafeCtrl);
+angular.module("inciso").controller("anagrafeCtrl", anagrafeCtrl);

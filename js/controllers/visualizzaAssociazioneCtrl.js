@@ -5,75 +5,53 @@
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAssociazioneCtrl($scope, $rootScope, runMode) {
-
+function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
   if (runMode == "NUOVOINSERIMENTO") {
-    alert("NUOVO INSERIMENTO");
-    this.visDatiAssociazione = false;
-    this.datiAssociazione = {};
+    $scope.visDatiAssociazione = false;
+    $scope.inserimentoAssociazione = true;
+    $scope.datiAssociazione = {};
   } else {
-    this.visDatiAssociazione = true;
+    $scope.inserimentoAssociazione = false;
+    $scope.visDatiAssociazione = true;
   }
 
-  this.find = function() {
-    this.elencoAssociazioni = httpServices.associazioni.find("mockUrl");
-  };
-
-  this.findCodFis = function(cCodFis) {
-    this.datiAssociazione = httpServices.associazioni.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
-    debugger;
-  };
-
-  this.editIndirizzo = function() {
-    swal({
-      title: "Edit Indirizzo!",
-      text: "Qui ci sarà una maschera di edit!",
-      icon: "success",
-      button: "conferma!"
-    });
-  };
-
-  this.deleteIndirizzo = function() {
-    swal({
-      title: "Sei sicuro?",
-      text: "Una volta cancellato, non sarà possibile recuperarlo!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true
-    }).then(willDelete => {
-      if (willDelete) {
-        swal("cancellato!", {
-          icon: "success"
-        });
+  $scope.creaNuovoIndirizzo = function($index) {
+    if ($scope.datiAssociazione.Indirizzi) {
+      if ($index > -1) {
+        $scope.datiAssociazione.Indirizzi[$index].UsaIndirizzo = "Si";
       } else {
-        swal("L' indirizzo è stato salvato!");
+        $scope.datiAssociazione.Indirizzi.forEach(function(element) {
+          element.UsaIndirizzo = "No";
+        });
       }
+
+      // nella modale gli Indirizzi sono in Indirizzi
+      $scope.Indirizzi = Object.assign({}, $scope.datiAssociazione.Indirizzi);
+    }
+    // http://www.marcorpsa.com/ee/t1891.html
+    self.modalInstance = $uibModal.open({
+      templateUrl: "./../views/gestione_indirizzi.html",
+      controller: "modalIndirizziCtrl",
+      size: "lg",
+      scope: $scope,
+      windowClass: "animated flipInY"
     });
   };
 
-  this.editReddito = function() {
+  $scope.visDatiAssociazioneToggle = function() {
+    $scope.visDatiAssociazione = !$scope.visDatiAssociazione;
+  };
+
+  // serve per le modali
+  self = this;
+
+  $scope.salvaModulo = function() {
     swal({
-      title: "Edit Reddito!",
-      text: "Qui ci sarà una maschera di edit!",
+      title: "Salvataggio Dati!",
+      text: "I dati saranno controllati e salvati!",
       icon: "success",
       button: "conferma!"
     });
-  };
-
-  this.editLiquidazione = function() {
-    swal({
-      title: "Edit Liquidazione!",
-      text: "Qui ci sarà una maschera di edit!",
-      icon: "success",
-      button: "conferma!"
-    });
-  };
-
-  $rootScope.modalSave = function(cTitolo, cSottoTitolo) {
-    swal(cTitolo, cSottoTitolo, "success");
   };
 
   // function to submit the form after all validation has occurred
