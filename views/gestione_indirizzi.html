@@ -1,11 +1,18 @@
 <!-- <style>
     .modal-dialog { min-width: 700px;}
 </style> -->
-
 <style>
-
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #e7eaec;
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: middle;
+    }
+    .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color:#F5F5F5;
+    }
     .headcol {
-  position:absolute;
+    position:absolute;
 	width:2em;
 	left:0;
     }
@@ -40,13 +47,12 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="item in Indirizzi">
-                        <td class="text-center">
-                            <div class="checkbox">
-                                <input icheck type="radio" ng-model="item.UsaIndirizzo" name="UsaIndirizzo" value="Si"
-                                    ng-checked="item.UsaIndirizzo=='Si'"> <i></i></div>
+                        <td>
+                            <input icheck type="radio" ng-model="item.UsaIndirizzo" name="UsaIndirizzo" value="Si"
+                                ng-checked="item.UsaIndirizzo=='Si'"> <i></i>
                         </td>
                         <td>{{item.Tipo}}</td>
-                        <th>Si</th>
+                        <td>Si</td>
                         <td>{{item.Nazione}}</td>
                         <td>{{item.Comune}}</td>
                         <td>{{item.Cap}}</td>
@@ -90,7 +96,7 @@
                     <option>Domicilio</option>
                     <option>Residenza</option>
                     <option>Indirizzo principale (società)</option>
-                    <option>Indirizzo secondario  (società)</option>
+                    <option>Indirizzo secondario (società)</option>
                     <option>Altro indirizzo</option>
                 </select>
             </div>

@@ -1,6 +1,8 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Visualizza dati anagrafici associazione</h2>
+        <h2 ng-if="inserimentoAssociazione">{{ 'INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE' | translate }}</h2>
+        <h2 ng-if="!inserimentoAssociazione">{{ 'VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE' | translate }}</h2>
+
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">{{ 'HOME' | translate }}</a>
@@ -9,7 +11,7 @@
                 <a href="ricerca_associazione.html">Ricerca associazione</a>
             </li>
             <li class="active">
-                <strong>Associazione 771723</strong>
+                <strong>{{datiAssociazione.CodiceFiscale}}</strong>
             </li>
         </ol>
     </div>
@@ -146,7 +148,7 @@
                                     </td>
                                     <td>{{item.Validita}}</td>
                                     <td>{{item.Note}}</td>
-                                    <td style="font-size: 18px; text-align: center">
+                                    <td style="text-align: center">
 
                                         <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssociazione}"><i
                                                 class="fa fa-pencil"></i></a>

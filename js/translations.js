@@ -26,6 +26,11 @@ function config($translateProvider) {
 
 
       // Label Associazioni
+      RICERCA_ASSOCIAZIONE:"Ricerca associazione",
+
+      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE :"Visualizza dati anagrafici associazione",
+      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE :"Inserimento dati anagrafici associazione",
+
       NOME_ASSOCIAZIONE:"Nome associazione",
       TIPOLOGIA_DI_ASSISTENZA:"Tipologia di assistenza",
       INSERISCI_NUOVA_ASSOCIAZIONE :"Inserisci nuova associazione",
@@ -176,6 +181,11 @@ function config($translateProvider) {
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
 
       // Label Associazioni
+      RICERCA_ASSOCIAZIONE:"Ricerca associazione DE",
+    
+      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE :"Visualizza dati anagrafici associazione DE",
+      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE :"Inserimento dati anagrafici associazione",
+    
       NOME_ASSOCIAZIONE:"Nome associazione DE",
       TIPOLOGIA_DI_ASSISTENZA:"Tipologia di assistenza DE",
       INSERISCI_NUOVA_ASSOCIAZIONE :"Inserisci nuova associazione DE",
@@ -286,9 +296,9 @@ function config($translateProvider) {
       DOCUMENTI: "Documenti DE",
       RICERCA_DOCUMENTI: "Ricerca documenti DE",
       // -------
-      GENERA_COMUNICAZIONE: "Genera comunicazione es",
+      GENERA_COMUNICAZIONE: "Genera comunicazione DE",
       // -------
-      ASSOCIAZIONI: "Associazioni es",
+      ASSOCIAZIONI: "Associazioni DE",
       RICERCA_ASSOCIAZIONE: "Ricerca associazione DE",
       NUOVA_ASSOCIAZIONE: "Nuova associazione DE",
       // -------
