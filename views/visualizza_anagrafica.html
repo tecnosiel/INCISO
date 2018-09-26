@@ -679,15 +679,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>778767</td>
                                                 <td>05/03/2011</td>
                                                 <td>ANMIC</td>
                                                 <td>02/04/2013</td>
                                                 <td></td>
                                                 <td></td>
-                                            </tr>
-                                            <tr>
+                                            </tr> -->
+                                            <!-- <tr>
                                                 <td>993423</td>
                                                 <td>07/08/2012</td>
                                                 <td>UICI</td>
@@ -699,7 +699,44 @@
                                                     <a title="note" data-toggle="popover" data-placement="top"
                                                         data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
                                                 </td>
+                                            </tr> -->
+                                            <!-- camillo -->
+                                            <tr ng-repeat="item in datiAssistito.Associazioni">
+                                                <td>{{item.NumPosizione}}</td>
+                                                <td>
+                                                    {{item.DataDomanda}}
+                                                </td>
+                                                <td>
+                                                    {{item.TipoAssociazione}}
+                                                </td>
+                                                <td>
+                                                    {{item.InizioIscrizione}}
+                                                </td>
+                                                <td>
+                                                    {{item.FineIscrizione}}
+                                                </td>
+                                                <td>
+                                                    <div ng-repeat="itemChild in item.ElencoRitenuteDiCategoriaRecuperate">
+                                                        <div>
+                                                            <label>Data recupero</label>
+                                                            {{itemChild.DataRecupero}}
+                                                        </div>
+                                                        <div>
+                                                            <label>Importo recuperato</label>
+                                                            {{itemChild.ImportoRecuperato | currency}}
+                                                        </div>
+                                                        <!-- <a title="note" data-toggle="popover" data-placement="top"
+                                                            data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">
+                                                            Note
+                                                        </a> -->
+                                                        <a angular-popover direction="top" template="{{itemChild.Note}}" style="position: relative;">Note</A>
+
+                                                    </div>
+
+                                                </td>
+
                                             </tr>
+
                                         </tbody>
                                     </table>
                                 </div>

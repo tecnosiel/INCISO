@@ -1138,6 +1138,46 @@ mochDbTable = function(table) {
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "111-778767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "111-993423",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "1111111111111-Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "1111-376899",
+          DataDomanda: "07/08/2011",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "07/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "1111111.00",
+              Note:
+                "111111111111111111 Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -1420,6 +1460,46 @@ mochDbTable = function(table) {
           Civico: "6",
           UsaIndirizzo: "No",
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+        }
+      ],
+      Associazioni: [
+        {
+          NumPosizione: "222-778767",
+          DataDomanda: "22/03/2011",
+          TipoAssociazione: "222-ANMIC",
+          InizioIscrizione: "22/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "2222-993423",
+          DataDomanda: "22/08/2012",
+          TipoAssociazione: "222-UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "22/03/2014",
+              ImportoRecuperato: "22222.00",
+              Note:
+                "22222222222222222a quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "222222",
+          DataDomanda: "07/08/2011",
+          TipoAssociazione: "2-2ULMM",
+          InizioIscrizione: "27/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "222222222lòkjòkljòlkjS leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
         }
       ],
 
@@ -1708,6 +1788,46 @@ mochDbTable = function(table) {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "333333",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "3333ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "333333",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "33333UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "33333.00",
+              Note:
+                "3333333333333hlkjhlkjhlkjhlkjh. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "345467",
+          DataDomanda: "07/09/2019",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "07/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "33312349.00",
+              Note:
+                "3333333333333333acinia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -1994,6 +2114,47 @@ mochDbTable = function(table) {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "778767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "993423",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "444444444",
+          DataDomanda: "04/08/2014",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "04/08/2014",
+          FineIscrizione: "04/08/2014",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "444444.00",
+              Note:
+                "44444444 kjòlkjòlkjòlkjl   u leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
+
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -2280,6 +2441,47 @@ mochDbTable = function(table) {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "555767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "993555",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere co5555555555555        esque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "555555",
+          DataDomanda: "07/08/2015",
+          TipoAssociazione: "5555-ULMM",
+          InizioIscrizione: "05/05/2014",
+          FineIscrizione: "05/05/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "05/05/2015",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere co5555555555555 nsectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
+
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -2566,6 +2768,47 @@ mochDbTable = function(table) {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "666666778767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "99366666423",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere cons6666666666ectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "376899",
+          DataDomanda: "07/08/2011",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "07/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "12666666.00",
+              Note:
+                "Sed posuere consectetur e6666 66666 66666 66666 6666 inia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
+
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -2849,6 +3092,47 @@ mochDbTable = function(table) {
           Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "778767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "993423",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "376899",
+          DataDomanda: "07/08/2011",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "07/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
+
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -3133,6 +3417,46 @@ mochDbTable = function(table) {
           UsaIndirizzo: "No",
           Note:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      ],
+      Associazioni: [
+        {
+          NumPosizione: "778767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "993423",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "376899",
+          DataDomanda: "07/08/2011",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "07/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
         }
       ],
 
@@ -3421,6 +3745,47 @@ mochDbTable = function(table) {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         }
       ],
+      Associazioni: [
+        {
+          NumPosizione: "778767",
+          DataDomanda: "05/03/2011",
+          TipoAssociazione: "ANMIC",
+          InizioIscrizione: "02/04/2013",
+          FineIscrizione: "",
+          ElencoRitenuteDiCategoriaRecuperate: []
+        },
+        {
+          NumPosizione: "993423",
+          DataDomanda: "07/08/2012",
+          TipoAssociazione: "UICI",
+          InizioIscrizione: "07/08/2012",
+          FineIscrizione: "07/08/2016",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "15/03/2014",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        },
+        {
+          NumPosizione: "376899",
+          DataDomanda: "07/08/2011",
+          TipoAssociazione: "ULMM",
+          InizioIscrizione: "07/08/2014",
+          FineIscrizione: "07/08/2017",
+          ElencoRitenuteDiCategoriaRecuperate: [
+            {
+              DataRecupero: "01/03/2015",
+              ImportoRecuperato: "12349.00",
+              Note:
+                "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+            }
+          ]
+        }
+      ],
+
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
