@@ -16,7 +16,9 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
   }
 
   $scope.creaNuovoIndirizzo = function($index) {
-    if ($scope.datiAssociazione.Indirizzi) {
+    debugger;
+    $scope.Indirizzi = null;
+    if ($scope.datiAssociazione && $scope.datiAssociazione.Indirizzi) {
       if ($index > -1) {
         $scope.datiAssociazione.Indirizzi[$index].UsaIndirizzo = "Si";
       } else {

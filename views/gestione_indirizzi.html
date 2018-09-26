@@ -78,7 +78,7 @@
 
         <!-- --------- -->
 
-        <div class="row m-t-lg">
+        <div class="row">
 
             <!-- ---------------- -->
 
@@ -89,8 +89,9 @@
                     <option></option>
                     <option>Domicilio</option>
                     <option>Residenza</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
+                    <option>Indirizzo principale (società)</option>
+                    <option>Indirizzo secondario  (società)</option>
+                    <option>Altro indirizzo</option>
                 </select>
             </div>
 
@@ -320,20 +321,46 @@
         <div class="row">
             <div class="col-md-4 form-group">
                 <label>{{ "N_CIVICO" | translate}}</label>
-                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" ng-readonly="visDatiAssistito"
-                    class="form-control">
+                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" placeholder="Seleziona civico"
+                    ng-readonly="visDatiAssistito" class="form-control">
             </div>
-            <div class="col-md-4 form-group">
+            <!-- <div class="col-md-4 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>
                 <input name="datiAssistito.InizioValidita" type="text" ng-model="Tmp.InizioValidita" ng-readonly="visDatiAssistito"
                     class="form-control js-date">
 
-            </div>
+            </div> -->
+
+
             <div class="col-md-4 form-group">
+                <label>{{ "INIZIO_VALIDITA" | translate}}</label>
+                <div class="input-group date">
+                    <input type="text" class="form-control js-date" ng-model="Tmp.InizioValidita" placeholder="Seleziona inizio validità">
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- <div class="col-md-4 form-group">
                 <label>{{ "FINE_VALIDITA" | translate}}</label>
                 <input name="datiAssistito.FineValidita" type="text" ng-model="Tmp.FineValidita" ng-readonly="visDatiAssistito"
                     class="form-control js-date">
+            </div> -->
+
+            <div class="col-md-4 form-group">
+                <label>{{ "FINE_VALIDITA" | translate}}</label>
+                <div class="input-group date">
+                    <input type="text" class="form-control js-date" ng-model="Tmp.FineValidita" placeholder="Seleziona fine validità">
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
             </div>
+
+
+
         </div>
 
     </div>
@@ -360,6 +387,17 @@
                 ibox.resize();
                 ibox.find('[id^=map-]').resize();
             }, 50);
+        });
+
+
+        $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            format: 'dd/mm/yyyy',
+            keyboardNavigation: false,
+            forceParse: true,
+            calendarWeeks: true,
+            autoclose: true
+            //orientation: 'bottom left'
         });
 
     })

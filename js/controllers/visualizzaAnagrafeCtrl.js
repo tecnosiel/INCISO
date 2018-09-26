@@ -23,8 +23,9 @@ function visualizzaAnagrafeCtrl($scope, $uibModal, runMode) {
   self = this;
 
   $scope.creaNuovoIndirizzo = function($index) {
-
-    if ($scope.datiAssistito.Indirizzi) {
+    debugger;
+    $scope.Indirizzi = null;
+    if ($scope.datiAssistito && $scope.datiAssistito.Indirizzi) {
       if ($index > -1) {
         $scope.datiAssistito.Indirizzi[$index].UsaIndirizzo = "Si";
       } else {

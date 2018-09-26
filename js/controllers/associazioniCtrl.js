@@ -4,21 +4,18 @@
  *
  */
 function associazioniCtrl(
-  $rootScope,
   $scope,
   httpServices,
-  $uibModal,
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
   // https://www.datatables.net/reference/option/
-  $rootScope.dtOptions = DTOptionsBuilder.newOptions()
+  $scope.dtOptionsTabRicercaAssociazioni = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
     .withOption("lengthChange", false);
 
-  $rootScope.colonneTabAssociazioni = [
-    DTColumnDefBuilder.newColumnDef(3).notSortable(),
-    DTColumnDefBuilder.newColumnDef(4).notSortable()
+  $scope.colonneTabRicercaAssociazioni = [
+    DTColumnDefBuilder.newColumnDef(3).notSortable()
   ];
 
   $scope.find = function() {
@@ -31,7 +28,6 @@ function associazioniCtrl(
       cCodFis
     );
   };
-
 
 }
 
