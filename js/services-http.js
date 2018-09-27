@@ -16,6 +16,67 @@
  */
 mochDbTable = function(table) {
   // ---------------------------------------------------
+  // LIQUIDAZIONI
+  // ---------------------------------------------------
+  let tabLiquidazioni = [
+    {
+      CodiceFiscale:"1111111111111111",
+      NominativoAssistito: "111-Mario Rossi",
+      ImportoPrestazioniLiquidato: "232.00",
+      Tredicesima: "1325.00",
+      ImportoConguaglio: "2188.00",
+      RitenuteDiCategoria: "562.00",
+      Riaccrediti: "",
+      RecuperiDaCompensazione: "512.00",
+      TotaleMensileDaLiquidare: "1232.00"
+    },
+    {
+      CodiceFiscale:"2222222222222222",
+      NominativoAssistito: "2222-Andrea Ramilii",
+      ImportoPrestazioniLiquidato: "132.00",
+      Tredicesima: "1115.00",
+      ImportoConguaglio: "2000.00",
+      RitenuteDiCategoria: "",
+      Riaccrediti: "",
+      RecuperiDaCompensazione: "512.00",
+      TotaleMensileDaLiquidare: "1232.00"
+    },
+    {
+      CodiceFiscale:"3333333333333333",
+      NominativoAssistito: "3333-Pino Amabile",
+      ImportoPrestazioniLiquidato: "2.00",
+      Tredicesima: "325.00",
+      ImportoConguaglio: "17.00",
+      RitenuteDiCategoria: "",
+      Riaccrediti: "",
+      RecuperiDaCompensazione: "512.00",
+      TotaleMensileDaLiquidare: "1232.00"
+    },
+    {
+      CodiceFiscale:"4444444444444444",
+      NominativoAssistito: "4444-Karin Biondi",
+      ImportoPrestazioniLiquidato: "23.00",
+      Tredicesima: "25.00",
+      ImportoConguaglio: "42.53",
+      RitenuteDiCategoria: "430.00",
+      Riaccrediti: "",
+      RecuperiDaCompensazione: "52.00",
+      TotaleMensileDaLiquidare: "12.00"
+    },
+    {
+      CodiceFiscale:"5555555555555555",
+      NominativoAssistito: "55555-Ighli Vanoni",
+      ImportoPrestazioniLiquidato: "176.00",
+      Tredicesima: "725.00",
+      ImportoConguaglio: "18.53",
+      RitenuteDiCategoria: "",
+      Riaccrediti: "",
+      RecuperiDaCompensazione: "112.00",
+      TotaleMensileDaLiquidare: "2.00"
+    }
+  ];
+
+  // ---------------------------------------------------
   // ASSOCIAZIONI
   // ---------------------------------------------------
 
@@ -1481,8 +1542,7 @@ mochDbTable = function(table) {
             {
               DataRecupero: "22/03/2014",
               ImportoRecuperato: "22222.00",
-              Note:
-                "22222222222222222a quam venenatis vestibulum."
+              Note: "22222222222222222a quam venenatis vestibulum."
             }
           ]
         },
@@ -1822,8 +1882,7 @@ mochDbTable = function(table) {
             {
               DataRecupero: "01/03/2015",
               ImportoRecuperato: "33312349.00",
-              Note:
-                "3333333333333333acinia quam venenatis vestibulum."
+              Note: "3333333333333333acinia quam venenatis vestibulum."
             }
           ]
         }
@@ -2155,7 +2214,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
@@ -2481,7 +2539,6 @@ mochDbTable = function(table) {
           ]
         }
       ],
-
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -2809,7 +2866,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
@@ -3132,7 +3188,6 @@ mochDbTable = function(table) {
           ]
         }
       ],
-
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -3786,7 +3841,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
       ProvinciaDiNascita: "Milano",
@@ -3816,10 +3870,67 @@ mochDbTable = function(table) {
     case "associazioni":
       return tabAssociazioni;
       break;
+    case "liquidazioni":
+      return tabLiquidazioni;
+      break;
     default:
       alert("Tabella In MochDb SERVICES-HTTP inesistente");
       break;
   }
+};
+
+/**
+ * liquidazioni - i servizi http per la gestione delle liquidazioni
+ *
+ */
+
+liquidazioni = function($http) {
+  return {
+    //----------------------------------
+    // Chiamata Get Standard
+    //----------------------------------
+    find: function(url, data) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("liquidazioni");
+        return response;
+      }
+
+      $http
+        .get(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Get Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Get Regular 3333333333333");
+        });
+    },
+
+    //----------------------------------
+    // Ricerca in Base Dati per Codice Fiscale
+    //----------------------------------
+    findCodFis: function(url, cCodFis) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("associazioni");
+
+        return response.find(function(obj) {
+          return obj.CodiceFiscale === cCodFis;
+        });
+      }
+
+      $http
+        .get(url, cCodFis, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Get Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Get Regular 3333333333333");
+        });
+    }
+  };
 };
 
 /**
@@ -4061,6 +4172,7 @@ funzionalitaNonImplementata = function() {
 
 function httpServices($http) {
   return {
+    liquidazioni: liquidazioni($http),
     associazioni: associazioni($http),
     domande: domande($http),
     _ricercaAnagraficaRicerca: _ricercaAnagraficaRicerca($http),

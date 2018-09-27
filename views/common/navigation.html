@@ -66,29 +66,38 @@
             </li>
             <!-- liquidazione---------------------------------------- -->
             <li ng-class="{active: $state.includes('liquidazione')}">
-                <a href="#"><i class="fa fa-money" aria-hidden="true"></i> <span class="nav-label">{{ 'LIQUIDAZIONE' |
-                        translate
-                        }}
+                <!-- voce principale menu liquidazione-->
+                <a href="#"><i class="fa fa-money" aria-hidden="true"></i> 
+                    <span class="nav-label">
+                        {{ 'LIQUIDAZIONE' |  translate }}
                     </span>
-                    <span class="fa arrow"></span></a>
+                    <span class="fa arrow"></span>
+                </a>
+                
+                <!-- voci secondarie menu liquidazione-->
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('liquidazione')}">
-                    <li ui-sref-active="active"><a ui-sref="liquidazione.ricerca_liquidazione">{{
-                            'RICERCA_LIQUIDAZIONE'
-                            | translate }}
-                        </a></li>
-                    <li ui-sref-active="active"><a ui-sref="liquidazione.elabora_liquidazione_mensile">{{
-                            'ELABORA_LIQUIDAZIONE_MENSILE'
-                            | translate }}
-                        </a></li>
-                    <li ui-sref-active="active"><a ui-sref="liquidazione.elabora_conguaglio">{{ 'ELABORA_CONGUAGLIO' |
-                            translate
-                            }}
-                        </a></li>
-                    <li ui-sref-active="active"><a ui-sref="liquidazione.elabora_liquidazione_eredi">{{
-                            'ELABORA_LIQUIDAZIONE_EREDI'
-                            | translate }}
-                        </a></li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="liquidazioni.ricerca_liquidazione">
+                            {{'RICERCA_LIQUIDAZIONE' | translate }}
+                        </a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="liquidazioni.elabora_liquidazione_mensile">
+                            {{'ELABORA_LIQUIDAZIONE_MENSILE' | translate }}
+                        </a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="liquidazioni.elabora_conguaglio">
+                            {{ 'ELABORA_CONGUAGLIO' | translate }}
+                        </a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="liquidazioni.elabora_liquidazione_eredi">
+                            {{ 'ELABORA_LIQUIDAZIONE_EREDI' | translate }}
+                        </a>
+                    </li>
                 </ul>
+
             </li>
             <!-- evidenze---------------------------------------- -->
             <li ng-class="{active: $state.includes('evidenze')}">

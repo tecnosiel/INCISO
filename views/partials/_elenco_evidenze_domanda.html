@@ -1,157 +1,51 @@
-<div>
-    <table class="table table-bordered dataTables-paged checkboxtable" id="evidenzeTable">
-        <thead>
-            <tr>
-                <th>Decorrenza</th>
-                <th>Scadenza</th>
-                <th>Tipo</th>
-                <th>Descrizione</th>
-                <th style="display:none;">Posizione</th>
-                <th>Prestazione</th>
-                <th>Chiusura</th>
-                <th>Note</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>01/01/2020</td>
-                <td>
-                    <span class="label-warning">01/01/2017</span>
-                </td>
-                <td>Domanda sospesa</td>
-                <td>Domanda sospesa, assistito percepisce già l’assegno di cura</td>
-                <td style="display:none;">777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <td>-</td>
-                <td>
-                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="text-center">
-                    <a title="modifica">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Importo da recuperare </td>
-                <td>Importo da recuperare</td>
-                <td style="display:none;">777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <td>-</td>
-                <td>
-                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="text-center">
-                    <a title="modifica">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Trasferimento – cambio residenza</td>
-                <td>Trasferimento fuori provincia – revocare domande assistito</td>
-                <td style="display:none;">777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <td>-</td>
-                <td>
-                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="text-center">
-                    <a title="modifica">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Recupero da annullare</td>
-                <td>Recupero già liquidato da annullare – fare riaccredito</td>
-                <td style="display:none;">777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <td>-</td>
-                <td>
-                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="text-center">
-                    <a title="modifica">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Importo da recuperare </td>
-                <td>Importo da recuperare</td>
-                <td style="display:none;">777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <td>-</td>
-                <td>
-                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="text-center">
-                    <a title="modifica">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-        <%# <tfoot>
-            <tr class="row-filter">
-                <th>Decorrenza</th>
-                <th>Scadenza</th>
-                <th>Tipo</th>
-                <th>Descrizione</th>
-                <th style="display:none;">Posizione</th>
-                <th>Prestazione</th>
-                <th>Chiusura</th>
-                <th>Note</th>
-                <th class="no-filter"></th>
-            </tr>
-        </tfoot> %>
-    </table>
-</div>
+<!-- <table datatable="ng" dt-options="dtOptions" class="table table-bordered dataTables-paged checkboxtable" id="evidenzeTable"> -->
+
+<table datatable="ng" dt-column-defs="colonneTabElencoEvidenze" dt-options="dtOptionsTabElencoEvidenze" class="table table-bordered dataTables-paged checkboxtable">
+    <thead>
+        <tr>
+            <th>{{ 'DECORRENZA' | translate }}</th>
+            <th>{{ 'SCADENZA' | translate }}</th>
+            <th>{{ 'TIPO' | translate }}</th>
+            <th>{{ 'DESCRIZIONE' | translate }}</th>
+            <th>{{ 'PRESTAZIONE' | translate }}</th>
+            <th>{{ 'CHIUSURA' | translate }}</th>
+            <th>{{ 'NOTE' | translate }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in domanda.Evidenze">
+            <td>{{item.Decorrenza}}</td>
+            <td>{{item.Scadenza}}</td>
+            <td>{{item.Tipo}}</td>
+            <td>{{item.Descrizione}}</td>
+            <td>{{item.Prestazione}}</td>
+            <td>{{item.Chiusura}}</td>
+            <td>{{item.Note}}</td>
+            <td style="width:60px" class="text-center">
+                <a title="modifica">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a title="elimina">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <div class="text-right">
-<!--    <a href="genera_comunicazione.html" id="genera" class="btn btn-sm btn-primary" disabled>genera comunicazione</a>-->
-    <button class="btn btn-sm btn-primary">inserisci nuova evidenza</button>
+    <!--    <a href="genera_comunicazione.html" id="genera" class="btn btn-sm btn-primary" disabled>genera comunicazione</a>-->
+    <button ng-click="inserisciNuovaEvidenza()" class="btn btn-sm btn-primary">inserisci nuova evidenza</button>
 </div>
 
 <script>
 
-    $('#posSearch').click(function() {
+    $('#posSearch').click(function () {
         $("#posResults").show();
     });
 
-    $('#posRun').click(function() {
+    $('#posRun').click(function () {
         $("#filters").hide();
         $("#posResults").hide();
         $("#conguaglioDone").show();
@@ -192,158 +86,158 @@ function updateDataTableSelectAllCtrl(table){
    }
 }
 */
-$(document).ready(function (){
-   // Array holding selected row IDs
-   var rows_selected = [];
-   var table = $('#evidenzeTable').DataTable({
-      'columnDefs': [{
-         'targets': 11,
-         'searchable': false,
-         'orderable': false,
-         'width': '1%',
-         'className': 'dt-body-center',
-      },
-      {
-         'targets': 10,
-         'searchable': false,
-         'orderable': false,
-      }],
-        'searching': true,
-        'responsive': true,
-        'lengthChange': false,
-       'retrieve': true,
-      'order': [[2, 'asc']],
-      'rowCallback': function(row, data, dataIndex){
-         // Get row ID
-         var rowId = data[0];
+    $(document).ready(function () {
+        // Array holding selected row IDs
+        var rows_selected = [];
+        var table = $('#evidenzeTable').DataTable({
+            'columnDefs': [{
+                'targets': 11,
+                'searchable': false,
+                'orderable': false,
+                'width': '1%',
+                'className': 'dt-body-center',
+            },
+            {
+                'targets': 10,
+                'searchable': false,
+                'orderable': false,
+            }],
+            'searching': true,
+            'responsive': true,
+            'lengthChange': false,
+            'retrieve': true,
+            'order': [[2, 'asc']],
+            'rowCallback': function (row, data, dataIndex) {
+                // Get row ID
+                var rowId = data[0];
 
-         // If row ID is in the list of selected row IDs
-         if($.inArray(rowId, rows_selected) !== -1){
-            $(row).find('input[type="checkbox"]').prop('checked', true);
-            $(row).addClass('selected');
-         }
-      }
-   });
-
-    /* Filtro per colonna */
-    $('#evidenzeTable tfoot th').each( function () {
-        var title = $(this).text();
-        if (! $(this).hasClass("no-filter")) {
-            $(this).html( '<input type="text" class="column-filter" placeholder="Cerca '+title+'" />' );
-        }
-    } );
-
-
-    if (table.columns().length > 0) {
-        // Apply the search
-        table.columns().eq(0).each( function (index) {
-            var that = table.column( index );
-
-            $( 'input', that.footer() ).on( 'keyup change', function () {
-                if ( that.search() !== this.value ) {
-                    that
-                        .search( this.value )
-                        .draw();
+                // If row ID is in the list of selected row IDs
+                if ($.inArray(rowId, rows_selected) !== -1) {
+                    $(row).find('input[type="checkbox"]').prop('checked', true);
+                    $(row).addClass('selected');
                 }
-            } );
-         });
-    }
-    /* END Filtro per colonna */
-
-   // Handle click on checkbox
-   // Updates "Select all" control in a data table
-    function updateDataTableSelectAllCtrl(table){
-       var $table             = table.table().node();
-       var $chkbox_all        = $('tbody input[type="checkbox"]', $table);
-       var $chkbox_checked    = $('tbody input[type="checkbox"]:checked', $table);
-       var chkbox_select_all  = $('thead input[name="select_all"]', $table);
-
-       // If none of the checkboxes are checked
-       if($chkbox_checked.length === 0){
-           $("#genera").attr('disabled', 'disabled');
-           chkbox_select_all.parent().removeClass('checked');
-          if('indeterminate' in chkbox_select_all){
-             chkbox_select_all.indeterminate = false;
-          }
-
-       // If all of the checkboxes are checked
-       } else if ($chkbox_checked.length === $chkbox_all.length){
-           $("#genera").removeAttr("disabled");
-          chkbox_select_all.parent().addClass('checked');
-          if('indeterminate' in chkbox_select_all){
-             chkbox_select_all.indeterminate = false;
-          }
-
-       // If some of the checkboxes are checked
-       } else {
-           $("#genera").removeAttr("disabled");
-           chkbox_select_all.parent().removeClass('checked');
-          if('indeterminate' in chkbox_select_all){
-             chkbox_select_all.indeterminate = true;
-          }
-       }
-    }
-   $('#evidenzeTable tbody .checkbox .iCheck-helper').on('click', function(e){
-      var $row = $(this).closest('tr');
-
-      // Get row data
-      var data = table.row($row).data();
-
-      // Get row ID
-      var rowId = data[0];
-
-      // Determine whether row ID is in the list of selected row IDs
-      var index = $.inArray(rowId, rows_selected);
-
-      // If checkbox is checked and row ID is not in list of selected row IDs
-      if(this.checked && index === -1){
-         rows_selected.push(rowId);
-
-      // Otherwise, if checkbox is not checked and row ID is in list of selected row IDs
-      } else if (!this.checked && index !== -1){
-         rows_selected.splice(index, 1);
-      }
-
-      if(this.checked){
-         $row.addClass('selected');
-      } else {
-         $row.removeClass('selected');
-      }
-
-      // Update state of "Select all" control
-      updateDataTableSelectAllCtrl(table);
-
-      // Prevent click event from propagating to parent
-      e.stopPropagation();
-   });
-
-   // Handle click on "Select all" control
-   $('thead .checkbox .iCheck-helper', table.table().container()).on('click', function(e){
-      if($(this).parent().hasClass('checked')) {
-        $('#evidenzeTable tbody .checkbox .iCheck-helper').each(function( index ) {
-            if (!$(this).parent().hasClass('checked')) {
-                $(this).trigger('click');
             }
-          });
-      } else {
-          $('#evidenzeTable tbody .checkbox .iCheck-helper').each(function( index ) {
+        });
+
+        /* Filtro per colonna */
+        $('#evidenzeTable tfoot th').each(function () {
+            var title = $(this).text();
+            if (!$(this).hasClass("no-filter")) {
+                $(this).html('<input type="text" class="column-filter" placeholder="Cerca ' + title + '" />');
+            }
+        });
+
+
+        if (table.columns().length > 0) {
+            // Apply the search
+            table.columns().eq(0).each(function (index) {
+                var that = table.column(index);
+
+                $('input', that.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+        }
+        /* END Filtro per colonna */
+
+        // Handle click on checkbox
+        // Updates "Select all" control in a data table
+        function updateDataTableSelectAllCtrl(table) {
+            var $table = table.table().node();
+            var $chkbox_all = $('tbody input[type="checkbox"]', $table);
+            var $chkbox_checked = $('tbody input[type="checkbox"]:checked', $table);
+            var chkbox_select_all = $('thead input[name="select_all"]', $table);
+
+            // If none of the checkboxes are checked
+            if ($chkbox_checked.length === 0) {
+                $("#genera").attr('disabled', 'disabled');
+                chkbox_select_all.parent().removeClass('checked');
+                if ('indeterminate' in chkbox_select_all) {
+                    chkbox_select_all.indeterminate = false;
+                }
+
+                // If all of the checkboxes are checked
+            } else if ($chkbox_checked.length === $chkbox_all.length) {
+                $("#genera").removeAttr("disabled");
+                chkbox_select_all.parent().addClass('checked');
+                if ('indeterminate' in chkbox_select_all) {
+                    chkbox_select_all.indeterminate = false;
+                }
+
+                // If some of the checkboxes are checked
+            } else {
+                $("#genera").removeAttr("disabled");
+                chkbox_select_all.parent().removeClass('checked');
+                if ('indeterminate' in chkbox_select_all) {
+                    chkbox_select_all.indeterminate = true;
+                }
+            }
+        }
+        $('#evidenzeTable tbody .checkbox .iCheck-helper').on('click', function (e) {
+            var $row = $(this).closest('tr');
+
+            // Get row data
+            var data = table.row($row).data();
+
+            // Get row ID
+            var rowId = data[0];
+
+            // Determine whether row ID is in the list of selected row IDs
+            var index = $.inArray(rowId, rows_selected);
+
+            // If checkbox is checked and row ID is not in list of selected row IDs
+            if (this.checked && index === -1) {
+                rows_selected.push(rowId);
+
+                // Otherwise, if checkbox is not checked and row ID is in list of selected row IDs
+            } else if (!this.checked && index !== -1) {
+                rows_selected.splice(index, 1);
+            }
+
+            if (this.checked) {
+                $row.addClass('selected');
+            } else {
+                $row.removeClass('selected');
+            }
+
+            // Update state of "Select all" control
+            updateDataTableSelectAllCtrl(table);
+
+            // Prevent click event from propagating to parent
+            e.stopPropagation();
+        });
+
+        // Handle click on "Select all" control
+        $('thead .checkbox .iCheck-helper', table.table().container()).on('click', function (e) {
             if ($(this).parent().hasClass('checked')) {
-                $(this).trigger('click');
+                $('#evidenzeTable tbody .checkbox .iCheck-helper').each(function (index) {
+                    if (!$(this).parent().hasClass('checked')) {
+                        $(this).trigger('click');
+                    }
+                });
+            } else {
+                $('#evidenzeTable tbody .checkbox .iCheck-helper').each(function (index) {
+                    if ($(this).parent().hasClass('checked')) {
+                        $(this).trigger('click');
+                    }
+                });
             }
-          });
-      }
 
-      // Prevent click event from propagating to parent
-      e.stopPropagation();
-   });
+            // Prevent click event from propagating to parent
+            e.stopPropagation();
+        });
 
-   // Handle table draw event
-   table.on('draw', function(){
-      // Update state of "Select all" control
-      updateDataTableSelectAllCtrl(table);
-   });
+        // Handle table draw event
+        table.on('draw', function () {
+            // Update state of "Select all" control
+            updateDataTableSelectAllCtrl(table);
+        });
 
-});
+    });
 
 
 

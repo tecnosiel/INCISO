@@ -131,28 +131,6 @@ function config(
       templateUrl: "/views/ricerca_posizione.html"
     })
 
-    // liquidazione ------------------------------------------------------------
-    .state("liquidazione", {
-      abstract: true,
-      url: "/liquidazione",
-      templateUrl: "/views/common/content.html"
-    })
-    .state("liquidazione.ricerca_liquidazione", {
-      url: "/ricerca_liquidazione",
-      templateUrl: "/views/ricerca_liquidazione.html"
-    })
-    .state("liquidazione.elabora_liquidazione_mensile", {
-      url: "/elabora_liquidazione_mensile",
-      templateUrl: "/views/elabora_liquidazione_mensile.html"
-    })
-    .state("liquidazione.elabora_conguaglio", {
-      url: "/elabora_conguaglio",
-      templateUrl: "/views/elabora_conguaglio.html"
-    })
-    .state("liquidazione.elabora_liquidazione_eredi", {
-      url: "/elabora_liquidazione_eredi",
-      templateUrl: "/views/elabora_liquidazione_eredi.html"
-    })
     // evidenze --------------------------------------------------------------
     .state("evidenze", {
       abstract: true,
@@ -224,8 +202,15 @@ function config(
     .state("liquidazioni", {
       abstract: true,
       url: "/liquidazioni",
+      controller: "liquidazioniCtrl as $liqCtrl",
       templateUrl: "/views/common/content.html"
     })
+
+    .state("liquidazioni.ricerca_liquidazione", {
+      url: "/ricerca_liquidazione",
+      templateUrl: "/views/ricerca_liquidazione.html"
+    })
+
     .state("liquidazioni.visualizza_liquidazione", {
       url: "/visualizza_liquidazione",
       templateUrl: "/views/visualizza_liquidazione.html"
@@ -238,6 +223,20 @@ function config(
       url: "/visualizza_domanda",
       templateUrl: "/views/visualizza_domanda.html"
     })
+
+    .state("liquidazione.elabora_liquidazione_mensile", {
+      url: "/elabora_liquidazione_mensile",
+      templateUrl: "/views/elabora_liquidazione_mensile.html"
+    })
+    .state("liquidazione.elabora_conguaglio", {
+      url: "/elabora_conguaglio",
+      templateUrl: "/views/elabora_conguaglio.html"
+    })
+    .state("liquidazione.elabora_liquidazione_eredi", {
+      url: "/elabora_liquidazione_eredi",
+      templateUrl: "/views/elabora_liquidazione_eredi.html"
+    })
+
     // camillo --------------------------------------------------------------
     .state("app", {
       abstract: true,

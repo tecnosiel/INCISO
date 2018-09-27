@@ -108,7 +108,7 @@
                                 </div>
                                 <div>
                                     <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" id="btnSearch"
-                                        ng-click="$domCtrl.findDomande()">{{ 'CERCA' | translate }}</button>
+                                        ng-click="findDomande()">{{ 'CERCA' | translate }}</button>
                                 </div>
 
                             </form>
@@ -126,21 +126,21 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <li><a href="#">A -> Z</a></li>
-                                    <li><a href="#">Z -> A</a></li>
+                                    <li><a ng-click="setReverse('false')">A -> Z</a></li>
+                                    <li><a ng-click="setReverse('true')">Z -> A</a></li>
                                 </ul>
                             </div>
 
                             <div class="dropdown pull-right">
                                 <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenu1"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    {{ 'ORDINA_PER' | translate }}: {{ 'NOME' | translate }}
+                                    {{ 'ORDINA_PER' | translate }}: {{ordinamento.Descrizione}}
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">{{ 'NOME' | translate }}</a></li>
-                                    <li><a href="#">{{ 'CODICE_FISCALE' | translate }}</a></li>
-                                    <li><a href="#">{{ 'DATA_DI_NASCITA' | translate }}</a></li>
+                                    <li><a ng-click="ordinaElencoDomande('Cognome','Cognome')">{{ 'COGNOME' | translate }}</a></li>
+                                    <li><a ng-click="ordinaElencoDomande('CodiceFiscale', 'Codice fiscale')">{{ 'CODICE_FISCALE' | translate }}</a></li>
+                                    <li><a ng-click="ordinaElencoDomande('DataDiNascita', 'Data di nascita' )">{{ 'DATA_DI_NASCITA' | translate }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                                 <strong class="m-r-md">*</strong> Codice fiscale duplicato, verificare anomalia.
                             </div>
 
-                            <div ng-repeat="item in $domCtrl.elencoDomande">
+                            <div ng-repeat="item in elencoDomande  | orderBy: ordinamento.Campo : ordinamento.Reverse">
                                 <!-- Pannello Verde----------- -->
                                 <div class="panel panel-default" ng-class="{'evidence': item.Duplicato}">
 
@@ -166,7 +166,7 @@
                                             <div class="col-md-3">
                                                 <h4>
                                                     <i ng-if="item.DataDiDecesso != '-'" title="deceduto" class="fa fa-cross"></i>
-                                                    <a ng-class="{'secondary': item.Duplicato}" ng-click="$domCtrl.findCodFis(item.CodiceFiscale)"
+                                                    <a ng-class="{'secondary': item.Duplicato}" ng-click="findCodFis(item.CodiceFiscale)"
                                                         angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
                                                         style="position: relative; z-index: 100;">
                                                         {{item.Nome}} {{ item.Cognome }}
@@ -186,10 +186,10 @@
                                             <!-- ----------- -->
 
                                             <div class="col-md-3 text-right">
-                                                <!-- <a ui-sref="domande.domanda" ng-click="$domCtrl.findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
+                                                <!-- <a ui-sref="domande.domanda" ng-click="findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a> -->
-                                                <a ui-sref="domande.domanda" ng-click="$domCtrl.inserisciNuovaDomanda(item.CodiceFiscale)"
+                                                <a ui-sref="domande.domanda" ng-click="inserisciNuovaDomanda(item.CodiceFiscale)"
                                                     onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
                                                 </a>

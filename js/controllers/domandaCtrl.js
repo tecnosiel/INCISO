@@ -4,6 +4,7 @@
  *
  */
 function domandaCtrl($scope, $stateParams) {
+  
 }
 
 /**

@@ -22,9 +22,7 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
 
   $scope.modificaDomanda = function() {
     debugger;
-    $rootScope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
-    debugger;
-    self = this;
+    $scope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
     swal({
       title: "Desideri modificare la domanda?",
       // text:
@@ -34,14 +32,14 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        self.$rootScope.$state.go("domande.domanda");
+        $scope.$state.go("domande.domanda");
       } else {
       }
     });
   };
   sospendi = () => {
     debugger;
-    $rootScope.domanda.StatoDomanda = "Sospesa";
+    $scope.domanda.StatoDomanda = "Sospesa";
   };
   $scope.sospendiDomanda = function() {
     swal({
@@ -53,7 +51,7 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $rootScope.domanda.StatoDomanda = "Sospesa";
+        $scope.domanda.StatoDomanda = "Sospesa";
         $scope.$apply();
         swal("La domanda è stata sospesa!", {
           icon: "success"
@@ -65,7 +63,7 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
   };
 
   $scope.revocaDomanda = function() {
-    $rootScope.domanda.StatoDomanda = "Revocata";
+    $scope.domanda.StatoDomanda = "Revocata";
 
     swal({
       title: "Desideri revocare la domanda?",
@@ -76,7 +74,7 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $rootScope.domanda.StatoDomanda = "Revocata";
+        $scope.domanda.StatoDomanda = "Revocata";
         $scope.$apply();
         swal("La domanda è stata revocata!", {
           icon: "success"
@@ -97,7 +95,7 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $rootScope.domanda.StatoDomanda = "Negata";
+        $scope.domanda.StatoDomanda = "Negata";
         $scope.$apply();
         swal("La domanda è stata negata!", {
           icon: "success"
@@ -129,7 +127,7 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $rootScope.domanda.StatoDomanda = "Cancellata";
+        $scope.domanda.StatoDomanda = "Cancellata";
         $scope.$apply();
         swal("La domanda è stata cancellata!", {
           icon: "success"

@@ -5,22 +5,38 @@
  */
 function domandeCtrl(
   $scope,
-  $rootScope,
-  $stateParams,
-  httpServices,
-  $uibModal,
-  $filter,
   DTOptionsBuilder,
-  DTColumnDefBuilder
+  DTColumnDefBuilder,
+  httpServices
 ) {
+  // https://www.datatables.net/reference/option/
+  $scope.dtOptionsTabElencoEvidenze = DTOptionsBuilder.newOptions()
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
+
+  $scope.colonneTabElencoEvidenze = [
+    DTColumnDefBuilder.newColumnDef(7).notSortable()
+  ];
+
+  //----
+
   $scope.findIncludiDeceduti = "Si";
   $scope.findTipoAssistenzaRichiesta = null;
   $scope.findCognome = null;
   $scope.findNome = null;
   $scope.findCodiceFiscale = null;
   $scope.findDataDiNascita = null;
+  $scope.domanda = { OperazioneInCorso: "NUOVA_DOMANDA" };
 
-  this.DomandaVuota = {
+  $scope.findCodFis = function(cCodFis) {
+    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
+    debugger;
+  };
+
+  $scope.DomandaVuota = {
     OperazioneInCorso: "NUOVA_DOMANDA",
     // ----
     NroDomanda: "123456-12",
@@ -74,6 +90,64 @@ function domandeCtrl(
         Note: "note POSTA"
       }
     },
+    Evidenze: [
+      {
+        Decorrenza: "01/01/2020",
+        Scadenza: "01/01/2017",
+        Tipo: "Domanda sospesa",
+        Descrizione:
+          "Domanda sospesa, assistito percepisce già l’assegno di cura",
+        Posizione: "777232",
+        Prestazione: "Pensione per invalidi civili parziali",
+        Chiusura: "",
+        Note: ""
+      },
+      {
+        Decorrenza: "01/01/2022",
+        Scadenza: "01/01/2018",
+        Tipo: "Importo da recuperare",
+        Descrizione: "Importo da recuperare",
+        Posizione: "777232",
+        Prestazione: "Pensione per invalidi civili parziali",
+        Chiusura: "",
+        Note:
+          "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+      },
+      {
+        Decorrenza: "01/01/2022",
+        Scadenza: "01/01/2018",
+        Tipo: "Trasferimento – cambio residenza",
+        Descrizione:
+          "Trasferimento fuori provincia – revocare domande assistito",
+        Posizione: "777232",
+        Prestazione: "Pensione per invalidi civili parziali",
+        Chiusura: "",
+        Note:
+          "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+      },
+      {
+        Decorrenza: "01/01/2022",
+        Scadenza: "01/01/2018",
+        Tipo: "Recupero da annullare",
+        Descrizione: "Recupero già liquidato da annullare – fare riaccredito",
+        Posizione: "777232",
+        Prestazione: "Pensione per invalidi civili parziali",
+        Chiusura: "",
+        Note:
+          "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+      },
+      {
+        Decorrenza: "01/01/2022",
+        Scadenza: "01/01/2018",
+        Tipo: "Importo da recuperare",
+        Descrizione: "Importo da recuperare",
+        Posizione: "777232",
+        Prestazione: "Pensione per invalidi civili parziali",
+        Chiusura: "",
+        Note:
+          "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+      }
+    ],
 
     AssociazioniDiCategoria: [
       {
@@ -104,20 +178,44 @@ function domandeCtrl(
     }
   };
 
+  $scope.ordinamentoSelezionatoElencoDomande = "Cognome";
+  $scope.reverse = false;
+  // http://www.javascriptkit.com/javatutors/arraysort2.shtml
+
+  $scope.ordinamento = {
+    Campo: "Cognome",
+    Descrizione: "Cognome",
+    Reverse: false
+  };
+
+  $scope.ordinaElencoDomande = function(cCampo, cDescrizione) {
+    $scope.ordinamento.Campo = cCampo;
+    $scope.ordinamento.Descrizione = cDescrizione;
+  };
+
+  $scope.setReverse = function() {
+    $scope.ordinamento.Reverse = !$scope.ordinamento.Reverse;
+  };
+
   $scope.aggiungiIscrizione = function() {
     swal("Qui va inserita la procedura di iscrizione!");
   };
 
-  this.findDomande = function() {
-    debugger;
-    this.elencoDomande = httpServices.domande.find("mockUrl");
+  $scope.datiDomandaCerca = function() {
+    swal("Qui va inserita una ricerca ma non ho capito cosa cercare!");
   };
 
-  this.inserisciNuovaDomanda = function(cCodFis) {
+  $scope.findDomande = function() {
+    debugger;
+    $scope.elencoDomande = httpServices.domande.find("mockUrl");
+  };
 
-    $rootScope.findCodFis(cCodFis);
-    $rootScope.domanda = this.DomandaVuota;
-    $rootScope.domanda.OperazioneInCorso = "NUOVA_DOMANDA";
+  $scope.inserisciNuovaDomanda = function(cCodFis) {
+    
+    $scope.findCodFis(cCodFis);
+    $scope.domanda = this.DomandaVuota;
+    debugger;
+    $scope.domanda.OperazioneInCorso = "NUOVA_DOMANDA";
     debugger;
   };
 }
@@ -125,6 +223,4 @@ function domandeCtrl(
 /**
  * Collega il controller al modulo inciso
  **/
-angular
-  .module("inciso")
-  .controller("domandeCtrl", domandeCtrl);
+angular.module("inciso").controller("domandeCtrl", domandeCtrl);

@@ -24,16 +24,27 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi",
 
+      // Label Liquidazioni
+      NOMINATIVO_ASSISTITO: "Nominativo assistito",
+      IMPORTO_PRESTAZIONI_LIQUIDATO: "Importo prestazioni liquidato",
+      TREDICESIMA: "Tredicesima",
+      IMPORTO_CONGUAGLIO: "Importo conquaglio",
+      RITENUTE_DI_CATEGORIA: "Ritenute di categoria",
+      RIACCREDITI: "Riaccrediti",
+      RECUPERI_DA_COMPENSAZIONE: "Recuperi da compensazione",
+      TOTALE_MENSILE_DA_LIQUIDARE: "Totale mensile da liquidare",
 
       // Label Associazioni
-      RICERCA_ASSOCIAZIONE:"Ricerca associazione",
+      RICERCA_ASSOCIAZIONE: "Ricerca associazione",
 
-      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE :"Visualizza dati anagrafici associazione",
-      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE :"Inserimento dati anagrafici associazione",
+      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE:
+        "Visualizza dati anagrafici associazione",
+      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE:
+        "Inserimento dati anagrafici associazione",
 
-      NOME_ASSOCIAZIONE:"Nome associazione",
-      TIPOLOGIA_DI_ASSISTENZA:"Tipologia di assistenza",
-      INSERISCI_NUOVA_ASSOCIAZIONE :"Inserisci nuova associazione",
+      NOME_ASSOCIAZIONE: "Nome associazione",
+      TIPOLOGIA_DI_ASSISTENZA: "Tipologia di assistenza",
+      INSERISCI_NUOVA_ASSOCIAZIONE: "Inserisci nuova associazione",
 
       // Label Domanda
       NUOVA_DOMANDA: "Nuova domanda",
@@ -50,6 +61,16 @@ function config($translateProvider) {
       INSERISCI_ASSISTITO: "Inserisci assistito",
       AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione",
       RICERCA_ASSISTITO: "Ricerca assistito",
+
+      // Label Domanda Tabella Evidenze
+      DECORRENZA: "Decorrenza",
+      SCADENZA: "Scadenza",
+      TIPO: "Tipo",
+      DESCRIZIONE: "Descrizione",
+      POSIZIONE: "Posizione",
+      PRESTAZIONE: "Prestazione",
+      CHIUSURA: "Chiusura",
+      NOTE: "Note",
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
@@ -180,15 +201,27 @@ function config($translateProvider) {
       VEDI_TUTTI_GLI_AVVISI: "Vedi tutti gli avvisi DE",
       LEGGI_TUTTI_I_MESSAGGI: "Leggi tutti i messaggi DE",
 
+      // Label Liquidazioni
+      NOMINATIVO_ASSISTITO: "Nominativo assistito DE",
+      IMPORTO_PRESTAZIONI_LIQUIDATO: "Importo prestazioni liquidato DE",
+      TREDICESIMA: "Tredicesima DE",
+      IMPORTO_CONGUAGLIO: "Importo conquaglio DE",
+      RITENUTE_DI_CATEGORIA: "Ritenute di categoria DE",
+      RIACCREDITI: "Riaccrediti DE",
+      RECUPERI_DA_COMPENSAZIONE: "Recuperi da compensazione DE",
+      TOTALE_MENSILE_DA_LIQUIDARE: "Totale mensile da liquidare DE",
+
       // Label Associazioni
-      RICERCA_ASSOCIAZIONE:"Ricerca associazione DE",
-    
-      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE :"Visualizza dati anagrafici associazione DE",
-      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE :"Inserimento dati anagrafici associazione",
-    
-      NOME_ASSOCIAZIONE:"Nome associazione DE",
-      TIPOLOGIA_DI_ASSISTENZA:"Tipologia di assistenza DE",
-      INSERISCI_NUOVA_ASSOCIAZIONE :"Inserisci nuova associazione DE",
+      RICERCA_ASSOCIAZIONE: "Ricerca associazione DE",
+
+      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE:
+        "Visualizza dati anagrafici associazione DE",
+      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE:
+        "Inserimento dati anagrafici associazione",
+
+      NOME_ASSOCIAZIONE: "Nome associazione DE",
+      TIPOLOGIA_DI_ASSISTENZA: "Tipologia di assistenza DE",
+      INSERISCI_NUOVA_ASSOCIAZIONE: "Inserisci nuova associazione DE",
 
       // Label Domanda
       NUOVA_DOMANDA: "Nuova domanda DE",
@@ -202,11 +235,20 @@ function config($translateProvider) {
       INSERISCI_DOMANDA: "Inserisci domanda DE",
       VISUALIZZA_DOMANDA: "Visualizza domanda DE",
       MODIFICA_DOMANDA: "Modifica domanda DE ",
-    
+
       INSERISCI_ASSISTITO: "Inserisci assistito DE",
       AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione DE",
       RICERCA_ASSISTITO: "Ricerca assistito DE",
 
+      // Label Domanda Tabella Evidenze
+      DECORRENZA: "Decorrenza DE",
+      SCADENZA: "Scadenza DE",
+      TIPO: "Tipo DE",
+      DESCRIZIONE: "Descrizione DE",
+      POSIZIONE: "Posizione DE",
+      PRESTAZIONE: "Prestazione DE",
+      CHIUSURA: "Chiusura DE",
+      NOTE: "Note DE",
 
       // Label Redditi
       GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso DE",

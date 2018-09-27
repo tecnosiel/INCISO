@@ -6,14 +6,6 @@
 function MainCtrl($scope, $rootScope, $translate, httpServices, $http) {
 
   /**
-   * Domande
-   */
-  $rootScope.domanda = {};
-  $rootScope.inizializzaDomanda = function() {
-    $rootScope.domanda.OperazioneInCorso = "NUOVA_DOMANDA";
-  };
-
-  /**
    * Lingua partenza applicativo
    */
 

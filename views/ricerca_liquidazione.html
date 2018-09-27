@@ -32,124 +32,61 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pull-left m-t-lg">
-                            <button class="btn btn-primary btn-sm" id="search">Cerca</button>
-                        </div>
+                        <!-- <div class="pull-left m-t-lg">
+                            <button class="btn btn-primary btn-sm" id="posSearch">Cerca</button>
+                        </div> -->
                     </div>
                     <div class="text-right">
 
                     </div>
-                    <div id="results" style="display:none;">
-                        <div>
-                            <table class="table table-striped table-bordered dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th>Nominativo assistito</th>
-                                        <th>Importo prestazioni liquidato</th>
-                                        <th>Tredicesima</th>
-                                        <th>Importo conguaglio</th>
-                                        <th>Ritenute di categoria</th>
-                                        <th>Riaccrediti</th>
-                                        <th>Recuperi da compensazione</th>
-                                        <th>Totale mensile da liquidare</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mario Rossi</td>
-                                        <td>232,00 €</td>
-                                        <td>1.325,00 €</td>
-                                        <td>2.188,00 €</td>
-                                        <td>562,00 €</td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>512,00 €</td>
-                                        <td>1232,00 €</td>
-                                        <td>
-                                            <a ui-sref="liquidazioni.visualizza_liquidazione">
-                                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Andrea Ramilii</td>
-                                        <td>132,00 €</td>
-                                        <td>1.115,00 €</td>
-                                        <td>2.000,00 €</td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>512,00 €</td>
-                                        <td>1232,00 €</td>
-                                        <td>
-                                            <a ui-sref="liquidazioni.visualizza_liquidazione">
-                                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pino Amabile</td>
-                                        <td>2,00 €</td>
-                                        <td>325,00 €</td>
-                                        <td>17,00 €</td>
-                                        <td>-
-                                        </td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>512,00 €</td>
-                                        <td>1232,00 €</td>
-                                        <td>
-                                            <a ui-sref="liquidazioni.visualizza_liquidazione">
-                                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Karin Biondi</td>
-                                        <td>23,00 €</td>
-                                        <td>25,10 €</td>
-                                        <td>42,53 €</td>
-                                        <td>430,00 €</td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>52,00 €</td>
-                                        <td>12,00 €</td>
-                                        <td>
-                                            <a ui-sref="liquidazioni.visualizza_liquidazione">
-                                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ighli Vanoni</td>
-                                        <td>176,00 €</td>
-                                        <td>725,00 €</td>
-                                        <td>18,00 €</td>
-                                        <td>-
-                                        </td>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>112,00 €</td>
-                                        <td>2,00 €</td>
-                                        <td>
-                                            <a ui-sref="liquidazioni.visualizza_liquidazione">
-                                                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-sm" ng-click="find()" id="posSearch">{{ "CERCA" |
+                            translate}}</button>
+                    </div>
+
+                    <div id="posResults" style="display:none;">
+
+                        <table datatable="ng" dt-options="dtOptions" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th>{{ 'NOMINATIVO_ASSISTITO' | translate }}</th>
+                                    <th>{{ 'IMPORTO_PRESTAZIONI_LIQUIDATO' | translate }}</th>
+                                    <th>{{ 'TREDICESIMA' | translate }}</th>
+                                    <th>{{ 'IMPORTO_CONGUAGLIO' | translate }}</th>
+                                    <th>{{ 'RITENUTE_DI_CATEGORIA' | translate }}</th>
+                                    <th>{{ 'RIACCREDITI' | translate }}</th>
+                                    <th>{{ 'RECUPERI_DA_COMPENSAZIONE' | translate }}</th>
+                                    <th>{{ 'TOTALE_MENSILE_DA_LIQUIDARE' | translate }}</th>
+                                    <th></th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in elencoLiquidazioni">
+                                    <td>{{item.NominativoAssistito}}</td>
+                                    <td>{{item.ImportoPrestazioniLiquidato | currency}}</td>
+                                    <td>{{item.Tredicesima | currency}}</td>
+                                    <td>{{item.ImportoConguaglio | currency}}</td>
+                                    <td>{{item.RitenuteDiCategoria | currency}}</td>
+                                    <td>{{item.Riaccrediti | currency}}</td>
+                                    <td>{{item.RecuperiDaCompensazione | currency}}</td>
+                                    <td>{{item.TotaleMensileDaLiquidare | currency}}</td>
+                                    <td class="text-center">
+                                        <a ui-sref="liquidazioni.visualizza_Liquidazione" ng-click="findCodFis(item.CodiceFiscale)">
+                                            <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <div class="text-right m-t-md">
                             <button class="btn btn-sm btn-primary">Annullamento ultima liquidazione mensile</div>
+
+
                     </div>
                 </div>
                 <script>
@@ -173,10 +110,9 @@
                         ]
                     });
 
-                    $('#search').click(function () {
-                        $("#results").show();
+                    $('#posSearch').click(function () {
+                        $("#posResults").show();
                     });
-
                 </script>
             </div>
         </div>
