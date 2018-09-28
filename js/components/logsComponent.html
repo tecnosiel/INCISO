@@ -1,0 +1,64 @@
+<!-- <h1>Hello {{$ctrl.name}}!</h1> -->
+
+
+<table datatable="ng" dt-column-defs="$ctrl.colonneTabLogs" dt-options="$ctrl.dtOptionsTabLogs" class="table table-striped table-bordered dataTables-paged">
+    <thead>
+        <tr>
+            <th>{{ 'DATA_ORA' | translate }}</th>
+            <th>{{ 'NOME_UTENTE' | translate }}</th>
+            <th>{{ 'NOME' | translate }}</th>
+            <th>{{ 'COGNOME' | translate }}</th>
+            <th>{{ 'ACCESSO' | translate }}</th>
+            <th>{{ 'ENTITA' | translate }}</th>
+            <th>{{ 'ID_ENTITA' | translate }}</th>
+            <th>{{ 'TIPO_OPERAZIONE' | translate }}</th>
+            <th>{{ 'UTENTE_DB' | translate }}</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="item in $ctrl.elencoLogs">
+            <td>
+                {{item.DataOra }}
+            </td>
+            <td>
+                {{item.NomeUtente }}
+            </td>
+            <td>
+                {{item.Nome }}
+            </td>
+            <td>
+                {{item.Cognome }}
+            </td>
+            <td>
+                {{item.Accesso }}
+            </td>
+            <td>
+                {{item.Entita }}
+            </td>
+            <td>
+                {{item.IdEntita }}
+            </td>
+            <td>
+                {{item.TipoOperazione }}
+            </td>
+            <td>
+                {{item.UtenteDB }}
+            </td>
+
+
+        </tr>
+
+    </tbody>
+</table>
+<!-- <div class="row text-right btn-group">
+    <button class="btn btn-primary" ng-click="find()"> </button>
+    <button class="btn btn-primary" ng-click="find()">{{ 'CERCA' | translate }}</button>
+</div> -->
+<div class="row text-right" style="margin-top:15px">
+    <div class="col-sm-12">
+        <button class="btn btn-primary" id="anagSearch" ng-click="$ctrl.reloadLogs()"> Reload Logs</button>
+    </div>
+</div>

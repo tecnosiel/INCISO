@@ -3874,7 +3874,7 @@ mochDbTable = function(table) {
       return tabLiquidazioni;
       break;
     default:
-      alert("Tabella In MochDb SERVICES-HTTP inesistente");
+      alert("Tabella In MochDb HTTP inesistente");
       break;
   }
 };

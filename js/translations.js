@@ -5,6 +5,16 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      // Label Logs
+      DATA_ORA: "Data/Ora",
+      NOME_UTENTE: "Nome utente",
+      NOME: "Nome",
+      COGNOME: "Cognome",
+      ACCESSO: "Accesso",
+      ID_ENTITA: "ID Entità",
+      TIPO_OPERAZIONE: "Tipo operazione",
+      UTENTE_DB: "Utente DB",
+
       // Label Generali
       SALVA: "Salva",
       CHIUDI: "Chiudi",
@@ -131,6 +141,8 @@ function config($translateProvider) {
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
       ELENCO_EVIDENZE: "ELENCO EVIDENZE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO",
+      STORICO_OPERAZIONI: "STORICO OPERAZIONI",
+
       INSERIMENTO_DATI_ANAGRAFICI: "Inserimento dati anagrafici",
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
@@ -185,6 +197,17 @@ function config($translateProvider) {
       SALVA: "Salva DE",
       CHIUDI: "Chiudi DE",
       HOME: "Home DE",
+
+      // Label Logs
+      DATA_ORA: "Data/Ora DE",
+      NOME_UTENTE: "Nome utente DE",
+      NOME: "Nome DE",
+      COGNOME: "Cognome DE",
+      ACCESSO: "Accesso DE",
+      ID_ENTITA: "ID Entità DE",
+      TIPO_OPERAZIONE: "Tipo operazione DE",
+      UTENTE_DB: "Utente DB DE",
+
       // Label Generali
       CERCA: "Cerca DE",
       SBLOCCA_CAMPI: "Sblocca Campi DE",
@@ -309,6 +332,8 @@ function config($translateProvider) {
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
       ELENCO_EVIDENZE: "ELENCO EVIDENZE DE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
+      STORICO_OPERAZIONI: "STORICO OPERAZIONI DE",
+
       INSERIMENTO_DATI_ANAGRAFICI: "Inserimento dati anagrafici DE",
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici DE",

@@ -729,7 +729,8 @@
                                                             data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">
                                                             Note
                                                         </a> -->
-                                                        <a angular-popover direction="top" template="{{itemChild.Note}}" style="position: relative;">Note</A>
+                                                        <a angular-popover direction="top" template="{{itemChild.Note}}"
+                                                            style="position: relative;">Note</A>
 
                                                     </div>
 
@@ -978,6 +979,28 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="panel panel-default m-t-lg">
+                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseStoricoOperazioni">
+                        {{ "STORICO_OPERAZIONI" | translate}}
+                        <div class="panel-toolbox">
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+
+
+                    <div id="collapseStoricoOperazioni" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <logs-component></logs-component>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <!-- SUBMIT BUTTON -->
                 <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
                 <div class="row text-right">

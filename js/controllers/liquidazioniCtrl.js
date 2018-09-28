@@ -10,12 +10,12 @@ function liquidazioniCtrl(
   DTColumnDefBuilder
 ) {
   // https://www.datatables.net/reference/option/
-  $scope.dtOptionsTabRicercaAssociazioni = DTOptionsBuilder.newOptions()
+  $scope.dtOptionsTabRicercaLiquidazioni = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
     .withOption("lengthChange", false);
 
-  $scope.colonneTabRicercaAssociazioni = [
-    DTColumnDefBuilder.newColumnDef(3).notSortable()
+  $scope.colonneTabRicercaLiquidazioni = [
+    DTColumnDefBuilder.newColumnDef(8).notSortable()
   ];
 
   $scope.find = function() {
