@@ -5,6 +5,16 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      // Label Elenco Verbali
+      DATA_PROTOCOLLO: "Data protocollo",
+      NRO_PROTOCOLLO: "N. protocollo",
+      INVALIDITA: "% invalidità",
+      INDENNITA_DI_ACCOMPAGNAMENTO: "Indennità di accompagnamento",
+      PATOLOGIA_UDITIVA: "Patologia uditiva",
+      RIDUZIONE_DEL_VISUS: "Riduzione del visus",
+      NOTE: "Note",
+      INSERISCI_NUOVO_VERBALE: "Inserisci nuovo verbale",
+
       // Label Logs
       DATA_ORA: "Data/Ora",
       NOME_UTENTE: "Nome utente",
@@ -194,9 +204,15 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      SALVA: "Salva DE",
-      CHIUDI: "Chiudi DE",
-      HOME: "Home DE",
+      // Label Elenco Verbali
+      DATA_PROTOCOLLO: "Data protocollo DE",
+      NRO_PROTOCOLLO: "N. protocollo DE",
+      INVALIDITA: "% invalidità DE",
+      INDENNITA_DI_ACCOMPAGNAMENTO: "Indennità di accompagnamento DE",
+      PATOLOGIA_UDITIVA: "Patologia uditiva DE",
+      RIDUZIONE_DEL_VISUS: "Riduzione del visus DE",
+      NOTE: "Note DE",
+      INSERISCI_NUOVO_VERBALE: "Inserisci nuovo verbale DE",
 
       // Label Logs
       DATA_ORA: "Data/Ora DE",
@@ -209,6 +225,9 @@ function config($translateProvider) {
       UTENTE_DB: "Utente DB DE",
 
       // Label Generali
+      SALVA: "Salva DE",
+      CHIUDI: "Chiudi DE",
+      HOME: "Home DE",
       CERCA: "Cerca DE",
       SBLOCCA_CAMPI: "Sblocca Campi DE",
       BLOCCA_CAMPI: "Blocca Campi DE",

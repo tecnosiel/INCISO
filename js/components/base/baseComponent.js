@@ -4,18 +4,31 @@
  *
  */
 
+// per testare componente inserire :
+// <base-component></base-component>
+
 
 function baseComponent() {
   return {
-    templateUrl: "/js/components/baseComponent.html",
+    templateUrl: "/js/components/base/baseComponent.html",
     bindings: {
       name: "@"
     },
-    controller: function() {
-      alert("here");
-    }
+    controller: baseController
   };
 }
+
+/**
+ * verbaliController - controller
+ * Controller del componente
+ *
+ */
+
+function baseController() {
+  this.name = "Word";
+  alert("here");
+}
+
 
 /**
  * Collega il componente al modulo inciso

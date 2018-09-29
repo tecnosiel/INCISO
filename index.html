@@ -125,12 +125,29 @@
 <script src="js/app.js"></script>
 <script src="js/config.js"></script>
 <script src="js/translations.js"></script>
-<script src="js/services/http.js"></script>
-<script src="js/services/logs.js"></script>
 <script src="js/directives.js"></script>
 
-<script src="js/components/baseComponent.js"></script>
-<script src="js/components/logsComponent.js"></script>
+<script src="js/services/httpServices.js"></script>
+
+
+
+<!-- load base component - da eliminare  -->
+<script src="js/components/base/baseController.js"></script>
+<script src="js/components/base/baseComponent.js"></script>
+
+<!-- load logs component -->
+<script src="js/components/logs/logsServices.js"></script>
+<script src="js/components/logs/logsController.js"></script>
+<script src="js/components/logs/logsComponent.js"></script>
+
+<!-- load verbali component -->
+<script src="js/components/verbali/verbaliServices.js"></script>
+<script src="js/components/verbali/verbaliController.js"></script>
+<script src="js/components/verbali/verbaliComponent.js"></script>
+
+<!-- controller della modale richiamata da verbali component -->
+<script src="js/components/verbali/modals/modalGestioneVerbaleCtrl.js"></script>
+
 
 <script src="js/controllers/mainCtrl.js"></script>
 <script src="js/controllers/translateCtrl.js"></script>

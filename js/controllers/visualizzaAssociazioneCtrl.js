@@ -6,6 +6,7 @@
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
 function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
+  
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssociazione = false;
     $scope.inserimentoAssociazione = true;
@@ -16,8 +17,9 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
   }
 
   $scope.creaNuovoIndirizzo = function($index) {
-    debugger;
+  
     $scope.Indirizzi = null;
+  
     if ($scope.datiAssociazione && $scope.datiAssociazione.Indirizzi) {
       if ($index > -1) {
         $scope.datiAssociazione.Indirizzi[$index].UsaIndirizzo = "Si";

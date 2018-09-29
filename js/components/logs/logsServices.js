@@ -1,16 +1,4 @@
 /**
- * INCISO - Gestione invalidi civili, ciechi civili e sordi
- *
- * logsServices.js file
- * Definisce tutti i servizi http usati in Inciso
- *
- * Functions (services)
- *
- *  - _ricercaAnagraficaRicerca
- *
- */
-
-/**
  * Tabelle BASE DI LOGSK
  *
  */
@@ -37,7 +25,8 @@ mochTableLogs = function(table) {
       IdEntita: "33724198",
       TipoOperazione: "Modifica Dati Anagrafici",
       UtenteDB: "INCISO_USR"
-    },,
+    },
+    ,
     {
       DataOra: "11/06/2018 11:02:47",
       NomeUtente: "MROSSI",
@@ -104,7 +93,6 @@ mochTableLogs = function(table) {
       TipoOperazione: "Lettura e Modifica Dati Anagrafici",
       UtenteDB: "INCISO_USR"
     }
-
   ];
 
   switch (table) {
@@ -137,11 +125,11 @@ logs = function($http) {
         .get(url, data, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     },
 
@@ -152,14 +140,32 @@ logs = function($http) {
       }
 
       $http
-        .get(url, data, config)
+        .post(url, data, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
+        });
+    },
+
+    update: function(url, data) {
+      if (url == "mockUrl") {
+        let response = mochTableLogs("Logs");
+        return response;
+      }
+
+      $http
+        .put(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("CallBack su successo di chiamata ");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("CallBack su errore di chiamata ");
         });
     }
   };

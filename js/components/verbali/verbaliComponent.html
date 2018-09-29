@@ -1,0 +1,65 @@
+<!-- <h1>Hello {{$ctrl.name}}!</h1> -->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{DATA_PROTOCOLLO | translate}}</th>
+            <th>{{NRO_PROTOCOLLO | translate}}</th>
+            <th>{{INVALIDITA | translate}}</th>
+            <th>{{INDENNITA_DI_ACCOMPAGNAMENTO | translate}}</th>
+            <th>{{PATOLOGIA_UDITIVA | translate}}</th>
+            <th>{{RIDUZIONE_DEL_VISUS | translate}}</th>
+            <th>{{NOTE | translate}}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="item in $ctrl.elencoVerbali">
+            <td>
+                {{item.DataProtocollo }}
+            </td>
+            <td>
+                {{item.NroProtocollo }}
+            </td>
+            <td>
+                {{item.Invalidita }}
+            </td>
+            <td>
+                {{item.IndenitaDiAccompagnamento }}
+            </td>
+            <td>
+                {{item.PatologiaUditiva }}
+            </td>
+            <td>
+                {{item.RiduzioneDelVisus }}
+            </td>
+            <td>
+                {{item.Note }}
+            </td>
+            <td style="font-size: 18px; text-align: center">
+                <a ng-click="$ctrl.inserisciNuovoVerbale($index)" ng-class="{anchorDisabled : visDatiAssistito}">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+            </td>
+
+            <!-- <td style="font-size: 18px; text-align: center">
+                <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssistito}"><i class="fa fa-pencil"></i></a>
+                <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="deleteIndirizzo()"><i class="fa fa-trash"></i></a>
+            </td> -->
+
+
+
+        </tr>
+    </tbody>
+</table>
+<!-- <div class="text-right">
+    <button ng-click="inserisciNuovoVerbale()" class="btn btn-sm btn-primary">inserisci nuovo verbale</button>
+</div> -->
+<div class="row text-right">
+    <div class="col-sm-12">
+        <button class="btn btn-primary" ng-disabled="visDatiAssistito" ng-click="$ctrl.inserisciNuovoVerbale(-1)">
+            {{'INSERISCI_NUOVO_VERBALE' | translate }}
+        </button>
+    </div>
+</div>

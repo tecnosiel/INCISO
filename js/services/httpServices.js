@@ -1,16 +1,4 @@
 /**
- * INCISO - Gestione invalidi civili, ciechi civili e sordi
- *
- * httpServices.js file
- * Definisce tutti i servizi http usati in Inciso
- *
- * Functions (services)
- *
- *  - _ricercaAnagraficaRicerca
- *
- */
-
-/**
  * Tabelle BASE DATI MOCK
  *
  */
@@ -20,7 +8,7 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   let tabLiquidazioni = [
     {
-      CodiceFiscale:"1111111111111111",
+      CodiceFiscale: "1111111111111111",
       NominativoAssistito: "111-Mario Rossi",
       ImportoPrestazioniLiquidato: "232.00",
       Tredicesima: "1325.00",
@@ -31,7 +19,7 @@ mochDbTable = function(table) {
       TotaleMensileDaLiquidare: "1232.00"
     },
     {
-      CodiceFiscale:"2222222222222222",
+      CodiceFiscale: "2222222222222222",
       NominativoAssistito: "2222-Andrea Ramilii",
       ImportoPrestazioniLiquidato: "132.00",
       Tredicesima: "1115.00",
@@ -42,7 +30,7 @@ mochDbTable = function(table) {
       TotaleMensileDaLiquidare: "1232.00"
     },
     {
-      CodiceFiscale:"3333333333333333",
+      CodiceFiscale: "3333333333333333",
       NominativoAssistito: "3333-Pino Amabile",
       ImportoPrestazioniLiquidato: "2.00",
       Tredicesima: "325.00",
@@ -53,7 +41,7 @@ mochDbTable = function(table) {
       TotaleMensileDaLiquidare: "1232.00"
     },
     {
-      CodiceFiscale:"4444444444444444",
+      CodiceFiscale: "4444444444444444",
       NominativoAssistito: "4444-Karin Biondi",
       ImportoPrestazioniLiquidato: "23.00",
       Tredicesima: "25.00",
@@ -64,7 +52,7 @@ mochDbTable = function(table) {
       TotaleMensileDaLiquidare: "12.00"
     },
     {
-      CodiceFiscale:"5555555555555555",
+      CodiceFiscale: "5555555555555555",
       NominativoAssistito: "55555-Ighli Vanoni",
       ImportoPrestazioniLiquidato: "176.00",
       Tredicesima: "725.00",
@@ -728,6 +716,37 @@ mochDbTable = function(table) {
         }
       ],
 
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "111-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "111-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "111-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
       Duplicato: true
     },
     {
@@ -755,6 +774,37 @@ mochDbTable = function(table) {
           StatoDomanda: "Negata"
         }
       ],
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "222-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "222-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "222-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
 
       Duplicato: true
     },
@@ -783,6 +833,37 @@ mochDbTable = function(table) {
           StatoDomanda: "Negata"
         }
       ],
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "333-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "333-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "333-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
 
       Duplicato: false
     },
@@ -811,6 +892,37 @@ mochDbTable = function(table) {
           StatoDomanda: "Negata"
         }
       ],
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "444-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "444-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "444-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
 
       Duplicato: false
     },
@@ -840,6 +952,38 @@ mochDbTable = function(table) {
         }
       ],
 
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "555-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "555-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "555-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
+
       Duplicato: false
     },
 
@@ -868,6 +1012,37 @@ mochDbTable = function(table) {
           StatoDomanda: "Negata"
         }
       ],
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "666-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "666-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "666-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
 
       Duplicato: false
     },
@@ -896,6 +1071,37 @@ mochDbTable = function(table) {
           StatoDomanda: "Negata"
         }
       ],
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "777-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "777-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "777-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
 
       Duplicato: false
     },
@@ -924,6 +1130,37 @@ mochDbTable = function(table) {
           StatoDomanda: "Negata"
         }
       ],
+      Verbali: [
+        {
+          DataProtocollo: "01/01/2010",
+          NroProtocollo: "888-442524223",
+          Invalidita: "60",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2011",
+          NroProtocollo: "888-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        },
+        {
+          DataProtocollo: "01/01/2012",
+          NroProtocollo: "888-2345223211",
+          Invalidita: "100",
+          IndennitaDiAccompagnamento: "Si",
+          PatologiaUditiva: "Si",
+          RiduzioneDelVisus: "Si",
+          Note: "2222222222222222222222222 11111111111111111"
+        }
+
+      ],
+
 
       Duplicato: false
     }
@@ -3899,11 +4136,11 @@ liquidazioni = function($http) {
         .get(url, data, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     },
 
@@ -3923,11 +4160,11 @@ liquidazioni = function($http) {
         .get(url, cCodFis, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     }
   };
@@ -3953,11 +4190,11 @@ associazioni = function($http) {
         .get(url, data, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     },
 
@@ -3977,11 +4214,11 @@ associazioni = function($http) {
         .get(url, cCodFis, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     }
   };
@@ -4007,11 +4244,11 @@ domande = function($http) {
         .get(url, data, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     },
     //----------------------------------
@@ -4030,11 +4267,11 @@ domande = function($http) {
         .get(url, cCodFis, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     }
   };
@@ -4059,11 +4296,11 @@ _ricercaAnagraficaRicerca = function($http) {
         .post(url, data, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     },
 
@@ -4149,11 +4386,11 @@ _ricercaAnagraficaRicerca = function($http) {
         .get(url, cCodFis, config)
         .success(function(data, status, headers, config) {
           //formattazione dei dati secondo mock
-          alert("Get Regular 2222222222");
+          alert("CallBack su successo di chiamata ");
         })
         .error(function(data, status, header, config) {
           //messaggio di errore per questo post
-          alert("Get Regular 3333333333333");
+          alert("CallBack su errore di chiamata ");
         });
     }
   };

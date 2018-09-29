@@ -1,31 +1,10 @@
 /**
- * LogsComponent - component
- * Componente di usato per la visualizzazione dei Logs
- *
- */
-
-function logsComponent() {
-  return {
-    templateUrl: "/js/components/logsComponent.html",
-    // bindings: {
-    //   name: "@"
-    // },
-    controller: logsController
-  };
-}
-
-/**
  * logsController - controller
  * Controller del componente
  *
  */
 
-function logsController(
-  httpServices,
-  DTOptionsBuilder,
-  DTColumnDefBuilder,
-  logsServices
-) {
+function logsController(DTOptionsBuilder, DTColumnDefBuilder, logsServices) {
   // legge i logs
   this.elencoLogs = logsServices.logs.find("mockUrl");
   this.dtOptionsTabLogs = DTOptionsBuilder.newOptions()
@@ -36,7 +15,7 @@ function logsController(
     // DTColumnDefBuilder.newColumnDef(3).notSortable()
   ];
 
-  this.count = 0
+  this.count = 0;
   this.reloadLogs = function() {
     this.count++;
     let xxx = {
@@ -53,9 +32,3 @@ function logsController(
     this.elencoLogs.unshift(xxx);
   };
 }
-
-/**
- * Collega il componente al modulo inciso
- **/
-
-angular.module("inciso").component("logsComponent", logsComponent());
