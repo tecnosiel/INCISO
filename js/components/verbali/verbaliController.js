@@ -14,8 +14,8 @@ function verbaliController($scope, verbaliServices, $uibModal) {
   // serve per le modali
   self = this;
 
-  this.inserisciNuovoVerbale = function($index) {
-    alert("inserisci nuovo verbale " + $index);
+  this.inserisciVerbale = function($index) {
+    alert("inserisci verbale " + $index);
 
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
@@ -35,14 +35,16 @@ function verbaliController($scope, verbaliServices, $uibModal) {
     this.modalSave = function(cTitolo, cSottoTitolo) {
       swal(cTitolo, cSottoTitolo, "success");
     };
-  
+
     this.modalClose = function() {
       alert("1111111111111111111");
       debugger;
       self.modalInstance.close();
       self.$uibModalInstance.close();
     };
-  
+  };
 
+  this.cancellaVerbale = function($index) {
+    alert("cancella verbale " + $index);
   };
 }

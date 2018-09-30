@@ -211,13 +211,16 @@ function domandeCtrl(
   };
 
   $scope.inserisciNuovaDomanda = function(cCodFis) {
-    
     $scope.findCodFis(cCodFis);
-    $scope.domanda = this.DomandaVuota;
-    debugger;
+    $scope.domanda = Object.assign({}, this.DomandaVuota);
     $scope.domanda.OperazioneInCorso = "NUOVA_DOMANDA";
-    debugger;
   };
+
+  $scope.myObj = {
+    a: 1,
+    b: 2
+  };
+
 }
 
 /**

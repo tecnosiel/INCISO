@@ -38,8 +38,9 @@
                 {{item.Note }}
             </td>
             <td style="font-size: 18px; text-align: center">
-                <a ng-click="$ctrl.inserisciNuovoVerbale($index)" ng-class="{anchorDisabled : visDatiAssistito}">
+                <a ng-class="{anchorDisabled : visDatiAssistito}"  ng-click="$ctrl.inserisciVerbale($index)">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="$ctrl.cancellaVerbale($index)"><i class="fa fa-trash"></i></a>
                 </a>
             </td>
 
@@ -58,7 +59,7 @@
 </div> -->
 <div class="row text-right">
     <div class="col-sm-12">
-        <button class="btn btn-primary" ng-disabled="visDatiAssistito" ng-click="$ctrl.inserisciNuovoVerbale(-1)">
+        <button class="btn btn-primary" ng-disabled="visDatiAssistito" ng-click="$ctrl.inserisciVerbale(-1)">
             {{'INSERISCI_NUOVO_VERBALE' | translate }}
         </button>
     </div>

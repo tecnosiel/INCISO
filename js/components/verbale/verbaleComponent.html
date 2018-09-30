@@ -1,0 +1,111 @@
+
+<div class="ibox-content">
+    <h3 class="">Protocollo azienda sanitaria</h3>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Numero protocollo</label>
+            <input ng-model="$ctrl.verbale.NumeroProtocollo" type="text" class="form-control intero">
+        </div>
+
+        <div class="col-md-6 form-group" id="data_1">
+            <label>Data</label>
+            <div class="input-group date">
+                <input ng-model="$ctrl.verbale.DataProtocollo" type="text" class="form-control js-date" placeholder="dd/MM/yyyy"><span
+                    class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label>Percentuale di invalidità (*)</label>
+            <input ng-model="$ctrl.verbale.PercentualeDiInvalidita" type="text" class="form-control percentuale">
+        </div>
+
+        <div class="col-md-6 form-group">
+            <div>
+                <label>Indennità di accompagnamento</label>
+            </div>
+            <div>
+                <div class="inline-block">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck ng-model="$ctrl.verbale.IndennitaDiAccompagnamento" type="radio" value="Si"
+                                name="indennitaDiAccompagnamento" ng-checked="$ctrl.verbale.IndennitaDiAccompagnamento == 'Si'">
+                            <i></i>
+                            Si
+                        </label>
+                    </div>
+                </div>
+                <div class="inline-block m-l-lg">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck ng-model="$ctrl.verbale.IndennitaDiAccompagnamento" type="radio" value="No"
+                                name="indennitaDiAccompagnamento" ng-checked="$ctrl.verbale.IndennitaDiAccompagnamento == 'No'">
+                            <i></i>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 form-group">
+            <div>
+                <label>Patologia uditiva</label>
+            </div>
+            <div>
+                <div class="inline-block">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck ng-model="$ctrl.verbale.PatologiaUditiva" type="radio" name="patologiaUditiva"
+                                ng-checked="$ctrl.verbale.PatologiaUditiva == 'Si'">
+                            <i></i>
+                            Si
+                        </label>
+                    </div>
+                </div>
+                <div class="inline-block m-l-lg">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck ng-model="$ctrl.verbale.PatologiaUditiva" type="radio" name="patologiaUditiva"
+                                ng-checked="$ctrl.verbale.PatologiaUditiva == 'No'">
+                            <i></i>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <div>
+                <label>Riduzione del visus</label>
+            </div>
+            <div>
+                <div class="inline-block">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck ng-model="$ctrl.verbale.RiduzioneDelVisus" type="radio" name="RiduzioneDelVisus"
+                                value="Si" ng-checked="$ctrl.verbale.RiduzioneDelVisus == 'Si'">
+                            <i></i>
+                            Si
+                        </label>
+                    </div>
+                </div>
+                <div class="inline-block m-l-lg">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck ng-model="$ctrl.verbale.RiduzioneDelVisus" type="radio" name="RiduzioneDelVisus"
+                                value="No" ng-checked="$ctrl.verbale.RiduzioneDelVisus == 'No'">
+                            <i></i>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 form-group">
+            <label>Note verbale</label>
+            <textarea name="" id="" ng-model="$ctrl.verbale.NoteVerbale" class="form-control"></textarea>
+        </div>
+    </div>
+</div>

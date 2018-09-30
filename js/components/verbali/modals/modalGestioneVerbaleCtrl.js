@@ -4,7 +4,7 @@
  *
  */
 function modalGestioneVerbaleCtrl($scope, $uibModalInstance, item) {
-  alert("so cazzi.......");
+  alert("qui va gestito il verbale .......");
 
   // this.modalSave = function(cTitolo, cSottoTitolo) {
   //   swal(cTitolo, cSottoTitolo, "success");

@@ -1,14 +1,118 @@
-<div class="inmodal">
-    <div class="modal-header">
-        <h4 class="modal-title">{{ 'GESTIONE_VERBALI' | translate }}</h4>
-        <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
-    </div>
-    <div class="modal-body">
+<form name="domandaForm" ng-submit="submitForm(domandaForm.$valid)" novalidate>
 
+    <div class="inmodal">
+        <div class="modal-header">
+            <h4 class="modal-title">{{ 'GESTIONE_VERBALI' | translate }}</h4>
+            <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
+        </div>
+        <div class="modal-body">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Dati verbale</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="m-b-sm form-group">
+                        <div>
+                            <label>
+                                Tipologia di assistenza richiesta
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input icheck ng-model="verbale.TipoVerbale" type="radio" name="tipoVerbale"
+                                            value="77" ng-checked="verbale.TipoVerbale == '77'" disabled> <i></i>
+                                        77
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input icheck ng-model="verbale.TipoVerbale" type="radio" name="tipoVerbale"
+                                            value="88" ng-checked="verbale.TipoVerbale == '88'" disabled> <i></i>
+                                        88
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input icheck ng-model="verbale.TipoVerbale" type="radio" name="tipoVerbale"
+                                            value="99" ng-checked="verbale.TipoVerbale == '99'" disabled> <i></i>
+                                        99
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Data (*)</label>
+                            <div class="input-group date">
+                                <input type="text" name="dataVerbale" class="form-control js-date" ng-model="verbale.DataVerbale"
+                                    placeholder="dd/MM/yyyy" required><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <p ng-show="verbaleForm.dataVerbale.$invalid && !verbaleForm.dataVerbale.$pristine" class="help-block">Campo
+                                obbligatorio.</p>
+
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Nro Protocollo (*)</label>
+                            <input type="text" name="protocolloVerbale" ng-model="verbale.ProtocolloVerbale" class="form-control"
+                                required>
+                            <p ng-show="verbaleForm.protocolloVerbale.$invalid && !verbaleForm.protocolloVerbale.$pristine"
+                                class="help-block">Campo obbligatorio.</p>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Invalidità (*)</label>
+                            <input type="text" name="invaliditàVerbale" ng-model="verbale.InvaliditaVerbale" class="form-control"
+                                required>
+                            <p ng-show="verbaleForm.invaliditàVerbale.$invalid && !verbaleForm.invaliditàVerbale.$pristine"
+                                class="help-block">Campo obbligatorio.</p>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row">
+
+                        <div class="col-md-4 form-group"><label>Delega patronato</label>
+                            <select class="form-control m-b" name="account" ng-model="verbale.DelegaPatronato">
+                                <option>ACLI Bolzano</option>
+                                <option>ACLI Merano</option>
+                                <option>INAS Bolzano</option>
+                                <option>EPACA Bolzano</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8 form-group"><label>Provenienza (*)</label>
+                            <select class="form-control m-b" ng-model="verbale.Provenienza" name="account">
+                                <option value="1">Commissione sanitaria dell’Azienda Sanitaria (1)</option>
+                                <option value="2">Presentata direttamente (2)</option>
+                                <option value="3">Fuori provincia (3)</option>
+                                <option value="4">Commissione del comprensorio sanitario di Bolzano (4)</option>
+                                <option value="5">Commissione del comprensorio sanitario di Merano (5)</option>
+                                <option value="6">Commissione del comprensorio sanitario di Bressanone (6)</option>
+                                <option value="7">Commissione del comprensorio sanitario di Brunico (7)</option>
+                                <option value="8">Commissione ricorsi (8)</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+
+                    <!-- ------------ -->
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" ng-click="$ctrl.modalSave('Verbale salvato!','Il verbale è stato correttamente salvato.')">{{
+                'SALVA' | translate }}</button>
+            <button type="button" class="btn btn-primary" ng-click="$ctrl.modalClose()">{{ 'CHIUDI' | translate }}</button>
+        </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.modalSave('Verbale salvato!','Il verbale è stato correttamente salvato.')">{{
-            'SALVA' | translate }}</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.modalClose()">{{ 'CHIUDI' | translate }}</button>
-    </div>
-</div>
+</form>
