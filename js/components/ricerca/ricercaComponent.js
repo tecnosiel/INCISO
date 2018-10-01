@@ -1,19 +1,19 @@
 /**
  * ricercaComponent - component
- * Componente usato per la ricerca anagrafica   
+ * Componente usato per la ricerca anagrafica
  *
  */
 
 // per testare componente inserire :
 // <ricerca-component></ricerca-component>
 
-
 function ricercaComponent() {
   return {
     templateUrl: "/js/components/ricerca/ricercaComponent.html",
     bindings: {
-      datiAssistito:"=",
-      onSave: '&'
+      tipoRicerca: "<",
+      datiAssistito: "=",
+      onSave: "&"
     },
     controller: ricercaController
   };

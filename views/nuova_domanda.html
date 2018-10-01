@@ -1,5 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+
+    <!-- <div class="col-lg-10">
         <h2>{{domanda.OperazioneInCorso | translate}}</h2>
         <ol class="breadcrumb">
             <li>
@@ -9,7 +10,11 @@
                 <strong>{{ 'RICERCA_ASSISTITO' | translate }}</strong>
             </li>
         </ol>
-    </div>
+    </div> -->
+
+    <header-component tipo="'Dettaglio'" titolo="domanda.OperazioneInCorso" paths="[{href:'index.html',descrizione:'HOME'}, {href:'nuova_domanda.html',descrizione:'RICERCA_ASSISTITO'}]"
+    active="{{OperazioneInCorso | translate }}"></header-component>
+
     <div class="col-lg-2"></div>
 </div>
 

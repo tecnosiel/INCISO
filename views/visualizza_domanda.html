@@ -1,5 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+
+    <!-- <div class="col-lg-10">
         <h2>Visualizza domanda</h2>
         <ol class="breadcrumb">
             <li>
@@ -12,11 +13,16 @@
                 <strong>Domanda {{domanda.NroDomanda}}</strong>
             </li>
         </ol>
-    </div>
+    </div> -->
+
+
+    <header-component tipo="'Dettaglio'" titolo="'VISUALIZZA_DOMANDA'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'search.html',descrizione:'VISUALIZZA_DOMANDA'}]"
+        active="Domanda {{domanda.NroDomanda}}"></header-component>
+
 
     <div class="col-lg-2 text-right m-t-md">
         <h3>
-                <span ng-show="domanda.StatoDomanda == 'Revocata'" class="label label-warning initial-font" data-toggle="popover"
+            <span ng-show="domanda.StatoDomanda == 'Revocata'" class="label label-warning initial-font" data-toggle="popover"
                 data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
                 <i class="fa fa-circle-o"></i> revocata
             </span>

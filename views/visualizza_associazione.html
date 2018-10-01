@@ -1,5 +1,5 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
+    <!-- <div class="col-lg-10">
         <h2 ng-if="inserimentoAssociazione">{{ 'INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE' | translate }}</h2>
         <h2 ng-if="!inserimentoAssociazione">{{ 'VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE' | translate }}</h2>
 
@@ -14,11 +14,18 @@
                 <strong>{{datiAssociazione.CodiceFiscale}}</strong>
             </li>
         </ol>
-    </div>
-    <div class="col-lg-2">
+    </div> -->
+    <header-component ng-if="inserimentoAssociazione" tipo="'Dettaglio'" titolo="'INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE'"
+        paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_associazione.html',descrizione:'RICERCA_ASSOCIAZIONE'}]"
+        active="{{datiAssociazione.CodiceFiscale}}"></header-component>
+    <header-component ng-if="!inserimentoAssociazione" tipo="'Dettaglio'" titolo="'VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE'"
+        paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_associazione.html',descrizione:'RICERCA_ASSOCIAZIONE'}]"
+        active="{{datiAssociazione.CodiceFiscale}}"></header-component>
 
+    <div class="col-lg-2">
     </div>
 </div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
 
     <div class="row">

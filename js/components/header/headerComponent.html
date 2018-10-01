@@ -1,0 +1,31 @@
+<!-- Header Generico adoperato nelle ricerche -->
+<div ng-if="$ctrl.tipo == 'Generico'" class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>{{ $ctrl.titolo | translate }}</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">{{ 'HOME' | translate }}</a>
+            </li>
+            <li class="active">
+                <strong>{{ $ctrl.titolo | translate }}</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<!-- Header di dettaglio adoperato nelle visualizzazioni e negli inserimenti -->
+<div ng-if="$ctrl.tipo == 'Dettaglio'" class="col-lg-10">
+    <h2>{{ $ctrl.titolo | translate }}</h2>
+    <ol class="breadcrumb">
+
+        <li ng-repeat="item in $ctrl.paths">
+            <a href="{{item.href}}">{{ item.descrizione | translate }}</a>
+        </li>
+        <li class="active">
+            <strong>{{$ctrl.active}}</strong>
+        </li>
+    </ol>
+</div>
