@@ -19,18 +19,6 @@ function baseComponent() {
 }
 
 /**
- * verbaliController - controller
- * Controller del componente
- *
- */
-
-function baseController() {
-  this.name = "Word";
-  alert("here");
-}
-
-
-/**
  * Collega il componente al modulo inciso
  **/
 

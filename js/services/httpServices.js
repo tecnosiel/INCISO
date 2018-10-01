@@ -718,18 +718,29 @@ mochDbTable = function(table) {
 
       Verbali: [
         {
+          NumeroProtocollo: "111-442524223",
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "111-442524223",
-          Invalidita: "60",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
           Note: "11111111111111111"
+
+      //   NumeroProtocollo: "12345",
+      //   DataProtocollo: "12/34/5678",
+      //   PercentualeDiInvalidita: "66%",
+      //   IndennitaDiAccompagnamento: "No",
+      //   PatologiaUditiva: "No",
+      //   RiduzioneDelVisus: "No",
+      //   NoteVerbale: "Io sono la nota a verbale",
+      //   DataDecorrenzaPagamento: "11/11/1234"
+
+
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "111-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "111-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -737,8 +748,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "111-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "111-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -777,8 +788,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "222-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "222-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -786,8 +797,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "222-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "222-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -795,8 +806,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "222-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "222-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -836,8 +847,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "333-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "333-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -845,8 +856,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "333-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "333-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -854,8 +865,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "333-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "333-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -895,8 +906,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "444-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "444-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -904,8 +915,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "444-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "444-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -913,8 +924,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "444-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "444-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -955,8 +966,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "555-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "555-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -964,8 +975,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "555-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "555-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -973,8 +984,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "555-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "555-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1015,8 +1026,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "666-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "666-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1024,8 +1035,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "666-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "666-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1033,8 +1044,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "666-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "666-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1074,8 +1085,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "777-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "777-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1083,8 +1094,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "777-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "777-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1092,8 +1103,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "777-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "777-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1133,8 +1144,8 @@ mochDbTable = function(table) {
       Verbali: [
         {
           DataProtocollo: "01/01/2010",
-          NroProtocollo: "888-442524223",
-          Invalidita: "60",
+          NumeroProtocollo: "888-442524223",
+          PercentualeDiInvalidita: "60",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1142,8 +1153,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2011",
-          NroProtocollo: "888-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "888-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",
@@ -1151,8 +1162,8 @@ mochDbTable = function(table) {
         },
         {
           DataProtocollo: "01/01/2012",
-          NroProtocollo: "888-2345223211",
-          Invalidita: "100",
+          NumeroProtocollo: "888-2345223211",
+          PercentualeDiInvalidita: "100",
           IndennitaDiAccompagnamento: "Si",
           PatologiaUditiva: "Si",
           RiduzioneDelVisus: "Si",

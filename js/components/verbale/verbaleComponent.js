@@ -13,6 +13,7 @@ function verbaleComponent() {
     templateUrl: "/js/components/verbale/verbaleComponent.html",
     bindings: {
       verbale: "=",
+      submit: "@",
       name: "@",
       value: "=",
     },

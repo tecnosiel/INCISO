@@ -7,29 +7,30 @@ function anagrafeCtrl(
   $scope,
   httpServices,
   DTOptionsBuilder,
-  DTColumnDefBuilder
+  DTColumnDefBuilder,
+  $stateParams
 ) {
   /**
    * campi e funzioni adoperati per la ricerca
    */
-  $scope.findCognome = "";
-  $scope.findNome = "";
-  $scope.findCodiceFiscale = "";
-  $scope.findDataDiNascita = "";
-  $scope.findNumeroFaldoneArchiviazione = "";
-  $scope.findAnnoDiScarto = "";
+  // $scope.findCognome = "";
+  // $scope.findNome = "";
+  // $scope.findCodiceFiscale = "";
+  // $scope.findDataDiNascita = "";
+  // $scope.findNumeroFaldoneArchiviazione = "";
+  // $scope.findAnnoDiScarto = "";
 
-  $scope.find = function() {
-    $scope.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
-      "mockUrl"
-    );
-  };
+  // $scope.find = function() {
+  //   $scope.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
+  //     "mockUrl"
+  //   );
+  // };
 
   /**
    * variabile contenente i dati dell'assistito in esame
    */
 
-  $scope.datiAssistito = [];
+  // $scope.datiAssistito = [];
 
   $scope.findCodFis = function(cCodFis) {
     $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
@@ -38,8 +39,13 @@ function anagrafeCtrl(
     );
     debugger;
   };
-
-  // https://www.datatables.net/reference/option/
+ 
+  $scope.onSaveCar = function(childDatiAssistito){
+    alert("gira")
+    $scope.datiAssistito = childDatiAssistito
+    debugger;
+  }
+  https://www.datatables.net/reference/option/
   $scope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
     .withOption("lengthChange", false);

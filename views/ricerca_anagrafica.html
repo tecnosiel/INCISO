@@ -22,8 +22,8 @@
                     <h5> {{ 'RICERCA_DATI_ANAGRAFICI' | translate }} </h5>
                 </div>
                 <div class="ibox-content">
-                    <div ng-include="'views/partials/_ricerca_anagrafica.html'"></div>
-
+                    <!-- <div ng-include="'views/partials/_ricerca_anagrafica.html'"></div> -->
+                    <ricerca-component  on-save="onSaveCar($ctrl.datiAssistito)"  dati-assistito = "$ctrl.datiAssistito"></ricerca-component>
                 </div>
             </div>
         </div>

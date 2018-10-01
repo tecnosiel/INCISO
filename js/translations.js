@@ -6,6 +6,7 @@ function config($translateProvider) {
   $translateProvider
     .translations("it", {
       // Label Elenco Verbali
+      GESTIONE_VERBALI:"Gestione verbali",
       DATA_PROTOCOLLO: "Data protocollo",
       NRO_PROTOCOLLO: "N. protocollo",
       INVALIDITA: "% invalidità",
@@ -205,6 +206,7 @@ function config($translateProvider) {
 
     .translations("de", {
       // Label Elenco Verbali
+      GESTIONE_VERBALI:"Gestione verbali DE",
       DATA_PROTOCOLLO: "Data protocollo DE",
       NRO_PROTOCOLLO: "N. protocollo DE",
       INVALIDITA: "% invalidità DE",

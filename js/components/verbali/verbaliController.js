@@ -5,18 +5,30 @@
  */
 
 function verbaliController($scope, verbaliServices, $uibModal) {
-  debugger;
   // per prima cosa legge i verbali
   this.elencoVerbali = verbaliServices.verbali.find("mockUrl");
-  this.name = "Word";
-  alert("here");
+
+  debugger;
 
   // serve per le modali
   self = this;
 
   this.inserisciVerbale = function($index) {
-    alert("inserisci verbale " + $index);
 
+    if ($index == -1) {
+      $scope.verbale = {
+        // NumeroProtocollo: "12345",
+        // DataProtocollo: "12/34/5678",
+        // PercentualeDiInvalidita: "66%",
+        // IndennitaDiAccompagnamento: "No",
+        // PatologiaUditiva: "No",
+        // RiduzioneDelVisus: "No",
+        // NoteVerbale: "Io sono la nota a verbale",
+        // DataDecorrenzaPagamento: "11/11/1234"
+      };
+    } else {
+      $scope.verbale = this.elencoVerbali[$index];
+    }
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
       templateUrl: "/js/components/verbali/modals/modalGestioneVerbale.html",
@@ -32,16 +44,7 @@ function verbaliController($scope, verbaliServices, $uibModal) {
       windowClass: "animated flipInY"
     });
 
-    this.modalSave = function(cTitolo, cSottoTitolo) {
-      swal(cTitolo, cSottoTitolo, "success");
-    };
-
-    this.modalClose = function() {
-      alert("1111111111111111111");
-      debugger;
-      self.modalInstance.close();
-      self.$uibModalInstance.close();
-    };
+ 
   };
 
   this.cancellaVerbale = function($index) {

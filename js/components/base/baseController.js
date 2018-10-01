@@ -7,4 +7,5 @@
 function baseController() {
   this.name = "Word";
   alert("here");
+  
 }

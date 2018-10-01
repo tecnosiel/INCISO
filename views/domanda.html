@@ -103,6 +103,7 @@
             <!-- ------------------------------------------------------------------------ -->
 
             <form name="domandaForm" ng-submit="submitForm(domandaForm.$valid)" novalidate>
+                <!-- ------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>Dati domanda</h5>
@@ -431,167 +432,54 @@
                         <!-- ------------ -->
 
                     </div>
-
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Dati verbale</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                            </div>
+                </div>
+                <!-- ------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Dati verbale</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
                         </div>
-
-                        <verbale-component name="Camillo" value="myObj" verbale="domanda.AziendaSanitaria"></verbale-component>
-                  
-                        <div class="ibox-content">
-                            <h3 class="">Protocollo azienda sanitaria</h3>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label>Numero protocollo</label>
-                                    <input ng-model="domanda.AziendaSanitaria.NumeroProtocollo" type="text" class="form-control intero">
-                                </div>
-
-                                <div class="col-md-6 form-group" id="data_1">
-                                    <label>Data</label>
-                                    <div class="input-group date">
-                                        <input ng-model="domanda.AziendaSanitaria.DataProtocollo" type="text" class="form-control js-date"
-                                            placeholder="dd/MM/yyyy"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 form-group">
-                                    <label>Percentuale di invalidità (*)</label>
-                                    <input ng-model="domanda.AziendaSanitaria.PercentualeDiInvalidita" type="text"
-                                        class="form-control percentuale">
-                                </div>
-
-                                <div class="col-md-6 form-group">
-                                    <div>
-                                        <label>Indennità di accompagnamento</label>
-                                    </div>
-                                    <div>
-                                        <div class="inline-block">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
-                                                        type="radio" value="Si" name="indennitaDiAccompagnamento"
-                                                        ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'Si'">
-                                                    <i></i>
-                                                    Si
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="inline-block m-l-lg">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="domanda.AziendaSanitaria.IndennitaDiAccompagnamento"
-                                                        type="radio" value="No" name="indennitaDiAccompagnamento"
-                                                        ng-checked="domanda.AziendaSanitaria.IndennitaDiAccompagnamento == 'No'">
-                                                    <i></i>
-                                                    No
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 form-group">
-                                    <div>
-                                        <label>Patologia uditiva</label>
-                                    </div>
-                                    <div>
-                                        <div class="inline-block">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva"
-                                                        type="radio" name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'Si'">
-                                                    <i></i>
-                                                    Si
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="inline-block m-l-lg">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="domanda.AziendaSanitaria.PatologiaUditiva"
-                                                        type="radio" name="patologiaUditiva" ng-checked="domanda.AziendaSanitaria.PatologiaUditiva == 'No'">
-                                                    <i></i>
-                                                    No
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 form-group">
-                                    <div>
-                                        <label>Riduzione del visus</label>
-                                    </div>
-                                    <div>
-                                        <div class="inline-block">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus"
-                                                        type="radio" name="RiduzioneDelVisus" value="Si" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'Si'">
-                                                    <i></i>
-                                                    Si
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="inline-block m-l-lg">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="domanda.AziendaSanitaria.RiduzioneDelVisus"
-                                                        type="radio" name="RiduzioneDelVisus" value="No" ng-checked="domanda.AziendaSanitaria.RiduzioneDelVisus == 'No'">
-                                                    <i></i>
-                                                    No
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12 form-group">
-                                    <label>Note verbale</label>
-                                    <textarea name="" id="" ng-model="domanda.AziendaSanitaria.NoteVerbale" class="form-control"></textarea>
+                    </div>
+                    <verbale-component name="Camillo" value="myObj" verbale="domanda.AziendaSanitaria"></verbale-component>
+                </div>
+                <!-- ------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Data decorrenza del diritto al pagamento</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-6 form-group" id="data_decorrenza">
+                                <label>Data</label>
+                                <div class="input-group js-date">
+                                    <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text"
+                                        class="form-control js-date" placeholder="dd/MM/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Data decorrenza del diritto al pagamento</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="row">
-                                <div class="col-md-6 form-group" id="data_decorrenza">
-                                    <label>Data</label>
-                                    <div class="input-group js-date">
-                                        <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text"
-                                            class="form-control js-date" placeholder="dd/MM/yyyy">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <!-- ------------ -->
+                <div class="m-t-md">
+                    <div class="button-bar text-right">
+                        <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
+                        <!--                    <button class="btn btn-sm btn-primary">Inserisci</button>-->
+                        <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
+                        <a class="btn btn-sm btn-primary" ui-sref="domande.visualizza_domanda">Inserisci</a>
                     </div>
-
-                    <div class="m-t-md">
-                        <div class="button-bar text-right">
-                            <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
-                            <!--                    <button class="btn btn-sm btn-primary">Inserisci</button>-->
-                            <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
-                            <a class="btn btn-sm btn-primary" ui-sref="domande.visualizza_domanda">Inserisci</a>
-                        </div>
-                    </div>
+                </div>
+                <!-- ------------ -->
             </form>
             <!-- ------------------------------------------------------------------------ -->
             <!-- FINE FORM DOMANDA -->

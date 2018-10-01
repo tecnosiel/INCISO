@@ -4721,4 +4721,5 @@ body.skin-3 {
 
 .help-block {
   color: red;
+  display:table-row;
 }

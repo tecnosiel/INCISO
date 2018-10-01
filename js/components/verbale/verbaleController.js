@@ -4,8 +4,18 @@
  *
  */
 
-function verbaleController() {
+function verbaleController($scope, $timeout) {
+  this.modalSave = function(cTitolo, cSottoTitolo) {
+    swal(cTitolo, cSottoTitolo, "success");
+  };
 
-  alert("io sono verbaleController");
+  this.modalClose = function() {
+    self.modalInstance.close();
+    self.$uibModalInstance.close();
+  };
 
+  this.address = {
+    street: "ssss",
+    city: "ssss"
+  };
 }
