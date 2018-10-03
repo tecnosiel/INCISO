@@ -1,20 +1,4 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <!-- domanda.OperazioneInCorso può assumere i due valori NUOVA_DOMANDA oppure MODIFICA_DOMANDA -->
-    <!-- <div class="col-lg-10">
-        <h2>{{domanda.OperazioneInCorso | translate }}</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">{{ 'HOME' | translate }}</a>
-            </li>
-            <li>
-                <a href="nuova_domanda.html">{{ 'RICERCA_ASSISTITO' | translate }}</a>
-            </li>
-            <li class="active">
-                <strong>{{OperazioneInCorso | translate }}</strong>
-            </li>
-        </ol>
-    </div> -->
-
     <header-component tipo="'Dettaglio'" titolo="domanda.OperazioneInCorso" paths="[{href:'index.html',descrizione:'HOME'}, {href:'nuova_domanda.html',descrizione:'RICERCA_ASSISTITO'}]"
         active="{{OperazioneInCorso | translate }}"></header-component>
 
@@ -160,6 +144,7 @@
                                     class="help-block">Campo obbligatorio.</p>
 
                             </div>
+
                             <!-- <div class="col-md-4 form-group"><label>Data (*)</label> <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div> -->
                             <div class="col-md-4 form-group">
                                 <label>Email</label>
@@ -268,7 +253,9 @@
                                         <div class="input-group date">
                                             <input type="text" class="form-control js-date" ng-model="item.ScadenzaDecreto"
                                                 placeholder="dd/MM/yyyy">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -462,7 +449,7 @@
                         <div class="row">
                             <div class="col-md-6 form-group" id="data_decorrenza">
                                 <label>Data</label>
-                                <div class="input-group js-date">
+                                <div class="input-group date">
                                     <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text"
                                         class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
@@ -476,8 +463,6 @@
                 <!-- ------------ -->
                 <div class="m-t-md">
                     <div class="button-bar text-right">
-                        <!--                    <button class="btn btn-sm btn-white">Annulla</button>-->
-                        <!--                    <button class="btn btn-sm btn-primary">Inserisci</button>-->
                         <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
                         <a class="btn btn-sm btn-primary" ui-sref="domande.visualizza_domanda">Inserisci</a>
                     </div>
@@ -514,25 +499,37 @@
     </div>
 </div>
 
-<script>
-    $("#filtri_deceduto").hide();
-    $("input[name$='payment']").on("ifChecked", function () {
-        var test = $(this).val();
-
-        if (test == 1) {
-            $("#iban").show();
-            $("#posta").hide();
-        } else {
-            $("#iban").hide();
-            $("#posta").show();
-        }
-    });
-</script>
-
+// Custom scripts
 <script>
 
-    // Custom scripts
     $(document).ready(function () {
+
+
+        $("#filtri_deceduto").hide();
+
+        $("input[name$='payment']").on("ifChecked", function () {
+            var test = $(this).val();
+
+            if (test == 1) {
+                $("#iban").show();
+                $("#posta").hide();
+            } else {
+                $("#iban").hide();
+                $("#posta").show();
+            }
+        });
+
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
 
         $('.ibox-title').click(function () {
             var cl = $(this).find('.collapse-link');

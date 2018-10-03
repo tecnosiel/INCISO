@@ -396,15 +396,18 @@
         });
 
 
-        $('.input-group.date').datepicker({
-            todayBtn: "linked",
-            format: 'dd/mm/yyyy',
-            keyboardNavigation: false,
-            forceParse: true,
-            calendarWeeks: true,
-            autoclose: true
-            //orientation: 'bottom left'
-        });
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
+
 
     })
 </script>

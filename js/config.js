@@ -41,6 +41,7 @@
       .state("anagrafica", {
         abstract: true,
         url: "/anagrafica",
+        controller: "anagrafeCtrl",
         templateUrl: "/views/common/content.html"
       })
 
@@ -52,7 +53,7 @@
       .state("anagrafica.inserimento_anagrafica", {
         url: "/inserimento_anagrafica",
         templateUrl: "/views/visualizza_anagrafica.html",
-        controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        controller: "visualizzaAnagrafeCtrl",
         resolve: {
           runMode: function() {
             return "NUOVOINSERIMENTO";
@@ -63,9 +64,10 @@
       .state("anagrafica.visualizza_anagrafica", {
         url: "/visualizza_anagrafica",
         templateUrl: "/views/visualizza_anagrafica.html",
-        controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        controller: "visualizzaAnagrafeCtrl",
         params: {
-          datiAssistito: null
+          datiAssistito: null,
+          visShowPulsanti:null
         },
         resolve: {
           runMode: function() {
@@ -89,7 +91,7 @@
       .state("posizione.inserimento_anagrafica", {
         url: "/inserimento_posizione",
         templateUrl: "/views/visualizza_anagrafica.html",
-        controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        controller: "visualizzaAnagrafeCtrl",
         resolve: {
           runMode: function() {
             return "NUOVOINSERIMENTO";
@@ -100,9 +102,10 @@
       .state("posizione.visualizza_anagrafica", {
         url: "/visualizza_anagrafica_posizione",
         templateUrl: "/views/visualizza_anagrafica.html",
-        controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        controller: "visualizzaAnagrafeCtrl",
         params: {
-          datiAssistito: null
+          datiAssistito: null,
+          visShowPulsanti:null
         },
         resolve: {
           runMode: function() {
@@ -115,7 +118,7 @@
       .state("posizione.inserimento_posizione", {
         url: "/inserimento_posizione",
         templateUrl: "/views/visualizza_posizione.html",
-        controller: "visualizzaPosizioneCtrl as $visPosCtrl",
+        controller: "visualizzaPosizioneCtrl",
         resolve: {
           runMode: function() {
             return "NUOVOINSERIMENTO";
@@ -125,7 +128,7 @@
       .state("posizione.visualizza_posizione", {
         url: "/visualizza_posizione",
         templateUrl: "/views/visualizza_posizione.html",
-        controller: "visualizzaPosizioneCtrl as $visPosCtrl",
+        controller: "visualizzaPosizioneCtrl",
         params: {
           datiAssistito: null
         },
@@ -140,7 +143,7 @@
       .state("domande", {
         abstract: true,
         url: "/domande",
-        controller: "domandeCtrl as $domCtrl",
+        controller: "domandeCtrl",
         templateUrl: "/views/common/content.html"
       })
       .state("domande.nuova_domanda", {
@@ -165,7 +168,7 @@
       .state("domande.visualizza_domanda", {
         url: "/visualizza_domanda",
         templateUrl: "/views/visualizza_domanda.html",
-        controller: "visualizzaDomandaCtrl as $visDomCtrl",
+        controller: "visualizzaDomandaCtrl",
         data: { pageTitle: "Visualizza Domanda" },
         resolve: {
           loadPlugin: function($ocLazyLoad) {
@@ -225,7 +228,7 @@
       // associazioni ------------------------------------------------------------
       .state("associazioni", {
         abstract: true,
-        controller: "associazioniCtrl as $assCtrl",
+        controller: "associazioniCtrl",
         url: "/associazioni",
         templateUrl: "/views/common/content.html"
       })
@@ -236,7 +239,7 @@
       .state("associazioni.visualizza_associazione", {
         url: "/visualizza_associazione",
         templateUrl: "/views/visualizza_associazione.html",
-        controller: "visualizzaAssociazioneCtrl as $visAssCtrl",
+        controller: "visualizzaAssociazioneCtrl",
         resolve: {
           runMode: function() {
             return "VISUALIZZA";
@@ -246,7 +249,7 @@
       .state("associazioni.inserimento_associazione", {
         url: "/inserimento_associazione",
         templateUrl: "/views/visualizza_associazione.html",
-        controller: "visualizzaAssociazioneCtrl as $visAssCtrl",
+        controller: "visualizzaAssociazioneCtrl",
         resolve: {
           runMode: function() {
             return "NUOVOINSERIMENTO";
@@ -258,7 +261,7 @@
       .state("liquidazioni", {
         abstract: true,
         url: "/liquidazioni",
-        controller: "liquidazioniCtrl as $liqCtrl",
+        controller: "liquidazioniCtrl",
         templateUrl: "/views/common/content.html"
       })
 

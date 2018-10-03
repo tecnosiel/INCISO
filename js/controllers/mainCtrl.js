@@ -21,17 +21,6 @@ function MainCtrl(
     $translate.use("it");
   };
 
-  // https://www.datatables.net/reference/option/
-
-  $scope.dtOptions = DTOptionsBuilder.newOptions()
-    .withOption("pageLength", 5)
-    .withOption("lengthChange", false);
-
-  $scope.colonneTabElencoRedditi = [
-    DTColumnDefBuilder.newColumnDef(3).notSortable(),
-    DTColumnDefBuilder.newColumnDef(4).notSortable()
-  ];
-
   /**
    * variabili da sostituire con chiamate http
    */
@@ -107,13 +96,6 @@ function MainCtrl(
       cCodFis
     );
   };
-
-
-  // FUNZIONE MEMORY
-  $scope.onSaveCar = function(childDatiAssistito){
-    $scope.datiAssistito = childDatiAssistito
-  }
-
 
 }
 

@@ -16,7 +16,7 @@
         <div ng-if="!inserimentoAnagrafe" class="row">
             <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
         </div>
-        <div ng-if="!inserimentoAnagrafe" class="row text-left">
+        <div ng-if="visShowPulsanti" class="row text-left">
             <div ng-if="!visDatiAssistito" class="col-sm-12">
                 <button class="btn btn-danger btnToggleBlock" ng-click="visDatiAssistitoToggle()">{{
                     'BLOCCA_CAMPI' | translate }}</button>
@@ -378,21 +378,24 @@
                                 <tbody>
                                     <tr>
                                         <td>778767</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza posizione</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza
+                                                posizione</a></td>
                                         <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
                                                 documenti
                                                 per fascicolo</a></td>
                                     </tr>
                                     <tr>
                                         <td>885963</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza posizione</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza
+                                                posizione</a></td>
                                         <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
                                                 documenti
                                                 per fascicolo</a></td>
                                     </tr>
                                     <tr>
                                         <td>993423</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza posizione</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza
+                                                posizione</a></td>
                                         <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
                                                 documenti
                                                 per fascicolo</a></td>
@@ -1107,14 +1110,17 @@
             }, 50);
         });
 
-        $('.input-group.date').datepicker({
-            todayBtn: "linked",
-            format: 'dd/mm/yyyy',
-            keyboardNavigation: false,
-            forceParse: true,
-            calendarWeeks: true,
-            autoclose: true
-            //orientation: 'bottom left'
-        });
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
+
     })
 </script>

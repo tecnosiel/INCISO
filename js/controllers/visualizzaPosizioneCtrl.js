@@ -5,12 +5,17 @@
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaPosizioneCtrl($scope, $uibModal, runMode, $state, $stateParams) {
-  
+function visualizzaPosizioneCtrl(
+  $scope,
+  $uibModal,
+  runMode,
+  $state,
+  $stateParams
+) {
   // https://stackoverflow.com/questions/25647454/how-to-pass-parameters-using-ui-sref-in-ui-router-to-controller/25647714
 
-  $scope.state = $state.current
-  $scope.params = $stateParams; 
+  // $scope.state = $state.current;
+  // $scope.params = $stateParams;
 
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssistito = false;
@@ -21,8 +26,13 @@ function visualizzaPosizioneCtrl($scope, $uibModal, runMode, $state, $stateParam
     $scope.inserimentoPosizione = false;
     $scope.datiAssistito = $stateParams.datiAssistito;
   }
-  
 
+  $scope.indietro = function() {
+    $state.go("posizione.visualizza_anagrafica", {
+      datiAssistito: $scope.datiAssistito,
+      visShowPulsanti: true
+    });
+  };
   $scope.cancellaPosizione = function() {
     swal({
       title: "Desideri cancellare la posizione?",
@@ -32,10 +42,38 @@ function visualizzaPosizioneCtrl($scope, $uibModal, runMode, $state, $stateParam
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $scope.domanda.StatoDomanda = "Cancellata";
-        $scope.$apply();
+        // $scope.domanda.StatoDomanda = "Cancellata";
+        // $scope.$apply();
         swal("La posizione è stata cancellata!", {
           icon: "success"
+        }).then(() => {
+          $state.go("posizione.visualizza_anagrafica", {
+            datiAssistito: $scope.datiAssistito
+          });
+        });
+      } else {
+        swal("La posizione non è stata modificata!");
+      }
+    });
+  };
+
+  $scope.cancellaDomanda = function(nItem) {
+    swal({
+      title: "Desideri cancellare la domanda n.ro " + nItem + "?",
+      text: "Ricorda: potrà sempre essere recuperata!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        // $scope.domanda.StatoDomanda = "Cancellata";
+        // $scope.$apply();
+        swal("La domanda è stata cancellata!", {
+          icon: "success"
+        }).then(() => {
+          // $state.go("posizione.visualizza_anagrafica", {
+          //   datiAssistito: $scope.datiAssistito
+          // });
         });
       } else {
         swal("La posizione non è stata modificata!");

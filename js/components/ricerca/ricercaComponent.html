@@ -111,7 +111,7 @@
         </tbody>
     </table>
 
-    <div ng-if="$ctrl.tipoRicerca == 'Posizione'"  class="text-right m-t-lg">
+    <div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="text-right m-t-lg">
         <a class="btn btn-sm btn-primary" ui-sref="domande.nuova_domanda">Inserisci nuova posizione</a>
     </div>
 
@@ -124,14 +124,16 @@
             $("#anagResults").show();
         });
 
-        $('.input-group.date').datepicker({
-            todayBtn: "linked",
-            format: 'dd/mm/yyyy',
-            keyboardNavigation: false,
-            forceParse: true,
-            calendarWeeks: true,
-            autoclose: true
-            //orientation: 'bottom left'
-        });
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
     })
 </script>

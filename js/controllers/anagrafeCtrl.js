@@ -9,36 +9,26 @@ function anagrafeCtrl(
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
-  /**
-   * campi e funzioni adoperati per la ricerca
-   */
-  // $scope.findCognome = "";
-  // $scope.findNome = "";
-  // $scope.findCodiceFiscale = "";
-  // $scope.findDataDiNascita = "";
-  // $scope.findNumeroFaldoneArchiviazione = "";
-  // $scope.findAnnoDiScarto = "";
+  $scope.findCodFis = function(cCodFis) {
+    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+      "mockUrl",
+      cCodFis
+    );
 
-  // $scope.find = function() {
-  //   $scope.elencoAssistiti = httpServices._ricercaAnagraficaRicerca.get(
-  //     "mockUrl"
-  //   );
-  // };
+    $scope.onSaveCar = function(childDatiAssistito) {
+      $scope.datiAssistito = childDatiAssistito;
+    };
+    
+  };
 
-  /**
-   * variabile contenente i dati dell'assistito in esame
-   */
+  $scope.dtOptions = DTOptionsBuilder.newOptions()
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
 
-  // $scope.datiAssistito = [];
-
-  // $scope.findCodFis = function(cCodFis) {
-  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-  //     "mockUrl",
-  //     cCodFis
-  //   );
-  // };
- 
-
+  $scope.colonneTabElencoRedditi = [
+    DTColumnDefBuilder.newColumnDef(3).notSortable(),
+    DTColumnDefBuilder.newColumnDef(4).notSortable()
+  ];
 }
 
 /**

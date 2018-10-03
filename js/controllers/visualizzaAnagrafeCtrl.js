@@ -5,11 +5,17 @@
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagrafeCtrl($scope, $uibModal, runMode, $state, $stateParams) {
-  
-  $scope.state = $state.current
-  $scope.params = $stateParams; 
-  
+function visualizzaAnagrafeCtrl(
+  $scope,
+  $uibModal,
+  runMode,
+  $state,
+  $stateParams
+) {
+
+  // $scope.state = $state.current;
+  // $scope.params = $stateParams;
+
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssistito = false;
     $scope.inserimentoAnagrafe = true;
@@ -18,6 +24,10 @@ function visualizzaAnagrafeCtrl($scope, $uibModal, runMode, $state, $stateParams
     $scope.visDatiAssistito = true;
     $scope.inserimentoAnagrafe = false;
     $scope.datiAssistito = $stateParams.datiAssistito;
+    $scope.visShowPulsanti = $stateParams.visShowPulsanti;
+  }
+  if ($state.current.name == "anagrafica.visualizza_anagrafica") {
+    $scope.visShowPulsanti = true;
   }
 
   $scope.visDatiAssistitoToggle = function() {

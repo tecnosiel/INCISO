@@ -1,18 +1,3 @@
-<!-- <div ng-form name="address">
-    Street: <input type="text" required name="street" ng-model="$ctrl.address.street">
-    <p ng-show="address.street.$invalid && !address.street.$pristine" class="help-block">Campo obbligatorio.</p>
-    City: <input type="text" required name="city" ng-model="$ctrl.address.city">
-    <p ng-show="address.city.$invalid && !address.city.$pristine" class="help-block">Campo obbligatorio.</p>
-    <br>
-    fffffffffffffffffff
-    <br>
-    {{address.street.$invalid}} + {{address.street.$pristine}}
-    <br>
-    fffffffffffffffffff
-    <br>
-</div> -->
-
-
 <div ng-form name="verbaleForm" ng-submit="submitForm($ctrl.verbaleForm.$valid)" novalidate>
     <div class="ibox-content">
         <h3 class="">Protocollo azienda sanitaria</h3>
@@ -38,6 +23,7 @@
                         obbligatorio.</p>
                 </div>
             </div>
+
             <div class="col-md-6 form-group">
                 <label>Percentuale di invalidità (*)</label>
                 <input name="percentualeDiInvalidita" ng-model="$ctrl.verbale.PercentualeDiInvalidita" type="text"
