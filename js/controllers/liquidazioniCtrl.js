@@ -19,7 +19,6 @@ function liquidazioniCtrl(
   ];
 
   $scope.find = function() {
-    debugger;
     $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
   };
 

@@ -8,8 +8,6 @@ function verbaliController($scope, verbaliServices, $uibModal) {
   // per prima cosa legge i verbali
   this.elencoVerbali = verbaliServices.verbali.find("mockUrl");
 
-  debugger;
-
   // serve per le modali
   self = this;
 

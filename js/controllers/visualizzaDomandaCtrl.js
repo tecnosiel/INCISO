@@ -21,7 +21,6 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
   //----
 
   $scope.modificaDomanda = function() {
-    debugger;
     $scope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
     swal({
       title: "Desideri modificare la domanda?",
@@ -38,7 +37,6 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
     });
   };
   sospendi = () => {
-    debugger;
     $scope.domanda.StatoDomanda = "Sospesa";
   };
   $scope.sospendiDomanda = function() {

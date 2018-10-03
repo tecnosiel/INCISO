@@ -1,24 +1,5 @@
 <div class="row wrapper border-bottom white-bg page-heading">
 
-    <!-- <div class="col-lg-10">
-        <h2 ng-if="inserimentoAnagrafe">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</h2>
-        <h2 ng-if="!inserimentoAnagrafe">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">{{ 'HOME' | translate }}</a>
-            </li>
-            <li ng-if="inserimentoAnagrafe">
-                <a href="ricerca_anagrafica.html">{{ 'INSERIMENTO_DATI_ANAGRAFICI' | translate }}</a>
-            </li>
-            <li ng-if="!inserimentoAnagrafe">
-                <a href="ricerca_anagrafica.html">{{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</a>
-            </li>
-            <li class="active">
-                <strong>{{datiAssistito.Nome}} {{datiAssistito.Cognome}}</strong>
-            </li>
-        </ol>
-    </div> -->
-    
     <header-component ng-if="inserimentoAnagrafe" tipo="'Dettaglio'" titolo="'INSERIMENTO_DATI_ANAGRAFICI'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_anagrafica.html',descrizione:'INSERIMENTO_DATI_ANAGRAFICI'}]"
         active="{{datiAssistito.Nome}} {{datiAssistito.Cognome}}"></header-component>
     <header-component ng-if="!inserimentoAnagrafe" tipo="'Dettaglio'" titolo="'VISUALIZZA_DATI_ANAGRAFICI'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_anagrafica.html',descrizione:'RICERCA_DATI_ANAGRAFICI'}]"
@@ -28,13 +9,12 @@
     </div>
 </div>
 
-
 <!-- INIZIO VALIDAZIONE FORM -->
 <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div ng-if="!inserimentoAnagrafe" class="row">
-            <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
+            <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
         </div>
         <div ng-if="!inserimentoAnagrafe" class="row text-left">
             <div ng-if="!visDatiAssistito" class="col-sm-12">
@@ -398,21 +378,21 @@
                                 <tbody>
                                     <tr>
                                         <td>778767</td>
-                                        <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza posizione</a></td>
                                         <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
                                                 documenti
                                                 per fascicolo</a></td>
                                     </tr>
                                     <tr>
                                         <td>885963</td>
-                                        <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza posizione</a></td>
                                         <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
                                                 documenti
                                                 per fascicolo</a></td>
                                     </tr>
                                     <tr>
                                         <td>993423</td>
-                                        <td><a href="visualizza_posizione.html">Visualizza posizione</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza posizione</a></td>
                                         <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
                                                 documenti
                                                 per fascicolo</a></td>
@@ -936,7 +916,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <div ng-include="'/views/partials/_elenco_evidenze.html'"></div>
+                                    <evidenze-component></evidenze-component>
                                 </div>
                             </div>
                         </div>

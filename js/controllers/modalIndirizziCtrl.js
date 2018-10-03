@@ -9,7 +9,6 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
   };
 
   $scope.modalClose = function() {
-    debugger;
     self.modalInstance.close();
   };
 
@@ -363,7 +362,6 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
     var xxx = $scope.datiAssistito.Indirizzi.find(item => {
       return item.UsaIndirizzo === "Si";
     });
-    debugger;
     if (xxx) {
       $scope.Tmp.IndirizzoCodificato.Nazione = xxx.Nazione;
       $scope.Tmp.IndirizzoCodificato.Comune = xxx.Comune;

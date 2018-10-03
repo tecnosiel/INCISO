@@ -21,12 +21,10 @@ function ricercaController(DTOptionsBuilder, httpServices) {
   };
 
   this.findCodFis = function(cCodFis) {
-    alert(cCodFis)
     this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
     );
-    debugger;
   };
 
   // https://www.datatables.net/reference/option/

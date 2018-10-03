@@ -33,7 +33,6 @@ function domandeCtrl(
       "mockUrl",
       cCodFis
     );
-    debugger;
   };
 
   $scope.DomandaVuota = {
@@ -206,7 +205,6 @@ function domandeCtrl(
   };
 
   $scope.findDomande = function() {
-    debugger;
     $scope.elencoDomande = httpServices.domande.find("mockUrl");
   };
 

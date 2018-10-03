@@ -1,6 +1,6 @@
 <!-- condizione ricerca posizioni -->
 
-<div ng-if = "$ctrl.tipoRicerca == 'Posizione'" class="row">
+<div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="row">
     <div class="col-md-4 form-group">
         <label>{{ 'CODICE_FISCALE' | translate }}</label>
         <input type="text" class="form-control" ng-model="$ctrl.findCodiceFiscale" placeholder="Codice fiscale da ricercare">
@@ -43,7 +43,7 @@
 
 <!-- condizione ricerca anagrafe -->
 
-<div ng-if = "$ctrl.tipoRicerca == 'Anagrafe'"  class="row">
+<div ng-if="$ctrl.tipoRicerca == 'Anagrafe'" class="row">
     <div class="col-md-6 form-group">
         <label>{{ 'COGNOME' | translate }}</label>
         <input type="text" class="form-control" ng-model="$ctrl.findCognome" placeholder="Cognome da ricercare">
@@ -77,11 +77,13 @@
 
     </div>
 </div>
+
 <div class="row text-right">
     <div class="col-sm-12">
-        <button class="btn btn-primary" id="anagSearch" ng-click="$ctrl.find()">{{ 'CERCA' | translate }}</button>
+        <button class="btn btn-primary btn-sm" id="anagSearch" ng-click="$ctrl.find()">{{ 'CERCA' | translate }}</button>
     </div>
 </div>
+
 <!-- risultati ricerca -->
 <div class="row" id="anagResults" style="display:none;margin-top:10px">
 
@@ -108,6 +110,10 @@
             </tr>
         </tbody>
     </table>
+
+    <div ng-if="$ctrl.tipoRicerca == 'Posizione'"  class="text-right m-t-lg">
+        <a class="btn btn-sm btn-primary" ui-sref="domande.nuova_domanda">Inserisci nuova posizione</a>
+    </div>
 
 </div>
 

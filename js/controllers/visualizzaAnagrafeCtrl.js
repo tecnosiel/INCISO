@@ -5,7 +5,11 @@
  */
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
-function visualizzaAnagrafeCtrl($scope, $uibModal, runMode) {
+function visualizzaAnagrafeCtrl($scope, $uibModal, runMode, $state, $stateParams) {
+  
+  $scope.state = $state.current
+  $scope.params = $stateParams; 
+  
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssistito = false;
     $scope.inserimentoAnagrafe = true;
@@ -13,6 +17,7 @@ function visualizzaAnagrafeCtrl($scope, $uibModal, runMode) {
   } else {
     $scope.visDatiAssistito = true;
     $scope.inserimentoAnagrafe = false;
+    $scope.datiAssistito = $stateParams.datiAssistito;
   }
 
   $scope.visDatiAssistitoToggle = function() {
@@ -23,7 +28,6 @@ function visualizzaAnagrafeCtrl($scope, $uibModal, runMode) {
   self = this;
 
   $scope.creaNuovoIndirizzo = function($index) {
-    debugger;
     $scope.Indirizzi = null;
     if ($scope.datiAssistito && $scope.datiAssistito.Indirizzi) {
       if ($index > -1) {

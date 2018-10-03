@@ -40,8 +40,18 @@
             </div>
             <div class="col-md-12 m-t-sm">
 
-                <a ng-click="$ctrl.onSave($ctrl.datiAssistito)" ui-sref="anagrafica.visualizza_anagrafica"
+                <!-- camillocamillo -->
+                <!-- <a ng-if="$ctrl.tipoRicerca == 'Anagrafe'" ng-click="$ctrl.onSave($ctrl.datiAssistito)" ui-sref="anagrafica.visualizza_anagrafica"
                     class="btn-primary btn btn-sm btn-block">Visualizza anagrafica</a>
+                <a ng-if="$ctrl.tipoRicerca == 'Posizione'" ng-click="$ctrl.onSave($ctrl.datiAssistito)" ui-sref="posizione.visualizza_anagrafica"
+                    class="btn-primary btn btn-sm btn-block">Visualizza posizione</a> -->
+
+                <a ng-if="$ctrl.tipoRicerca == 'Anagrafe'" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
+                    class="btn-primary btn btn-sm btn-block">Visualizza
+                    anagrafica</a>
+                <a ng-if="$ctrl.tipoRicerca == 'Posizione'" ui-sref="posizione.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
+                    class="btn-primary btn btn-sm btn-block">Visualizza
+                    posizione</a>
             </div>
         </div>
     </div>

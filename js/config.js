@@ -41,9 +41,9 @@
       .state("anagrafica", {
         abstract: true,
         url: "/anagrafica",
-        templateUrl: "/views/common/content.html",
-        controller: "anagrafeCtrl as $anagCtrl"
+        templateUrl: "/views/common/content.html"
       })
+
       .state("anagrafica.ricerca_anagrafica", {
         url: "/ricerca_anagrafica",
         templateUrl: "/views/ricerca_anagrafica.html"
@@ -64,6 +64,71 @@
         url: "/visualizza_anagrafica",
         templateUrl: "/views/visualizza_anagrafica.html",
         controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        params: {
+          datiAssistito: null
+        },
+        resolve: {
+          runMode: function() {
+            return "VISUALIZZA";
+          }
+        }
+      })
+
+      // posizione --------------------------------------------------------------
+      .state("posizione", {
+        abstract: true,
+        url: "/posizione",
+        templateUrl: "/views/common/content.html"
+      })
+
+      .state("posizione.ricerca_anagrafica", {
+        url: "/ricerca_posizione",
+        templateUrl: "/views/ricerca_posizione.html"
+      })
+
+      .state("posizione.inserimento_anagrafica", {
+        url: "/inserimento_posizione",
+        templateUrl: "/views/visualizza_anagrafica.html",
+        controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        resolve: {
+          runMode: function() {
+            return "NUOVOINSERIMENTO";
+          }
+        }
+      })
+
+      .state("posizione.visualizza_anagrafica", {
+        url: "/visualizza_anagrafica_posizione",
+        templateUrl: "/views/visualizza_anagrafica.html",
+        controller: "visualizzaAnagrafeCtrl as $visAnaCtrl",
+        params: {
+          datiAssistito: null
+        },
+        resolve: {
+          runMode: function() {
+            return "VISUALIZZA";
+          }
+        }
+      })
+
+      // -------------------------------
+      .state("posizione.inserimento_posizione", {
+        url: "/inserimento_posizione",
+        templateUrl: "/views/visualizza_posizione.html",
+        controller: "visualizzaPosizioneCtrl as $visPosCtrl",
+        resolve: {
+          runMode: function() {
+            return "NUOVOINSERIMENTO";
+          }
+        }
+      })
+      .state("posizione.visualizza_posizione", {
+        url: "/visualizza_posizione",
+        templateUrl: "/views/visualizza_posizione.html",
+        controller: "visualizzaPosizioneCtrl as $visPosCtrl",
+        params: {
+          datiAssistito: null
+        },
         resolve: {
           runMode: function() {
             return "VISUALIZZA";
@@ -122,17 +187,6 @@
         controller: "domandaCtrl",
         data: { pageTitle: "Domanda" }
       })
-      // posizione --------------------------------------------------------------
-      .state("posizione", {
-        abstract: true,
-        url: "/posizione",
-        templateUrl: "/views/common/content.html"
-      })
-      .state("posizione.ricerca_posizione", {
-        url: "/ricerca_posizione",
-        templateUrl: "/views/ricerca_posizione.html"
-      })
-
       // evidenze --------------------------------------------------------------
       .state("evidenze", {
         abstract: true,

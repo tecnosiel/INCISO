@@ -4385,6 +4385,7 @@ _ricercaAnagraficaRicerca = function($http) {
     // Ricerca in Base Dati per Codice Fiscale
     //----------------------------------
     findCodFis: function(url, cCodFis) {
+      
       if (url == "mockUrl") {
         let response = mochDbTable("anagrafe");
 

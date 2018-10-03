@@ -5,8 +5,12 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      // Label Elenco Posizioni
+      VISUALIZZA_POSIZIONE: "Visualizza posizione",
+      RICERCA_POSIZIONE: "Ricerca posizione",
+
       // Label Elenco Verbali
-      GESTIONE_VERBALI:"Gestione verbali",
+      GESTIONE_VERBALI: "Gestione verbali",
       DATA_PROTOCOLLO: "Data protocollo",
       NRO_PROTOCOLLO: "N. protocollo",
       INVALIDITA: "% invalidità",
@@ -205,8 +209,12 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      // Label Elenco Posizioni
+      VISUALIZZA_POSIZIONE: "Visualizza posizione DE",
+      RICERCA_POSIZIONE: "Ricerca posizione DE",
+
       // Label Elenco Verbali
-      GESTIONE_VERBALI:"Gestione verbali DE",
+      GESTIONE_VERBALI: "Gestione verbali DE",
       DATA_PROTOCOLLO: "Data protocollo DE",
       NRO_PROTOCOLLO: "N. protocollo DE",
       INVALIDITA: "% invalidità DE",

@@ -19,7 +19,7 @@
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
+        <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -57,7 +57,8 @@
                     <div class="row">
                         <div class="col-md-4 form-group pull-right">
                             <label>Totale importo restituito</label>
-                            <div class="input-group"> <input type="text" class="form-control" readonly value=""> <span class="input-group-addon">€</span></div>
+                            <div class="input-group"> <input type="text" class="form-control" readonly value=""> <span
+                                    class="input-group-addon">€</span></div>
                         </div>
                     </div>
                     <div class="row">
@@ -68,8 +69,8 @@
 
                     <div class="row">
                         <div class="text-right m-t-lg col-md-12">
-                            <a class="btn btn-white btn-sm main-button-padding" id="cancel" ui-sref="anagrafica.visualizza_anagrafica">Annulla</a>
-                            <a class="btn btn-primary btn-sm main-button-padding m-l-md" id="save" ui-sref="anagrafica.visualizza_anagrafica">Salva</a>
+                            <a class="btn btn-white btn-sm main-button-padding" id="cancel" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Annulla</a>
+                            <a class="btn btn-primary btn-sm main-button-padding m-l-md" id="save" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Salva</a>
                         </div>
                     </div>
                 </div>
