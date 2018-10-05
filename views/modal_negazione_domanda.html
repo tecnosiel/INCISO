@@ -1,0 +1,119 @@
+<!-- <style>
+    .modal-dialog { min-width: 700px;}
+</style> -->
+<style>
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #e7eaec;
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: middle;
+    }
+    .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color:#F5F5F5;
+    }
+    .headcol {
+    position:absolute;
+	width:2em;
+	left:0;
+    }
+</style>
+
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'NEGAZIONE_DOMANDA' | translate }}</h4>
+        <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
+    </div>
+    <div class="modal-body">
+        <!-- --------- -->
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>{{ 'DATA_NEGAZIONE' | translate }}</label>
+                <div class="input-group date">
+                    <input ng-class="{datePicherDisabled : Type}" ng-model="Tmp.DataNegazione" type="text" class="form-control js-date"
+                        placeholder="dd/MM/yyyy">
+                    <span ng-class="{datePicherDisabled : Type}" class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <label>{{ 'MOTIVO_NEGAZIONE' | translate }}</label>
+                <ui-select ng-disabled="Type" name="motivoNegazione" class="ui-select" ng-model="Tmp.MotivoNegazione"
+                    title="Seleziona un elemento nell'elenco">
+                    <ui-select-match placeholder="Seleziona motivo">{{$select.selected.nome}}</ui-select-match>
+                    <ui-select-choices repeat="motivo in motivi | filter: $select.search">
+                        <span ng-bind-html="motivo.nome | highlight: $select.search"></span>
+                        <small ng-bind-html="motivo.code | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+
+        <!-- --------- -->
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>{{ 'NOTE' | translate }}</label>
+                <textarea name="moteNegazione" ng-model="Tmp.Note" class="form-control" ng-readonly="Type"></textarea>
+            </div>
+        </div>
+        <!-- --------- -->
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>{{ 'DATA_FINE_NEGAZIONE' | translate }}</label>
+                <div class="input-group date">
+                    <input ng-class="{datePicherDisabled : !Type}" ng-model="Tmp.DataFineNegazione" type="text" class="form-control js-date"
+                        placeholder="dd/MM/yyyy">
+                    <span ng-class="{datePicherDisabled : !Type}" class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- --------- -->
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="modalSave('Dati registrati!','Tutti i dati sono stati correttamente registrati.')">{{
+            'SALVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalClose()">{{ 'CHIUDI' | translate }}</button>
+    </div>
+</div>
+
+<script>
+    // Custom scripts
+    $(document).ready(function () {
+
+        $('.panel').click(function () {
+            var cl = $(this).find('.panel-heading');
+            var ibox = cl.closest('div.panel-toolbox');
+            var button = cl.find('i');
+            var content = ibox.find('div.panel-collapse');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        });
+
+
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
+
+
+    })
+</script>

@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-12">
+        <div ng-switch="$ctrl.statoDomanda" class="checkbox">
+            <h3 ng-switch-when="Revocata"> <i class="fa fa-circle-o text-warning" aria-hidden="true"></i>
+                {{$ctrl.statoDomanda}}
+            </h3>
+            <h3 ng-switch-when="Inserita"> <i class="fa fa-circle-o text-warning" aria-hidden="true"></i>
+                {{$ctrl.statoDomanda}}
+            </h3>
+            <h3 ng-switch-when="Concessa"> <i class="fa fa-check text-navy" aria-hidden="true"></i>
+                {{$ctrl.statoDomanda}}
+            </h3>
+            <h3 ng-switch-when="Negata"> <i class="fa fa-times text-danger" aria-hidden="true"></i>
+                {{$ctrl.statoDomanda}}
+            </h3>
+
+            <h3 ng-switch-when="Sospesa"> <i class="fa fa-circle-o text-warning" aria-hidden="true"></i>
+                {{$ctrl.statoDomanda}}
+            </h3>
+            <h3 ng-switch-when="Cancellata"> <i class="fa fa-times text-warning" aria-hidden="true"></i>
+                {{$ctrl.statoDomanda}}
+            </h3>
+            <h3 ng-switch-default> <i class="fa fa-times text-danger" aria-hidden="true"></i>
+                Errore : stato domanda non definito 
+            </h3>
+        </div>
+
+
+    </div>
+</div>
+<div class="row">
+    <div ng-switch="$ctrl.statoDomanda" class="col-md-4 form-group">
+        <label ng-switch-when="Revocata">Data revoca</label>
+        <label ng-switch-when="Inserita">Data inserimento</label>
+        <label ng-switch-when="Concessa">Data concessione</label>
+        <label ng-switch-when="Negata">Data negazione</label>
+        <label ng-switch-when="Sospesa">Data sospensione</label>
+        <label ng-switch-when="Cancellata">Data cancellazione</label>
+        <label ng-switch-default>Data</label>
+        <input type="text" readonly class="form-control" value="01/01/2020">
+    </div>
+    <div ng-switch="$ctrl.statoDomanda" class="col-md-4 form-group">
+        <label ng-switch-when="Revocata">Motivo revoca</label>
+        <label ng-switch-when="Inserita">Motivo inserimento</label>
+        <label ng-switch-when="Concessa">Motivo concessione</label>
+        <label ng-switch-when="Negata">Motivo negazione</label>
+        <label ng-switch-when="Sospesa">Motivo sospensione</label>
+        <label ng-switch-when="Cancellata">Motivo cancellazione</label>
+        <label ng-switch-default>Motivo</label>
+        <input type="text" readonly class="form-control" value="Lorem ipsum dolor sit amet">
+    </div>
+    <div ng-switch="$ctrl.statoDomanda" class="col-md-4 form-group">
+        <label ng-switch-when="Revocata">Importo da recuperare</label>
+        <label ng-switch-when="Inserita">Importo richiesto</label>
+        <label ng-switch-when="Concessa">Importo da pagare</label>
+        <label ng-switch-when="Negata">Importo negato</label>
+        <label ng-switch-when="Sospesa">Importo sospeso</label>
+        <label ng-switch-when="Cancellata">Importo cancellato</label>
+        <label ng-switch-default>Importo</label>
+        <input type="text" readonly class="form-control" value="549,00 €">
+    </div>
+</div>

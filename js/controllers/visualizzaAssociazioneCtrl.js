@@ -6,7 +6,6 @@
 // https://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
 
 function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
-  
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssociazione = false;
     $scope.inserimentoAssociazione = true;
@@ -17,9 +16,8 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
   }
 
   $scope.creaNuovoIndirizzo = function($index) {
-  
     $scope.Indirizzi = null;
-  
+
     if ($scope.datiAssociazione && $scope.datiAssociazione.Indirizzi) {
       if ($index > -1) {
         $scope.datiAssociazione.Indirizzi[$index].UsaIndirizzo = "Si";
@@ -32,13 +30,33 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
       // nella modale gli Indirizzi sono in Indirizzi
       $scope.Indirizzi = Object.assign({}, $scope.datiAssociazione.Indirizzi);
     }
+
+    this.randomMove = function() {
+      let risultato = null;
+      switch (Math.round(3 * Math.random())) {
+        case 0:
+          risultato = "animated fadeInDownBig";
+          break;
+        case 1:
+          risultato = "animated flipInX";
+          break;
+        case 2:
+          risultato = "animated flipInY";
+          break;
+        case 3:
+          risultato = "animated bounceInLeft";
+          break;
+      }
+      return risultato;
+    };
+
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
-      templateUrl: "./../views/gestione_indirizzi.html",
+      templateUrl: "./../views/modal_gestione_indirizzi.html",
       controller: "modalIndirizziCtrl",
       size: "lg",
       scope: $scope,
-      windowClass: "animated flipInY"
+      windowClass: this.randomMove()
     });
   };
 
@@ -55,6 +73,30 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
       text: "I dati saranno controllati e salvati!",
       icon: "success",
       button: "conferma!"
+    });
+  };
+
+  $scope.cancellaIndirizzo = function(nItem) {
+    swal({
+      title: "Cancellare indirizzo " + nItem + " ?",
+      text: "Ricorda: non potrà essere recuperato!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        // $scope.domanda.StatoDomanda = "Cancellata";
+        // $scope.$apply();
+        swal("L'indirizzo è stato cancellata!", {
+          icon: "success"
+        }).then(() => {
+          // $state.go("posizione.visualizza_anagrafica", {
+          //   datiAssistito: $scope.datiAssistito
+          // });
+        });
+      } else {
+        swal("La posizione non è stata modificata!");
+      }
     });
   };
 

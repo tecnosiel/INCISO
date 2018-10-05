@@ -34,51 +34,7 @@
             </div>
             <div>
                 <h3 class="m-t-lg">Stato domanda</h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="checkbox">
-                            <h3 ng-show="domanda.StatoDomanda == 'Revocata'"> <i class="fa fa-circle-o text-warning"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3>
-                            <h3 ng-show="domanda.StatoDomanda == 'Inserita'"> <i class="fa fa-circle-o text-warning"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3>
-                            <h3 ng-show="domanda.StatoDomanda == 'Concessa'"> <i class="fa fa-check text-navy"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3>
-                            <h3 ng-show="domanda.StatoDomanda == 'Negata'"> <i class="fa fa-times text-danger"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3>
-
-                            <h3 ng-show="domanda.StatoDomanda == 'Sospesa'"> <i class="fa fa-circle-o text-warning"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3>
-                            <h3 ng-show="domanda.StatoDomanda == 'Cancellata'"> <i class="fa fa-times text-warning"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3>
-                            <!-- xx <h3 ng-show="domanda.StatoDomanda == 'Cancellata"> <i class="fa fa-times text-warning"
-                                    aria-hidden="true"></i>
-                                {{domanda.StatoDomanda}}
-                            </h3> -->
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 form-group"><label>Data revoca</label> <input type="text" readonly class="form-control"
-                            value="01/01/2020"></div>
-                    <div class="col-md-4 form-group"><label>Motivo revoca</label> <input type="text" readonly class="form-control"
-                            value="Lorem ipsum dolor sit amet"></div>
-                    <div class="col-md-4 form-group"><label>Importo da recuperare</label>
-                        <input type="text" readonly class="form-control" value="549,00 €"></div>
-                </div>
+                <stato-domanda-component stato-domanda = "{{domanda.StatoDomanda}}"></stato-domanda-component>
             </div>
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(2) }">

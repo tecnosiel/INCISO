@@ -5,6 +5,27 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      // Sospensione Revoca Negazione Domanda
+
+      MOTIVO_SOSPENSIONE: "Motivo sospensione",
+
+      SOSPENSIONE_DOMANDA: "Sospensione domanda",
+      DATA_SOSPENSIONE: "Data sospensione",
+      SELEZIONA_MOTIVO: "Seleziona motivo",
+      DATA_SCADENZA_SOSPENSIONE: "Data scadenza sospensione",
+      DATA_FINE_SOSPENSIONE: "Data fine sospensione",
+
+      REVOCA_DOMANDA: "Revoca domanda",
+      DATA_REVOCA: "Data revoca",
+      MOTIVO_REVOCA: "Motivo revoca",
+      DATA_FINE_REVOCA: "Data fine revoca",
+
+      NEGAZIONE_DOMANDA: "Negazione domanda",
+      DATA_NEGAZIONE: "Data negazione",
+      MOTIVO_NEGAZIONE: "Motivo negazione",
+      DATA_FINE_NEGAZIONE: "Data fine negazione",
+
+
       // Label Elenco Posizioni
       VISUALIZZA_POSIZIONE: "Visualizza posizione",
       RICERCA_POSIZIONE: "Ricerca posizione",
@@ -98,7 +119,7 @@ function config($translateProvider) {
       NOTE: "Note",
 
       // Label Redditi
-      GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso",
+      GESTIONE_REDDITI: "Gestione Redditi",
       VALIDO_PER_ANNI_SUCCESSIVI: "Valido per anni successivi",
       REDDITI_PERCEPITI_ASSISTITO: "Redditi percepiti dall'assistito",
       REDDITI_PERCEPITI_CONIUGE: "Redditi percepiti dal coniuge",
@@ -209,6 +230,26 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      // Sospensione Revoca Negazione Domanda
+
+      MOTIVO_SOSPENSIONE: "Motivo sospensione DE",
+
+      SOSPENSIONE_DOMANDA: "Sospensione domanda DE",
+      DATA_SOSPENSIONE: "Data sospensione DE",
+      SELEZIONA_MOTIVO: "Seleziona motivo DE",
+      DATA_SCADENZA_SOSPENSIONE: "Data scadenza sospensione DE",
+      DATA_FINE_SOSPENSIONE: "Data fine sospensione DE",
+
+      REVOCA_DOMANDA: "Revoca domanda DE",
+      DATA_REVOCA: "Data revoca DE",
+      MOTIVO_REVOCA: "Motivo revoca DE",
+      DATA_FINE_REVOCA: "Data fine revoca DE",
+
+      NEGAZIONE_DOMANDA: "Negazione domanda DE",
+      DATA_NEGAZIONE: "Data negazione DE",
+      MOTIVO_NEGAZIONE: "Motivo negazione DE",
+      DATA_FINE_NEGAZIONE: "Data fine negazione DE",
+
       // Label Elenco Posizioni
       VISUALIZZA_POSIZIONE: "Visualizza posizione DE",
       RICERCA_POSIZIONE: "Ricerca posizione DE",
@@ -303,7 +344,7 @@ function config($translateProvider) {
       NOTE: "Note DE",
 
       // Label Redditi
-      GESTIONE_REDDITI: "Gestione Redditi Lavori in Corso DE",
+      GESTIONE_REDDITI: "Gestione Redditi DE",
       VALIDO_PER_ANNI_SUCCESSIVI: "Valido per anni successivi DE",
       REDDITI_PERCEPITI_ASSISTITO: "Redditi percepiti dall'assistito DE",
       REDDITI_PERCEPITI_CONIUGE: "Redditi percepiti dal coniuge DE",

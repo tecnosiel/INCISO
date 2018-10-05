@@ -12,7 +12,6 @@ function verbaliController($scope, verbaliServices, $uibModal) {
   self = this;
 
   this.inserisciVerbale = function($index) {
-
     if ($index == -1) {
       $scope.verbale = {
         // NumeroProtocollo: "12345",
@@ -27,6 +26,27 @@ function verbaliController($scope, verbaliServices, $uibModal) {
     } else {
       $scope.verbale = this.elencoVerbali[$index];
     }
+
+    this.randomMove = function() {
+      let risultato = null;
+      // clsPopup
+      switch (Math.round(3 * Math.random())) {
+        case 0:
+          risultato = "animated fadeInDownBig";
+          break;
+        case 1:
+          risultato = "animated flipInX";
+          break;
+        case 2:
+          risultato = "animated flipInY";
+          break;
+        case 3:
+          risultato = "animated bounceInLeft";
+          break;
+      }
+      return risultato;
+    };
+
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
       templateUrl: "/js/components/verbali/modals/modalGestioneVerbale.html",
@@ -39,13 +59,31 @@ function verbaliController($scope, verbaliServices, $uibModal) {
         }
       },
       // scope: $scope,
-      windowClass: "animated flipInY"
+      windowClass: this.randomMove()
     });
-
- 
   };
 
   this.cancellaVerbale = function($index) {
-    alert("cancella verbale " + $index);
+    swal({
+      title: "Cancellare il verbale " + $index + "?",
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        // $scope.domanda.StatoDomanda = "Cancellata";
+        // $scope.$apply();
+        swal("Il verbale è stato cancellato!", {
+          icon: "success"
+        }).then(() => {
+          // $state.go("posizione.visualizza_anagrafica", {
+          //   datiAssistito: $scope.datiAssistito
+          // });
+        });
+      } else {
+        swal("Il verbale non è stato modificato!");
+      }
+    });
   };
 }

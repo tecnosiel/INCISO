@@ -59,7 +59,7 @@ function visualizzaPosizioneCtrl(
 
   $scope.cancellaDomanda = function(nItem) {
     swal({
-      title: "Desideri cancellare la domanda n.ro " + nItem + "?",
+      title: "Desideri cancellare la domanda n.ro " + nItem + " ?",
       text: "Ricorda: potrà sempre essere recuperata!",
       icon: "warning",
       buttons: true,

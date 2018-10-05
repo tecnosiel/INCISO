@@ -6,6 +6,6 @@
 
 function baseController() {
   this.name = "Word";
-  alert("here");
+  alert("here base");
   
 }

@@ -53,24 +53,24 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="checkbox">
-                                        <label> <input ng-readonly="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
-                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='77'" name="a">
+                                        <label> <input ng-disabled="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
+                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='77'" name="a" >
                                             <i></i> 77
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="checkbox">
-                                        <label> <input ng-readonly="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
-                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='88'" name="b">
+                                        <label> <input ng-disabled="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
+                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='88'" name="a">
                                             <i></i> 88
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="checkbox">
-                                        <label> <input ng-readonly="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
-                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='99'" name="c">
+                                        <label> <input ng-disabled="visDatiAssociazione" icheck type="radio" ng-model="datiAssociazione.TipologiaDiAssistenza"
+                                                ng-checked="datiAssociazione.TipologiaDiAssistenza=='99'" name="a">
                                             <i></i> 99
                                         </label>
                                     </div>
@@ -143,7 +143,7 @@
 
                                         <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssociazione}"><i
                                                 class="fa fa-pencil"></i></a>
-                                        <a ng-class="{anchorDisabled : visDatiAssociazione}" ng-click="deleteIndirizzo()"><i
+                                        <a ng-class="{anchorDisabled : visDatiAssociazione}" ng-click="cancellaIndirizzo($index)"><i
                                                 class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>

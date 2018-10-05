@@ -1,4 +1,4 @@
-<header-component tipo = "'Generico'" titolo = "'RICERCA_ASSOCIAZIONE'"></header-component>
+<header-component tipo="'Generico'" titolo="'RICERCA_ASSOCIAZIONE'"></header-component>
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -24,7 +24,7 @@
                                 <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input icheck type="radio" name="a" ng-model="findTipoAssistenzaRichiesta"
+                                            <input icheck name="a" ng-model="findTipoAssistenzaRichiesta" type="radio"
                                                 ng-checked="findTipoAssistenzaRichiesta=='77'">
                                             <i></i> 77
                                         </label>
@@ -34,7 +34,7 @@
                                 <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input icheck type="radio" name="a" ng-model="findTipoAssistenzaRichiesta"
+                                            <input icheck name="a" ng-model="findTipoAssistenzaRichiesta" type="radio"
                                                 ng-checked="findTipoAssistenzaRichiesta=='88'">
                                             <i></i> 88
                                         </label>
@@ -43,61 +43,63 @@
                                 <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input icheck type="radio" name="a" ng-model="findTipoAssistenzaRichiesta"
+                                            <input icheck name="a" ng-model="findTipoAssistenzaRichiesta" type="radio"
                                                 ng-checked="findTipoAssistenzaRichiesta=='99'">
                                             <i></i> 99
                                         </label>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-right">
-                        <button class="btn btn-primary btn-sm" ng-click="find()" id="posSearch">{{ "CERCA" |
-                            translate}}</button>
-                    </div>
-                    <div id="posResults" style="display:none;" class="m-t-lg">
-                        
-                        <div>
-                            <table datatable="ng" dt-column-defs="colonneTabRicercaAssociazioni" dt-options="dtOptionsTabRicercaAssociazioni" class="table table-striped table-bordered dataTables-paged">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-4">{{ 'NOME_ASSOCIAZIONE' | translate }}</th>
-                                        <th class="col-md-4">{{ 'CODICE_FISCALE' | translate }}</th>
-                                        <th class="col-md-3">{{ 'TIPOLOGIA_DI_ASSISTENZA' | translate }}</th>
-                                        <th class="col-md-1"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in elencoAssociazioni">
-                                        <td>{{item.NomeAssociazione}}</td>
-                                        <td>{{item.CodiceFiscale}}</td>
-                                        <td>{{item.TipologiaDiAssistenza}}</td>
-                                        <td class="text-center">
-                                            <a ui-sref="associazioni.visualizza_associazione" ng-click="findCodFis(item.CodiceFiscale)"  >
-                                                <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>
-                                            </a>
-                                        </td>
+                        <div class="text-right">
+                            <button class="btn btn-primary btn-sm" ng-click="find()" id="posSearch">{{ "CERCA" |
+                                translate}}</button>
+                        </div>
+                        <div id="posResults" style="display:none;" class="m-t-lg">
 
-                                    </tr>
+                            <div>
+                                <table datatable="ng" dt-column-defs="colonneTabRicercaAssociazioni" dt-options="dtOptionsTabRicercaAssociazioni"
+                                    class="table table-striped table-bordered dataTables-paged">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-4">{{ 'NOME_ASSOCIAZIONE' | translate }}</th>
+                                            <th class="col-md-4">{{ 'CODICE_FISCALE' | translate }}</th>
+                                            <th class="col-md-3">{{ 'TIPOLOGIA_DI_ASSISTENZA' | translate }}</th>
+                                            <th class="col-md-1"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in elencoAssociazioni">
+                                            <td>{{item.NomeAssociazione}}</td>
+                                            <td>{{item.CodiceFiscale}}</td>
+                                            <td>{{item.TipologiaDiAssistenza}}</td>
+                                            <td class="text-center">
+                                                <a ui-sref="associazioni.visualizza_associazione" ng-click="findCodFis(item.CodiceFiscale)">
+                                                    <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>
+                                                </a>
+                                            </td>
 
-                                </tbody>
-                            </table>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="text-right m-t-lg">
+                                <a ui-sref="associazioni.inserimento_associazione" class="btn btn-sm btn-primary">{{
+                                    "INSERISCI_NUOVA_ASSOCIAZIONE" | translate}}</a>
+                            </div>
                         </div>
 
-                        <div class="text-right m-t-lg">
-                            <a ui-sref="associazioni.inserimento_associazione" class="btn btn-sm btn-primary">{{ "INSERISCI_NUOVA_ASSOCIAZIONE" | translate}}</a>
-                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script>
+    <script>
 
-    $('#posSearch').click(function () {
-        $("#posResults").show();
-    });
-</script>
+        $('#posSearch').click(function () {
+            $("#posResults").show();
+        });
+    </script>

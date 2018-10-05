@@ -15,14 +15,24 @@
     cursor: not-allowed;
 }
 
-.text-right{
+.text-right {
     text-align: right;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.btnToggleBlock{
-    width:135px;
+.btnToggleBlock {
+    width: 135px;
+}
+
+.btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default.active[disabled], fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+}
+
+.ui-select {
+    border: 1px solid rgb(229, 230, 231) ;
+    background-color: #EEEEEE;
 }

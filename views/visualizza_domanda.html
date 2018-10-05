@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none;">
-                    <div ng-include="'views/partials/_dati_domanda.html'"></div>
+                    <stato-domanda-component stato-domanda="{{domanda.StatoDomanda}}"></stato-domanda-component>
                 </div>
             </div>
             <!-- ------------------------------------------------------------------------ -->
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class="ibox-content" style="display:none">
-                    <div ng-include="'views/partials/_elenco_documenti.html'"></div>
+                    <documenti-component></documenti-component>
                 </div>
             </div>
             <!-- ------------------------------------------------------------------------ -->
@@ -216,7 +216,9 @@
             <div class="title"><a ng-click="modificaDomanda()">Modifica domanda</a></div>
             <div class="title"><a ng-click="sospendiDomanda()">Sospendi domanda</a></div>
             <div class="title"><a ng-click="revocaDomanda()">Revoca domanda</a></div>
-            <div class="title"><a ng-click="negaDomanda()">Nega domanda</a></div>
+            <div class="title"><a ng-click="revocaDomanda('Annulla')">Annulla revoca domanda</a></div>
+            <div class="title"><a ng-click="negaDomanda()">Negazione domanda</a></div>
+            <div class="title"><a ng-click="negaDomanda('Annulla')">Annulla negazione domanda</a></div>
             <div class="title"><a ng-click="inserisciNuovoVerbale()">Inserisci nuovo verbale</a></div>
             <div class="title"><a ng-click="inserisciNuovaEvidenza()">Inserisci nuova evidenza</a></div>
             <div class="title"><a ng-click="cancellaDomanda()">Cancella domanda</a></div>

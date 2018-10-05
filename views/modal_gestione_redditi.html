@@ -1,0 +1,296 @@
+<!-- <style>
+    .modal-dialog { min-width: 700px;}
+</style> -->
+
+<div id="modaleRedditi" class="inmodal">
+
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'GESTIONE_REDDITI' | translate }}</h4>
+        <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
+    </div>
+
+  
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="col-md-2 form-group">
+                <label>{{ "ANNO" | translate}}</label>
+                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="visDatiAssistito"
+                    class="form-control anno">
+            </div>
+            <div class="col-md-6 form-group"><label>{{ "VALIDO_PER_ANNI_SUCCESSIVI" | translate}}</label>
+                <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visDatiAssistito" class="form-control"
+                    value="Milano"> -->
+                <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.Redditi.ValidoPerAnniSuccessivi">
+                    <i></i>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>{{ "ATTIVO" | translate}}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
+                                    value="Si" name="sesso" ng-readonly="visDatiAssistito" class="form-control">
+                                <i></i>
+                                Si
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
+                                    value="No" name="sesso" ng-readonly="visDatiAssistito" class="form-control">
+                                <i></i>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="panel panel-default m-t-lg">
+            <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoCodificato">
+                {{ 'REDDITI_PERCEPITI_ASSISTITO' | translate }}
+                <div class="panel-toolbox">
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+            </div>
+            <div id="collapseIndirizzoCodificato" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <!-- Nel div sottostante vengono adoperati campi temporanei per caricare la tabella -->
+                    <div class="row">
+                        <!-- --------------------------  -->
+                        <div class="col-md-6 form-group">
+                            <label>Tipologia di Reddito</label>
+
+                            <!-- <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
+                                ng-disabled="visDatiAssistito" class="form-control" required>
+                                <option></option>
+                                <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
+                                <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
+                                <option>Altri redditi da fabbricati</option>
+                                <option>Questi valori verranno caricati dal BackEnd</option>
+                            </select> -->
+
+
+                            <ui-select name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
+                                ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona tipo reddito">{{$select.selected.descrizione}}</ui-select-match>
+                                <ui-select-choices repeat="tipoReddito in tipoRedditi | filter: $select.search">
+                                    <span ng-bind-html="tipoReddito.descrizione | highlight: $select.search"></span>
+                                    <small ng-bind-html="tipoReddito.code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
+
+
+
+
+
+                        </div>
+                        <!-- --------------------------  -->
+                        <div class="col-md-4 form-group">
+                            <label>Valore reddito</label>
+                            <input type="text" name="valoreRedditoAssistito" ng-model="Tmp.ValoreRedditoAssistito"
+                                ng-readonly="visDatiAssistito" class="form-control importo text-right"
+                                style="float:right" ng-currency required>
+                            <p ng-show="userForm.valoreRedditoAssistito.$invalid && !userForm.valoreRedditoAssistito.$pristine"
+                                class="help-block">
+                                Campo obbligatorio.</p>
+                        </div>
+                        <!-- --------------------------  -->
+                        <div class="col-md-2">
+                            <label></label>
+                            <button style="margin-top:22px" class="btn btn-primary" ng-click="">
+                                {{'OK' | translate }}
+                            </button>
+                        </div>
+
+                    </div>
+                    <!-- qui finisce il caricamento tabella -->
+
+                    <!-- ---------- -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table datatable="ng" dt-options="dtOptions" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>{{'TIPOLOGIA_DI_REDDITO' | translate}} </th>
+                                        <th>{{'VALORE_REDDITO' | translate}} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
+                                    <tr ng-repeat="item in datiAssistito.Redditi[$index].DettagliAssistito">
+                                        <td>
+                                            {{item.Tipologia}}
+                                        </td>
+                                        <td class="text-right">{{item.Valore | currency : "€" }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ---------- -->
+                    <div class="row">
+                        <div class="col-md-8 form-group">
+                            <label>{{ "NESSUN_REDDITO_PERCEPITO" | translate}}</label>
+                            <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.NessunRedditoPercepito">
+                                <i></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ "TOTALE" | translate}}</label>
+                            <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
+                                ng-readonly="visDatiAssistito" class="form-control text-right importo"
+                                ng-currency disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="panel panel-default m-t-lg">
+            <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoNonCodificato">
+                {{ 'REDDITI_PERCEPITI_CONIUGE' | translate }}
+                <div class="panel-toolbox">
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+            </div>
+            <div id="collapseIndirizzoNonCodificato" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="panel-body">
+
+                        <!-- Nel div sottostante vengono adoperati campi temporanei per caricare la tabella -->
+                        <div class="row">
+                            <!-- --------------------------  -->
+                            <div class="col-md-6 form-group">
+                                <label>Tipologia di Reddito</label>
+                                <!-- <select class="form-control m-b" name="tipologiaDiRedditoAssistito" ng-model="Tmp.TipologiaDiRedditoAssistito"
+                                    ng-disabled="visDatiAssistito" class="form-control" required>
+                                    <option></option>
+                                    <option>Reddito da lavoro dipendente,lavoro autonomo,di impresa</option>
+                                    <option>Rendita catastale da fabbricati relativa alla prima casa d'abitazione</option>
+                                    <option>Altri redditi da fabbricati</option>
+                                    <option>Questi valori verranno caricati dal BackEnd</option>
+                                </select> -->
+
+                                <ui-select name="tipologiaDiRedditoConiuge" ng-model="Tmp.TipologiaDiRedditoConiuge"
+                                    ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                    <ui-select-match placeholder="Seleziona tipo reddito">{{$select.selected.descrizione}}</ui-select-match>
+                                    <ui-select-choices repeat="tipoReddito in tipoRedditi | filter: $select.search">
+                                        <span ng-bind-html="tipoReddito.descrizione | highlight: $select.search"></span>
+                                        <small ng-bind-html="tipoReddito.code | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                </ui-select>
+
+
+
+                            </div>
+                            <!-- --------------------------  -->
+                            <div class="col-md-4 form-group">
+                                <label>Valore reddito</label>
+                                <input type="text" name="valoreRedditoConiuge" ng-model="Tmp.ValoreRedditoConiuge"
+                                    ng-readonly="visDatiAssistito" class="form-control text-right importo"
+                                    ng-currency required>
+                                <p ng-show="userForm.valoreRedditoConiuge.$invalid && !userForm.valoreRedditoConiuge.$pristine"
+                                    class="help-block">
+                                    Campo obbligatorio.</p>
+                            </div>
+                            <!-- --------------------------  -->
+                            <div class="col-md-2">
+                                <label></label>
+                                <button style="margin-top:22px" class="btn btn-primary" ng-click="">
+                                    {{'OK' | translate }}
+                                </button>
+                            </div>
+
+                        </div>
+                        <!-- qui finisce il caricamento tabella -->
+
+                        <!-- ---------- -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table datatable="ng" dt-options="dtOptions" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>{{'TIPOLOGIA_DI_REDDITO' | translate}} </th>
+                                            <th>{{'VALORE_REDDITO' | translate}} </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
+                                        <tr ng-repeat="item in datiAssistito.Redditi[$index].DettagliConiuge">
+                                            <td>
+                                                {{item.Tipologia}}
+                                            </td>
+                                            <td class="text-right">{{item.Valore | currency : "€"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ---------- -->
+                        <div class="row">
+                            <div class="col-md-8 form-group">
+                                <label>{{ "NESSUN_REDDITO_PERCEPITO" | translate}}</label>
+                                <div class="checkbox"><input icheck type="checkbox" ng-model="xxx"> <i></i>
+                                </div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>{{ "TOTALE" | translate}}</label>
+                                <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
+                                    ng-readonly="visDatiAssistito" class="form-control" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="modalSave('Redditi salvati!','Tutti i redditi sono stati salvati correttamente.')">{{
+            'SALVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalClose()">{{ 'CHIUDI' | translate
+            }}</button>
+    </div>
+</div>
+
+
+<script>
+    // Custom scripts
+    $(document).ready(function () {
+
+        $('.panel').click(function () {
+            var cl = $(this).find('.panel-heading');
+            var ibox = cl.closest('div.panel-toolbox');
+            var button = cl.find('i');
+            var content = ibox.find('div.panel-collapse');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        });
+
+    })
+</script>

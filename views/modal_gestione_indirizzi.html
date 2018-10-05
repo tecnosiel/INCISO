@@ -1,0 +1,413 @@
+<!-- <style>
+    .modal-dialog { min-width: 700px;}
+</style> -->
+<style>
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #e7eaec;
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: middle;
+    }
+    .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color:#F5F5F5;
+    }
+    .headcol {
+    position:absolute;
+	width:2em;
+	left:0;
+    }
+</style>
+
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'GESTIONE_INDIRIZZI' | translate }}</h4>
+        <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
+    </div>
+    <div class="modal-body">
+        <!-- --------- -->
+        <div ng-if="Indirizzi">
+
+            <table class="table table-bordered table-striped" style="display: block; overflow-x: auto; white-space: nowrap;">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Tipo</th>
+                        <th>Codificato</th>
+                        <th>Nazione</th>
+                        <th>Comune</th>
+                        <th>C.A.P.</th>
+                        <th>Frazione</th>
+                        <th>Via</th>
+                        <th>Civico</th>
+                        <th>Località</th>
+                        <th>Maso</th>
+                        <th>Indirizzo Completo</th>
+                        <!-- <th></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in Indirizzi">
+                        <td>
+                            <input icheck type="radio" ng-model="item.UsaIndirizzo" name="UsaIndirizzo" value="Si"
+                                ng-checked="item.UsaIndirizzo=='Si'"> <i></i>
+                        </td>
+                        <td>{{item.Tipo}}</td>
+                        <td>Si</td>
+                        <td>{{item.Nazione}}</td>
+                        <td>{{item.Comune}}</td>
+                        <td>{{item.Cap}}</td>
+                        <td>{{item.Frazione}}</td>
+                        <td>{{item.Via}}</td>
+                        <td>{{item.Civico}}</td>
+                        <td>{{item.Localita}}</td>
+                        <td>{{item.Maso}}</td>
+                        <td>{{item.IndirizzoCompleto}}</td>
+                        <!-- <td class="text-center">
+                        <div class="checkbox">
+                            <input icheck type="radio" ng-model="item.UsaIndirizzo" name="UsaIndirizzo" value="Si"
+                                ng-checked="item.UsaIndirizzo=='Si'"> <i></i></div>
+                    </td> -->
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- --------- -->
+            <div class="row text-right">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary" id="anagSearch" ng-click="usaIndirizzo()">
+                        {{'USA_INDIRIZZO'| translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- --------- -->
+
+        <div class="row">
+
+            <!-- ---------------- -->
+
+            <div class="col-md-4 form-group">
+                <label>{{ "TIPO_INDIRIZZO" | translate}}</label>
+                <select class="form-control m-b" name="TipoIndirizzo" ng-model="Tmp.TipoIndirizzo" ng-disabled="visDatiAssistito"
+                    class="form-control">
+                    <option></option>
+                    <option>Domicilio</option>
+                    <option>Residenza</option>
+                    <option>Indirizzo principale (società)</option>
+                    <option>Indirizzo secondario (società)</option>
+                    <option>Altro indirizzo</option>
+                </select>
+            </div>
+
+            <!-- ---------------- -->
+
+            <div class="col-md-4 form-group">
+                <label>{{ "ATTUALE" | translate}}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck name="IndirizzoAttuale" ng-model="Tmp.IndirizzoAttuale" type="radio"
+                                    value="Si" ng-readonly="visDatiAssistito" ng-checked="datiAssistito.IndirizzoAttuale=='Si'"
+                                    class="form-control">
+                                <i></i>
+                                Si
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck name="IndirizzoAttuale" ng-model="Tmp.IndirizzoAttuale" type="radio"
+                                    value="No" name="IndirizzoAttuale" ng-readonly="visDatiAssistito" ng-checked="datiAssistito.IndirizzoAttuale=='No'"
+                                    class="form-control">
+                                <i></i>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---------------- -->
+
+            <div class="col-md-4 form-group">
+                <label>{{ "ATTIVO" | translate}}</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck name="IndirizzoAttivo" ng-model="Tmp.IndirizzoAttivo" type="radio" value="Si"
+                                    ng-readonly="visDatiAssistito" ng-checked="Tmp.IndirizzoAttivo=='Si'" class="form-control">
+                                <i></i>
+                                Si
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input icheck name="IndirizzoAttivo" ng-model="Tmp.IndirizzoAttivo" type="radio" value="No"
+                                    ng-readonly="visDatiAssistito" ng-checked="datiAssistito.IndirizzoAttivo=='No'"
+                                    class="form-control">
+                                <i></i>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- --------- -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoCodificato">
+                {{ 'INDIRIZZO_CODIFICATO' | translate }}
+                <div class="panel-toolbox">
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+            </div>
+            <div id="collapseIndirizzoCodificato" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="col-md-4 form-group">
+
+                            <label>{{ "NAZIONE" | translate}}</label>
+
+                            <!-- <select name="indirizzoCodificatoNazione" ng-model="Tmp.IndirizzoCodificato.Nazione"
+                                ng-disabled="visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
+                                class="form-control" required>
+                                <option value="">Seleziona nazione</option>
+                            </select> -->
+
+                            <ui-select name="indirizzoCodificatoNazione" ng-model="Tmp.IndirizzoCodificato.Nazione"
+                                ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona nazione">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-choices repeat="nazione in nazioni | filter: $select.search">
+                                    <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
+                                    <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
+                        </div>
+
+                        <div class="col-md-4 form-group">
+
+                            <label>{{ "COMUNE" | translate}}</label>
+
+                            <!-- <select name="indirizzoCodificatoComune" ng-model="Tmp.IndirizzoCodificato.Comune"
+                                ng-disabled="visDatiAssistito" ng-options="comune.name for comune in comuni"
+                                class="form-control" required>
+                                <option value="">Seleziona comune</option>
+                            </select> -->
+
+                            <ui-select name="indirizzoCodificatoComune" ng-model="Tmp.IndirizzoCodificato.Comune"
+                                ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona comune">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-choices repeat="comune in comuni | filter: $select.search">
+                                    <span ng-bind-html="comune.nome | highlight: $select.search"></span>
+                                    <small ng-bind-html="comune.code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label>{{ "CAP" | translate}}</label>
+                            <input name="indirizzoCodificatoCap" type="text" ng-model="Tmp.IndirizzoCodificato.Cap"
+                                ng-readonly="visDatiAssistito" class="form-control intero">
+                        </div>
+
+                        <div class="col-md-4 form-group">
+
+                            <label>{{ "FRAZIONE" | translate}}</label>
+
+                            <!-- <select name="indirizzoCodificatoFrazione" ng-model="Tmp.IndirizzoCodificato.Frazione"
+                                ng-disabled="visDatiAssistito" ng-options="frazione.name for frazione in frazioni"
+                                class="form-control" required>
+                                <option value="">Seleziona frazione</option>
+                            </select> -->
+
+                            <ui-select name="indirizzoCodificatoFrazione" ng-model="Tmp.IndirizzoCodificato.Frazione"
+                                ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona frazione">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-choices repeat="frazione in frazioni | filter: $select.search">
+                                    <span ng-bind-html="frazione.nome | highlight: $select.search"></span>
+                                    <small ng-bind-html="frazione.code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
+                        </div>
+
+                        <div class="col-md-8 form-group">
+
+                            <label>{{ "VIA" | translate}}</label>
+
+                            <!-- <select name="indirizzoCodificatoVia" ng-model="Tmp.IndirizzoCodificato.Via" ng-disabled="visDatiAssistito"
+                                ng-options="via.name for via in vie" class="form-control" required>
+                                <option value="">Seleziona via</option>
+                            </select> -->
+
+                            <ui-select name="indirizzoCodificatoVia" ng-model="Tmp.IndirizzoCodificato.Via" ng-disabled="visDatiAssistito"
+                                title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona via">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-choices repeat="via in vie | filter: $select.search">
+                                    <span ng-bind-html="via.nome | highlight: $select.search"></span>
+                                    <small ng-bind-html="via.code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --------- -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoNonCodificato">
+                {{ 'INDIRIZZO_NON_CODIFICATO' | translate }}
+                <div class="panel-toolbox">
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+            </div>
+            <div id="collapseIndirizzoNonCodificato" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>{{ "LOCALITA" | translate}}</label>
+                            <input name="indirizzoNonCodificatoLocalita" type="text" ng-model="Tmp.IndirizzoNonCodificato.Localita"
+                                ng-readonly="visDatiAssistito" class="form-control intero">
+
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ "CAP" | translate}}</label>
+                            <input name="indirizzoNonCodificatoCap" type="text" ng-model="Tmp.IndirizzoNonCodificato.Cap"
+                                ng-readonly="visDatiAssistito" class="form-control intero">
+
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ "MASO" | translate}}</label>
+                            <input name="indirizzoNonCodificatoMaso" type="text" ng-model="Tmp.IndirizzoNonCodificato.Maso"
+                                ng-readonly="visDatiAssistito" class="form-control">
+
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <label>{{ "VIA" | translate}}</label>
+                            <input name="indirizzoNonCodificatoVia" type="text" ng-model="Tmp.IndirizzoNonCodificato.Via"
+                                ng-readonly="visDatiAssistito" class="form-control intero">
+
+                            <!-- <select name="indirizzoNonCodificatoVia" ng-model="Tmp.IndirizzoNonCodificato.Via"
+                                ng-disabled="visDatiAssistito" ng-options="via.name for via in vie" class="form-control"
+                                required>
+                                <option value="">Seleziona via</option>
+                            </select> -->
+
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>{{ "INDIRIZZO_COMPLETO" | translate}}</label>
+                            <input name="indirizzoNonCodificatoIndirizzoCompleto" type="text" ng-model="Tmp.IndirizzoNonCodificato.IndirizzoCompleto"
+                                ng-readonly="visDatiAssistito" class="form-control">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --------- -->
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label>{{ "N_CIVICO" | translate}}</label>
+                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" placeholder="Seleziona civico"
+                    ng-readonly="visDatiAssistito" class="form-control">
+            </div>
+            <!-- <div class="col-md-4 form-group">
+                <label>{{ "INIZIO_VALIDITA" | translate}}</label>
+                <input name="datiAssistito.InizioValidita" type="text" ng-model="Tmp.InizioValidita" ng-readonly="visDatiAssistito"
+                    class="form-control js-date">
+
+            </div> -->
+
+
+            <div class="col-md-4 form-group">
+                <label>{{ "INIZIO_VALIDITA" | translate}}</label>
+                <div class="input-group date">
+                    <input type="text" class="form-control js-date" ng-model="Tmp.InizioValidita" placeholder="Seleziona inizio validità">
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- <div class="col-md-4 form-group">
+                <label>{{ "FINE_VALIDITA" | translate}}</label>
+                <input name="datiAssistito.FineValidita" type="text" ng-model="Tmp.FineValidita" ng-readonly="visDatiAssistito"
+                    class="form-control js-date">
+            </div> -->
+
+            <div class="col-md-4 form-group">
+                <label>{{ "FINE_VALIDITA" | translate}}</label>
+                <div class="input-group date">
+                    <input type="text" class="form-control js-date" ng-model="Tmp.FineValidita" placeholder="Seleziona fine validità">
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="modalSave('Indirizzi salvati!','Tutti gli indirizzi sono stati salvati correttamente.')">{{
+            'SALVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalClose()">{{ 'CHIUDI' | translate }}</button>
+    </div>
+</div>
+
+<script>
+    // Custom scripts
+    $(document).ready(function () {
+
+        $('.panel').click(function () {
+            var cl = $(this).find('.panel-heading');
+            var ibox = cl.closest('div.panel-toolbox');
+            var button = cl.find('i');
+            var content = ibox.find('div.panel-collapse');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        });
+
+
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
+
+
+    })
+</script>

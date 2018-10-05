@@ -4,7 +4,7 @@
  *
  */
 
-function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
+function visualizzaDomandaCtrl($scope, $uibModal) {
   $scope.camillo =
     "<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>01/01/2006</label><br>Importo da recuperare: <label>549,00 €</label></div>";
 
@@ -36,10 +36,47 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       }
     });
   };
-  sospendi = () => {
-    $scope.domanda.StatoDomanda = "Sospesa";
+
+  self = this;
+
+  $scope.showModal = function(win) {
+
+    this.randomMove = function() {
+      let risultato = null;
+      // clsPopup
+      switch (Math.round(3 * Math.random())) {
+        case 0:
+          risultato = "animated fadeInDownBig";
+          break;
+        case 1:
+          risultato = "animated flipInX";
+          break;
+        case 2:
+          risultato = "animated flipInY";
+          break;
+        case 3:
+          risultato = "animated bounceInLeft";
+          break;
+      }
+      return risultato;
+    };
+
+    // http://www.marcorpsa.com/ee/t1891.html
+
+    self.modalInstance = $uibModal.open({
+      templateUrl: win.template,
+      controller: win.controller,
+      size: win.size,
+      scope: $scope,
+      windowClass: this.randomMove()
+    });
   };
+
+  // ------------------------
   $scope.sospendiDomanda = function() {
+
+    $scope.domanda.StatoDomanda = "Sospesa";
+
     swal({
       title: "Desideri sospendere la domanda?",
       // text:
@@ -49,18 +86,26 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $scope.domanda.StatoDomanda = "Sospesa";
-        $scope.$apply();
-        swal("La domanda è stata sospesa!", {
-          icon: "success"
+        this.showModal({
+          template: "./../views/modal_sospensione_domanda.html",
+          controller: "modalSospensioneDomandaCtrl",
+          size: "lg"
         });
+        // $scope.domanda.StatoDomanda = "Sospesa";
+        // $scope.$apply();
+        // swal("La domanda è stata sospesa!", {
+        //   icon: "success"
+        // });
       } else {
         swal("La domanda non è stata sospesa!");
       }
     });
   };
+  // ------------------------
+  $scope.revocaDomanda = function(cType) {
 
-  $scope.revocaDomanda = function() {
+    $scope.Type = cType;
+
     $scope.domanda.StatoDomanda = "Revocata";
 
     swal({
@@ -72,18 +117,28 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $scope.domanda.StatoDomanda = "Revocata";
-        $scope.$apply();
-        swal("La domanda è stata revocata!", {
-          icon: "success"
+        this.showModal({
+          template: "./../views/modal_revoca_domanda.html",
+          controller: "modalRevocaDomandaCtrl",
+          size: "lg"
         });
+        // $scope.domanda.StatoDomanda = "Revocata";
+        // $scope.$apply();
+        // swal("La domanda è stata revocata!", {
+        //   icon: "success"
+        // });
       } else {
-        swal("La domanda non è stata modificata!");
+        swal("La domanda non è stata revocata!");
       }
     });
   };
 
-  $scope.negaDomanda = function() {
+  $scope.negaDomanda = function(cType) {
+
+    $scope.Type = cType;
+
+    $scope.domanda.StatoDomanda = "Negata";
+
     swal({
       title: "Desideri negare la domanda?",
       // text:
@@ -93,11 +148,18 @@ function visualizzaDomandaCtrl($scope, $rootScope, $stateParams) {
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        $scope.domanda.StatoDomanda = "Negata";
-        $scope.$apply();
-        swal("La domanda è stata negata!", {
-          icon: "success"
+  
+        this.showModal({
+          template: "./../views/modal_negazione_domanda.html",
+          controller: "modalNegazioneDomandaCtrl",
+          size: "lg"
         });
+  
+        // $scope.domanda.StatoDomanda = "Negata";
+        // $scope.$apply();
+        // swal("La domanda è stata negata!", {
+        //   icon: "success"
+        // });
       } else {
         swal("La domanda non è stata modificata!");
       }

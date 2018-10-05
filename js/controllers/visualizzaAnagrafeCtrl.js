@@ -12,7 +12,6 @@ function visualizzaAnagrafeCtrl(
   $state,
   $stateParams
 ) {
-
   // $scope.state = $state.current;
   // $scope.params = $stateParams;
 
@@ -52,24 +51,47 @@ function visualizzaAnagrafeCtrl(
       $scope.Indirizzi = Object.assign({}, $scope.datiAssistito.Indirizzi);
     }
 
+    // Math.random() genera un numero casuale compreso fra 0 e 1,
+    // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
+    // e poi arrotondarne il risultato.
+
+    this.randomMove = function() {
+      let risultato = null;
+      switch (Math.round(3 * Math.random())) {
+        case 0:
+          risultato = "clsPopup";
+          break;
+        case 1:
+          risultato = "animated flipInX";
+          break;
+        case 2:
+          risultato = "animated flipInY";
+          break;
+        case 3:
+          risultato = "animated bounceInLeft";
+          break;
+      }
+      return risultato;
+    };
+
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
-      templateUrl: "./../views/gestione_indirizzi.html",
+      templateUrl: "./../views/modal_gestione_indirizzi.html",
       controller: "modalIndirizziCtrl",
       size: "lg",
       scope: $scope,
-      windowClass: "animated flipInY"
+      windowClass: this.randomMove()
     });
   };
 
   $scope.creaNuovoReddito = function($index) {
     $scope.$index = $index;
     self.modalInstance = $uibModal.open({
-      templateUrl: "./../views/gestione_redditi.html",
+      templateUrl: "./../views/modal_gestione_redditi.html",
       controller: "modalRedditiCtrl",
       size: "lg",
       scope: $scope,
-      windowClass: "animated flipInY"
+      windowClass: this.randomMove()
     });
   };
 
@@ -91,7 +113,7 @@ function visualizzaAnagrafeCtrl(
     });
   };
 
-  $scope.deleteIndirizzo = function() {
+  $scope.cancellaIndirizzo = function() {
     swal({
       title: "Sei sicuro?",
       text: "Una volta cancellato, non sarà possibile recuperarlo!",

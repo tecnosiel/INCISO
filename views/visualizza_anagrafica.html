@@ -337,7 +337,7 @@
                                         <td style="font-size: 18px; text-align: center">
                                             <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssistito}"><i
                                                     class="fa fa-pencil"></i></a>
-                                            <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="deleteIndirizzo()"><i
+                                            <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="cancellaIndirizzo()"><i
                                                     class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
@@ -1056,7 +1056,7 @@
                     <h4 class="modal-title">Documenti per fascicolo</h4>
                 </div>
                 <div class="modal-body">
-                    <div ng-include="'views/partials/_elenco_documenti.html'"></div>
+                    <documenti-component></documenti-component>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
