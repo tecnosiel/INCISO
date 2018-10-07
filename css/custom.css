@@ -32,7 +32,13 @@
     border-color: #EEEEEE;
 }
 
+/* problema background color e bordo in ui-select */
 .ui-select {
     border: 1px solid rgb(229, 230, 231) ;
     background-color: #EEEEEE;
+}
+
+/* problema select nell'ordinamento tabelle: appaiono pulsanti di colore gray: li nascondo*/
+table.dataTable thead .sorting:after {
+    font-size: 0;
 }
