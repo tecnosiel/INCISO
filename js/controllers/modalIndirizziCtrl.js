@@ -359,7 +359,7 @@ function modalIndirizziCtrl($scope, $rootScope, $http) {
   };
 
   $scope.usaIndirizzo = function() {
-    var xxx = $scope.datiAssistito.Indirizzi.find(item => {
+    var xxx = $scope.datiAssistito.Indirizzi.find(function(item) {
       return item.UsaIndirizzo === "Si";
     });
     if (xxx) {

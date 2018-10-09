@@ -19,15 +19,8 @@ function ricercaController($scope, DTOptionsBuilder, httpServices, $timeout) {
     );
   };
 
-  this.findCodFis = function(cCodFis, $event) {
-    this.currentElement = $event.target;
-    // debugger;
-    if (this.openElement) {
-      // this.openElement.click();
-    }
-
-    // this.openElement = this.currentElement;
-
+  this.findCodFis = function(cCodFis) {
+debugger;
     this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis

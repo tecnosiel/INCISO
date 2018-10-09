@@ -29,7 +29,7 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
         $scope.$state.go("domande.domanda");
       } else {
@@ -40,13 +40,13 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
   self = this;
 
   $scope.showModal = function(win) {
-
     this.randomMove = function() {
       let risultato = null;
+
       // clsPopup
-      switch (Math.round(3 * Math.random())) {
+      switch (Math.round(5 * Math.random())) {
         case 0:
-          risultato = "animated fadeInDownBig";
+          risultato = "clsPopup";
           break;
         case 1:
           risultato = "animated flipInX";
@@ -55,9 +55,16 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
           risultato = "animated flipInY";
           break;
         case 3:
-          risultato = "animated bounceInLeft";
+          risultato = "animated fadeInLeftBig";
+          break;
+        case 4:
+          risultato = "animated fadeInRightBig";
+          break;
+        case 5:
+          risultato = "animated rotateIn";
           break;
       }
+
       return risultato;
     };
 
@@ -74,9 +81,8 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
 
   // ------------------------
   $scope.sospendiDomanda = function() {
-
     $scope.domanda.StatoDomanda = "Sospesa";
-
+    var self = this;
     swal({
       title: "Desideri sospendere la domanda?",
       // text:
@@ -84,9 +90,9 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
-        this.showModal({
+        self.showModal({
           template: "./../views/modal_sospensione_domanda.html",
           controller: "modalSospensioneDomandaCtrl",
           size: "lg"
@@ -103,10 +109,11 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
   };
   // ------------------------
   $scope.revocaDomanda = function(cType) {
-
     $scope.Type = cType;
 
     $scope.domanda.StatoDomanda = "Revocata";
+
+    var self = this;
 
     swal({
       title: "Desideri revocare la domanda?",
@@ -115,9 +122,9 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
-        this.showModal({
+        self.showModal({
           template: "./../views/modal_revoca_domanda.html",
           controller: "modalRevocaDomandaCtrl",
           size: "lg"
@@ -134,10 +141,11 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
   };
 
   $scope.negaDomanda = function(cType) {
-
     $scope.Type = cType;
 
     $scope.domanda.StatoDomanda = "Negata";
+
+    var self = this;
 
     swal({
       title: "Desideri negare la domanda?",
@@ -146,15 +154,14 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
-  
-        this.showModal({
+        self.showModal({
           template: "./../views/modal_negazione_domanda.html",
           controller: "modalNegazioneDomandaCtrl",
           size: "lg"
         });
-  
+
         // $scope.domanda.StatoDomanda = "Negata";
         // $scope.$apply();
         // swal("La domanda è stata negata!", {
@@ -185,7 +192,7 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
         $scope.domanda.StatoDomanda = "Cancellata";
         $scope.$apply();

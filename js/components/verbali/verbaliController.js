@@ -29,10 +29,11 @@ function verbaliController($scope, verbaliServices, $uibModal) {
 
     this.randomMove = function() {
       let risultato = null;
+
       // clsPopup
-      switch (Math.round(3 * Math.random())) {
+      switch (Math.round(5 * Math.random())) {
         case 0:
-          risultato = "animated fadeInDownBig";
+          risultato = "clsPopup";
           break;
         case 1:
           risultato = "animated flipInX";
@@ -41,7 +42,13 @@ function verbaliController($scope, verbaliServices, $uibModal) {
           risultato = "animated flipInY";
           break;
         case 3:
-          risultato = "animated bounceInLeft";
+          risultato = "animated fadeInLeftBig";
+          break;
+        case 4:
+          risultato = "animated fadeInRightBig";
+          break;
+        case 5:
+          risultato = "animated rotateIn";
           break;
       }
       return risultato;
@@ -70,13 +77,13 @@ function verbaliController($scope, verbaliServices, $uibModal) {
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
         // $scope.domanda.StatoDomanda = "Cancellata";
         // $scope.$apply();
         swal("Il verbale è stato cancellato!", {
           icon: "success"
-        }).then(() => {
+        }).then(function() {
           // $state.go("posizione.visualizza_anagrafica", {
           //   datiAssistito: $scope.datiAssistito
           // });

@@ -57,7 +57,9 @@ function visualizzaAnagrafeCtrl(
 
     this.randomMove = function() {
       let risultato = null;
-      switch (Math.round(3 * Math.random())) {
+
+      // clsPopup
+      switch (Math.round(5 * Math.random())) {
         case 0:
           risultato = "clsPopup";
           break;
@@ -68,7 +70,13 @@ function visualizzaAnagrafeCtrl(
           risultato = "animated flipInY";
           break;
         case 3:
-          risultato = "animated bounceInLeft";
+          risultato = "animated fadeInLeftBig";
+          break;
+        case 4:
+          risultato = "animated fadeInRightBig";
+          break;
+        case 5:
+          risultato = "animated rotateIn";
           break;
       }
       return risultato;
@@ -120,7 +128,7 @@ function visualizzaAnagrafeCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
         swal("cancellato!", {
           icon: "success"

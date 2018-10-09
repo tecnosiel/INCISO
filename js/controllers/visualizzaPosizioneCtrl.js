@@ -40,13 +40,13 @@ function visualizzaPosizioneCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
         // $scope.domanda.StatoDomanda = "Cancellata";
         // $scope.$apply();
         swal("La posizione è stata cancellata!", {
           icon: "success"
-        }).then(() => {
+        }).then(function() {
           $state.go("posizione.visualizza_anagrafica", {
             datiAssistito: $scope.datiAssistito
           });
@@ -64,13 +64,13 @@ function visualizzaPosizioneCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(willDelete => {
+    }).then(function(willDelete) {
       if (willDelete) {
         // $scope.domanda.StatoDomanda = "Cancellata";
         // $scope.$apply();
         swal("La domanda è stata cancellata!", {
           icon: "success"
-        }).then(() => {
+        }).then(function(){
           // $state.go("posizione.visualizza_anagrafica", {
           //   datiAssistito: $scope.datiAssistito
           // });
