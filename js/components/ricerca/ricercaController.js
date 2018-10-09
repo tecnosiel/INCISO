@@ -4,8 +4,7 @@
  *
  */
 
-function ricercaController(DTOptionsBuilder, httpServices) {
-
+function ricercaController($scope, DTOptionsBuilder, httpServices, $timeout) {
   this.findCognome = "";
   this.findNome = "";
   this.findCodiceFiscale = "";
@@ -20,16 +19,30 @@ function ricercaController(DTOptionsBuilder, httpServices) {
     );
   };
 
-  this.findCodFis = function(cCodFis) {
+  this.findCodFis = function(cCodFis, $event) {
+    this.currentElement = $event.target;
+    // debugger;
+    if (this.openElement) {
+      // this.openElement.click();
+    }
+
+    // this.openElement = this.currentElement;
+
     this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
     );
+   
   };
 
   // https://www.datatables.net/reference/option/
   this.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
     .withOption("lengthChange", false);
-
 }
+
+//da verificare
+// .withOption("responsive", true)
+// .withOption("scrollX", "auto")
+// .withOption("scrollCollapse", true)
+// .withOption("autoWidth", false);

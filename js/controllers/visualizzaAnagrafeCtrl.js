@@ -140,6 +140,34 @@ function visualizzaAnagrafeCtrl(
     });
   };
 
+  $scope.permessi = [
+    { nome: "Permesso tipo 1341355", code: "AF" },
+    { nome: "Permesso tipo 22434452322", code: "AX" },
+    { nome: "Permesso tipo 3333433", code: "AL" },
+    { nome: "Permesso tipo 4444", code: "DZ" },
+    { nome: "Permesso tipo 12341", code: "AS" },
+    { nome: "Permesso tipo 23432312", code: "AD" },
+    { nome: "Permesso tipo 23423", code: "AO" },
+    { nome: "Permesso tipo 3242333", code: "AI" },
+    { nome: "Permesso tipo 3242323", code: "AQ" },
+    { nome: "Permesso tipo 3333333", code: "AG" },
+    { nome: "Permesso tipo 234234213", code: "AR" }
+  ];
+
+  $scope.cittadinanze = [
+    { nome: "Cittadinanza tipo 1341355", code: "AF" },
+    { nome: "Cittadinanza tipo 22434452322", code: "AX" },
+    { nome: "Cittadinanza tipo 3333433", code: "AL" },
+    { nome: "Cittadinanza tipo 4444", code: "DZ" },
+    { nome: "Cittadinanza tipo 12341", code: "AS" },
+    { nome: "Cittadinanza tipo 23432312", code: "AD" },
+    { nome: "Cittadinanza tipo 23423", code: "AO" },
+    { nome: "Cittadinanza tipo 3242333", code: "AI" },
+    { nome: "Cittadinanza tipo 3242323", code: "AQ" },
+    { nome: "Cittadinanza tipo 3333333", code: "AG" },
+    { nome: "Cittadinanza tipo 234234213", code: "AR" }
+  ];
+
   $scope.editLiquidazione = function() {
     swal({
       title: "Edit Liquidazione!",

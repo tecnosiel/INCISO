@@ -228,17 +228,31 @@
                     <div id="collapseAltriDati" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-4 form-group">
+
+                                <!-- <div class="col-md-4 form-group">
                                     <label>Cittadinanza</label>
-                                    <!-- <input type="text" ng-model="datiAssistito.Cittadinanza" ng-readonly="visDatiAssistito"
-                                        class="form-control"> -->
                                     <select name="cittadinanza" ng-model="datiAssistito.Cittadinanza" ng-disabled="visDatiAssistito"
                                         ng-options="cittadinanza.name for cittadinanza in cittadinanze" class="form-control"
                                         required>
                                         <option value="">Seleziona una cittadinanza</option>
                                     </select>
 
+                                </div> -->
+
+                                <div class="col-md-4 form-group">
+                                    <label>Cittadinanza</label>
+                                    <ui-select name="cittadinanza" ng-model="datiAssistito.Cittadinanza"
+                                        ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                        <ui-select-match placeholder="Seleziona cittadinanza">{{$select.selected.nome}}</ui-select-match>
+                                        <ui-select-choices repeat="cittadinanza in cittadinanze | filter: $select.search">
+                                            <span ng-bind-html="cittadinanza.nome | highlight: $select.search"></span>
+                                            <small ng-bind-html="cittadinanza.code | highlight: $select.search"></small>
+                                        </ui-select-choices>
+                                    </ui-select>
+
                                 </div>
+
+
                                 <div class="col-md-4 form-group">
                                     <label>Extracomunitario</label>
 
@@ -271,19 +285,59 @@
                             </div>
                             <h3 class="m-t-lg">Permesso di soggiorno</h3>
                             <div class="row">
-                                <div class="col-md-4 form-group"><label>Tipo permesso</label>
+
+                                <!-- <div class="col-md-4 form-group"><label>Tipo permesso</label>
                                     <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
-                                        ng-readonly="visDatiAssistito" class="form-control"></div>
+                                        ng-readonly="visDatiAssistito" class="form-control">
+                                </div> -->
+
+                                <div class="col-md-4 form-group">
+                                    <label>Tipo permesso</label>
+                                    <ui-select name="permessoDiSoggiornoTipoPermesso" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
+                                        ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                        <ui-select-match placeholder="Seleziona permesso">{{$select.selected.nome}}</ui-select-match>
+                                        <ui-select-choices repeat="permesso in permessi | filter: $select.search">
+                                            <span ng-bind-html="permesso.nome | highlight: $select.search"></span>
+                                            <small ng-bind-html="permesso.code | highlight: $select.search"></small>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                </div>
+
+
+
+                                <!-- <div class="col-md-4 form-group">
+                                    <label>Data rilascio</label>
+                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
+                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div> -->
 
                                 <div class="col-md-4 form-group">
                                     <label>Data rilascio</label>
-                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
-                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div>
+                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
+                                        <input type="text" name="permessoDiSoggiornoDataRilascio" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
+                                            ng-readonly="visDatiAssistito" class="form-control js-date" required>
+                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-md-4 form-group">
+                                    <label>Valido fino al</label>
+                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
+                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div> -->
 
                                 <div class="col-md-4 form-group">
                                     <label>Valido fino al</label>
-                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
-                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div>
+                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
+                                        <input type="text" name="permessoDiSoggiornoValidoFinoAl" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
+                                            ng-readonly="visDatiAssistito" class="form-control js-date" required>
+                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
                             </div>
                             <h3 class="m-t-lg">Riferimenti di contatto</h3>
                             <div class="row">

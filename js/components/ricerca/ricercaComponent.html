@@ -102,8 +102,13 @@
                 <td>{{item.Cognome}}</td>
                 <td>{{item.Nome}}</td>
                 <td>
-                    <a ng-click="$ctrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top" template-url="/views/partials/_popover_anagrafica"
+                    <a ng-click="$ctrl.findCodFis(item.CodiceFiscale, $event)"
+                        angular-popover  direction="top" close-on-click="true" template-url="/views/partials/_popover_anagrafica"
                         style="position: relative; z-index: 100;">{{item.CodiceFiscale}}</a>
+
+                    <!-- <a uib-popover-template="'/views/partials/_popover_anagrafica'" >{{item.CodiceFiscale}}</a> -->
+
+
                 </td>
                 <td>{{item.DataDiNascita}}</td>
                 <td>{{item.DataDiDecesso}}</td>
