@@ -4,6 +4,168 @@
  */
 mochDbTable = function(table) {
   // ---------------------------------------------------
+  // POSIZIONI
+  // ---------------------------------------------------
+  let tabPosizioni = [
+    {
+      CodiceFiscale: "LFNCLL60D03E026T",
+      Cognome: "Alfano",
+      Nome: "Camillo",
+      DataDiNascita: "03/04/1960",
+      DataDiDecesso: "03/01/2014",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1111",
+      Posizione: "123456",
+      Fascicolo: "634",
+      StatoDomanda: "Revocata"
+    },
+    {
+      CodiceFiscale: "LFNCLL60D03E026T",
+      Cognome: "Alfano",
+      Nome: "Camillo",
+      DataDiNascita: "03/04/1960",
+      DataDiDecesso: "03/01/2014",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1111",
+      Posizione: "345765",
+      Fascicolo: "123",
+      StatoDomanda: "Negata"
+    },
+    {
+      CodiceFiscale: "QTGSRO60A11Q2055",
+      Cognome: "Hammond",
+      Nome: "John",
+      DataDiNascita: "01/01/1970",
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "2222222",
+      Posizione: "771723",
+      Fascicolo: "236",
+      StatoDomanda: "Concessa"
+    },
+    {
+      CodiceFiscale: "QTGSRO60A11Q2055",
+      Cognome: "Hammond",
+      Nome: "John",
+      DataDiNascita: "01/01/1970",
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "2222222",
+      Posizione: "123456",
+      Fascicolo: "634",
+      StatoDomanda: "Revocata"
+    },
+    {
+      CodiceFiscale: "QTGSRO60A11Q2055",
+      Cognome: "Hammond",
+      Nome: "John",
+      DataDiNascita: "01/01/1970",
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "2222222",
+      Posizione: "345765",
+      Fascicolo: "123",
+      StatoDomanda: "Negata"
+    },
+
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "3333333",
+      Posizione: "771723",
+      Fascicolo: "236",
+      StatoDomanda: "Concessa"
+    },
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "3333333",
+      Posizione: "123456",
+      Fascicolo: "634",
+      StatoDomanda: "Revocata"
+    },
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "3333333",
+      Posizione: "345765",
+      Fascicolo: "123",
+      StatoDomanda: "Negata"
+    },
+
+    {
+      CodiceFiscale: "VSYFRO70A10E2652",
+      Cognome: "Mathews",
+      Nome: "Suzanne",
+      DataDiNascita: "01/01/1966",
+      DataDiDecesso: "-",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "444444",
+      Posizione: "771723",
+      Fascicolo: "236"
+    },
+
+    {
+      CodiceFiscale: "VSYFRO70A10E2652",
+      Cognome: "Mathews",
+      Nome: "Suzanne",
+      DataDiNascita: "01/01/1966",
+      DataDiDecesso: "-",
+      Posizione: "771723",
+      Fascicolo: "236",
+      StatoDomanda: "Concessa"
+    },
+
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1113451",
+      Posizione: "771723",
+      Fascicolo: "236",
+      StatoDomanda: "Concessa"
+    },
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1113451",
+      Posizione: "123456",
+      Fascicolo: "634",
+      StatoDomanda: "Revocata"
+    },
+    {
+      CodiceFiscale: "RTSDRO70A10W2056",
+      Cognome: "Mudassar",
+      Nome: "Khan",
+      DataDiNascita: "01/02/1650",
+      DataDiDecesso: "01/01/1930",
+      AnnoDiScarto: "1234",
+      NumeroFaldone: "1113451",
+      Posizione: "345765",
+      Fascicolo: "123",
+      StatoDomanda: "Negata"
+    }
+  ];
+  // ---------------------------------------------------
   // LIQUIDAZIONI
   // ---------------------------------------------------
   let tabLiquidazioni = [
@@ -67,7 +229,6 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   // ASSOCIAZIONI
   // ---------------------------------------------------
-
   let tabAssociazioni = [
     {
       NomeAssociazione: "Confartigianato",
@@ -634,7 +795,6 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   // DOMANDE
   // ---------------------------------------------------
-
   let tabDomande = [
     {
       CodiceFiscale: "LFNCLL60D03E026T",
@@ -726,16 +886,14 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "11111111111111111"
 
-      //   NumeroProtocollo: "12345",
-      //   DataProtocollo: "12/34/5678",
-      //   PercentualeDiInvalidita: "66%",
-      //   IndennitaDiAccompagnamento: "No",
-      //   PatologiaUditiva: "No",
-      //   RiduzioneDelVisus: "No",
-      //   NoteVerbale: "Io sono la nota a verbale",
-      //   DataDecorrenzaPagamento: "11/11/1234"
-
-
+          //   NumeroProtocollo: "12345",
+          //   DataProtocollo: "12/34/5678",
+          //   PercentualeDiInvalidita: "66%",
+          //   IndennitaDiAccompagnamento: "No",
+          //   PatologiaUditiva: "No",
+          //   RiduzioneDelVisus: "No",
+          //   NoteVerbale: "Io sono la nota a verbale",
+          //   DataDecorrenzaPagamento: "11/11/1234"
         },
         {
           DataProtocollo: "01/01/2011",
@@ -755,7 +913,6 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
 
       Duplicato: true
@@ -813,9 +970,7 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: true
     },
@@ -872,9 +1027,7 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: false
     },
@@ -931,9 +1084,7 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: false
     },
@@ -991,9 +1142,7 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: false
     },
@@ -1051,9 +1200,7 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: false
     },
@@ -1110,9 +1257,7 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: false
     },
@@ -1169,18 +1314,14 @@ mochDbTable = function(table) {
           RiduzioneDelVisus: "Si",
           Note: "2222222222222222222222222 11111111111111111"
         }
-
       ],
-
 
       Duplicato: false
     }
   ];
-
   // ---------------------------------------------------
   // ANAGRAFE
   // ---------------------------------------------------
-
   let tabAnagrafe = [
     {
       CodiceFiscale: "LFNCLL60D03E026T",
@@ -1200,6 +1341,11 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1223,6 +1369,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1246,6 +1398,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1269,6 +1427,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1292,6 +1456,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1315,6 +1485,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1338,6 +1514,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1361,6 +1543,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1384,6 +1572,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1523,6 +1717,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1546,6 +1746,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1569,6 +1775,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1592,6 +1804,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1615,6 +1833,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1638,6 +1862,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1661,6 +1891,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1684,6 +1920,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1707,6 +1949,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1846,6 +2094,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1869,6 +2123,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1892,6 +2152,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1915,6 +2181,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1938,6 +2210,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1961,6 +2239,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -1984,6 +2268,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2007,6 +2297,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2030,6 +2326,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2171,6 +2473,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2194,6 +2502,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2217,6 +2531,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2240,6 +2560,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2263,6 +2589,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2286,6 +2618,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2309,6 +2647,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2332,6 +2676,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2355,6 +2705,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2497,6 +2853,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2520,6 +2882,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2543,6 +2911,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2566,6 +2940,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2589,6 +2969,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2612,6 +2998,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2635,6 +3027,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2658,6 +3056,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2681,6 +3085,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2823,6 +3233,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2846,6 +3262,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2869,6 +3291,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2892,6 +3320,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2915,6 +3349,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2938,6 +3378,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2961,6 +3407,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -2984,6 +3436,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3007,6 +3465,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3149,6 +3613,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3172,6 +3642,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3195,6 +3671,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3218,6 +3700,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3241,6 +3729,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3264,6 +3758,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3287,6 +3787,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3310,6 +3816,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3333,6 +3845,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3472,6 +3990,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3495,6 +4019,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3518,6 +4048,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3541,6 +4077,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3564,6 +4106,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3587,6 +4135,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3610,6 +4164,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3633,6 +4193,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3656,6 +4222,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3798,6 +4370,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "111111.45",
           RedditoConiuge: "6578.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3821,6 +4399,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "22222225.45",
           RedditoConiuge: "222222228.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3844,6 +4428,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "33333333.45",
           RedditoConiuge: "33333333.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3867,6 +4457,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "44444444.45",
           RedditoConiuge: "44444444.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3890,6 +4486,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "555555555.45",
           RedditoConiuge: "5555555.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3913,6 +4515,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "666666666.45",
           RedditoConiuge: "6666666.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3936,6 +4544,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "77777777.45",
           RedditoConiuge: "7777777.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3959,6 +4573,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "88888888.45",
           RedditoConiuge: "88888888.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -3982,6 +4602,12 @@ mochDbTable = function(table) {
           RedditoAssistito: "9999999.45",
           RedditoConiuge: "999999.88",
           ValidoPerGliAnniSuccessivi: true,
+
+          NessunRedditoPercepito: "No",
+          TotaleValoreRedditoAssistito: "999999.00",
+          EstremiPensioneAssistito: "qqqqqqqqqqqq",
+          NoteAssistito: "note anno 2018 bla bla bla",
+
           DettagliConiuge: [],
           DettagliAssistito: [
             {
@@ -4120,6 +4746,9 @@ mochDbTable = function(table) {
       break;
     case "liquidazioni":
       return tabLiquidazioni;
+      break;
+    case "posizioni":
+      return tabPosizioni;
       break;
     default:
       alert("Tabella In MochDb HTTP inesistente");
@@ -4385,7 +5014,120 @@ _ricercaAnagraficaRicerca = function($http) {
     // Ricerca in Base Dati per Codice Fiscale
     //----------------------------------
     findCodFis: function(url, cCodFis) {
-      
+      if (url == "mockUrl") {
+        let response = mochDbTable("anagrafe");
+
+        return response.find(function(obj) {
+          return obj.CodiceFiscale === cCodFis;
+        });
+      }
+
+      $http
+        .get(url, cCodFis, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("CallBack su successo di chiamata ");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("CallBack su errore di chiamata ");
+        });
+    }
+  };
+};
+_ricercaPosizioniRicerca = function($http) {
+  return {
+    //----------------------------------
+    // Chiamata Get Standard
+    //----------------------------------
+    get: function(url, data) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("posizioni");
+        return response;
+      }
+
+      $http
+        .post(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("CallBack su successo di chiamata ");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("CallBack su errore di chiamata ");
+        });
+    },
+
+    //----------------------------------
+    // Chiamata Post Standard
+    //----------------------------------
+    post: function(url, data) {
+      if (url == "mockUrl") {
+        //dati mock attesi
+        alert("Post Mock 1111111111111");
+        return;
+      }
+
+      $http
+        .post(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Post Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Post Regular 3333333333333");
+        });
+    },
+
+    //----------------------------------
+    // Chiamata Put Standard
+    //----------------------------------
+    put: function(url, data, mock) {
+      if (url == "mockUrl") {
+        //dati mock attesi
+        alert("Put Mock 1111111111111");
+        return;
+      }
+
+      $http
+        .put(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Put Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Put Regular 3333333333333");
+        });
+    },
+
+    //----------------------------------
+    // Chiamata Put Standard
+    //----------------------------------
+    delete: function(url, data, mock) {
+      if (url == "mockUrl") {
+        //dati mock attesi
+        alert("Delete Mock 1111111111111");
+        return;
+      }
+
+      $http
+        .delete(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("Delete Regular 2222222222");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("Delete Regular 3333333333333");
+        });
+    },
+
+    //----------------------------------
+    // Ricerca in Base Dati per Codice Fiscale
+    //----------------------------------
+    findCodFis: function(url, cCodFis) {
       if (url == "mockUrl") {
         let response = mochDbTable("anagrafe");
 
@@ -4425,6 +5167,7 @@ function httpServices($http) {
     associazioni: associazioni($http),
     domande: domande($http),
     _ricercaAnagraficaRicerca: _ricercaAnagraficaRicerca($http),
+    _ricercaPosizioniRicerca: _ricercaPosizioniRicerca($http),
     funzionalitaNonImplementata: funzionalitaNonImplementata
   };
 }

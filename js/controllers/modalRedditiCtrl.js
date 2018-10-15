@@ -3,7 +3,7 @@
  * Controller per la finestra modale di gestioneRedditi
  *
  */
-function modalRedditiCtrl($scope, $rootScope, $http) {
+function modalRedditiCtrl($scope) {
   $scope.modalSave = function(cTitolo, cSottoTitolo) {
     swal(cTitolo, cSottoTitolo, "success");
   };
@@ -29,7 +29,6 @@ function modalRedditiCtrl($scope, $rootScope, $http) {
     { descrizione: "eklfàl òkwàlfk Comune 1", code: "AF" }
   ];
 }
-
 /**
  * Collega il controller al modulo inciso
  **/

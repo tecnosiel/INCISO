@@ -87,9 +87,11 @@
 <!-- risultati ricerca -->
 <div class="row" id="anagResults" style="display:none;margin-top:10px">
 
-    <table datatable="ng" dt-options="$ctrl.dtOptions" class="table table-bordered table-striped">
+    <!-- ng-if="true" è stato inserito x ie-->
+    <table ng-if="true" datatable="ng" dt-options="$ctrl.dtOptions" class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th ng-if="$ctrl.tipoRicerca == 'Posizione'">{{ 'POSIZIONE' | translate }}</th>
                 <th>{{ 'COGNOME' | translate }}</th>
                 <th>{{ 'NOME' | translate }}</th>
                 <th>{{ 'CODICE_FISCALE' | translate }}</th>
@@ -99,12 +101,14 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in $ctrl.elencoAssistiti">
+                <td ng-if="$ctrl.tipoRicerca == 'Posizione'">
+                    <a ng-click="$ctrl.findPosizione(item.CodiceFiscale)">{{item.Posizione}}</a>
+                </td>
                 <td>{{item.Cognome}}</td>
                 <td>{{item.Nome}}</td>
                 <td>
-                    <a ng-click="$ctrl.findCodFis(item.CodiceFiscale)"
-                        angular-popover  direction="top" close-on-click="true" template-url="/views/partials/_popover_anagrafica"
-                        style="position: relative; z-index: 100;">{{item.CodiceFiscale}}</a>
+                    <a ng-click="$ctrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top" close-on-click="true"
+                        template-url="/views/partials/_popover_anagrafica" style="position: relative; z-index: 100;">{{item.CodiceFiscale}}</a>
 
                     <!-- <a uib-popover-template="'/views/partials/_popover_anagrafica'" >{{item.CodiceFiscale}}</a> -->
 
@@ -115,9 +119,11 @@
             </tr>
         </tbody>
     </table>
-
     <div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="text-right m-t-lg">
         <a class="btn btn-sm btn-primary" ui-sref="domande.nuova_domanda">Inserisci nuova posizione</a>
+    </div>
+    <div ng-if="$ctrl.tipoRicerca == 'Anagrafe'" class="text-right m-t-lg">
+        <a class="btn btn-sm btn-primary" ng-click="$ctrl.creaNuovaAnagrafica()">Inserisci nuova anagrafica</a>
     </div>
 
 </div>

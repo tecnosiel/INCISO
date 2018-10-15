@@ -235,9 +235,6 @@
   /**
    * icheck - Directive for custom checkbox icheck
    */
-  /**
-   * icheck - Directive for custom checkbox icheck
-   */
   function icheck($timeout) {
     return {
       restrict: "A",
@@ -423,6 +420,19 @@
   }
 
   /**
+   * dettaglioPrestazioni - Directive for Dettaglio Prestazioni
+   */
+  function dettaglioPrestazioni($compile) {
+    var directive = {};
+
+    directive.restrict = "A";
+    directive.templateUrl = "/views/_child.html";
+    directive.transclude = true;
+    directive.link = function(scope, element, attrs) {};
+    return directive;
+  }
+
+  /**
    *
    * Collega tutte le funzioni al modulo principale
    */
@@ -442,5 +452,6 @@
     .directive("iboxToolsFullScreen", iboxToolsFullScreen)
     .directive("slimScroll", slimScroll)
     .directive("truncate", truncate)
+    .directive("dettaglioPrestazioni", dettaglioPrestazioni)
     .directive("touchSpin", touchSpin);
 })();

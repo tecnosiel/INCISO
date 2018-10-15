@@ -9,19 +9,17 @@
         <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
     </div>
 
-  
-    <div class="modal-body">
 
+    <div class="modal-body">
         <div class="row">
             <div class="col-md-2 form-group">
                 <label>{{ "ANNO" | translate}}</label>
-                <input type="text" ng-model="datiAssistito.Redditi.Anno" ng-readonly="visDatiAssistito"
-                    class="form-control anno">
+                <input type="text" ng-model="tmpRedditiAssistito.Anno" ng-readonly="visDatiAssistito" class="form-control anno">
             </div>
             <div class="col-md-6 form-group"><label>{{ "VALIDO_PER_ANNI_SUCCESSIVI" | translate}}</label>
                 <!-- <input type="text" ng-model="datiAssistito.LuogoDiNascita" ng-readonly="visDatiAssistito" class="form-control"
                     value="Milano"> -->
-                <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.Redditi.ValidoPerAnniSuccessivi">
+                <div class="checkbox"><input icheck type="checkbox" ng-model="tmpRedditiAssistito.ValidoPerAnniSuccessivi">
                     <i></i>
                 </div>
 
@@ -33,7 +31,7 @@
                     <div class="col-md-6">
                         <div class="checkbox">
                             <label>
-                                <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
+                                <input icheck ng-model="tmpRedditiAssistito.ValidoPerGliAnniSuccessivi" type="radio"
                                     value="Si" name="sesso" ng-readonly="visDatiAssistito" class="form-control">
                                 <i></i>
                                 Si
@@ -43,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="checkbox">
                             <label>
-                                <input icheck ng-model="datiAssistito.Redditi.ValidoPerGliAnniSuccessivi" type="radio"
+                                <input icheck ng-model="tmpRedditiAssistito.ValidoPerGliAnniSuccessivi" type="radio"
                                     value="No" name="sesso" ng-readonly="visDatiAssistito" class="form-control">
                                 <i></i>
                                 No
@@ -92,18 +90,13 @@
                                 </ui-select-choices>
                             </ui-select>
 
-
-
-
-
-
                         </div>
                         <!-- --------------------------  -->
                         <div class="col-md-4 form-group">
                             <label>Valore reddito</label>
                             <input type="text" name="valoreRedditoAssistito" ng-model="Tmp.ValoreRedditoAssistito"
-                                ng-readonly="visDatiAssistito" class="form-control importo text-right"
-                                style="float:right" ng-currency required>
+                                ng-readonly="visDatiAssistito" class="form-control importo text-right" style="float:right"
+                                ng-currency required>
                             <p ng-show="userForm.valoreRedditoAssistito.$invalid && !userForm.valoreRedditoAssistito.$pristine"
                                 class="help-block">
                                 Campo obbligatorio.</p>
@@ -131,8 +124,8 @@
                                 </thead>
                                 <tbody>
 
-                                    <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
-                                    <tr ng-repeat="item in datiAssistito.Redditi[$index].DettagliAssistito">
+                                    <!-- <tr ng-repeat="item in tmpRedditiAssistito.DettagliAssistito"> -->
+                                    <tr ng-repeat="item in tmpRedditiAssistito.DettagliAssistito">
                                         <td>
                                             {{item.Tipologia}}
                                         </td>
@@ -147,17 +140,42 @@
                     <div class="row">
                         <div class="col-md-8 form-group">
                             <label>{{ "NESSUN_REDDITO_PERCEPITO" | translate}}</label>
-                            <div class="checkbox"><input icheck type="checkbox" ng-model="datiAssistito.NessunRedditoPercepito">
+                            <div class="checkbox"><input icheck type="checkbox" ng-model="tmpRedditiAssistito.NessunRedditoPercepitoAssistito">
                                 <i></i>
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ "TOTALE" | translate}}</label>
-                            <input type="text" name="totalevalorereddito" ng-model="datiAssistito.TotaleValoreReddito"
-                                ng-readonly="visDatiAssistito" class="form-control text-right importo"
-                                ng-currency disabled>
+                            <input type="text" name="totalevalorereddito" ng-model="tmpRedditiAssistito.TotaleValoreRedditoAssistito"
+                                ng-readonly="visDatiAssistito" class="form-control text-right importo" ng-currency
+                                disabled>
                         </div>
                     </div>
+
+
+                    <!-- --------- -->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label>{{ 'ESTREMI_PENSIONE' | translate }}</label>
+                            <textarea name="estremiPensioneAssistito" ng-model="tmpRedditiAssistito.EstremiPensioneAssistito"
+                                class="form-control" ng-readonly="visDatiAssistito"></textarea>
+                        </div>
+                    </div>
+                    <!-- --------- -->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label>{{ 'NOTE' | translate }}</label>
+                            <textarea name="noteAssistito" ng-model="tmpRedditiAssistito.NoteAssistito" class="form-control"
+                                ng-readonly="visDatiAssistito"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- --------- -->
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -205,8 +223,8 @@
                             <div class="col-md-4 form-group">
                                 <label>Valore reddito</label>
                                 <input type="text" name="valoreRedditoConiuge" ng-model="Tmp.ValoreRedditoConiuge"
-                                    ng-readonly="visDatiAssistito" class="form-control text-right importo"
-                                    ng-currency required>
+                                    ng-readonly="visDatiAssistito" class="form-control text-right importo" ng-currency
+                                    required>
                                 <p ng-show="userForm.valoreRedditoConiuge.$invalid && !userForm.valoreRedditoConiuge.$pristine"
                                     class="help-block">
                                     Campo obbligatorio.</p>
@@ -234,8 +252,8 @@
                                     </thead>
                                     <tbody>
 
-                                        <!-- <tr ng-repeat="item in datiAssistito.Redditi.DettagliAssistito"> -->
-                                        <tr ng-repeat="item in datiAssistito.Redditi[$index].DettagliConiuge">
+                                        <!-- <tr ng-repeat="item in tmpRedditiAssistito.DettagliAssistito"> -->
+                                        <tr ng-repeat="item in tmpRedditiAssistito.DettagliConiuge">
                                             <td>
                                                 {{item.Tipologia}}
                                             </td>

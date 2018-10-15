@@ -1,0 +1,205 @@
+<div class="modal" tabindex="-1" role="dialog" id="visualizzaLiquidazione">
+    <div class="modal-dialog modal-xlg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Dettaglio importo liquidato</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4"><label>Assistito:</label> <span>Maria Rossi</span></div>
+                    <div class="col-md-4"><label>Data decesso:</label> <span>28/07/2014</span></div>
+                    <div class="col-md-4"><label>Eredi:</label> <span>Paolo Bianchi, Marco Bianchi, Sara Bianchi</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-separator"></div>
+                </div>
+                <h3 class="m-t-lg">Liquidazione</h3>
+                <div class="row">
+                    <div class="panel panel-default m-t-lg">
+                        <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquidazione">
+                            <strong>Mese: AGOSTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anno: 2016</strong>
+                            <div class="panel-toolbox">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div id="collapseLiquidazione" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><a id="show-table-prestazioni"><i class="fa fa-chevron-down p-r-sx"></i></a>Importo
+                                                prestazioni</td>
+                                            <td width="200px">€ 435,00</td>
+                                        </tr>
+                                        <tr id="table-prestazioni" style="display:none">
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-responsive table-striped secondary-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="no-header"></th>
+                                                            <th>Liquidato</th>
+                                                            <th>Arretrati</th>
+                                                            <th>Conguaglio</th>
+                                                            <th width="174px">Totale</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Invalidi civili</td>
+                                                            <td>€ 100,00</td>
+                                                            <td><a class="" onclick="javascript:event.stopPropagation();"
+                                                                    data-container="body" data-toggle="popover"
+                                                                    data-placement="top" data-html="true" data-content='<%- partial("_popover_arretrati") %>'>€
+                                                                    100,00</a></td>
+                                                            <td>€ 200,00</td>
+                                                            <td>€ 400,00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sordi</td>
+                                                            <td>€ 100,00</td>
+                                                            <td><a class="" onclick="javascript:event.stopPropagation();"
+                                                                    data-container="body" data-toggle="popover"
+                                                                    data-placement="top" data-html="true" data-content='<%- partial("_popover_arretrati") %>'>€
+                                                                    100,00</a></td>
+                                                            <td>€ 200,00</td>
+                                                            <td>€ 300,00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ciechi</td>
+                                                            <td>€ 100,00</td>
+                                                            <td><a class="" onclick="javascript:event.stopPropagation();"
+                                                                    data-container="body" data-toggle="popover"
+                                                                    data-placement="top" data-html="true" data-content='<%- partial("_popover_arretrati") %>'>€
+                                                                    100,00</a></td>
+                                                            <td>€ 200,00</td>
+                                                            <td>€ 300,00</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="space">Tredicesima</td>
+                                            <td width="200px">€ 0,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a id="show-table-associazioni"><i class="fa fa-chevron-down p-r-sx"></i></a>Ritenute
+                                                di categoria</td>
+                                            <td width="200px">€ -6,00</td>
+                                        </tr>
+                                        <tr id="table-associazioni" style="display:none">
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped secondary-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Tipo associazione</th>
+                                                            <th width="174px">Importo</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ANMIC</td>
+                                                            <td>€ 6,00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="space">Riaccrediti</td>
+                                            <td width="200px">€ 0,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="space">Recuperi da compensazione</td>
+                                            <td width="200px">€ -108,75</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="info-title">
+                                            <strong>TOTALE IMPORTO LIQUIDATO</strong>
+                                        </div>
+                                        <div class="info pull-right">
+                                            <span>€ 320,25</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-separator"></div>
+                </div>
+                <h3 class="m-t-lg">Modalità di pagamento</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="checkbox"><label>
+                                <input icheck ng-model="$ctrl.boh" type="radio" name="b" disabled='disabled' checked>
+                                <i></i>
+                                <strong> Bonifico domiciliato alla posta</strong> </label></div>
+
+                        <div class="row m-t-lg">
+                            <div class="col-md-12 form-group"><label>Codice fiscale</label> <input type="text" readonly
+                                    class="form-control" value=""></div>
+                            <div class="col-md-12 form-group"><label>Nome (dell'assistito o di eventuale delegato)</label>
+                                <input type="text" readonly class="form-control" value=""></div>
+                            <div class="col-md-12 form-group"><label>Cognome (dell'assistito o di eventuale delegato)</label>
+                                <input type="text" readonly class="form-control" value=""></div>
+                            <div class="col-md-12 form-group"><label>Codice fiscale (dell'assistito o di eventuale
+                                    delegato)</label> <input type="text" readonly class="form-control" value=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var table = $('.secondary-table').DataTable({
+        searching: false,
+        responsive: true,
+        lengthChange: false,
+        ordering: false,
+        paging: false,
+        'sDom': 't'
+    });
+
+    // Add event listener for opening and closing details
+    $('#show-table-prestazioni').on('click', function () {
+        var tr = $(this).closest('tr');
+        if (tr.hasClass('shown')) {
+            $('#table-prestazioni').hide();
+            tr.removeClass('shown');
+            // $(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        }
+        else {
+            tr.addClass('shown');
+            $('#table-prestazioni').show();
+            // $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        }
+    });
+    $('#show-table-associazioni').on('click', function () {
+        var tr = $(this).closest('tr');
+        if (tr.hasClass('shown')) {
+            $('#table-associazioni').hide();
+            tr.removeClass('shown');
+            $(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        }
+        else {
+            tr.addClass('shown');
+            $('#table-associazioni').show();
+            $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        }
+    });
+</script>

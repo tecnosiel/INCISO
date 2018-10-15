@@ -5,6 +5,8 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+
+      NUMERO_FASCICOLO: "Numero fascicolo",
       // Sospensione Revoca Negazione Domanda
 
       MOTIVO_SOSPENSIONE: "Motivo sospensione",
@@ -25,6 +27,11 @@ function config($translateProvider) {
       MOTIVO_NEGAZIONE: "Motivo negazione",
       DATA_FINE_NEGAZIONE: "Data fine negazione",
 
+      // Label Crea Anagrafica
+      CODICE_FISCALE: "Codice Fiscale",
+      CERCA_NEL_CONSORZIO: "Cerca nel Consorzio",
+      CREA_NUOVA: "Crea nuova",
+      ANNULLA: "Annulla",
 
       // Label Elenco Posizioni
       VISUALIZZA_POSIZIONE: "Visualizza posizione",
@@ -123,6 +130,7 @@ function config($translateProvider) {
       VALIDO_PER_ANNI_SUCCESSIVI: "Valido per anni successivi",
       REDDITI_PERCEPITI_ASSISTITO: "Redditi percepiti dall'assistito",
       REDDITI_PERCEPITI_CONIUGE: "Redditi percepiti dal coniuge",
+      ESTREMI_PENSIONE: "Estremi pensione",
 
       REDDITO_ASSISTITO: "Reddito assistito",
       REDDITO_CONIUGE: "Reddito coniuge",
@@ -230,6 +238,10 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+
+      NUMERO_FASCICOLO: "Numero fascicolo DE",
+  
+
       // Sospensione Revoca Negazione Domanda
 
       MOTIVO_SOSPENSIONE: "Motivo sospensione DE",
@@ -249,6 +261,12 @@ function config($translateProvider) {
       DATA_NEGAZIONE: "Data negazione DE",
       MOTIVO_NEGAZIONE: "Motivo negazione DE",
       DATA_FINE_NEGAZIONE: "Data fine negazione DE",
+
+      // Label Crea Anagrafica
+      CODICE_FISCALE: "Codice Fiscale DE",
+      CERCA_NEL_CONSORZIO: "Cerca nel Consorzio DE",
+      CREA_NUOVA: "Crea nuova DE",
+      ANNULLA: "Annulla DE",
 
       // Label Elenco Posizioni
       VISUALIZZA_POSIZIONE: "Visualizza posizione DE",
@@ -348,6 +366,7 @@ function config($translateProvider) {
       VALIDO_PER_ANNI_SUCCESSIVI: "Valido per anni successivi DE",
       REDDITI_PERCEPITI_ASSISTITO: "Redditi percepiti dall'assistito DE",
       REDDITI_PERCEPITI_CONIUGE: "Redditi percepiti dal coniuge DE",
+      ESTREMI_PENSIONE: "Estremi pensione DE",
 
       REDDITO_ASSISTITO: "Reddito assistito DE",
       REDDITO_CONIUGE: "Reddito coniuge DE",

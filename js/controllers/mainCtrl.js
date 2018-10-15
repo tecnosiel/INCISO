@@ -21,6 +21,14 @@ function MainCtrl(
     $translate.use("it");
   };
 
+  $scope.fumetti = function() {
+  
+    if ($("body").hasClass("mini-navbar")) {
+      return true;
+    }
+    return false;
+  };
+
   /**
    * variabili da sostituire con chiamate http
    */
@@ -96,7 +104,7 @@ function MainCtrl(
       cCodFis
     );
   };
-
+  
 }
 
 /**

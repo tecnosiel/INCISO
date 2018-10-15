@@ -54,6 +54,9 @@
         url: "/inserimento_anagrafica",
         templateUrl: "/views/visualizza_anagrafica.html",
         controller: "visualizzaAnagrafeCtrl",
+        params: {
+          datiAssistito: null
+        },
         resolve: {
           runMode: function() {
             return "NUOVOINSERIMENTO";

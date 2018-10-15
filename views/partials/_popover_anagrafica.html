@@ -46,12 +46,18 @@
                 <a ng-if="$ctrl.tipoRicerca == 'Posizione'" ng-click="$ctrl.onSave($ctrl.datiAssistito)" ui-sref="posizione.visualizza_anagrafica"
                     class="btn-primary btn btn-sm btn-block">Visualizza posizione</a> -->
 
-                <a ng-if="$ctrl.tipoRicerca == 'Anagrafe'" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
+
+                <a ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
                     class="btn-primary btn btn-sm btn-block">Visualizza
                     anagrafica</a>
-                <a ng-if="$ctrl.tipoRicerca == 'Posizione'" ui-sref="posizione.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
+
+                    
+                <!-- <a ng-if="$ctrl.tipoRicerca == 'Anagrafe'" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
                     class="btn-primary btn btn-sm btn-block">Visualizza
-                    posizione</a>
+                    anagrafica</a> -->
+                <!-- <a ng-if="$ctrl.tipoRicerca == 'Posizione'" ui-sref="posizione.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
+                    class="btn-primary btn btn-sm btn-block">Visualizza
+                    posizione</a> -->
             </div>
         </div>
     </div>

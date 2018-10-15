@@ -1,0 +1,29 @@
+<style>
+    .modal-dialog { max-width: 410px;}
+
+    .modal-content {
+       background-color: #FFFFFF;
+       border: 1px solid gray;
+       margin-top: 158px;
+    }
+</style>
+
+<div class="inmodal">
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label style="font-weight: 900; font-size: 16px;">{{ "CODICE_FISCALE" | translate}}</label>
+                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.CodiceFiscale" placeholder="Inserisci codice fiscale"
+                    class="form-control">
+            </div>
+
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="controllaCF(Tmp.CodiceFiscale)">{{
+            'CERCA_NEL_CONSORZIO' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="creaNuovaAnagrafica(Tmp.CodiceFiscale)">{{
+            'CREA_NUOVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalClose()">{{ 'ANNULLA' | translate }}</button>
+
+    </div>
+</div>

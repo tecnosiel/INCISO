@@ -4,7 +4,13 @@
  *
  */
 
-function visualizzaDomandaCtrl($scope, $uibModal) {
+function visualizzaDomandaCtrl(
+  $scope,
+  $uibModal,
+  DTOptionsBuilder,
+  DTColumnDefBuilder,
+  $compile
+) {
   $scope.camillo =
     "<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>01/01/2006</label><br>Importo da recuperare: <label>549,00 €</label></div>";
 
@@ -18,7 +24,107 @@ function visualizzaDomandaCtrl($scope, $uibModal) {
     return $scope.tab === tabNum;
   };
 
-  //----
+  $scope.visualizzaLiquidazione = function($index) {
+    alert("aaaaaaaaaaaaaaaaaaaa");
+    // if ($index) {
+    //   $scope.tmpRedditiAssistito = $scope.datiAssistito.Redditi[$index];
+    // }else{
+    //   $scope.tmpRedditiAssistito = null
+    // }
+
+    // Math.random() genera un numero casuale compreso fra 0 e 1,
+    // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
+    // e poi arrotondarne il risultato.
+    this.randomMove = function() {
+      let risultato = null;
+
+      // clsPopup
+      switch (Math.round(5 * Math.random())) {
+        case 0:
+          risultato = "clsPopup";
+          break;
+        case 1:
+          risultato = "animated flipInX";
+          break;
+        case 2:
+          risultato = "animated flipInY";
+          break;
+        case 3:
+          risultato = "animated fadeInLeftBig";
+          break;
+        case 4:
+          risultato = "animated fadeInRightBig";
+          break;
+        case 5:
+          risultato = "animated rotateIn";
+          break;
+      }
+      return risultato;
+    };
+
+    self.modalInstance = $uibModal.open({
+      templateUrl: "./../views/modal_visualizza_liquidazione.html",
+      controller: "modalVisualizzaLiquidazioneCtrl",
+      size: "lg",
+      scope: $scope,
+      windowClass: this.randomMove()
+    });
+  };
+
+  //--------- prestazioni start
+
+  $scope.prestazioniLiquidate = [
+    {
+      Anno: "2014",
+      TotalePrestazioniLiquidate: "15150.55"
+    },
+    {
+      Anno: "2015",
+      TotalePrestazioniLiquidate: "17999.55"
+    },
+    {
+      Anno: "2016",
+      TotalePrestazioniLiquidate: "13999.55"
+    }
+  ];
+
+  $scope.dtOptionsTabPrestazioniLiquidate = DTOptionsBuilder.newOptions()
+    .withOption("order", [1, "desc"])
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
+
+  $scope.dtColumnTabPrestazioniLiquidate = [
+    DTColumnDefBuilder.newColumnDef(0).notSortable()
+  ];
+
+  $scope.vm = {};
+  $scope.vm.dtInstance = {};
+
+
+  $scope.detailInfoPrestazioniLiquidate = function(anno, event) {
+    var scope = $scope.$new(true);
+    scope.anno = anno;
+    debugger;
+    var link = angular.element(event.currentTarget),
+      icon = link.find(".fa"),
+      tr = link.parent().parent(),
+      table = $scope.vm.dtInstance.DataTable,
+      row = table.row(tr);
+
+    if (row.child.isShown()) {
+      // This row is already open - close it
+      icon.removeClass("fa-chevron-up").addClass("fa-chevron-down");
+      row.child.hide();
+      tr.removeClass("shown");
+    } else {
+      // Open this row
+      icon.removeClass("fa-chevron-down").addClass("fa-chevron-up");
+      row.child($compile("<div dettaglio-prestazioni ></div>")(scope)).show();
+      tr.addClass("shown");
+    }
+  };
+
+  //--------- prestazioni end
 
   $scope.modificaDomanda = function() {
     $scope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";

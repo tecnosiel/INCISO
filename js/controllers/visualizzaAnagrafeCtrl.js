@@ -18,7 +18,8 @@ function visualizzaAnagrafeCtrl(
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssistito = false;
     $scope.inserimentoAnagrafe = true;
-    $scope.datiAssistito = [];
+    $scope.datiAssistito = $stateParams.datiAssistito;
+    // $scope.datiAssistito = [];
   } else {
     $scope.visDatiAssistito = true;
     $scope.inserimentoAnagrafe = false;
@@ -54,7 +55,6 @@ function visualizzaAnagrafeCtrl(
     // Math.random() genera un numero casuale compreso fra 0 e 1,
     // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
     // e poi arrotondarne il risultato.
-
     this.randomMove = function() {
       let risultato = null;
 
@@ -93,7 +93,43 @@ function visualizzaAnagrafeCtrl(
   };
 
   $scope.creaNuovoReddito = function($index) {
-    $scope.$index = $index;
+    
+    if ($index) {
+      $scope.tmpRedditiAssistito = $scope.datiAssistito.Redditi[$index];
+    }else{
+      $scope.tmpRedditiAssistito = null
+    }
+
+    // Math.random() genera un numero casuale compreso fra 0 e 1,
+    // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
+    // e poi arrotondarne il risultato.
+    this.randomMove = function() {
+      let risultato = null;
+
+      // clsPopup
+      switch (Math.round(5 * Math.random())) {
+        case 0:
+          risultato = "clsPopup";
+          break;
+        case 1:
+          risultato = "animated flipInX";
+          break;
+        case 2:
+          risultato = "animated flipInY";
+          break;
+        case 3:
+          risultato = "animated fadeInLeftBig";
+          break;
+        case 4:
+          risultato = "animated fadeInRightBig";
+          break;
+        case 5:
+          risultato = "animated rotateIn";
+          break;
+      }
+      return risultato;
+    };
+
     self.modalInstance = $uibModal.open({
       templateUrl: "./../views/modal_gestione_redditi.html",
       controller: "modalRedditiCtrl",
