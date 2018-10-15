@@ -43,7 +43,7 @@
 
 <!-- condizione ricerca anagrafe -->
 
-<div ng-if="$ctrl.tipoRicerca == 'Anagrafe'" class="row">
+<div ng-if="$ctrl.tipoRicerca.includes('Anagrafe')" class="row">
     <div class="col-md-6 form-group">
         <label>{{ 'COGNOME' | translate }}</label>
         <input type="text" class="form-control" ng-model="$ctrl.findCognome" placeholder="Cognome da ricercare">
@@ -65,7 +65,7 @@
             </span>
         </div>
     </div>
-    <div id="filtri_deceduto">
+    <div ng-if="!$ctrl.tipoRicerca.includes('Curatore')" id="filtri_deceduto">
         <div class="col-md-6 form-group">
             <label>{{ 'NUMERO_FALDONE_ARCHIVIAZIONE' | translate }}</label>
             <input type="text" class="form-control intero" ng-model="$ctrl.findNumeroFaldoneArchiviazione" placeholder="Numero faldone archiviazione da ricercare">
@@ -122,7 +122,7 @@
     <div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="text-right m-t-lg">
         <a class="btn btn-sm btn-primary" ui-sref="domande.nuova_domanda">Inserisci nuova posizione</a>
     </div>
-    <div ng-if="$ctrl.tipoRicerca == 'Anagrafe'" class="text-right m-t-lg">
+    <div ng-if="$ctrl.tipoRicerca.includes('Anagrafe')" class="text-right m-t-lg">
         <a class="btn btn-sm btn-primary" ng-click="$ctrl.creaNuovaAnagrafica()">Inserisci nuova anagrafica</a>
     </div>
 
