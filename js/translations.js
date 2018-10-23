@@ -5,6 +5,7 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      ELENCO_DOCUMENTI_PER_FASCICOLO:"Elenco documenti per fascicolo",
       CODICE_FISCALE_TROPPO_CORTO: "Codice fiscale troppo corto",
       CODICE_FISCALE_TROPPO_LUNGO: "Codice fiscale troppo lungo",
       CAMPO_OBBLIGATORIO: "Campo obbligatorio",
@@ -16,6 +17,78 @@ function config($translateProvider) {
       LUOGO_DI_NASCITA: "Luogo di nascita",
       PROVINCIA: "Provincia",
       NAZIONE: "Nazione",
+      CITTADINANZA: "Cittadinanza",
+      EXTRACOMUNITARIO: "Extracomunitario",
+      TIPO_PERMESSO: "Tipo permesso",
+      PERMESSO_DI_SOGGIORNO: "Permesso di soggiorno",
+
+      SELEZIONA_UN_COMUNE: "Seleziona un comune",
+      SELEZIONA_UNA_PROVINCIA: "Seleziona una provincia",
+      SELEZIONA_UNA_NAZIONE: "Seleziona una nazione",
+      SELEZIONA_CITTADINANZA: "Seleziona cittadinanza",
+      SELEZIONA_UN_ELEMENTO_NELL_ELENCO: "Seleziona un elemento dall'elenco",
+      SELEZIONA_UN_PERMESSO_DALL_ELENCO: "Seleziona un permesso dall'elenco",
+      SI: "Si",
+      NO: "No",
+      DATA_RILASCIO: "Data rilascio",
+      VALIDO_FINO_AL: "Valido fino al",
+      RESIDENZA: "Residenza",
+      DOMICILIO: "Domicilio",
+      ALTRI_INDIRIZZI: "Altri indirizi",
+      RIFERIMENTI_DI_CONTATTO: "Riferimenti di contatto",
+      TELEFONO_PRINCIPALE: "Telefono principale",
+      TELEFONO_SECONDARIO: "Telefono secondario",
+      ANNO_DI_SCARTO_INCISO: "Anno di scarto IN-CI-SO",
+      SIMULAZIONE_LIQUIDAZIONE_EREDI: "Simulazione liquidazione eredi",
+      DATA_CALCOLO_SIMULAZIONE: "Data calcolo simulazione",
+      IMPORTO_SPETTANTE: "Importo spettante",
+      VISUALIZZA_DETTAGLIO_SIMULAZIONE: "Visualizzattaglio simulazione",
+      PERC_DI_EREDITA: "% di eredità",
+      LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA:
+        "Liquidato in base alla % di eredità",
+      ELENCO_EREDI: "Elenco eredi",
+      COGNOME_NOME: "Cognome Nome",
+      LIQUIDAZIONE: "Liquidazione",
+      VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO:
+        "Visualizzattaglio importo liquidato",
+      AGGIUNGI_EREDE: "Aggiungi erede",
+
+      ELENCO_LIQUIDAZIONI: "Elenco liquidazioni",
+      ELENCO_IMPORTI_RIACCREDITATI: "Elenco importi riaccreditati",
+      ELENCO_IMPORTI_DA_RECUPERARE: "Elenco importi da recuperare",
+
+      ENTITA: "Entita",
+
+     CORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura",
+      TERMINE_DECORRENZA_ASSEGNO_DI_CURA:
+        "Terminecorrenza assegno di cura",
+     CORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
+        "Decorrenza permanenza casa di lungodegenza",
+      TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA:
+        "Termine permanenza casa di lungodegenza",
+
+      ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE:
+        "Elenco ritenute di categoria recuperate",
+
+      NUM_POSIZIONE: "Num. posizione",
+      DATA_DOMANDA: "Data domanda",
+      TIPO_ASSOCIAZIONE: "Tipo associazione",
+      INIZIO_ISCRIZIONE: "Inizio iscrizione",
+      FINE_ISCRIZIONE: "Fine iscrizione",
+
+      DATA_CALCOLO: "Data calcolo",
+      LIQUIDATO: "Liquidato",
+      RIACCREDITO: "Riaccredito",
+      TRATTENUTA_DI_CATEGORIA: "Trattenuta di categoria",
+      IMPORTO_RECUPERATO_PER_COMPENSAZIONE: "Importo recuperato per compensazione",
+      NR_TRASFERIMENTO_FLUMO: "Nr. trasferimento Flumo",
+      TOT_MESE: "Tot. mese",
+      TOT_ANNO: "Tot. anno",
+     TTAGLIO:"Dettaglio",
+      NR_MANDATO:"Nr. mandato",
+      GENERA_COMUNICAZIONE : "genera comunicazione",
+      INSERISCI_NUOVA_EVIDENZA : "inserisci nuova evidenza",
+      ALTRE_PENSIONI : "Altre pensioni",
 
       // Label prestazioni
       SOGLIA: "Soglia",
@@ -294,6 +367,8 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      ELENCO_DOCUMENTI_PER_FASCICOLO:"Elenco documenti per fascicolo DE",
+
       CODICE_FISCALE_TROPPO_CORTO: "Codice fiscale troppo corto DE",
       CODICE_FISCALE_TROPPO_LUNGO: "Codice fiscale troppo lungo DE",
       CAMPO_OBBLIGATORIO: "Campo obbligatorio DE",
@@ -345,7 +420,7 @@ function config($translateProvider) {
       ELENCO_IMPORTI_RIACCREDITATI: "Elenco importi riaccreditati DE",
       ELENCO_IMPORTI_DA_RECUPERARE: "Elenco importi da recuperare DE",
 
-      ENTITA: "Entita",
+      ENTITA: "Entita DE",
 
       DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura DE",
       TERMINE_DECORRENZA_ASSEGNO_DI_CURA:
@@ -376,7 +451,7 @@ function config($translateProvider) {
       NR_MANDATO:"Nr. mandato DE",
       GENERA_COMUNICAZIONE : "genera comunicazione DE",
       INSERISCI_NUOVA_EVIDENZA : "inserisci nuova evidenza DE",
-
+      ALTRE_PENSIONI : "Altre pensioni DE",
 
 // hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 

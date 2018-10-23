@@ -337,7 +337,7 @@
                                 </div>
 
                             </div>
-                            <h3 class="m-t-lg">{{ "RIFERIMENTO_DI_CONTATTO" | translate}}</h3>
+                            <h3 class="m-t-lg">{{ "RIFERIMENTI_DI_CONTATTO" | translate}}</h3>
                             <div class="row">
                                 <div class="col-md-4 form-group"><label>{{ "TELEFONO_PRINCIPALE" | translate}}</label>
                                     <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="visDatiAssistito"
@@ -345,9 +345,9 @@
                                 <div class="col-md-4 form-group"><label>{{ "TELEFONO_SECONDARIO" | translate}}</label>
                                     <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="visDatiAssistito"
                                         class="form-control telefono"></div>
-
-
-
+                                <div class="col-md-4 form-group"><label>Email</label>
+                                    <input type="text" ng-readonly="visDatiAssistito" ng-model="datiAssistito.Email"
+                                        class="form-control"></div>
                                 <div class="col-md-4 form-group"><label>PEC</label>
                                     <input type="text" ng-readonly="visDatiAssistito" ng-model="datiAssistito.Pec"
                                         class="form-control"></div>
@@ -410,7 +410,9 @@
 
                 </div>
 
-                <div class="panel panel-default m-t-lg">
+                <!-- Pannello Elenco Posizioni -->
+
+                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseElencoPos">
                         {{ "ELENCO_POSIZIONI" | translate}}
                         <div class="panel-toolbox">
@@ -487,21 +489,28 @@
                                 <div class="col-md-4 form-group">
                                     <label>{{
                                         "DATA_DECESSO" | translate}}</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control js-date"
-                                        value="10/01/2016">
+
+                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
+                                        <input type="text" name="dataDiDecesso" ng-model="datiAssistito.DataDiDecesso"
+                                            ng-readonly="visDatiAssistito" class="form-control js-date">
+                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label>{{
                                         "NUMERO_FALDONE" | translate}}</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control intero" value="357434">
+                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control intero" value="{{datiAssistito.Eredita.NumeroFaldone}}">
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label>{{
                                         "ANNO_DI_SCARTO_INCISO" | translate}}</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control anno" value="2016">
+                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control anno" value="{{datiAssistito.Eredita.AnnoDiScartoINCISO}}">
                                 </div>
                             </div>
-                            <div class="panel panel-default">
+                            <div ng-if="!inserimentoAnagrafe" class="panel panel-default">
                                 <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquEredi">
                                     {{
                                     "SIMULAZIONE_LIQUIDAZIONE_EREDI" | translate}}
@@ -527,8 +536,9 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>30/06/2016</td>
-                                                            <td>€ 56.800,00</td>
+                                                            <td class="text-center">{{datiAssistito.Eredita.DataCalcoloSimulazione}}</td>
+                                                            <td class="text-center">{{datiAssistito.Eredita.ImportoSpettante
+                                                                | currency}}</td>
                                                             <td class="text-center">
                                                                 <a href="visualizza_liquidazione.html">
                                                                     {{"VISUALIZZA_DETTAGLIO_SIMULAZIONE" | translate}}
@@ -542,18 +552,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default">
+                            <div ng-if="datiAssistito.DataDecesso!='-'" class="panel panel-default">
                                 <div class="panel-heading pointer" data-toggle="collapse" href="#collapseEredi">
                                     {{'ELENCO_EREDI'|translate}}
                                     <div class="panel-toolbox">
                                         <i class="fa fa-chevron-down"></i>
                                     </div>
                                 </div>
+
                                 <div id="collapseEredi" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <table class="table table-bordered table-striped dataTables-paged">
+
                                                     <thead class="price">
                                                         <tr>
                                                             <th>{{'COGNOME_NOME'|translate}}</th>
@@ -566,12 +578,13 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>Paolo Bianchi</td>
-                                                            <td>RSSMRA53A36Q2357</td>
-                                                            <td>50%</td>
-                                                            <td>€ 28.400,00</td>
-                                                            <td>30/06/2016</td>
+                                                        <tr ng-repeat="item in datiAssistito.Eredita.Eredi">
+                                                            <td>{{item.CognomeNome}}</td>
+                                                            <td>{{item.CodiceFiscale}}</td>
+                                                            <td class="text-center">{{item.PercDiEredita }}</td>
+                                                            <td class="text-right">{{item.LiquidatoInBaseAllaPercDiEredita
+                                                                | currency}}</td>
+                                                            <td class="text-center">{{item.Liquidato}}</td>
                                                             <td class="text-center">
                                                                 <a>
                                                                     {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
@@ -585,63 +598,7 @@
                                                                 </a>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>Marco Bianchi</td>
-                                                            <td>RSSMRA53A36Q9382</td>
-                                                            <td>25%</td>
-                                                            <td>€ 14.200,00</td>
-                                                            <td>30/06/2016</td>
-                                                            <td class="text-center">
-                                                                <a>
-                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
-                                                                    translate}}
-                                                                </a>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
-                                                                    ng-click="editLiquidazione()" title="modifica">
-                                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Sara Bianchi</td>
-                                                            <td>RSSMRA53A36Q5372</td>
-                                                            <td>15%</td>
-                                                            <td>€ 14.200,00</td>
-                                                            <td>30/06/2016</td>
-                                                            <td class="text-center">
-                                                                <a>
-                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
-                                                                    translate}}
-                                                                </a>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
-                                                                    ng-click="editLiquidazione()" title="modifica">
-                                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Cristina Bianchi</td>
-                                                            <td>BNCCRS53A36Q6713</td>
-                                                            <td>10%</td>
-                                                            <td>€ 5.680,00</td>
-                                                            <td>30/06/2016</td>
-                                                            <td class="text-center">
-                                                                <a>
-                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
-                                                                    translate}}
-                                                                </a>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
-                                                                    ng-click="editLiquidazione()" title="modifica">
-                                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -654,6 +611,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -748,28 +706,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- <tr>
-                                                <td>778767</td>
-                                                <td>05/03/2011</td>
-                                                <td>ANMIC</td>
-                                                <td>02/04/2013</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr> -->
-                                            <!-- <tr>
-                                                <td>993423</td>
-                                                <td>07/08/2012</td>
-                                                <td>UICI</td>
-                                                <td>07/08/2012</td>
-                                                <td>07/08/2016</td>
-                                                <td>
-                                                    <div><label>Data recupero</label> 15/03/2014</div>
-                                                    <div><label>Importo recuperato</label> € 12.349,00</div>
-                                                    <a title="note" data-toggle="popover" data-placement="top"
-                                                        data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                                                </td>
-                                            </tr> -->
-                                            <!-- camillo -->
                                             <tr ng-repeat="item in datiAssistito.Associazioni">
                                                 <td>{{item.NumPosizione}}</td>
                                                 <td>
@@ -815,7 +751,8 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default m-t-lg">
+                <!-- Pannello Posizioni Contabili  -->
+                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapsePosContabili">
                         {{ "POSIZIONI_CONTABILI" | translate}}
                         <div class="panel-toolbox">
@@ -995,7 +932,8 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default m-t-lg">
+                <!-- Pannello Elenco Evidenze  -->
+                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseEvidenze">
                         {{ "ELENCO_EVIDENZE" | translate}}
                         <div class="panel-toolbox">
@@ -1013,7 +951,8 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default m-t-lg">
+                <!-- Pannello Posizione Espro   -->
+                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapsePosEspro">
                         {{ "POSIZIONE_ESPRO" | translate}}
                         <div class="panel-toolbox">
@@ -1057,6 +996,7 @@
                     </div>
                 </div>
 
+                <!-- Pannello Storico operazioni   -->
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseStoricoOperazioni">
                         {{ "STORICO_OPERAZIONI" | translate}}
@@ -1075,8 +1015,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <!-- SUBMIT BUTTON -->
                 <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->

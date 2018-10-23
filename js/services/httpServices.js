@@ -239,7 +239,7 @@ mochDbTable = function(table) {
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
       IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi555@gmail.com",
       PEC: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
@@ -339,7 +339,7 @@ mochDbTable = function(table) {
       TelefonoPrincipale: "0366 768798",
       TelefonoSecondario: "0433 922451",
       IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "giovanni@tin.it",
+      Email: "giovanni6666@tin.it",
       PEC: "mgiovanni@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
@@ -401,7 +401,7 @@ mochDbTable = function(table) {
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
       IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "ggaribaldi@gmail.com",
+      Email: "ggaribaldi444@gmail.com",
       PEC: "ggaribaldi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
@@ -501,7 +501,7 @@ mochDbTable = function(table) {
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
       IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "ttali@gmail.com",
+      Email: "ttali444@gmail.com",
       PEC: "ttali@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
@@ -601,7 +601,7 @@ mochDbTable = function(table) {
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
       IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "gimondi@gmail.com",
+      Email: "gimondi444@gmail.com",
       PEC: "gimondi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
@@ -701,7 +701,7 @@ mochDbTable = function(table) {
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
       IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "vemanuele@gmail.com",
+      Email: "vemanuele555@gmail.com",
       PEC: "vemanuele@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
@@ -797,7 +797,7 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   let tabDomande = [
     {
-      CodiceFiscale: "LFNCLL60D03E026T",
+      CodiceFiscale: "LFNCLL60D03E026Q",
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "03/04/1960",
@@ -1324,17 +1324,47 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   let tabAnagrafe = [
     {
-      CodiceFiscale: "LFNCLL60D03E026T",
+      CodiceFiscale: "LFNCLL60D03E026Q",
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "01/01/1930",
-      DataDiDecesso: "-",
       Sesso: "F",
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
       Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
       AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+
+      DataDiDecesso: "01/01/2010",
+      Eredita: {
+        NumeroFaldone: "3333333",
+        AnnoDiScartoINCISO:"2018",
+        DataCalcoloSimulazione: "01/01/2020",
+        ImportoSpettante: "580000.39",
+        Eredi: [
+          {
+            CognomeNome: "Paolo Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "50%",
+            LiquidatoInBaseAllaPercDiEredita: "28400.00",
+            Liquidazione: "30/06/2016"
+          },
+          {
+            CognomeNome: "Marco Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "25%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          },
+          {
+            CognomeNome: "Sara Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q5372",
+            PercDiEredita: "15%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          }
+        ]
+      },
       Redditi: [
         {
           Anno: "2018",
@@ -1704,13 +1734,16 @@ mochDbTable = function(table) {
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "01/01/1930",
-      DataDiDecesso: "-",
       Sesso: "F",
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
       Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
       AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+
+      DataDiDecesso: "-",
+      Eredita: null,
+
       Redditi: [
         {
           Anno: "2018",
@@ -2081,13 +2114,46 @@ mochDbTable = function(table) {
       Cognome: "Hammond",
       Nome: "John",
       DataDiNascita: "01/01/1970",
-      DataDiDecesso: "-",
+
       Sesso: "F",
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
       Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
       AntriIndirizzi: "indirizzo di prova qòlwekrjòlqwekjròlqwkjer",
+
+      DataDiDecesso: "01/01/1990",
+      Eredita: {
+        NumeroFaldone: "3333333",
+        AnnoDiScartoINCISO:"2018",
+
+        DataCalcoloSimulazione: "01/01/2020",
+        ImportoSpettante: "580000.39",
+        Eredi: [
+          {
+            CognomeNome: "Paolo Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "50%",
+            LiquidatoInBaseAllaPercDiEredita: "28400.00",
+            Liquidazione: "30/06/2016"
+          },
+          {
+            CognomeNome: "Marco Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "25%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          },
+          {
+            CognomeNome: "Sara Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q5372",
+            PercDiEredita: "15%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          }
+        ]
+      },
+
       Redditi: [
         {
           Anno: "2018",
@@ -2460,13 +2526,45 @@ mochDbTable = function(table) {
       Cognome: "Mudassar",
       Nome: "Khan",
       DataDiNascita: "01/02/1650",
-      DataDiDecesso: "01/01/1930",
       Sesso: "F",
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Inglese",
       Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
       Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
       AntriIndirizzi: "qò lwe k rj ò lqwekjròlqwkjer",
+
+      DataDiDecesso: "01/01/1930",
+      Eredita: {
+        NumeroFaldone: "333313454",
+        AnnoDiScartoINCISO:"2015",
+
+        DataCalcoloSimulazione: "11/11/2021",
+        ImportoSpettante: "580000.39",
+        Eredi: [
+          {
+            CognomeNome: "gIUSEPPE Bianchi-4444",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "50%",
+            LiquidatoInBaseAllaPercDiEredita: "28400.00",
+            Liquidazione: "30/06/2017"
+          },
+          {
+            CognomeNome: "Marco Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "5%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          },
+          {
+            CognomeNome: "SaSSSSra Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q5372",
+            PercDiEredita: "5%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          }
+        ]
+      },
+
       Redditi: [
         {
           Anno: "2018",
@@ -2830,7 +2928,7 @@ mochDbTable = function(table) {
       PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi111@gmail.com",
       Pec: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
@@ -2841,12 +2939,15 @@ mochDbTable = function(table) {
       Nome: "Suzanne",
       DataDiNascita: "01/01/1966",
       Sesso: "F",
-      DataDiDecesso: "-",
       LuogoDiNascita: "Bologna",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
       Domicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
       AntriIndirizzi: "qòlwek rjòlq wekjròlqwkjer",
+
+      DataDiDecesso: "-",
+      Eredita: null,
+
       Redditi: [
         {
           Anno: "2018",
@@ -3210,7 +3311,7 @@ mochDbTable = function(table) {
       PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi111@gmail.com",
       Pec: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
@@ -3221,12 +3322,44 @@ mochDbTable = function(table) {
       Nome: "Robert",
       DataDiNascita: "01/04/1950",
       Sesso: "M",
-      DataDiDecesso: "01/01/1930",
       LuogoDiNascita: "Roma",
       Nazionalita: "Italiana",
       Residenza: "via dell'Albergo Murat, 53 - 89112 Roma RM",
       Domicilio: "via Bellini Diaz, 2 - 84094 Roma RM",
       AntriIndirizzi: "qòlwekrjòlqw ekjròl qwkjer",
+
+      DataDiDecesso: "01/01/1930",
+      Eredita: {
+        NumeroFaldone: "3345333333",
+        AnnoDiScartoINCISO:"2016",
+
+        DataCalcoloSimulazione: "01/01/2020",
+        ImportoSpettanteEredita: "480000.39",
+        Eredi: [
+          {
+            CognomeNome: "Paolo Bianchi-1111",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "5%",
+            LiquidatoInBaseAllaPercDiEredita: "2118400.00",
+            Liquidazione: "30/06/2014"
+          },
+          {
+            CognomeNome: "Marc00o Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q2357",
+            PercDiEredita: "5%",
+            LiquidatoInBaseAllaPercDiEredita: "14200.00",
+            Liquidazione: "30/06/2016"
+          },
+          {
+            CognomeNome: "SaAAAra Bianchi",
+            CodiceFiscale: "RSSMRA53A36Q5372",
+            PercDiEredita: "15%",
+            LiquidatoInBaseAllaPercDiEredita: "114200.00",
+            Liquidazione: "30/06/2016"
+          }
+        ]
+      },
+
       Redditi: [
         {
           Anno: "2018",
@@ -3590,7 +3723,7 @@ mochDbTable = function(table) {
       PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0123 456789",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi222@gmail.com",
       Pec: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
@@ -3601,12 +3734,14 @@ mochDbTable = function(table) {
       Nome: "Camillo-1111",
       DataDiNascita: "01/01/1930",
       Sesso: "F",
-      DataDiDecesso: "-",
       LuogoDiNascita: "Bolzano-11",
       Nazionalita: "Italiana",
       Residenza: "via Giocchino Murat, 53 - 89112 Roma RM",
       Domicilio: "via Armando Diaz, 2 - 84094 Roma RM",
       AntriIndirizzi: "indirizzo straniero 1 wekjròlqwkjer",
+      DataDiDecesso: "-",
+      Eredita: null,
+
       Redditi: [
         {
           Anno: "2018",
@@ -3967,7 +4102,7 @@ mochDbTable = function(table) {
       PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi333@gmail.com",
       Pec: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
@@ -3978,12 +4113,15 @@ mochDbTable = function(table) {
       Nome: "John22",
       DataDiNascita: "01/01/1970",
       Sesso: "F",
-      DataDiDecesso: "-",
       LuogoDiNascita: "Bologna 2",
       Nazionalita: "Italiana",
       Residenza: "via Luigi Belli, 53 - 39100 Bolzano BZ",
       Domicilio: "via Diaz Armandino, 2 - 39100 Bolzano BZ",
       AntriIndirizzi: "indirizzo belga qòlwekrjòlqwekjròlqwkjer",
+
+      DataDiDecesso: "-",
+      Eredita: null,
+
       Redditi: [
         {
           Anno: "2018",
@@ -4347,7 +4485,7 @@ mochDbTable = function(table) {
       PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi444@gmail.com",
       Pec: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
@@ -4358,12 +4496,44 @@ mochDbTable = function(table) {
       Nome: "Khan",
       DataDiNascita: "01/02/1650",
       Sesso: "F",
-      DataDiDecesso: "01/01/1930",
       LuogoDiNascita: "Bolzano",
       Nazionalita: "Inglese",
       Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
       Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
       AntriIndirizzi: "indirizzo austriaco qòlwekrjòlqwekjròlqwkjer",
+
+      DataDiDecesso: "01/01/1930",
+      Eredita: [
+        {
+          CognomeNome: "Paolwwwo Biawdjkònchi",
+          CodiceFiscale: "RSSMRA53A36Q2357",
+          PercDiEredita: "50%",
+          LiquidatoInBaseAllaPercDiEredita: "28400.00",
+          Liquidazione: "30/06/2016"
+        },
+        {
+          CognomeNome: "Marcwwwo Biancwwwhi",
+          CodiceFiscale: "RSSMRA53A36Q2357",
+          PercDiEredita: "25%",
+          LiquidatoInBaseAllaPercDiEredita: "14200.00",
+          Liquidazione: "30/06/2016"
+        },
+        {
+          CognomeNome: "Sarwa Biancwi",
+          CodiceFiscale: "RSSMRA53A36Q5372",
+          PercDiEredita: "15%",
+          LiquidatoInBaseAllaPercDiEredita: "14200.00",
+          Liquidazione: "30/06/2016"
+        },
+        {
+          CognomeNome: "Sarwa Biancwi",
+          CodiceFiscale: "RSSMRA53A36Q5372",
+          PercDiEredita: "15%",
+          LiquidatoInBaseAllaPercDiEredita: "14200.00",
+          Liquidazione: "30/06/2016"
+        }
+      ],
+
       Redditi: [
         {
           Anno: "2018",
@@ -4727,7 +4897,7 @@ mochDbTable = function(table) {
       PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
       TelefonoPrincipale: "0461 912585",
       TelefonoSecondario: "0461 923452",
-      Email: "mrossi@gmail.com",
+      Email: "mrossi555@gmail.com",
       Pec: "mrossi@gmail.com",
       Note:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"

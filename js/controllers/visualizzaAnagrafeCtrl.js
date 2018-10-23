@@ -10,7 +10,9 @@ function visualizzaAnagrafeCtrl(
   $uibModal,
   runMode,
   $state,
-  $stateParams
+  $stateParams,
+  DTOptionsBuilder,
+  DTColumnDefBuilder
 ) {
   // $scope.state = $state.current;
   // $scope.params = $stateParams;
@@ -93,11 +95,10 @@ function visualizzaAnagrafeCtrl(
   };
 
   $scope.creaNuovoReddito = function($index) {
-    
     if ($index) {
       $scope.tmpRedditiAssistito = $scope.datiAssistito.Redditi[$index];
-    }else{
-      $scope.tmpRedditiAssistito = null
+    } else {
+      $scope.tmpRedditiAssistito = null;
     }
 
     // Math.random() genera un numero casuale compreso fra 0 e 1,
@@ -220,6 +221,13 @@ function visualizzaAnagrafeCtrl(
       button: "conferma!"
     });
   };
+
+  $scope.dtOptionsTabEredi = DTOptionsBuilder.newOptions()
+    .withOption("order", [1, "desc"])
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
+
+  $scope.dtColumnTabEredi = [DTColumnDefBuilder.newColumnDef(0).notSortable()];
 
   // function to submit the form after all validation has occurred
   $scope.submitForm = function(isValid) {
