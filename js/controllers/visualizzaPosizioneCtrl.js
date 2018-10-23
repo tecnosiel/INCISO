@@ -10,6 +10,7 @@ function visualizzaPosizioneCtrl(
   $uibModal,
   runMode,
   $state,
+  httpServices,
   $stateParams
 ) {
   // https://stackoverflow.com/questions/25647454/how-to-pass-parameters-using-ui-sref-in-ui-router-to-controller/25647714
@@ -70,7 +71,7 @@ function visualizzaPosizioneCtrl(
         // $scope.$apply();
         swal("La domanda è stata cancellata!", {
           icon: "success"
-        }).then(function(){
+        }).then(function() {
           // $state.go("posizione.visualizza_anagrafica", {
           //   datiAssistito: $scope.datiAssistito
           // });
@@ -94,6 +95,20 @@ function visualizzaPosizioneCtrl(
     if (isValid) {
       // alert("la tua Form è valida");
     }
+  };
+
+  // $scope.findDomande = function() {
+  //   $scope.elencoDomande = httpServices.domande.find("mockUrl");
+  // };
+
+  $scope.visualizzaDomanda = function() {
+    $scope.elencoDomande = httpServices.domande.find("mockUrl");
+    debugger;
+    $state.go("domande.visualizza_domanda", {
+      datiAssistito: $scope.datiAssistito,
+      
+      domanda:$scope.elencoDomande[1].DomandePresentate[1]
+    });
   };
 }
 

@@ -1,19 +1,7 @@
 <div class="row wrapper border-bottom white-bg page-heading">
 
-    <!-- <div class="col-lg-10">
-        <h2>{{domanda.OperazioneInCorso | translate}}</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">{{ 'HOME' | translate }}</a>
-            </li>
-            <li class="active">
-                <strong>{{ 'RICERCA_ASSISTITO' | translate }}</strong>
-            </li>
-        </ol>
-    </div> -->
-
     <header-component tipo="'Dettaglio'" titolo="domanda.OperazioneInCorso" paths="[{href:'index.html',descrizione:'HOME'}, {href:'nuova_domanda.html',descrizione:'RICERCA_ASSISTITO'}]"
-    active="{{OperazioneInCorso | translate }}"></header-component>
+        active="{{OperazioneInCorso | translate }}"></header-component>
 
     <div class="col-lg-2"></div>
 </div>
@@ -36,14 +24,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta" value="77" 
-                                            type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='77'"> <i></i>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
+                                            value="77" type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='77'">
+                                        <i></i>
                                         77 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta" value="88" 
-                                            type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='88'"> <i></i>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
+                                            value="88" type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='88'">
+                                        <i></i>
                                         88 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta" value="99" 
-                                            type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='99'"> <i></i>
+                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
+                                            value="99" type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='99'">
+                                        <i></i>
                                         99 </label></div>
                             </div>
                         </div>
@@ -53,7 +44,8 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>{{ 'CERCA_ASSISTITO' | translate }}
-                        <small>Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta</small>
+                        <small>{{'INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA' |
+                            translate }}</small>
                     </h5>
                     <!--<div class="ibox-tools">
                         <a class="collapse-link">
@@ -80,22 +72,22 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'NOME' | translate }}</label>
-                                        <input type="text" placeholder="Nome da ricercare" class="form-control"
+                                        <input type="text" placeholder="{{'NOME_DA_RICERCARE' | translate}}" class="form-control"
                                             ng-model="findNome"></div>
 
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'COGNOME' | translate }}</label>
-                                        <input type="text" placeholder="Cognome da ricercare" class="form-control"
+                                        <input type="text" placeholder="{{'COGNOME_DA_RICERCARE' | translate}}" class="form-control"
                                             ng-model="findCognome"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'CODICE_FISCALE' | translate }}</label>
-                                        <input type="text" placeholder="Codice fiscale da ricercare" class="form-control"
-                                            ng-model="findCodiceFiscale"></div>
+                                        <input type="text" placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}"
+                                            class="form-control" ng-model="findCodiceFiscale"></div>
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
-                                        <input type="text" placeholder="Data nascita da ricercare formato dd/MM/yyyy"
+                                        <input type="text" placeholder="{{'DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY'  | translate}}"
                                             class="form-control js-date" ng-model="findDataDiNascita">
                                     </div>
                                 </div>
@@ -143,9 +135,12 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a ng-click="ordinaElencoDomande('Cognome','Cognome')">{{ 'COGNOME' | translate }}</a></li>
-                                    <li><a ng-click="ordinaElencoDomande('CodiceFiscale', 'Codice fiscale')">{{ 'CODICE_FISCALE' | translate }}</a></li>
-                                    <li><a ng-click="ordinaElencoDomande('DataDiNascita', 'Data di nascita' )">{{ 'DATA_DI_NASCITA' | translate }}</a></li>
+                                    <li><a ng-click="ordinaElencoDomande('Cognome','Cognome')">{{ 'COGNOME' | translate
+                                            }}</a></li>
+                                    <li><a ng-click="ordinaElencoDomande('CodiceFiscale', 'Codice fiscale')">{{
+                                            'CODICE_FISCALE' | translate }}</a></li>
+                                    <li><a ng-click="ordinaElencoDomande('DataDiNascita', 'Data di nascita' )">{{
+                                            'DATA_DI_NASCITA' | translate }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -154,7 +149,8 @@
 
                             <!-- Messaggio di Attenzione Eventuale----------- -->
                             <div class="alert alert-danger">
-                                <strong class="m-r-md">*</strong> Codice fiscale duplicato, verificare anomalia.
+                                <strong class="m-r-md">*</strong> {{ 'CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA' |
+                                translate }}
                             </div>
 
                             <div ng-repeat="item in elencoDomande  | orderBy: ordinamento.Campo : ordinamento.Reverse">
@@ -172,7 +168,7 @@
                                                 <h4>
                                                     <i ng-if="item.DataDiDecesso != '-'" title="deceduto" class="fa fa-cross"></i>
                                                     <a ng-class="{'secondary': item.Duplicato}" ng-click="findCodFis(item.CodiceFiscale)"
-                                                        angular-popover direction="top" template-url="views/partials/_popover_anagrafica"
+                                                        angular-popover direction="top" template-url="views/partials/_popover_anagrafica2"
                                                         style="position: relative; z-index: 100;">
                                                         {{item.Nome}} {{ item.Cognome }}
                                                     </a>
@@ -185,15 +181,12 @@
                                             <!-- ----------- -->
 
                                             <div class="col-md-3">
-                                                <span class="inline-block">Data di nascita:</span>
+                                                <span class="inline-block">{{ 'DATA_DI_NASCITA' | translate }}:</span>
                                                 <h4 class="inline-block m-l-sm">{{ item.DataDiNascita }}</h4>
                                             </div>
                                             <!-- ----------- -->
 
                                             <div class="col-md-3 text-right">
-                                                <!-- <a ui-sref="domande.domanda" ng-click="findCodFis(item.CodiceFiscale)" onclick="javascript:event.stopPropagation();">
-                                                    {{ 'INSERISCI_DOMANDA' | translate }}
-                                                </a> -->
                                                 <a ui-sref="domande.domanda" ng-click="inserisciNuovaDomanda(item.CodiceFiscale)"
                                                     onclick="javascript:event.stopPropagation();">
                                                     {{ 'INSERISCI_DOMANDA' | translate }}
@@ -214,13 +207,14 @@
                                             <!-- parte da visualizzare solo se deceduto  -->
                                             <div ng-if="item.DataDiDecesso != '-'" class="row">
                                                 <div class="col-md-3">
-                                                    <strong>Deceduto il {{ item.DataDiDecesso }}</strong>
+                                                    <strong>{{ 'DECEDUTO_IL' | translate }} {{ item.DataDiDecesso }}</strong>
                                                 </div>
                                                 <div class="col-md-3 intero">
-                                                    <strong>Numero Faldone: {{ item.NumeroFaldone }}</strong>
+                                                    <strong>{{ 'NUMERO_FALDONE' | translate }}: {{ item.NumeroFaldone
+                                                        }}</strong>
                                                 </div>
                                                 <div class="col-md-3 anno">
-                                                    <strong>Anno di scarto: {{ item.AnnoDiScarto }}</strong>
+                                                    <strong>{{ 'ANNO_DI_SCARTO' | translate }}: {{ item.AnnoDiScarto }}</strong>
                                                 </div>
                                             </div>
 
@@ -230,28 +224,28 @@
                                                     <table class="table table-bordered">
                                                         <thead>
                                                             <tr>
-                                                                <th class="col-md-4">Posizione</th>
-                                                                <th class="col-md-4">Fascicolo</th>
-                                                                <th class="col-md-4">Stato domanda</th>
+                                                                <th class="col-md-4">{{"POSIZIONE" | translate}}</th>
+                                                                <th class="col-md-4">{{"FASCICOLO" | translate}}</th>
+                                                                <th class="col-md-4">{{"STATO_DOMANDA" | translate}}</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr ng-class="{strong: itemChild.StatoDomanda === 'Concessa'}"
-                                                                ng-repeat="itemChild in item.DomandePresentate">
+                                                            <tr ng-class="{strong: item2.StatoDomanda === 'Concessa'}"
+                                                                ng-repeat="item2 in item.DomandePresentate">
                                                                 <td>
-                                                                    <a href="visualizza_posizione.html">{{itemChild.Posizione}}</a>
+                                                                    <a href="visualizza_posizione.html">{{item2.Posizione}}</a>
                                                                 </td>
                                                                 <!-- ----- -->
-                                                                <td>{{itemChild.Fascicolo}}</td>
+                                                                <td>{{item2.Fascicolo}}</td>
                                                                 <!-- ----- -->
                                                                 <td class="bold">
-                                                                    <i ng-if="itemChild.StatoDomanda == 'Concessa'"
-                                                                        class="fa fa-check text-navy" aria-hidden="true"></i>
-                                                                    <i ng-if="itemChild.StatoDomanda == 'Revocata'"
-                                                                        class="fa fa-circle-o text-warning" aria-hidden="true"></i>
-                                                                    <i ng-if="itemChild.StatoDomanda == 'Negata'" class="fa fa-times text-danger"
+                                                                    <i ng-if="item2.StatoDomanda == 'Concessa'" class="fa fa-check text-navy"
                                                                         aria-hidden="true"></i>
-                                                                    {{itemChild.StatoDomanda}}
+                                                                    <i ng-if="item2.StatoDomanda == 'Revocata'" class="fa fa-circle-o text-warning"
+                                                                        aria-hidden="true"></i>
+                                                                    <i ng-if="item2.StatoDomanda == 'Negata'" class="fa fa-times text-danger"
+                                                                        aria-hidden="true"></i>
+                                                                    {{item2.StatoDomanda|translate}}
                                                                 </td>
                                                             </tr>
 

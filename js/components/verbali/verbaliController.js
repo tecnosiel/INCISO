@@ -66,7 +66,7 @@ function verbaliController($scope, verbaliServices, $uibModal) {
         }
       },
       // scope: $scope,
-      windowClass: this.randomMove()
+      windowClass: "animated fadeInRightBig"
     });
   };
 

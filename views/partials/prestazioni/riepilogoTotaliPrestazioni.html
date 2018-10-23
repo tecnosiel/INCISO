@@ -1,0 +1,16 @@
+<table class="table table-striped table-bordered dataTables-expand secondary-table">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Nome prestazione</th>
+			<th>Totale</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in parameter">
+			<td></td>
+			<td>{{item.NomePrestazione}}</td>
+			<td class="text-right">{{item.Totale | currency : "€" }}</td>
+		</tr>
+	</tbody>
+</table>

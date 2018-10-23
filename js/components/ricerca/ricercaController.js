@@ -44,6 +44,7 @@ function ricercaController(
       "mockUrl",
       cCodFis
     );
+
     $state.go('posizione.visualizza_posizione', {datiAssistito: this.datiAssistito});
 
   };
@@ -87,7 +88,7 @@ function ricercaController(
       controller: "modalCreaNuovaAnagraficaCtrl",
       // size: "lg",
       scope: $scope,
-      windowClass: this.randomMove()
+      windowClass: "animated fadeInRightBig"
     });
   };
 

@@ -173,6 +173,10 @@
         templateUrl: "/views/visualizza_domanda.html",
         controller: "visualizzaDomandaCtrl",
         data: { pageTitle: "Visualizza Domanda" },
+        params: {
+          datiAssistito: null,
+          domanda: null
+        },
         resolve: {
           loadPlugin: function($ocLazyLoad) {
             // da verificare

@@ -15,6 +15,25 @@
         </thead>
         <tbody>
             <tr class="toolbox-parent-row">
+                <td>01/04/2016</td>
+                <td>1223 - 01/06/2016</td>
+                <td>xxxxxxxxxx</td>
+                <td>UIL</td>
+                <td>Marco Camillo</td>
+                <td>Falso Marchi</td>
+                <td class="text-center"><label class="label label-warning">revocata</label></td>
+                <td>01/04/2019</td>
+                <td class="toolbox-row">
+                    <!-- ui-sref="liquidazioni.visualizza_domanda" -->
+                    <a title="visualizza" ng-click="visualizzaDomanda()">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                    <a ng-click="cancellaDomanda(1)" title="elimina">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="toolbox-parent-row">
                 <td>01/04/2015</td>
                 <td>1223 - 01/04/2015</td>
                 <td>Provenienza</td>
@@ -24,14 +43,16 @@
                 <td class="text-center"><label class="label label-warning">revocata</label></td>
                 <td>01/04/2016</td>
                 <td class="toolbox-row">
-                    <a title="visualizza" ui-sref="liquidazioni.visualizza_domanda">
+                    <!-- ui-sref="liquidazioni.visualizza_domanda" -->
+                    <a title="visualizza" ng-click="visualizzaDomanda()">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
-                    <a ng-click ="cancellaDomanda(1)" title="elimina">
+                    <a ng-click="cancellaDomanda(2)" title="elimina">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>
             </tr>
+
         </tbody>
     </table>
 </div>

@@ -64,7 +64,7 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
       controller: "modalIndirizziCtrl",
       size: "lg",
       scope: $scope,
-      windowClass: this.randomMove()
+      windowClass: "animated fadeInRightBig"
     });
   };
 

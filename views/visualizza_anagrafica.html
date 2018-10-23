@@ -42,26 +42,26 @@
 
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
-                                    <label>Nome</label>
+                                    <label>{{'NOME' | translate}}</label>
                                     <input type="text" name="nome" ng-model="datiAssistito.Nome" ng-readonly="visDatiAssistito"
                                         class="form-control" required>
-                                    <p ng-show="userForm.nome.$invalid && !userForm.nome.$pristine" class="help-block">Nome
-                                        obbligatorio.</p>
+                                    <p ng-show="userForm.nome.$invalid && !userForm.nome.$pristine" class="help-block">{{'CAMPO_OBBLIGATORIO'
+                                        | translate}}.</p>
                                 </div>
 
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
-                                    <label>Cognome</label>
+                                    <label>{{'COGNOME' | translate}}</label>
                                     <input type="text" name="cognome" ng-model="datiAssistito.Cognome" ng-readonly="visDatiAssistito"
                                         class="form-control" required>
                                     <p ng-show="userForm.cognome.$invalid && !userForm.cognome.$pristine" class="help-block">
-                                        Campo obbligatorio.</p>
+                                        {{'CAMPO_OBBLIGATORIO' | translate}}.</p>
                                 </div>
 
 
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
-                                    <label>Cognome acquisito</label>
+                                    <label>{{'COGNOME_ACQUISITO' | translate}}</label>
                                     <input type="text" name="cognomeacquisito" ng-model="datiAssistito.CognomeAcquisito"
                                         ng-readonly="visDatiAssistito" class="form-control" required>
                                 </div>
@@ -70,20 +70,18 @@
 
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
-                                    <label>Codice Fiscale</label>
+                                    <label>{{'CODICE_FISCALE' | translate}}</label>
                                     <input type="text" name="codicefiscale" ng-model="datiAssistito.CodiceFiscale"
                                         ng-readonly="visDatiAssistito" class="form-control" ng-minlength="16"
                                         ng-maxlength="16">
-                                    <p ng-show="userForm.codicefiscale.$error.minlength" class="help-block">Codice
-                                        Fiscale
-                                        troppo corto.</p>
-                                    <p ng-show="userForm.codicefiscale.$error.maxlength" class="help-block">Codice
-                                        Fiscale
-                                        troppo lungo.</p>
+                                    <p ng-show="userForm.codicefiscale.$error.minlength" class="help-block">{{'CODICE_FISCALE_TROPPO_CORTO'
+                                        | translate}}.</p>
+                                    <p ng-show="userForm.codicefiscale.$error.maxlength" class="help-block">{{'CODICE_FISCALE_TROPPO_LUNGO'
+                                        | translate}}.</p>
                                 </div>
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
-                                    <label>Sesso</label>
+                                    <label>{{'SESSO' | translate}}</label>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="checkbox">
@@ -92,7 +90,7 @@
                                                         name="sesso" ng-disabled="visDatiAssistito" class="form-control"
                                                         ng-checked="datiAssistito.Sesso == 'Maschile'">
                                                     <i></i>
-                                                    Maschile
+                                                    {{'MASCHILE' | translate}}
                                                 </label>
                                             </div>
                                         </div>
@@ -103,7 +101,7 @@
                                                         name="sesso" ng-disabled="visDatiAssistito" class="form-control"
                                                         ng-checked="datiAssistito.Sesso == 'Femminile'">
                                                     <i></i>
-                                                    Femminile
+                                                    {{'FEMMINILE' | translate}}
                                                 </label>
                                             </div>
                                         </div>
@@ -113,7 +111,7 @@
 
                                 <!-- --------------------------  -->
                                 <div class="col-md-4 form-group">
-                                    <label>Stato civile</label>
+                                    <label>{{'STATO_CIVILE' | translate}}</label>
                                     <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
                                         ng-disabled="visDatiAssistito" class="form-control" required>
                                         <option></option>
@@ -160,41 +158,41 @@
                                 </div>
 
                                 <div class="col-md-4 form-group">
-                                    <label>Luogo di nascita</label>
+                                    <label>{{ "LUOGO_DI_NASCITA" | translate}}</label>
                                     <!-- <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
                                         ng-readonly="visDatiAssistito" class="form-control" required> -->
                                     <select name="luogoDiNascita" ng-model="datiAssistito.LuogoDiNascita" ng-disabled="visDatiAssistito"
                                         ng-options="comune.name for comune in comuni" class="form-control" required>
-                                        <option value="">Seleziona un comune</option>
+                                        <option value="">{{ "SELEZIONA_UN_COMUNE" | translate}}</option>
                                     </select>
 
                                     <p ng-show="userForm.luogodinascita.$invalid && !userForm.luogodinascita.$pristine"
-                                        class="help-block">Campo obbligatorio.</p>
+                                        class="help-block">{{ "CAMPO_OBBLIGATORIO" | translate}}.</p>
                                 </div>
 
                                 <div class="col-md-4 form-group">
-                                    <label>Provincia</label>
+                                    <label>{{ "PROVINCIA" | translate}}</label>
                                     <select name="provinciadinascita" ng-model="datiAssistito.ProvinciaDiNascita"
                                         ng-disabled="visDatiAssistito" ng-options="province.name for province in provinces"
                                         class="form-control" required>
-                                        <option value="">Seleziona una provincia</option>
+                                        <option value="">{{ "SELEZIONA_UNA_PROVINCIA" | translate}}</option>
                                     </select>
                                     <p ng-show="userForm.provinciadinascita.$invalid && !userForm.provinciadinascita.$pristine"
-                                        class="help-block">Provincia di Nascita obbligatoria.</p>
+                                        class="help-block">{{ "CAMPO_OBBLIGATORIO" | translate}}.</p>
 
                                 </div>
 
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4 form-group"><label>Nazione</label>
+                                <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}</label>
                                     <!-- <input type="text" ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visDatiAssistito"
                                         class="form-control"> -->
 
                                     <select name="nazioneDiNascita" ng-model="datiAssistito.NazioneDiNascita"
                                         ng-disabled="visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
                                         class="form-control" required>
-                                        <option value="">Seleziona una nazione</option>
+                                        <option value="">{{ "SELEZIONA_UNA_NAZIONE" | translate}}</option>
                                     </select>
 
                                 </div>
@@ -240,10 +238,10 @@
                                 </div> -->
 
                                 <div class="col-md-4 form-group">
-                                    <label>Cittadinanza</label>
-                                    <ui-select name="cittadinanza" ng-model="datiAssistito.Cittadinanza"
-                                        ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
-                                        <ui-select-match placeholder="Seleziona cittadinanza">{{$select.selected.nome}}</ui-select-match>
+                                    <label>{{ "CITTADINANZA" | translate}}</label>
+                                    <ui-select name="cittadinanza" ng-model="datiAssistito.Cittadinanza" ng-disabled="visDatiAssistito"
+                                        title="{{ 'SELEZIONA_UN_ELEMENTO_NELL_ELENCO' | translate}}">
+                                        <ui-select-match placeholder="{{ 'SELEZIONA_CITTADINANZA' | translate}}">{{$select.selected.nome}}</ui-select-match>
                                         <ui-select-choices repeat="cittadinanza in cittadinanze | filter: $select.search">
                                             <span ng-bind-html="cittadinanza.nome | highlight: $select.search"></span>
                                             <small ng-bind-html="cittadinanza.code | highlight: $select.search"></small>
@@ -254,7 +252,7 @@
 
 
                                 <div class="col-md-4 form-group">
-                                    <label>Extracomunitario</label>
+                                    <label>{{ "EXTRACOMUNITARIO" | translate}}</label>
 
                                     <div class="row">
                                         <div class="col-md-6">
@@ -264,7 +262,7 @@
                                                         name="extracomunitario" ng-disabled="visDatiAssistito" value="Si"
                                                         ng-checked="datiAssistito.Extracomunitario == 'Si'">
                                                     <i></i>
-                                                    Si
+                                                    {{ "SI" | translate}}
                                                 </label>
                                             </div>
                                         </div>
@@ -275,7 +273,7 @@
                                                         name="extracomunitario" ng-disabled="visDatiAssistito" value="No"
                                                         ng-checked="datiAssistito.Extracomunitario=='No'">
                                                     <i></i>
-                                                    No
+                                                    {{ "NO" | translate}}
                                                 </label>
                                             </div>
                                         </div>
@@ -283,7 +281,7 @@
 
                                 </div>
                             </div>
-                            <h3 class="m-t-lg">Permesso di soggiorno</h3>
+                            <h3 class="m-t-lg">{{ "PERMESSO_DI_SOGGIORNO" | translate}}</h3>
                             <div class="row">
 
                                 <!-- <div class="col-md-4 form-group"><label>Tipo permesso</label>
@@ -292,9 +290,9 @@
                                 </div> -->
 
                                 <div class="col-md-4 form-group">
-                                    <label>Tipo permesso</label>
+                                    <label>{{ "TIPO_PERMESSO" | translate}}</label>
                                     <ui-select name="permessoDiSoggiornoTipoPermesso" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
-                                        ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                        ng-disabled="visDatiAssistito" title="{{ 'SELEZIONA_UN_PERMESSO_DALL_ELENCO' | translate}}">
                                         <ui-select-match placeholder="Seleziona permesso">{{$select.selected.nome}}</ui-select-match>
                                         <ui-select-choices repeat="permesso in permessi | filter: $select.search">
                                             <span ng-bind-html="permesso.nome | highlight: $select.search"></span>
@@ -312,7 +310,7 @@
                                         ng-readonly="visDatiAssistito" class="form-control js-date"></div> -->
 
                                 <div class="col-md-4 form-group">
-                                    <label>Data rilascio</label>
+                                    <label>{{ "DATA_RILASCIO" | translate}}</label>
                                     <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
                                         <input type="text" name="permessoDiSoggiornoDataRilascio" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
                                             ng-readonly="visDatiAssistito" class="form-control js-date" required>
@@ -328,7 +326,7 @@
                                         ng-readonly="visDatiAssistito" class="form-control js-date"></div> -->
 
                                 <div class="col-md-4 form-group">
-                                    <label>Valido fino al</label>
+                                    <label>{{ "VALIDO_FINO_AL" | translate}}</label>
                                     <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
                                         <input type="text" name="permessoDiSoggiornoValidoFinoAl" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
                                             ng-readonly="visDatiAssistito" class="form-control js-date" required>
@@ -339,12 +337,12 @@
                                 </div>
 
                             </div>
-                            <h3 class="m-t-lg">Riferimenti di contatto</h3>
+                            <h3 class="m-t-lg">{{ "RIFERIMENTO_DI_CONTATTO" | translate}}</h3>
                             <div class="row">
-                                <div class="col-md-4 form-group"><label>Telefono principale</label>
+                                <div class="col-md-4 form-group"><label>{{ "TELEFONO_PRINCIPALE" | translate}}</label>
                                     <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="visDatiAssistito"
                                         class="form-control telefono"></div>
-                                <div class="col-md-4 form-group"><label>Telefono secondario</label>
+                                <div class="col-md-4 form-group"><label>{{ "TELEFONO_SECONDARIO" | translate}}</label>
                                     <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="visDatiAssistito"
                                         class="form-control telefono"></div>
 
@@ -353,7 +351,7 @@
                                 <div class="col-md-4 form-group"><label>PEC</label>
                                     <input type="text" ng-readonly="visDatiAssistito" ng-model="datiAssistito.Pec"
                                         class="form-control"></div>
-                                <div class="col-md-12 form-group"><label>Note</label>
+                                <div class="col-md-12 form-group"><label>{{ "NOTE" | translate}}</label>
                                     <textarea ng-model="datiAssistito.Note" ng-readonly="visDatiAssistito" class="form-control"></textarea></div>
                             </div>
                         </div>
@@ -373,10 +371,10 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-2">Tipo</th>
-                                        <th class="col-md-3">Indirizzo</th>
-                                        <th class="col-md-2">Validità</th>
-                                        <th class="col-md-3">Note</th>
+                                        <th class="col-md-2">{{ "TIPO" | translate}}</th>
+                                        <th class="col-md-3">{{ "INDIRIZZO" | translate}}</th>
+                                        <th class="col-md-2">{{ "VALIDITA" | translate}}</th>
+                                        <th class="col-md-3">{{ "NOTE" | translate}}</th>
                                         <th class="col-md-1"></th>
                                     </tr>
                                 </thead>
@@ -424,7 +422,7 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-6">Numero posizione</th>
+                                        <th class="col-md-6">{{ "NUMERO_POSIZIONE" | translate}}</th>
                                         <th class="col-md-3"></th>
                                         <th class="col-md-3"></th>
                                     </tr>
@@ -432,27 +430,24 @@
                                 <tbody>
                                     <tr>
                                         <td>778767</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza
-                                                posizione</a></td>
-                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
-                                                documenti
-                                                per fascicolo</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">{{
+                                                "VISUALIZZA_POSIZIONE" | translate}}</a></td>
+                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">{{
+                                                "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate}}</a></td>
                                     </tr>
                                     <tr>
                                         <td>885963</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza
-                                                posizione</a></td>
-                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
-                                                documenti
-                                                per fascicolo</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">{{
+                                                "VISUALIZZA_POSIZIONE" | translate}}</a></td>
+                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">{{
+                                                "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate}}</a></td>
                                     </tr>
                                     <tr>
                                         <td>993423</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">Visualizza
-                                                posizione</a></td>
-                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">Elenco
-                                                documenti
-                                                per fascicolo</a></td>
+                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">{{
+                                                "VISUALIZZA_POSIZIONE" | translate}}</a></td>
+                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">{{
+                                                "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate}}</a></td>
                                     </tr>
 
                                 </tbody>
@@ -471,8 +466,9 @@
                     <div id="collapsePensioni" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-12 form-group"><label>Altre pensioni</label> <input type="text"
-                                        ng-readonly="visDatiAssistito" class="form-control" value="Invalidità, infortunio"></div>
+                                <div class="col-md-12 form-group"><label>{{
+                                        "ALTRE_PENSIONI" | translate}}</label> <input type="text" ng-readonly="visDatiAssistito"
+                                        class="form-control" value="Invalidità, infortunio"></div>
                             </div>
                         </div>
                     </div>
@@ -489,22 +485,26 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-4 form-group">
-                                    <label>Data decesso</label>
+                                    <label>{{
+                                        "DATA_DECESSO" | translate}}</label>
                                     <input type="text" ng-readonly="visDatiAssistito" class="form-control js-date"
                                         value="10/01/2016">
                                 </div>
                                 <div class="col-md-4 form-group">
-                                    <label>Numero faldone</label>
+                                    <label>{{
+                                        "NUMERO_FALDONE" | translate}}</label>
                                     <input type="text" ng-readonly="visDatiAssistito" class="form-control intero" value="357434">
                                 </div>
                                 <div class="col-md-4 form-group">
-                                    <label>Anno di scarto IN-CI-SO</label>
+                                    <label>{{
+                                        "ANNO_DI_SCARTO_INCISO" | translate}}</label>
                                     <input type="text" ng-readonly="visDatiAssistito" class="form-control anno" value="2016">
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquEredi">
-                                    Simulazione liquidazioni eredi
+                                    {{
+                                    "SIMULAZIONE_LIQUIDAZIONE_EREDI" | translate}}
                                     <div class="panel-toolbox">
                                         <i class="fa fa-chevron-down"></i>
                                     </div>
@@ -516,8 +516,12 @@
                                                 <table class="table table-bordered table-striped dataTables-paged">
                                                     <thead>
                                                         <tr>
-                                                            <th class="col-md-3">Data calcolo simulazione</th>
-                                                            <th class="col-md-3">Importo spettante</th>
+                                                            <th class="col-md-3">
+                                                                {{"DATA_CALCOLO_SIMULAZIONE" | translate}}
+                                                            </th>
+                                                            <th class="col-md-3">
+                                                                {{"IMPORTO_SPETTANTE" | translate}}
+                                                            </th>
                                                             <th class="col-md-4"></th>
                                                         </tr>
                                                     </thead>
@@ -525,8 +529,11 @@
                                                         <tr>
                                                             <td>30/06/2016</td>
                                                             <td>€ 56.800,00</td>
-                                                            <td class="text-center"><a href="visualizza_liquidazione.html">Visualizza
-                                                                    dettaglio simulazione</a></td>
+                                                            <td class="text-center">
+                                                                <a href="visualizza_liquidazione.html">
+                                                                    {{"VISUALIZZA_DETTAGLIO_SIMULAZIONE" | translate}}
+                                                                </a>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -537,7 +544,7 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading pointer" data-toggle="collapse" href="#collapseEredi">
-                                    Elenco eredi
+                                    {{'ELENCO_EREDI'|translate}}
                                     <div class="panel-toolbox">
                                         <i class="fa fa-chevron-down"></i>
                                     </div>
@@ -549,11 +556,11 @@
                                                 <table class="table table-bordered table-striped dataTables-paged">
                                                     <thead class="price">
                                                         <tr>
-                                                            <th>Cognome Nome</th>
-                                                            <th>Codice fiscale</th>
-                                                            <th>% di eredità</th>
-                                                            <th>Liquidato in base alla % di eredità</th>
-                                                            <th>Liquidazione</th>
+                                                            <th>{{'COGNOME_NOME'|translate}}</th>
+                                                            <th>{{'CODICE_FISCALE'|translate}}</th>
+                                                            <th>{{'PERC_DI_EREDITA'|translate}}</th>
+                                                            <th>{{'LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA'|translate}}</th>
+                                                            <th>{{'LIQUIDAZIONE'|translate}}</th>
                                                             <th></th>
                                                             <th></th>
                                                         </tr>
@@ -565,8 +572,12 @@
                                                             <td>50%</td>
                                                             <td>€ 28.400,00</td>
                                                             <td>30/06/2016</td>
-                                                            <td class="text-center"><a>Visualizza dettaglio importo
-                                                                    liquidato</a></td>
+                                                            <td class="text-center">
+                                                                <a>
+                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
+                                                                    translate}}
+                                                                </a>
+                                                            </td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visDatiAssistito}"
                                                                     ng-click="editLiquidazione()" title="modifica">
@@ -580,8 +591,12 @@
                                                             <td>25%</td>
                                                             <td>€ 14.200,00</td>
                                                             <td>30/06/2016</td>
-                                                            <td class="text-center"><a>Visualizza dettaglio importo
-                                                                    liquidato</a></td>
+                                                            <td class="text-center">
+                                                                <a>
+                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
+                                                                    translate}}
+                                                                </a>
+                                                            </td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visDatiAssistito}"
                                                                     ng-click="editLiquidazione()" title="modifica">
@@ -595,8 +610,12 @@
                                                             <td>15%</td>
                                                             <td>€ 14.200,00</td>
                                                             <td>30/06/2016</td>
-                                                            <td class="text-center"><a>Visualizza dettaglio importo
-                                                                    liquidato</a></td>
+                                                            <td class="text-center">
+                                                                <a>
+                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
+                                                                    translate}}
+                                                                </a>
+                                                            </td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visDatiAssistito}"
                                                                     ng-click="editLiquidazione()" title="modifica">
@@ -610,8 +629,12 @@
                                                             <td>10%</td>
                                                             <td>€ 5.680,00</td>
                                                             <td>30/06/2016</td>
-                                                            <td class="text-center"><a>Visualizza dettaglio importo
-                                                                    liquidato</a></td>
+                                                            <td class="text-center">
+                                                                <a>
+                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
+                                                                    translate}}
+                                                                </a>
+                                                            </td>
                                                             <td class="text-center">
                                                                 <a ng-class="{anchorDisabled : visDatiAssistito}"
                                                                     ng-click="editLiquidazione()" title="modifica">
@@ -624,8 +647,8 @@
                                             </div>
                                             <div class="text-right col-md-12">
                                                 <a class="btn btn-primary btn-sm" ng-disabled="visDatiAssistito"
-                                                    data-toggle="modal" data-target="#modalAnagrafica">Aggiungi
-                                                    erede
+                                                    data-toggle="modal" data-target="#modalAnagrafica">
+                                                    {{'AGGIUNGI_EREDE' | translate}}
                                                 </a>
                                             </div>
                                         </div>
@@ -664,10 +687,12 @@
                                         <tbody>
 
                                             <tr ng-repeat="item in datiAssistito.Redditi">
-                                                <td>{{item.Anno}}</td>
-                                                <td class="text-right">{{item.RedditoAssistito | currency : "€"}}</td>
-                                                <td class="text-right">{{item.RedditoConiuge | currency : "€" }}</td>
-                                                <td class="text-center">
+                                                <td width="10%">{{item.Anno}}</td>
+                                                <td width="28%" class="text-right">{{item.RedditoAssistito | currency :
+                                                    "€"}}</td>
+                                                <td width="28%" class="text-right">{{item.RedditoConiuge | currency :
+                                                    "€" }}</td>
+                                                <td width="28%" class="text-center">
                                                     <div class="checkbox">
                                                         <input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
                                                             ng-disabled="visDatiAssistito" value="Si" ng-checked="item.ValidoPerGliAnniSuccessivi=='Si'">
@@ -675,7 +700,7 @@
                                                     </div>
                                                 </td>
 
-                                                <td style="font-size: 18px; text-align: center">
+                                                <td width="6%" style="font-size: 18px; text-align: center">
                                                     <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="creaNuovoReddito($index)"><i
                                                             class="fa fa-pencil"></i></a>
                                                 </td>
@@ -713,12 +738,13 @@
                                     <table class="table table-bordered table-striped dataTables-paged">
                                         <thead>
                                             <tr>
-                                                <th class="col-md-1">Num. Posizione</th>
-                                                <th class="col-md-2">Data domanda</th>
-                                                <th class="col-md-2">Tipo associazione</th>
-                                                <th class="col-md-2">Inizio iscrizione</th>
-                                                <th class="col-md-2">Fine iscrizione</th>
-                                                <th class="col-md-3">Elenco ritenute di categoria recuperate</th>
+                                                <th class="col-md-1">{{ 'NUM_POSIZIONE' | translate }}</th>
+                                                <th class="col-md-2">{{ 'DATA_DOMANDA' | translate }}</th>
+                                                <th class="col-md-2">{{ 'TIPO_ASSOCIAZIONE' | translate }}</th>
+                                                <th class="col-md-2">{{ 'INIZIO_ISCRIZIONE' | translate }}</th>
+                                                <th class="col-md-2">{{ 'FINE_ISCRIZIONE' | translate }}</th>
+                                                <th class="col-md-3">{{ 'ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE' |
+                                                    translate }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -799,19 +825,21 @@
                     <div id="collapsePosContabili" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#ElencoLiquidazioni" role="tab"
-                                        data-toggle="tab">Elenco
-                                        liquidazioni
-                                    </a></li>
-                                <li role="presentation"><a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">Elenco
-                                        importi
-                                        riaccreditati
-                                    </a></li>
-                                <li role="presentation"><a href="#ImportiRecup" role="tab" data-toggle="tab">Elenco
-                                        importi
-                                        da
-                                        recuperare
-                                    </a></li>
+                                <li role="presentation" class="active">
+                                    <a href="#ElencoLiquidazioni" role="tab" data-toggle="tab">
+                                        {{ ELENCO_LIQUIDAZIONI | translate}}
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">
+                                        {{ ELENCO_IMPORTI_RIACCREDITATI | translate}}
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#ImportiRecup" role="tab" data-toggle="tab">
+                                        {{ ELENCO_IMPORTI_DA_RECUPERARE | translate}}
+                                    </a>
+                                </li>
                             </ul>
 
                             <div class="tab-content">
@@ -821,14 +849,16 @@
                                             <table class="table table-bordered table-striped dataTables-paged">
                                                 <thead class="price">
                                                     <tr>
-                                                        <th class="col-md-1">Data calcolo</th>
-                                                        <th class="col-md-1">Liquidato</th>
-                                                        <th class="col-md-1">Riaccredito</th>
-                                                        <th class="col-md-1">Trattenuta di categoria</th>
-                                                        <th class="col-md-2">Importo recuperato per compensazione</th>
-                                                        <th class="col-md-4">Nr. trasferimento FluMo</th>
-                                                        <th class="col-md-1">Tot. mese</th>
-                                                        <th class="col-md-1">Tot. anno</th>
+                                                        <th class="col-md-1">{{ 'DATA_CALCOLO' | translate }}</th>
+                                                        <th class="col-md-1">{{ 'LIQUIDATO' | translate }}</th>
+                                                        <th class="col-md-1">{{ 'RIACCREDITO' | translate }}</th>
+                                                        <th class="col-md-1">{{ 'TRATTENUTA_DI_CATEGORIA' | translate
+                                                            }}</th>
+                                                        <th class="col-md-2">{{ 'IMPORTO_RECUPERATO_PER_COMPENSAZIONE'
+                                                            | translate }}</th>
+                                                        <th class="col-md-4">{{ 'NR_TRASFERIMENTO_FLUMO' | translate }}</th>
+                                                        <th class="col-md-1">{{ 'TOT_MESE' | translate }}</th>
+                                                        <th class="col-md-1">{{ 'TOT_ANNO' | translate }}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -836,14 +866,15 @@
                                                         <td>01/01/2016</td>
                                                         <td>
                                                             <div>€ 864,00</div>
-                                                            <a href="visualizza_liquidazione.html">Dettaglio</a>
+                                                            <a href="visualizza_liquidazione.html">{{'DETTAGLIO' |
+                                                                translate}}</a>
                                                         </td>
                                                         <td>€ 864,00</td>
                                                         <td class="negative">€ 6,00</td>
                                                         <td></td>
                                                         <td>
-                                                            <div><label>Nr. mandato</label> 32985432</div>
-                                                            <label>Data</label> 12/07/2013
+                                                            <div><label>{{ 'NR_MANDATO' | translate}}</label> 32985432</div>
+                                                            <label>{{ 'DATA' | translate}}</label> 12/07/2013
                                                         </td>
                                                         <td>€ 1.728,00</td>
                                                         <td>€ 1.728,00</td>
@@ -852,14 +883,15 @@
                                                         <td>01/02/2016</td>
                                                         <td>
                                                             <div>€ 864,00</div>
-                                                            <a href="visualizza_liquidazione.html">Dettaglio</a>
+                                                            <a href="visualizza_liquidazione.html">{{'DETTAGLIO' |
+                                                                translate}}</a>
                                                         </td>
                                                         <td></td>
                                                         <td class="negative">€ 6,00</td>
                                                         <td></td>
                                                         <td>
-                                                            <div><label>Nr. mandato</label> 32985432</div>
-                                                            <label>Data</label> 12/07/2013
+                                                            <div><label>{{ 'NR_MANDATO' | translate}}</label> 32985432</div>
+                                                            <label>{{ 'DATA' | translate}}</label> 12/07/2013
                                                         </td>
                                                         <td>€ 864,00</td>
                                                         <td>€ 2.592,00</td>
@@ -868,14 +900,15 @@
                                                         <td>01/03/2016</td>
                                                         <td>
                                                             <div>€ 320,25</div>
-                                                            <a href="visualizza_liquidazione.html">Dettaglio</a>
+                                                            <a href="visualizza_liquidazione.html">{{'DETTAGLIO' |
+                                                                translate}}</a>
                                                         </td>
                                                         <td></td>
                                                         <td class="negative">€ 6,00</td>
                                                         <td class="negative">€ 108,75</td>
                                                         <td>
-                                                            <div><label>Nr. mandato</label> 32985432</div>
-                                                            <label>Data</label> 12/07/2013
+                                                            <div><label>{{ 'NR_MANDATO' | translate}}</label> 32985432</div>
+                                                            <label>{{ 'DATA' | translate}}</label> 12/07/2013
                                                         </td>
                                                         <td>€ 320,25</td>
                                                         <td>€ 2.912,25</td>
@@ -992,10 +1025,11 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-3">Decorrenza assegno di cura</th>
-                                        <th class="col-md-3">Termine decorrenza assegno di cura</th>
-                                        <th class="col-md-3">Decorrenza permanenza casa di lungodegenza</th>
-                                        <th class="col-md-3">Termine permanenza casa di lungodegenza</th>
+                                        <th class="col-md-3">{{'DECORRENZA_ASSEGNO_DI_CURA' | translate}}</th>
+                                        <th class="col-md-3">{{'TERMINE_DECORRENZA_ASSEGNO_DI_CURA' | translate}}</th>
+                                        <th class="col-md-3">{{'DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA' |
+                                            translate}}</th>
+                                        <th class="col-md-3">{{'TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA' | translate}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -26,59 +26,59 @@
                     <!-- Informazioni Da Prelevare dall'anagrafica -->
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Nome</label>
+                            <label>{{'NOME' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Nome">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Cognome</label>
+                            <label>{{'COGNOME' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Cognome">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Cognome acquisito</label>
+                            <label>{{'COGNOME_ACQUISITO' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.CognomeAcquisito">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Codice Fiscale</label>
+                            <label>{{'CODICE_FISCALE' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.CodiceFiscale">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Sesso</label>
+                            <label>{{'SESSO' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Sesso">
                         </div>
                         <div class="col-md-2 form-group">
-                            <label>Data di nascita</label>
+                            <label>{{'DATA_DI_NASCITA' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.DataDiNascita">
                         </div>
                         <div class="col-md-2 form-group">
-                            <label>Luogo di nascita</label>
+                            <label>{{'LUOGO_DI_NASCITA' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.LuogoDiNascita">
                         </div>
                         <div class="col-md-2 form-group">
-                            <label>Cittadinanza</label>
+                            <label>{{'CITTADINANZA' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Cittadinanza">
                         </div>
                         <div class="col-md-2 form-group">
-                            <label>Extracomunitario</label>
+                            <label>{{'EXTRACOMUNITARIO' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Extracomunitario">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Permesso di soggiorno</label>
+                            <label>{{'PERMESSO_DI_SOGGIORNO' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.PermessoDiSoggiorno">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Data decesso</label>
+                            <label>{{'DATA_DECESSO' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.DataDiDecesso">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Residenza</label>
+                            <label>{{'RESIDENZA' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Residenza">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Domicilio</label>
+                            <label>{{'DOMICILIO' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.Domicilio">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Altri indirizzi</label>
+                            <label>{{'ALTRI_INDIRIZZI' | translate}}</label>
                             <input type="text" readonly class="form-control" ng-model="datiAssistito.AltriIndirizzi">
                         </div>
                     </div>
@@ -464,7 +464,7 @@
                 <div class="m-t-md">
                     <div class="button-bar text-right">
                         <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
-                        <a class="btn btn-sm btn-primary" ui-sref="domande.visualizza_domanda">Inserisci</a>
+                        <a class="btn btn-sm btn-primary" ng-click ="visualizzaDomanda()" >Inserisci</a>
                     </div>
                 </div>
                 <!-- ------------ -->

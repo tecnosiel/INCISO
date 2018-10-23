@@ -26,6 +26,7 @@ function anagrafeCtrl(
     .withOption("lengthChange", false);
 
   $scope.colonneTabElencoRedditi = [
+    
     DTColumnDefBuilder.newColumnDef(3).notSortable(),
     DTColumnDefBuilder.newColumnDef(4).notSortable()
   ];

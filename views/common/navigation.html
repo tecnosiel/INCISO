@@ -1,5 +1,6 @@
-<aside class="sidebar">
-    <nav class="navbar-default navbar-static-side sidebar-nav" role="navigation">
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
 
             <ul class="nav metismenu" id="inciso-menu">
@@ -27,41 +28,40 @@
                         IN+
                     </div>
                 </li>
-
                 <!-- domanda---------------------------------------- -->
-                <li ui-sref-active="active">
+                <li class="expandable" ng-class="{'selected': menuStato == 'domanda'}" ng-click="menuStato = 'domanda'">
                     <a ng-mouseover="showPopover1=true;" ng-mouseleave="showPopover1=false;" ui-sref="domande.nuova_domanda"
                         ng-click="inizializzaDomanda()">
                         <i class="fa fa-file-text"></i>
                         <span class="nav-label">{{ 'NUOVA_DOMANDA' | translate }}</span>
-                        <div class="show-fumetti" ng-show="fumetti() && showPopover1">{{ 'NUOVA_DOMANDA' | translate }}</div>
+                        <div class="show-fumetti" ng-show="fumetti() && showPopover1">{{ 'NUOVA_DOMANDA' |
+                            translate }}</div>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level">
+                    <ul class="nav nav-second-level">
                     </ul>
                 </li>
-
                 <!-- posizione---------------------------------------- -->
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover2=true;" ng-mouseleave="showPopover2=false;">
+                <li class="expandable" ng-class="{'selected': menuStato == 'posizione'}" ng-click="menuStato = 'posizione'">
+                    <a href="#" ng-mouseover="showPopover2=true;" ng-mouseleave="showPopover2=false;">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span class="nav-label">{{ 'POSIZIONE' | translate }}</span>
                         <div class="show-fumetti" ng-show="fumetti() && showPopover2">{{ 'POSIZIONE' | translate }}</div>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse">
                         <li><a ui-sref="posizione.ricerca_anagrafica">{{ 'RICERCA_POSIZIONE' | translate }}</a></li>
                     </ul>
                 </li>
-
                 <!-- anagrafica---------------------------------------- -->
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover3=true;" ng-mouseleave="showPopover3=false;">
+                <li class="expandable" ng-class="{'selected': menuStato == 'anagrafica'}" ng-click="menuStato = 'anagrafica'">
+                    <a href="#" ng-mouseover="showPopover3=true;" ng-mouseleave="showPopover3=false;">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span class="nav-label">{{ 'ANAGRAFICA' | translate }}</span>
-                        <div class="show-fumetti" ng-show="fumetti() && showPopover3">{{ 'ANAGRAFICA' | translate }}</div>
+                        <div class="show-fumetti" ng-show="fumetti() && showPopover3">{{ 'ANAGRAFICA' | translate
+                            }}</div>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse">
                         <li ui-sref-active="active">
                             <a ui-sref="anagrafica.ricerca_anagrafica">{{ 'RICERCA_ANAGRAFICA' | translate }}</a>
                         </li>
@@ -71,17 +71,18 @@
                     </ul>
                 </li>
                 <!-- liquidazione---------------------------------------- -->
-                <li ui-sref-active="active">
+                <li class="expandable" ng-class="{'selected': menuStato == 'liquidazione'}" ng-click="menuStato = 'liquidazione'">
                     <!-- voce principale menu liquidazione-->
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover4=true;" ng-mouseleave="showPopover4=false;">
+                    <a href="#" ng-mouseover="showPopover4=true;" ng-mouseleave="showPopover4=false;">
                         <i class="fa fa-money" aria-hidden="true"></i>
                         <span class="nav-label">{{ 'LIQUIDAZIONE' | translate }}</span>
-                        <div class="show-fumetti" ng-show="fumetti() && showPopover4">{{ 'LIQUIDAZIONE' | translate }}</div>
+                        <div class="show-fumetti" ng-show="fumetti() && showPopover4">{{ 'LIQUIDAZIONE' | translate
+                            }}</div>
                         <span class="fa arrow"></span>
                     </a>
 
                     <!-- voci secondarie menu liquidazione-->
-                    <ul aria-expanded="false" class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse">
                         <li ui-sref-active="active">
                             <a ui-sref="liquidazioni.ricerca_liquidazione">
                                 {{'RICERCA_LIQUIDAZIONE' | translate }}
@@ -106,14 +107,14 @@
 
                 </li>
                 <!-- evidenze---------------------------------------- -->
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover5=true;" ng-mouseleave="showPopover5=false;">
+                <li class="expandable" ng-class="{'selected': menuStato == 'evidenze'}" ng-click="menuStato = 'evidenze'">
+                    <a href="#" ng-mouseover="showPopover5=true;" ng-mouseleave="showPopover5=false;">
                         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                         <span class="nav-label">{{'EVIDENZE' | translate }}</span>
                         <div class="show-fumetti" ng-show="fumetti() && showPopover5">{{ 'EVIDENZE' | translate }}</div>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse">
                         <li ui-sref-active="active">
                             <a ui-sref="evidenze.ricerca_evidenza">{{ 'RICERCA_EVIDENZA' | translate }}</a>
                         </li>
@@ -123,43 +124,42 @@
                     </ul>
                 </li>
                 <!-- documenti---------------------------------------- -->
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover6=true;" ng-mouseleave="showPopover6=false;">
+                <li class="expandable" ng-class="{'selected': menuStato == 'documenti'}" ng-click="menuStato = 'documenti'">
+                    <a href="#" ng-mouseover="showPopover6=true;" ng-mouseleave="showPopover6=false;">
                         <i class="fa fa-book" aria-hidden="true"></i>
                         <span class="nav-label">{{ 'DOCUMENTI' | translate }}</span>
                         <div class="show-fumetti" ng-show="fumetti() && showPopover6">{{ 'DOCUMENTI' | translate }}</div>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse">
                         <li ui-sref-active="active">
                             <a ui-sref="documenti.ricerca_documenti">{{ 'RICERCA_DOCUMENTI' | translate }}</a>
                         </li>
                     </ul>
                 </li>
                 <!-- genera comunicazione---------------------------------------- -->
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover7=true;" ng-mouseleave="showPopover7=false;"
-                        ui-sref="comunicazione.genera_comunicazione">
+                <li class="expandable" ng-class="{'selected': menuStato == 'comunicazioni'}" ng-click="menuStato = 'comunicazioni'">
+                    <a href="#" ng-mouseover="showPopover7=true;" ng-mouseleave="showPopover7=false;" ui-sref="comunicazione.genera_comunicazione">
                         <i class="fa fa-envelope"></i>
                         <span class="nav-label">{{'GENERA_COMUNICAZIONE' | translate }}</span>
                         <div class="show-fumetti" ng-show="fumetti() && showPopover7">{{ 'GENERA_COMUNICAZIONE' |
                             translate
                             }}</div>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level">
+                    <ul class="nav nav-second-level">
                     </ul>
 
                 </li>
-
                 <!-- associazioni---------------------------------------- -->
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover8=true;" ng-mouseleave="showPopover8=false;">
+                <li class="expandable" ng-class="{'selected': menuStato == 'associazioni'}" ng-click="menuStato = 'associazioni'">
+                    <a href="#" ng-mouseover="showPopover8=true;" ng-mouseleave="showPopover8=false;">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <span class="nav-label">{{ 'ASSOCIAZIONI' | translate }}</span>
-                        <div class="show-fumetti" ng-show="fumetti() && showPopover8">{{ 'ASSOCIAZIONI' | translate }}</div>
+                        <div class="show-fumetti" ng-show="fumetti() && showPopover8">{{ 'ASSOCIAZIONI' | translate
+                            }}</div>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse">
                         <li ui-sref-active="active">
                             <a ui-sref="associazioni.ricerca_associazione">{{
                                 'RICERCA_ASSOCIAZIONE'
@@ -177,15 +177,14 @@
 
                 <!-- procedure---------------------------------------- -->
 
-                <li ui-sref-active="active">
-                    <a href="#" aria-expanded="false" ng-mouseover="showPopover9=true;" ng-mouseleave="showPopover9=false;"
-                        href="#">
+                <li class="expandable" ng-class="{'selected': menuStato == 'procedure'}" ng-click="menuStato = 'procedure'">
+                    <a href="#" ng-mouseover="showPopover9=true;" ng-mouseleave="showPopover9=false;">
                         <i class="fa fa-external-link" aria-hidden="true"></i>
                         <span class="nav-label">{{ 'PROCEDURE' | translate }}</span>
                         <div class="show-fumetti" ng-show="fumetti() && showPopover9">{{ 'PROCEDURE' | translate }}</div>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav nav-second-level">
+                    <ul class="nav nav-second-level">
                         <li class="">
                             <a href="#">{{ 'PROCEDURA_CONTROLLO_6' | translate }}</a>
                         </li>
@@ -198,12 +197,33 @@
                     </ul>
                 </li>
 
+                <!-- amministrazione---------------------------------------- -->
+
+                <li class="expandable" ng-class="{'selected': menuStato == 'amministrazione'}" ng-click="menuStato = 'amministrazione'">
+                    <a href="#" ng-mouseover="showPopover10=true;" ng-mouseleave="showPopover10=false;">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        <span class="nav-label">{{ 'AMMINISTRAZIONE' | translate }}</span>
+                        <div class="show-fumetti" ng-show="fumetti() && showPopover10">{{ 'PROCEDURE' | translate }}</div>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li class="">
+                            <a href="#">{{ 'CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+
 
             </ul>
 
         </div>
     </nav>
-</aside>
+</div>
+
 
 <script>
 

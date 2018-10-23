@@ -424,11 +424,15 @@
    */
   function dettaglioPrestazioni($compile) {
     var directive = {};
-
-    directive.restrict = "A";
-    directive.templateUrl = "/views/_child.html";
+    directive.restrict = "E";
+    directive.scope = {
+      anno: "@",
+      parameter: "<"
+    };
     directive.transclude = true;
-    directive.link = function(scope, element, attrs) {};
+    directive.templateUrl = function(scope, element) {
+      return element.url;
+    };
     return directive;
   }
 

@@ -1,267 +1,261 @@
-<div class="row wrapper border-bottom white-bg page-heading">
+<div ng-controller="visualizzaDomandaCtrl">
 
-    <!-- <div class="col-lg-10">
-        <h2>Visualizza domanda</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">{{ 'HOME' | translate }}</a>
-            </li>
-            <li>
-                <a href="search.html">Visualizza domanda</a>
-            </li>
-            <li class="active">
-                <strong>Domanda {{domanda.NroDomanda}}</strong>
-            </li>
-        </ol>
-    </div> -->
-    <header-component tipo="'Dettaglio'" titolo="'VISUALIZZA_DOMANDA'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'search.html',descrizione:'VISUALIZZA_DOMANDA'}]"
-        active="Domanda {{domanda.NroDomanda}}"></header-component>
+    <div class="row wrapper border-bottom white-bg page-heading">
 
-    <div class="col-lg-2 text-right m-t-md">
-        <h3>
-            <span ng-show="domanda.StatoDomanda == 'Revocata'" class="label label-warning initial-font" data-toggle="popover"
-                data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
-                <i class="fa fa-circle-o"></i> revocata
-            </span>
-            <span ng-show="domanda.StatoDomanda == 'Inserita'" class="label label-warning initial-font" data-toggle="popover"
-                data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
-                <i class="fa fa-circle-o"></i> inserita
-            </span>
-            <span ng-show="domanda.StatoDomanda == 'Concessa'" class="label label-warning initial-font" data-toggle="popover"
-                data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
-                <i class="fa fa-check text-navy"></i> concessa
-            </span>
-            <span ng-show="domanda.StatoDomanda == 'Negata'" class="label label-warning initial-font" data-toggle="popover"
-                data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
-                <i class="fa fa-times text-danger"></i> negata
-            </span>
-            <span ng-show="domanda.StatoDomanda == 'Sospesa'" class="label label-warning initial-font" data-toggle="popover"
-                data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
-                <i class="fa fa-circle-o"></i> sospesa
-            </span>
-            <span ng-show="domanda.StatoDomanda == 'Cancellata'" class="label label-warning initial-font" data-toggle="popover"
-                data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}" data-placement="left">
-                <i class="fa fa-times text-danger"></i> cancellata
-            </span>
-        </h3>
+        <header-component tipo="'Dettaglio'" titolo="'VISUALIZZA_DOMANDA'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'search.html',descrizione:'VISUALIZZA_DOMANDA'}]"
+            active="Domanda {{domanda.NroDomanda}}"></header-component>
 
-    </div>
-</div>
+        <div class="col-lg-2 text-right m-t-md">
+            <h3>
+                <span ng-show="domanda.StatoDomanda == 'Revocata'" class="label label-warning initial-font" data-toggle="popover"
+                    data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}"
+                    data-placement="left">
+                    <i class="fa fa-circle-o"></i> revocata
+                </span>
+                <span ng-show="domanda.StatoDomanda == 'Inserita'" class="label label-warning initial-font" data-toggle="popover"
+                    data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}"
+                    data-placement="left">
+                    <i class="fa fa-circle-o"></i> inserita
+                </span>
+                <span ng-show="domanda.StatoDomanda == 'Concessa'" class="label label-warning initial-font" data-toggle="popover"
+                    data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}"
+                    data-placement="left">
+                    <i class="fa fa-check text-navy"></i> concessa
+                </span>
+                <span ng-show="domanda.StatoDomanda == 'Negata'" class="label label-warning initial-font" data-toggle="popover"
+                    data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}"
+                    data-placement="left">
+                    <i class="fa fa-times text-danger"></i> negata
+                </span>
+                <span ng-show="domanda.StatoDomanda == 'Sospesa'" class="label label-warning initial-font" data-toggle="popover"
+                    data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}"
+                    data-placement="left">
+                    <i class="fa fa-circle-o"></i> sospesa
+                </span>
+                <span ng-show="domanda.StatoDomanda == 'Cancellata'" class="label label-warning initial-font"
+                    data-toggle="popover" data-container="body" data-trigger="hover" data-html="true" data-content="{{camillo}}"
+                    data-placement="left">
+                    <i class="fa fa-times text-danger"></i> cancellata
+                </span>
+            </h3>
 
-<div class="wrapper wrapper-content animated fadeInRight">
-    <br>
-    <div class="row">
-        <div class="col-md-4">
-            <div class=" ibox float-e-margins">
-                <div class="ibox-title text-center">
-                    <h5>Dati Assistito</h5>
-                </div>
-                <div class="ibox-content text-center">
-                    <h2 class="small"><strong>{{datiAssistito.Cognome}} {{datiAssistito.Nome}}</strong>&nbsp;-&nbsp;{{domanda.CodiceFiscale}}</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class=" ibox float-e-margins">
-                <div class="ibox-title text-center">
-                    <h5>Numero Posizione</h5>
-                </div>
-                <div class="ibox-content text-center">
-                    <h2>{{ domanda.Posizione }}</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class=" ibox float-e-margins">
-                <div class="ibox-title text-center">
-                    <h5>Numero Fascicolo</h5>
-                </div>
-                <div class="ibox-content text-center">
-                    <h2 class="small">{{domanda.Fascicolo}}</h2>
-                </div>
-            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5> Dati anagrafici dell'assistito &nbsp;</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content" style="display:none;">
-                    <div ng-include="'views/partials/_dati_anagrafici_assistito.html'"></div>
-                </div>
-            </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5> Dati domanda </h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content" style="display:none;">
-                    <stato-domanda-component stato-domanda="{{domanda.StatoDomanda}}"></stato-domanda-component>
-                </div>
-            </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Elenco verbali</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content" style="display:none">
-                    <!-- <div ng-include="'views/partials/_elenco_verbali.html'"></div> -->
-                    <verbali-component></verbali-component>
-                </div>
-            </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Prestazioni</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content" style="display:none">
-                    <div ng-include="'views/partials/_elenco_prestazioni.html'"></div>
 
-                </div>
-            </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Elenco evidenze</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class=" ibox float-e-margins">
+                    <div class="ibox-title text-center">
+                        <h5>Dati Assistito</h5>
+                    </div>
+                    <div class="ibox-content text-center">
+                        <h2 class="small"><strong>{{datiAssistito.Cognome}} {{datiAssistito.Nome}}</strong>&nbsp;-&nbsp;{{domanda.CodiceFiscale}}</h2>
                     </div>
                 </div>
-                <div class="ibox-content" style="display:none">
-                    <evidenze-component></evidenze-component>
-                </div>
             </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Elenco documentazione</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
+            <div class="col-md-4">
+                <div class=" ibox float-e-margins">
+                    <div class="ibox-title text-center">
+                        <h5>Numero Posizione</h5>
+                    </div>
+                    <div class="ibox-content text-center">
+                        <h2>{{ domanda.Posizione }}</h2>
                     </div>
                 </div>
-                <div class="ibox-content" style="display:none">
-                    <documenti-component></documenti-component>
-                </div>
             </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Elenco sospensioni della domanda</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
+            <div class="col-md-4">
+                <div class=" ibox float-e-margins">
+                    <div class="ibox-title text-center">
+                        <h5>Numero Fascicolo</h5>
+                    </div>
+                    <div class="ibox-content text-center">
+                        <h2 class="small">{{domanda.Fascicolo}}</h2>
                     </div>
                 </div>
-                <div class="ibox-content" style="display:none">
-                    <div ng-include="'views/partials/_elenco_sospensioni.html'"></div>
-                </div>
             </div>
-            <!-- ------------------------------------------------------------------------ -->
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Log di sistema</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-down"></i>
-                        </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5> Dati anagrafici dell'assistito &nbsp;</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none;">
+                        <div ng-include="'views/partials/_dati_anagrafici_assistito.html'"></div>
                     </div>
                 </div>
-                <div class="ibox-content" style="display:none">
-                    <logs-component></logs-component>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5> Dati domanda </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none;">
+                        <stato-domanda-component stato-domanda="{{domanda.StatoDomanda}}"></stato-domanda-component>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Elenco verbali</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none">
+                        <!-- <div ng-include="'views/partials/_elenco_verbali.html'"></div> -->
+                        <verbali-component></verbali-component>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Prestazioni</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none">
+                        <div ng-include="'views/partials/_elenco_prestazioni.html'"></div>
 
+                    </div>
                 </div>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Elenco evidenze</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none">
+                        <evidenze-component></evidenze-component>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Elenco documentazione</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none">
+                        <documenti-component></documenti-component>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Elenco sospensioni della domanda</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none">
+                        <div ng-include="'views/partials/_elenco_sospensioni.html'"></div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------ -->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Log di sistema</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="display:none">
+                        <logs-component></logs-component>
+
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------ -->
             </div>
-            <!-- ------------------------------------------------------------------------ -->
         </div>
     </div>
-</div>
-<div class="floating-menu">
-    <div class="floating-menu-box">
-        <div class="spin-icon">
-            <i class="fa fa-list-ul"></i>
-        </div>
-        <div class="floating-menu-items">
-            <div class="title"><a ng-click="modificaDomanda()">Modifica domanda</a></div>
-            <div class="title"><a ng-click="sospendiDomanda()">Sospendi domanda</a></div>
-            <div class="title"><a ng-click="revocaDomanda()">Revoca domanda</a></div>
-            <div class="title"><a ng-click="revocaDomanda('Annulla')">Annulla revoca domanda</a></div>
-            <div class="title"><a ng-click="negaDomanda()">Negazione domanda</a></div>
-            <div class="title"><a ng-click="negaDomanda('Annulla')">Annulla negazione domanda</a></div>
-            <div class="title"><a ng-click="inserisciNuovoVerbale()">Inserisci nuovo verbale</a></div>
-            <div class="title"><a ng-click="inserisciNuovaEvidenza()">Inserisci nuova evidenza</a></div>
-            <div class="title"><a ng-click="cancellaDomanda()">Cancella domanda</a></div>
+    <div class="floating-menu">
+        <div class="floating-menu-box">
+            <div class="spin-icon">
+                <i class="fa fa-list-ul"></i>
+            </div>
+            <div class="floating-menu-items">
+                <div class="title"><a ng-click="modificaDomanda()">Modifica domanda</a></div>
+                <div class="title"><a ng-click="sospendiDomanda()">Sospendi domanda</a></div>
+                <div class="title"><a ng-click="revocaDomanda()">Revoca domanda</a></div>
+                <div class="title"><a ng-click="revocaDomanda('Annulla')">Annulla revoca domanda</a></div>
+                <div class="title"><a ng-click="negaDomanda()">Negazione domanda</a></div>
+                <div class="title"><a ng-click="negaDomanda('Annulla')">Annulla negazione domanda</a></div>
+                <div class="title"><a ng-click="inserisciNuovoVerbale()">Inserisci nuovo verbale</a></div>
+                <div class="title"><a ng-click="inserisciNuovaEvidenza()">Inserisci nuova evidenza</a></div>
+                <div class="title"><a ng-click="cancellaDomanda()">Cancella domanda</a></div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    // Custom scripts
-    $(document).ready(function () {
+    <script>
+        // Custom scripts
+        $(document).ready(function () {
 
-        // inizializzazione popover
-        $('[data-toggle="popover"]').popover();
+            // inizializzazione popover
+            $('[data-toggle="popover"]').popover();
 
-        $('.ibox-title').click(function () {
-            var cl = $(this).find('.collapse-link');
-            var ibox = cl.closest('div.ibox');
-            var button = cl.find('i');
-            var content = ibox.find('div.ibox-content');
-            content.slideToggle(200);
-            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-            ibox.toggleClass('').toggleClass('border-bottom');
-            setTimeout(function () {
-                ibox.resize();
-                ibox.find('[id^=map-]').resize();
-            }, 50);
+            $('.ibox-title').click(function () {
+                var cl = $(this).find('.collapse-link');
+                var ibox = cl.closest('div.ibox');
+                var button = cl.find('i');
+                var content = ibox.find('div.ibox-content');
+                content.slideToggle(200);
+                button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+                ibox.toggleClass('').toggleClass('border-bottom');
+                setTimeout(function () {
+                    ibox.resize();
+                    ibox.find('[id^=map-]').resize();
+                }, 50);
+            });
+
         });
 
-    });
-
-    $('.floating-menu-box').on('click', function () {
-        if ($(this).hasClass("show")) {
-            $(this).removeClass('show');
-        }
-        else {
-            $(this).addClass('show');
-        }
-    });
+        $('.floating-menu-box').on('click', function () {
+            if ($(this).hasClass("show")) {
+                $(this).removeClass('show');
+            }
+            else {
+                $(this).addClass('show');
+            }
+        });
 
 
 
-</script>
+    </script>
 
 
 
 
-<!-- <div class="row">
+    <!-- <div class="row">
         <h3 class="m-t-lg">Associazioni di categoria</h3>
         <div>
             <table class="table table-bordered dataTables-paged">
@@ -299,3 +293,5 @@
             </div>
         </div>
     </div> -->
+
+</div>

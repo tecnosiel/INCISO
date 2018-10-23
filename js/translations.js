@@ -5,6 +5,31 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      CODICE_FISCALE_TROPPO_CORTO: "Codice fiscale troppo corto",
+      CODICE_FISCALE_TROPPO_LUNGO: "Codice fiscale troppo lungo",
+      CAMPO_OBBLIGATORIO: "Campo obbligatorio",
+      COGNOME_ACQUISITO: "Cognome acquisito",
+      STATO_CIVILE: "Stato civile",
+      MASCHILE: "Maschile",
+      FEMMINILE: "Femminile",
+      SESSO: "Sesso",
+      LUOGO_DI_NASCITA: "Luogo di nascita",
+      PROVINCIA: "Provincia",
+      NAZIONE: "Nazione",
+
+      // Label prestazioni
+      SOGLIA: "Soglia",
+      REDDITO: "Reddito",
+      ESITO_REDDITO: "Esito",
+      SOGLIA_INCREMENTO: "Soglia incremento",
+      ESITO_SOGLIA: "Esito",
+      IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI:
+        "Importo annuale di tutte le pensioni",
+      IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI:
+        "importo annuale dell'assegno integrativo ciechi",
+      DATA: "Data",
+      MOTIVO: "Motivo",
+      FINE: "Fine",
 
       NUMERO_FASCICOLO: "Numero fascicolo",
       // Sospensione Revoca Negazione Domanda
@@ -115,6 +140,30 @@ function config($translateProvider) {
       AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione",
       RICERCA_ASSISTITO: "Ricerca assistito",
 
+      INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA:
+        "Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta",
+      COGNOME_DA_RICERCARE: "Cognome da ricercare",
+      NOME_DA_RICERCARE: "Nome da ricercare",
+      CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare",
+      DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY:
+        "Data nascita da ricercare formato dd/MM/yyyy",
+      CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA:
+        "Codice fiscale duplicato, verificare anomalia.",
+      DECEDUTO_IL: "Deceduto il",
+      NUMERO_FALDONE: "Numero faldone",
+      ANNO_DI_SCARTO: "Anno di scarto",
+      ANNO_DI_SCARTO_DA_RICERCARE: "Anno di scarto da ricercare",
+
+      DATA_DI_NASCITA: "Data di nascita",
+      POSIZIONE: "Posizione",
+      FASCICOLO: "Fascicolo",
+      STATO_DOMANDA: "Stato domanda",
+      Concessa: "Concessa",
+      Revocata: "Revocata",
+      Negata: "Negata",
+      NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE:
+        "Numero faldone archiviazione da ricercare",
+
       // Label Domanda Tabella Evidenze
       DECORRENZA: "Decorrenza",
       SCADENZA: "Scadenza",
@@ -187,6 +236,9 @@ function config($translateProvider) {
       POSIZIONE_ESPRO: "POSIZIONE ESPRO",
       STORICO_OPERAZIONI: "STORICO OPERAZIONI",
 
+      INSERISCI_NUOVA_POSIZIONE: "Inserisci nuova posizione",
+      INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica",
+
       INSERIMENTO_DATI_ANAGRAFICI: "Inserimento dati anagrafici",
 
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
@@ -227,6 +279,10 @@ function config($translateProvider) {
       PROCEDURA_CONTROLLO_6: "Procedura controllo 6%",
       PROCEDURA_INVIO_CASELLARIO: "Procedura invio casellario",
       PROCEDURA_DI_SCARTO: "Procedura di scarto (skartierung)",
+      // -------
+      AMMINISTRAZIONE: "Amministrazione",
+      CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI:
+        "Configurazione regole vs. prestazioni",
 
       // -------
       // Define some custom text
@@ -238,9 +294,107 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      CODICE_FISCALE_TROPPO_CORTO: "Codice fiscale troppo corto DE",
+      CODICE_FISCALE_TROPPO_LUNGO: "Codice fiscale troppo lungo DE",
+      CAMPO_OBBLIGATORIO: "Campo obbligatorio DE",
+      COGNOME_ACQUISITO: "Cognome acquisito DE",
+      STATO_CIVILE: "Stato civile DE",
+      MASCHILE: "Maschile DE",
+      FEMMINILE: "Femminile DE",
+      SESSO: "Sesso DE",
+      LUOGO_DI_NASCITA: "Luogo di nascita DE",
+      PROVINCIA: "Provincia DE",
+      NAZIONE: "Nazione DE",
+      CITTADINANZA: "Cittadinanza DE",
+      EXTRACOMUNITARIO: "Extracomunitario DE",
+      TIPO_PERMESSO: "Tipo permesso DE",
+      PERMESSO_DI_SOGGIORNO: "Permesso di soggiorno DE",
+
+      SELEZIONA_UN_COMUNE: "Seleziona un comune DE",
+      SELEZIONA_UNA_PROVINCIA: "Seleziona una provincia DE",
+      SELEZIONA_UNA_NAZIONE: "Seleziona una nazione DE",
+      SELEZIONA_CITTADINANZA: "Seleziona cittadinanza DE",
+      SELEZIONA_UN_ELEMENTO_NELL_ELENCO: "Seleziona un elemento dall'elenco DE",
+      SELEZIONA_UN_PERMESSO_DALL_ELENCO: "Seleziona un permesso dall'elenco DE",
+      SI: "Si DE",
+      NO: "No DE",
+      DATA_RILASCIO: "Data rilascio DE",
+      VALIDO_FINO_AL: "Valido fino al DE",
+      RESIDENZA: "Residenza DE",
+      DOMICILIO: "Domicilio DE",
+      ALTRI_INDIRIZZI: "Altri indirizi DE",
+      RIFERIMENTI_DI_CONTATTO: "Riferimenti di contatto DE",
+      TELEFONO_PRNCIPALE: "Telefono principale DE",
+      TELEFONO_SECONDARIO: "Telefono secondario DE",
+      ANNO_DI_SCARTO_INCISO: "Anno di scarto IN-CI-SO DE",
+      SIMULAZIONE_LIQUIDAZIONE_EREDI: "Simulazione liquidazione eredi DE",
+      DATA_CALCOLO_SIMULAZIONE: "Data calcolo simulazione DE",
+      IMPORTO_SPETTANTE: "Importo spettante DE",
+      VISUALIZZA_DETTAGLIO_SIMULAZIONE: "Visualizza dettaglio simulazione DE",
+      PERC_DI_EREDITA: "% di eredità DE",
+      LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA:
+        "Liquidato in base alla % di eredità DE",
+      ELENCO_EREDI: "Elenco eredi DE",
+      COGNOME_NOME: "Cognome Nome DE",
+      LIQUIDAZIONE: "Liquidazione DE",
+      VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO:
+        "Visualizza dettaglio importo liquidato DE",
+      AGGIUNGI_EREDE: "Aggiungi erede DE",
+
+      ELENCO_LIQUIDAZIONI: "Elenco liquidazioni DE",
+      ELENCO_IMPORTI_RIACCREDITATI: "Elenco importi riaccreditati DE",
+      ELENCO_IMPORTI_DA_RECUPERARE: "Elenco importi da recuperare DE",
+
+      ENTITA: "Entita",
+
+      DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura DE",
+      TERMINE_DECORRENZA_ASSEGNO_DI_CURA:
+        "Termine decorrenza assegno di cura DE",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
+        "Decorrenza permanenza casa di lungodegenza DE",
+      TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA:
+        "Termine permanenza casa di lungodegenza DE",
+
+      ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE:
+        "Elenco ritenute di categoria recuperate DE",
+
+      NUM_POSIZIONE: "Num. posizione DE",
+      DATA_DOMANDA: "Data domanda DE",
+      TIPO_ASSOCIAZIONE: "Tipo associazione DE",
+      INIZIO_ISCRIZIONE: "Inizio iscrizione DE",
+      FINE_ISCRIZIONE: "Fine iscrizione DE",
+
+      DATA_CALCOLO: "Data calcolo DE",
+      LIQUIDATO: "Liquidato DE",
+      RIACCREDITO: "Riaccredito DE",
+      TRATTENUTA_DI_CATEGORIA: "Trattenuta di categoria DE",
+      IMPORTO_RECUPERATO_PER_COMPENSAZIONE: "Importo recuperato per compensazione DE",
+      NR_TRASFERIMENTO_FLUMO: "Nr. trasferimento Flumo DE",
+      TOT_MESE: "Tot. mese DE",
+      TOT_ANNO: "Tot. anno DE",
+      DETTAGLIO:"Dettaglio DE",
+      NR_MANDATO:"Nr. mandato DE",
+      GENERA_COMUNICAZIONE : "genera comunicazione DE",
+      INSERISCI_NUOVA_EVIDENZA : "inserisci nuova evidenza DE",
+
+
+// hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+      // Label prestazioni
+      SOGLIA: "Soglia DE",
+      REDDITO: "Reddito DE",
+      ESITO_REDDITO: "Esito DE",
+      SOGLIA_INCREMENTO: "Soglia incremento DE",
+      ESITO_SOGLIA: "Esito DE",
+      IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI:
+        "Importo annuale di tutte le pensioni DE",
+      IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI:
+        "importo annuale dell'assegno integrativo ciechi DE",
+      DATA: "Data DE",
+      MOTIVO: "Motivo DE",
+      FINE: "Fine DE",
 
       NUMERO_FASCICOLO: "Numero fascicolo DE",
-  
 
       // Sospensione Revoca Negazione Domanda
 
@@ -346,10 +500,31 @@ function config($translateProvider) {
       INSERISCI_DOMANDA: "Inserisci domanda DE",
       VISUALIZZA_DOMANDA: "Visualizza domanda DE",
       MODIFICA_DOMANDA: "Modifica domanda DE ",
-
       INSERISCI_ASSISTITO: "Inserisci assistito DE",
       AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione DE",
       RICERCA_ASSISTITO: "Ricerca assistito DE",
+
+      INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA:
+        "Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta DE",
+      COGNOME_DA_RICERCARE: "Cognome da ricercare DE",
+      NOME_DA_RICERCARE: "Nome da ricercare DE",
+      CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare DE",
+      DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY:
+        "Data nascita da ricercare formato dd/MM/yyyy DE",
+      CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA:
+        "Codice fiscale duplicato, verificare anomalia DE.",
+      DECEDUTO_IL: "Deceduto il DE",
+      NUMERO_FALDONE: "Numero faldone DE",
+      ANNO_DI_SCARTO: "Anno di scarto DE",
+      DATA_DI_NASCITA: "Data di nascita DE",
+      POSIZIONE: "Posizione DE",
+      FASCICOLO: "Fascicolo DE",
+      STATO_DOMANDA: "Stato domanda DE",
+      Concessa: "Concessa DE",
+      Revocata: "Revocata DE",
+      Negata: "Negata DE",
+      NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE:
+        "Numero faldone archiviazione da ricercare DE",
 
       // Label Domanda Tabella Evidenze
       DECORRENZA: "Decorrenza DE",
@@ -404,6 +579,7 @@ function config($translateProvider) {
       DATA_DI_DECESSO: "Data decesso DE",
       NUMERO_FALDONE_ARCHIVIAZIONE: "Numero faldone archiviazione DE",
       ANNO_DI_SCARTO: "Anno di scarto DE",
+      ANNO_DI_SCARTO_DA_RICERCARE: "Anno di scarto da ricercare DE",
       RICERCA_DATI_ANAGRAFICI: "Ricerca dati anagrafici DE",
       INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica DE",
       CREA_NUOVO_INDIRIZZO: "Crea nuovo indirizzo DE",
@@ -422,6 +598,9 @@ function config($translateProvider) {
       ELENCO_EVIDENZE: "ELENCO EVIDENZE DE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
       STORICO_OPERAZIONI: "STORICO OPERAZIONI DE",
+
+      INSERISCI_NUOVA_POSIZIONE: "Inserisci nuova posizione DE",
+      INSERISCI_NUOVA_ANAGRAFICA: "Inserisci nuova anagrafica DE",
 
       INSERIMENTO_DATI_ANAGRAFICI: "Inserimento dati anagrafici DE",
 
@@ -462,6 +641,11 @@ function config($translateProvider) {
       PROCEDURA_CONTROLLO_6: "Procedura controllo 6% DE",
       PROCEDURA_INVIO_CASELLARIO: "Procedura invio casellario DE",
       PROCEDURA_DI_SCARTO: "Procedura di scarto (skartierung) DE",
+
+      // -------
+      AMMINISTRAZIONE: "Amministrazione DE",
+      CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI:
+        "Configurazione regole vs. prestazioni DE",
 
       // Define some custom text
       WELCOME: "Benvenuto Camillo DE",

@@ -6,11 +6,78 @@
 
 function visualizzaDomandaCtrl(
   $scope,
+  $stateParams,
   $uibModal,
   DTOptionsBuilder,
   DTColumnDefBuilder,
   $compile
 ) {
+  $scope.datiAssistito = $stateParams.datiAssistito;
+  $scope.domanda = $stateParams.domanda;
+
+  if (!$scope.domanda) {
+  $scope.domanda = {
+    Posizione: "771723",
+    Fascicolo: "236",
+    StatoDomanda: "Concessa",
+  
+    TipoDomanda: "77",
+    DataDomanda: "",
+    EmailDomanda: "",
+    NumeroProtocollo: "",
+    DataProtocollo: "",
+    Provenienza: "",
+    DelegaPatronato: "",
+
+    LegaliRappresentanti: [
+      {
+        LegaleRappresentanteNome: "Mario",
+        LegaleRappresentanteCognome: "Rossi",
+        LegaleRappresentanteCodiceFiscale: "RSSMRO70A10F2052",
+        LegaleRappresentanteNumeroDecreto: "",
+        LegaleRappresentanteDataDecreto: "",
+        LegaleRappresentanteTipoDecreto: "",
+        LegaleRappresentanteScadenzaDecreto: ""
+      },
+      {
+        Nome: "",
+        Cognome: "",
+        CodiceFiscale: "",
+        NumeroDecreto: "",
+        DataDecreto: "",
+        TipoDecreto: "",
+        ScadenzaDecreto: ""
+      }
+    ],
+    Curatore: "",
+    Comunicazioni: "",
+    ModalitaDiPagamento: "",
+    AssociazioniDiCategoria: [
+      {
+        TipoAssociazione: "ANMIC",
+        DataInizioIscrizione: "10/04/1986",
+        DataFineIscrizione: "",
+        QuotaMensile: "103.32"
+      }
+    ],
+    Note: "",
+    AziendaSanitaria: {
+      NumeroProtocollo: "",
+      DataProtocollo: "",
+      PercentualeDiInvalidita: "",
+      IndennitaDiAccompagnamento: "",
+      PatologiaUditiva: "",
+      RiduzioneDelVisus: "",
+      NoteVerbale: "",
+      DataDecorenzaDelDirittoAlPagamento: ""
+    }
+  };
+}
+  
+ if (!$scope.domanda.OperazioneInCorso) $scope.domanda.OperazioneInCorso = "";
+
+
+
   $scope.camillo =
     "<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>01/01/2006</label><br>Importo da recuperare: <label>549,00 €</label></div>";
 
@@ -35,6 +102,11 @@ function visualizzaDomandaCtrl(
     // Math.random() genera un numero casuale compreso fra 0 e 1,
     // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
     // e poi arrotondarne il risultato.
+
+    $scope.sospendiDomanda = function() {
+      alert("qqqqqqqqqqqqqqqqq");
+    };
+
     this.randomMove = function() {
       let risultato = null;
 
@@ -67,24 +139,583 @@ function visualizzaDomandaCtrl(
       controller: "modalVisualizzaLiquidazioneCtrl",
       size: "lg",
       scope: $scope,
-      windowClass: this.randomMove()
+      windowClass: "animated fadeInRightBig"
     });
   };
 
   //--------- prestazioni start
 
-  $scope.prestazioniLiquidate = [
+  $scope.totaleDellePrestazioniLiquidatePerAnno = [
     {
       Anno: "2014",
-      TotalePrestazioniLiquidate: "15150.55"
+      TotalePrestazioniLiquidate: "15150.55",
+      Dettagli: [
+        { NomePrestazione: "aaaaaaaaaaaaa", Totale: 111111 },
+        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 },
+        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 },
+        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 },
+        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 }
+      ]
     },
     {
       Anno: "2015",
-      TotalePrestazioniLiquidate: "17999.55"
+      TotalePrestazioniLiquidate: "17999.55",
+      Dettagli: [
+        { NomePrestazione: "Nome prestazione 1", Totale: 111111 },
+        { NomePrestazione: "Nome prestazione 2", Totale: 222222 },
+        { NomePrestazione: "Nome prestazione 3", Totale: 333333 }
+      ]
     },
     {
       Anno: "2016",
-      TotalePrestazioniLiquidate: "13999.55"
+      TotalePrestazioniLiquidate: "13999.55",
+      Dettagli: [
+        {
+          NomePrestazione:
+            "Assegno mensile per invalidi civili parziali minorenni",
+          Totale: 111111
+        },
+        {
+          NomePrestazione:
+            "Indennità di accompagnamento per invalidi civili totalmente inabili",
+          Totale: 22222
+        },
+        { NomePrestazione: "Indennità di prova", Totale: 22222 }
+      ]
+    }
+  ];
+
+  $scope.elencoPrestazioni = [
+    // primo
+    {
+      descrizionePrestazione:
+        "Assegno mensile per invalidi civili parziali minorenni (descrizione prestazione)",
+      importiSpettanti: [
+        {
+          Anno: 2014,
+          TotaleSpettante: 111.0,
+          TotaleLiquidato: 111111.0
+        },
+        {
+          Anno: 2015,
+          TotaleSpettante: 222.0,
+          TotaleLiquidato: 222222.0
+        },
+        {
+          Anno: 2016,
+          TotaleSpettante: 333.0,
+          TotaleLiquidato: 333333.0
+        }
+      ],
+      statoPrestazione: [],
+      elencoEvidenze: [
+        {
+          Decorrenza: "01/01/2020",
+          Scadenza: "01/01/2017",
+          Tipo: "Prestazione da ripristinare – assegno di cura",
+          Descrizione:
+            "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Importo da recuperare",
+          Descrizione: "Importo da recuperare",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Prestazione da ripristinare – casa di lungodegenza",
+          Descrizione:
+            "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Prestazione da revocare - soglia di reddito",
+          Descrizione:
+            "Prestazione da recocare per superamento soglia di reddito",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Recupero da annullare",
+          Descrizione: "Recupero già liquidato da annullare – fare riaccredito",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: {
+            Utente: "Marco Formigoni",
+            NoteDiChiusura: "no anomalie",
+            LetteraInviata: "no"
+          },
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Importo da recuperare",
+          Descrizione: "Importo da recuperare",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: {
+            Utente: "Rino Grandi",
+            NoteDiChiusura: "-",
+            LetteraInviata: "sì"
+          },
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        }
+      ],
+      elencoDatiRelativiAlReddito: [
+        {
+          Anno: 2016,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 14135.55,
+          EsitoSoglia: "Superato",
+          ImportoAnnualeDiTutteLePensioni: null,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: null
+        },
+        {
+          Anno: 2015,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 14135.55,
+          EsitoSoglia: "Superato",
+          ImportoAnnualeDiTutteLePensioni: null,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: null
+        },
+        {
+          Anno: 2014,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 8304.79,
+          EsitoSoglia: "Congruo",
+          ImportoAnnualeDiTutteLePensioni: 5220.0,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: 1389.72
+        },
+        {
+          Anno: 2013,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 8304.79,
+          EsitoSoglia: "Congruo",
+          ImportoAnnualeDiTutteLePensioni: 5220.0,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: 1389.72
+        }
+      ],
+      elencoSospensioni: [
+        {
+          Data: "01/01/2021",
+          Motivo: "Soggiorno presso struttura di lungodegenza-11111",
+          Scadenza: "01/03/2020",
+          Fine: "01/03/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce altre pensioni-22222",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note: "-"
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce assegno di cura-111111",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce assegno di cura-55555",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
+    },
+    // secondo
+    {
+      descrizionePrestazione:
+        "Indennità di accompagnamento per invalidi civili totalmente inabili",
+      importiSpettanti: [
+        {
+          Anno: 2014,
+          TotaleSpettante: 22111.0,
+          TotaleLiquidato: 11111.0
+        },
+        {
+          Anno: 2015,
+          TotaleSpettante: 212121.0,
+          TotaleLiquidato: 212121.0
+        },
+        {
+          Anno: 2016,
+          TotaleSpettante: 1234.0,
+          TotaleLiquidato: 1234.0
+        }
+      ],
+      statoPrestazione: [],
+      elencoEvidenze: [
+        {
+          Decorrenza: "01/01/2020",
+          Scadenza: "01/01/2017",
+          Tipo: "Prestazione da ripristinare – assegno di cura",
+          Descrizione:
+            "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Importo da recuperare",
+          Descrizione: "Importo da recuperare",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Prestazione da ripristinare – casa di lungodegenza",
+          Descrizione:
+            "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Prestazione da revocare - soglia di reddito",
+          Descrizione:
+            "Prestazione da recocare per superamento soglia di reddito",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Recupero da annullare",
+          Descrizione: "Recupero già liquidato da annullare – fare riaccredito",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: {
+            Utente: "Marco Formigoni",
+            NoteDiChiusura: "no anomalie",
+            LetteraInviata: "no"
+          },
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Importo da recuperare",
+          Descrizione: "Importo da recuperare",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: {
+            Utente: "Rino Grandi",
+            NoteDiChiusura: "-",
+            LetteraInviata: "sì"
+          },
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        }
+      ],
+      elencoDatiRelativiAlReddito: [
+        {
+          Anno: 2016,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 14135.55,
+          EsitoSoglia: "Superato",
+          ImportoAnnualeDiTutteLePensioni: null,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: null
+        },
+        {
+          Anno: 2015,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 14135.55,
+          EsitoSoglia: "Superato",
+          ImportoAnnualeDiTutteLePensioni: null,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: null
+        },
+        {
+          Anno: 2014,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 8304.79,
+          EsitoSoglia: "Congruo",
+          ImportoAnnualeDiTutteLePensioni: 5220.0,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: 1389.72
+        },
+        {
+          Anno: 2013,
+          Soglia: 4805.19,
+          Reddito: 3500.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 8304.79,
+          EsitoSoglia: "Congruo",
+          ImportoAnnualeDiTutteLePensioni: 5220.0,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: 1389.72
+        }
+      ],
+      elencoSospensioni: [
+        {
+          Data: "01/01/2021",
+          Motivo: "Soggiorno presso struttura di lungodegenza-11111",
+          Scadenza: "01/03/2020",
+          Fine: "01/03/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce altre pensioni-22222",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note: "-"
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce assegno di cura-111111",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce assegno di cura-55555",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
+    },
+    // terzo
+    {
+      descrizionePrestazione:
+        "Prova Prova Prova possiamo inserire quante prestazioni vogliamo",
+      importiSpettanti: [
+        {
+          Anno: 2014,
+          TotaleSpettante: 221.0,
+          TotaleLiquidato: 111.0
+        },
+        {
+          Anno: 2015,
+          TotaleSpettante: 211.0,
+          TotaleLiquidato: 211.0
+        },
+        {
+          Anno: 2016,
+          TotaleSpettante: 12.0,
+          TotaleLiquidato: 12.0
+        }
+      ],
+      statoPrestazione: [],
+      elencoEvidenze: [
+        {
+          Decorrenza: "01/01/2020",
+          Scadenza: "01/01/2017",
+          Tipo: "Prestazione da ripristinare – assegno di cura",
+          Descrizione:
+            "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Importo da recuperare",
+          Descrizione: "Importo da recuperare",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Prestazione da ripristinare – casa di lungodegenza",
+          Descrizione:
+            "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Prestazione da revocare - soglia di reddito",
+          Descrizione:
+            "Prestazione da recocare per superamento soglia di reddito",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: null,
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Recupero da annullare",
+          Descrizione: "Recupero già liquidato da annullare – fare riaccredito",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: {
+            Utente: "Marco Formigoni",
+            NoteDiChiusura: "no anomalie",
+            LetteraInviata: "no"
+          },
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        },
+        {
+          Decorrenza: "01/01/2022",
+          Scadenza: "01/01/2018",
+          Tipo: "Importo da recuperare",
+          Descrizione: "Importo da recuperare",
+          Posizione: "777232",
+          Prestazione: "Pensione per invalidi civili parziali",
+          Chiusura: {
+            Utente: "Rino Grandi",
+            NoteDiChiusura: "-",
+            LetteraInviata: "sì"
+          },
+          Note:
+            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+        }
+      ],
+      elencoDatiRelativiAlReddito: [
+        {
+          Anno: 2016,
+          Soglia: 1111.19,
+          Reddito: 11111.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 1111111.55,
+          EsitoSoglia: "Superato",
+          ImportoAnnualeDiTutteLePensioni: null,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: null
+        },
+        {
+          Anno: 2015,
+          Soglia: 22222.19,
+          Reddito: 22222.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 2222222.55,
+          EsitoSoglia: "Superato",
+          ImportoAnnualeDiTutteLePensioni: null,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: null
+        },
+        {
+          Anno: 2014,
+          Soglia: 3333.19,
+          Reddito: 3333.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 33333.79,
+          EsitoSoglia: "Congruo",
+          ImportoAnnualeDiTutteLePensioni: 3333.0,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: 3333.72
+        },
+        {
+          Anno: 2013,
+          Soglia: 44444.19,
+          Reddito: 44444.0,
+          EsitoReddito: "Congruo",
+          SogliaIncremento: 44444.79,
+          EsitoSoglia: "Congruo",
+          ImportoAnnualeDiTutteLePensioni: 4444.0,
+          ImportoAnnualeDellAssegnoIntegrativoCiechi: 4444.72
+        }
+      ],
+      elencoSospensioni: [
+        {
+          Data: "01/01/2021",
+          Motivo: "Soggiorno presso struttura di lungodegenza-11111",
+          Scadenza: "01/03/2020",
+          Fine: "01/03/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce altre pensioni-22222",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note: "-"
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce assegno di cura-111111",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          Data: "01/01/2020",
+          Motivo: "Percepisce assegno di cura-55555",
+          Scadenza: "01/01/2020",
+          Fine: "01/01/2020",
+          Note:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
     }
   ];
 
@@ -100,11 +731,11 @@ function visualizzaDomandaCtrl(
   $scope.vm = {};
   $scope.vm.dtInstance = {};
 
-
-  $scope.detailInfoPrestazioniLiquidate = function(anno, event) {
+  $scope.detailInfoPrestazioniLiquidate = function(dettagliJson, event, url) {
     var scope = $scope.$new(true);
-    scope.anno = anno;
-    debugger;
+    scope.dettagliJson = dettagliJson;
+    scope.url = url;
+
     var link = angular.element(event.currentTarget),
       icon = link.find(".fa"),
       tr = link.parent().parent(),
@@ -119,7 +750,16 @@ function visualizzaDomandaCtrl(
     } else {
       // Open this row
       icon.removeClass("fa-chevron-down").addClass("fa-chevron-up");
-      row.child($compile("<div dettaglio-prestazioni ></div>")(scope)).show();
+      row
+        .child(
+          $compile(
+            "<dettaglio-prestazioni parameter = 'dettagliJson' url = '" +
+              scope.url +
+              "' ></dettaglio-prestazioni>"
+          )(scope)
+        )
+        .show();
+
       tr.addClass("shown");
     }
   };
@@ -127,6 +767,7 @@ function visualizzaDomandaCtrl(
   //--------- prestazioni end
 
   $scope.modificaDomanda = function() {
+    debugger;
     $scope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
     swal({
       title: "Desideri modificare la domanda?",
@@ -181,7 +822,7 @@ function visualizzaDomandaCtrl(
       controller: win.controller,
       size: win.size,
       scope: $scope,
-      windowClass: this.randomMove()
+      windowClass: "animated fadeInRightBig"
     });
   };
 

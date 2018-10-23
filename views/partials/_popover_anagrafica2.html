@@ -1,0 +1,64 @@
+<div class="popover-content">
+    <div class="custom-popover">
+
+        <div class="row">
+            <div class="col-md-12" style="word-break: keep-all;">
+                <span>Nome:</span>
+                <span>{{datiAssistito.Nome}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Cognome:</span>
+                <span>{{datiAssistito.Cognome}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Codice fiscale:</span>
+                <span>{{datiAssistito.CodiceFiscale}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Data di nascita:</span>
+                <span>{{datiAssistito.DataDiNascita}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Sesso:</span>
+                <span>{{datiAssistito.Sesso}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Luogo di nascita:</span>
+                <span>{{datiAssistito.LuogoDiNascita}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Nazionalità:</span>
+                <span>{{datiAssistito.Nazionalita}}</span>
+            </div>
+            <div class="col-md-12" style="word-break: keep-all;">
+                <span>Residenza:</span>
+                <span>{{datiAssistito.Residenza}}</span>
+            </div>
+            <div class="col-md-12">
+                <span>Domicilio:</span>
+                <span>{{datiAssistito.Domicilio}}</span>
+            </div>
+            <div class="col-md-12 m-t-sm">
+
+                <!-- camillocamillo -->
+                <!-- <a ng-if="tipoRicerca == 'Anagrafe'" ng-click="onSave(datiAssistito)" ui-sref="anagrafica.visualizza_anagrafica"
+                    class="btn-primary btn btn-sm btn-block">Visualizza anagrafica</a>
+                <a ng-if="tipoRicerca == 'Posizione'" ng-click="onSave(datiAssistito)" ui-sref="posizione.visualizza_anagrafica"
+                    class="btn-primary btn btn-sm btn-block">Visualizza posizione</a> -->
+
+
+                <a ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: datiAssistito})"
+                    class="btn-primary btn btn-sm btn-block">Visualizza
+                    anagrafica</a>
+
+                    
+                <!-- <a ng-if="tipoRicerca == 'Anagrafe'" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: datiAssistito})"
+                    class="btn-primary btn btn-sm btn-block">Visualizza
+                    anagrafica</a> -->
+                <!-- <a ng-if="tipoRicerca == 'Posizione'" ui-sref="posizione.visualizza_anagrafica({datiAssistito: datiAssistito})"
+                    class="btn-primary btn btn-sm btn-block">Visualizza
+                    posizione</a> -->
+            </div>
+        </div>
+    </div>
+</div>

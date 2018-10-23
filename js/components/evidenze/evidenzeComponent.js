@@ -12,7 +12,8 @@ function evidenzeComponent() {
   return {
     templateUrl: "/js/components/evidenze/evidenzeComponent.html",
     bindings: {
-      name: "@"
+      tipo: "@",
+      elencoEvidenze:"<"
     },
     controller: evidenzeController
   };

@@ -55,6 +55,8 @@
 
         </div>
 
+        <!-- ASSISTITO -->
+
         <div class="panel panel-default m-t-lg">
             <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoCodificato">
                 {{ 'REDDITI_PERCEPITI_ASSISTITO' | translate }}
@@ -180,7 +182,7 @@
             </div>
         </div>
 
-
+        <!-- CONIUGE -->
 
         <div class="panel panel-default m-t-lg">
             <div class="panel-heading pointer collapsed" data-toggle="collapse" data-target="#collapseIndirizzoNonCodificato">
@@ -277,6 +279,25 @@
                                     ng-readonly="visDatiAssistito" class="form-control" disabled>
                             </div>
                         </div>
+
+                        <!-- --------- -->
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>{{ 'ESTREMI_PENSIONE' | translate }}</label>
+                                <textarea name="estremiPensioneConiuge" ng-model="tmpRedditiAssistito.EstremiPensioneConiuge"
+                                    class="form-control" ng-readonly="visDatiAssistito"></textarea>
+                            </div>
+                        </div>
+                        <!-- --------- -->
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>{{ 'NOTE' | translate }}</label>
+                                <textarea name="noteConiuge" ng-model="tmpRedditiAssistito.NoteConiuge" class="form-control"
+                                    ng-readonly="visDatiAssistito"></textarea>
+                            </div>
+                        </div>
+                        <!-- --------- -->
+
                     </div>
                 </div>
             </div>

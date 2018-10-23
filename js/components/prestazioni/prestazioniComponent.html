@@ -1,0 +1,278 @@
+<div class="panel panel-default">
+    <div class="panel-heading pointer" data-toggle="collapse" href="#collapse{{$ctrl.index}}">
+        <strong><i class="fa fa-caret-down" aria-hidden="true"></i> {{ $ctrl.prestazione.descrizionePrestazione }}</strong>
+        <div class="pull-right">
+            <label>Data decorrenza: 01/10/2001</label>
+            <span class="label label-warning" data-toggle="popover" data-container="body" data-trigger="hover"
+                data-html="true" data-content="<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
+                data-placement="left">
+                <i class="fa fa-circle-o"></i> revocata </span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    Data scadenza: 01/10/2017
+                    <span style="visibility: hidden;"> ____________ </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="collapse{{$ctrl.index}}" class="panel-collapse collapse">
+        <div class="panel-body">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" ng-class="{ active: $ctrl.isSet(1) }">
+                    <a role="tab" ng-click="$ctrl.setTab(1)">
+                        Importi spettanti
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{ active: $ctrl.isSet(2) }">
+                    <a role="tab" ng-click="$ctrl.setTab(2)">
+                        Stato prestazione
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{ active: $ctrl.isSet(3) }">
+                    <a role="tab" ng-click="$ctrl.setTab(3)">
+                        Elenco
+                        evidenze
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{ active: $ctrl.isSet(4) }">
+                    <a role="tab" ng-click="$ctrl.setTab(4)">
+                        Elenco dati relativi al reddito
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{ active: $ctrl.isSet(5) }">
+                    <a role="tab" ng-click="$ctrl.setTab(5)">
+                        Elenco sospensioni
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+
+                <!-- start pannelli----------------------- -->
+
+                <!-- pannello 1 : importi spettanti -->
+                <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(1) }" ng-show="$ctrl.isSet(1)">
+
+                    <table class="table table-bordered table-striped" datatable="ng" dt-options="dtOptionsTabElencoPrestazioni"
+                        dt-column-defs="dtColumnTabElencoPrestazioni" dt-instance="vm.dtInstance">
+
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>{{ 'ANNO' | translate }}</th>
+                                <th>{{ 'TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO' | translate }}</th>
+                                <th>{{ 'TOTALE_PER_ANNO_LIQUIDATO' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in $ctrl.prestazione.importiSpettanti">
+
+                                <td class="details-control text-center pointer">
+                                    <a href="javascript:;" ng-click="detailInfoElencoPrestazioni(item.Anno, $event,'/views/partials/prestazioni/dettagliSingolaPrestazione.html')"
+                                        title="Click per espandere">
+                                        <i class="fa fa-chevron-down" aria-hidden="true" style="color:gray"></i>
+                                    </a>
+                                </td>
+
+                                <td>{{item.Anno}}</td>
+                                <td class="text-right">{{item.TotaleSpettante | currency : "€" }}</td>
+                                <td class="text-right">{{item.TotaleLiquidato | currency : "€" }}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- pannello 2 : stato prestazioni -->
+                <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(2) }" ng-show="$ctrl.isSet(2)">
+                    <div class="m-b-lg">
+                        <h3>
+                            <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
+                                Revocata</span>
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Data revoca</label>
+                            <input type="text" readonly class="form-control" value="03/12/2003"></div>
+                        <div class="col-md-4 form-group">
+                            <label>Motivo revoca</label>
+                            <input type="text" readonly class="form-control" value="Non residente in Alto Adige"></div>
+                        <div class="col-md-4 form-group">
+                            <label>Importo da recuperare</label>
+                            <input type="text" readonly class="form-control" value="549,00 €"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="button-bar text-right">
+                                <button class="btn btn-sm">Predisponi sospensione prestazione</button>
+                                <button class="btn btn-sm">Predisponi negazione prestazione</button>
+                                <button class="btn btn-sm btn-primary">Modifica revoca prestazione</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- pannello 3 : elenco evidenze -->
+                <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(3) }" ng-show="$ctrl.isSet(3)">
+                    <div class="m-b-lg">
+                        <evidenze-component tipo="FiltroRicerca" elenco-evidenze="elencoEvidenze"></evidenze-component>
+                    </div>
+                </div>
+                <!-- pannello 4 : elenco dati relativi al reddito -->
+                <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(4) }" ng-show="$ctrl.isSet(4)">
+
+                    <table datatable="ng" dt-column-defs="$ctrl.dtColumnTabElencoDatiRelativiAlReddito" dt-options="$ctrl.dtOptionsTabElencoDatiRelativiAlReddito"
+                        class="table table-bordered dataTables-paged order-desc">
+                        <thead>
+                            <tr>
+                                <th>{{ 'ANNO' | translate }}</th>
+                                <th>{{ 'SOGLIA' | translate }}</th>
+                                <th>{{ 'REDDITO' | translate }}</th>
+                                <th>{{ 'ESITO_REDDITO' | translate }}</th>
+                                <th>{{ 'SOGLIA_INCREMENTO' | translate }}</th>
+                                <th>{{ 'ESITO_SOGLIA' | translate }}</th>
+                                <th>{{ 'IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI' | translate }}</th>
+                                <th>{{ 'IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in $ctrl.prestazione.elencoDatiRelativiAlReddito">
+                                <td style="width: 6%">
+                                    {{item.Anno }}
+                                </td>
+                                <td class="text-right" style="width: 7%">
+                                    {{item.Soglia | currency }}
+                                </td>
+                                <td class="text-right" style="width: 7%">
+                                    {{item.Reddito | currency }}
+                                </td>
+                                <td style="width: 7%">
+                                    {{item.EsitoReddito }}
+                                </td>
+                                <td class="text-right" style="width: 14%">
+                                    {{item.SogliaIncremento | currency}}
+                                </td>
+                                <td style="width: 7%">
+                                    {{item.EsitoSoglia }}
+                                </td>
+                                <td class="text-right" style="width: 23%">
+                                    {{item.ImportoAnnualeDiTutteLePensioni | currency }}
+                                </td>
+                                <td class="text-right">
+                                    {{item.ImportoAnnualeDellAssegnoIntegrativoCiechi | currency }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- pannello 5 : elenco sospensioni -->
+                <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(5) }" ng-show="$ctrl.isSet(5)">
+
+                    <!-- <table class="table table-striped table-bordered dataTables-paged">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Motivo</th>
+                                <th>Scadenza</th>
+                                <th>Fine</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01/01/2020</td>
+                                <td>Soggiorno presso struttura di lungodegenza</td>
+                                <td>01/01/2020</td>
+                                <td>01/01/2020</td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+                            </tr>
+                            <tr>
+                                <td>01/01/2020</td>
+                                <td>Percepisce altre pensioni</td>
+                                <td>01/01/2020</td>
+                                <td>01/01/2020</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>01/01/2020</td>
+                                <td>Percepisce assegno di cura</td>
+                                <td>01/01/2020</td>
+                                <td>01/01/2020</td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore magna aliqua. </td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+
+                    <table datatable="ng" dt-column-defs="$ctrl.dtColumnTabElencoSospensioni" dt-options="$ctrl.dtOptionsTabElencoSospensioni"
+                        class="table table-striped table-bordered dataTables-paged">
+                        <thead>
+                            <tr>
+                                <th>{{ 'DATA' | translate }}</th>
+                                <th>{{ 'MOTIVO' | translate }}</th>
+                                <th>{{ 'SCADENZA' | translate }}</th>
+                                <th>{{ 'FINE' | translate }}</th>
+                                <th>{{ 'NOTE' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="item in $ctrl.prestazione.elencoSospensioni">
+                                <td style="width: 8%">
+                                    {{item.Data }}
+                                </td>
+                                <td style="width: 11%">
+                                    {{item.Motivo }}
+                                </td>
+                                <td style="width: 8%">
+                                    {{item.Scadenza }}
+                                </td>
+                                <td style="width: 8%">
+                                    {{item.Fine }}
+                                </td>
+                                <td>
+                                    {{item.Note }}
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+
+                <!-- fine pannelli----------------------- -->
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-separator"></div>
+            </div>
+            <div class="row m-t-lg">
+                <div class="col-md-4 form-group">
+                    <label>Data decorrenza</label>
+                    <input type="text" readonly class="form-control" value="01/10/2001"></div>
+                <div class="col-md-4 form-group">
+                    <label>Data scadenza</label>
+                    <input type="text" readonly class="form-control" value="01/10/2004"></div>
+                <div class="col-md-12 form-group">
+                    <label>Note</label>
+                    <textarea class="form-control" readonly=""></textarea>
+                </div>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-sm btn-primary">Modifica prestazione</button>
+            </div>
+        </div>
+    </div>
+</div>

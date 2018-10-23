@@ -1,161 +1,51 @@
 <div>
-    <table class="table table-bordered dataTables-filtered2 checkboxtable" id="evidenzeTable">
+    <!-- <table class="table table-bordered dataTables-filtered2 checkboxtable" id="evidenzeTable"> -->
+    <table datatable="ng" dt-column-defs="$ctrl.colonneTabElencoEvidenze" dt-options="$ctrl.dtOptionsTabElencoEvidenze"
+        class="table table-bordered dataTables-filtered2 checkboxtable" id="evidenzeTable">
+
         <thead>
             <tr>
-                <th>Decorrenza</th>
-                <th>Scadenza</th>
-                <th>Tipo</th>
-                <th>Descrizione</th>
-                <th>Posizione</th>
-                <th>Prestazione</th>
-                <!-- <%# <th>Assistito</th>
-                    <th>Data domanda</th>%> -->
-                <th>Chiusura</th>
-                <th>Note</th>
+                <th>{{'DECORRENZA' | translate}}</th>
+                <th>{{'SCADENZA' | translate}}</th>
+                <th>{{'TIPO' | translate}}</th>
+                <!-- ---- -->
+                <th>{{'DESCRIZIONE' | translate}}</th>
+                <th>{{'POSIZIONE' | translate}}</th>
+                <th>{{'PRESTAZIONE' | translate}}</th>
+                <!-- ---- -->
+                <th>{{'CHIUSURA' | translate}}</th>
+                <th>{{'NOTE' | translate}}</th>
                 <th></th>
-                <th class="col-md-2 text-center"></th>
+                <!-- ---- -->
+                <th class="text-center"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>01/01/2020</td>
-                <td>
-                    <span class="label-warning">01/01/2017</span>
+            <tr ng-repeat="item in $ctrl.elencoEvidenze | filter:$ctrl.search">
+
+                <td style="width:9%">{{item.Decorrenza}}</td>
+                <td style="width:9%">
+                    <span class="label-warning">{{item.Scadenza}}</span>
                 </td>
-                <td>Prestazione da ripristinare – assegno di cura</td>
-                <td>Prestazione da ripristinare, assistito non percepisce più l’assegno di cura</td>
-                <td>777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <!-- <%# <td>Mario Rossi</td>
-                    <td>10/01/2012</td>%> -->
-                <td>-</td>
-                <td>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="note" data-toggle="popover" data-placement="top"
-                        data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="toolbox-row">
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="visualizza">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="checkbox"><input icheck ng-disabled="visDatiAssistito" ng-model="xxx" type="checkbox">
-                        <i></i></div>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Importo da recuperare </td>
-                <td>Importo da recuperare</td>
-                <td>777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <!-- <%# <td>Mario Rossi</td>
-                    <td>10/01/2018</td>%> -->
-                <td>-</td>
-                <td>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="note" data-toggle="popover" data-placement="top"
-                        data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="toolbox-row">
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="visualizza">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="checkbox"><input icheck ng-disabled="visDatiAssistito" ng-model="xxx" type="checkbox">
-                        <i></i></div>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Prestazione da ripristinare – casa di lungodegenza </td>
-                <td>Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza</td>
-                <td>777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <!-- <%# <td>Mario Rossi</td>
-                    <td>10/01/2018</td>%> -->
-                <td>-</td>
-                <td>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="note" data-toggle="popover" data-placement="top"
-                        data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="toolbox-row">
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="visualizza">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="checkbox"><input icheck ng-disabled="visDatiAssistito" ng-model="xxx" type="checkbox">
-                        <i></i></div>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Prestazione da revocare - soglia di reddito</td>
-                <td>Prestazione da recocare per superamento soglia di reddito</td>
-                <td>777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <!-- <%# <td>Mario Rossi</td>
-                    <td>10/01/2018</td>%> -->
-                <td>-</td>
-                <td>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="note" data-toggle="popover" data-placement="top"
-                        data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="toolbox-row">
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="visualizza">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td class="text-center">
-                    <div class="checkbox"><input icheck ng-disabled="visDatiAssistito" ng-model="xxx" type="checkbox">
-                        <i></i></div>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Recupero da annullare</td>
-                <td>Recupero già liquidato da annullare – fare riaccredito</td>
-                <td>777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <!-- <%# <td>Mario Rossi</td>
-                    <td>10/01/2018</td>%> -->
-                <td>
+                <td style="width:15%">{{item.Tipo}}</td>
+                <!-- ---- -->
+                <td style="width:20%">{{item.Descrizione}}</td>
+                <td style="width:9%">{{item.Posizione}}</td>
+                <td style="width:9%">{{item.Prestazione}}</td>
+                <!-- ---- -->
+                <td ng-if="!item.Chiusura" style="width:9%">-</td>
+                <td ng-if="item.Chiusura" style="width:9%">
                     <div>
-                        <div><strong>Utente: </strong><span>Marco Formigoni</span></div>
-                        <div><strong>Note di chiusura: </strong><span>no anomalie</span></div>
-                        <div><strong>Lettera inviata: </strong><span>no</span></div>
+                        <div><strong>Utente: </strong><span>{{item.Chiusura.Utente}}</span></div>
+                        <div><strong>Note di chiusura: </strong><span>{{item.Chiusura.NoteDiChiusura}}</span></div>
+                        <div><strong>Lettera inviata: </strong><span>{{item.Chiusura.LetteraInviata}}</span></div>
                     </div>
                 </td>
-                <td>
+                <td style="width:9%">
                     <a ng-class="{anchorDisabled : visDatiAssistito}" title="note" data-toggle="popover" data-placement="top"
-                        data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
+                        data-content="{{item.Note}}">Note</a>
                 </td>
-                <td style="width:60px" class="toolbox-row">
+                <td class="toolbox-row" style="width:7%">
                     <a ng-class="{anchorDisabled : visDatiAssistito}" title="visualizza">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
@@ -163,67 +53,45 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td class="text-center">
-                    <div class="checkbox"><input icheck ng-disabled="visDatiAssistito" ng-model="xxx" type="checkbox">
-                        <i></i></div>
-                </td>
-            </tr>
-            <tr>
-                <td>01/01/2022</td>
-                <td>
-                    <span>01/01/2018</span>
-                </td>
-                <td>Importo da recuperare </td>
-                <td>Importo da recuperare</td>
-                <td>777232</td>
-                <td>Pensione per invalidi civili parziali</td>
-                <!-- <%# <td>Mario Rossi</td>
-                    <td>10/01/2018</td>%> -->
-                <td>
-                    <div>
-                        <div><strong>Utente: </strong><span>Rino Grandi</span></div>
-                        <div><strong>Note di chiusura: </strong><span>-</span></div>
-                        <div><strong>Lettera inviata: </strong><span>sì</span></div>
-                    </div>
-                </td>
-                <td>
-                    <a title="note" data-toggle="popover" data-placement="top" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                </td>
-                <td style="width:60px" class="toolbox-row">
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="visualizza">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
-                    <a ng-class="{anchorDisabled : visDatiAssistito}" title="elimina">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
+                <!-- ---- -->
                 <td class="text-center">
                     <div class="checkbox"><input icheck ng-disabled="visDatiAssistito" ng-model="xxx" type="checkbox">
                         <i></i></div>
                 </td>
             </tr>
         </tbody>
-        <tfoot>
+        <tfoot ng-if="$ctrl.tipo == 'FiltroRicerca'">
             <tr class="row-filter">
-                <th>Decorrenza</th>
-                <th>Scadenza</th>
-                <th>Tipo</th>
-                <th>Descrizione</th>
-                <th>Posizione</th>
-                <th>Prestazione</th>
-                <!-- <%# <th>Assistito</th>
-                    <th>Data domanda</th>%> -->
-                <th>Chiusura</th>
-                <th>Note</th>
+
+                <th><input type="text" ng-model="$ctrl.search.Decorrenza" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <th><input type="text" ng-model="$ctrl.search.Scadenza" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <th><input type="text" ng-model="$ctrl.search.Tipo" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <!-- ---- -->
+                <th><input type="text" ng-model="$ctrl.search.Descrizione" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <th><input type="text" ng-model="$ctrl.search.Posizione" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <th><input type="text" ng-model="$ctrl.search.Prestazione" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <!-- ---- -->
+                <th><input type="text" ng-model="$ctrl.search.Chiusura" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
+                <th><input type="text" ng-model="$ctrl.search.Note" class="text_filter column-filter search_init"
+                        placeholder="Cerca" /></th>
                 <th class="no-filter"></th>
+                <!-- ---- -->
                 <th class="no-filter"></th>
             </tr>
         </tfoot>
     </table>
+
 </div>
 <div class="text-right">
-    <a href="genera_comunicazione.html" id="genera" class="btn btn-sm btn-primary" disabled>genera comunicazione</a>
-    <button class="btn btn-sm btn-primary" ng-disabled="visDatiAssistito">inserisci nuova evidenza</button>
+    <a href="genera_comunicazione.html" id="genera" class="btn btn-sm btn-primary" disabled>{{ 'GENERA_COMUNICAZIONE' | translate }}</a>
+    <button class="btn btn-sm btn-primary" ng-disabled="visDatiAssistito">{{ 'INSERISCI_NUOVA_EVIDENZA' | translate }}</button>
 </div>
 
 <script>
@@ -238,200 +106,76 @@
         $("#conguaglioDone").show();
     });
 
-    /*
-// Updates "Select all" control in a data table
-//
-function updateDataTableSelectAllCtrl(table){
-   var $table             = table.table().node();
-   var $chkbox_all        = $('tbody input[type="checkbox"]', $table);
-   var $chkbox_checked    = $('tbody input[type="checkbox"]:checked', $table);
-   var chkbox_select_all  = $('thead input[name="select_all"]', $table);
- 
-   // If none of the checkboxes are checked
-   if($chkbox_checked.length === 0){
-      //chkbox_select_all.checked = false;
-       chkbox_select_all.parent().removeClass('checked');
-      if('indeterminate' in chkbox_select_all){
-         chkbox_select_all.indeterminate = false;
-      }
- 
-   // If all of the checkboxes are checked
-   } else if ($chkbox_checked.length === $chkbox_all.length){
-//      chkbox_select_all.checked = true;
-      chkbox_select_all.parent().addClass('checked');
-      if('indeterminate' in chkbox_select_all){
-         chkbox_select_all.indeterminate = false;
-      }
- 
-   // If some of the checkboxes are checked
-   } else {
-      //chkbox_select_all.checked = true;
-       chkbox_select_all.parent().removeClass('checked');
-      if('indeterminate' in chkbox_select_all){
-         chkbox_select_all.indeterminate = true;
-      }
-   }
-}
-*/
     $(document).ready(function () {
         // Array holding selected row IDs
-        var rows_selected = [];
-        var table = $('#evidenzeTable').DataTable({
-            'columnDefs': [{
-                'targets': 9,
-                'searchable': false,
-                'orderable': false,
-                'width': '1%',
-                'className': 'dt-body-center',
-            },
-            {
-                'targets': 8,
-                'searchable': false,
-                'orderable': false,
-            }],
-            'searching': true,
-            'responsive': true,
-            'lengthChange': false,
-            'retrieve': true,
-            'order': [[2, 'asc']],
-            'rowCallback': function (row, data, dataIndex) {
-                // Get row ID
-                var rowId = data[0];
+        // var rows_selected = [];
+        // var table = $('#evidenzeTable').DataTable({
+        //     'columnDefs': [{
+        //         'targets': 9,
+        //         'searchable': false,
+        //         'orderable': false,
+        //         'width': '1%',
+        //         'className': 'dt-body-center',
+        //     },
+        //     {
+        //         'targets': 8,
+        //         'searchable': false,
+        //         'orderable': false,
+        //     }],
+        //     'searching': true,
+        //     'responsive': true,
+        //     'lengthChange': false,
+        //     'retrieve': true,
+        //     'order': [[2, 'asc']],
+        //     'rowCallback': function (row, data, dataIndex) {
+        //         // Get row ID
+        //         var rowId = data[0];
 
-                // If row ID is in the list of selected row IDs
-                if ($.inArray(rowId, rows_selected) !== -1) {
-                    $(row).find('input[type="checkbox"]').prop('checked', true);
-                    $(row).addClass('selected');
-                }
-            }
-        });
+        //         // If row ID is in the list of selected row IDs
+        //         if ($.inArray(rowId, rows_selected) !== -1) {
+        //             $(row).find('input[type="checkbox"]').prop('checked', true);
+        //             $(row).addClass('selected');
+        //         }
+        //     }
+        // });
 
         /* Filtro per colonna */
-        $('#evidenzeTable tfoot th').each(function () {
-            var title = $(this).text();
-            if (!$(this).hasClass("no-filter")) {
-                $(this).html('<input type="text" class="column-filter" placeholder="Cerca ' + title + '" />');
-            }
-        });
+        // $('#evidenzeTable tfoot th').each(function () {
+        //     var title = $(this).text();
+        //     if (!$(this).hasClass("no-filter")) {
+        //         $(this).html('<input type="text" class="column-filter" placeholder="Cerca ' + title + '" />');
+        //     }
+        // });
 
+        // setTimeout(function () {
+        //     $('#evidenzeTable :input').addClass('column-filter');
+        //     // x prova
+        //     // $(":input").css("background-color", "red");
 
-        if (table.columns().length > 0) {
-            // Apply the search
-            table.columns().eq(0).each(function (index) {
-                var that = table.column(index);
+        // }, 1000);
 
-                $('input', that.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });
-        }
+        // if (table.columns().length > 0) {
+        //     // Apply the search
+        //     table.columns().eq(0).each(function (index) {
+        //         var that = table.column(index);
+
+        //         $('input', that.footer()).on('keyup change', function () {
+        //             if (that.search() !== this.value) {
+        //                 that
+        //                     .search(this.value)
+        //                     .draw();
+        //             }
+        //         });
+        //     });
+        // }
         /* END Filtro per colonna */
-        /*
-           // Handle click on checkbox
-           // Updates "Select all" control in a data table
-            function updateDataTableSelectAllCtrl(table){
-               var $table             = table.table().node();
-               var $chkbox_all        = $('tbody input[type="checkbox"]', $table);
-               var $chkbox_checked    = $('tbody input[type="checkbox"]:checked', $table);
-               var chkbox_select_all  = $('thead input[name="select_all"]', $table);
-        
-               // If none of the checkboxes are checked
-               if($chkbox_checked.length === 0){
-                   $("#genera").attr('disabled', 'disabled');
-                   chkbox_select_all.parent().removeClass('checked');
-                  if('indeterminate' in chkbox_select_all){
-                     chkbox_select_all.indeterminate = false;
-                  }
-        
-               // If all of the checkboxes are checked
-               } else if ($chkbox_checked.length === $chkbox_all.length){
-                   $("#genera").removeAttr("disabled");
-                  chkbox_select_all.parent().addClass('checked');
-                  if('indeterminate' in chkbox_select_all){
-                     chkbox_select_all.indeterminate = false;
-                  }
-        
-               // If some of the checkboxes are checked
-               } else {
-                   $("#genera").removeAttr("disabled");
-                   chkbox_select_all.parent().removeClass('checked');
-                  if('indeterminate' in chkbox_select_all){
-                     chkbox_select_all.indeterminate = true;
-                  }
-               }
-            }
-        
-           $('#evidenzeTable tbody .checkbox .iCheck-helper').on('click', function(e){
-              var $row = $(this).closest('tr');
-        
-              // Get row data
-              var data = table.row($row).data();
-        
-              // Get row ID
-              var rowId = data[0];
-        
-              // Determine whether row ID is in the list of selected row IDs
-              var index = $.inArray(rowId, rows_selected);
-        
-              // If checkbox is checked and row ID is not in list of selected row IDs
-              if(this.checked && index === -1){
-                 rows_selected.push(rowId);
-        
-              // Otherwise, if checkbox is not checked and row ID is in list of selected row IDs
-              } else if (!this.checked && index !== -1){
-                 rows_selected.splice(index, 1);
-              }
-        
-              if(this.checked){
-                 $row.addClass('selected');
-              } else {
-                 $row.removeClass('selected');
-              }
-        
-              // Update state of "Select all" control
-              updateDataTableSelectAllCtrl(table);
-        
-              // Prevent click event from propagating to parent
-              e.stopPropagation();
-           });
-        
-           // Handle click on "Select all" control
-           $('thead .checkbox .iCheck-helper', table.table().container()).on('click', function(e){
-              if($(this).parent().hasClass('checked')) {
-                $('#evidenzeTable tbody .checkbox .iCheck-helper').each(function( index ) {
-                    if (!$(this).parent().hasClass('checked')) {
-                        $(this).trigger('click');
-                    }
-                  });
-              } else {
-                  $('#evidenzeTable tbody .checkbox .iCheck-helper').each(function( index ) {
-                    if ($(this).parent().hasClass('checked')) {
-                        $(this).trigger('click');
-                    }
-                  });
-              }
-        
-              // Prevent click event from propagating to parent
-              e.stopPropagation();
-           });
-        
-           // Handle table draw event
-           table.on('draw', function(){
-              // Update state of "Select all" control
-              updateDataTableSelectAllCtrl(table);
-           });
-            */
-        $('#evidenzeTable .checkbox').on('ifChecked', function (event) {
-            $("#genera").removeAttr("disabled");
-        });
+        // $('#evidenzeTable .checkbox').on('ifChecked', function (event) {
+        //     $("#genera").removeAttr("disabled");
+        // });
 
-        $('#evidenzeTable .checkbox').on('ifUnchecked', function (event) {
-            $("#genera").attr('disabled', 'disabled');
-        });
+        // $('#evidenzeTable .checkbox').on('ifUnchecked', function (event) {
+        //     $("#genera").attr('disabled', 'disabled');
+        // });
 
 
     });
