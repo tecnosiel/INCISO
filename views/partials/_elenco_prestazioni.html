@@ -188,7 +188,7 @@
 </script>
 <div>
     <div>
-        <h3>Totale delle prestazioni liquidate per anno</h3>
+        <h3>{{ 'TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO' | translate}}</h3>
 
         <div class="row">
 
@@ -198,8 +198,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Anno</th>
-                            <th>Totale prestazioni liquidate</th>
+                            <th>{{ 'ANNO' | translate}}</th>
+                            <th>{{ 'TOTALE_PRESTAZIONI_LIQUIDATE' | translate}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -225,7 +225,7 @@
 
     </div>
     <div>
-        <h3>Elenco delle prestazioni</h3>
+        <h3>{{ 'ELENCO_DELLE_PRESTAZIONI' | translate}}</h3>
         <div ng-repeat="item in elencoPrestazioni">
             <prestazioni-component index="{{$index}}" prestazione="item"></prestazioni-component>
         </div>

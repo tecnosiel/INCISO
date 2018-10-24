@@ -3,39 +3,39 @@
 
         <div class="row">
             <div class="col-md-12" style="word-break: keep-all;">
-                <span>Nome:</span>
+                <span>{{ 'NOME' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.Nome}}</span>
             </div>
             <div class="col-md-12">
-                <span>Cognome:</span>
+                <span>{{ 'COGNOME' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.Cognome}}</span>
             </div>
             <div class="col-md-12">
-                <span>Codice fiscale:</span>
+                <span>{{ 'CODICE_FISCALE' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.CodiceFiscale}}</span>
             </div>
             <div class="col-md-12">
-                <span>Data di nascita:</span>
+                <span>{{ 'DATA_DI_NASCITA' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.DataDiNascita}}</span>
             </div>
             <div class="col-md-12">
-                <span>Sesso:</span>
+                <span>{{ 'SESSO' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.Sesso}}</span>
             </div>
             <div class="col-md-12">
-                <span>Luogo di nascita:</span>
+                <span>{{ 'LUOGO_DI_NASCITA' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.LuogoDiNascita}}</span>
             </div>
             <div class="col-md-12">
-                <span>Nazionalità:</span>
+                <span>{{ 'NAZIONALITA' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.Nazionalita}}</span>
             </div>
             <div class="col-md-12" style="word-break: keep-all;">
-                <span>Residenza:</span>
+                <span>{{ 'RESIDENZA' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.Residenza}}</span>
             </div>
             <div class="col-md-12">
-                <span>Domicilio:</span>
+                <span>{{ 'DOMICILIO' | translate }}:</span>
                 <span>{{$ctrl.datiAssistito.Domicilio}}</span>
             </div>
             <div class="col-md-12 m-t-sm">
@@ -47,11 +47,11 @@
                     class="btn-primary btn btn-sm btn-block">Visualizza posizione</a> -->
 
 
-                <a ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
-                    class="btn-primary btn btn-sm btn-block">Visualizza
-                    anagrafica</a>
+                <a ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})" class="btn-primary btn btn-sm btn-block">
+                    {{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}
+                </a>
 
-                    
+
                 <!-- <a ng-if="$ctrl.tipoRicerca == 'Anagrafe'" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"
                     class="btn-primary btn btn-sm btn-block">Visualizza
                     anagrafica</a> -->

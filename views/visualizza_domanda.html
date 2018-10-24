@@ -48,7 +48,7 @@
             <div class="col-md-4">
                 <div class=" ibox float-e-margins">
                     <div class="ibox-title text-center">
-                        <h5>Dati Assistito</h5>
+                        <h5>{{ 'DATI_ASSISTITO' | translate }}</h5>
                     </div>
                     <div class="ibox-content text-center">
                         <h2 class="small"><strong>{{datiAssistito.Cognome}} {{datiAssistito.Nome}}</strong>&nbsp;-&nbsp;{{domanda.CodiceFiscale}}</h2>
@@ -58,7 +58,7 @@
             <div class="col-md-4">
                 <div class=" ibox float-e-margins">
                     <div class="ibox-title text-center">
-                        <h5>Numero Posizione</h5>
+                        <h5>{{ 'NUMERO_POSIZIONE' | translate }}</h5>
                     </div>
                     <div class="ibox-content text-center">
                         <h2>{{ domanda.Posizione }}</h2>
@@ -68,7 +68,7 @@
             <div class="col-md-4">
                 <div class=" ibox float-e-margins">
                     <div class="ibox-title text-center">
-                        <h5>Numero Fascicolo</h5>
+                        <h5>{{ 'NUMERO_FASCICOLO' | translate }}</h5>
                     </div>
                     <div class="ibox-content text-center">
                         <h2 class="small">{{domanda.Fascicolo}}</h2>
@@ -81,7 +81,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5> Dati anagrafici dell'assistito &nbsp;</h5>
+                        <h5> {{ 'DATI_ANAGRAFICI_DELL_ASSISTITO' |translate }} &nbsp;</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -95,7 +95,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5> Dati domanda </h5>
+                        <h5> {{ 'DATI_DOMANDA' |translate }} </h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -109,7 +109,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Elenco verbali</h5>
+                        <h5>{{ 'ELENCO_VERBALI' |translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -124,7 +124,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Prestazioni</h5>
+                        <h5>{{ 'PRESTAZIONI' |translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -139,7 +139,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Elenco evidenze</h5>
+                        <h5>{{ 'ELENCO_EVIDENZE' | translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -153,7 +153,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Elenco documentazione</h5>
+                        <h5>{{ 'ELENCO_DOCUMENTAZIONE' |translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -167,7 +167,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Elenco sospensioni della domanda</h5>
+                        <h5>{{ 'ELENCO_SOSPENSIONI_DELLA_DOMANDA' |translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -181,7 +181,7 @@
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Log di sistema</h5>
+                        <h5>{{ 'LOG_DI_SISTEMA' |translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -203,15 +203,15 @@
                 <i class="fa fa-list-ul"></i>
             </div>
             <div class="floating-menu-items">
-                <div class="title"><a ng-click="modificaDomanda()">Modifica domanda</a></div>
-                <div class="title"><a ng-click="sospendiDomanda()">Sospendi domanda</a></div>
-                <div class="title"><a ng-click="revocaDomanda()">Revoca domanda</a></div>
-                <div class="title"><a ng-click="revocaDomanda('Annulla')">Annulla revoca domanda</a></div>
-                <div class="title"><a ng-click="negaDomanda()">Negazione domanda</a></div>
-                <div class="title"><a ng-click="negaDomanda('Annulla')">Annulla negazione domanda</a></div>
-                <div class="title"><a ng-click="inserisciNuovoVerbale()">Inserisci nuovo verbale</a></div>
-                <div class="title"><a ng-click="inserisciNuovaEvidenza()">Inserisci nuova evidenza</a></div>
-                <div class="title"><a ng-click="cancellaDomanda()">Cancella domanda</a></div>
+                <div class="title"><a ng-click="modificaDomanda()">{{ 'MODIFICA_DOMANDA' |translate }}</a></div>
+                <div class="title"><a ng-click="sospendiDomanda()">{{ 'SOSPENDI_DOMANDA' |translate }}</a></div>
+                <div class="title"><a ng-click="revocaDomanda()">{{ 'REVOCA_DOMANDA' |translate }}</a></div>
+                <div class="title"><a ng-click="revocaDomanda('Annulla')">{{ 'ANNULLA_REVOCA_DOMANDA' |translate }}</a></div>
+                <div class="title"><a ng-click="negaDomanda()">{{ 'NEGAZIONE_DOMANDA' |translate }}</a></div>
+                <div class="title"><a ng-click="negaDomanda('Annulla')">{{ 'ANNULLA_NEGAZIONE_DOMANDA' |translate }}</a></div>
+                <div class="title"><a ng-click="inserisciNuovoVerbale()">{{ 'INSERISCI_NUOVO_VERBALE' |translate }}</a></div>
+                <div class="title"><a ng-click="inserisciNuovaEvidenza()">{{ 'INSERISCI_NUOVA_EVIDENZA' |translate }}</a></div>
+                <div class="title"><a ng-click="cancellaDomanda()">{{ 'CANCELLA_DOMANDA' |translate }}</a></div>
             </div>
         </div>
     </div>

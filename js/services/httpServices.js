@@ -819,27 +819,6 @@ mochDbTable = function(table) {
           Provenienza: "",
           DelegaPatronato: "",
 
-          LegaliRappresentanti: [
-            {
-              LegaleRappresentanteNome: "Mario",
-              LegaleRappresentanteCognome: "Rossi",
-              LegaleRappresentanteCodiceFiscale: "RSSMRO70A10F2052",
-              LegaleRappresentanteNumeroDecreto: "",
-              LegaleRappresentanteDataDecreto: "",
-              LegaleRappresentanteTipoDecreto: "",
-              LegaleRappresentanteScadenzaDecreto: ""
-            },
-            {
-              Nome: "",
-              Cognome: "",
-              CodiceFiscale: "",
-              NumeroDecreto: "",
-              DataDecreto: "",
-              TipoDecreto: "",
-              ScadenzaDecreto: ""
-            }
-          ],
-          Curatore: "",
           Comunicazioni: "",
           ModalitaDiPagamento: "",
           AssociazioniDiCategoria: [
@@ -875,6 +854,34 @@ mochDbTable = function(table) {
           // ----
         }
       ],
+
+      LegaleRappresentante: {
+        Nome: "Mario-1",
+        Cognome: "Rossi-1",
+        CodiceFiscale: "RSSMRO70A10F2052",
+        NumeroDecreto: "",
+        DataDecreto: "",
+        TipoDecreto: "",
+        ScadenzaDecreto: ""
+      },
+      AltroLegaleRappresentante: {
+        Nome: "Mario-2",
+        Cognome: "Rossi-2",
+        CodiceFiscale: "RSSMRO70A10F2052",
+        NumeroDecreto: "",
+        DataDecreto: "",
+        TipoDecreto: "",
+        ScadenzaDecreto: ""
+      },
+      Curatore: {
+        Nome: "Mario-3",
+        Cognome: "Rossi-3",
+        CodiceFiscale: "RSSMRO70A10F2052",
+        NumeroDecreto: "",
+        DataDecreto: "",
+        TipoDecreto: "",
+        ScadenzaDecreto: ""
+      },
 
       Verbali: [
         {
@@ -1338,7 +1345,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/2010",
       Eredita: {
         NumeroFaldone: "3333333",
-        AnnoDiScartoINCISO:"2018",
+        AnnoDiScartoINCISO: "2018",
         DataCalcoloSimulazione: "01/01/2020",
         ImportoSpettante: "580000.39",
         Eredi: [
@@ -2125,7 +2132,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1990",
       Eredita: {
         NumeroFaldone: "3333333",
-        AnnoDiScartoINCISO:"2018",
+        AnnoDiScartoINCISO: "2018",
 
         DataCalcoloSimulazione: "01/01/2020",
         ImportoSpettante: "580000.39",
@@ -2536,7 +2543,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       Eredita: {
         NumeroFaldone: "333313454",
-        AnnoDiScartoINCISO:"2015",
+        AnnoDiScartoINCISO: "2015",
 
         DataCalcoloSimulazione: "11/11/2021",
         ImportoSpettante: "580000.39",
@@ -3331,7 +3338,7 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       Eredita: {
         NumeroFaldone: "3345333333",
-        AnnoDiScartoINCISO:"2016",
+        AnnoDiScartoINCISO: "2016",
 
         DataCalcoloSimulazione: "01/01/2020",
         ImportoSpettanteEredita: "480000.39",

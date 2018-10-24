@@ -15,7 +15,7 @@
 
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Dati anagrafici assistito &nbsp;</h5>
+                    <h5> {{'DATI_ANAGRAFICI_ASSISTITO' | translate }}</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-down"></i>
@@ -93,7 +93,7 @@
                 <!-- ------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Dati domanda</h5>
+                        <h5>{{ "DATI_DOMANDA" | translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -104,7 +104,7 @@
                         <div class="m-b-sm form-group">
                             <div>
                                 <label>
-                                    Tipologia di assistenza richiesta
+                                    {{ "TIPOLOGIA_DI_ASSISTENZA_RICHIESTA" | translate }}
                                 </label>
                             </div>
                             <div class="row">
@@ -135,42 +135,41 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 form-group">
-                                <label>Data (*)</label>
+                                <label>{{ "DATA" | translate }} (*)</label>
                                 <div class="input-group date">
                                     <input type="text" name="dataDomanda" class="form-control js-date" ng-model="domanda.DataDomanda"
                                         placeholder="dd/MM/yyyy" required><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                                 <p ng-show="domandaForm.dataDomanda.$invalid && !domandaForm.dataDomanda.$pristine"
-                                    class="help-block">Campo obbligatorio.</p>
+                                    class="help-block">{{ "CAMPO_OBBLIGATORIO" | translate }}.</p>
 
                             </div>
 
                             <!-- <div class="col-md-4 form-group"><label>Data (*)</label> <input type="text" placeholder="dd/MM/yyyy" class="form-control"></div> -->
                             <div class="col-md-4 form-group">
-                                <label>Email</label>
+                                <label>{{ "EMAIL" | translate }}</label>
                                 <input type="email" name="email" ng-model="domanda.EmailDomanda" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
                                     class="form-control">
-                                <p ng-show="domandaForm.email.$invalid && !domandaForm.email.$pristine" class="help-block">Email
-                                    non valida.</p>
+                                <p ng-show="domandaForm.email.$invalid && !domandaForm.email.$pristine" class="help-block">{{ "EMAIL_NON_VALIDA" | translate }}.</p>
                             </div>
 
-                            <div class="col-md-2 form-group"><label>Numero protocollo</label>
+                            <div class="col-md-2 form-group"><label>{{ "NUMERO_PROTOCOLLO" | translate }}</label>
                                 <input ng-model="domanda.NumeroProtocollo" type="text" class="form-control intero"
                                     readonly="">
 
                             </div>
-                            <div class="col-md-1 form-group"><label>Data</label>
+                            <div class="col-md-1 form-group"><label>{{ "DATA" | translate }}</label>
                                 <input type="text" class="form-control js-date" readonly="">
                             </div>
                             <div class="col-md-1 ">
                                 <label>&nbsp;</label>
                                 <span class="input-group-btn"> <button type="button" ng-click="datiDomandaCerca()"
-                                        class="btn btn-primary btn-sm">Cerca</button></span>
+                                        class="btn btn-primary btn-sm">{{'CERCA' | translate }}</button></span>
                             </div>
                         </div>
                         <div class="row">
 
-                            <div class="col-md-4 form-group"><label>Delega patronato</label>
+                            <div class="col-md-4 form-group"><label>{{ "DELEGA_PATRONATO" | translate }}</label>
                                 <select class="form-control m-b" name="account" ng-model="domanda.DelegaPatronato">
                                     <option>ACLI Bolzano</option>
                                     <option>ACLI Merano</option>
@@ -178,7 +177,7 @@
                                     <option>EPACA Bolzano</option>
                                 </select>
                             </div>
-                            <div class="col-md-8 form-group"><label>Provenienza (*)</label>
+                            <div class="col-md-8 form-group"><label>{{ "PROVENIENZA" | translate }} (*)</label>
                                 <select class="form-control m-b" ng-model="domanda.Provenienza" name="account">
                                     <option value="1">Commissione sanitaria dell’Azienda Sanitaria (1)</option>
                                     <option value="2">Presentata direttamente (2)</option>
@@ -196,78 +195,123 @@
                             <div class="col-md-12 form-separator"></div>
                         </div>
 
-                        <div ng-repeat="item in domanda.LegaliRappresentanti">
-                            <div>
-                                <h3 class="m-t-lg">Legale rappresentante</h3>
-                                <div class="m-b-sm" ng-model="domanda.DelegaPatronato">
-                                    <strong>
-                                        {{item.Nome}} {{item.Cognome}} - {{item.CodiceFiscale}}
-                                    </strong>
-                                    <button type="button" class="m-l-sm btn btn-xs btn-primary  " data-toggle="modal"
-                                        data-target="#modalAnagrafica"><i class="fa fa-pencil"></i>
-                                    </button>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 form-group"><label>Numero decreto</label>
-                                        <input ng-model="item.NumeroDecreto" type="text" class="form-control intero">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label>Data decreto</label>
-                                        <div class="input-group date">
-                                            <input ng-model="item.DataDecreto" type="text" class="form-control js-date"
-                                                placeholder="dd/MM/yyyy">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-group"><label>Tipo decreto</label>
-                                        <div class="row">
-                                            <!-- ------------ -->
-                                            <div class="col-md-6">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input icheck ng-model="item.TipoDecreto" type="radio" name="tipoDecreto + {{$index}}"
-                                                            value="Provvisorio" ng-checked="item.TipoDecreto == 'Provvisorio'">
-                                                        <i></i>
-                                                        Provvisorio
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <!-- ------------ -->
-                                            <div class="col-md-6">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input icheck ng-model="item.TipoDecreto" type="radio" name="tipoDecreto + {{$index}}"
-                                                            value="Definitivo" ng-checked="item.TipoDecreto == 'Definitivo'">
-                                                        <i></i>
-                                                        Definitivo
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <!-- ------------ -->
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label>Scadenza decreto</label>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control js-date" ng-model="item.ScadenzaDecreto"
-                                                placeholder="dd/MM/yyyy">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- Legale Rappresentante -->
+                        <div>
+                            <h3 class="m-t-lg">{{'LEGALE_RAPPRESENTANTE' | translate }}</h3>
+                            <div class="m-b-sm">
+                                <strong>{{domanda.LegaleRappresentante.Nome}} {{domanda.LegaleRappresentante.Cognome}} - {{domanda.LegaleRappresentante.CodiceFiscale}}</strong><button type="button" class="m-l-sm btn btn-xs btn-primary  "
+                                    data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-pencil"></i></button>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 form-separator"></div>
+                                <div class="col-md-6 form-group"><label>{{'NUMERO_DECRETO' | translate }}</label>
+                                    <input type="email" class="form-control"></div>
+                                <div class="col-md-6 form-group">
+                                    <label>{{'DATA_DECRETO' | translate }}</label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control js-date" ng-model="domanda.LegaleRappresentante.DataDecreto"
+                                            placeholder="{{'DDMMYYYY' | translate }}"><span class="input-group-addon "><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 form-group"><label>{{'TIPO_DECRETO' | translate }}</label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.LegaleRappresentante.TipoDecreto"
+                                                        value="Provvisorio" type="radio" name="pippo1" ng-checked="domanda.LegaleRappresentante.TipoDecreto == 'Provvisorio'">
+                                                    {{'PROVVISORIO' | translate }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.LegaleRappresentante.TipoDecreto"
+                                                        value="Definitivo" type="radio" name="pippo1" ng-checked="domanda.LegaleRappresentante.TipoDecreto == 'Definitivo'">
+                                                    <i></i>
+                                                    {{'DEFINITIVO' | translate }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <label>{{'SCADENZA_DECRETO' | translate }}</label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control js-date" ng-model="domanda.LegaleRappresentante.ScadenzaDecreto"
+                                            placeholder="{{'DDMMYYYY' | translate }}"><span class="input-group-addon"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12 form-separator"></div>
+                        </div>
+
+                        <!-- Altro Legale Rappresentante -->
                         <div>
-                            <h3 class="m-t-lg">Curatore</h3>
+                            <h3 class="m-t-lg">{{'ALTRO_LEGALE_RAPPRESENTANTE' | translate }}</h3>
                             <div class="m-b-sm">
-                                <span>cerca anagrafica </span><button type="button" class="m-l-sm btn btn-xs btn-primary  "
+                                <span>{{'CERCA_ANAGRAFICA' | translate }} </span><button type="button" class="m-l-sm btn btn-xs btn-primary  "
+                                    data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-search"></i></button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group"><label>{{'NUMERO_DECRETO' | translate }}</label>
+                                    <input type="text" class="form-control"></div>
+                                <div class="col-md-6 form-group">
+                                    <label>{{'DATA_DECRETO' | translate }}</label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control js-date" ng-model="domanda.AltroLegaleRappresentante.DataDecreto"
+                                            placeholder="{{'DDMMYYYY' | translate }}"><span class="input-group-addon"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group"><label>{{'TIPO_DECRETO' | translate }}</label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AltroLegaleRappresentante.TipoDecreto"
+                                                        value="Provvisorio" type="radio" name="pippo2" ng-checked="domanda.AltroLegaleRappresentante.TipoDecreto == 'Provvisorio'">
+                                                    {{'PROVVISORIO' | translate }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input icheck ng-model="domanda.AltroLegaleRappresentante.TipoDecreto"
+                                                        value="Definitivo" type="radio" name="pippo2" ng-checked="domanda.AltroLegaleRappresentante.TipoDecreto == 'Definitivo'">
+                                                    <i></i>
+                                                    {{'DEFINITIVO' | translate }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>{{'SCADENZA_DECRETO' | translate }}</label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control js-date" ng-model="domanda.AltroLegaleRappresentante.ScadenzaDecreto"
+                                            placeholder="{{'DDMMYYYY' | translate }}"><span class="input-group-addon"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-separator"></div>
+                        </div>
+
+                       <!-- Curatore -->
+                        <div>
+                            <h3 class="m-t-lg">{{'CURATORE' | translate }}</h3>
+                            <div class="m-b-sm">
+                                <span>{{'CERCA_ANAGRAFICA' | translate }} </span><button type="button" class="m-l-sm btn btn-xs btn-primary  "
                                     data-toggle="modal" data-target="#modalAnagrafica"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
@@ -275,7 +319,7 @@
                             <div class="col-md-12 form-separator"></div>
                         </div>
                         <div>
-                            <h3 class="m-t-lg">Comunicazioni (*)</h3>
+                            <h3 class="m-t-lg">{{'COMUNICAZIONI' | translate }} (*)</h3>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="checkbox">
@@ -283,7 +327,7 @@
                                             <input icheck ng-model="domanda.Comunicazioni" value="Italiano" type="radio"
                                                 name="lang" ng-checked="domanda.Comunicazioni == 'Italiano'">
                                             <i></i>
-                                            Italiano
+                                            {{'ITALIANO' | translate }}
                                         </label>
                                     </div>
                                 </div>
@@ -293,7 +337,7 @@
                                             <input icheck ng-model="domanda.Comunicazioni" value="Tedesco" type="radio"
                                                 name="lang" ng-checked="domanda.Comunicazioni == 'Tedesco'">
                                             <i></i>
-                                            Tedesco
+                                            {{'TEDESCO' | translate }}
                                         </label>
                                     </div>
                                 </div>
@@ -305,18 +349,18 @@
 
                         <!-- ------------ -->
                         <div>
-                            <h3 class="m-t-lg">Modalità di pagamento</h3>
+                            <h3 class="m-t-lg">{{'MODALITA_DI_PAGAMENTO' | translate }}</h3>
                             <div class="row">
                                 <div class="col-md-12 m-b-md">
                                     <label class="radio-inline">
                                         <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="Banca"
                                             name="payment" ng-checked="domanda.ModalitaDiPagamento == 'Banca'">
-                                        <strong> Bonifico bancario</strong>
+                                        <strong> {{'BONIFICO_BANCARIO' | translate }}</strong>
                                     </label>
                                     <label class="radio-inline m-l-lg">
                                         <input icheck ng-model="domanda.ModalitaDiPagamento" type="radio" value="Posta"
                                             name="payment" ng-checked="domanda.ModalitaDiPagamento == 'Posta'">
-                                        <strong> Bonifico domiciliato alla posta</strong>
+                                        <strong> {{'BONIFICO_DOMICILIATO_ALLA_POSTA' | translate }}</strong>
                                     </label>
                                 </div>
                                 <!-- ---------------- Banca -->
@@ -324,24 +368,24 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-9">
-                                                <label>IBAN</label>
+                                                <label>{{'IBAN' | translate }}</label>
                                                 <input ng-model="domanda.ModalitaDiPagamento.Banca.IBAN" type="text"
                                                     class="form-control intero">
 
                                             </div>
                                             <div class="col-md-3">
-                                                <label>Codice BIC/SWIFT</label>
+                                                <label>{{'CODICE_BIC_SWIFT | translate }}</label>
                                                 <input ng-model="domanda.ModalitaDiPagamento.Banca.BICSWIFT" type="text"
                                                     class="form-control intero">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Intestatario conto</label>
+                                        <label>{{'INTESTATARIO_CONTO | translate }}</label>
                                         <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Note</label>
+                                        <label>{{'NOTE' | translate }}</label>
                                         <textarea name="" id="" ng-model="domanda.ModalitaDiPagamento.Banca.Note" class="form-control"></textarea>
                                     </div>
                                 </div>
@@ -349,17 +393,17 @@
                                 <!-- ---------------- Posta -->
                                 <div ng-if="domanda.ModalitaDiPagamento === 'Posta'" class="col-md-12">
                                     <div class="form-group">
-                                        <label>Codice fiscale</label>
+                                        <label>{{'CODICE_FISCALE' | translate }}</label>
                                         <input type="text" ng-model="domanda.ModalitaDiPagamento.Posta.CodiceFiscale"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Delegato dell'incasso</label>
+                                        <label>{{'DELEGATO_DELL_INCASSO' | translate }}</label>
                                         <input type="text" ng-model="domanda.ModalitaDiPagamento.Posta.DelegatoIncasso"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Note</label>
+                                        <label>{{'NOTE' | translate }}</label>
                                         <textarea name="" id="" ng-model="domanda.ModalitaDiPagamento.Posta.Note" class="form-control"></textarea>
                                     </div>
                                 </div>
@@ -370,15 +414,16 @@
                             </div>
                             <!-- ------------ -->
                             <div class="row">
-                                <h3 class="m-t-lg">Associazioni di categoria</h3>
+                                <h3 class="m-t-lg">{{'ASSOCIAZIONI_DI_CATEGORIA' | translate }}</h3>
                                 <div>
                                     <table class="table table-bordered dataTables-paged">
                                         <thead>
                                             <tr>
-                                                <th class="col-md-3">Tipo associazione</th>
-                                                <th class="col-md-3">Data inizio iscrizione</th>
-                                                <th class="col-md-3">Data fine iscrizione</th>
-                                                <th class="col-md-3">Ritenuta di categoria (quota mensile)</th>
+                                                <th class="col-md-3">{{'TIPO_ASSOCIAZIONE' | translate }}</th>
+                                                <th class="col-md-3">{{'DATA_INIZIO_ISCRIZIONE' | translate }}</th>
+                                                <th class="col-md-3">{{'DATA_FINE_ISCRIZIONE' | translate }}</th>
+                                                <th class="col-md-3">{{'RITENUTA_DI_CATEGORIA_QUOTA_MENSILE' |
+                                                    translate }}</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -413,7 +458,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <label class="m-t-lg">Note</label>
+                                    <label class="m-t-lg">{{'NOTE' | translate }}</label>
                                     <textarea name="" id="" ng-model="domanda.AssociazioniDiCategoria.Note" class="form-control"></textarea>
                                 </div>
                             </div>
@@ -426,7 +471,7 @@
                 <!-- ------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Dati verbale</h5>
+                        <h5>{{'DATI_VERBALE' | translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -438,7 +483,7 @@
                 <!-- ------------ -->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Data decorrenza del diritto al pagamento</h5>
+                        <h5>{{'DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO' | translate }}</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -448,7 +493,7 @@
                     <div class="ibox-content">
                         <div class="row">
                             <div class="col-md-6 form-group" id="data_decorrenza">
-                                <label>Data</label>
+                                <label>{{'DATA' | translate }}</label>
                                 <div class="input-group date">
                                     <input ng-model="domanda.AziendaSanitaria.DataDecorrenzaPagamento" type="text"
                                         class="form-control js-date" placeholder="dd/MM/yyyy">
@@ -463,8 +508,8 @@
                 <!-- ------------ -->
                 <div class="m-t-md">
                     <div class="button-bar text-right">
-                        <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">Annulla</a>
-                        <a class="btn btn-sm btn-primary" ng-click ="visualizzaDomanda()" >Inserisci</a>
+                        <a class="btn btn-sm btn-white" ui-sref="domande.nuova_domanda">{{'ANNULLA' | translate }}</a>
+                        <a class="btn btn-sm btn-primary" ng-click="visualizzaDomanda()">{{'INSERISCI' | translate }}</a>
                     </div>
                 </div>
                 <!-- ------------ -->
@@ -485,15 +530,16 @@
                     <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title"><i class="fa fa-search"></i> {{ 'RICERCA_DATI_ANAGRAFICI' | translate }}</h4>
-                <small class="font-bold">Inserisci i dati e avvia la ricerca</small>
+                <small class="font-bold">{{ 'INSERISCI_I_DATI_E_AVVIA_LA_RICERCA' | translate }}</small>
             </div>
             <div class="modal-body">
-                <ricerca-component tipo-ricerca="'Anagrafe-Curatore'" on-save="onSaveCar($ctrl.datiAssistito)" dati-assistito="$ctrl.datiAssistito"></ricerca-component>
+                <ricerca-component tipo-ricerca="'Anagrafe-Curatore'" on-save="onSaveCar($ctrl.datiAssistito)"
+                    dati-assistito="$ctrl.datiAssistito"></ricerca-component>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-primary" data-dismiss="modal">{{ 'INSERISCI_NUOVA_ANAGRAFICA' |
                     translate }}</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'CLOSE' | translate }}</button>
             </div>
         </div>
     </div>

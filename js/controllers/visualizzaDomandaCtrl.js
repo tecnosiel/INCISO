@@ -16,67 +16,122 @@ function visualizzaDomandaCtrl(
   $scope.domanda = $stateParams.domanda;
 
   if (!$scope.domanda) {
-  $scope.domanda = {
-    Posizione: "771723",
-    Fascicolo: "236",
-    StatoDomanda: "Concessa",
-  
-    TipoDomanda: "77",
-    DataDomanda: "",
-    EmailDomanda: "",
-    NumeroProtocollo: "",
-    DataProtocollo: "",
-    Provenienza: "",
-    DelegaPatronato: "",
+    $scope.domanda = {
+      Posizione: "771723",
+      Fascicolo: "236",
+      StatoDomanda: "Concessa",
 
-    LegaliRappresentanti: [
-      {
-        LegaleRappresentanteNome: "Mario",
-        LegaleRappresentanteCognome: "Rossi",
-        LegaleRappresentanteCodiceFiscale: "RSSMRO70A10F2052",
-        LegaleRappresentanteNumeroDecreto: "",
-        LegaleRappresentanteDataDecreto: "",
-        LegaleRappresentanteTipoDecreto: "",
-        LegaleRappresentanteScadenzaDecreto: ""
-      },
-      {
-        Nome: "",
-        Cognome: "",
-        CodiceFiscale: "",
+      TipoDomanda: "77",
+      DataDomanda: "",
+      EmailDomanda: "",
+      NumeroProtocollo: "",
+      DataProtocollo: "",
+      Provenienza: "",
+      DelegaPatronato: "",
+
+      DomandePresentate: [
+        {
+          Posizione: "771723",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa",
+          // ----
+          TipoDomanda: "77",
+          DataDomanda: "",
+          EmailDomanda: "",
+          NumeroProtocollo: "",
+          DataProtocollo: "",
+          Provenienza: "",
+          DelegaPatronato: "",
+
+          Comunicazioni: "",
+          ModalitaDiPagamento: "",
+          AssociazioniDiCategoria: [
+            {
+              TipoAssociazione: "ANMIC",
+              DataInizioIscrizione: "10/04/1986",
+              DataFineIscrizione: "",
+              QuotaMensile: "103.32"
+            }
+          ],
+          Note: "",
+          AziendaSanitaria: {
+            NumeroProtocollo: "",
+            DataProtocollo: "",
+            PercentualeDiInvalidita: "",
+            IndennitaDiAccompagnamento: "",
+            PatologiaUditiva: "",
+            RiduzioneDelVisus: "",
+            NoteVerbale: "",
+            DataDecorenzaDelDirittoAlPagamento: ""
+          }
+        },
+        {
+          Posizione: "123456",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+          // ----
+        },
+        {
+          Posizione: "345765",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+          // ----
+        }
+      ],
+
+      LegaleRappresentante: {
+        Nome: "Mario-1",
+        Cognome: "Rossi-1",
+        CodiceFiscale: "RSSMRO70A10F2052",
         NumeroDecreto: "",
         DataDecreto: "",
         TipoDecreto: "",
         ScadenzaDecreto: ""
-      }
-    ],
-    Curatore: "",
-    Comunicazioni: "",
-    ModalitaDiPagamento: "",
-    AssociazioniDiCategoria: [
-      {
-        TipoAssociazione: "ANMIC",
-        DataInizioIscrizione: "10/04/1986",
-        DataFineIscrizione: "",
-        QuotaMensile: "103.32"
-      }
-    ],
-    Note: "",
-    AziendaSanitaria: {
-      NumeroProtocollo: "",
-      DataProtocollo: "",
-      PercentualeDiInvalidita: "",
-      IndennitaDiAccompagnamento: "",
-      PatologiaUditiva: "",
-      RiduzioneDelVisus: "",
-      NoteVerbale: "",
-      DataDecorenzaDelDirittoAlPagamento: ""
-    }
-  };
-}
-  
- if (!$scope.domanda.OperazioneInCorso) $scope.domanda.OperazioneInCorso = "";
+      },
+      AltroLegaleRappresentante: {
+        Nome: "Mario-2",
+        Cognome: "Rossi-2",
+        CodiceFiscale: "RSSMRO70A10F2052",
+        NumeroDecreto: "",
+        DataDecreto: "",
+        TipoDecreto: "",
+        ScadenzaDecreto: ""
+      },
+      Curatore: {
+        Nome: "Mario-3",
+        Cognome: "Rossi-3",
+        CodiceFiscale: "RSSMRO70A10F2052",
+        NumeroDecreto: "",
+        DataDecreto: "",
+        TipoDecreto: "",
+        ScadenzaDecreto: ""
+      },
 
+      Comunicazioni: "",
+      ModalitaDiPagamento: "",
+      AssociazioniDiCategoria: [
+        {
+          TipoAssociazione: "ANMIC",
+          DataInizioIscrizione: "10/04/1986",
+          DataFineIscrizione: "",
+          QuotaMensile: "103.32"
+        }
+      ],
+      Note: "",
+      AziendaSanitaria: {
+        NumeroProtocollo: "",
+        DataProtocollo: "",
+        PercentualeDiInvalidita: "",
+        IndennitaDiAccompagnamento: "",
+        PatologiaUditiva: "",
+        RiduzioneDelVisus: "",
+        NoteVerbale: "",
+        DataDecorenzaDelDirittoAlPagamento: ""
+      }
+    };
+  }
 
+  if (!$scope.domanda.OperazioneInCorso) $scope.domanda.OperazioneInCorso = "";
 
   $scope.camillo =
     "<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>01/01/2006</label><br>Importo da recuperare: <label>549,00 €</label></div>";

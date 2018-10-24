@@ -16,7 +16,7 @@
             <!-- DATI-ANAGRAFICI-ASSISTITO -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Dati anagrafici dell'assistito </h5>
+                    <h5> {{DATI_ANAGRAFICI_DELL_ASSISTITO | translate }} </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-down"></i>
@@ -32,8 +32,8 @@
                         <div class="col-md-12">
                             <div class="button-bar text-right">
                                 <a ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"" class="
-                                    btn btn-sm btn-primary">Visualizza
-                                    dati anagrafici</a>
+                                    btn btn-sm btn-primary">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}
+                                </a>
                             </div>
                         </div>
                     </div>

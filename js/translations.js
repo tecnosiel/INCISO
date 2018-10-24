@@ -5,7 +5,129 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-      ELENCO_DOCUMENTI_PER_FASCICOLO:"Elenco documenti per fascicolo",
+
+      NOME_PRESTAZIONE:"Nome prestazione",
+
+      DATA_DECORRENZA:"Data decorrenza",
+      DATA_SCADENZA:"Data scadenza",
+      MODIFICA_PRESTAZIONE:"Modifica prestazione",
+
+
+      PREDISPONI_SOSPENSIONE_PRESTAZIONE:"Predisponi sospensione prestazione",
+      PREDISPONI_NEGAZIONE_PRESTAZIONE:"Predisponi negazione prestazione",
+      MODIFICA_REVOCA_PRESTAZIONE:"Modifica revoca prestazione",
+
+      IMPORTI_SPETTANTI:"Importi spettanti",
+      STATO_PRESTAZIONE:"Stato prestazione",
+      ELENCO_DATI_RELATIVI_AL_REDDITO:"Elenco dati relativi al reddito",
+      ELENCO_SOSPENSIONI:"Elenco sospensioni",
+
+      TOTALE_PER_ANNO_LIQUIDATO: "Totale per anno liquidato",
+      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:
+        "Totale spettante per anno non ancora liquidato",
+
+      REVOCATA: "Revocata",
+      INSERITA: "Inserita",
+      CONCESSA: "Concessa",
+      NEGATA: "Negata",
+      SOSPESA: "Sospesa",
+      CANCELLATA: "Cancellata",
+
+      DATA_REVOCA: "Data revoca",
+      DATA_INSERIMENTO: "Data inserimento",
+      DATA_CONCESSIONE: "Data concessione",
+      DATA_NEGAZIONE: "Data negazione",
+      DATA_SOSPENSIONE: "Data sospensione",
+      DATA_CANCELLAZIONE: "Data cancellazione",
+
+      MOTIVO_REVOCA: "Motivo revoca",
+      MOTIVO_INSERIMENTO: "Motivo inserimento",
+      MOTIVO_CONCESSIONE: "Motivo concessione",
+      MOTIVO_NEGAZIONE: "Motivo negazione",
+      MOTIVO_SOSPENSIONE: "Motivo sospensione",
+      MOTIVO_CANCELLAZIONE: "Motivo cancellazione",
+      MOTIVO: "Motivo",
+
+      IMPORTO_DA_RECUPERARE: "Importo da recuperare",
+      IMPORTO_RICHIESTO: "Importo richiesto",
+      IMPORTO_DA_PAGARE: "Importo da pagare",
+      IMPORTO_NEGATO: "Importo negato",
+      IMPORTO_SOSPESO: "Importo sospeso",
+      IMPORTO_CANCELLATO: "Importo cancellato",
+      IMPORTO: "Importo",
+
+      TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO:
+        "Totale delle prestazioni liquidate per anno",
+      TOTALE_PRESTAZIONI_LIQUIDATE: "Totale prestazioni liquidate",
+      ELENCO_DELLE_PRESTAZIONI: "Elenco delle prestazioni",
+
+      PRESTAZIONI: "Prestazioni",
+      EMAIL: "Email",
+      PROVENIENZA: "Provenienza",
+
+      EMAIL_NON_VALIDA: "Email non valida",
+      DELEGA_PATRONATO: "Delega patronato",
+
+      NUMERO_FASCICOLO_DA_RICERCARE: "Numero fascicolo da ricercare",
+      SOSPENDI_DOMANDA: "Sospendi domanda",
+      ANNULLA_REVOCA_DOMANDA: "Annulla revoca domanda",
+      ANNULLA_NEGAZIONE_DOMANDA: "Annulla negazione domanda",
+      CANCELLA_DOMANDA: "Cancella domanda",
+      DATI_ANAGRAFICI_DELL_ASSISTITO: "Dati anagrafici dell'assistito",
+      DATI_DOMANDA: "Dati domanda",
+      ELENCO_VERBALI: "Elenco verbali",
+
+      ELENCO_EVIDENZE: "Elenco evidenze",
+      ELENCO_EVIDENZE_UPPERCASE: "ELENCO EVIDENZE",
+
+      ELENCO_DOCUMENTAZIONE: "Elenco documentazione",
+      ELENCO_SOSPENSIONI_DELLA_DOMANDA: "Elenco sospensioni della domanda",
+
+      LOG_DI_SISTEMA: "Log di sistema",
+
+      DATI_ASSISTITO: "Dati Assistito",
+      NUMERO_POSIZIONE: "Numero Posizione",
+      NUMERO_FASCICOLO: "Numero Fascicolo",
+      NAZIONALITA: "Nazionalità",
+
+      DATI_ANAGRAFICI_ASSISTITO: "Dati anagrafici assistito",
+
+      PROTOCOLLO_AZIENDA_SANITARIA: "Protocollo azienda sanitaria",
+      NUMERO_PROTOCOLLO: "Numero protocollo",
+      PERCENTUALE_DI_INVALIDITA: "Percentuale di invalidità",
+      NOTE_VERBALE: "Note verbale",
+
+      LEGALE_RAPPRESENTANTE: "Legale rappresentante",
+      ALTRO_LEGALE_RAPPRESENTANTE: "Altro legale rappresentante",
+      TIPO_DECRETO: "Tipo decreto",
+      NUMERO_DECRETO: "Numero decreto",
+      DATA_DECRETO: "Data decreto",
+      PROVVISORIO: "Provvisorio",
+      DEFINITIVO: "Definitivo",
+      SCADENZA_DECRETO: "Scadenza decreto",
+      DDMMYYYY: "dd/MM/yyyy",
+      CERCA_ANAGRAFICA: "cerca anagrafica",
+      MODALITA_DI_PAGAMENTO: "Modalità di pagamento",
+      CURATORE: "Curatore",
+      BONIFICO_BANCARIO: "Bonifico bancario",
+      BONIFICO_DOMICILIATO_ALLA_POSTA: "Bonifico domiciliato alla posta",
+      IBAN: "IBAN",
+      CODICE_BIC_SWIFT: "Codice BIC/SWIFT",
+      DELEGATO_DELL_INCASSO: "Delegato dell'incasso",
+      ASSOCIAZIONI_DI_CATEGORIA: "Associazioni di categoria",
+      DATA_INIZIO_ISCRIZIONE: "Data inizio iscrizione",
+      DATA_FINE_ISCRIZIONE: "Data fine iscrizione",
+      RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
+        "Ritenuta di categoria (quota mensile)",
+      DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO:
+        "Data decorrenza del diritto al pagamento",
+      DATI_VERBALE: "Dati verbale",
+      INSERISCI_I_DATI_E_AVVIA_LA_RICERCA:
+        "Inserisci i dati e avvia la ricerca",
+      CLOSE: "Close",
+      COMUNICAZIONI: "Comunicazioni",
+
+      ELENCO_DOCUMENTI_PER_FASCICOLO: "Elenco documenti per fascicolo",
       CODICE_FISCALE_TROPPO_CORTO: "Codice fiscale troppo corto",
       CODICE_FISCALE_TROPPO_LUNGO: "Codice fiscale troppo lungo",
       CAMPO_OBBLIGATORIO: "Campo obbligatorio",
@@ -59,10 +181,9 @@ function config($translateProvider) {
 
       ENTITA: "Entita",
 
-     CORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura",
-      TERMINE_DECORRENZA_ASSEGNO_DI_CURA:
-        "Terminecorrenza assegno di cura",
-     CORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
+      CORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura",
+      TERMINE_DECORRENZA_ASSEGNO_DI_CURA: "Terminecorrenza assegno di cura",
+      CORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
         "Decorrenza permanenza casa di lungodegenza",
       TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA:
         "Termine permanenza casa di lungodegenza",
@@ -80,15 +201,16 @@ function config($translateProvider) {
       LIQUIDATO: "Liquidato",
       RIACCREDITO: "Riaccredito",
       TRATTENUTA_DI_CATEGORIA: "Trattenuta di categoria",
-      IMPORTO_RECUPERATO_PER_COMPENSAZIONE: "Importo recuperato per compensazione",
+      IMPORTO_RECUPERATO_PER_COMPENSAZIONE:
+        "Importo recuperato per compensazione",
       NR_TRASFERIMENTO_FLUMO: "Nr. trasferimento Flumo",
       TOT_MESE: "Tot. mese",
       TOT_ANNO: "Tot. anno",
-     TTAGLIO:"Dettaglio",
-      NR_MANDATO:"Nr. mandato",
-      GENERA_COMUNICAZIONE : "genera comunicazione",
-      INSERISCI_NUOVA_EVIDENZA : "inserisci nuova evidenza",
-      ALTRE_PENSIONI : "Altre pensioni",
+      TTAGLIO: "Dettaglio",
+      NR_MANDATO: "Nr. mandato",
+      GENERA_COMUNICAZIONE: "genera comunicazione",
+      INSERISCI_NUOVA_EVIDENZA: "inserisci nuova evidenza",
+      ALTRE_PENSIONI: "Altre pensioni",
 
       // Label prestazioni
       SOGLIA: "Soglia",
@@ -305,7 +427,6 @@ function config($translateProvider) {
       ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
         "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA",
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
-      ELENCO_EVIDENZE: "ELENCO EVIDENZE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO",
       STORICO_OPERAZIONI: "STORICO OPERAZIONI",
 
@@ -367,7 +488,132 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      ELENCO_DOCUMENTI_PER_FASCICOLO:"Elenco documenti per fascicolo DE",
+      
+      NOME_PRESTAZIONE:"Nome prestazione DE",
+
+      DATA_DECORRENZA:"Data decorrenza DE",
+      DATA_SCADENZA:"Data scadenza DE",
+      MODIFICA_PRESTAZIONE:"Modifica prestazione DE",
+
+      PREDISPONI_SOSPENSIONE_PRESTAZIONE:"Predisponi sospensione prestazione DE",
+      PREDISPONI_NEGAZIONE_PRESTAZIONE:"Predisponi negazione prestazione DE",
+      MODIFICA_REVOCA_PRESTAZIONE:"Modifica revoca prestazione DE",
+
+      IMPORTI_SPETTANTI:"Importi spettanti DE",
+      STATO_PRESTAZIONE:"Stato prestazione DE",
+      ELENCO_DATI_RELATIVI_AL_REDDITO:"Elenco dati relativi al reddito DE",
+      ELENCO_SOSPENSIONI:"Elenco sospensioni DE",
+
+
+      TOTALE_PER_ANNO_LIQUIDATO:"Totale per anno liquidato DE",
+      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:"Totale spettante per anno non ancora liquidato DE",
+      
+
+      REVOCATA: "Revocata DE",
+      INSERITA: "Inserita DE",
+      CONCESSA: "Concessa DE",
+      NEGATA: "Negata DE",
+      SOSPESA: "Sospesa DE",
+      CANCELLATA: "Cancellata DE",
+
+      DATA_REVOCA: "Data revoca DE",
+      DATA_INSERIMENTO: "Data inserimento DE",
+      DATA_CONCESSIONE: "Data concessione DE",
+      DATA_NEGAZIONE: "Data negazione DE",
+      DATA_SOSPENSIONE: "Data sospensione DE",
+      DATA_CANCELLAZIONE: "Data cancellazione DE",
+
+      MOTIVO_REVOCA: "Motivo revoca DE",
+      MOTIVO_INSERIMENTO: "Motivo inserimento DE",
+      MOTIVO_CONCESSIONE: "Motivo concessione DE",
+      MOTIVO_NEGAZIONE: "Motivo negazione DE",
+      MOTIVO_SOSPENSIONE: "Motivo sospensione DE",
+      MOTIVO_CANCELLAZIONE: "Motivo cancellazione DE",
+      MOTIVO: "Motivo DE",
+
+      IMPORTO_DA_RECUPERARE: "Importo da recuperare DE",
+      IMPORTO_RICHIESTO: "Importo richiesto DE",
+      IMPORTO_DA_PAGARE: "Importo da pagare DE",
+      IMPORTO_NEGATO: "Importo negato DE",
+      IMPORTO_SOSPESO: "Importo sospeso DE",
+      IMPORTO_CANCELLATO: "Importo cancellato DE",
+      IMPORTO: "Importo DE",
+
+      TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO:
+        "Totale delle prestazioni liquidate per anno DE",
+      TOTALE_PRESTAZIONI_LIQUIDATE: "Totale prestazioni liquidate DE",
+      ELENCO_DELLE_PRESTAZIONI: "Elenco delle prestazioni DE",
+
+      PRESTAZIONI: "Prestazioni DE",
+
+      EMAIL: "Email DE",
+      PROVENIENZA: "Provenienza DE",
+
+      EMAIL_NON_VALIDA: "Email non valida DE",
+      DELEGA_PATRONATO: "Delega patronato DE",
+
+      NUMERO_FASCICOLO_DA_RICERCARE: "Numero fascicolo da ricercare DE",
+
+      SOSPENDI_DOMANDA: "Sospendi domanda DE",
+      ANNULLA_REVOCA_DOMANDA: "Annulla revoca domanda DE",
+      ANNULLA_NEGAZIONE_DOMANDA: "Annulla negazione domanda DE",
+      CANCELLA_DOMANDA: "Cancella domanda DE",
+      DATI_ANAGRAFICI_DELL_ASSISTITO: "Dati anagrafici dell'assistito DE",
+      DATI_DOMANDA: "Dati domanda DE",
+      ELENCO_VERBALI: "Elenco verbali DE",
+
+      ELENCO_EVIDENZE: "Elenco evidenze DE",
+      ELENCO_EVIDENZE_UPPERCASE: "ELENCO EVIDENZE DE",
+
+      ELENCO_DOCUMENTAZIONE: "Elenco documentazione DE",
+      ELENCO_SOSPENSIONI_DELLA_DOMANDA: "Elenco sospensioni della domanda DE",
+
+      LOG_DI_SISTEMA: "Log di sistema DE",
+
+      DATI_ASSISTITO: "Dati Assistito DE",
+      NUMERO_POSIZIONE: "Numero Posizione DE",
+      NUMERO_FASCICOLO: "Numero Fascicolo DE",
+      NAZIONALITA: "Nazionalità DE",
+
+      DATI_ANAGRAFICI_ASSISTITO: "Dati anagrafici assistito DE",
+
+      PROTOCOLLO_AZIENDA_SANITARIA: "Protocollo azienda sanitaria DE",
+      NUMERO_PROTOCOLLO: "Numero protocollo DE",
+      PERCENTUALE_DI_INVALIDITA: "Percentuale di invalidità DE",
+      NOTE_VERBALE: "Note verbale DE",
+
+      LEGALE_RAPPRESENTANTE: "Legale rappresentante DE",
+      ALTRO_LEGALE_RAPPRESENTANTE: "Altro legale rappresentante DE",
+      TIPO_DECRETO: "Tipo decreto DE",
+      NUMERO_DECRETO: "Numero decreto DE",
+      DATA_DECRETO: "Data decreto DE",
+      PROVVISORIO: "Provvisorio DE",
+      DEFINITIVO: "Definitivo DE",
+      SCADENZA_DECRETO: "Scadenza decreto DE",
+      DDMMYYYY: "dd/MM/yyyy DE",
+      CERCA_ANAGRAFICA: "cerca anagrafica DE",
+      MODALITA_DI_PAGAMENTO: "Modalità di pagamento DE",
+      CURATORE: "Curatore DE",
+      BONIFICO_BANCARIO: "Bonifico bancario DE",
+      BONIFICO_DOMICILIATO_ALLA_POSTA: "Bonifico domiciliato alla posta DE",
+      IBAN: "IBAN DE",
+      CODICE_BIC_SWIFT: "Codice BIC/SWIFT DE",
+      DELEGATO_DELL_INCASSO: "Delegato dell'incasso DE",
+      ASSOCIAZIONI_DI_CATEGORIA: "Associazioni di categoria DE",
+      DATA_INIZIO_ISCRIZIONE: "Data inizio iscrizione DE",
+      DATA_FINE_ISCRIZIONE: "Data fine iscrizione DE",
+      RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
+        "Ritenuta di categoria (quota mensile) DE",
+      DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO:
+        "Data decorrenza del diritto al pagamento DE",
+      DATI_VERBALE: "Dati verbale DE",
+      INSERISCI_I_DATI_E_AVVIA_LA_RICERCA:
+        "Inserisci i dati e avvia la ricerca DE",
+      CLOSE: "Close DE",
+      COMUNICAZIONI: "Comunicazioni DE",
+      INSERISCI: "Inserisci DE",
+
+      ELENCO_DOCUMENTI_PER_FASCICOLO: "Elenco documenti per fascicolo DE",
 
       CODICE_FISCALE_TROPPO_CORTO: "Codice fiscale troppo corto DE",
       CODICE_FISCALE_TROPPO_LUNGO: "Codice fiscale troppo lungo DE",
@@ -443,17 +689,18 @@ function config($translateProvider) {
       LIQUIDATO: "Liquidato DE",
       RIACCREDITO: "Riaccredito DE",
       TRATTENUTA_DI_CATEGORIA: "Trattenuta di categoria DE",
-      IMPORTO_RECUPERATO_PER_COMPENSAZIONE: "Importo recuperato per compensazione DE",
+      IMPORTO_RECUPERATO_PER_COMPENSAZIONE:
+        "Importo recuperato per compensazione DE",
       NR_TRASFERIMENTO_FLUMO: "Nr. trasferimento Flumo DE",
       TOT_MESE: "Tot. mese DE",
       TOT_ANNO: "Tot. anno DE",
-      DETTAGLIO:"Dettaglio DE",
-      NR_MANDATO:"Nr. mandato DE",
-      GENERA_COMUNICAZIONE : "genera comunicazione DE",
-      INSERISCI_NUOVA_EVIDENZA : "inserisci nuova evidenza DE",
-      ALTRE_PENSIONI : "Altre pensioni DE",
+      DETTAGLIO: "Dettaglio DE",
+      NR_MANDATO: "Nr. mandato DE",
+      GENERA_COMUNICAZIONE: "genera comunicazione DE",
+      INSERISCI_NUOVA_EVIDENZA: "inserisci nuova evidenza DE",
+      ALTRE_PENSIONI: "Altre pensioni DE",
 
-// hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+      // hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
       // Label prestazioni
       SOGLIA: "Soglia DE",
@@ -670,7 +917,6 @@ function config($translateProvider) {
       ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
         "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA DE",
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
-      ELENCO_EVIDENZE: "ELENCO EVIDENZE DE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
       STORICO_OPERAZIONI: "STORICO OPERAZIONI DE",
 

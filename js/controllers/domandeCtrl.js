@@ -36,7 +36,35 @@ function domandeCtrl(
   };
 
   $scope.DomandaVuota = {
-    OperazioneInCorso: "NUOVA_DOMANDA"
+    OperazioneInCorso: "NUOVA_DOMANDA",
+    LegaleRappresentante: {
+      Nome: "Mario-1",
+      Cognome: "Rossi-1",
+      CodiceFiscale: "RSSMRO70A10F2052",
+      NumeroDecreto: "",
+      DataDecreto: "",
+      TipoDecreto: "",
+      ScadenzaDecreto: ""
+    },
+    AltroLegaleRappresentante: {
+      Nome: "Mario-2",
+      Cognome: "Rossi-2",
+      CodiceFiscale: "RSSMRO70A10F2052",
+      NumeroDecreto: "",
+      DataDecreto: "",
+      TipoDecreto: "",
+      ScadenzaDecreto: ""
+    },
+    Curatore: {
+      Nome: "Mario-3",
+      Cognome: "Rossi-3",
+      CodiceFiscale: "RSSMRO70A10F2052",
+      NumeroDecreto: "",
+      DataDecreto: "",
+      TipoDecreto: "",
+      ScadenzaDecreto: ""
+    },
+
     // i campi sotto sono stati eliminati di proposito segnalazione di errore del 15/10
     // ----
     // NroDomanda: "123456-12",

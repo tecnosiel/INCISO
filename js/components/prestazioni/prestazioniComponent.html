@@ -2,7 +2,7 @@
     <div class="panel-heading pointer" data-toggle="collapse" href="#collapse{{$ctrl.index}}">
         <strong><i class="fa fa-caret-down" aria-hidden="true"></i> {{ $ctrl.prestazione.descrizionePrestazione }}</strong>
         <div class="pull-right">
-            <label>Data decorrenza: 01/10/2001</label>
+            <label>{{'DATA_DECORRENZA' | translate}}: 01/10/2001</label>
             <span class="label label-warning" data-toggle="popover" data-container="body" data-trigger="hover"
                 data-html="true" data-content="<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
                 data-placement="left">
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-right">
-                    Data scadenza: 01/10/2017
+                    {{'DATA_SCADENZA' | translate}}: 01/10/2017
                     <span style="visibility: hidden;"> ____________ </span>
                 </div>
             </div>
@@ -22,28 +22,27 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" ng-class="{ active: $ctrl.isSet(1) }">
                     <a role="tab" ng-click="$ctrl.setTab(1)">
-                        Importi spettanti
+                        {{'IMPORTI_SPETTANTI' | translate}}
                     </a>
                 </li>
                 <li role="presentation" ng-class="{ active: $ctrl.isSet(2) }">
                     <a role="tab" ng-click="$ctrl.setTab(2)">
-                        Stato prestazione
+                        {{'STATO_PRESTAZIONE' | translate}}
                     </a>
                 </li>
                 <li role="presentation" ng-class="{ active: $ctrl.isSet(3) }">
                     <a role="tab" ng-click="$ctrl.setTab(3)">
-                        Elenco
-                        evidenze
+                        {{'ELENCO_EVIDENZE' | translate}}
                     </a>
                 </li>
                 <li role="presentation" ng-class="{ active: $ctrl.isSet(4) }">
                     <a role="tab" ng-click="$ctrl.setTab(4)">
-                        Elenco dati relativi al reddito
+                        {{'ELENCO_DATI_RELATIVI_AL_REDDITO' | translate}}
                     </a>
                 </li>
                 <li role="presentation" ng-class="{ active: $ctrl.isSet(5) }">
                     <a role="tab" ng-click="$ctrl.setTab(5)">
-                        Elenco sospensioni
+                        {{'ELENCO_SOSPENSIONI' | translate}}
                     </a>
                 </li>
             </ul>
@@ -54,8 +53,8 @@
                 <!-- pannello 1 : importi spettanti -->
                 <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(1) }" ng-show="$ctrl.isSet(1)">
 
-                    <table class="table table-bordered table-striped" datatable="ng" dt-options="dtOptionsTabElencoPrestazioni"
-                        dt-column-defs="dtColumnTabElencoPrestazioni" dt-instance="vm.dtInstance">
+                    <table datatable="ng" dt-column-defs="$ctrl.dtColumnTabElencoPrestazioni" dt-options="$ctrl.dtOptionsTabElencoPrestazioni"
+                        class="table table-bordered dataTables-paged order-desc" dt-instance="vm.dtInstance">
 
                         <thead>
                             <tr>
@@ -89,26 +88,27 @@
                     <div class="m-b-lg">
                         <h3>
                             <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
-                                Revocata</span>
+                                {{'REVOCATA' | translate }}</span>
                         </h3>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Data revoca</label>
+                            <label>{{'DATA_REVOCA' | translate }}</label>
                             <input type="text" readonly class="form-control" value="03/12/2003"></div>
                         <div class="col-md-4 form-group">
-                            <label>Motivo revoca</label>
+                            <label>{{'MOTIVO_REVOCA' | translate }}</label>
                             <input type="text" readonly class="form-control" value="Non residente in Alto Adige"></div>
                         <div class="col-md-4 form-group">
-                            <label>Importo da recuperare</label>
+                            <label>{{'IMPORTO_DA_RECUPERARE' | translate }}</label>
                             <input type="text" readonly class="form-control" value="549,00 €"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="button-bar text-right">
-                                <button class="btn btn-sm">Predisponi sospensione prestazione</button>
-                                <button class="btn btn-sm">Predisponi negazione prestazione</button>
-                                <button class="btn btn-sm btn-primary">Modifica revoca prestazione</button>
+                                <button class="btn btn-sm">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE' | translate }}
+                                </button>
+                                <button class="btn btn-sm">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE' | translate }}</button>
+                                <button class="btn btn-sm btn-primary">{{'MODIFICA_REVOCA_PRESTAZIONE' | translate }}</button>
                             </div>
                         </div>
                     </div>
@@ -260,18 +260,18 @@
             </div>
             <div class="row m-t-lg">
                 <div class="col-md-4 form-group">
-                    <label>Data decorrenza</label>
+                    <label>{{'DATA_DECORRENZA' | translate }}</label>
                     <input type="text" readonly class="form-control" value="01/10/2001"></div>
                 <div class="col-md-4 form-group">
-                    <label>Data scadenza</label>
+                    <label>{{'DATA_SCADENZA' | translate }}</label>
                     <input type="text" readonly class="form-control" value="01/10/2004"></div>
                 <div class="col-md-12 form-group">
-                    <label>Note</label>
+                    <label>{{'NOTE' | translate }}</label>
                     <textarea class="form-control" readonly=""></textarea>
                 </div>
             </div>
             <div class="text-right">
-                <button class="btn btn-sm btn-primary">Modifica prestazione</button>
+                <button class="btn btn-sm btn-primary">{{'MODIFICA_PRESTAZIONE' | translate }}</button>
             </div>
         </div>
     </div>

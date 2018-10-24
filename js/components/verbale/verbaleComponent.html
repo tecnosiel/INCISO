@@ -1,41 +1,38 @@
 <div ng-form name="verbaleForm" ng-submit="submitForm($ctrl.verbaleForm.$valid)" novalidate>
     <div class="ibox-content">
-        <h3 class="">Protocollo azienda sanitaria</h3>
+        <h3 class="">{{'PROTOCOLLO_AZIENDA_SANITARIA' | translate }}</h3>
         <div class="row">
             <div class="col-md-6 form-group">
-                <label>Numero protocollo (*)</label>
+                <label>{{ 'NUMERO_PROTOCOLLO' | translate }} (*)</label>
                 <input name="numeroProtocollo" ng-model="$ctrl.verbale.NumeroProtocollo" type="text" class="form-control intero"
                     required>
-                <p ng-show="verbaleForm.numeroProtocollo.$invalid && !verbaleForm.numeroProtocollo.$pristine" class="help-block">Campo
-                    obbligatorio.</p>
+                <p ng-show="verbaleForm.numeroProtocollo.$invalid && !verbaleForm.numeroProtocollo.$pristine" class="help-block">{{ 'CAMPO_OBBLIGATORIO' | translate }}.</p>
 
             </div>
 
             <div class="col-md-6 form-group" id="data_1">
-                <label>Data (*)</label>
+                <label>{{ 'DATA' | translate }} (*)</label>
                 <div class="input-group date">
                     <input name="dataProtocollo" ng-model="$ctrl.verbale.DataProtocollo" type="text" class="form-control js-date"
-                        placeholder="dd/MM/yyyy" required>
+                        placeholder="{{ 'DDMMYYYY' | translate }}" required>
                         <span class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                         </span>
-                    <p ng-show="verbaleForm.dataProtocollo.$invalid && !verbaleForm.dataProtocollo.$pristine" class="help-block">Campo
-                        obbligatorio.</p>
+                    <p ng-show="verbaleForm.dataProtocollo.$invalid && !verbaleForm.dataProtocollo.$pristine" class="help-block">{{ 'CAMPO_OBBLIGATORIO' | translate }}.</p>
                 </div>
             </div>
 
             <div class="col-md-6 form-group">
-                <label>Percentuale di invalidità (*)</label>
+                <label>{{ 'PERCENTUALE_DI_INVALIDITA' | translate }} (*)</label>
                 <input name="percentualeDiInvalidita" ng-model="$ctrl.verbale.PercentualeDiInvalidita" type="text"
                     class="form-control percentuale" required>
                 <p ng-show="verbaleForm.percentualeDiInvalidita.$invalid && !verbaleForm.percentualeDiInvalidita.$pristine"
-                    class="help-block">Campo
-                    obbligatorio.</p>
+                    class="help-block">{{ 'CAMPO_OBBLIGATORIO' | translate }}.</p>
             </div>
 
             <div class="col-md-6 form-group">
                 <div>
-                    <label>Indennità di accompagnamento</label>
+                    <label>{{ 'INDENNITA_DI_ACCOMPAGNAMENTO' | translate }}</label>
                 </div>
                 <div>
                     <div class="inline-block">
@@ -44,7 +41,7 @@
                                 <input icheck ng-model="$ctrl.verbale.IndennitaDiAccompagnamento" type="radio" value="Si"
                                     name="indennitaDiAccompagnamento" ng-checked="$ctrl.verbale.IndennitaDiAccompagnamento == 'Si'">
                                 <i></i>
-                                Si
+                                {{ 'SI' | translate }}
                             </label>
                         </div>
                     </div>
@@ -54,7 +51,7 @@
                                 <input icheck ng-model="$ctrl.verbale.IndennitaDiAccompagnamento" type="radio" value="No"
                                     name="indennitaDiAccompagnamento" ng-checked="$ctrl.verbale.IndennitaDiAccompagnamento == 'No'">
                                 <i></i>
-                                No
+                                {{ 'NO' | translate }}
                             </label>
                         </div>
                     </div>
@@ -62,7 +59,7 @@
             </div>
             <div class="col-md-4 form-group">
                 <div>
-                    <label>Patologia uditiva</label>
+                    <label>{{ 'PATOLOGIA_UDITIVA' | translate }}</label>
                 </div>
                 <div>
                     <div class="inline-block">
@@ -71,7 +68,7 @@
                                 <input icheck ng-model="$ctrl.verbale.PatologiaUditiva" type="radio" name="patologiaUditiva"
                                     ng-checked="$ctrl.verbale.PatologiaUditiva == 'Si'">
                                 <i></i>
-                                Si
+                                {{ 'SI' | translate }}
                             </label>
                         </div>
                     </div>
@@ -81,7 +78,7 @@
                                 <input icheck ng-model="$ctrl.verbale.PatologiaUditiva" type="radio" name="patologiaUditiva"
                                     ng-checked="$ctrl.verbale.PatologiaUditiva == 'No'">
                                 <i></i>
-                                No
+                                {{ 'NO' | translate }}
                             </label>
                         </div>
                     </div>
@@ -90,7 +87,7 @@
 
             <div class="col-md-6 form-group">
                 <div>
-                    <label>Riduzione del visus</label>
+                    <label>{{ 'RIDUZIONE_DEL_VISUS' | translate }}</label>
                 </div>
                 <div>
                     <div class="inline-block">
@@ -99,7 +96,7 @@
                                 <input icheck ng-model="$ctrl.verbale.RiduzioneDelVisus" type="radio" name="RiduzioneDelVisus"
                                     value="Si" ng-checked="$ctrl.verbale.RiduzioneDelVisus == 'Si'">
                                 <i></i>
-                                Si
+                                {{ 'SI' | translate }}
                             </label>
                         </div>
                     </div>
@@ -109,7 +106,7 @@
                                 <input icheck ng-model="$ctrl.verbale.RiduzioneDelVisus" type="radio" name="RiduzioneDelVisus"
                                     value="No" ng-checked="$ctrl.verbale.RiduzioneDelVisus == 'No'">
                                 <i></i>
-                                No
+                                {{ 'NO' | translate }}
                             </label>
                         </div>
                     </div>
@@ -117,7 +114,7 @@
             </div>
 
             <div class="col-md-12 form-group">
-                <label>Note verbale</label>
+                <label>{{ 'NOTE_VERBALE' | translate }}</label>
                 <textarea name="" id="" ng-model="$ctrl.verbale.Note" class="form-control"></textarea>
             </div>
         </div>
