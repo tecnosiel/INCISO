@@ -5,6 +5,13 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      GESTIONE_PENSIONE:"Gestione Pensione", 
+      CREA_NUOVA_PENSIONE:"Crea nuova pensione",
+
+      TIPO_ASSISTENZA:"Tipo assistenza",
+      DATA_FINE_COMPATIBILITA:"Data fine compatibilità",
+
+      RICALCOLA_PRESTAZIONI : "Ricalcola Prestazioni",
 
       NOME_PRESTAZIONE:"Nome prestazione",
 
@@ -488,7 +495,14 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      
+      GESTIONE_PENSIONE:"Gestione Pensione DE", 
+      CREA_NUOVA_PENSIONE:"Crea nuova pensione DE",
+
+      TIPO_ASSISTENZA:"Tipo assistenza DE",
+      DATA_FINE_COMPATIBILITA:"Data fine compatibilità DE",
+
+      RICALCOLA_PRESTAZIONI : "Ricalcola Prestazioni DE",
+   
       NOME_PRESTAZIONE:"Nome prestazione DE",
 
       DATA_DECORRENZA:"Data decorrenza DE",

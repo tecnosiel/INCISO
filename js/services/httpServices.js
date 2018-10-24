@@ -1634,6 +1634,27 @@ mochDbTable = function(table) {
           ]
         }
       ],
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -2014,6 +2035,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
 
       Indirizzi: [
         {
@@ -2424,6 +2468,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -2835,6 +2902,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -3218,6 +3308,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -3630,6 +3743,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -4012,6 +4148,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -4392,6 +4551,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -4804,6 +4986,29 @@ mochDbTable = function(table) {
           ]
         }
       ],
+
+      Pensioni: [
+        {
+          Tipo: "xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        },
+        {
+          Tipo: "yyyy xxxxx xxxxxxx",
+          TipologiaDiAssistenza: "77",
+          DataFineCompatibilita: "01/01/01",
+          Note: "eeqrtwtyre"
+        }
+      ],
+
+
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",

@@ -54,40 +54,33 @@ function visualizzaAnagrafeCtrl(
       $scope.Indirizzi = Object.assign({}, $scope.datiAssistito.Indirizzi);
     }
 
-    // Math.random() genera un numero casuale compreso fra 0 e 1,
-    // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
-    // e poi arrotondarne il risultato.
-    this.randomMove = function() {
-      let risultato = null;
-
-      // clsPopup
-      switch (Math.round(5 * Math.random())) {
-        case 0:
-          risultato = "clsPopup";
-          break;
-        case 1:
-          risultato = "animated flipInX";
-          break;
-        case 2:
-          risultato = "animated flipInY";
-          break;
-        case 3:
-          risultato = "animated fadeInLeftBig";
-          break;
-        case 4:
-          risultato = "animated fadeInRightBig";
-          break;
-        case 5:
-          risultato = "animated rotateIn";
-          break;
-      }
-      return risultato;
-    };
-
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
       templateUrl: "./../views/modal_gestione_indirizzi.html",
       controller: "modalIndirizziCtrl",
+      size: "lg",
+      scope: $scope,
+      windowClass: "animated fadeInRightBig"
+    });
+  };
+
+  $scope.creaNuovaPensione = function($index) {
+    $scope.Pensione = null;
+
+    if ($index > -1) {
+      $scope.Pensione = Object.assign(
+        {},
+        $scope.datiAssistito.Pensioni[$index]
+      );
+    }
+
+    // Math.random() genera un numero casuale compreso fra 0 e 1,
+    // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
+    // e poi arrotondarne il risultato.
+    // http://www.marcorpsa.com/ee/t1891.html
+    self.modalInstance = $uibModal.open({
+      templateUrl: "./../views/modal_gestione_pensione.html",
+      controller: "modalPensioneCtrl",
       size: "lg",
       scope: $scope,
       windowClass: "animated fadeInRightBig"
@@ -172,6 +165,24 @@ function visualizzaAnagrafeCtrl(
         });
       } else {
         swal("L' indirizzo è stato salvato!");
+      }
+    });
+  };
+
+  $scope.cancellaPensione = function() {
+    swal({
+      title: "Sei sicuro?",
+      text: "Una volta cancellata, non sarà possibile recuperarla!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(function(willDelete) {
+      if (willDelete) {
+        swal("cancellata!", {
+          icon: "success"
+        });
+      } else {
+        swal("La pensione non è stata cancellata!");
       }
     });
   };
