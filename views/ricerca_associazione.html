@@ -73,7 +73,7 @@
                                         <tr ng-repeat="item in elencoAssociazioni">
                                             <td>{{item.NomeAssociazione}}</td>
                                             <td>{{item.CodiceFiscale}}</td>
-                                            <td>{{item.TipologiaDiAssistenza}}</td>
+                                            <td class="text-center">{{item.TipologiaDiAssistenza}}</td>
                                             <td class="text-center">
                                                 <a ui-sref="associazioni.visualizza_associazione" ng-click="findCodFis(item.CodiceFiscale)">
                                                     <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>

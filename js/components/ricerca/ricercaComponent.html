@@ -102,7 +102,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in $ctrl.elencoAssistiti">
-                <td ng-if="$ctrl.tipoRicerca == 'Posizione'">
+                <td ng-if="$ctrl.tipoRicerca == 'Posizione'" class="text-right">
                     <a ng-click="$ctrl.findPosizione(item.CodiceFiscale)">{{item.Posizione}}</a>
                 </td>
                 <td>{{item.Cognome}}</td>

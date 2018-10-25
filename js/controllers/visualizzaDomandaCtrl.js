@@ -245,6 +245,18 @@ function visualizzaDomandaCtrl(
     {
       descrizionePrestazione:
         "Assegno mensile per invalidi civili parziali minorenni (descrizione prestazione)",
+
+      stato: "Revocata",
+      dataRevoca: "01/01/1111",
+      motivoRevoca: "fkajsdfkjdsòlk",
+      importoDaRecuperareRevoca: "12000.00",
+      noteRevoca:"Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+
+      dataNegazione: "",
+      motivoNegazione: "",
+      dataFineNegazione: "",
+      noteNegazione:"Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+
       importiSpettanti: [
         {
           Anno: 2014,
@@ -262,7 +274,6 @@ function visualizzaDomandaCtrl(
           TotaleLiquidato: 333333.0
         }
       ],
-      statoPrestazione: [],
       elencoEvidenze: [
         {
           Decorrenza: "01/01/2020",
@@ -422,6 +433,18 @@ function visualizzaDomandaCtrl(
     {
       descrizionePrestazione:
         "Indennità di accompagnamento per invalidi civili totalmente inabili",
+
+      stato: "Negazione",
+      dataRevoca: "01/01/1111",
+      motivoRevoca: "fkajsdfkjdsòlk",
+      importoDaRecuperareRevoca: "12000.00",
+      noteRevoca:"Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+
+      dataNegazione: "02/02/2012",
+      motivoNegazione: "non saprei perche è stata negata.",
+      dataFineNegazione: "02/02/2012",
+      noteNegazione:"Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+
       importiSpettanti: [
         {
           Anno: 2014,
@@ -439,7 +462,6 @@ function visualizzaDomandaCtrl(
           TotaleLiquidato: 1234.0
         }
       ],
-      statoPrestazione: [],
       elencoEvidenze: [
         {
           Decorrenza: "01/01/2020",
@@ -599,6 +621,18 @@ function visualizzaDomandaCtrl(
     {
       descrizionePrestazione:
         "Prova Prova Prova possiamo inserire quante prestazioni vogliamo",
+
+      stato: "Revocata",
+      dataRevoca: "01/01/1111",
+      motivoRevoca: "fkajsdfkjdsòlk",
+      importoDaRecuperareRevoca: "12000.00",
+      noteRevoca:"Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+
+      dataNegazione: "",
+      motivoNegazione: "",
+      dataFineNegazione: "",
+      noteNegazione:"Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+
       importiSpettanti: [
         {
           Anno: 2014,
@@ -616,7 +650,7 @@ function visualizzaDomandaCtrl(
           TotaleLiquidato: 12.0
         }
       ],
-      statoPrestazione: [],
+
       elencoEvidenze: [
         {
           Decorrenza: "01/01/2020",

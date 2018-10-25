@@ -20,11 +20,13 @@ function visualizzaAnagrafeCtrl(
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssistito = false;
     $scope.inserimentoAnagrafe = true;
+    $scope.asteriscoInserimento ="(*)"
     $scope.datiAssistito = $stateParams.datiAssistito;
     // $scope.datiAssistito = [];
   } else {
     $scope.visDatiAssistito = true;
     $scope.inserimentoAnagrafe = false;
+    $scope.asteriscoInserimento =""
     $scope.datiAssistito = $stateParams.datiAssistito;
     $scope.visShowPulsanti = $stateParams.visShowPulsanti;
   }

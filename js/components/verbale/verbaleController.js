@@ -11,11 +11,13 @@ function verbaleController($scope, $timeout) {
 
   this.modalClose = function() {
     self.modalInstance.close();
-    self.$uibModalInstance.close();
+    // self.$uibModalInstance.close();
   };
 
   this.address = {
     street: "ssss",
     city: "ssss"
   };
+
+
 }

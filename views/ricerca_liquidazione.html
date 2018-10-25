@@ -1,4 +1,4 @@
-<header-component tipo = "'Generico'" titolo = "'RICERCA_LIQUIDAZIONE'"></header-component>
+<header-component tipo="'Generico'" titolo="'RICERCA_LIQUIDAZIONE'"></header-component>
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -53,13 +53,13 @@
                             <tbody>
                                 <tr ng-repeat="item in elencoLiquidazioni">
                                     <td>{{item.NominativoAssistito}}</td>
-                                    <td>{{item.ImportoPrestazioniLiquidato | currency}}</td>
-                                    <td>{{item.Tredicesima | currency}}</td>
-                                    <td>{{item.ImportoConguaglio | currency}}</td>
-                                    <td>{{item.RitenuteDiCategoria | currency}}</td>
-                                    <td>{{item.Riaccrediti | currency}}</td>
-                                    <td>{{item.RecuperiDaCompensazione | currency}}</td>
-                                    <td>{{item.TotaleMensileDaLiquidare | currency}}</td>
+                                    <td class="text-right">{{item.ImportoPrestazioniLiquidato | currency}}</td>
+                                    <td class="text-right">{{item.Tredicesima | currency}}</td>
+                                    <td class="text-right">{{item.ImportoConguaglio | currency}}</td>
+                                    <td class="text-right">{{item.RitenuteDiCategoria | currency}}</td>
+                                    <td class="text-right">{{item.Riaccrediti | currency}}</td>
+                                    <td class="text-right">{{item.RecuperiDaCompensazione | currency}}</td>
+                                    <td class="text-right">{{item.TotaleMensileDaLiquidare | currency}}</td>
                                     <td class="text-center">
                                         <a ui-sref="liquidazioni.visualizza_Liquidazione" ng-click="findCodFis(item.CodiceFiscale)">
                                             <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>

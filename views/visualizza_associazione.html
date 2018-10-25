@@ -28,7 +28,7 @@
             <!-- --------- -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Dati generali </h5>
+                    <h5> {{ 'DATI_GENERALI' | translate }} {{asteriscoInserimento}}</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -39,16 +39,16 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Nome associazione</label>
+                            <label>{{ 'NOME_ASSOCIAZIONE' | translate }} {{asteriscoInserimento}}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.NomeAssociazione}}">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Codice fiscale</label>
+                            <label>{{ 'CODICE_FISCALE' | translate }} {{asteriscoInserimento}}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.CodiceFiscale}}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>
-                                Tipologia di assistenza
+                                {{ 'TIPOLOGIA_DI_ASSISTENZA' | translate }} {{asteriscoInserimento}}
                             </label>
                             <div class="row">
                                 <div class="col-md-4">
@@ -78,31 +78,31 @@
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Responsabile</label>
+                            <label>{{ 'RESPONSABILE' | translate }}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.Responsabile}}">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Telefono principale</label>
+                            <label>{{ 'TELEFONO_PRINCIPALE' | translate }} {{asteriscoInserimento}}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.TelefonoPrincipale}}">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Telefono secondario</label>
+                            <label>{{ 'TELEFONO_SECONDARIO' | translate }}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.TelefonoSecondario}}">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>IBAN</label>
+                            <label>{{ 'IBAN' | translate }}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.IBAN}}">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Email</label>
+                            <label>{{ 'EMAIL' | translate }}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.Email}}">
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>PEC</label>
+                            <label>{{ 'PEC' | translate }}</label>
                             <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.Pec}}">
                         </div>
                         <div class="col-md-12 form-group">
-                            <label>Note</label>
+                            <label>{{ 'NOTE' | translate }}</label>
                             <textarea ng-model="datiAssociazione.Note" ng-readonly="visDatiAssociazione" class="form-control"></textarea>
                         </div>
 
@@ -112,7 +112,7 @@
             <!-- --------- -->
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> {{ "ELENCO_INDIRIZZI" | translate}} </h5>
+                    <h5> {{ "ELENCO_INDIRIZZI" | translate}} {{asteriscoInserimento}}</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -124,10 +124,10 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th class="col-md-2">Tipo</th>
-                                    <th class="col-md-3">Indirizzo</th>
-                                    <th class="col-md-2">Validità</th>
-                                    <th class="col-md-3">Note</th>
+                                    <th class="col-md-2">{{ 'TIPO' | translate }}</th>
+                                    <th class="col-md-3">{{ 'INDIRIZZO' | translate }}</th>
+                                    <th class="col-md-2">{{ 'VALIDITA' | translate }}</th>
+                                    <th class="col-md-3">{{ 'NOTE' | translate }}</th>
                                     <th class="col-md-1"></th>
                                 </tr>
                             </thead>
@@ -166,7 +166,7 @@
 
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Altri dati </h5>
+                    <h5> {{ 'ALTRI_DATI' | translate }} {{asteriscoInserimento}} </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -176,15 +176,15 @@
 
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-md-4 form-group"><label>Importo ritenuta di categoria (quota mensile)</label>
-                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control" value="{{datiAssociazione.ImportoRitenutaDiCategoria | currency}} "></div>
+                        <div class="col-md-4 form-group"><label>{{ 'IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE' | translate }} {{asteriscoInserimento}}</label>
+                            <input type="text" ng-readonly="visDatiAssociazione" class="form-control text-right" value="{{datiAssociazione.ImportoRitenutaDiCategoria | currency}} "></div>
                     </div>
                 </div>
             </div>
             <!-- --------- -->
             <div ng-if="visDatiAssociazione" visDatiAssociazione class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Elenco ritenute sulle liquidazioni mensili </h5>
+                    <h5> {{ 'ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI' | translate }} </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -198,17 +198,17 @@
 
                         <thead>
                             <tr>
-                                <th class="col-md-4">Data</th>
-                                <th class="col-md-4">Importo totale ritenuta di categoria</th>
-                                <th class="col-md-4">Numero di assistiti paganti</th>
+                                <th class="col-md-4">{{ 'DATA' | translate }}</th>
+                                <th class="col-md-4">{{ 'IMPORTO_TOTALE_RITENUTA_DI_CATEGORIA' | translate }}</th>
+                                <th class="col-md-4">{{ 'NUMERO_DI_ASSISTITI_PAGANTI' | translate }}</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr ng-repeat="item in datiAssociazione.LiquidazioniMensili">
                                 <td>{{item.DataPagamento}}</td>
-                                <td>{{item.ImportoTotale | currency}}</td>
-                                <td>{{item.NroAssistiti}}</td>
+                                <td class="text-right">{{item.ImportoTotale | currency}}</td>
+                                <td class="text-right">{{item.NroAssistiti}}</td>
                             </tr>
                         </tbody>
 

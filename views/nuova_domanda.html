@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>{{ 'TIPOLOGIA_DI_ASSISTENZA_RICHIESTA' | translate }}
+                    <h5>{{ 'TIPOLOGIA_DI_ASSISTENZA_RICHIESTA' | translate }} (*)
                     </h5>
                 </div>
                 <div class="ibox-content">
@@ -71,12 +71,12 @@
                             <form role="form">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <label>{{ 'NOME' | translate }}</label>
+                                        <label>{{ 'NOME' | translate }} (*)</label>
                                         <input type="text" placeholder="{{'NOME_DA_RICERCARE' | translate}}" class="form-control"
                                             ng-model="findNome"></div>
 
                                     <div class="col-md-6 form-group">
-                                        <label>{{ 'COGNOME' | translate }}</label>
+                                        <label>{{ 'COGNOME' | translate }} (*)</label>
                                         <input type="text" placeholder="{{'COGNOME_DA_RICERCARE' | translate}}" class="form-control"
                                             ng-model="findCognome"></div>
                                 </div>
@@ -209,7 +209,7 @@
                                                 <div class="col-md-3">
                                                     <strong>{{ 'DECEDUTO_IL' | translate }} {{ item.DataDiDecesso }}</strong>
                                                 </div>
-                                                <div class="col-md-3 intero">
+                                                <div class="col-md-3 intero text-right" >
                                                     <strong>{{ 'NUMERO_FALDONE' | translate }}: {{ item.NumeroFaldone
                                                         }}</strong>
                                                 </div>

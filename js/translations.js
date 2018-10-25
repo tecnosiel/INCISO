@@ -5,29 +5,45 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-      GESTIONE_PENSIONE:"Gestione Pensione", 
-      CREA_NUOVA_PENSIONE:"Crea nuova pensione",
 
-      TIPO_ASSISTENZA:"Tipo assistenza",
-      DATA_FINE_COMPATIBILITA:"Data fine compatibilità",
+      LIQUIDAZIONI_ANTECEDENTI_INCISO:"Liquidazioni antecedenti IN-CI-SO",
+      STORICO_DECRETI:"Storico decreti",
+      ELENCO_DOCUMENTAZIONE:"Elenco documentazione",
+      ELENCO_DOMANDE:"Elenco domande",
 
-      RICALCOLA_PRESTAZIONI : "Ricalcola Prestazioni",
+      DECORRENZA_ASSEGNO_DI_CURA:"Decorrenza assegno di cura",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:"Decorrenza permanenza casa di lungodegenza",
+      
+      IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
+        "Importo ritenuta di categoria (quota mensile)",
+      ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI:
+        "Elenco ritenute sulle liquidazioni mensili",
+      RESPONSABILE: "Responsabile",
+      INDIRIZZO: "Indirizzo",
+      VALIDITA: "Validità",
 
-      NOME_PRESTAZIONE:"Nome prestazione",
+      GESTIONE_PENSIONE: "Gestione Pensione",
+      CREA_NUOVA_PENSIONE: "Crea nuova pensione",
 
-      DATA_DECORRENZA:"Data decorrenza",
-      DATA_SCADENZA:"Data scadenza",
-      MODIFICA_PRESTAZIONE:"Modifica prestazione",
+      TIPO_ASSISTENZA: "Tipo assistenza",
+      DATA_FINE_COMPATIBILITA: "Data fine compatibilità",
 
+      RICALCOLA_PRESTAZIONI: "Ricalcola Prestazioni",
 
-      PREDISPONI_SOSPENSIONE_PRESTAZIONE:"Predisponi sospensione prestazione",
-      PREDISPONI_NEGAZIONE_PRESTAZIONE:"Predisponi negazione prestazione",
-      MODIFICA_REVOCA_PRESTAZIONE:"Modifica revoca prestazione",
+      NOME_PRESTAZIONE: "Nome prestazione",
 
-      IMPORTI_SPETTANTI:"Importi spettanti",
-      STATO_PRESTAZIONE:"Stato prestazione",
-      ELENCO_DATI_RELATIVI_AL_REDDITO:"Elenco dati relativi al reddito",
-      ELENCO_SOSPENSIONI:"Elenco sospensioni",
+      DATA_DECORRENZA: "Data decorrenza",
+      DATA_SCADENZA: "Data scadenza",
+      MODIFICA_PRESTAZIONE: "Modifica prestazione",
+
+      PREDISPONI_SOSPENSIONE_PRESTAZIONE: "Predisponi sospensione prestazione",
+      PREDISPONI_NEGAZIONE_PRESTAZIONE: "Predisponi negazione prestazione",
+      MODIFICA_REVOCA_PRESTAZIONE: "Modifica revoca prestazione",
+
+      IMPORTI_SPETTANTI: "Importi spettanti",
+      STATO_PRESTAZIONE: "Stato prestazione",
+      ELENCO_DATI_RELATIVI_AL_REDDITO: "Elenco dati relativi al reddito",
+      ELENCO_SOSPENSIONI: "Elenco sospensioni",
 
       TOTALE_PER_ANNO_LIQUIDATO: "Totale per anno liquidato",
       TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:
@@ -163,7 +179,7 @@ function config($translateProvider) {
       VALIDO_FINO_AL: "Valido fino al",
       RESIDENZA: "Residenza",
       DOMICILIO: "Domicilio",
-      ALTRI_INDIRIZZI: "Altri indirizi",
+      ALTRI_INDIRIZZI: "Altri indirizzi",
       RIFERIMENTI_DI_CONTATTO: "Riferimenti di contatto",
       TELEFONO_PRINCIPALE: "Telefono principale",
       TELEFONO_SECONDARIO: "Telefono secondario",
@@ -495,33 +511,51 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      GESTIONE_PENSIONE:"Gestione Pensione DE", 
-      CREA_NUOVA_PENSIONE:"Crea nuova pensione DE",
 
-      TIPO_ASSISTENZA:"Tipo assistenza DE",
-      DATA_FINE_COMPATIBILITA:"Data fine compatibilità DE",
-
-      RICALCOLA_PRESTAZIONI : "Ricalcola Prestazioni DE",
-   
-      NOME_PRESTAZIONE:"Nome prestazione DE",
-
-      DATA_DECORRENZA:"Data decorrenza DE",
-      DATA_SCADENZA:"Data scadenza DE",
-      MODIFICA_PRESTAZIONE:"Modifica prestazione DE",
-
-      PREDISPONI_SOSPENSIONE_PRESTAZIONE:"Predisponi sospensione prestazione DE",
-      PREDISPONI_NEGAZIONE_PRESTAZIONE:"Predisponi negazione prestazione DE",
-      MODIFICA_REVOCA_PRESTAZIONE:"Modifica revoca prestazione DE",
-
-      IMPORTI_SPETTANTI:"Importi spettanti DE",
-      STATO_PRESTAZIONE:"Stato prestazione DE",
-      ELENCO_DATI_RELATIVI_AL_REDDITO:"Elenco dati relativi al reddito DE",
-      ELENCO_SOSPENSIONI:"Elenco sospensioni DE",
+      LIQUIDAZIONI_ANTECEDENTI_INCISO:"Liquidazioni antecedenti IN-CI-SO DE",
+      STORICO_DECRETI:"Storico decreti DE",
+      ELENCO_DOCUMENTAZIONE:"Elenco documentazione DE",
+      ELENCO_DOMANDE:"Elenco domande DE",
 
 
-      TOTALE_PER_ANNO_LIQUIDATO:"Totale per anno liquidato DE",
-      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:"Totale spettante per anno non ancora liquidato DE",
-      
+      DECORRENZA_ASSEGNO_DI_CURA:"Decorrenza assegno di cura DE",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:"Decorrenza permanenza casa di lungodegenza DE",
+
+      IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
+        "Importo ritenuta di categoria (quota mensile) DE",
+      ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI:
+        "Elenco ritenute sulle liquidazioni mensili DE",
+      RESPONSABILE: "Responsabile DE",
+      INDIRIZZO: "Indirizzo DE",
+      VALIDITA: "Validità DE",
+
+      GESTIONE_PENSIONE: "Gestione Pensione DE",
+      CREA_NUOVA_PENSIONE: "Crea nuova pensione DE",
+
+      TIPO_ASSISTENZA: "Tipo assistenza DE",
+      DATA_FINE_COMPATIBILITA: "Data fine compatibilità DE",
+
+      RICALCOLA_PRESTAZIONI: "Ricalcola Prestazioni DE",
+
+      NOME_PRESTAZIONE: "Nome prestazione DE",
+
+      DATA_DECORRENZA: "Data decorrenza DE",
+      DATA_SCADENZA: "Data scadenza DE",
+      MODIFICA_PRESTAZIONE: "Modifica prestazione DE",
+
+      PREDISPONI_SOSPENSIONE_PRESTAZIONE:
+        "Predisponi sospensione prestazione DE",
+      PREDISPONI_NEGAZIONE_PRESTAZIONE: "Predisponi negazione prestazione DE",
+      MODIFICA_REVOCA_PRESTAZIONE: "Modifica revoca prestazione DE",
+
+      IMPORTI_SPETTANTI: "Importi spettanti DE",
+      STATO_PRESTAZIONE: "Stato prestazione DE",
+      ELENCO_DATI_RELATIVI_AL_REDDITO: "Elenco dati relativi al reddito DE",
+      ELENCO_SOSPENSIONI: "Elenco sospensioni DE",
+
+      TOTALE_PER_ANNO_LIQUIDATO: "Totale per anno liquidato DE",
+      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:
+        "Totale spettante per anno non ancora liquidato DE",
 
       REVOCATA: "Revocata DE",
       INSERITA: "Inserita DE",
@@ -657,7 +691,7 @@ function config($translateProvider) {
       VALIDO_FINO_AL: "Valido fino al DE",
       RESIDENZA: "Residenza DE",
       DOMICILIO: "Domicilio DE",
-      ALTRI_INDIRIZZI: "Altri indirizi DE",
+      ALTRI_INDIRIZZI: "Altri indirizzi DE",
       RIFERIMENTI_DI_CONTATTO: "Riferimenti di contatto DE",
       TELEFONO_PRNCIPALE: "Telefono principale DE",
       TELEFONO_SECONDARIO: "Telefono secondario DE",

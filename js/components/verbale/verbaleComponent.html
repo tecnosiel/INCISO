@@ -4,28 +4,32 @@
         <div class="row">
             <div class="col-md-6 form-group">
                 <label>{{ 'NUMERO_PROTOCOLLO' | translate }} (*)</label>
-                <input name="numeroProtocollo" ng-model="$ctrl.verbale.NumeroProtocollo" type="text" class="form-control intero"
+                <input name="numeroProtocollo" ng-model="$ctrl.verbale.NumeroProtocollo" type="text" class="form-control intero text-right"
                     required>
-                <p ng-show="verbaleForm.numeroProtocollo.$invalid && !verbaleForm.numeroProtocollo.$pristine" class="help-block">{{ 'CAMPO_OBBLIGATORIO' | translate }}.</p>
+                <p ng-show="verbaleForm.numeroProtocollo.$invalid && !verbaleForm.numeroProtocollo.$pristine" class="help-block">{{
+                    'CAMPO_OBBLIGATORIO' | translate }}.</p>
 
             </div>
 
             <div class="col-md-6 form-group" id="data_1">
                 <label>{{ 'DATA' | translate }} (*)</label>
-                <div class="input-group date">
+                <div class="input-group date" datepicker>
                     <input name="dataProtocollo" ng-model="$ctrl.verbale.DataProtocollo" type="text" class="form-control js-date"
                         placeholder="{{ 'DDMMYYYY' | translate }}" required>
-                        <span class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </span>
-                    <p ng-show="verbaleForm.dataProtocollo.$invalid && !verbaleForm.dataProtocollo.$pristine" class="help-block">{{ 'CAMPO_OBBLIGATORIO' | translate }}.</p>
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                    <p ng-show="verbaleForm.dataProtocollo.$invalid && !verbaleForm.dataProtocollo.$pristine" class="help-block">{{
+                        'CAMPO_OBBLIGATORIO' | translate }}.</p>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
             <div class="col-md-6 form-group">
                 <label>{{ 'PERCENTUALE_DI_INVALIDITA' | translate }} (*)</label>
                 <input name="percentualeDiInvalidita" ng-model="$ctrl.verbale.PercentualeDiInvalidita" type="text"
-                    class="form-control percentuale" required>
+                    class="form-control percentuale text-right" required>
                 <p ng-show="verbaleForm.percentualeDiInvalidita.$invalid && !verbaleForm.percentualeDiInvalidita.$pristine"
                     class="help-block">{{ 'CAMPO_OBBLIGATORIO' | translate }}.</p>
             </div>
@@ -57,6 +61,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+
             <div class="col-md-4 form-group">
                 <div>
                     <label>{{ 'PATOLOGIA_UDITIVA' | translate }}</label>
@@ -112,7 +119,8 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="row">
             <div class="col-md-12 form-group">
                 <label>{{ 'NOTE_VERBALE' | translate }}</label>
                 <textarea name="" id="" ng-model="$ctrl.verbale.Note" class="form-control"></textarea>

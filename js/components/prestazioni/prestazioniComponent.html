@@ -1,13 +1,22 @@
 <div class="panel panel-default">
     <div class="panel-heading pointer" data-toggle="collapse" href="#collapse{{$ctrl.index}}">
         <strong><i class="fa fa-caret-down" aria-hidden="true"></i> {{ $ctrl.prestazione.descrizionePrestazione }}</strong>
-        <div class="pull-right">
+
+        <div ng-if="$ctrl.prestazione.stato=='Revocata'" class="pull-right">
             <label>{{'DATA_DECORRENZA' | translate}}: 01/10/2001</label>
             <span class="label label-warning" data-toggle="popover" data-container="body" data-trigger="hover"
                 data-html="true" data-content="<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
                 data-placement="left">
                 <i class="fa fa-circle-o"></i> revocata </span>
         </div>
+        <div ng-if="$ctrl.prestazione.stato=='Negazione'" class="pull-right">
+            <label>{{'DATA_DECORRENZA' | translate}}: 01/10/2001</label>
+            <span class="label label-warning" style="background-color:red" data-toggle="popover" data-container="body"
+                data-trigger="hover" data-html="true" data-content="<div>Stato: <label class='text-warning'>Negata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
+                data-placement="left">
+                <i class="fa fa-circle-o"></i> negata </span>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-right">
@@ -83,36 +92,110 @@
                     </table>
 
                 </div>
+
                 <!-- pannello 2 : stato prestazioni -->
                 <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(2) }" ng-show="$ctrl.isSet(2)">
-                    <div class="m-b-lg">
-                        <h3>
-                            <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
-                                {{'REVOCATA' | translate }}</span>
-                        </h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 form-group">
-                            <label>{{'DATA_REVOCA' | translate }}</label>
-                            <input type="text" readonly class="form-control" value="03/12/2003"></div>
-                        <div class="col-md-4 form-group">
-                            <label>{{'MOTIVO_REVOCA' | translate }}</label>
-                            <input type="text" readonly class="form-control" value="Non residente in Alto Adige"></div>
-                        <div class="col-md-4 form-group">
-                            <label>{{'IMPORTO_DA_RECUPERARE' | translate }}</label>
-                            <input type="text" readonly class="form-control" value="549,00 €"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="button-bar text-right">
-                                <button class="btn btn-sm">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE' | translate }}
-                                </button>
-                                <button class="btn btn-sm">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE' | translate }}</button>
-                                <button class="btn btn-sm btn-primary">{{'MODIFICA_REVOCA_PRESTAZIONE' | translate }}</button>
+
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <div ng-if="$ctrl.prestazione.stato == 'Revocata'">
+
+                        <div class="m-b-lg">
+                            <h3>
+                                <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
+                                    {{'REVOCATA' | translate }}</span>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label>{{'DATA_REVOCA' | translate }}</label>
+                                <input type="text" readonly class="form-control" ng-model="$ctrl.prestazione.dataRevoca"></div>
+                            <div class="col-md-4 form-group">
+                                <label>{{'MOTIVO_REVOCA' | translate }}</label>
+                                <input type="text" readonly class="form-control" ng-model="$ctrl.prestazione.motivoRevoca"></div>
+                            <div class="col-md-4 form-group">
+                                <label>{{'IMPORTO_DA_RECUPERARE' | translate }}</label>
+                                <input type="text" readonly class="form-control text-right" ng-model="$ctrl.prestazione.importoDaRecuperareRevoca"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>{{'NOTE' | translate }}</label>
+                                <textarea ng-model="$ctrl.prestazione.noteRevoca" ng-readonly="!onOffModificaRevoca"
+                                    class="form-control"></textarea>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="button-bar text-right">
+                                    <button class="btn btn-sm">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE' | translate }}
+                                    </button>
+                                    <button class="btn btn-sm">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE' | translate }}</button>
+                                    <button class="btn btn-sm btn-primary">{{'MODIFICA_REVOCA_PRESTAZIONE' | translate
+                                        }}</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+                    <div ng-if="$ctrl.prestazione.stato == 'Negazione'">
+
+                        <div class="m-b-lg">
+                            <h3>
+                                <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
+                                    {{'NEGATA' | translate }}</span>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label>{{'DATA_NEGAZIONE' | translate }}</label>
+                                <input type="text" readonly class="form-control" ng-model="$ctrl.prestazione.dataNegazione"></div>
+                            <div class="col-md-4 form-group">
+                                <label>{{'MOTIVO_NEGAZIONE' | translate }}</label>
+                                <input type="text" readonly class="form-control" ng-model="$ctrl.prestazione.motivoNegazione"></div>
+                            <div class="col-md-4 form-group">
+                                <label>{{'DATA_FINE_NEGAZIONE' | translate }}</label>
+                                <input type="text" readonly class="form-control" ng-model="$ctrl.prestazione.dataFineNegazione"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>{{'NOTE' | translate }}</label>
+                                <textarea ng-model="$ctrl.prestazione.noteNegazione" ng-readonly="!onOffModificaNegazione"
+                                    class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="button-bar text-right">
+                                    <button class="btn btn-sm">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE' | translate }}
+                                    </button>
+                                    <button class="btn btn-sm">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE' | translate }}</button>
+                                    <button class="btn btn-sm btn-primary">{{'MODIFICA_REVOCA_PRESTAZIONE' | translate
+                                        }}</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
                 </div>
+
+
                 <!-- pannello 3 : elenco evidenze -->
                 <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(3) }" ng-show="$ctrl.isSet(3)">
                     <div class="m-b-lg">
@@ -121,7 +204,6 @@
                 </div>
                 <!-- pannello 4 : elenco dati relativi al reddito -->
                 <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(4) }" ng-show="$ctrl.isSet(4)">
-
                     <table datatable="ng" dt-column-defs="$ctrl.dtColumnTabElencoDatiRelativiAlReddito" dt-options="$ctrl.dtOptionsTabElencoDatiRelativiAlReddito"
                         class="table table-bordered dataTables-paged order-desc">
                         <thead>
@@ -169,48 +251,6 @@
 
                 <!-- pannello 5 : elenco sospensioni -->
                 <div role="tabpanel" class="tab-pane" ng-class="{ active: $ctrl.isSet(5) }" ng-show="$ctrl.isSet(5)">
-
-                    <!-- <table class="table table-striped table-bordered dataTables-paged">
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Motivo</th>
-                                <th>Scadenza</th>
-                                <th>Fine</th>
-                                <th>Note</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01/01/2020</td>
-                                <td>Soggiorno presso struttura di lungodegenza</td>
-                                <td>01/01/2020</td>
-                                <td>01/01/2020</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                    nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2020</td>
-                                <td>Percepisce altre pensioni</td>
-                                <td>01/01/2020</td>
-                                <td>01/01/2020</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2020</td>
-                                <td>Percepisce assegno di cura</td>
-                                <td>01/01/2020</td>
-                                <td>01/01/2020</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua. </td>
-                            </tr>
-                        </tbody>
-                    </table> -->
-
                     <table datatable="ng" dt-column-defs="$ctrl.dtColumnTabElencoSospensioni" dt-options="$ctrl.dtOptionsTabElencoSospensioni"
                         class="table table-striped table-bordered dataTables-paged">
                         <thead>
@@ -246,9 +286,6 @@
                         </tbody>
 
                     </table>
-
-
-
                 </div>
 
                 <!-- fine pannelli----------------------- -->
@@ -259,20 +296,39 @@
                 <div class="col-md-12 form-separator"></div>
             </div>
             <div class="row m-t-lg">
+
                 <div class="col-md-4 form-group">
-                    <label>{{'DATA_DECORRENZA' | translate }}</label>
-                    <input type="text" readonly class="form-control" value="01/10/2001"></div>
+                    <label>{{ "DATA_DECORRENZA" | translate}}</label>
+                    <div ng-class="{datePicherDisabled : !onOffModificaPrestazione}" class="input-group date">
+                        <input type="text" ng-readonly="!onOffModificaPrestazione" class="form-control js-date"
+                            ng-model="Tmp.Decorrenza" placeholder="Seleziona data decorrenza">
+                        <span ng-class="{datePicherDisabled : !onOffModificaPrestazione}" class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+
                 <div class="col-md-4 form-group">
-                    <label>{{'DATA_SCADENZA' | translate }}</label>
-                    <input type="text" readonly class="form-control" value="01/10/2004"></div>
+                    <label>{{ "DATA_SCADENZA" | translate}}</label>
+                    <div ng-class="{datePicherDisabled : !onOffModificaPrestazione}" class="input-group date">
+                        <input type="text" ng-readonly="!onOffModificaPrestazione" class="form-control js-date"
+                            ng-model="Tmp.Decorrenza" placeholder="Seleziona data decorrenza">
+                        <span ng-class="{datePicherDisabled : !onOffModificaPrestazione}" class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+
                 <div class="col-md-12 form-group">
                     <label>{{'NOTE' | translate }}</label>
-                    <textarea class="form-control" readonly=""></textarea>
+                    <textarea ng-model="Pensione.Note" ng-readonly="!onOffModificaPrestazione" class="form-control"></textarea>
                 </div>
-            </div>
-            <div class="text-right">
-                <button class="btn btn-sm btn-primary">{{'MODIFICA_PRESTAZIONE' | translate }}</button>
+
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-sm btn-primary" ng-click="onOffModificaPrestazione=!onOffModificaPrestazione">{{'MODIFICA_PRESTAZIONE'
+                        | translate
+                        }}</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

@@ -55,10 +55,10 @@
                         <td>Si</td>
                         <td>{{item.Nazione}}</td>
                         <td>{{item.Comune}}</td>
-                        <td>{{item.Cap}}</td>
+                        <td text-right>{{item.Cap}}</td>
                         <td>{{item.Frazione}}</td>
                         <td>{{item.Via}}</td>
-                        <td>{{item.Civico}}</td>
+                        <td >{{item.Civico}}</td>
                         <td>{{item.Localita}}</td>
                         <td>{{item.Maso}}</td>
                         <td>{{item.IndirizzoCompleto}}</td>
@@ -221,7 +221,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "CAP" | translate}}</label>
                             <input name="indirizzoCodificatoCap" type="text" ng-model="Tmp.IndirizzoCodificato.Cap"
-                                ng-readonly="visDatiAssistito" class="form-control intero">
+                                ng-readonly="visDatiAssistito" class="form-control intero text-right">
                         </div>
 
                         <div class="col-md-4 form-group">
@@ -290,7 +290,7 @@
                         <div class="col-md-4 form-group">
                             <label>{{ "CAP" | translate}}</label>
                             <input name="indirizzoNonCodificatoCap" type="text" ng-model="Tmp.IndirizzoNonCodificato.Cap"
-                                ng-readonly="visDatiAssistito" class="form-control intero">
+                                ng-readonly="visDatiAssistito" class="form-control intero text-right">
 
                         </div>
                         <div class="col-md-4 form-group">

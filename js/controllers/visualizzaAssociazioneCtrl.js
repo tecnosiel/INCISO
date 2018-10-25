@@ -9,10 +9,13 @@ function visualizzaAssociazioneCtrl($scope, $uibModal, runMode) {
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssociazione = false;
     $scope.inserimentoAssociazione = true;
+    $scope.asteriscoInserimento ="(*)"
     $scope.datiAssociazione = {};
   } else {
     $scope.inserimentoAssociazione = false;
     $scope.visDatiAssociazione = true;
+    $scope.asteriscoInserimento =""
+
   }
 
   $scope.creaNuovoIndirizzo = function($index) {

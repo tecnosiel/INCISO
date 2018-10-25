@@ -436,6 +436,45 @@
     return directive;
   }
 
+  function datepicker() {
+    // return {
+    //   restrict: "EA",
+    //   require: "ngModel",
+    //   link: function(scope, elem, attrs, ngModelCtrl) {
+
+    //     var updateModel = function(dateText) {
+    //       scope.$apply(function() {
+    //         ngModelCtrl.$setViewValue(dateText);
+    //       });
+    //     };
+
+    //     var options = {
+    //       dateFormat: "dd/mm/yy",
+    //       onSelect: function(dateText) {
+    //         updateModel(dateText);
+    //       }
+    //     };
+
+    //     elem.datepicker(options);
+    //   }
+    // };
+
+    return {
+      restrict: "A",
+      link: function(scope, element, attrs, ngModelCtrl) {
+        element.datepicker({
+          todayBtn: "linked",
+          format: "dd/mm/yyyy",
+          keyboardNavigation: false,
+          forceParse: true,
+          calendarWeeks: true,
+          autoclose: true
+          //orientation: 'bottom left'
+        });
+      }
+    };
+  }
+
   /**
    *
    * Collega tutte le funzioni al modulo principale
@@ -457,5 +496,6 @@
     .directive("slimScroll", slimScroll)
     .directive("truncate", truncate)
     .directive("dettaglioPrestazioni", dettaglioPrestazioni)
-    .directive("touchSpin", touchSpin);
+    .directive("touchSpin", touchSpin)
+    .directive("datepicker", datepicker);
 })();
