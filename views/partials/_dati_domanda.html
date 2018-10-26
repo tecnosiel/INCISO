@@ -1,128 +1,129 @@
 <div class="col-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" ng-class="{ active: isSet(1) }"><a ng-click="setTab(1)">Dati</a></li>
-        <li role="presentation" ng-class="{ active: isSet(2) }"><a ng-click="setTab(2)">Legali
-                rappresentanti</a></li>
-        <li role="presentation" ng-class="{ active: isSet(3) }"><a ng-click="setTab(3)">Curatore</a></li>
-        <li role="presentation" ng-class="{ active: isSet(4) }"><a ng-click="setTab(4)">Comunicazioni</a></li>
-        <li role="presentation" ng-class="{ active: isSet(5) }"><a ng-click="setTab(5)">Modalità
-                pagamento</a></li>
-        <li role="presentation" ng-class="{ active: isSet(6) }"><a ng-click="setTab(6)">Associazioni</a></li>
-        <li role="presentation" ng-class="{ active: isSet(7) }"><a ng-click="setTab(7)">Ricorso</a></li>
+        <li role="presentation" ng-class="{ active: isSet(1) }"><a ng-click="setTab(1)">{{ 'DATI' | translate }}</a></li>
+        <li role="presentation" ng-class="{ active: isSet(2) }"><a ng-click="setTab(2)">{{ 'LEGALI_RAPPRESENTANTI' |
+                translate }}</a></li>
+        <li role="presentation" ng-class="{ active: isSet(3) }"><a ng-click="setTab(3)">{{ 'CURATORE' | translate }}</a></li>
+        <li role="presentation" ng-class="{ active: isSet(4) }"><a ng-click="setTab(4)">{{ 'COMUNICAZIONI' | translate }}</a></li>
+        <li role="presentation" ng-class="{ active: isSet(5) }"><a ng-click="setTab(5)">{{ 'MODALITA_PAGAMENTO' |
+                translate }}</a></li>
+        <li role="presentation" ng-class="{ active: isSet(6) }"><a ng-click="setTab(6)">{{ 'ASSOCIAZIONI' | translate }}</a></li>
+        <li role="presentation" ng-class="{ active: isSet(7) }"><a ng-click="setTab(7)">{{ 'RICORSO' | translate }}</a></li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <div class="tab-pane" ng-class="{ active: isSet(1) }">
             <div>
-                <h3>Informazioni generali</h3>
+                <h3>{{ 'INFORMAZIONI_GENERALI' | translate }}</h3>
                 <div class="row">
-                    <div class="col-md-4 form-group"><label>Data domanda</label> <input type="text" readonly class="form-control"
-                            value="05/06/2015"></div>
-                    <div class="col-md-4 form-group"><label>Data decorrenza pagamento</label>
+                    <div class="col-md-4 form-group"><label>{{ 'DATA_DOMANDA' | translate }}</label> <input type="text"
+                            readonly class="form-control" value="05/06/2015"></div>
+                    <div class="col-md-4 form-group"><label>{{ 'DATA_DECORRENZA_PAGAMENTO' | translate }}</label>
                         <input type="text" readonly class="form-control" value="10/07/2015"></div>
-                    <div class="col-md-4 form-group"><label>Data chiusura ufficio</label>
+                    <div class="col-md-4 form-group"><label>{{ 'DATA_CHIUSURA_UFFICIO' | translate }}</label>
                         <input type="text" readonly class="form-control" value="10/07/2015"></div>
-                    <div class="col-md-4 form-group"><label>Numero e data protocollo</label>
+                    <div class="col-md-4 form-group"><label>{{ 'NUMERO_E_DATA_PROTOCOLLO' | translate }}</label>
                         <input type="text" readonly class="form-control" value="3456Q2323 - 10/07/2015"></div>
-                    <div class="col-md-4 form-group"><label>Provenienza</label> <input type="text" readonly class="form-control"
-                            value="Lorem ipsum"></div>
-                    <div class="col-md-4 form-group"><label>Delega patronato</label> <input type="text" readonly class="form-control"
-                            value="Lorem ipsum"></div>
+                    <div class="col-md-4 form-group"><label>{{ 'PROVENIENZA' | translate }}</label> <input type="text"
+                            readonly class="form-control" value="Lorem ipsum"></div>
+                    <div class="col-md-4 form-group"><label>{{ 'DELEGA_PATRONATO' | translate }}</label> <input type="text"
+                            readonly class="form-control" value="Lorem ipsum"></div>
                 </div>
             </div>
             <div>
-                <h3 class="m-t-lg">Stato domanda</h3>
-                <stato-domanda-component stato-domanda = "{{domanda.StatoDomanda}}"></stato-domanda-component>
+                <h3 class="m-t-lg">{{ STATO_DOMANDA | translate }}</h3>
+                <stato-domanda-component stato-domanda="{{domanda.StatoDomanda}}"></stato-domanda-component>
             </div>
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(2) }">
             <div>
-                <h3>Legale rappresentante</h3>
+                <h3>{{ 'LEGALE_RAPPRESENTANTE' | translate }}</h3>
                 <div class="row">
-                    <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'NOME' | translate }}</label> <input type="text" readonly class="form-control"
                             value="Paolo"></div>
-                    <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'COGNOME' | translate }}</label> <input type="text" readonly class="form-control"
                             value="Rossi"></div>
-                    <div class="col-md-4 form-group"><label>Numero decreto</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'NUMERO_DECRETO' | translate }}</label> <input type="text" readonly class="form-control"
                             value="32234545"></div>
-                    <div class="col-md-4 form-group"><label>Data decreto</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'DATA_DECRETO' | translate }}</label> <input type="text" readonly class="form-control"
                             value="01/01/2020"></div>
-                    <div class="col-md-4 form-group"><label>Tipo decreto</label>
+                    <div class="col-md-4 form-group"><label>{{ 'TIPO_DECRETO' | translate }}</label>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="checkbox"><label> <input icheck ng-model="xxxxx" type="radio" name="r"
                                             checked disabled='disabled'><i></i>
-                                        Provvisorio
+                                            {{ 'PROVVISORIO' | translate }}
                                     </label></div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkbox"><label> <input icheck ng-model="xxxxx" type="radio" name="r"
                                             disabled='disabled'> <i></i>
-                                        Definitivo </label></div>
+                                            {{ 'DEFINITIVO' | translate }} </label></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 form-group"><label>Scadenza decreto</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'SCADENZA_DECRETO' | translate }}</label> <input type="text" readonly class="form-control"
                             value="01/01/2020"></div>
                 </div>
             </div>
             <div>
-                <h3 class="m-t-lg">Altro legale rappresentante</h3>
+                <h3 class="m-t-lg">{{ 'ALTRO_LEGALE_RAPPRESENTANTE' | translate }}</h3>
                 <div class="row">
-                    <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'NOME' | translate }}</label> <input type="text" readonly class="form-control"
                             value="Rosa"></div>
-                    <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'COGNOME' | translate }}</label> <input type="text" readonly class="form-control"
                             value="Verdi"></div>
-                    <div class="col-md-4 form-group"><label>Numero decreto</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'NUMERO_DECRETO' | translate }}</label> <input type="text" readonly class="form-control"
                             value="32234545"></div>
-                    <div class="col-md-4 form-group"><label>Data decreto</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'DATA_DECRETO' | translate }}</label> <input type="text" readonly class="form-control"
                             value="01/01/2020"></div>
-                    <div class="col-md-4 form-group"><label>Tipo decreto</label>
+                    <div class="col-md-4 form-group"><label>{{ 'TIPO_DECRETO' | translate }}</label>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="checkbox"><label> <input icheck ng-model="xxxxx" type="radio" name="b"
                                             checked disabled='disabled'> <i></i>
-                                        Provvisorio
+                                            {{ 'PROVVISORIO' | translate }}
                                     </label></div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkbox"><label> <input icheck ng-model="xxxxx" type="radio" name="b"
                                             disabled='disabled'> <i></i>
-                                        Definitivo </label></div>
+                                            {{ 'DEFINITIVO' | translate }} </label></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 form-group"><label>Scadenza decreto</label> <input type="text" readonly class="form-control"
+                    <div class="col-md-4 form-group"><label>{{ 'SCADENZA_DECRETO' | translate }}</label> <input type="text" readonly class="form-control"
                             value="01/01/2020"></div>
                 </div>
             </div>
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(3) }">
             <div>
-                <h3>Curatore</h3>
+                <h3>{{'CURATORE' | translate}} </h3>
                 <div class="row">
-                    <div class="col-md-4 form-group"><label>Nome</label> <input type="text" readonly class="form-control"
-                            value="Rosa"></div>
-                    <div class="col-md-4 form-group"><label>Cognome</label> <input type="text" readonly class="form-control"
-                            value="Verdi"></div>
+                    <div class="col-md-4 form-group"><label>{{'NOME' | translate }}</label> <input type="text" readonly
+                            class="form-control" value="Rosa"></div>
+                    <div class="col-md-4 form-group"><label>{{'COGNOME' | translate }}</label> <input type="text"
+                            readonly class="form-control" value="Verdi"></div>
                 </div>
             </div>
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(4) }">
             <div>
-                <h3>Comunicazioni</h3>
+                <h3>{{'COMUNICAZIONI' | translate }}</h3>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="checkbox"><label class="option-bold"> <input icheck ng-model="xxxxx" type="radio"
                                     name="lang" checked disabled='disabled'> <i></i>
-                                Italiano
+                                {{'ITALIANO' | translate }}
                             </label></div>
                     </div>
                     <div class="col-md-6">
                         <div class="checkbox"><label class="option-bold"> <input icheck ng-model="xxxxx" type="radio"
-                                    name="lang" disabled='disabled'> <i></i> Tedesco
+                                    name="lang" disabled='disabled'> <i></i>
+                                {{'TEDESCO' | translate }}
                             </label></div>
                     </div>
                 </div>
@@ -130,53 +131,52 @@
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(5) }">
             <div>
-                <h3>Modalità di pagamento</h3>
+                <h3>{{'MODALITA_DI_PAGAMENTO' | translate }}</h3>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="checkbox"><label class="option-bold"> <input icheck ng-model="xxxxx" type="radio"
                                     name="lang" disabled='disabled' checked> <i></i>
-                                Bonifico
-                                Bancario </label></div>
+                                {{'BONIFICO_BANCARIO' | translate}} </label></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 form-group"><label>IBAN</label> <input type="text" readonly class="form-control"
-                            value="IT02 L123 4512 3451 2345 6789 012"></div>
-                    <div class="col-md-12 form-group"><label>Intestatario conto</label> <input type="text" readonly
-                            class="form-control" value="Maria Rossi"></div>
-                    <div class="col-md-12 form-group"><label>Note</label> <textarea readonly class="form-control"></textarea></div>
+                    <div class="col-md-12 form-group"><label>{{'IBAN' | translate}}</label> <input type="text" readonly
+                            class="form-control" value="IT02 L123 4512 3451 2345 6789 012"></div>
+                    <div class="col-md-12 form-group"><label>{{'INTESTATARIO_CONTO' | translate}}</label> <input type="text"
+                            readonly class="form-control" value="Maria Rossi"></div>
+                    <div class="col-md-12 form-group"><label>{{'NOTE' | translate}}</label> <textarea readonly class="form-control"></textarea></div>
                 </div>
             </div>
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(6) }">
             <div>
-                <h3>Associazioni di categoria</h3>
+                <h3>{{ 'ASSOCIAZIONI_DI_CATEGORIA' | translate }}</h3>
                 <div class="row">
-                    <div class="col-md-6 form-group"><label>Tipo associazione</label> <input type="text" readonly class="form-control"
-                            value="ANMIC"></div>
-                    <div class="col-md-6 form-group"><label>Data inizio iscrizione</label>
+                    <div class="col-md-6 form-group"><label>{{ 'TIPO_ASSOCIAZIONE' | translate}}</label> <input type="text"
+                            readonly class="form-control" value="ANMIC"></div>
+                    <div class="col-md-6 form-group"><label>{{'DATA_INIZIO_ISCRIZIONE' | translate}}</label>
                         <input type="text" readonly class="form-control" value="01/01/2014"></div>
-                    <div class="col-md-6 form-group"><label>Data fine iscrizione</label> <input type="text" readonly
-                            class="form-control" value="01/01/2020"></div>
-                    <div class="col-md-6 form-group"><label>Ritenuta di categoria</label>
+                    <div class="col-md-6 form-group"><label>{{ 'DATA_FINE_ISCRIZIONE' | translate}}</label> <input type="text"
+                            readonly class="form-control" value="01/01/2020"></div>
+                    <div class="col-md-6 form-group"><label>{{ 'RITENUTA_DI_CATEGORIA' | translate}}</label>
                         <input type="text" readonly class="form-control" value="6,00 "></div>
                 </div>
             </div>
         </div>
         <div class="tab-pane" ng-class="{ active: isSet(7) }">
             <div>
-                <h3>Ricorso</h3>
+                <h3>{{ 'RICORSO' | translate }}</h3>
                 <div class="row">
-                    <div class="col-md-4 form-group"><label>Data ricorso</label> <input type="text" readonly class="form-control"
-                            value="01/01/2020"></div>
-                    <div class="col-md-4 form-group"><label>Motivo ricorso</label> <input type="text" readonly class="form-control"
-                            value="Lorem ipsum dolor sit amet"></div>
-                    <div class="col-md-4 form-group"><label>Esito ricorso</label> <input type="text" readonly class="form-control"
-                            value="Lorem ipsum dolor sit amet"></div>
+                    <div class="col-md-4 form-group"><label>{{'DATA_RICORSO' | translate}}</label> <input type="text"
+                            readonly class="form-control" value="01/01/2020"></div>
+                    <div class="col-md-4 form-group"><label>{{'MOTIVO_RICORSO' | translate}}</label> <input type="text"
+                            readonly class="form-control" value="Lorem ipsum dolor sit amet"></div>
+                    <div class="col-md-4 form-group"><label>{{'ESITO_RICORSO' | translate}}</label> <input type="text"
+                            readonly class="form-control" value="Lorem ipsum dolor sit amet"></div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <button class="btn btn-primary btn-sm">MODIFICA RICORSO</button>
+                        <button class="btn btn-primary btn-sm">{{'MODIFICA_RICORSO_UPPER' | translate}}</button>
                     </div>
                 </div>
             </div>
@@ -187,7 +187,7 @@
     <div class="col-md-12 form-separator-solid"></div>
 </div>
 <div>
-    <h3 class="m-t-lg">Note</h3>
+    <h3 class="m-t-lg">{{ 'NOTE' | translate}}</h3>
     <div class="row">
         <div class="col-md-12 form-group"><textarea readonly class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat</textarea></div>
     </div>

@@ -8,6 +8,7 @@ function prestazioniController(
   $scope,
   DTOptionsBuilder,
   DTColumnDefBuilder,
+  $uibModal,
   $compile
 ) {
   this.tab = 1;
@@ -41,6 +42,65 @@ function prestazioniController(
   this.dtColumnTabElencoDatiRelativiAlReddito = [
     // DTColumnDefBuilder.newColumnDef(0).notSortable()
   ];
+
+  this.motiviNegazione = [
+    { nome: "Motivo negazione  1", code: "01" },
+    { nome: "Motivo negazione  2", code: "02" },
+    { nome: "Motivo negazione  3", code: "03" },
+    { nome: "Motivo negazione  4", code: "04" },
+    { nome: "Motivo negazione  5", code: "05" },
+    { nome: "Motivo negazione  6", code: "06" },
+    { nome: "Motivo negazione  7", code: "07" },
+    { nome: "Motivo negazione  8", code: "08" },
+    { nome: "Motivo negazione  9", code: "09" },
+    { nome: "Motivo negazione 10", code: "10" },
+    { nome: "Motivo negazione 11", code: "11" }
+
+  ];
+
+  this.motiviRevoca = [
+    { nome: "Motivo revoca  1", code: "01" },
+    { nome: "Motivo revoca  2", code: "02" },
+    { nome: "Motivo revoca  3", code: "03" },
+    { nome: "Motivo revoca  4", code: "04" },
+    { nome: "Motivo revoca  5", code: "05" },
+    { nome: "Motivo revoca  6", code: "06" },
+    { nome: "Motivo revoca  7", code: "07" },
+    { nome: "Motivo revoca  8", code: "08" },
+    { nome: "Motivo revoca  9", code: "09" },
+    { nome: "Motivo revoca 10", code: "10" },
+    { nome: "Motivo revoca 11", code: "11" }
+
+  ];
+
+  this.motiviSospensione = [
+    { nome: "Motivo sospensione  1", code: "01" },
+    { nome: "Motivo sospensione  2", code: "02" },
+    { nome: "Motivo sospensione  3", code: "03" },
+    { nome: "Motivo sospensione  4", code: "04" },
+    { nome: "Motivo sospensione  5", code: "05" },
+    { nome: "Motivo sospensione  6", code: "06" },
+    { nome: "Motivo sospensione  7", code: "07" },
+    { nome: "Motivo sospensione  8", code: "08" },
+    { nome: "Motivo sospensione  9", code: "09" },
+    { nome: "Motivo sospensione 10", code: "10" },
+    { nome: "Motivo sospensione 11", code: "11" }
+
+  ];
+
+  this.predisponi = function(cTipo) {
+
+    $scope.tipoPredisposizione = cTipo;
+
+    // http://www.marcorpsa.com/ee/t1891.html
+    self.modalInstance = $uibModal.open({
+      templateUrl: "./../views/modal_predisponi.html",
+      controller: "modalPredisponiCtrl",
+      size: "lg",
+      scope: $scope,
+      windowClass: "animated fadeInRightBig"
+    });
+  };
 
   //  -------------
 

@@ -52,36 +52,6 @@ function ricercaController(
   this.creaNuovaAnagrafica = function($index) {
     $scope.NuovaAnagrafica = null;
 
-    // Math.random() genera un numero casuale compreso fra 0 e 1,
-    // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
-    // e poi arrotondarne il risultato.
-    this.randomMove = function() {
-      let risultato = null;
-
-      // clsPopup
-      switch (Math.round(5 * Math.random())) {
-        case 0:
-          risultato = "clsPopup";
-          break;
-        case 1:
-          risultato = "animated flipInX";
-          break;
-        case 2:
-          risultato = "animated flipInY";
-          break;
-        case 3:
-          risultato = "animated fadeInLeftBig";
-          break;
-        case 4:
-          risultato = "animated fadeInRightBig";
-          break;
-        case 5:
-          risultato = "animated rotateIn";
-          break;
-      }
-      return risultato;
-    };
-
     // http://www.marcorpsa.com/ee/t1891.html
     self.modalInstance = $uibModal.open({
       templateUrl: "./../views/modal_crea_nuova_anagrafica.html",

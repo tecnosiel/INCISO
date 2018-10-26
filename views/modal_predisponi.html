@@ -1,0 +1,196 @@
+<style>
+    /* .modal-dialog { max-width: 470px;} */
+
+    .modal-content {
+       background-color: #FFFFFF;
+       border: 1px solid gray;
+       margin-top: 158px;
+    }
+</style>
+
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 ng-if="tipoPredisposizione == 'Revoca'" class="modal-title">
+            {{'REVOCA_PRESTAZIONE' | translate }}
+        </h4>
+        <h4 ng-if="tipoPredisposizione == 'Sospensione'" class="modal-title">
+            {{'SOSPENSIONE_PRESTAZIONE' | translate }}
+        </h4>
+        <h4 ng-if="tipoPredisposizione == 'Negazione'" class="modal-title">
+            {{'NEGAZIONE_PRESTAZIONE' | translate }}
+        </h4>
+    </div>
+
+    <div class="modal-body">
+
+        <div ng-if="tipoPredisposizione == 'Revoca'">
+
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label>{{ "DATA_REVOCA" | translate}} (*)</label>
+                    <div class="input-group date" datepicker>
+                        <input type="text" class="form-control js-date" name="dataRevoca" ng-model="$ctrl.prestazione.dataRevoca"
+                            placeholder="Seleziona data revoca" required>
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <p ng-show="prestazioneForm.dataRevoca.$invalid && !prestazioneForm.dataRevoca.$pristine" class="help-block">{{
+                            'CAMPO_OBBLIGATORIO' | translate }}.</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label>{{'MOTIVO_REVOCA' | translate }} (*)</label>
+
+                    <!-- <input type="text" class="form-control" ng-model="$ctrl.prestazione.motivoRevoca"></div> -->
+
+                    <ui-select name="motivoRevoca" ng-model="$ctrl.prestazione.motivoRevoca" title="Seleziona un elemento nell'elenco">
+                        <ui-select-match placeholder="Seleziona motivo revoca">{{$select.selected.nome}}</ui-select-match>
+                        <ui-select-choices repeat="nazione in motiviRevoca | filter: $select.search">
+                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
+                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                        </ui-select-choices>
+                    </ui-select>
+
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label>{{'IMPORTO_DA_RECUPERARE' | translate }}</label>
+                    <input type="text" class="form-control text-right" name="importoDaRecuperareRevoca" ng-model="$ctrl.prestazione.importoDaRecuperareRevoca">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>{{'NOTE' | translate }}</label>
+                    <textarea name="noteRevoca" ng-model="$ctrl.prestazione.noteRevoca" class="form-control"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+        <div ng-if="tipoPredisposizione == 'Sospensione'">
+
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label>{{ "DATA_SOSPENSIONE" | translate}} (*)</label>
+                    <div class="input-group date" datepicker>
+                        <input type="text" class="form-control js-date" name="dataSospensione" ng-model="$ctrl.prestazione.dataSospensione"
+                            placeholder="Seleziona data negazione" required>
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <p ng-show="prestazioneForm.dataSospensione.$invalid && !prestazioneForm.dataNegazione.$pristine"
+                            class="help-block">{{
+                            'CAMPO_OBBLIGATORIO' | translate }}.</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label>{{'MOTIVO_SOSPENSIONE' | translate }} (*)</label>
+                    <!-- <input type="text" class="form-control" name="motivoNegazione" ng-model="$ctrl.prestazione.motivoSospensione"> -->
+
+                    <ui-select name="motivoSospensione" ng-model="$ctrl.prestazione.motivoSospensione" title="Seleziona un elemento nell'elenco">
+                        <ui-select-match placeholder="Seleziona motivo sospensione">{{$select.selected.nome}}</ui-select-match>
+                        <ui-select-choices repeat="nazione in $ctrl.motiviSospensione | filter: $select.search">
+                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
+                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                        </ui-select-choices>
+                    </ui-select>
+
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label>{{ "DATA_FINE_SOSPENSIONE" | translate}}</label>
+                    <div class="input-group date" datepicker>
+                        <input type="text" class="form-control js-date" name="dataFineSospensione" ng-model="$ctrl.prestazione.dataFineSospensione"
+                            placeholder="Seleziona data fine sospensione">
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>{{'NOTE' | translate }}</label>
+                    <textarea name="noteSospensione" ng-model="$ctrl.prestazione.noteSospensione" class="form-control"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+        <div ng-if="tipoPredisposizione == 'Negazione'">
+
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label>{{ "DATA_NEGAZIONE" | translate}} (*)</label>
+                    <div class="input-group date" datepicker>
+                        <input type="text" class="form-control js-date" name="dataNegazione" ng-model="$ctrl.prestazione.dataNegazione"
+                            placeholder="Seleziona data negazione" required>
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <p ng-show="prestazioneForm.dataNegazione.$invalid && !prestazioneForm.dataNegazione.$pristine"
+                            class="help-block">{{
+                            'CAMPO_OBBLIGATORIO' | translate }}.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label>{{'MOTIVO_NEGAZIONE' | translate }} (*)</label>
+                    <!-- <input type="text" class="form-control" name="motivoNegazione" ng-model="$ctrl.prestazione.motivoNegazione"> -->
+
+                    <ui-select name="motivoNegazione" ng-model="$ctrl.prestazione.motivoNegazione" title="Seleziona un elemento nell'elenco">
+                        <ui-select-match placeholder="Seleziona motivo negazione">{{$select.selected.nome}}</ui-select-match>
+                        <ui-select-choices repeat="nazione in $ctrl.motiviNegazione | filter: $select.search">
+                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
+                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                        </ui-select-choices>
+                    </ui-select>
+
+
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label>{{ "DATA_FINE_NEGAZIONE" | translate}}</label>
+                    <div class="input-group date" datepicker>
+                        <input type="text" class="form-control js-date" name="dataFineNegazione" ng-model="$ctrl.prestazione.dataFineNegazione"
+                            placeholder="Seleziona data fine negazione">
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>{{'NOTE' | translate }}</label>
+                    <textarea name="noteNegazione" ng-model="$ctrl.prestazione.noteNegazione" class="form-control"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="modalSave('Dati registrati!','Tutti i dati sono stati correttamente registrati.')">{{
+            'SALVA' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="modalClose()">{{ 'ANNULLA' | translate }}</button>
+    </div>
+
+</div>

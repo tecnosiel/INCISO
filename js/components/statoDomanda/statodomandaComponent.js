@@ -10,7 +10,7 @@
 
 function statoDomandaComponent() {
   return {
-    templateUrl: "/js/components/statoDomanda/statoDomandaComponent.html",
+    templateUrl: "/js/components/statodomanda/statodomandaComponent.html",
     bindings: {
       statoDomanda: "@"
     },

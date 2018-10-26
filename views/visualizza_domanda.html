@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="ibox-content" style="display:none;">
-                        <div ng-include="'views/partials/_dati_anagrafici_assistito.html'"></div>
+                        <div ng-include="'/views/partials/_dati_anagrafici_assistito.html'"></div>
                     </div>
                 </div>
                 <!-- ------------------------------------------------------------------------ -->
@@ -102,9 +102,19 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- <div class="ibox-content">
+                        <%- partial("_elenco_domande") %>
+                    </div> -->
+
                     <div class="ibox-content" style="display:none;">
-                        <stato-domanda-component stato-domanda="{{domanda.StatoDomanda}}"></stato-domanda-component>
+                        <div ng-include="'/views/partials/_dati_domanda.html'"></div>
                     </div>
+
+
+                    <!-- <div class="ibox-content" style="display:none;">
+                        <stato-domanda-component stato-domanda="{{domanda.StatoDomanda}}"></stato-domanda-component>
+                    </div> -->
                 </div>
                 <!-- ------------------------------------------------------------------------ -->
                 <div class="ibox float-e-margins">

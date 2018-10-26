@@ -245,17 +245,22 @@ function visualizzaDomandaCtrl(
     {
       descrizionePrestazione:
         "Assegno mensile per invalidi civili parziali minorenni (descrizione prestazione)",
+      dataDecorrenzaPrestazione: "01/01/1111",
+      dataScadenzaPrestazione: "01/01/2222",
+      notePrestazione: "prima prestazione jsdlkjfdlòaskjdflòkjdslòk",
 
       stato: "Revocata",
       dataRevoca: "01/01/1111",
       motivoRevoca: "fkajsdfkjdsòlk",
       importoDaRecuperareRevoca: "12000.00",
-      noteRevoca:"Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+      noteRevoca:
+        "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
 
-      dataNegazione: "",
-      motivoNegazione: "",
-      dataFineNegazione: "",
-      noteNegazione:"Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      dataNegazione: null,
+      motivoNegazione: null,
+      dataFineNegazione: null,
+      noteNegazione:
+        "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       importiSpettanti: [
         {
@@ -433,17 +438,22 @@ function visualizzaDomandaCtrl(
     {
       descrizionePrestazione:
         "Indennità di accompagnamento per invalidi civili totalmente inabili",
+      dataDecorrenzaPrestazione: "02/02/1111",
+      dataScadenzaPrestazione: "02/02/2222",
+      notePrestazione: "seconda jsdlkjfdlòaskjdflòkjdslòk",
 
       stato: "Negazione",
       dataRevoca: "01/01/1111",
       motivoRevoca: "fkajsdfkjdsòlk",
       importoDaRecuperareRevoca: "12000.00",
-      noteRevoca:"Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+      noteRevoca:
+        "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
 
       dataNegazione: "02/02/2012",
-      motivoNegazione: "non saprei perche è stata negata.",
+      motivoNegazione: null,
       dataFineNegazione: "02/02/2012",
-      noteNegazione:"Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      noteNegazione:
+        "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       importiSpettanti: [
         {
@@ -621,17 +631,28 @@ function visualizzaDomandaCtrl(
     {
       descrizionePrestazione:
         "Prova Prova Prova possiamo inserire quante prestazioni vogliamo",
+      dataDecorrenzaPrestazione: "11/11/1111",
+      dataScadenzaPrestazione: "03/03/2013",
+      notePrestazione: "terzo jsdlkjfdlòaskjdflòkjdslòk",
 
-      stato: "Revocata",
+      stato: "Sospesa",
       dataRevoca: "01/01/1111",
       motivoRevoca: "fkajsdfkjdsòlk",
       importoDaRecuperareRevoca: "12000.00",
-      noteRevoca:"Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+      noteRevoca:
+        "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
 
-      dataNegazione: "",
-      motivoNegazione: "",
-      dataFineNegazione: "",
-      noteNegazione:"Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      dataNegazione: null,
+      motivoNegazione: null,
+      dataFineNegazione: null,
+      noteNegazione:
+        "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+
+      dataSospensione: "11/11/1111",
+      motivoSospensione: "1111111111111111111",
+      dataFineSospensione: "11/11/1111",
+      noteSospensione:
+        "Note relative alla sospensione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       importiSpettanti: [
         {

@@ -5,15 +5,40 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      INFORMAZIONI_GENERALI: "Informazioni generali",
+      MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO",
+      DATA_DECORRENZA_PAGAMENTO: "Data decorrenza pagamento",
+      DATA_CHIUSURA_UFFICIO: "Data chiusura ufficio",
+      NUMERO_E_DATA_PROTOCOLLO: " Numero e data protocollo",
+      LEGALI_RAPPRESENTANTI: "Legali rappresentanti",
+      MODALITA_PAGAMENTO:"Modalita pagamento",
+      INTESTATARIO_CONTO:"Intestatario conto",
+      RITENUTA_DI_CATEGORIA:"Ritenuta di categoria",
+      RICORSO:"Ricorso",
+      DATA_RICORSO:"Data Ricorso",
+      MOTIVO_RICORSO:"Motivo ricorso",
+      ESITO_RICORSO:"Esito ricorso",
 
-      LIQUIDAZIONI_ANTECEDENTI_INCISO:"Liquidazioni antecedenti IN-CI-SO",
-      STORICO_DECRETI:"Storico decreti",
-      ELENCO_DOCUMENTAZIONE:"Elenco documentazione",
-      ELENCO_DOMANDE:"Elenco domande",
+      DATI: "Dati",
 
-      DECORRENZA_ASSEGNO_DI_CURA:"Decorrenza assegno di cura",
-      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:"Decorrenza permanenza casa di lungodegenza",
-      
+      REVOCA_PRESTAZIONE: "Revoca prestazione",
+      SOSPENSIONE_PRESTAZIONE: "Sospensione prestazione",
+      NEGAZIONE_PRESTAZIONE: "Negazione prestazione",
+
+      PREDISPONI_NEGAZIONE_PRESTAZIONE: "Predisponi negazione prestazione",
+      PREDISPONI_REVOCA_PRESTAZIONE: "Predisponi revoca prestazione",
+      MODIFICA_NEGAZIONE_PRESTAZIONE: "Modifica negazione prestazione",
+      MODIFICA_SOSPENSIONE_PRESTAZIONE: "Modifica sospensione prestazione",
+
+      LIQUIDAZIONI_ANTECEDENTI_INCISO: "Liquidazioni antecedenti IN-CI-SO",
+      STORICO_DECRETI: "Storico decreti",
+      ELENCO_DOCUMENTAZIONE: "Elenco documentazione",
+      ELENCO_DOMANDE: "Elenco domande",
+
+      DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
+        "Decorrenza permanenza casa di lungodegenza",
+
       IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
         "Importo ritenuta di categoria (quota mensile)",
       ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI:
@@ -511,15 +536,40 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      INFORMAZIONI_GENERALI: "Informazioni generali DE",
+      MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO DE",
+      DATA_DECORRENZA_PAGAMENTO: "Data decorrenza pagamento DE",
+      DATA_CHIUSURA_UFFICIO: "Data chiusura ufficio DE",
+      NUMERO_E_DATA_PROTOCOLLO: " Numero e data protocollo DE",
+      LEGALI_RAPPRESENTANTI: "Legali rappresentanti DE",
+      MODALITA_PAGAMENTO:"Modalita pagamento DE",
+      INTESTATARIO_CONTO:"Intestatario conto DE",
+      RITENUTA_DI_CATEGORIA:"Ritenuta di categoria DE",
+      RICORSO:"Ricorso DE",
+      DATA_RICORSO:"Data Ricorso DE",
+      MOTIVO_RICORSO:"Motivo ricorso DE",
+      ESITO_RICORSO:"Esito ricorso DE",
 
-      LIQUIDAZIONI_ANTECEDENTI_INCISO:"Liquidazioni antecedenti IN-CI-SO DE",
-      STORICO_DECRETI:"Storico decreti DE",
-      ELENCO_DOCUMENTAZIONE:"Elenco documentazione DE",
-      ELENCO_DOMANDE:"Elenco domande DE",
+      DATI: "Dati DE",
 
 
-      DECORRENZA_ASSEGNO_DI_CURA:"Decorrenza assegno di cura DE",
-      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:"Decorrenza permanenza casa di lungodegenza DE",
+      REVOCA_PRESTAZIONE: "Revoca prestazione DE",
+      SOSPENSIONE_PRESTAZIONE: "Sospensione prestazione DE",
+      NEGAZIONE_PRESTAZIONE: "Negazione prestazione DE",
+
+      PREDISPONI_NEGAZIONE_PRESTAZIONE: "Predisponi negazione prestazione DE",
+      PREDISPONI_REVOCA_PRESTAZIONE: "Predisponi revoca prestazione DE",
+      MODIFICA_NEGAZIONE_PRESTAZIONE: "Modifica negazione prestazione DE",
+      MODIFICA_SOSPENSIONE_PRESTAZIONE: "Modifica sospensione prestazione DE",
+
+      LIQUIDAZIONI_ANTECEDENTI_INCISO: "Liquidazioni antecedenti IN-CI-SO DE",
+      STORICO_DECRETI: "Storico decreti DE",
+      ELENCO_DOCUMENTAZIONE: "Elenco documentazione DE",
+      ELENCO_DOMANDE: "Elenco domande DE",
+
+      DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura DE",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
+        "Decorrenza permanenza casa di lungodegenza DE",
 
       IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
         "Importo ritenuta di categoria (quota mensile) DE",
