@@ -227,6 +227,59 @@ mochDbTable = function(table) {
   ];
 
   // ---------------------------------------------------
+  // EVIDENZE
+  // ---------------------------------------------------
+  let tabEvidenze = [
+    {
+      DataDecorrenza: "12/05/2015",
+      TipoEvidenza: "Controllo reddito",
+      Descrizione: "Controllo reddito – anno successivo",
+      DataScadenza: "12/07/2013",
+      Posizione: "8798548",
+      Cognome: "Rossi",
+      Nome: "Mario",
+      CodiceFiscale: "RSSMRA70A41F2052",
+      Dettaglio:
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+    },
+    {
+      DataDecorrenza: "30/06/2015",
+      TipoEvidenza: "Importo da recuperare",
+      Descrizione: "Importo da recuperare – liquidazione",
+      DataScadenza: "31/12/2015",
+      Posizione: "1258745",
+      Cognome: "Verde",
+      Nome: "Mario",
+      CodiceFiscale: "RSSMRA70A41F2052",
+      Dettaglio:
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+    },
+    {
+      DataDecorrenza: "03/07/2018",
+      TipoEvidenza: "Importo da recuperare",
+      Descrizione: "Importo da recuperare – liquidazione",
+      DataScadenza: "31/12/2015",
+      Posizione: "1258745",
+      Cognome: "Alfano",
+      Nome: "Camillo",
+      CodiceFiscale: "LFNCLL60DE026T",
+      Dettaglio:
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+    },
+    {
+      DataDecorrenza: "03/07/2018",
+      TipoEvidenza: "Importo da recuperare",
+      Descrizione: "Importo da recuperare – liquidazione",
+      DataScadenza: "31/12/2015",
+      Posizione: "1258745",
+      Cognome: "Alfano",
+      Nome: "Camillo",
+      CodiceFiscale: "LFNCLL60DE026T",
+      Dettaglio:
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+    }
+  ];
+  // ---------------------------------------------------
   // ASSOCIAZIONI
   // ---------------------------------------------------
   let tabAssociazioni = [
@@ -2057,8 +2110,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
-
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -2489,7 +2540,6 @@ mochDbTable = function(table) {
           Note: "eeqrtwtyre"
         }
       ],
-
 
       Indirizzi: [
         {
@@ -2924,7 +2974,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -3329,7 +3378,6 @@ mochDbTable = function(table) {
           Note: "eeqrtwtyre"
         }
       ],
-
 
       Indirizzi: [
         {
@@ -3765,7 +3813,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -4170,7 +4217,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -4572,7 +4618,6 @@ mochDbTable = function(table) {
           Note: "eeqrtwtyre"
         }
       ],
-
 
       Indirizzi: [
         {
@@ -5008,7 +5053,6 @@ mochDbTable = function(table) {
         }
       ],
 
-
       Indirizzi: [
         {
           Tipo: "Indirizzo abitazione",
@@ -5126,6 +5170,9 @@ mochDbTable = function(table) {
     case "associazioni":
       return tabAssociazioni;
       break;
+    case "evidenze":
+      return tabEvidenze;
+      break;
     case "liquidazioni":
       return tabLiquidazioni;
       break;
@@ -5136,6 +5183,60 @@ mochDbTable = function(table) {
       alert("Tabella In MochDb HTTP inesistente");
       break;
   }
+};
+
+/**
+ * evidenze - i servizi http per la gestione delle evidenze
+ *
+ */
+
+evidenze = function($http) {
+  return {
+    //----------------------------------
+    // Chiamata Get Standard
+    //----------------------------------
+    find: function(url, data) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("evidenze");
+        return response;
+      }
+
+      $http
+        .get(url, data, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("CallBack su successo di chiamata ");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("CallBack su errore di chiamata ");
+        });
+    },
+
+    //----------------------------------
+    // Ricerca in Base Dati per Codice Fiscale
+    //----------------------------------
+    findCodFis: function(url, cCodFis) {
+      if (url == "mockUrl") {
+        let response = mochDbTable("associazioni");
+
+        return response.find(function(obj) {
+          return obj.CodiceFiscale === cCodFis;
+        });
+      }
+
+      $http
+        .get(url, cCodFis, config)
+        .success(function(data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          alert("CallBack su successo di chiamata ");
+        })
+        .error(function(data, status, header, config) {
+          //messaggio di errore per questo post
+          alert("CallBack su errore di chiamata ");
+        });
+    }
+  };
 };
 
 /**
@@ -5545,6 +5646,7 @@ funzionalitaNonImplementata = function() {
 
 function httpServices($http) {
   return {
+    evidenze: evidenze($http),
     liquidazioni: liquidazioni($http),
     associazioni: associazioni($http),
     domande: domande($http),

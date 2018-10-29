@@ -205,7 +205,9 @@
       })
       .state("evidenze.ricerca_evidenza", {
         url: "/ricerca_evidenza",
-        templateUrl: "/views/ricerca_evidenza.html"
+        templateUrl: "/views/ricerca_evidenza.html",
+        controller: "evidenzeCtrl",
+
       })
       .state("evidenze.nuova_evidenza", {
         url: "/nuova_evidenza",

@@ -5,19 +5,29 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+
+      DAL:"dal",
+      AL:"al",
+
+      TIPO_PRESTAZIONE: "Tipo prestazione",
+      DATA_CHIUSURA: "Data chiusura",
+      TIPO_EVIDENZA: "Tipo evidenza",
+      DETTAGLIO:"Dettaglio",
+
+
       INFORMAZIONI_GENERALI: "Informazioni generali",
       MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO",
       DATA_DECORRENZA_PAGAMENTO: "Data decorrenza pagamento",
       DATA_CHIUSURA_UFFICIO: "Data chiusura ufficio",
       NUMERO_E_DATA_PROTOCOLLO: " Numero e data protocollo",
       LEGALI_RAPPRESENTANTI: "Legali rappresentanti",
-      MODALITA_PAGAMENTO:"Modalita pagamento",
-      INTESTATARIO_CONTO:"Intestatario conto",
-      RITENUTA_DI_CATEGORIA:"Ritenuta di categoria",
-      RICORSO:"Ricorso",
-      DATA_RICORSO:"Data Ricorso",
-      MOTIVO_RICORSO:"Motivo ricorso",
-      ESITO_RICORSO:"Esito ricorso",
+      MODALITA_PAGAMENTO: "Modalita pagamento",
+      INTESTATARIO_CONTO: "Intestatario conto",
+      RITENUTA_DI_CATEGORIA: "Ritenuta di categoria",
+      RICORSO: "Ricorso",
+      DATA_RICORSO: "Data Ricorso",
+      MOTIVO_RICORSO: "Motivo ricorso",
+      ESITO_RICORSO: "Esito ricorso",
 
       DATI: "Dati",
 
@@ -536,22 +546,32 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+
+      DAL:"dal DE",
+      AL:"al DE",
+
+
+      TIPO_PRESTAZIONE: "Tipo prestazione DE",
+      DATA_CHIUSURA: "Data chiusura DE",
+      TIPO_EVIDENZA: "Tipo evidenza DE",
+      DETTAGLIO:"Dettaglio DE",
+
+
       INFORMAZIONI_GENERALI: "Informazioni generali DE",
       MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO DE",
       DATA_DECORRENZA_PAGAMENTO: "Data decorrenza pagamento DE",
       DATA_CHIUSURA_UFFICIO: "Data chiusura ufficio DE",
       NUMERO_E_DATA_PROTOCOLLO: " Numero e data protocollo DE",
       LEGALI_RAPPRESENTANTI: "Legali rappresentanti DE",
-      MODALITA_PAGAMENTO:"Modalita pagamento DE",
-      INTESTATARIO_CONTO:"Intestatario conto DE",
-      RITENUTA_DI_CATEGORIA:"Ritenuta di categoria DE",
-      RICORSO:"Ricorso DE",
-      DATA_RICORSO:"Data Ricorso DE",
-      MOTIVO_RICORSO:"Motivo ricorso DE",
-      ESITO_RICORSO:"Esito ricorso DE",
+      MODALITA_PAGAMENTO: "Modalita pagamento DE",
+      INTESTATARIO_CONTO: "Intestatario conto DE",
+      RITENUTA_DI_CATEGORIA: "Ritenuta di categoria DE",
+      RICORSO: "Ricorso DE",
+      DATA_RICORSO: "Data Ricorso DE",
+      MOTIVO_RICORSO: "Motivo ricorso DE",
+      ESITO_RICORSO: "Esito ricorso DE",
 
       DATI: "Dati DE",
-
 
       REVOCA_PRESTAZIONE: "Revoca prestazione DE",
       SOSPENSIONE_PRESTAZIONE: "Sospensione prestazione DE",
