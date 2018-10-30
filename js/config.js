@@ -201,13 +201,36 @@
       .state("evidenze", {
         abstract: true,
         url: "/evidenze",
-        templateUrl: "/views/common/content.html"
+        templateUrl: "/views/common/content.html",
+        controller: "evidenzeCtrl"
       })
       .state("evidenze.ricerca_evidenza", {
         url: "/ricerca_evidenza",
         templateUrl: "/views/ricerca_evidenza.html",
-        controller: "evidenzeCtrl",
 
+      })
+      .state("evidenze.visualizza_evidenza", {
+        url: "/visualizza_evidenza",
+        templateUrl: "/views/visualizza_evidenza.html",
+        controller: "visualizzaEvidenzaCtrl",
+        params: {
+          datiAssistito: null
+        },
+        resolve: {
+          runMode: function() {
+            return "VISUALIZZA";
+          }
+        }
+      })
+      .state("evidenze.inserimento_evidenza", {
+        url: "/inserimento_posizione",
+        templateUrl: "/views/visualizza_evidenza.html",
+        controller: "visualizzaEvidenzaCtrl",
+        resolve: {
+          runMode: function() {
+            return "NUOVOINSERIMENTO";
+          }
+        }
       })
       .state("evidenze.nuova_evidenza", {
         url: "/nuova_evidenza",
@@ -249,6 +272,9 @@
         url: "/visualizza_associazione",
         templateUrl: "/views/visualizza_associazione.html",
         controller: "visualizzaAssociazioneCtrl",
+        params: {
+          datiAssistito: null
+        },
         resolve: {
           runMode: function() {
             return "VISUALIZZA";

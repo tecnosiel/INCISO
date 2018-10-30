@@ -6,6 +6,16 @@ function config($translateProvider) {
   $translateProvider
     .translations("it", {
 
+      LETTERA_INVIATA:"Lettera inviata",
+      UTENTE:"Utente",
+      NOTE_DI_CHIUSURA : "Note di chiusura",
+
+      CANCELLA_EVIDENZA : "Cancella evidenza",
+      DATI_EVIDENZA :"Dati evidenza",
+      ELIMINA_POSIZIONE:"Elimina posizione",
+
+      VISUALIZZA_EVIDENZA:"Visualizza evidenza",
+
       DAL:"dal",
       AL:"al",
 
@@ -13,6 +23,11 @@ function config($translateProvider) {
       DATA_CHIUSURA: "Data chiusura",
       TIPO_EVIDENZA: "Tipo evidenza",
       DETTAGLIO:"Dettaglio",
+
+      PRESTAZIONE_DI_RIFERIMENTO : "Prestazione di riferimento",
+      DATA_DOMANDA_DI_RIFERIMENTO : "Data domanda di riferimento",
+      DATA_SCADENZA_EVIDENZA : "Data scadenza evidenza",
+      DATA_CHIUSURA_EVIDENZA : "Data chiusura evidenza",
 
 
       INFORMAZIONI_GENERALI: "Informazioni generali",
@@ -546,6 +561,16 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      LETTERA_INVIATA:"Lettera inviata DE",
+
+      UTENTE:"Utente DE",
+      NOTE_DI_CHIUSURA : "Note di chiusura DE",
+
+      CANCELLA_EVIDENZA : "Cancella evidenza DE",
+
+      DATI_EVIDENZA :"Dati evidenza DE",
+      ELIMINA_POSIZIONE:"Elimina posizione DE",
+      VISUALIZZA_EVIDENZA:"Visualizza evidenza DE",
 
       DAL:"dal DE",
       AL:"al DE",
@@ -556,6 +581,10 @@ function config($translateProvider) {
       TIPO_EVIDENZA: "Tipo evidenza DE",
       DETTAGLIO:"Dettaglio DE",
 
+      PRESTAZIONE_DI_RIFERIMENTO : "Prestazione di riferimento DE",
+      DATA_DOMANDA_DI_RIFERIMENTO : "Data domanda di riferimento DE",
+      DATA_SCADENZA_EVIDENZA : "Data scadenza evidenza DE",
+      DATA_CHIUSURA_EVIDENZA : "Data chiusura evidenza DE",
 
       INFORMAZIONI_GENERALI: "Informazioni generali DE",
       MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO DE",

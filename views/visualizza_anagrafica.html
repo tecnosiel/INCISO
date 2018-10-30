@@ -16,6 +16,8 @@
         <div ng-if="!inserimentoAnagrafe" class="row">
             <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
         </div>
+        
+        <!-- PULSANTE BLOCCA SBLOCCA -->
         <div ng-if="visShowPulsanti" class="row text-left">
             <div ng-if="!visDatiAssistito" class="col-sm-12">
                 <button class="btn btn-danger btnToggleBlock" ng-click="visDatiAssistitoToggle()">{{

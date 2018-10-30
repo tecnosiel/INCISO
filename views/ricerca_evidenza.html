@@ -52,14 +52,14 @@
                             <div class="input-group fullwidth">
                                 <span class="input-group-custom">{{ 'DAL' | translate }}</span>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
                                 </div>
                                 <span class="input-group-custom">{{ 'AL' | translate }}</span>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
@@ -72,14 +72,14 @@
                             <div class="input-group fullwidth">
                                 <span class="input-group-custom">{{ 'DAL' | translate }}</span>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
                                 </div>
                                 <span class="input-group-custom">{{ 'AL' | translate }}</span>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
@@ -91,14 +91,14 @@
                             <div class="input-group fullwidth">
                                 <span class="input-group-custom">{{ 'DAL' | translate }}</span>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
                                 </div>
                                 <span class="input-group-custom">{{ 'AL' | translate }}</span>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                    <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
@@ -108,7 +108,7 @@
                     </div>
                     <hr />
                     <div class="row">
-                        <div class="col-md-4 form-group">
+                        <div class="col-md-3 form-group">
                             <label>{{ 'COGNOME' |translate }}</label>
                             <input type="text" class="form-control" value="">
                         </div>
@@ -120,10 +120,10 @@
                             <label>{{ 'CODICE_FISCALE' |translate }}</label>
                             <input type="text" class="form-control" value="">
                         </div>
-                        <div class="col-md-2 form-group">
+                        <div class="col-md-3 form-group">
                             <label>{{ 'DATA_DI_NASCITA' |translate }}</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
                                 <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </span>
@@ -185,15 +185,19 @@
                                                 tooltip-append-to-body="true">
                                                 <i class="fa fa-info-circle"></i>
                                             </a>
-
                                         </td>
-                                        <td width='5%' class="text-center" style="font-size:18px"><a><i class="fa fa-eye"></i></a></td>
+
+                                        <td width='5%' class="text-center" style="font-size:18px">
+                                            <a ng-click="visualizzaEvidenza(item.CodiceFiscale)" ><i class="fa fa-eye"></i>
+                                            </a>
+                                        </td>
+                                     
                                         <td width='5%' class="text-center">
                                             <div class="checkbox"><input icheck type="checkbox" ng-model="tmp.xxx">
                                                 <i></i>
                                             </div>
-
                                         </td>
+
                                     </tr>
                                 </tbody>
                             </table>

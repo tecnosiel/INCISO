@@ -7,7 +7,8 @@ function evidenzeCtrl(
   $scope,
   httpServices,
   DTOptionsBuilder,
-  DTColumnDefBuilder
+  DTColumnDefBuilder,
+  $state
 ) {
   // https://www.datatables.net/reference/option/
   $scope.dtOptionsTabRicercaEvidenze = DTOptionsBuilder.newOptions()
@@ -24,14 +25,17 @@ function evidenzeCtrl(
     $scope.elencoEvidenze = httpServices.evidenze.find("mockUrl");
     debugger;
   };
-
-  $scope.findCodFis = function(cCodFis) {
-    $scope.datiAssociazione = httpServices.evidenze.findCodFis(
+  
+  $scope.visualizzaEvidenza = function(cCodFis) {
+    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
     );
+    debugger;
+    $state.go("evidenze.visualizza_evidenza", {
+      datiAssistito: $scope.datiAssistito
+    });
   };
-
 }
 
 /**

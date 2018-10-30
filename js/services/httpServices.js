@@ -232,27 +232,41 @@ mochDbTable = function(table) {
   let tabEvidenze = [
     {
       DataDecorrenza: "12/05/2015",
-      TipoEvidenza: "Controllo reddito",
-      Descrizione: "Controllo reddito – anno successivo",
+      TipoEvidenza: "Controllo reddito - xxxxxx",
+      Descrizione: "Controllo reddito – anno successivo - xxxxxxx",
       DataScadenza: "12/07/2013",
       Posizione: "8798548",
       Cognome: "Rossi",
       Nome: "Mario",
       CodiceFiscale: "RSSMRA70A41F2052",
       Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+      PrestazioneDiRiferimento: "xxxxx",
+      DataDomandaDiRiferimento: "xxx",
+      DataChiusura: "01/03/2001",
+      Utente: "",
+      NoteDiChiusura: "eqflkqwòelkòlqekqòàl",
+      LetteraInviata: "Si",
+      Note: "ek qwlòekàq  òlwkeòlqweòàlkq àòwlkeàòq lkweòàl"
     },
     {
       DataDecorrenza: "30/06/2015",
-      TipoEvidenza: "Importo da recuperare",
-      Descrizione: "Importo da recuperare – liquidazione",
+      TipoEvidenza: "Importo da recuperare-xxxxx",
+      Descrizione: "Importo da recuperare – liquidazione-xxxxxxx",
       DataScadenza: "31/12/2015",
       Posizione: "1258745",
       Cognome: "Verde",
       Nome: "Mario",
       CodiceFiscale: "RSSMRA70A41F2052",
       Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+      PrestazioneDiRiferimento: "",
+      DataDellaDomandaDiRiferimento: "",
+      DataChiusura: "01/03/2011",
+      Utente: "",
+      NoteDiChiusura: "welkràqwelkàl 02/02/2002",
+      LetteraInviata: "Si",
+      Note: "gkkggkgkgkgkgkgkkgkgkgkg"
     },
     {
       DataDecorrenza: "03/07/2018",
@@ -262,9 +276,16 @@ mochDbTable = function(table) {
       Posizione: "1258745",
       Cognome: "Alfano",
       Nome: "Camillo",
-      CodiceFiscale: "LFNCLL60DE026T",
+      CodiceFiscale: "LFNCLL60D03E026T",
       Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+      PrestazioneDiRiferimento: "",
+      DataDellaDomandaDiRiferimento: "",
+      DataChiusura: "",
+      Utente: "xxxxxxx",
+      NoteDiChiusura: "wlwqkràqòwelrkàòqelrà",
+      LetteraInviata: "Si",
+      Note: "11111111111111111111"
     },
     {
       DataDecorrenza: "03/07/2018",
@@ -274,9 +295,16 @@ mochDbTable = function(table) {
       Posizione: "1258745",
       Cognome: "Alfano",
       Nome: "Camillo",
-      CodiceFiscale: "LFNCLL60DE026T",
+      CodiceFiscale: "LFNCLL60D03E026T",
       Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>"
+        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+      PrestazioneDiRiferimento: "",
+      DataDellaDomandaDiRiferimento: "",
+      DataChiusura: "",
+      Utente: "yyyyyyyy",
+      NoteDiChiusura: "io sono una nota di chiusura",
+      LetteraInviata: "",
+      Note: "11111111144444444444411111111111"
     }
   ];
   // ---------------------------------------------------
@@ -850,7 +878,7 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   let tabDomande = [
     {
-      CodiceFiscale: "LFNCLL60D03E026Q",
+      CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "03/04/1960",
@@ -1384,7 +1412,7 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   let tabAnagrafe = [
     {
-      CodiceFiscale: "LFNCLL60D03E026Q",
+      CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
       Nome: "Camillo",
       DataDiNascita: "01/01/1930",
@@ -5218,9 +5246,11 @@ evidenze = function($http) {
     //----------------------------------
     findCodFis: function(url, cCodFis) {
       if (url == "mockUrl") {
-        let response = mochDbTable("associazioni");
+        let response = mochDbTable("evidenze");
 
         return response.find(function(obj) {
+          alert("2---" + obj.CodiceFiscale + "--" + cCodFis +"---")
+
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5275,6 +5305,8 @@ liquidazioni = function($http) {
         let response = mochDbTable("associazioni");
 
         return response.find(function(obj) {
+          alert("3---" + obj.CodiceFiscale + "--" + cCodFis +"---")
+
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5329,6 +5361,8 @@ associazioni = function($http) {
         let response = mochDbTable("associazioni");
 
         return response.find(function(obj) {
+          alert("4---" + obj.CodiceFiscale + "--" + cCodFis +"---")
+
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5382,6 +5416,8 @@ domande = function($http) {
         let response = mochDbTable("domande");
 
         return response.find(function(obj) {
+          alert("5---" + obj.CodiceFiscale + "--" + cCodFis +"---")
+
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5501,6 +5537,8 @@ _ricercaAnagraficaRicerca = function($http) {
         let response = mochDbTable("anagrafe");
 
         return response.find(function(obj) {
+          alert("6---" + obj.CodiceFiscale + "--" + cCodFis +"---")
+
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5615,6 +5653,7 @@ _ricercaPosizioniRicerca = function($http) {
         let response = mochDbTable("anagrafe");
 
         return response.find(function(obj) {
+          alert("1---" + obj.CodiceFiscale + "--" + cCodFis +"---")
           return obj.CodiceFiscale === cCodFis;
         });
       }

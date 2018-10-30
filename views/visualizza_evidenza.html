@@ -1,0 +1,269 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+
+    <header-component tipo="'Dettaglio'" titolo="'VISUALIZZA_EVIDENZA'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_posizione.html',descrizione:'RICERCA_POSIZIONE'}]"
+        active="Posizione mock 771723"></header-component>
+    <div class="col-lg-2">
+    </div>
+
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <!-- DATI-ASSISTITO -->
+            <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
+
+            <!-- DATI-ANAGRAFICI-ASSISTITO -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> {{ 'DATI_ANAGRAFICI_DELL_ASSISTITO' |translate }} &nbsp;</h5>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ibox-content" style="display:none;">
+
+                    <div ng-include="'views/partials/_dati_anagrafici_assistito.html'"></div>
+
+                    <div class="row m-t-sm">
+                        <div class="col-md-12">
+                            <div class="button-bar text-right">
+                                <a ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"" class="
+                                    btn btn-sm btn-primary">{{ 'VISUALIZZA_DATI_ANAGRAFICI' | translate }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> {{ 'DATI_EVIDENZA' |translate }} &nbsp;</h5>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ibox-content" style="display:block;">
+
+                    <!-- PULSANTE BLOCCA SBLOCCA -->
+                    <!-- <div ng-if="visShowPulsanti" class="row text-left"> -->
+                    <div class="row text-left">
+                        <div ng-if="!editEvidenza" class="col-sm-12">
+                            <button class="btn btn-danger btnToggleBlock" ng-click="editEvidenzaToggle()">{{
+                                'BLOCCA_CAMPI' | translate }}</button>
+                        </div>
+                        <div ng-if="editEvidenza" class="col-sm-12">
+                            <button class="btn btn-primary btnToggleBlock" ng-click="editEvidenzaToggle()">{{
+                                'SBLOCCA_CAMPI' | translate }}</button>
+                        </div>
+                    </div>
+
+                    <br>
+
+
+                    <!-- DATI-EVIDENZA -->
+
+                    <!-- <br>
+                    sssssssssssssssssss
+                    <br>
+                    {{evidenza}}
+                    <br>
+                    ggggggggggggggg
+                    <br> -->
+                    <div class="row">
+
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'DATA_DECORRENZA' | translate }}</label>
+                            <div ng-class="{datePicherDisabled : editEvidenza}" class="input-group date">
+                                <input type="text" ng-readonly="editEvidenza" class="form-control js-date" ng-model="evidenza.DataDecorrenza">
+                                <span ng-class="{datePicherDisabled : editEvidenza}" class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'TIPO_EVIDENZA' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="evidenza.TipoEvidenza" ng-readonly="editEvidenza">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'NUMERO_POSIZIONE' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="evidenza.Posizione" ng-readonly="editEvidenza">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>{{ 'DESCRIZIONE' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="evidenza.Descrizione" ng-readonly="editEvidenza">
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'PRESTAZIONE_DI_RIFERIMENTO' | translate }}</label>
+                            <input type="text" class="form-control intero" ng-model="evidenza.PrestazioneDiRiferimento"
+                                ng-readonly="editEvidenza">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'DATA_DOMANDA_DI_RIFERIMENTO' | translate }}</label>
+                            <div ng-class="{datePicherDisabled : editEvidenza}" class="input-group date">
+                                <input type="text" ng-readonly="editEvidenza" class="form-control js-date" ng-model="evidenza.DataDomandaDiRiferimento"
+                                    ng-readonly="editEvidenza">
+                                <span ng-class="{datePicherDisabled : editEvidenza}" class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'DATA_SCADENZA_EVIDENZA' | translate }}</label>
+                            <div ng-class="{datePicherDisabled : editEvidenza}" class="input-group date">
+                                <input type="text" ng-readonly="editEvidenza" class="form-control js-date" ng-model="evidenza.DataScadenza">
+                                <span ng-class="{datePicherDisabled : editEvidenza}" class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'DATA_CHIUSURA_EVIDENZA' | translate }}</label>
+                            <div ng-class="{datePicherDisabled : editEvidenza}" class="input-group date">
+                                <input type="text" ng-readonly="editEvidenza" class="form-control js-date" ng-model="evidenza.DataChiusura">
+                                <span ng-class="{datePicherDisabled : editEvidenza}" class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'NOTE_DI_CHIUSURA' | translate }}</label>
+                            <input type="text" class="form-control anno" ng-model="evidenza.NoteDiChiusura" ng-readonly="editEvidenza">
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label>{{ 'UTENTE' | translate }}</label>
+                            <input type="text" class="form-control anno" ng-model="evidenza.Utente" ng-readonly="editEvidenza">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4 form-group">
+                            <label>{{ "LETTERA_INVIATA" | translate}}</label>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="evidenza.LetteraInviata" type="radio" name="extracomunitario"
+                                                ng-disabled="editEvidenza" value="Si" ng-checked="datiAssistito.Extracomunitario == 'Si'">
+                                            <i></i>
+                                            {{ "SI" | translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="evidenza.LetteraInviata" type="radio" name="extracomunitario"
+                                                ng-disabled="editEvidenza" value="No" ng-checked="datiAssistito.Extracomunitario=='No'">
+                                            <i></i>
+                                            {{ "NO" | translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8 form-group">
+                            <label>{{ 'NOTE' | translate }}</label>
+                            <input type="text" class="form-control anno" ng-model="evidenza.Note" ng-readonly="editEvidenza">
+                        </div>
+                    </div>
+
+                </div>
+                <!-- SUBMIT BUTTON -->
+                <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
+                <div class="row text-right">
+                    <div ng-if="inserimentoAnagrafe || !editEvidenza" class="col-sm-12" style="margin-top:5px;margin-bottom:15px">
+                        <button type="submit" class="btn btn-primary" ng-click="salvaModulo()" ng-disabled="userForm.$invalid">{{
+                            'SALVA' | translate }}</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PULSANTI -->
+        <div class="m-t-md">
+            <div class="button-bar text-right">
+                <!-- inserisci nuova evidenza -->
+                <a class="btn btn-sm btn-primary" ng-click="cancellaEvidenza()" ui-sref="domande.nuova_domanda">{{"CANCELLA_EVIDENZA"
+                    |
+                    translate}}</a>
+
+                <!-- elimina genera comunicazione -->
+                <a class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#chiediConfermaComunicazione">Genera
+                    comunicazione</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal inmodal" id="chiediConfermaComunicazione" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Genera nuova comunicazione</h4>
+            </div>
+            <div class="modal-body">
+                <p>Se desideri associare la comunicazione ad una evidenza clicca su <strong>Seleziona evidenza</strong>.<br>
+                    Se desideri creare una nuova comunicazione senza evidenza clicca su <strong>Genera comunicazione</strong>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Seleziona evidenza</button>
+                <a type="button" href="genera_comunicazione.html" class="btn btn-primary">Genera comunicazione</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Custom scripts
+    $(document).ready(function () {
+
+        $('.ibox-title').click(function () {
+            var cl = $(this).find('.collapse-link');
+            var ibox = cl.closest('div.ibox');
+            var button = cl.find('i');
+            var content = ibox.find('div.ibox-content');
+            content.slideToggle(200);
+            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+            ibox.toggleClass('').toggleClass('border-bottom');
+            setTimeout(function () {
+                ibox.resize();
+                ibox.find('[id^=map-]').resize();
+            }, 50);
+        });
+
+        $('#chiediConfermaComunicazione').on('hidden.bs.modal', function (e) {
+            $('#evidenze').show()
+            $('#icon_evidenze').removeClass('fa-chevron-down');
+            $('#icon_evidenze').addClass('fa-chevron-up');
+            window.location = '#evidenze_top';
+        });
+
+
+
+    });
+
+</script>
