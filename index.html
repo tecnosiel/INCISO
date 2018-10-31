@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <base href="/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,8 +56,8 @@
 
 <!-- Angular App -->
 
-<body ng-app="inciso" ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy
-    id="page-top">
+<body ng-app="inciso" ng-style="CustomStyle" ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}"
+    landing-scrollspy id="page-top">
     <div ui-view></div>
 </body>
 
@@ -105,6 +105,10 @@
 <script src="js/ui-router/angular-ui-router.min.js"></script>
 <script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
 <script src="js/plugins/angular-idle/angular-idle.js"></script>
+
+<!-- Color Picher -->
+<link rel="stylesheet" href="http://web.hostdmk.net/github/colorpicker_v3/css/colorpicker.css" />
+<script src="http://web.hostdmk.net/github/colorpicker_v3/js/bootstrap-colorpicker-module.js"></script>
 
 <!-- Data Tables -->
 <script src="js/plugins/angular-datatables/angular-datatables.js"></script>
@@ -181,6 +185,8 @@
 
 <script src="js/controllers/mainCtrl.js"></script>
 <script src="js/controllers/translateCtrl.js"></script>
+<script src="js/controllers/loginCtrl.js"></script>
+<script src="js/controllers/settingCtrl.js"></script>
 
 <script src="js/controllers/domandeCtrl.js"></script>
 <script src="js/controllers/domandaCtrl.js"></script>
@@ -209,7 +215,9 @@
 
 <script src="js/controllers/partials/prestazioni/dettagliSingolaPrestazioneCtrl.js"></script>
 
-<!--[if (gt IE 9)|!(IE)]><!--> <script src="js/ie11/find.js"></script> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<script src="js/ie11/find.js"></script>
+<!--<![endif]-->
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css" rel="stylesheet">
 
@@ -404,6 +412,7 @@
                 this.value = this.value.slice(0, -1);
             }
         });
+
         $(document).on('keyup', '.importo', function (event) {
             var v = this.value;
             if (v.slice(-1) === ".") {
@@ -419,6 +428,24 @@
                 return;
             }
             var vvv = v.replace(/,/g, "");
+            if ($.isNumeric(vvv) === false) {
+                //elimina l'ultimo carattere inserito
+                this.value = this.value.slice(0, -1);
+            }
+        });
+        $(document).on('keyup', '.reale', function (event) {
+            debugger;
+            var v = this.value;
+            if (v.split('.').length > 2) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            if (v.substr(v.indexOf('.')).length > 3) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            var vvv = v.replace('.', '');
+
             if ($.isNumeric(vvv) === false) {
                 //elimina l'ultimo carattere inserito
                 this.value = this.value.slice(0, -1);

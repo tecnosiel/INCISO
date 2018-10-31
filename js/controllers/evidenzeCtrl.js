@@ -25,15 +25,18 @@ function evidenzeCtrl(
     $scope.elencoEvidenze = httpServices.evidenze.find("mockUrl");
     debugger;
   };
-  
+
   $scope.visualizzaEvidenza = function(cCodFis) {
     $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
       "mockUrl",
       cCodFis
     );
-    debugger;
+
+    $scope.evidenza = httpServices.evidenze.findCodFis("mockUrl", cCodFis);
+
     $state.go("evidenze.visualizza_evidenza", {
-      datiAssistito: $scope.datiAssistito
+      datiAssistito: $scope.datiAssistito,
+      evidenza: $scope.evidenza
     });
   };
 }

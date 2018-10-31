@@ -213,6 +213,18 @@
                     </ul>
                 </li>
 
+                <!-- setting---------------------------------------- -->
+
+                <li class="expandable" ng-class="{'selected': menuStato == 'setting'}" ng-click="menuStato = 'setting'">
+                    <a ng-mouseover="showPopover11=true;" ng-mouseleave="showPopover11=false;" ui-sref="settings.setting">
+                        <i class="fa fa-file-text"></i>
+                        <span class="nav-label">{{ 'SETTING' | translate }}</span>
+                        <div class="show-fumetti" ng-show="fumetti() && showPopover11">{{ 'SETTING' |
+                            translate }}</div>
+                    </a>
+                    <ul class="nav nav-second-level">
+                    </ul>
+                </li>
 
 
 

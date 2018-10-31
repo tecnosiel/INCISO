@@ -13,7 +13,8 @@
     "angular-popover", // angular-popover
     "datatables", // datatable
     "ng-currency", // ng-currency
-    "ui.select" //ui-select
+    "ui.select", //ui-select
+    'colorpicker.module' //colorpicher
   ]);
 })();
 

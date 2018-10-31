@@ -6,12 +6,45 @@
     </div>
 
 </div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
 
-            <!-- DATI-ASSISTITO -->
-            <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
+            <!-- DATI-ASSISTITO FASCICOLO-->
+            <!-- <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component> -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class=" ibox float-e-margins">
+                        <div class="ibox-title text-center">
+                            <h5>{{ 'DATI_ASSISTITO' |translate }}</h5>
+                        </div>
+                        <div class="ibox-content text-center">
+                            <h2 ng-if ="datiAssistito.CodiceFiscale" class="small"><strong>{{ datiAssistito.Cognome }} {{ datiAssistito.Nome }}</strong>&nbsp;-&nbsp;{{datiAssistito.CodiceFiscale}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=" ibox float-e-margins">
+                        <div class="ibox-title text-center">
+                            <h5>{{ 'NUMERO_POSIZIONE' |translate }}</h5>
+                        </div>
+                        <div class="ibox-content text-center">
+                            <h2 ng-if ="datiAssistito.CodiceFiscale">771723</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=" ibox float-e-margins">
+                        <div class="ibox-title text-center">
+                            <h5>{{ 'NUMERO_FASCICOLO' |translate }}</h5>
+                        </div>
+                        <div class="ibox-content text-center">
+                            <h2 ng-if ="datiAssistito.CodiceFiscale" class="small">2346282512</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- DATI-ANAGRAFICI-ASSISTITO -->
             <div class="ibox float-e-margins">

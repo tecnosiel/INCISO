@@ -5249,8 +5249,6 @@ evidenze = function($http) {
         let response = mochDbTable("evidenze");
 
         return response.find(function(obj) {
-          alert("2---" + obj.CodiceFiscale + "--" + cCodFis +"---")
-
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5305,8 +5303,6 @@ liquidazioni = function($http) {
         let response = mochDbTable("associazioni");
 
         return response.find(function(obj) {
-          alert("3---" + obj.CodiceFiscale + "--" + cCodFis +"---")
-
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5361,8 +5357,6 @@ associazioni = function($http) {
         let response = mochDbTable("associazioni");
 
         return response.find(function(obj) {
-          alert("4---" + obj.CodiceFiscale + "--" + cCodFis +"---")
-
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5416,8 +5410,6 @@ domande = function($http) {
         let response = mochDbTable("domande");
 
         return response.find(function(obj) {
-          alert("5---" + obj.CodiceFiscale + "--" + cCodFis +"---")
-
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5537,8 +5529,6 @@ _ricercaAnagraficaRicerca = function($http) {
         let response = mochDbTable("anagrafe");
 
         return response.find(function(obj) {
-          alert("6---" + obj.CodiceFiscale + "--" + cCodFis +"---")
-
           return obj.CodiceFiscale === cCodFis;
         });
       }
@@ -5653,7 +5643,6 @@ _ricercaPosizioniRicerca = function($http) {
         let response = mochDbTable("anagrafe");
 
         return response.find(function(obj) {
-          alert("1---" + obj.CodiceFiscale + "--" + cCodFis +"---")
           return obj.CodiceFiscale === cCodFis;
         });
       }

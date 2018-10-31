@@ -1,22 +1,21 @@
 <!-- condizione ricerca posizioni -->
-
 <div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="row">
     <div class="col-md-4 form-group">
         <label>{{ 'CODICE_FISCALE' | translate }}</label>
-        <input type="text" class="form-control" ng-model="$ctrl.findCodiceFiscale" placeholder="Codice fiscale da ricercare">
+        <input type="text" class="form-control" ng-model="$ctrl.findCodiceFiscale" placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}">
     </div>
     <div class="col-md-4 form-group">
         <label>{{ 'COGNOME' | translate }}</label>
-        <input type="text" class="form-control" ng-model="$ctrl.findCognome" placeholder="Cognome da ricercare">
+        <input type="text" class="form-control" ng-model="$ctrl.findCognome" placeholder="{{'COGNOME_DA_RICERCARE' | translate}}">
     </div>
     <div class="col-md-4 form-group">
         <label>{{ 'NOME' | translate }}</label>
-        <input type="text" class="form-control" ng-model="$ctrl.findNome" placeholder="Nome da ricercare">
+        <input type="text" class="form-control" ng-model="$ctrl.findNome" placeholder="{{'NOME_DA_RICERCARE' | translate}}">
     </div>
     <div class="col-md-4 form-group">
         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
         <div class="input-group date">
-            <input type="text" class="form-control js-date" ng-model="$ctrl.findDataDiNascita" placeholder="Data nascita da ricercare formato dd/MM/yyyy">
+            <input type="text" class="form-control js-date" ng-model="$ctrl.findDataDiNascita" placeholder="{{'DATA_NASCITA_DA_RICERCARE' | translate}}" placeholder="Data nascita da ricercare formato dd/MM/yyyy">
             <span class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </span>
@@ -59,7 +58,7 @@
     <div class="col-md-6 form-group">
         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
         <div class="input-group date">
-            <input type="text" class="form-control js-date" ng-model="$ctrl.findDataDiNascita" placeholder="{{'DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY' | translate}}">
+            <input type="text" class="form-control js-date" ng-model="$ctrl.findDataDiNascita" placeholder="{{'DATA_NASCITA_DA_RICERCARE' | translate}}">
             <span class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </span>

@@ -5,6 +5,29 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      SET_NEW_STYLE : "Applica nuovo style",
+      RESET_DEFAULT_STYLE : "Reset default style",
+      TEXT_COLOR:"Colore testo",
+
+
+      DIMENSIONE_CARATTERE:"Dimensione fonts",
+      ALTEZZA_INTERLINEA:"Altezza interlinea",
+      OPZIONE_1:"Opzione 1",
+      TIPOGRAFIA:"Tipografia",
+
+      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:"Selezionare i settaggi tipografici desiderati",
+
+      SETTING:"Setting",
+
+      BENVENUTI_IN_INCISO:"Benvenuti in INCISO",
+      BENVENUTI_IN_INCISO_SOTTOTITOLO:"Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi.",
+      ENTRA_NELLA_PROCEDURA:"Entra nella procedura",
+
+      CODICE_FISCALE_DA_RICERCARE:"Codice fiscale da ricercare",
+      COGNOME_DA_RICERCARE:"Cognome da ricercare",
+      NOME_DA_RICERCARE:"Nome da ricercare",
+      DATA_NASCITA_DA_RICERCARE :"Data nascita da ricercare",
+
 
       LETTERA_INVIATA:"Lettera inviata",
       UTENTE:"Utente",
@@ -513,7 +536,7 @@ function config($translateProvider) {
       GESTIONE_INDIRIZZI: "Gestione Indirizzi",
 
       // Label elementi menu
-      NUOVA_DOMANDA: "Nuova Domanda",
+      NUOVA_DOMANDA: "Nuova domanda",
 
       // -------
       POSIZIONE: "Posizione",
@@ -561,6 +584,31 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      SET_NEW_STYLE : "Applica nuovo style DE",
+      RESET_DEFAULT_STYLE : "Reset default style DE",
+      TEXT_COLOR:"Colore testo DE",
+
+      DIMENSIONE_CARATTERE:"Dimensione fonts DE",
+      ALTEZZA_INTERLINEA:"Altezza interlinea DE",
+      OPZIONE_1:"Opzione 1 DE",
+      TIPOGRAFIA:"Tipografia DE",
+
+
+      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:"Selezionare i settaggi tipografici desiderati DE",
+
+
+      SETTING:"Setting DE",
+
+      BENVENUTI_IN_INCISO:"Benvenuti in INCISO DE",
+      BENVENUTI_IN_INCISO_SOTTOTITOLO:"Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi DE.",
+      ENTRA_NELLA_PROCEDURA:"Entra nella procedura DE",
+
+      CODICE_FISCALE_DA_RICERCARE:"Codice fiscale da ricercare DE",
+      COGNOME_DA_RICERCARE:"Cognome da ricercare DE",
+      NOME_DA_RICERCARE:"Nome da ricercare DE",
+      DATA_NASCITA_DA_RICERCARE :"Data nascita da ricercare DE",
+
+
       LETTERA_INVIATA:"Lettera inviata DE",
 
       UTENTE:"Utente DE",
@@ -1077,7 +1125,7 @@ function config($translateProvider) {
       GESTIONE_INDIRIZZI: "Gestione Indirizzi DE",
 
       // Label elementi menu
-      NUOVA_DOMANDA: "Nuova Domanda DE",
+      NUOVA_DOMANDA: "Nuova domanda DE",
       // -------
       POSIZIONE: "Posizione DE",
       // -------

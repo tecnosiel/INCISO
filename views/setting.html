@@ -1,0 +1,185 @@
+<style>
+
+    @media ( max-width: 585px ) {
+    .input-group span.input-group-btn,.input-group input,.input-group button{
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
+    .input-group {
+        position: relative;   
+    }
+    .input-group span.data-up{
+        position: absolute;
+        top: 0;
+    }
+    .input-group span.data-dwn{
+        position: absolute;
+        bottom: 0;
+    }
+    .form-control.text-center {
+        margin: 34px 0;
+    }
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+        margin-left:0;
+    }
+
+}
+
+</style>
+<div class="row wrapper border-bottom white-bg page-heading">
+
+    <header-component tipo="'Generico'" titolo="'SETTING'"></header-component>
+
+    <div class="col-lg-2"></div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="settingCtrl">
+
+    <div class="row">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Font Family
+                </h5>
+            </div>
+            <div class="ibox-content">
+                <div class="m-b-sm form-group">
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <!-- ------------- -->
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input icheck ng-model="tmp.fontfamily" value="open sans" type="radio" name="fontfamily"
+                                        ng-checked="tmp.fontfamily=='open sans'">
+                                    <i></i>
+                                    Open Sans
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- ------------- -->
+                        <div class="col-md-2">
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input icheck ng-model="tmp.fontfamily" value="Helvetica Neue" type="radio" name="fontfamily"
+                                        ng-checked="tmp.fontfamily=='Helvetica Neue'">
+                                    <i></i>
+                                    Helvetica Neue
+                                </label>
+                            </div>
+                        </div>
+                        <!-- ------------- -->
+                        <div class="col-md-2">
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input icheck ng-model="tmp.fontfamily" value="Helvetica" type="radio" name="fontfamily"
+                                        ng-checked="tmp.fontfamily=='Helvetica'">
+                                    <i></i>
+                                    Helvetica
+                                </label>
+                            </div>
+                        </div>
+                        <!-- ------------- -->
+                        <div class="col-md-2">
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input icheck ng-model="tmp.fontfamily" value="sans-serif" type="radio" name="fontfamily"
+                                        ng-checked="tmp.fontfamily=='sans-serif'">
+                                    <i></i>
+                                    Sans-Serif
+                                </label>
+                            </div>
+                        </div>
+                        <!-- ------------- -->
+                        <div class="col-md-2">
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input icheck ng-model="tmp.fontfamily" value="Arial" type="radio" name="fontfamily"
+                                        ng-checked="tmp.fontfamily=='Arial'">
+                                    <i></i>
+                                    Arial
+                                </label>
+                            </div>
+                        </div>
+                        <!-- ------------- -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>{{ 'TIPOGRAFIA' | translate }}
+                    <small>{{'SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI' |
+                        translate }}</small>
+                </h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-12 b-r m-t-lg">
+                        <form role="form">
+                            <div class="row">
+
+                                <!-- ------------------------------- -->
+                                <div class="col-md-4 form-group">
+                                    <label>{{ 'DIMENSIONE_CARATTERE' | translate }}</label>
+                                    <!-- <input type="number" class="form-control" ng-model="tmp.fontsize"></div> -->
+
+                                    <div class="input-group number-spinner">
+                                        <span class="input-group-btn data-dwn">
+                                            <button class="btn btn-primary btn-info" ng-click="tmp.fontsize = (tmp.fontsize * 1 - 1).toFixed(2)"
+                                                data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                                        </span>
+                                        <input type="text" class="form-control text-center intero" ng-model="tmp.fontsize"
+                                            min="-10" max="40">
+                                        <span class="input-group-btn data-up">
+                                            <button class="btn btn-primary btn-info" ng-click="tmp.fontsize = (tmp.fontsize * 1 + 1).toFixed(2)"
+                                                data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- ------------------------------- -->
+
+                                <div class="col-md-4 form-group">
+                                    <label>{{ 'ALTEZZA_INTERLINEA' | translate }}</label>
+                                    <!-- <input type="text" class="form-control" ng-model="tmp.Interlinea"></div> -->
+                                    <div class="input-group number-spinner">
+                                        <span class="input-group-btn data-dwn">
+                                            <button class="btn btn-primary btn-info" ng-click="tmp.lineheight = (tmp.lineheight * 1 - 0.01).toFixed(2)"
+                                                data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                                        </span>
+                                        <input type="string" class="form-control text-center reale" ng-model="tmp.lineheight">
+                                        <span class="input-group-btn data-up">
+                                            <button class="btn btn-primary btn-info" ng-click="tmp.lineheight = (tmp.lineheight * 1 + 0.01).toFixed(2)"
+                                                data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- ------------------------------- -->
+                                <div class="col-md-4 form-group">
+                                    <label>{{ 'TEXT_COLOR' | translate }}</label>
+                                    <input type="text" colorpicker="hex" class="form-control" ng-model="tmp.color" />
+                                </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row text-right">
+    <div class="col-sm-12">
+            <button class="btn btn-primary btn-sm" id="settingSet" ng-click="resetStyle()">{{ 'RESET_DEFAULT_STYLE' | translate }}</button>
+            <button class="btn btn-primary btn-sm" id="settingSet" ng-click="setStyle()">{{ 'SET_NEW_STYLE' | translate }}</button>
+    </div>
+</div>
+
+</div>

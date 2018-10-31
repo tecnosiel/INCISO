@@ -44,10 +44,14 @@
                             <input type="text" class="form-control" value="">
                         </div>
 
+                    </div>
+
+                    <!-- ---------------- -->
+
+                    <div class="row">
 
 
-
-                        <div class="col-md-6 form-group">
+                        <div class=" col-md-4 form-group">
                             <label>{{ 'DATA_DECORRENZA' |translate }}</label>
                             <div class="input-group fullwidth">
                                 <span class="input-group-custom">{{ 'DAL' | translate }}</span>
@@ -66,8 +70,10 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="col-md-6 form-group">
+
+                    <!-- ---------------- -->
+
+                        <div class="col-md-4 form-group">
                             <label>{{ 'DATA_SCADENZA' |translate }}</label>
                             <div class="input-group fullwidth">
                                 <span class="input-group-custom">{{ 'DAL' | translate }}</span>
@@ -86,7 +92,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 form-group">
+
+                    <!-- ---------------- -->
+                        <div class="col-md-4 form-group">
                             <label>{{ 'DATA_CHIUSURA' |translate }}</label>
                             <div class="input-group fullwidth">
                                 <span class="input-group-custom">{{ 'DAL' | translate }}</span>
@@ -106,24 +114,29 @@
                             </div>
                         </div>
                     </div>
+                    <!-- ---------------- -->
+
                     <hr />
                     <div class="row">
-                        <div class="col-md-3 form-group">
+                        <div class="col-md-4 form-group">
                             <label>{{ 'COGNOME' |translate }}</label>
-                            <input type="text" class="form-control" value="">
+                            <input type="text" class="form-control" placeholder="{{ 'COGNOME_DA_RICERCARE' |translate }}"
+                                value="">
                         </div>
-                        <div class="col-md-3 form-group">
+                        <div class="col-md-4 form-group">
                             <label>{{ 'NOME' |translate }}</label>
-                            <input type="text" class="form-control" value="">
+                            <input type="text" class="form-control" placeholder="{{ 'NOME_DA_RICERCARE' |translate }}"
+                                value="">
                         </div>
-                        <div class="col-md-3 form-group">
+                        <div class="col-md-4 form-group">
                             <label>{{ 'CODICE_FISCALE' |translate }}</label>
-                            <input type="text" class="form-control" value="">
+                            <input type="text" class="form-control" placeholder="{{ 'CODICE_FISCALE_DA_RICERCARE' |translate }}"
+                                value="">
                         </div>
-                        <div class="col-md-3 form-group">
+                        <div class="col-md-4 form-group">
                             <label>{{ 'DATA_DI_NASCITA' |translate }}</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control js-date" placeholder="dd/MM/yyyy">
+                                <input type="text" class="form-control js-date" placeholder="{{ 'DATA_NASCITA_DA_RICERCARE' |translate }}">
                                 <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </span>
@@ -188,10 +201,10 @@
                                         </td>
 
                                         <td width='5%' class="text-center" style="font-size:18px">
-                                            <a ng-click="visualizzaEvidenza(item.CodiceFiscale)" ><i class="fa fa-eye"></i>
+                                            <a ng-click="visualizzaEvidenza(item.CodiceFiscale)"><i class="fa fa-eye"></i>
                                             </a>
                                         </td>
-                                     
+
                                         <td width='5%' class="text-center">
                                             <div class="checkbox"><input icheck type="checkbox" ng-model="tmp.xxx">
                                                 <i></i>

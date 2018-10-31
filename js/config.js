@@ -37,6 +37,32 @@
         templateUrl: "/views/home"
       })
 
+      // settings --------------------------------------------------------------
+      .state("settings", {
+        abstract: true,
+        url: "/settings",
+        templateUrl: "/views/common/content.html"
+      })
+
+      .state("settings.setting", {
+        url: "/setting",
+        templateUrl: "/views/setting.html"
+      })
+
+      // login --------------------------------------------------------------
+
+      .state("login", {
+        url: "/login",
+        templateUrl: "/views/login.html",
+        data: { pageTitle: "Login", specialClass: "gray-bg" }
+      })
+      // lockscreen --------------------------------------------------------------
+      .state("lockscreen", {
+        url: "/lockscreen",
+        templateUrl: "/views/lockscreen.html",
+        data: { pageTitle: "Lockscreen", specialClass: "gray-bg" }
+      })
+
       // anagrafica --------------------------------------------------------------
       .state("anagrafica", {
         abstract: true,
@@ -70,7 +96,7 @@
         controller: "visualizzaAnagrafeCtrl",
         params: {
           datiAssistito: null,
-          visShowPulsanti:null
+          visShowPulsanti: null
         },
         resolve: {
           runMode: function() {
@@ -108,7 +134,7 @@
         controller: "visualizzaAnagrafeCtrl",
         params: {
           datiAssistito: null,
-          visShowPulsanti:null
+          visShowPulsanti: null
         },
         resolve: {
           runMode: function() {
@@ -152,7 +178,7 @@
       .state("domande.nuova_domanda", {
         url: "/nuova_domanda",
         templateUrl: "/views/nuova_domanda.html",
-        data: { pageTitle: "Nuova Domanda" },
+        data: { pageTitle: "Nuova domanda" },
         resolve: {
           loadPlugin: function($ocLazyLoad) {
             // da verificare
@@ -206,15 +232,15 @@
       })
       .state("evidenze.ricerca_evidenza", {
         url: "/ricerca_evidenza",
-        templateUrl: "/views/ricerca_evidenza.html",
-
+        templateUrl: "/views/ricerca_evidenza.html"
       })
       .state("evidenze.visualizza_evidenza", {
         url: "/visualizza_evidenza",
         templateUrl: "/views/visualizza_evidenza.html",
         controller: "visualizzaEvidenzaCtrl",
         params: {
-          datiAssistito: null
+          datiAssistito: null,
+          evidenza: null
         },
         resolve: {
           runMode: function() {
@@ -365,22 +391,6 @@
             ]);
           }
         }
-      })
-
-      .state("logins", {
-        url: "/logins",
-        templateUrl: "/views/login.html",
-        data: { pageTitle: "Login", specialClass: "gray-bg" }
-      })
-      .state("login_two_columns", {
-        url: "/login_two_columns",
-        templateUrl: "/views/login_two_columns.html",
-        data: { pageTitle: "Login two columns", specialClass: "gray-bg" }
-      })
-      .state("lockscreen", {
-        url: "/lockscreen",
-        templateUrl: "/views/lockscreen.html",
-        data: { pageTitle: "Lockscreen", specialClass: "gray-bg" }
       });
   }
   angular

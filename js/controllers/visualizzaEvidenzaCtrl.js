@@ -19,10 +19,12 @@ function visualizzaEvidenzaCtrl(
     $scope.editEvidenza = false;
     $scope.inserimentoEvidenza = true;
     $scope.datiAssistito = [];
+    $scope.evidenza = null;
   } else {
     $scope.editEvidenza = true;
     $scope.inserimentoEvidenza = false;
     $scope.datiAssistito = $stateParams.datiAssistito;
+    $scope.evidenza = $stateParams.evidenza;
   }
 
   $scope.indietro = function() {

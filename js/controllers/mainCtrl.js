@@ -13,6 +13,11 @@ function MainCtrl(
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
+  $rootScope.CustomStyle = {
+    "background-color": null,
+    "font-size": null
+  };
+
   /**
    * Lingua partenza applicativo
    */
@@ -22,7 +27,6 @@ function MainCtrl(
   };
 
   $scope.fumetti = function() {
-  
     if ($("body").hasClass("mini-navbar")) {
       return true;
     }
@@ -104,7 +108,6 @@ function MainCtrl(
       cCodFis
     );
   };
-  
 }
 
 /**
