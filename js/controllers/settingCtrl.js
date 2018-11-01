@@ -4,16 +4,17 @@
  *
  */
 function settingCtrl($scope, $rootScope) {
-  $scope.tmp = {
-    fontfamily: "open sans",
-    fontsize: 13,
-    lineheight: 18.57,
-    color:"rgb(51, 51, 51)"
-  };
+  $scope.tmp = null;
 
-  $scope.resetStyle = function(){
-    
-  }
+  $scope.resetStyle = function() {
+    $scope.tmp = {
+      fontfamily: "open sans",
+      fontsize: 13,
+      lineheight: 18.57,
+      color: "rgb(51, 51, 51)"
+    };
+    $scope.setStyle();
+  };
 
   $scope.setStyle = function() {
     if ($scope.tmp.fontfamily) {
@@ -27,11 +28,13 @@ function settingCtrl($scope, $rootScope) {
         ($scope.tmp.lineheight * 1).toFixed(2) + "px";
     }
     if ($scope.tmp.color) {
-      $rootScope.CustomStyle["color"] =$scope.tmp.color;
+      $rootScope.CustomStyle["color"] = $scope.tmp.color;
     }
 
     // $scope.$apply();
   };
+
+  $scope.resetStyle();
 }
 
 /**

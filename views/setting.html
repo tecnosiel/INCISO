@@ -131,13 +131,13 @@
 
                                     <div class="input-group number-spinner">
                                         <span class="input-group-btn data-dwn">
-                                            <button class="btn btn-primary btn-info" ng-click="tmp.fontsize = (tmp.fontsize * 1 - 1).toFixed(2)"
+                                            <button class="btn btn-primary btn-info" ng-click="tmp.fontsize = tmp.fontsize * 1 - 1"
                                                 data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
                                         </span>
                                         <input type="text" class="form-control text-center intero" ng-model="tmp.fontsize"
                                             min="-10" max="40">
                                         <span class="input-group-btn data-up">
-                                            <button class="btn btn-primary btn-info" ng-click="tmp.fontsize = (tmp.fontsize * 1 + 1).toFixed(2)"
+                                            <button class="btn btn-primary btn-info" ng-click="tmp.fontsize = tmp.fontsize * 1 + 1"
                                                 data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
                                         </span>
                                     </div>
@@ -177,7 +177,7 @@
 </div>
 <div class="row text-right">
     <div class="col-sm-12">
-            <button class="btn btn-primary btn-sm" id="settingSet" ng-click="resetStyle()">{{ 'RESET_DEFAULT_STYLE' | translate }}</button>
+            <button class="btn btn-default btn-sm" id="settingSet" ng-click="resetStyle()">{{ 'RESET_DEFAULT_STYLE' | translate }}</button>
             <button class="btn btn-primary btn-sm" id="settingSet" ng-click="setStyle()">{{ 'SET_NEW_STYLE' | translate }}</button>
     </div>
 </div>
