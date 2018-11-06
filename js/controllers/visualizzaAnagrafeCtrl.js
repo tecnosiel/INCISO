@@ -20,13 +20,13 @@ function visualizzaAnagrafeCtrl(
   if (runMode == "NUOVOINSERIMENTO") {
     $scope.visDatiAssistito = false;
     $scope.inserimentoAnagrafe = true;
-    $scope.asteriscoInserimento ="(*)"
+    $scope.asteriscoInserimento = "(*)";
     $scope.datiAssistito = $stateParams.datiAssistito;
     // $scope.datiAssistito = [];
   } else {
     $scope.visDatiAssistito = true;
     $scope.inserimentoAnagrafe = false;
-    $scope.asteriscoInserimento =""
+    $scope.asteriscoInserimento = "";
     $scope.datiAssistito = $stateParams.datiAssistito;
     $scope.visShowPulsanti = $stateParams.visShowPulsanti;
   }
@@ -235,6 +235,8 @@ function visualizzaAnagrafeCtrl(
     });
   };
 
+  // --------------
+
   $scope.dtOptionsTabEredi = DTOptionsBuilder.newOptions()
     .withOption("order", [1, "desc"])
     .withOption("pageLength", 5)
@@ -242,6 +244,38 @@ function visualizzaAnagrafeCtrl(
 
   $scope.dtColumnTabEredi = [DTColumnDefBuilder.newColumnDef(0).notSortable()];
 
+  // --------------
+
+  $scope.dtOptionsTabElencoLiquidazioni = DTOptionsBuilder.newOptions()
+    .withOption("order", [1, "desc"])
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
+
+  $scope.dtColumnTabElencoLiquidazioni = [
+    // DTColumnDefBuilder.newColumnDef(0).notSortable()
+  ];
+
+  // --------------
+
+  $scope.dtOptionsTabElencoImportiRiaccreditati = DTOptionsBuilder.newOptions()
+    .withOption("order", [1, "desc"])
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
+
+  $scope.dtColumnTabElencoImportiRiaccreditati = [
+    // DTColumnDefBuilder.newColumnDef(0).notSortable()
+  ];
+
+  // --------------
+
+  $scope.dtOptionsTabElencoImportiDaRecuperare = DTOptionsBuilder.newOptions()
+    .withOption("order", [1, "desc"])
+    .withOption("pageLength", 5)
+    .withOption("lengthChange", false);
+
+  $scope.dtColumnTabElencoImportiDaRecuperare = [
+    // DTColumnDefBuilder.newColumnDef(0).notSortable()
+  ];
   // function to submit the form after all validation has occurred
   $scope.submitForm = function(isValid) {
     // check to make sure the form is completely valid

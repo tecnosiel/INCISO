@@ -16,7 +16,7 @@
         <div ng-if="!inserimentoAnagrafe" class="row">
             <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
         </div>
-        
+
         <!-- PULSANTE BLOCCA SBLOCCA -->
         <div ng-if="visShowPulsanti" class="row text-left">
             <div ng-if="!visDatiAssistito" class="col-sm-12">
@@ -217,6 +217,7 @@
                     </div>
                 </div>
 
+                <!-- Pannello ALTRI DATI -->
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseAltriDati">
                         {{ "ALTRI_DATI" | translate}} {{asteriscoInserimento}}
@@ -350,7 +351,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- ------------------------------------------------------------------------- -->
+
+                <!-- Pannello ELENCO INDIRIZZI -->
                 <div class="panel panel-default m-t-lg">
 
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseIndirizzi">
@@ -404,7 +406,6 @@
                 </div>
 
                 <!-- Pannello Elenco Posizioni -->
-
                 <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseElencoPos">
                         {{ "ELENCO_POSIZIONI" | translate}}
@@ -451,6 +452,7 @@
                     </div>
                 </div>
 
+                <!-- Pannello ELENCO POSIZIONI  -->
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapsePensioni">
                         {{ "PENSIONI" | translate}}
@@ -511,6 +513,7 @@
 
                 </div>
 
+                <!-- Pannello DECESSO  -->
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseDecesso">
                         {{ "DECESSO" | translate}}
@@ -654,6 +657,7 @@
                     </div>
                 </div>
 
+                <!-- Pannello ELENCO REDDITI  -->
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseElencoRedditi">
                         {{ "ELENCO_REDDITI" | translate}}
@@ -719,6 +723,7 @@
                     </div>
                 </div>
 
+                <!-- Pannello ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA  -->
                 <div class="panel panel-default m-t-lg">
                     <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseAss">
                         {{ "ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA" | translate}}
@@ -798,7 +803,9 @@
                     </div>
                     <div id="collapsePosContabili" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <ul class="nav nav-tabs" role="tablist">
+
+
+                            <!-- <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active">
                                     <a href="#ElencoLiquidazioni" role="tab" data-toggle="tab">
                                         {{ ELENCO_LIQUIDAZIONI | translate}}
@@ -814,9 +821,31 @@
                                         {{ ELENCO_IMPORTI_DA_RECUPERARE | translate}}
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
 
-                            <div class="tab-content">
+                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" ng-class="{ active: !selTabPosContabili}">
+                                    <a role="tab" ng-click="selTabPosContabili = 0">
+                                        {{ 'ELENCO_LIQUIDAZIONI' | translate}}
+                                    </a>
+                                </li>
+                                <li role="presentation" ng-class="{ active: selTabPosContabili == 1 }">
+                                    <a role="tab" ng-click="selTabPosContabili = 1">
+                                        {{ 'ELENCO_IMPORTI_RIACCREDITATI' | translate}}
+                                    </a>
+                                </li>
+                                <li role="presentation" ng-class="{ active: selTabPosContabili == 2 }">
+                                    <a role="tab" ng-click="selTabPosContabili = 2">
+                                        {{ 'ELENCO_IMPORTI_DA_RECUPERARE' | translate}}
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+                            <!-- <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="ElencoLiquidazioni">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -835,6 +864,7 @@
                                                         <th class="col-md-1">{{ 'TOT_ANNO' | translate }}</th>
                                                     </tr>
                                                 </thead>
+                                                
                                                 <tbody ng-if="datiAssistito.CodiceFiscale">
                                                     <tr>
                                                         <td>01/01/2016</td>
@@ -888,6 +918,7 @@
                                                         <td class="text-right">€ 2.912,25</td>
                                                     </tr>
                                                 </tbody>
+
                                             </table>
                                         </div>
                                     </div>
@@ -964,7 +995,172 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div> -->
+
+                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+                            <div class="tab-content">
+
+                                <!-- pannello 1 : elenco liquidazioni -->
+                                <div role="tabpanel" class="tab-pane" ng-class="{ active: !selTabPosContabili }"
+                                    ng-show="!selTabPosContabili">
+
+                                    <table datatable="ng" dt-column-defs="dtColumnTabElencoLiquidazioni" dt-options="dtOptionsTabElencoLiquidazioni"
+                                        class="table table-bordered dataTables-paged order-desc" dt-instance="vm.dtInstance">
+
+                                        <thead>
+                                            <tr>
+                                                <th>{{ 'DATA_CALCOLO' | translate }}</th>
+                                                <th>{{ 'LIQUIDATO' | translate }}</th>
+                                                <th>{{ 'RIACCREDITO' | translate }}</th>
+                                                <th>{{ 'TRATTENUTA_DI_CATEGORIA' | translate }}</th>
+                                                <th>{{ 'IMPORTO_RECUPERATO_PER_COMPENSAZIONE' | translate }}</th>
+                                                <th>{{ 'NR_TRASFERIMENTO_FLUMO' | translate }}</th>
+                                                <th>{{ 'TOT_MESE' | translate }}</th>
+                                                <th>{{ 'TOT_ANNO' | translate }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in datiAssistito.Liquidazioni">
+
+
+                                                <td width="10%">{{item.DataCalcolo}}</td>
+                                                <td width="10%" class="text-right">{{item.Liquidato | currency : "€" }}</td>
+                                                <td width="10%" class="text-right">{{item.Riaccredito | currency : "€"
+                                                    }}</td>
+                                                <td width="10%" class="negative text-right">{{
+                                                    item.TrattenutaDiCategoria |
+                                                    currency : "€" }}</td>
+                                                <td width="15%" class="negative text-right">{{
+                                                    item.ImportoRecuperatoPerCompensazione | currency : "€" }}</td>
+                                                <td width="15%">
+                                                    <div><label>{{ 'NR_MANDATO' | translate}}</label> {{
+                                                        item.NrTrasferimentoFlumo.NrMandato }}</div>
+                                                    <label>{{ 'DATA' | translate}}</label> {{
+                                                    item.NrTrasferimentoFlumo.Data }}
+
+                                                </td>
+                                                <td width="10%" class="text-right">{{ item.TotMese | currency : "€" }}</td>
+                                                <td width="10%" class="text-right">{{ item.TotAnno | currency : "€" }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <!-- pannello 2 : elenco importi riaccreditati -->
+                                <div role="tabpanel" class="tab-pane" ng-class="{ active: selTabPosContabili == 1 }"
+                                    ng-show="selTabPosContabili == 1">
+
+                                    <div>
+
+                                        <table datatable="ng" dt-column-defs="dtColumnTabElencoImportiRiaccreditati"
+                                            dt-options="dtOptionsTabElencoImportiRiaccreditati" class="table table-bordered dataTables-paged order-desc"
+                                            dt-instance="vm.dtInstanceTabElencoImportiRiaccreditati">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ 'DATA_CALCOLO' | translate }}</th>
+                                                    <th>{{ 'IMPORTO_RIACCREDITATO' | translate }}</th>
+                                                    <th>{{ 'DATA_LIQUIDAZIONE_ARRETRATO' | translate }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in datiAssistito.ElencoImportiRiaccreditati">
+
+
+                                                    <td width="33%">{{item.DataRiaccredito}}</td>
+                                                    <td width="33%" class="text-right">{{item.ImportoRiaccreditato |
+                                                        currency : "€" }}</td>
+                                                    <td width="34%" class="text-right">{{item.DataLiquidazioneArretrato
+                                                        }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-sm-12 text-right">
+                                        <a type="button" class="btn btn-primary btn-sm" ui-sref="anagrafica.modifica_importo_riaccreditato({datiAssistito: datiAssistito})">
+                                            {{ 'PREDISPONI_IMPORTO_RIACCREDITATO' | translate }}
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <!-- pannello 3 : elenco importi da recuperare -->
+                                <div role="tabpanel" class="tab-pane" ng-class="{ active: selTabPosContabili == 2 }"
+                                    ng-show="selTabPosContabili == 2">
+
+                                    <div>
+
+
+                                        <table datatable="ng" dt-column-defs="dtColumnTabElencoImportiRiaccreditati"
+                                            dt-options="dtOptionsTabElencoImportiRiaccreditati" class="table table-bordered dataTables-paged order-desc"
+                                            dt-instance="vm.dtInstanceTabElencoImportiRiaccreditati">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ 'DATA_ULTIMA_MODIFICA' | translate }}</th>
+                                                    <th>{{ 'TIPO_DI_RECUPERO' | translate }}</th>
+                                                    <th>{{ 'TOT_DA_RECUPERARE' | translate }}</th>
+                                                    <th>{{ 'RECUPERATO' | translate }}</th>
+                                                    <th>{{ 'RESTITUTO' | translate }}</th>
+                                                    <th>{{ 'RIMANENTE_DA_RECUPERARE' | translate }}</th>
+                                                    <th>{{ 'NOTE' | translate }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in datiAssistito.ElencoImportiDaRecuperare">
+
+
+                                                    <td width="15%">{{ item.DataUltimaModifica}}</td>
+                                                    <td width="15%" class="text-right">{{ item.TipoDiRecupero }}</td>
+                                                    <td width="20%">
+
+                                                        <div>
+                                                            <label>{{ 'CAPITALE' | translate }}</label>
+                                                            {{ item.TotDaRecuperare.Capitale | currency : "€" }}
+                                                        </div>
+                                                        <div>
+                                                            <label>{{ 'INTERESSI_LEGALI' | translate }}</label>
+                                                            {{ item.TotDaRecuperare.InteressiLegali | currency : "€" }}
+                                                        </div>
+                                                        <label>{{ 'INTERESSI_DI_RATEIZZAZIONE' | translate }}</label>{{
+                                                        item.TotDaRecuperare.InteressiDiRateizzazione | currency : "€"
+                                                        }}
+
+                                                    </td>
+                                                    <td width="15%" class="text-right">{{ item.Recuperato }}</td>
+                                                    <td width="15%" class="text-right">{{ item.Restituito }}</td>
+                                                    <td width="10%" class="text-right">{{ item.RimanenteDaRecuperare }}</td>
+                                                    <td width="10%" class="text-right">{{ item.Note }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-sm-12 text-right">
+                                        <a type="button" class="btn btn-primary btn-sm" ui-sref="anagrafica.modifica_importo_da_recuperare({datiAssistito: datiAssistito})">
+                                            {{ 'PREDISPONI_IMPORTO_DA_RECUPERARE' | translate }}
+                                        </a>
+
+                                        <a type="button" class="btn btn-primary btn-sm" ui-sref="anagrafica.modifica_importo_restituito({datiAssistito: datiAssistito})">
+                                            {{ 'PREDISPONI_IMPORTO_RESTITUITO' | translate }}
+                                        </a>
+                                    </div>
+
+
+                                </div>
+
+
                             </div>
+
+
+
+                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+
+
                         </div>
                     </div>
                 </div>

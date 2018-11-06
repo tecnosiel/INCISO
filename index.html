@@ -184,9 +184,17 @@
 
 
 <script src="js/controllers/mainCtrl.js"></script>
+
 <script src="js/controllers/translateCtrl.js"></script>
 <script src="js/controllers/loginCtrl.js"></script>
 <script src="js/controllers/settingCtrl.js"></script>
+
+
+<script src="js/controllers/modifica_importo_restituitoCtrl.js"></script>
+<script src="js/controllers/modifica_importo_da_recuperareCtrl.js"></script>
+<script src="js/controllers/modifica_importo_riaccreditatoCtrl.js"></script>
+
+
 
 <script src="js/controllers/domandeCtrl.js"></script>
 <script src="js/controllers/domandaCtrl.js"></script>
@@ -413,7 +421,7 @@
             }
         });
 
-        $(document).on('keyup', '.importo', function (event) {
+        $(document).on('keyup', '.importo2', function (event) {
             var v = this.value;
             if (v.slice(-1) === ".") {
                 this.value = this.value.slice(0, -1);

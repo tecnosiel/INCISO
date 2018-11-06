@@ -105,6 +105,31 @@
         }
       })
 
+      .state("anagrafica.modifica_importo_riaccreditato", {
+        url: "/modifica_importo_riaccreditato",
+        templateUrl: "/views/modifica_importo_riaccreditato.html",
+        controller: "modifica_importo_riaccreditatoCtrl",
+        params: {
+          datiAssistito: null
+        }
+      })
+      .state("anagrafica.modifica_importo_da_recuperare", {
+        url: "/modifica_importo_da_recuperare",
+        templateUrl: "/views/modifica_importo_da_recuperare.html",
+        controller: "modifica_importo_da_recuperareCtrl",
+        params: {
+          datiAssistito: null
+        }
+      })
+      .state("anagrafica.modifica_importo_restituito", {
+        url: "/modifica_importo_restituito",
+        templateUrl: "/views/modifica_importo_restituito.html",
+        controller: "modifica_importo_restituitoCtrl",
+        params: {
+          datiAssistito: null
+        }
+      })
+
       // posizione --------------------------------------------------------------
       .state("posizione", {
         abstract: true,

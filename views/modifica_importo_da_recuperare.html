@@ -1,43 +1,73 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>Predisponi/modifica importo da recuperare</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">{{ 'HOME' | translate }}</a>
-            </li>
-            <li>
-                <a href="elabora_liquidazione_mensile.html">Elabora liquidazione mensile</a>
-            </li>
-            <li class="active">
-                <strong>Predisponi/modifica importo da recuperare</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
+<!-- Custom scripts -->
+<script>
 
+    $(document).ready(function () {
+
+
+        setTimeout(function () {
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                keyboardNavigation: false,
+                forceParse: true,
+                calendarWeeks: true,
+                autoclose: true
+                //orientation: 'bottom left'
+            });
+        }, 500);
+
+
+    });
+
+
+</script>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <header-component tipo="'Dettaglio'" titolo="'PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'elabora_liquidazione_mensile.html',descrizione:'ELABORA_LIQUIDAZIONE_MENSILE'}]"></header-component>
     </div>
+
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
+
     <div class="row">
-        <div ng-include="'views/partials/_pannello_sintesi_anagrafica.html'"></div>
+        <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
     </div>
+
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
+
                 <div class="ibox-title">
-                    <h5> Predisponi/modifica importo da recuperare </h5>
+                    <h5> {{ 'PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE' | translate }} </h5>
                 </div>
+
                 <div class="ibox-content">
                     <div class="row">
+
                         <div class="col-md-4 form-group">
-                            <label>Data (*)</label>
+
+
+                            <label>{{ 'DATA' |translate }} (*)</label>
                             <div>
                                 <div class="input-group date m-t-xs">
-                                    <input type="text" class="form-control js-date" value="01/06/2015"><span class="input-group-addon">
-                                        <i class="fa fa-calendar"></i></span>
+
+                                    <input type="text" class="form-control js-date" ng-model="Tmp.Data">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+
+
                                 </div>
+
                             </div>
+
+
+
+
                         </div>
+
                         <div class="col-md-4 form-group">
                             <label>Tipo di recupero (*)</label>
                             <select class="form-control">
@@ -48,54 +78,97 @@
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Data scadenza restituzione (*)</label>
+                            <label>{{ 'DATA_SCADENZA_RESTITUZIONE' |translate }} (*)</label>
                             <div>
                                 <div class="input-group date m-t-xs">
-                                    <input type="text" class="form-control" value="01/07/2015"> <span class="input-group-addon"><i
-                                            class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control js-date" ng-model="Tmp.DataScadenzaRestituzione">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Calcolo interessi</label>
+                            <label>{{ 'CALCOLO_INTERESSI' |translate }}</label>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="c"> <i></i> Sì </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="Tmp.CalcoloInteressi" type="radio" name="CalcoloInteressi"
+                                                value="Si" ng-checked="Tmp.CalcoloInteressi == 'Si'"> <i></i>
+                                            {{ 'SI' | translate }}
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"> <input icheck type="radio" name="c"> <i></i> No </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="Tmp.CalcoloInteressi" type="radio" name="CalcoloInteressi"
+                                                value="No" ng-checked="Tmp.CalcoloInteressi == 'No'"> <i></i>
+                                            {{ 'NO' | translate }}
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <h3>RATEIZZAZIONE</h3>
+
+                    <h3 style="text-transform: uppercase;">{{ 'RATEIZZAZIONE' |translate }}</h3>
+
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Rateizzazione</label>
+                            <label>{{ 'RATEIZZAZIONE' |translate }}</label>
                             <div class="row" id="payment-installments">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="rateizzazione" value="yes"><i></i>
-                                        Sì </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="Tmp.Rateizzazione" type="radio" name="Rateizzazione"
+                                                value="Si" ng-checked="Tmp.Rateizzazione == 'Si'"> <i></i>
+                                            {{ 'SI' | translate }}
+                                        </label>
+                                    </div>
+
                                 </div>
+
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="rateizzazione" value="no"
-                                            checked><i></i> No </div>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input icheck ng-model="Tmp.Rateizzazione" type="radio" name="Rateizzazione"
+                                                value="No" ng-checked="Tmp.Rateizzazione == 'No'"> <i></i>
+                                            {{ 'NO' | translate }}
+                                        </label>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="col-md-4 form-group">
-                            <label>Importo rata mensile</label>
-                            <div class="input-group"> <input type="text" class="form-control installment" disabled="disabled">
-                                <span class="input-group-addon">€</span></div>
+                            <label>{{ 'IMPORTO_RATA_MENSILE' | translate }}</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control installment text-right importo" ng-model="Tmp.ImportoRataMensile"
+                                    ng-currency currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                            </div>
                         </div>
+
                     </div>
+
+
+
+
                     <h3>DATI DECRETO</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Tipo decreto</label>
-                            <select class="form-control installment" disabled="disabled">
+                            <label>{{ 'TIPO_DECRETO' | translate }}</label>
+                            <select class="form-control installment" ng-disabled="Tmp.Rateizzazione == 'No'">
                                 <option>Seleziona</option>
                                 <option>Decreto per recupero</option>
                                 <option>Decreto rinuncia recupero</option>
@@ -103,11 +176,11 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label>Numero decreto</label>
-                            <input type="text" class="form-control installment" disabled="disabled" />
+                            <label>{{ 'NUMERO_DECRETO' | translate }}</label>
+                            <input type="text" class="form-control installment" ng-model="Tmp.NumeroDecreto" ng-disabled="Tmp.Rateizzazione == 'No'" />
                         </div>
                         <div class="col-md-4">
-                            <label>Data decreto</label>
+                            <label>{{ 'DATA_DECRETO' | translate }}</label>
                             <div>
                                 <div class="input-group date">
                                     <input type="text" class="form-control installment" disabled="disabled" value="01/07/2015"><span
@@ -121,45 +194,68 @@
                     </div>
                     <div class="row m-t-lg">
                         <div class="col-md-4 form-group">
-                            <label>Importo capitale da recuperare (*)</label>
-                            <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">€</span></div>
+                            <label>{{ 'IMPORTO_CAPITALE_DA_RECUPERARE' | translate }} (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoCapitaleDaRecuperare" ng-currency
+                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                            </div>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Importo interessi legali da recuperare</label>
-                            <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">€</span></div>
+                            <label>{{ 'IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE' | translate }}</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoInteressiLegaliDaRecuperare" ng-currency
+                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                            </div>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Importo interessi di rateizzazione</label>
-                            <div class="input-group"> <input type="text" class="form-control"> <span class="input-group-addon">€</span></div>
+                            <label>{{'IMPORTO_INTERESSI_DI_RATEIZZAZIONE' | translate}}</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoInteressiDiRateizzazione" ng-currency
+                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group pull-right">
-                            <label>Importo totale da recuperare</label>
-                            <div class="input-group m-b"> <input type="text" class="form-control" readonly> <span class="input-group-addon">€</span></div>
+                            <label>{{'IMPORTO_TOTALE_DA_RECUPERARE' | translate}}</label>
+                            <div class="input-group m-b">
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoTotaleDaRecuperare" ng-currency
+                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-separator"></div>
                     </div>
-                    <h3 class="m-t-lg">Rinuncia alla riscossione coattiva</h3>
+                    <h3 class="m-t-lg">{{'RINUNCIA_ALLA_RISCOSSIONE_COATTIVA' | translate}}</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label></label>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="rinuncia"> <i></i> <strong>Sì</strong>
+                                    <div class="checkbox">
+                                        <input icheck ng-model="Tmp.RinunciaAllaRiscossioneCoattiva" type="radio" name="RinunciaAllaRiscossionecoattiva"
+                                            value="Si" ng-checked="Tmp.RinunciaAllaRiscossioneCoattiva == 'Si'"> <i></i>
+                                        <strong>{{ 'SI' | translate }}</strong>
+
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="rinuncia"> <i></i> <strong>No</strong>
+                                    <div class="checkbox">
+                                        <input icheck ng-model="Tmp.RinunciaAllaRiscossioneCoattiva" type="radio" name="RinunciaAllaRiscossionecoattiva"
+                                            value="No" ng-checked="Tmp.RinunciaAllaRiscossioneCoattiva == 'No'"> <i></i>
+                                        <strong>{{ 'NO' | translate }}</strong>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Tipo decreto</label>
-                            <select class="form-control">
+                            <label>{{'TIPO_DECRETO' | translate}}</label>
+                            <select class="form-control" ng-disabled="Tmp.RinunciaAllaRiscossioneCoattiva == 'Si'">
                                 <option>Seleziona</option>
                                 <option>Decreto 1</option>
                                 <option>Decreto 2</option>
@@ -167,17 +263,19 @@
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label>Numero decreto</label>
-                            <input type="text" class="form-control" />
+                            <label>{{'NUMERO_DECRETO' | translate}}</label>
+                            <input type="text" class="form-control" ng-disabled="Tmp.RinunciaAllaRiscossioneCoattiva == 'Si'" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Data decreto</label>
+                            <label>{{'DATA_DECRETO' | translate}}</label>
                             <div>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" value="01/07/2015"><span class="input-group-addon"><i
-                                            class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control" value="01/07/2015">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -185,35 +283,44 @@
                     <div class="row">
                         <div class="col-md-12 form-separator"></div>
                     </div>
-                    <h3 class="m-t-lg">Annullato</h3>
+                    <h3 class="m-t-lg">{{'ANNULLATO' | translate}}</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label></label>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="a"> <i></i> <strong>Sì</strong>
+                                    <div class="checkbox">
+                                        <input icheck ng-model="Tmp.Annullato" type="radio" name="Annullato" value="Si"
+                                            ng-checked="Tmp.Annullato == 'Si'"> <i></i>
+                                        <strong>{{ 'SI' | translate }}</strong>
                                     </div>
+
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="checkbox"><input icheck type="radio" name="a"> <i></i> <strong>No</strong>
+                                    <div class="checkbox">
+                                        <input icheck ng-model="Tmp.Annullato" type="radio" name="Annullato" value="Si"
+                                            ng-checked="Tmp.Annullato == 'No'"> <i></i>
+                                        <strong>{{ 'NO' | translate }}</strong>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-8 form-group">
-                            <label>Motivo annullamento</label>
-                            <input type="text" class="form-control" />
+                            <label>{{'MOTIVO_ANNULLAMENTO' | translate}}</label>
+                            <input type="text" class="form-control" ng-disabled="Tmp.Annullato == 'No'" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Note</h3> <textarea class="notes form-control"></textarea>
+                            <h3>{{'NOTE' | translate}}</h3> <textarea class="notes form-control"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="text-right m-t-lg col-md-12">
                             <a class="btn btn-white btn-sm main-button-padding" id="cancel" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Annulla</a>
-                            <a class="btn btn-primary btn-sm main-button-padding m-l-md" id="save" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Salva</a>
+                            <a class="
+                                btn btn-primary btn-sm main-button-padding m-l-md" id="save" ng-click="salvaModulo()"
+                                ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Salva</a>
                         </div>
                     </div>
                 </div>
@@ -221,18 +328,3 @@
         </div>
     </div>
 </div>
-<script>
-
-    $(document).ready(function () {
-        $("#payment-installments .iCheck-helper").click(function () {
-            //$("input[name='rateizzazione']").click(function(){
-            if ($('input:radio[name=rateizzazione]:checked').val() === 'no') {
-                //            if ($(this).val() === 'yes') {
-                $('.installment').attr('disabled', 'disabled');
-            }
-            else {
-                $('.installment').removeAttr('disabled', 'disabled');
-            }
-        });
-    });
-</script>

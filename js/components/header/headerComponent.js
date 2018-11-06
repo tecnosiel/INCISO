@@ -13,8 +13,9 @@ function headerComponent() {
     bindings: {
       tipo: "<",
       titolo: "<",
-      paths: "<",
-      active: "@"
+      paths: "<"
+      //,
+      // active: "@"
     },
     controller: headerController
   };

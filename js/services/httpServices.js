@@ -1820,6 +1820,67 @@ mochDbTable = function(table) {
           ]
         }
       ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -2219,6 +2280,67 @@ mochDbTable = function(table) {
                 "222222222lòkjòkljòlkjS leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
             }
           ]
+        }
+      ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
         }
       ],
 
@@ -2655,6 +2777,67 @@ mochDbTable = function(table) {
           ]
         }
       ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+    
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -3089,6 +3272,67 @@ mochDbTable = function(table) {
           ]
         }
       ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -3492,6 +3736,67 @@ mochDbTable = function(table) {
                 "Sed posuere co5555555555555 nsectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
             }
           ]
+        }
+      ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
         }
       ],
 
@@ -3928,6 +4233,67 @@ mochDbTable = function(table) {
           ]
         }
       ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+        }
+      ],
 
       CognomeAcquisito: "Alfano Acquisito",
       StatoCivile: "Coniugata",
@@ -4327,6 +4693,67 @@ mochDbTable = function(table) {
                 "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
             }
           ]
+        }
+      ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
         }
       ],
 
@@ -4732,6 +5159,67 @@ mochDbTable = function(table) {
                 "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
             }
           ]
+        }
+      ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
         }
       ],
 
@@ -5166,6 +5654,67 @@ mochDbTable = function(table) {
                 "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
             }
           ]
+        }
+      ],
+      Liquidazioni: [
+        {
+          DataCalcolo: "01/01/2016",
+          Liquidato: "864.00",
+          Riaccredito: "864.00",
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "1728.00",
+          TotAnno: "1728.00"
+        },
+        {
+          DataCalcolo: "01/02/2016",
+          Liquidato: "864.00",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: null,
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "864.00",
+          TotAnno: "2592.00"
+        },
+        {
+          DataCalcolo: "01/03/2016",
+          Liquidato: "320.25",
+          Riaccredito: null,
+          TrattenutaDiCategoria: "6.00",
+          ImportoRecuperatoPerCompensazione: "108.75",
+          NrTrasferimentoFlumo: { NrMandato: "32985432", Data: "12/07/2013" },
+          TotMese: "320.25",
+          TotAnno: "2912.25"
+        }
+      ],
+
+      ElencoImportiRiaccreditati: [
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "864",
+          DataLiquidazioneArretrato: "01/01/2016"
+        },
+
+        {
+          DataRiaccredito: "18/11/2015",
+          ImportoRiaccreditato: "111",
+          DataLiquidazioneArretrato: "01/01/2016"
+        }
+      ],
+      ElencoImportiDaRecuperare: [
+        {
+          DataUltimaModifica: "23/02/2016",
+          TipoDiRecupero: "compensazione",
+          TotDaRecuperare: {
+            Capitale: "435.00",
+            InteressiLegali: "8.7",
+            InteressiDiRateizzazione: "4.35"
+          },
+          Recuperato: "108.75",
+          Restituito: null,
+          RimanenteDaRecuperare: "339.30",
+          Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
         }
       ],
 

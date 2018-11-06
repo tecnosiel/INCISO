@@ -5,53 +5,113 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-      SET_NEW_STYLE : "Applica nuovo style",
-      RESET_DEFAULT_STYLE : "Reset default style",
-      TEXT_COLOR:"Colore testo",
+      PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE:
+        "Predisponi/modifica importo da recuperare",
+      DATA_SCADENZA_RESTITUZIONE: "Data scadenza restituzione",
+      CALCOLO_INTERESSI: "Calcolo interessi",
+      RATEIZZAZIONE: "Rateizzazione",
+      IMPORTO_RATA_MENSILE: "Importo rata mensile",
+      TIPO_DECRETO: "Tipo decreto",
+      NUMERO_DECRETO: "Numero decreto",
+      DATA_DECRETO: "Data decreto",
+      IMPORTO_CAPITALE_DA_RECUPERARE: "Importo capitale da recuperare",
+      IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE:
+        "Importo interessi legali da recuperare",
+      IMPORTO_INTERESSI_DI_RATEIZZAZIONE: "Importo interessi di rateizzazione",
 
+      CAPITALE: "Capitale",
+      INTERESSI_LEGALI: "Interessi legali",
+      INTERESSI_DI_RATEIZZAZIONE: "interessi di rateizzazione",
 
-      DIMENSIONE_CARATTERE:"Dimensione fonts",
-      ALTEZZA_INTERLINEA:"Altezza interlinea",
-      OPZIONE_1:"Opzione 1",
-      TIPOGRAFIA:"Tipografia",
+      IMPORTO_TOTALE_DA_RECUPERARE: "Importo totale da recuperare",
 
-      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:"Selezionare i settaggi tipografici desiderati",
+      ELABORA_LIQUIDAZIONE_MENSILE: "Elabora liquidazione mensile",
 
-      SETTING:"Setting",
+      PREDISPONI_MODIFICA_IMPORTO_RIACCREDITATO:
+        "Predisponi/modifica importo riaccreditato",
+      ESTREMI_DEL_RIACCREDITO: "Estremi del riaccredito",
+      IMPORTO_TOTALE_RIACCREDITATO: "Importo totale riaccreditato",
+      SI_LIQUIDA_QUALE_ARRETRATO: "Si liquida quale arretrato",
 
-      BENVENUTI_IN_INCISO:"Benvenuti in INCISO",
-      BENVENUTI_IN_INCISO_SOTTOTITOLO:"Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi.",
-      ENTRA_NELLA_PROCEDURA:"Entra nella procedura",
+      PREDISPONI_IMPORTO_DA_RECUPERARE: "Predisponi importo da recuperare",
+      PREDISPONI_IMPORTO_RESTITUITO: "Predisponi importo restituito",
+      PREDISPONI_IMPORTO_RIACCREDITATO: "Predisponi importo riaccreditato",
+      RINUNCIA_ALLA_RISCOSSIONE_COATTIVA: "Rinuncia alla riscossione coattiva",
+      ANNULLATO: "Annullato",
+      MOTIVO_ANNULLAMENTO: "Motivo annullamento",
+      TIPO_DECRETO: "Tipo decreto",
 
-      CODICE_FISCALE_DA_RICERCARE:"Codice fiscale da ricercare",
-      COGNOME_DA_RICERCARE:"Cognome da ricercare",
-      NOME_DA_RICERCARE:"Nome da ricercare",
-      DATA_NASCITA_DA_RICERCARE :"Data nascita da ricercare",
+      PREDISPONI_MODIFICA_IMPORTO_RESTITUITO:
+        "Predisponi/modifica importo restituito",
 
+      ESTREMI_RESTITUZIONE: "Estremi restituzione",
+      IMPORTO_CAPITALE_RESTITUITO: "Importo capitale restituito",
+      IMPORTO_INTERESSI_RESTITUITO: "Importo interessi restituito",
 
-      LETTERA_INVIATA:"Lettera inviata",
-      UTENTE:"Utente",
-      NOTE_DI_CHIUSURA : "Note di chiusura",
+      TOTALE_IMPORTO_RESTITUITO:"Totale importo restituito",
 
-      CANCELLA_EVIDENZA : "Cancella evidenza",
-      DATI_EVIDENZA :"Dati evidenza",
-      ELIMINA_POSIZIONE:"Elimina posizione",
+      // -------------------------------------------------------------------------------
 
-      VISUALIZZA_EVIDENZA:"Visualizza evidenza",
+      DATA_ULTIMA_MODIFICA: " Data(ultima modifica)",
+      TIPO_DI_RECUPERO: "Tipo di recupero",
+      TOT_DA_RECUPERARE: "Tot. da recuperare",
+      RECUPERATO: "Recuperato",
+      RESTITUTO: "Restituito",
+      RIMANENTE_DA_RECUPERARE: "Rimanente da recuperare",
+      IMPORTO_RIACCREDITATO: "Importo riaccreditato",
+      DATA_LIQUIDAZIONE_ARRETRATO: "Data liquidazione arretrato",
 
-      DAL:"dal",
-      AL:"al",
+      PROFILO: "Profilo",
+      CONTATTI: "Contatti",
+      MAIL: "Mail",
+      LOGOUT: "Logout",
+
+      SET_NEW_STYLE: "Applica nuovo style",
+      RESET_DEFAULT_STYLE: "Reset default style",
+      TEXT_COLOR: "Colore testo",
+
+      DIMENSIONE_CARATTERE: "Dimensione fonts",
+      ALTEZZA_INTERLINEA: "Altezza interlinea",
+      OPZIONE_1: "Opzione 1",
+      TIPOGRAFIA: "Tipografia",
+
+      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:
+        "Selezionare i settaggi tipografici desiderati",
+
+      SETTING: "Setting",
+
+      BENVENUTI_IN_INCISO: "Benvenuti in INCISO",
+      BENVENUTI_IN_INCISO_SOTTOTITOLO:
+        "Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi.",
+      ENTRA_NELLA_PROCEDURA: "Entra nella procedura",
+
+      CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare",
+      COGNOME_DA_RICERCARE: "Cognome da ricercare",
+      NOME_DA_RICERCARE: "Nome da ricercare",
+      DATA_NASCITA_DA_RICERCARE: "Data nascita da ricercare",
+
+      LETTERA_INVIATA: "Lettera inviata",
+      UTENTE: "Utente",
+      NOTE_DI_CHIUSURA: "Note di chiusura",
+
+      CANCELLA_EVIDENZA: "Cancella evidenza",
+      DATI_EVIDENZA: "Dati evidenza",
+      ELIMINA_POSIZIONE: "Elimina posizione",
+
+      VISUALIZZA_EVIDENZA: "Visualizza evidenza",
+
+      DAL: "dal",
+      AL: "al",
 
       TIPO_PRESTAZIONE: "Tipo prestazione",
       DATA_CHIUSURA: "Data chiusura",
       TIPO_EVIDENZA: "Tipo evidenza",
-      DETTAGLIO:"Dettaglio",
+      DETTAGLIO: "Dettaglio",
 
-      PRESTAZIONE_DI_RIFERIMENTO : "Prestazione di riferimento",
-      DATA_DOMANDA_DI_RIFERIMENTO : "Data domanda di riferimento",
-      DATA_SCADENZA_EVIDENZA : "Data scadenza evidenza",
-      DATA_CHIUSURA_EVIDENZA : "Data chiusura evidenza",
-
+      PRESTAZIONE_DI_RIFERIMENTO: "Prestazione di riferimento",
+      DATA_DOMANDA_DI_RIFERIMENTO: "Data domanda di riferimento",
+      DATA_SCADENZA_EVIDENZA: "Data scadenza evidenza",
+      DATA_CHIUSURA_EVIDENZA: "Data chiusura evidenza",
 
       INFORMAZIONI_GENERALI: "Informazioni generali",
       MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO",
@@ -584,55 +644,118 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      SET_NEW_STYLE : "Applica nuovo style DE",
-      RESET_DEFAULT_STYLE : "Reset default style DE",
-      TEXT_COLOR:"Colore testo DE",
 
-      DIMENSIONE_CARATTERE:"Dimensione fonts DE",
-      ALTEZZA_INTERLINEA:"Altezza interlinea DE",
-      OPZIONE_1:"Opzione 1 DE",
-      TIPOGRAFIA:"Tipografia DE",
+      PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE:
+        "Predisponi/modifica importo da recuperare DE",
+      DATA_SCADENZA_RESTITUZIONE: "Data scadenza restituzione DE",
+      CALCOLO_INTERESSI: "Calcolo interessi DE",
+      RATEIZZAZIONE: "Rateizzazione DE",
+      IMPORTO_RATA_MENSILE: "Importo rata mensile DE",
+      TIPO_DECRETO: "Tipo decreto DE",
+      NUMERO_DECRETO: "Numero decreto DE",
+      DATA_DECRETO: "Data decreto DE",
+      IMPORTO_CAPITALE_DA_RECUPERARE: "Importo capitale da recuperare DE",
+      IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE:
+        "Importo interessi legali da recuperare DE",
+      IMPORTO_INTERESSI_DI_RATEIZZAZIONE: "Importo interessi di rateizzazione DE",
+
+      CAPITALE: "Capitale DE",
+      INTERESSI_LEGALI: "Interessi legali DE",
+      INTERESSI_DI_RATEIZZAZIONE: "interessi di rateizzazione DE",
+
+      IMPORTO_TOTALE_DA_RECUPERARE: "Importo totale da recuperare DE",
+
+      ELABORA_LIQUIDAZIONE_MENSILE: "Elabora liquidazione mensile DE",
+
+      PREDISPONI_MODIFICA_IMPORTO_RIACCREDITATO:
+        "Predisponi/modifica importo riaccreditato DE",
+      ESTREMI_DEL_RIACCREDITO: "Estremi del riaccredito DE",
+      IMPORTO_TOTALE_RIACCREDITATO: "Importo totale riaccreditato DE",
+      SI_LIQUIDA_QUALE_ARRETRATO: "Si liquida quale arretrato DE",
+
+      PREDISPONI_IMPORTO_DA_RECUPERARE: "Predisponi importo da recuperare DE",
+      PREDISPONI_IMPORTO_RESTITUITO: "Predisponi importo restituito DE",
+      PREDISPONI_IMPORTO_RIACCREDITATO: "Predisponi importo riaccreditato DE",
+      RINUNCIA_ALLA_RISCOSSIONE_COATTIVA: "Rinuncia alla riscossione coattiva DE",
+      ANNULLATO: "Annullato DE",
+      MOTIVO_ANNULLAMENTO: "Motivo annullamento DE",
+      TIPO_DECRETO: "Tipo decreto DE",
+
+      PREDISPONI_MODIFICA_IMPORTO_RESTITUITO:
+        "Predisponi/modifica importo restituito DE",
+
+      ESTREMI_RESTITUZIONE: "Estremi restituzione  DE",
+      IMPORTO_CAPITALE_RESTITUITO: "Importo capitale restituito DE",
+      IMPORTO_INTERESSI_RESTITUITO: "Importo interessi restituito DE",
+
+      TOTALE_IMPORTO_RESTITUITO:"Totale importo restituito DE ",
+
+      // -------------------------------------------------------------------------------
 
 
-      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:"Selezionare i settaggi tipografici desiderati DE",
+      DATA_ULTIMA_MODIFICA: " Data(ultima modifica) DE",
+      TIPO_DI_RECUPERO: "Tipo di recupero DE",
+      TOT_DA_RECUPERARE: "Tot. da recuperare DE",
+      RECUPERATO: "Recuperato DE",
+      RESTITUTO: "Restituito DE",
+      RIMANENTE_DA_RECUPERARE: "Rimanente da recuperare DE",
 
+      RIMANENTE_DA_RECUPERARE: "Rimanente da recuperare DE",
+      IMPORTO_RIACCREDITATO: "Importo riaccreditato DE",
+      DATA_LIQUIDAZIONE_ARRETRATO: "Data liquidazione arretrato DE",
 
-      SETTING:"Setting DE",
+      PROFILO: "Profilo DE",
+      CONTATTI: "Contatti DE",
+      MAIL: "Mail DE",
+      LOGOUT: "Logout DE",
 
-      BENVENUTI_IN_INCISO:"Benvenuti in INCISO DE",
-      BENVENUTI_IN_INCISO_SOTTOTITOLO:"Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi DE.",
-      ENTRA_NELLA_PROCEDURA:"Entra nella procedura DE",
+      SET_NEW_STYLE: "Applica nuovo style DE",
+      RESET_DEFAULT_STYLE: "Reset default style DE",
+      TEXT_COLOR: "Colore testo DE",
 
-      CODICE_FISCALE_DA_RICERCARE:"Codice fiscale da ricercare DE",
-      COGNOME_DA_RICERCARE:"Cognome da ricercare DE",
-      NOME_DA_RICERCARE:"Nome da ricercare DE",
-      DATA_NASCITA_DA_RICERCARE :"Data nascita da ricercare DE",
+      DIMENSIONE_CARATTERE: "Dimensione fonts DE",
+      ALTEZZA_INTERLINEA: "Altezza interlinea DE",
+      OPZIONE_1: "Opzione 1 DE",
+      TIPOGRAFIA: "Tipografia DE",
 
+      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:
+        "Selezionare i settaggi tipografici desiderati DE",
 
-      LETTERA_INVIATA:"Lettera inviata DE",
+      SETTING: "Setting DE",
 
-      UTENTE:"Utente DE",
-      NOTE_DI_CHIUSURA : "Note di chiusura DE",
+      BENVENUTI_IN_INCISO: "Benvenuti in INCISO DE",
+      BENVENUTI_IN_INCISO_SOTTOTITOLO:
+        "Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi DE.",
+      ENTRA_NELLA_PROCEDURA: "Entra nella procedura DE",
 
-      CANCELLA_EVIDENZA : "Cancella evidenza DE",
+      CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare DE",
+      COGNOME_DA_RICERCARE: "Cognome da ricercare DE",
+      NOME_DA_RICERCARE: "Nome da ricercare DE",
+      DATA_NASCITA_DA_RICERCARE: "Data nascita da ricercare DE",
 
-      DATI_EVIDENZA :"Dati evidenza DE",
-      ELIMINA_POSIZIONE:"Elimina posizione DE",
-      VISUALIZZA_EVIDENZA:"Visualizza evidenza DE",
+      LETTERA_INVIATA: "Lettera inviata DE",
 
-      DAL:"dal DE",
-      AL:"al DE",
+      UTENTE: "Utente DE",
+      NOTE_DI_CHIUSURA: "Note di chiusura DE",
 
+      CANCELLA_EVIDENZA: "Cancella evidenza DE",
+
+      DATI_EVIDENZA: "Dati evidenza DE",
+      ELIMINA_POSIZIONE: "Elimina posizione DE",
+      VISUALIZZA_EVIDENZA: "Visualizza evidenza DE",
+
+      DAL: "dal DE",
+      AL: "al DE",
 
       TIPO_PRESTAZIONE: "Tipo prestazione DE",
       DATA_CHIUSURA: "Data chiusura DE",
       TIPO_EVIDENZA: "Tipo evidenza DE",
-      DETTAGLIO:"Dettaglio DE",
+      DETTAGLIO: "Dettaglio DE",
 
-      PRESTAZIONE_DI_RIFERIMENTO : "Prestazione di riferimento DE",
-      DATA_DOMANDA_DI_RIFERIMENTO : "Data domanda di riferimento DE",
-      DATA_SCADENZA_EVIDENZA : "Data scadenza evidenza DE",
-      DATA_CHIUSURA_EVIDENZA : "Data chiusura evidenza DE",
+      PRESTAZIONE_DI_RIFERIMENTO: "Prestazione di riferimento DE",
+      DATA_DOMANDA_DI_RIFERIMENTO: "Data domanda di riferimento DE",
+      DATA_SCADENZA_EVIDENZA: "Data scadenza evidenza DE",
+      DATA_CHIUSURA_EVIDENZA: "Data chiusura evidenza DE",
 
       INFORMAZIONI_GENERALI: "Informazioni generali DE",
       MODIFICA_RICORSO_UPPER: "MODIFICA RICORSO DE",
