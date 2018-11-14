@@ -3,16 +3,8 @@
  * Contiene dati globali usati in differenti view
  *
  */
-function MainCtrl(
-  $scope,
-  $rootScope,
-  $translate,
-  httpServices,
-  $http,
-  httpServices,
-  DTOptionsBuilder,
-  DTColumnDefBuilder
-) {
+function MainCtrl($scope, $rootScope, $translate, httpServices) {
+  
   $rootScope.CustomStyle = {
     "background-color": null,
     "font-size": null
@@ -31,6 +23,14 @@ function MainCtrl(
       return true;
     }
     return false;
+  };
+
+  $rootScope.resetUser = function() {
+    $rootScope.immagineUtente = "profile0";
+    $rootScope.cognome = "Login";
+    $rootScope.nome = "Effettuare";
+    $rootScope.ruolo = "Ruolo Indefinito";
+    $rootScope.token = "Token Indefinito";
   };
 
   /**
@@ -108,6 +108,10 @@ function MainCtrl(
       cCodFis
     );
   };
+
+  $rootScope.resetUser();
+
+
 }
 
 /**

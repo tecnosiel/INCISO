@@ -5,6 +5,63 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      // -------------------------------------------------------------------------------
+      ASSISTITO: "Assistito",
+      PRESTAZIONI_DA_LIQUIDARE: "Prestazioni da liquidare",
+
+      IMPORTI_DA_LIQUIDARE: "Importi da liquidare",
+
+      ESEGUI_LIQUIDAZIONE_MENSILE: "Esegui liquidazione mensile",
+
+      INSERIRE_IL_MESE_DI_RIFERIMENTO_PER_ELABORAZIONE_DELLA_LIQUIDAZIONE:
+        "Inserire il mese di riferimento per elaborazione della liquidazione",
+
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_LA_LIQUIDAZIONE_MENSILE:
+        "Periodo di riferimento per elaborare la liquidazione mensile",
+
+      IMPORTO_MENSILE_SPETTANTE_GIA_LIQUIDATO:
+        "Importo mensile spettante già liquidato",
+      IMPORTO_MENSILE_CONGUAGLIO: "Importo mensile conguaglio",
+      NUOVO_IMPORTO_MENSILE_TREDICESIMA_MATURATA:
+        "Nuovo importo mensile tredicesima maturata",
+
+      ESEGUI_CONGUAGLIO: "Esegui conguaglio",
+      DAL_AL: "Dal, al",
+      CONGUAGLIO_PER_LE_POSIZIONI_ESTRATTE:
+        "Conguaglio per le posizioni estratte",
+      ELENCO_POSIZIONI_ESTRATTE: "Elenco posizioni estratte",
+      SELEZIONA_UN_PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
+        "Seleziona un periodo di riferimento per elaborare il conguaglio",
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
+        "Periodo di riferimento per elaborare il conguaglio",
+      ELABORA_CONGUAGLIO: "Elabora conguaglio",
+      MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE:
+        "Mese di riferimento per sblocco liquidazione",
+      RICERCA_LIQUIDAZIONE: "Ricerca liquidazione",
+      LIQUIDATO: "Liquidato",
+      ARRETRATI: "Arretrati",
+      CONGUAGLIO: "Conguaglio",
+      INVALIDI_CIVILI: "Invalidi civili",
+      SORDI: "Sordi",
+      CIECHI: "Ciechi",
+      RECUPERI_DA_COMPENSAZIONE: "Recuperi da compensazione",
+      RIACCREDITI: "Riaccrediti",
+
+      MESE: "Mese",
+      IMPORTO_PRESTAZIONI: "Importo prestazioni",
+      LIQUIDAZIONE: "Liquidazione",
+      DETTAGLIO_IMPORTO_LIQUIDATO: "Dettaglio importo liquidato",
+      VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
+      TOTALE_IMPORTO_LIQUIDATO: "Totale importo liquidato",
+      DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO:
+        "dell'assistito o di eventuale delegato",
+
+      ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO:
+        "Arretrati liquidati nel mese di riferimento",
+
+      DETTAGLIO_ARRETRATI: "Dettaglio arretrati",
+
+      DATI_DECRETO: "DATI DECRETO",
       PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE:
         "Predisponi/modifica importo da recuperare",
       DATA_SCADENZA_RESTITUZIONE: "Data scadenza restituzione",
@@ -48,9 +105,7 @@ function config($translateProvider) {
       IMPORTO_CAPITALE_RESTITUITO: "Importo capitale restituito",
       IMPORTO_INTERESSI_RESTITUITO: "Importo interessi restituito",
 
-      TOTALE_IMPORTO_RESTITUITO:"Totale importo restituito",
-
-      // -------------------------------------------------------------------------------
+      TOTALE_IMPORTO_RESTITUITO: "Totale importo restituito",
 
       DATA_ULTIMA_MODIFICA: " Data(ultima modifica)",
       TIPO_DI_RECUPERO: "Tipo di recupero",
@@ -644,7 +699,61 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      ASSISTITO: "Assistito DE",
+      PRESTAZIONI_DA_LIQUIDARE: "Prestazioni da liquidare DE",
 
+      IMPORTI_DA_LIQUIDARE: "Importi da liquidare DE",
+
+      ESEGUI_LIQUIDAZIONE_MENSILE: "Esegui liquidazione mensile DE",
+      INSERIRE_IL_MESE_DI_RIFERIMENTO_PER_ELABORAZIONE_DELLA_LIQUIDAZIONE:
+        "Inserire il mese di riferimento per elaborazione della liquidazione DE",
+
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_LA_LIQUIDAZIONE_MENSILE:
+        "Periodo di riferimento per elaborare la liquidazione mensile DE",
+
+      IMPORTO_MENSILE_SPETTANTE_GIA_LIQUIDATO:
+        "Importo mensile spettante già liquidato DE",
+      IMPORTO_MENSILE_CONGUAGLIO: "Importo mensile conguaglio DE",
+      NUOVO_IMPORTO_MENSILE_TREDICESIMA_MATURATA:
+        "Nuovo importo mensile tredicesima maturata DE",
+
+      ESEGUI_CONGUAGLIO: "Esegui conguaglio DE",
+      DAL_AL: "Dal, al DE",
+      CONGUAGLIO_PER_LE_POSIZIONI_ESTRATTE:
+        "Conguaglio per le posizioni estratte DE",
+      ELENCO_POSIZIONI_ESTRATTE: "Elenco posizioni estratte DE",
+      SELEZIONA_UN_PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
+        "Seleziona un periodo di riferimento per elaborare il conguaglio DE",
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
+        "Periodo di riferimento per elaborare il conguaglio DE",
+      ELABORA_CONGUAGLIO: "Elabora conguaglio DE",
+      MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE:
+        "Mese di riferimento per sblocco liquidazione DE",
+      RICERCA_LIQUIDAZIONE: "Ricerca liquidazione DE",
+      LIQUIDATO: "Liquidato DE",
+      ARRETRATI: "Arretrati DE",
+      CONGUAGLIO: "Conguaglio DE",
+      INVALIDI_CIVILI: "Invalidi civili DE",
+      SORDI: "Sordi DE",
+      CIECHI: "Ciechi DE",
+      RECUPERI_DA_COMPENSAZIONE: "Recuperi da compensazione DE",
+      RIACCREDITI: "Riaccrediti DE",
+
+      MESE: "Mese DE",
+      IMPORTO_PRESTAZIONI: "Importo prestazioni DE",
+      LIQUIDAZIONE: "Liquidazione DE",
+      DETTAGLIO_IMPORTO_LIQUIDATO: "Dettaglio importo liquidato DE",
+      VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici DE",
+      TOTALE_IMPORTO_LIQUIDATO: "Totale importo liquidato DE",
+      DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO:
+        "dell'assistito o di eventuale delegato DE",
+
+      ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO:
+        "Arretrati liquidati nel mese di riferimento DE",
+
+      DETTAGLIO_ARRETRATI: "Dettaglio arretrati DE",
+
+      DATI_DECRETO: "DATI DECRETO DE",
       PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE:
         "Predisponi/modifica importo da recuperare DE",
       DATA_SCADENZA_RESTITUZIONE: "Data scadenza restituzione DE",
@@ -657,7 +766,8 @@ function config($translateProvider) {
       IMPORTO_CAPITALE_DA_RECUPERARE: "Importo capitale da recuperare DE",
       IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE:
         "Importo interessi legali da recuperare DE",
-      IMPORTO_INTERESSI_DI_RATEIZZAZIONE: "Importo interessi di rateizzazione DE",
+      IMPORTO_INTERESSI_DI_RATEIZZAZIONE:
+        "Importo interessi di rateizzazione DE",
 
       CAPITALE: "Capitale DE",
       INTERESSI_LEGALI: "Interessi legali DE",
@@ -676,7 +786,8 @@ function config($translateProvider) {
       PREDISPONI_IMPORTO_DA_RECUPERARE: "Predisponi importo da recuperare DE",
       PREDISPONI_IMPORTO_RESTITUITO: "Predisponi importo restituito DE",
       PREDISPONI_IMPORTO_RIACCREDITATO: "Predisponi importo riaccreditato DE",
-      RINUNCIA_ALLA_RISCOSSIONE_COATTIVA: "Rinuncia alla riscossione coattiva DE",
+      RINUNCIA_ALLA_RISCOSSIONE_COATTIVA:
+        "Rinuncia alla riscossione coattiva DE",
       ANNULLATO: "Annullato DE",
       MOTIVO_ANNULLAMENTO: "Motivo annullamento DE",
       TIPO_DECRETO: "Tipo decreto DE",
@@ -688,10 +799,7 @@ function config($translateProvider) {
       IMPORTO_CAPITALE_RESTITUITO: "Importo capitale restituito DE",
       IMPORTO_INTERESSI_RESTITUITO: "Importo interessi restituito DE",
 
-      TOTALE_IMPORTO_RESTITUITO:"Totale importo restituito DE ",
-
-      // -------------------------------------------------------------------------------
-
+      TOTALE_IMPORTO_RESTITUITO: "Totale importo restituito DE ",
 
       DATA_ULTIMA_MODIFICA: " Data(ultima modifica) DE",
       TIPO_DI_RECUPERO: "Tipo di recupero DE",

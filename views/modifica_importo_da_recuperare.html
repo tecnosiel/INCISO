@@ -52,19 +52,12 @@
                             <label>{{ 'DATA' |translate }} (*)</label>
                             <div>
                                 <div class="input-group date m-t-xs">
-
                                     <input type="text" class="form-control js-date" ng-model="Tmp.Data">
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </span>
-
-
                                 </div>
-
                             </div>
-
-
-
 
                         </div>
 
@@ -155,16 +148,14 @@
                             <div class="input-group">
                                 <input type="text" class="form-control installment text-right importo" ng-model="Tmp.ImportoRataMensile"
                                     ng-currency currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
-                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                <span ng-class="{euroDisabled : Tmp.Rateizzazione == 'No'}" class="input-group-addon"><i
+                                        class="fa fa-euro"></i></span>
                             </div>
                         </div>
 
                     </div>
 
-
-
-
-                    <h3>DATI DECRETO</h3>
+                    <h3>{{'DATI_DECRETO' | translate}}</h3>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label>{{ 'TIPO_DECRETO' | translate }}</label>
@@ -177,17 +168,24 @@
                         </div>
                         <div class="col-md-4">
                             <label>{{ 'NUMERO_DECRETO' | translate }}</label>
-                            <input type="text" class="form-control installment" ng-model="Tmp.NumeroDecreto" ng-disabled="Tmp.Rateizzazione == 'No'" />
+                            <input type="text" class="form-control installment" ng-model="Tmp.NumeroDecreto"
+                                ng-disabled="Tmp.Rateizzazione == 'No'" />
                         </div>
+
+
                         <div class="col-md-4">
                             <label>{{ 'DATA_DECRETO' | translate }}</label>
                             <div>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control installment" disabled="disabled" value="01/07/2015"><span
-                                        class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <div ng-class="{datePicherDisabled : Tmp.Rateizzazione == 'No'}" class="input-group date">
+                                    <input type="text" name="dataDecretoRateizzazione" ng-model="Tmp.DataDecretoRateizzazione" ng-readonly="Tmp.Rateizzazione == 'No'"
+                                        class="form-control installment js-date">
+                                    <span ng-class="{datePicherDisabled : Tmp.Rateizzazione == 'No'}" class="input-group-addon js-date">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-separator"></div>
@@ -196,25 +194,28 @@
                         <div class="col-md-4 form-group">
                             <label>{{ 'IMPORTO_CAPITALE_DA_RECUPERARE' | translate }} (*)</label>
                             <div class="input-group">
-                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoCapitaleDaRecuperare" ng-currency
-                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
-                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoCapitaleDaRecuperare"
+                                    ng-currency currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span ng-class="{euroDisabled : Tmp.Rateizzazione == 'No'}" class="input-group-addon"><i
+                                        class="fa fa-euro"></i></span>
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{ 'IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE' | translate }}</label>
                             <div class="input-group">
-                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoInteressiLegaliDaRecuperare" ng-currency
-                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
-                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoInteressiLegaliDaRecuperare"
+                                    ng-currency currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span ng-class="{euroDisabled : Tmp.Rateizzazione == 'No'}" class="input-group-addon"><i
+                                        class="fa fa-euro"></i></span>
                             </div>
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{{'IMPORTO_INTERESSI_DI_RATEIZZAZIONE' | translate}}</label>
                             <div class="input-group">
-                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoInteressiDiRateizzazione" ng-currency
-                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
-                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoInteressiDiRateizzazione"
+                                    ng-currency currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span ng-class="{euroDisabled : Tmp.Rateizzazione == 'No'}" class="input-group-addon"><i
+                                        class="fa fa-euro"></i></span>
                             </div>
                         </div>
                     </div>
@@ -222,9 +223,10 @@
                         <div class="col-md-4 form-group pull-right">
                             <label>{{'IMPORTO_TOTALE_DA_RECUPERARE' | translate}}</label>
                             <div class="input-group m-b">
-                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoTotaleDaRecuperare" ng-currency
-                                    currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
-                                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                <input type="text" class="form-control text-right importo" ng-model="Tmp.ImportoTotaleDaRecuperare"
+                                    ng-currency currency-symbol="" ng-disabled="Tmp.Rateizzazione == 'No'">
+                                <span ng-class="{euroDisabled : Tmp.Rateizzazione == 'No'}" class="input-group-addon"><i
+                                        class="fa fa-euro"></i></span>
                             </div>
                         </div>
                     </div>
@@ -270,14 +272,20 @@
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label>{{'DATA_DECRETO' | translate}}</label>
+
                             <div>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" value="01/07/2015">
-                                    <span class="input-group-addon">
+                                <div ng-class="{datePicherDisabled : Tmp.RinunciaAllaRiscossioneCoattiva == 'Si'}"
+                                    class="input-group date">
+                                    <input type="text" name="dataDecretoRinunciaAllaRiscossione" ng-model="Tmp.DataDecretoRinunciaAllaRiscossione"
+                                        ng-readonly="Tmp.RinunciaAllaRiscossioneCoattiva == 'Si'" class="form-control installment js-date">
+                                    <span ng-class="{datePicherDisabled : Tmp.RinunciaAllaRiscossioneCoattiva == 'Si'}"
+                                        class="input-group-addon js-date">
                                         <i class="fa fa-calendar"></i>
                                     </span>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                     <div class="row">
@@ -320,7 +328,7 @@
                             <a class="btn btn-white btn-sm main-button-padding" id="cancel" ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Annulla</a>
                             <a class="
                                 btn btn-primary btn-sm main-button-padding m-l-md" id="save" ng-click="salvaModulo()"
-                                ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})"">Salva</a>
+                                ui-sref="anagrafica.visualizza_anagrafica({datiAssistito: $ctrl.datiAssistito})">Salva</a>
                         </div>
                     </div>
                 </div>

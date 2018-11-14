@@ -6,8 +6,12 @@
  *
  */
 
+// -------------------------------------------------------------------------
+//  FUNZIONE DI CONFIGURAZIONE DEGLI STATI
+// -------------------------------------------------------------------------
+
 (function() {
-  function config(
+  function configStates(
     $stateProvider,
     $urlRouterProvider,
     $ocLazyLoadProvider,
@@ -32,35 +36,26 @@
 
     $stateProvider
 
-      .state("home", {
-        url: "/home",
-        templateUrl: "/views/home"
-      })
-
-      // settings --------------------------------------------------------------
-      .state("settings", {
-        abstract: true,
-        url: "/settings",
-        templateUrl: "/views/common/content.html"
-      })
-
-      .state("settings.setting", {
-        url: "/setting",
-        templateUrl: "/views/setting.html"
-      })
-
       // login --------------------------------------------------------------
 
       .state("login", {
         url: "/login",
+        controller: "loginCtrl",
         templateUrl: "/views/login.html",
         data: { pageTitle: "Login", specialClass: "gray-bg" }
       })
+
       // lockscreen --------------------------------------------------------------
       .state("lockscreen", {
         url: "/lockscreen",
         templateUrl: "/views/lockscreen.html",
         data: { pageTitle: "Lockscreen", specialClass: "gray-bg" }
+      })
+
+      // home --------------------------------------------------------------
+      .state("home", {
+        url: "/home",
+        templateUrl: "/views/home"
       })
 
       // anagrafica --------------------------------------------------------------
@@ -360,26 +355,30 @@
         url: "/visualizza_liquidazione",
         templateUrl: "/views/visualizza_liquidazione.html"
       })
-      .state("liquidazioni.visualizza_posizione", {
-        url: "/visualizza_posizione",
-        templateUrl: "/views/visualizza_posizione.html"
-      })
-      .state("liquidazioni.visualizza_domanda", {
-        url: "/visualizza_domanda",
-        templateUrl: "/views/visualizza_domanda.html"
-      })
-
-      .state("liquidazione.elabora_liquidazione_mensile", {
-        url: "/elabora_liquidazione_mensile",
-        templateUrl: "/views/elabora_liquidazione_mensile.html"
-      })
-      .state("liquidazione.elabora_conguaglio", {
+      .state("liquidazioni.elabora_conguaglio", {
         url: "/elabora_conguaglio",
         templateUrl: "/views/elabora_conguaglio.html"
       })
-      .state("liquidazione.elabora_liquidazione_eredi", {
+      .state("liquidazioni.elabora_liquidazione_eredi", {
         url: "/elabora_liquidazione_eredi",
         templateUrl: "/views/elabora_liquidazione_eredi.html"
+      })
+
+      .state("liquidazioni.elabora_liquidazione_mensile", {
+        url: "/elabora_liquidazione_mensile",
+        templateUrl: "/views/elabora_liquidazione_mensile.html"
+      })
+
+      // settings --------------------------------------------------------------
+      .state("settings", {
+        abstract: true,
+        url: "/settings",
+        templateUrl: "/views/common/content.html"
+      })
+
+      .state("settings.setting", {
+        url: "/setting",
+        templateUrl: "/views/setting.html"
       })
 
       // camillo --------------------------------------------------------------
@@ -418,9 +417,36 @@
         }
       });
   }
+
+  // -------------------------------------------------------------------------
+  //  FUNZIONE DI CONFIGURAZIONE DEGLI INTERCETTORI
+  // -------------------------------------------------------------------------
+  function configIntercetors($httpProvider, jwtOptionsProvider) {
+    // Please note we're annotating the function so that the $injector works when the file is minified
+    jwtOptionsProvider.config({
+      tokenGetter: [
+        "logServices",
+        function(logServices) {
+          logServices.faiQualcosa();
+          return sessionStorage.getItem("token");
+        }
+      ],
+      whiteListedDomains: [
+        "api.myapp.com",
+        "api/authenticate",
+        "localhost",
+        "127.0.0.1"
+      ]
+    });
+
+    $httpProvider.interceptors.push("jwtInterceptor");
+  }
+
   angular
     .module("inciso")
-    .config(config)
+    .config(configStates)
+    .config(configIntercetors)
+    .run(setupFakeBackend)
     .run(function($rootScope, $state) {
       $rootScope.$state = $state;
     });

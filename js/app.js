@@ -14,7 +14,8 @@
     "datatables", // datatable
     "ng-currency", // ng-currency
     "ui.select", //ui-select
-    'colorpicker.module' //colorpicher
+    "colorpicker.module", //colorpicher
+    "angular-jwt", // json web token
+    "ngMockE2E"
   ]);
 })();
-

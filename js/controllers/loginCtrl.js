@@ -3,28 +3,35 @@
  * Contiene dati globali usati in differenti view
  *
  */
-function loginCtrl(
-  $scope,
-  $state,
-  httpServices,
-) {
+function loginCtrl($scope, $state, authenticationService) {
   /**
-   * Lingua partenza applicativo
+   * Lingua partenza applicativo 
    */
 
   this.$onInit = function() {
     // $translate.use("it");
+    $scope.username = "";
+    $scope.password = "";
   };
 
-  
-  $scope.login = function() {
-
-    if (($scope.password.toUpperCase() === "12345") && ($scope.password.toUpperCase() === "12345")){
-      $state.go("home");
+  $scope.onFormLoginSubmit = function() {
+    if ($scope.loginForm.$valid) {
+      authenticationService.login(
+        $scope.username,
+        $scope.password,
+        CallBackVerificaToken
+      );
     }
-
   };
-  
+
+  function CallBackVerificaToken(onOff) {
+    debugger;
+    if (onOff) {
+      $state.go("home");
+    } else {
+      alert("La risposta del Login ha un token errato");
+    }
+  }
 }
 
 /**

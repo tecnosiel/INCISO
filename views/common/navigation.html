@@ -7,13 +7,13 @@
                 <li class="nav-header">
 
                     <div class="profile-element" uib-dropdown>
-                        <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        <img alt="image" class="img-circle" src="img/{{immagineUtente}}.jpg" />
                         <a uib-dropdown-toggle href>
                             <span class="clear">
                                 <span class="block m-t-xs">
-                                    <strong class="font-bold">Camillo Alfano</strong>
+                                    <strong class="font-bold">{{nome}} {{cognome}}</strong>
                                 </span>
-                                <span class="text-muted text-xs block">Programmatore <b class="caret"></b></span>
+                                <span class="text-muted text-xs block">{{ruolo}}<b class="caret"></b></span>
                             </span>
                         </a>
                         <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
@@ -217,7 +217,7 @@
 
                 <li class="expandable" ng-class="{'selected': menuStato == 'setting'}" ng-click="menuStato = 'setting'">
                     <a ng-mouseover="showPopover11=true;" ng-mouseleave="showPopover11=false;" ui-sref="settings.setting">
-                        <i class="fa fa-file-text"></i>
+                        <i class="fa fa-desktop"></i>
                         <span class="nav-label">{{ 'SETTING' | translate }}</span>
                         <div class="show-fumetti" ng-show="fumetti() && showPopover11">{{ 'SETTING' |
                             translate }}</div>
@@ -225,10 +225,6 @@
                     <ul class="nav nav-second-level">
                     </ul>
                 </li>
-
-
-
-
 
             </ul>
 

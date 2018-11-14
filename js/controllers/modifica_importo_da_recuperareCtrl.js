@@ -13,14 +13,16 @@ function modifica_importo_da_recuperareCtrl(
   $scope.Tmp = {
     CalcoloInteressi: "No",
     Rateizzazione: "No",
-    RinunciaAllaRiscossioneCoattiva:"No",
+    RinunciaAllaRiscossioneCoattiva: "No",
     ImportoRataMensile: null,
     NumeroDecreto: null,
     ImportoCapitaleDaRecuperare: null,
-    ImportoInteressiLegaliDaRecuperare:null,
-    ImportoInteressiDiRateizzazione:null,
-    ImportoTotaleDaRecuperare:null,
-    Annullato:"No"
+    ImportoInteressiLegaliDaRecuperare: null,
+    ImportoInteressiDiRateizzazione: null,
+    ImportoTotaleDaRecuperare: null,
+    Annullato: "No",
+    DataDecretoRateizzazione: null,
+    DataDecretoRinunciaAllaRiscossione: null
   };
 
   $scope.datiAssistito = $stateParams.datiAssistito;

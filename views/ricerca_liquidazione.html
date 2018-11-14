@@ -5,12 +5,12 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5> Ricerca liquidazione </h5>
+                    <h5> {{ 'RICERCA_LIQUIDAZIONE' | translate }}</h5>
                 </div>
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label>Mese di riferimento per sblocco liquidazione:</label>
+                            <label> {{ 'MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE' | translate }} (*):</label>
                             <div>
                                 <div class="input-group date m-t-xs">
                                     <input type="text" class="form-control" value="Gennaio 2015"><span class="input-group-addon"><i
@@ -61,7 +61,7 @@
                                     <td class="text-right">{{item.RecuperiDaCompensazione | currency}}</td>
                                     <td class="text-right">{{item.TotaleMensileDaLiquidare | currency}}</td>
                                     <td class="text-center">
-                                        <a ui-sref="liquidazioni.visualizza_Liquidazione" ng-click="findCodFis(item.CodiceFiscale)">
+                                        <a ui-sref="liquidazioni.visualizza_liquidazione" ng-click="findCodFis(item.CodiceFiscale)">
                                             <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>
                                         </a>
                                     </td>
@@ -76,35 +76,34 @@
 
                     </div>
                 </div>
-                <script>
 
-                    $('.dataTables-example').dataTable({
-                        searching: false,
-                        responsive: true,
-                        lengthChange: false,
-                        columns: [
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            {
-                                "orderable": false
-                            },
-                        ]
-                    });
-
-                    $('#posSearch').click(function () {
-                        $("#posResults").show();
-                    });
-                </script>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Custom scripts -->
 <script>
-    $('.modal-select').hide();
+
+    $(document).ready(function () {
+
+        $('#posSearch').click(function () {
+            $("#posResults").show();
+        });
+
+
+        $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            format: 'dd/mm/yyyy',
+            keyboardNavigation: false,
+            forceParse: true,
+            calendarWeeks: true,
+            autoclose: true
+            //orientation: 'bottom left'
+        });
+
+
+    });
+
+
 </script>

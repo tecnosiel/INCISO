@@ -56,7 +56,7 @@
 
 <!-- Angular App -->
 
-<body ng-app="inciso" ng-style="CustomStyle" ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}"
+<body ng-app="inciso" ng-style="CustomStyle" ng-controller="MainCtrl" class="{{$state.current.data.specialClass}}"
     landing-scrollspy id="page-top">
     <div ui-view></div>
 </body>
@@ -100,11 +100,19 @@
 <script src="js/angular/angular.min.js"></script>
 <script src="js/angular/angular-sanitize.min.js"></script>
 
+
+<!-- scripts for fake backend -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-mocks.js"></script> -->
+<script src="js/angular/angular-mocks.js"></script>
+<script src="js/app-helpers/fake-backend.js"></script>
+
+<!-- materiale vario -->
 <script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
 <script src="js/angular-translate/angular-translate.min.js"></script>
 <script src="js/ui-router/angular-ui-router.min.js"></script>
 <script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
 <script src="js/plugins/angular-idle/angular-idle.js"></script>
+
 
 <!-- Color Picher -->
 <link rel="stylesheet" href="http://web.hostdmk.net/github/colorpicker_v3/css/colorpicker.css" />
@@ -135,7 +143,12 @@
 <script src="js/translations.js"></script>
 <script src="js/directives.js"></script>
 
+<script src="js/plugins/angular-jwt/angular-jwt.js"></script>
+
+<!-- load servizi  -->
 <script src="js/services/httpServices.js"></script>
+<script src="js/services/logServices.js"></script>
+<script src="js/services/authenticationService.js"></script>
 
 <!-- load prestazioni component  -->
 <script src="js/components/prestazioni/prestazioniController.js"></script>
@@ -184,7 +197,6 @@
 
 
 <script src="js/controllers/mainCtrl.js"></script>
-
 <script src="js/controllers/translateCtrl.js"></script>
 <script src="js/controllers/loginCtrl.js"></script>
 <script src="js/controllers/settingCtrl.js"></script>

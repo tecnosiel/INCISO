@@ -11,17 +11,6 @@ function prestazioniController(
   $uibModal,
   $compile
 ) {
-  this.tab = 1;
-
-  this.setTab = function(newTab) {
-    this.tab = newTab;
-  };
-
-  this.isSet = function(tabNum) {
-    return this.tab === tabNum;
-  };
-
-  //  -------------
 
   this.dtOptionsTabElencoPrestazioni = DTOptionsBuilder.newOptions()
     .withOption("order", [1, "desc"])
@@ -29,7 +18,7 @@ function prestazioniController(
     .withOption("lengthChange", false);
 
   this.dtColumnTabElencoPrestazioni = [
-    // DTColumnDefBuilder.newColumnDef(0).notSortable()
+    DTColumnDefBuilder.newColumnDef(0).notSortable()
   ];
 
   //  -------------
@@ -55,7 +44,6 @@ function prestazioniController(
     { nome: "Motivo negazione  9", code: "09" },
     { nome: "Motivo negazione 10", code: "10" },
     { nome: "Motivo negazione 11", code: "11" }
-
   ];
 
   this.motiviRevoca = [
@@ -70,7 +58,6 @@ function prestazioniController(
     { nome: "Motivo revoca  9", code: "09" },
     { nome: "Motivo revoca 10", code: "10" },
     { nome: "Motivo revoca 11", code: "11" }
-
   ];
 
   this.motiviSospensione = [
@@ -85,11 +72,9 @@ function prestazioniController(
     { nome: "Motivo sospensione  9", code: "09" },
     { nome: "Motivo sospensione 10", code: "10" },
     { nome: "Motivo sospensione 11", code: "11" }
-
   ];
 
   this.predisponi = function(cTipo) {
-
     $scope.tipoPredisposizione = cTipo;
 
     // http://www.marcorpsa.com/ee/t1891.html

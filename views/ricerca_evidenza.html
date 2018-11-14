@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                    <!-- ---------------- -->
+                        <!-- ---------------- -->
 
                         <div class="col-md-4 form-group">
                             <label>{{ 'DATA_SCADENZA' |translate }}</label>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
 
-                    <!-- ---------------- -->
+                        <!-- ---------------- -->
                         <div class="col-md-4 form-group">
                             <label>{{ 'DATA_CHIUSURA' |translate }}</label>
                             <div class="input-group fullwidth">
@@ -235,6 +235,15 @@
             $('[data-toggle="popover"]').popover();
         }, 500);
 
+    });
+    $('.input-group.date').datepicker({
+        todayBtn: "linked",
+        format: 'dd/mm/yyyy',
+        keyboardNavigation: false,
+        forceParse: true,
+        calendarWeeks: true,
+        autoclose: true
+        //orientation: 'bottom left'
     });
 
 

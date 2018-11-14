@@ -1,0 +1,310 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <header-component tipo="'Dettaglio'" titolo="'DETTAGLIO_IMPORTO_LIQUIDATO'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'visualizza_dati_anagrafici.html',descrizione:'VISUALIZZA_DATI_ANAGRAFICI'}]">
+    </header-component>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5 style="text-transform: uppercase;"> {{'DETTAGLIO_IMPORTO_LIQUIDATO' | translate}} </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-4"><label>Assistito:</label> <span>Maria Rossi</span></div>
+                        <div class="col-md-4"><label>Data decesso:</label> <span>28/07/2014</span></div>
+                        <div class="col-md-4"><label>Eredi:</label> <span>Paolo Bianchi, Marco Bianchi, Sara Bianchi</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <h3 class="m-t-lg">{{'LIQUIDAZIONE' | translate }}</h3>
+                    <div class="row">
+                        <div class="panel panel-default m-t-lg">
+                            <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquidazione">
+                                <strong>{{'MESE'|translate}}:
+                                    {{liquidazione.Mese}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'ANNO'|translate}}:
+                                    {{liquidazione.Anno}}</strong>
+                                <div class="panel-toolbox">
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div id="collapseLiquidazione" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td><a id="show-table-prestazioni"><i class="fa fa-chevron-down p-r-sx"></i>
+                                                    </a>{{'IMPORTO_PRESTAZIONI' | translate }}</td>
+                                                <td width="200px" class="text-right">
+                                                    {{liquidazione.TotaleImportoPrestazioni | currency}}
+                                                </td>
+                                            </tr>
+                                            <tr id="table-prestazioni" style="display:none">
+                                                <td colspan="2">
+                                                    <table class="table table-bordered table-responsive table-striped secondary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="no-header"></th>
+                                                                <th> {{ 'LIQUIDATO' | translate }}</th>
+                                                                <th> {{ 'ARRETRATI' | translate }}</th>
+                                                                <th> {{ 'CONGUAGLIO' | translate }}</th>
+                                                                <th width="174px">{{ 'TOTALE' | translate }}</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{ 'INVALIDI_CIVILI' | translate }}</td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.InvalidiCivili.Liquidato
+                                                                    | currency}}</td>
+                                                                <td class="text-right">
+                                                                    <a data-toggle="modal" data-target="#modalArretrati">
+                                                                        {{liquidazione.Prestazioni.InvalidiCivili.Arretrati
+                                                                        | currency}}
+                                                                    </a>
+                                                                </td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.InvalidiCivili.Conquaglio
+                                                                    | currency}}</td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.InvalidiCivili.Totale
+                                                                    | currency}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-right">{{ 'SORDI' | translate }}</td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.Sordi.Liquidato
+                                                                    | currency}}</td>
+                                                                <td class="text-right"><a data-toggle="modal"
+                                                                        data-target="#modalArretrati">{{liquidazione.Prestazioni.Sordi.Arretrati
+                                                                        | currency}}</a></td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.Sordi.Conquaglio
+                                                                    | currency}}</td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.Sordi.Totale
+                                                                    | currency}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>{{ 'CIECHI' | translate }}</td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.Ciechi.Liquidato
+                                                                    | currency}}</td>
+                                                                <td class="text-right"><a data-toggle="modal"
+                                                                        data-target="#modalArretrati">{{liquidazione.Prestazioni.Ciechi.Arretrati
+                                                                        | currency}}</a></td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.Ciechi.Conguaglio
+                                                                    | currency}}</td>
+                                                                <td class="text-right">{{liquidazione.Prestazioni.InvalidiCivili.Totale
+                                                                    | currency}}</td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="space">{{'TREDICESIMA' | translate }}</td>
+                                                <td width="200px" class="text-right">{{liquidazione.Tredicesima |
+                                                    currency}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a id="show-table-associazioni"><i class="fa fa-chevron-down p-r-sx"></i>
+                                                    </a>{{'RITENUTE_DI_CATEGORIA' | translate }}</td>
+                                                <td width="200px" class="text-right">{{liquidazione.RitenuteDiCategoria.Totale
+                                                    | currency}}</td>
+                                            </tr>
+                                            <tr id="table-associazioni" style="display:none">
+                                                <td colspan="2">
+                                                    <table class="table table-bordered table-striped secondary-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>{{ 'TIPO_ASSOCIAZIONE' | translate }}</th>
+                                                                <th width="174px">{{ 'IMPORTO' | translate }}</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="item in liquidazione.RitenuteDiCategoria.Associazioni">
+                                                                <td>{{item.TipoAssociazione}}</td>
+                                                                <td class="text-right">{{item.Importo | currency}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="space">{{ 'RIACCREDITI' | translate }}</td>
+                                                <td width="200px" class="text-right">{{liquidazione.Riaccrediti |
+                                                    currency}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="space">{{ 'RECUPERI_DA_COMPENSAZIONE' | translate }}</td>
+                                                <td width="200px" class="text-right">{{liquidazione.RecuperiDaCompensazione
+                                                    | currency}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="info-title">
+                                                <strong>{{'TOTALE_IMPORTO_LIQUIDATO' | translate }}</strong>
+                                            </div>
+                                            <div class="info pull-right text-right">
+                                                <span>{{liquidazione.TotaleImportoLiquidato | currency}}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-separator"></div>
+                    </div>
+                    <h3 class="m-t-lg">{{'MODALITA_DI_PAGAMENTO' | translate }}</h3>
+
+                    <div class="row">
+
+                        <!-- ---------------- Banca -->
+                        <div ng-if="liquidazione.ModalitaDiPagamento === 'Banca'" class="col-md-6">
+
+                            <div class="checkbox">
+                                <label>
+                                    <input icheck ng-model="liquidazione.ModalitaDiPagamento" type="radio" value="Banca"
+                                        name="modallitaDiPagamento" ng-checked="liquidazione.ModalitaDiPagamento == 'Banca'"
+                                        disabled='disabled'>
+                                    <strong> {{'BONIFICO_BANCARIO' | translate }}</strong>
+                                </label>
+                            </div>
+
+
+                            <div class="row m-t-lg">
+                                <div class="col-md-12 form-group"><label>{{IBAN | translate}}</label> <input type="text"
+                                        readonly class="form-control" value=""></div>
+                                <div class="col-md-12 form-group"><label>{{INTESTATARIO_CONTO | translate}}</label>
+                                    <input type="text" readonly class="form-control" value=""></div>
+                            </div>
+                        </div>
+
+                        <!-- ---------------- Posta -->
+                        <div ng-if="liquidazione.ModalitaDiPagamento === 'Posta'" class="col-md-12">
+
+                            <div class="checkbox">
+                                <label>
+                                    <input icheck ng-model="liquidazione.ModalitaDiPagamento" type="radio" value="Posta"
+                                        name="modallitaDiPagamento" ng-checked="liquidazione.ModalitaDiPagamento == 'Posta'"
+                                        disabled='disabled'>
+                                    <strong> {{'BONIFICO_DOMICILIATO_ALLA_POSTA' | translate }}</strong>
+                                </label>
+                            </div>
+
+                            <div class="row m-t-lg">
+                                <div class="col-md-12 form-group"><label>{{'CODICE_FISCALE' | translate}}</label>
+                                    <input type="text" readonly class="form-control" value=""></div>
+                                <div class="col-md-12 form-group"><label>{{'NOME' | translate}}
+                                        ({{'DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO' | translate}}) </label>
+                                    <input type="text" readonly class="form-control" value=""></div>
+                                <div class="col-md-12 form-group"><label>{{'COGNOME' | translate}}
+                                        ({{'DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO' | translate}})</label> <input type="text"
+                                        readonly class="form-control" value=""></div>
+                                <div class="col-md-12 form-group"><label> {{'CODICE_FISCALE' | translate}}
+                                        ({{'DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO' | translate}})</label> <input type="text"
+                                        readonly class="form-control" value=""></div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------------->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal" id="modalArretrati">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">{{ 'DETTAGLIO_ARRETRATI' | translate }}</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="m-t-md">{{ 'ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO' | translate }} </h3>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col-md-3">Mese</th>
+                            <th class="col-md-3">Importo spettante arretrati</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gennaio 2016</td>
+                            <td>€ 57,00</td>
+                        </tr>
+                        <tr>
+                            <td>Febbraio 2016</td>
+                            <td>€ 13,00</td>
+                        </tr>
+                        <tr>
+                            <td>Marzo 2016</td>
+                            <td>€ 30,00</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var table = $('.secondary-table').DataTable({
+        searching: false,
+        responsive: true,
+        lengthChange: false,
+        ordering: false,
+        paging: false,
+        'sDom': 't'
+    });
+
+    // Add event listener for opening and closing details
+    $('#show-table-prestazioni').on('click', function () {
+        var tr = $(this).closest('tr');
+        if (tr.hasClass('shown')) {
+            $('#table-prestazioni').hide();
+            tr.removeClass('shown');
+            $(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        }
+        else {
+            tr.addClass('shown');
+            $('#table-prestazioni').show();
+            $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        }
+    });
+    $('#show-table-associazioni').on('click', function () {
+        var tr = $(this).closest('tr');
+        if (tr.hasClass('shown')) {
+            $('#table-associazioni').hide();
+            tr.removeClass('shown');
+            $(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        }
+        else {
+            tr.addClass('shown');
+            $('#table-associazioni').show();
+            $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        }
+    });
+</script>

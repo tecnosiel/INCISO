@@ -4,6 +4,11 @@
     cursor: not-allowed;
     background-color: #EEEEEE
 }
+.euroDisabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: #EEEEEE
+}
 
 .anchorDisabled {
     pointer-events: none;

@@ -1,3 +1,33 @@
+//==========================================================
+// camilloelviraVERO
+//==========================================================
+//serverDaCambiare vero
+server = "http://localhost:55088/";
+//var server = 'http://2.226.210.213:55088/';
+//var server = '@Global.cServerCurrent'
+//==========================================================
+urlComuni = this.server + "api/comuni";
+urlContrib = this.server + "api/anafis";
+urlPersoneGiuridiche = this.server + "api/anagiur";
+urlFabbric = this.server + "api/fabbric";
+urlTerren = this.server + "api/terren";
+urlCatFab = this.server + "api/catFab";
+urlCatTer = this.server + "api/catTer";
+urlGiornale = this.server + "api/giornale";
+urlMailMerge = this.server + "api/mailMerge";
+urlVersImu = this.server + "api/versimu";
+urlVersTari = this.server + "api/verstari";
+urlVersTasi = this.server + "api/verstasi";
+urlVersCensi = this.server + "api/verscensi";
+urlAliDetrImu = this.server + "api/aliDetrImu";
+urlEstimiImu = this.server + "api/estimiImu";
+urlSanDenImu = this.server + "api/sanDenImu";
+urlDetrNucleiFamImu = this.server + "api/detrNucleiFamImu";
+urlCategTari = this.server + "api/categTari";
+urlRiduzTari = this.server + "api/riduzTari";
+urlRuolTari = this.server + "api/ruolTari";
+urlPosContrib = this.server + "api/poscontrib";
+
 /**
  * Tabelle BASE DATI MOCK
  *
@@ -8,6 +38,7 @@ mochDbTable = function(table) {
   // ---------------------------------------------------
   let tabPosizioni = [
     {
+      Posizione: "123456",
       CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
       Nome: "Camillo",
@@ -15,11 +46,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "03/01/2014",
       AnnoDiScarto: "1234",
       NumeroFaldone: "1111",
-      Posizione: "123456",
       Fascicolo: "634",
       StatoDomanda: "Revocata"
     },
     {
+      Posizione: "345765",
       CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
       Nome: "Camillo",
@@ -27,11 +58,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "03/01/2014",
       AnnoDiScarto: "12534",
       NumeroFaldone: "1111",
-      Posizione: "345765",
       Fascicolo: "123",
       StatoDomanda: "Negata"
     },
     {
+      Posizione: "771723",
       CodiceFiscale: "QTGSRO60A11Q2055",
       Cognome: "Hammond",
       Nome: "John",
@@ -39,11 +70,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "127534",
       NumeroFaldone: "2222222",
-      Posizione: "771723",
       Fascicolo: "236",
       StatoDomanda: "Concessa"
     },
     {
+      Posizione: "125688",
       CodiceFiscale: "QTGSRO60A11Q2055",
       Cognome: "Hammond",
       Nome: "John",
@@ -51,11 +82,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "1267634",
       NumeroFaldone: "2222222",
-      Posizione: "125688",
       Fascicolo: "634",
       StatoDomanda: "Revocata"
     },
     {
+      Posizione: "345765",
       CodiceFiscale: "QTGSRO60A11Q2055",
       Cognome: "Hammond",
       Nome: "John",
@@ -63,12 +94,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "123664",
       NumeroFaldone: "2222222",
-      Posizione: "345765",
       Fascicolo: "123",
       StatoDomanda: "Negata"
     },
-
     {
+      Posizione: "771723",
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
@@ -76,11 +106,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "16234",
       NumeroFaldone: "3333333",
-      Posizione: "771723",
       Fascicolo: "236",
       StatoDomanda: "Concessa"
     },
     {
+      Posizione: "12366",
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
@@ -88,11 +118,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "1234",
       NumeroFaldone: "3333333",
-      Posizione: "12366",
       Fascicolo: "634",
       StatoDomanda: "Revocata"
     },
     {
+      Posizione: "5765",
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
@@ -100,12 +130,12 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "1234",
       NumeroFaldone: "3333333",
-      Posizione: "5765",
       Fascicolo: "123",
       StatoDomanda: "Negata"
     },
 
     {
+      Posizione: "771723",
       CodiceFiscale: "VSYFRO70A10E2652",
       Cognome: "Mathews",
       Nome: "Suzanne",
@@ -113,22 +143,22 @@ mochDbTable = function(table) {
       DataDiDecesso: "-",
       AnnoDiScarto: "1994",
       NumeroFaldone: "444444",
-      Posizione: "771723",
       Fascicolo: "236"
     },
 
     {
+      Posizione: "771723",
       CodiceFiscale: "VSYFRO70A10E2652",
       Cognome: "Mathews",
       Nome: "Suzanne",
       DataDiNascita: "01/01/1966",
       DataDiDecesso: "-",
-      Posizione: "771723",
       Fascicolo: "236",
       StatoDomanda: "Concessa"
     },
 
     {
+      Posizione: "771723",
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
@@ -136,11 +166,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "12246",
       NumeroFaldone: "1113451",
-      Posizione: "771723",
       Fascicolo: "236",
       StatoDomanda: "Concessa"
     },
     {
+      Posizione: "673456",
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
@@ -148,11 +178,11 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "775634",
       NumeroFaldone: "1113451",
-      Posizione: "673456",
       Fascicolo: "634",
       StatoDomanda: "Revocata"
     },
     {
+      Posizione: "345765",
       CodiceFiscale: "RTSDRO70A10W2056",
       Cognome: "Mudassar",
       Nome: "Khan",
@@ -160,7 +190,6 @@ mochDbTable = function(table) {
       DataDiDecesso: "01/01/1930",
       AnnoDiScarto: "7464",
       NumeroFaldone: "1113451",
-      Posizione: "345765",
       Fascicolo: "123",
       StatoDomanda: "Negata"
     }
@@ -2809,7 +2838,7 @@ mochDbTable = function(table) {
           TotAnno: "2912.25"
         }
       ],
-    
+
       ElencoImportiRiaccreditati: [
         {
           DataRiaccredito: "18/11/2015",
