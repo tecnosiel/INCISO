@@ -5,6 +5,10 @@
  */
 function MainCtrl($scope, $rootScope, $translate, httpServices) {
   
+  $rootScope.server = "wwwroot-dev/inciso.prov.bz.it/api/";
+  $rootScope.urlLogin ="/api/login"
+  $rootScope.urlAnagrafe = "/api/anagrafe";
+
   $rootScope.CustomStyle = {
     "background-color": null,
     "font-size": null

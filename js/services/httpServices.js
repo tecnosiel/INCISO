@@ -1,10 +1,7 @@
 //==========================================================
 // camilloelviraVERO
 //==========================================================
-//serverDaCambiare vero
-server = "http://localhost:55088/";
-//var server = 'http://2.226.210.213:55088/';
-//var server = '@Global.cServerCurrent'
+this.server = "wwwroot-dev/inciso.prov.bz.it/api";
 //==========================================================
 urlComuni = this.server + "api/comuni";
 urlContrib = this.server + "api/anafis";

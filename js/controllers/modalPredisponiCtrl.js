@@ -8,10 +8,7 @@ function modalPredisponiCtrl($scope, $state, $stateParams) {
     swal(cTitolo, cSottoTitolo, "success");
   };
 
-  $scope.camillo = function() {
-    alert("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-  };
-
+  
   $scope.modalClose = function() {
     self.modalInstance.close();
   };

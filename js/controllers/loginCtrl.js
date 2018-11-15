@@ -3,9 +3,9 @@
  * Contiene dati globali usati in differenti view
  *
  */
-function loginCtrl($scope, $state, authenticationService) {
+function loginCtrl($scope, $state, loginServices) {
   /**
-   * Lingua partenza applicativo 
+   * Lingua partenza applicativo
    */
 
   this.$onInit = function() {
@@ -16,7 +16,7 @@ function loginCtrl($scope, $state, authenticationService) {
 
   $scope.onFormLoginSubmit = function() {
     if ($scope.loginForm.$valid) {
-      authenticationService.login(
+      loginServices.login(
         $scope.username,
         $scope.password,
         CallBackVerificaToken
@@ -29,7 +29,7 @@ function loginCtrl($scope, $state, authenticationService) {
     if (onOff) {
       $state.go("home");
     } else {
-      alert("La risposta del Login ha un token errato");
+      swal("Errore", "Utente non riconosciuto.", "error");
     }
   }
 }

@@ -7,17 +7,22 @@
     <p>{{'BENVENUTI_IN_INCISO_SOTTOTITOLO' | translate }} </p>
     <p>{{'ENTRA_NELLA_PROCEDURA' | translate }}:</p>
     
-    <form class="m-t" ng-submit="onFormLoginSubmit()" name="loginForm" novalidate>
+    <form class="m-t" name="loginForm" ng-submit="onFormLoginSubmit()"  novalidate>
         
         <div class="form-group">
-            <input type="text" class="form-control" ng-model="username" placeholder="Username" required>
+            <input type="text" name="username" class="form-control" ng-model="username" placeholder="Username" required>
+            <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine" class="help-block">{{
+                'CAMPO_OBBLIGATORIO' | translate }}.</p>
+
         </div>
 
         <div class="form-group">
-            <input type="password" class="form-control" ng-model="password" placeholder="Password" required>
+            <input type="password" name="password" class="form-control" ng-model="password" placeholder="Password" required>
+            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">{{
+                'CAMPO_OBBLIGATORIO' | translate }}.</p>
         </div>
 
-        <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+        <button type="submit" class="btn btn-primary block full-width m-b"  ng-disabled="loginForm.$invalid" >Login</button>
 
         <!-- <a ui-sref="forgot_password"><small>Forgot password?</small></a>
             <p class="text-muted text-center"><small>Do not have an account?</small></p>
