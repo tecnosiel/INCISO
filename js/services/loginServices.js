@@ -1,6 +1,3 @@
-// (function () {
-//     'use strict';
-
 function loginServices($http, $rootScope) {
   var service = {};
 
@@ -11,7 +8,7 @@ function loginServices($http, $rootScope) {
 
   function Login(username, password, callback) {
     $http
-      .post($rootScope.urlLogin, { username: username, password: password })
+      .post($rootScope.urlLogin + "/login", { username: username, password: password })
       .success(function(response) {
         // login successful if there's a token in the response
         if (response.token) {
@@ -47,4 +44,3 @@ angular
   .module("inciso")
   .factory("loginServices", loginServices);
 
-// })();

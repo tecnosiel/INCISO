@@ -73,21 +73,25 @@ function ricercaController(
   };
 
   this.findCodFis = function(cCodFis) {
+    alert("posizione")
+    // this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+    //   "mockUrl",
+    //   cCodFis
+    // );
+    anagrafeServices.findCodFis(cCodFis, resultData => {
+      this.datiAssistito = resultData;
+    });
+  };
+
+  this.findPosizione = function(cCodFis) {
     // this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
     //   "mockUrl",
     //   cCodFis
     // );
 
     anagrafeServices.findCodFis(cCodFis, resultData => {
-      this.elencoAssistiti = resultData;
+      this.datiAssistito = resultData;
     });
-  };
-
-  this.findPosizione = function(cCodFis) {
-    this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
 
     $state.go("posizione.visualizza_posizione", {
       datiAssistito: this.datiAssistito

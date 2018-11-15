@@ -1,6 +1,4 @@
-// (function() {
-
-function setupFakeBackend($httpBackend, $rootScope) {
+function setupFakeBackend($httpBackend) {
   // i file statici verranno serviti senza elaborazione
   $httpBackend.whenGET(/^\w+.*/).passThrough();
   // le views verranno servite senza elaborazione. Se i elimina la riga si hanno interferenze con gli stati di UI-ROUTER
@@ -8,15 +6,12 @@ function setupFakeBackend($httpBackend, $rootScope) {
   $httpBackend.whenGET(/js\/.*/).passThrough();
 
   // ------------------------- LOGIN
-
   $httpBackend
-    .whenPOST($rootScope.urlLogin)
+    .whenPOST("/api/autenticazione/login")
     .respond(function(method, url, data, headers) {
       debugger;
       // get parameters from post request
       var params = angular.fromJson(data);
-
-      // check user credentials and return fake jwt token if valid
 
       if (params.username === "camillo" && params.password === "camillo") {
         return [
@@ -59,33 +54,63 @@ function setupFakeBackend($httpBackend, $rootScope) {
       }
     });
 
-  // ------------------------- ANAGRAFE/FIND
-
   $httpBackend
-    .whenGET($rootScope.urlAnagrafe + "/find")
+    .whenPOST("/api/autenticazione/logout")
     .respond(function(method, url, data, headers) {
-      // legge parametri
-      // var params = angular.fromJson(data);
-      var response = tabella("ANAGRAFE");
+      debugger;
+      // get parameters from post request
+      var params = angular.fromJson(data);
 
-      return [200, response, {}];
+      // da implementare
+      return [200, {}, {}];
     });
 
-  // ------------------------- ANAGRAFE/FINDCODFIS
+  // ------------------------- ANAGRAFE
 
   $httpBackend
-    .whenGET($rootScope.urlAnagrafe + "/findCodFis")
+    .whenGET("/api/anagrafe/find")
     .respond(function(method, url, data, headers) {
+      alert(data);
+      debugger;
       // legge parametri
       var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
-      alert("findCodFis");
+      alert("find");
       debugger;
-
       return [200, response, {}];
     });
 
-  // fine - fake
+  $httpBackend
+    .whenGET("/api/anagrafe/findcodfis")
+    .respond(function(method, url, data, headers) {
+      alert(data);
+      debugger;
+      // legge parametri
+      var response = tabella("ANAGRAFE");
+      var response2 = response.find(obj => {
+        return obj.CodiceFiscale === data;
+      });
+
+      alert("findCodFis");
+      debugger;
+      return [200, response2, {}];
+    });
+
+  $httpBackend
+    .whenPOST("/api/anagrafe/save")
+    .respond(function(method, url, data, headers) {
+      debugger;
+      // get parameters from post request
+      var params = angular.fromJson(data);
+
+      var params = angular.fromJson(data);
+      var response = tabella("ANAGRAFE");
+      alert("save");
+      debugger;
+      return [200, response, {}];
+    });
+
+  // ------------------------- TABELLE
 
   function tabella(cTipoTabella) {
     if (cTipoTabella.toUpperCase() === "ANAGRAFE") {
@@ -4501,4 +4526,3 @@ function setupFakeBackend($httpBackend, $rootScope) {
     }
   }
 }
-// })();

@@ -11,6 +11,7 @@ function visualizzaAnagrafeCtrl(
   runMode,
   $state,
   $stateParams,
+  anagrafeServices,
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
@@ -143,6 +144,37 @@ function visualizzaAnagrafeCtrl(
       button: "conferma!"
     });
   };
+
+  // $scope.salvaAnagrafe = function() {
+  //   swal({
+  //     title: "Salvataggio Dati Anagrafici!",
+  //     text: "I dati saranno controllati e salvati!",
+  //     icon: "success",
+  //     button: "conferma!"
+  //   });
+  // };
+
+  $scope.onFormAnagrafeSubmit = function() {
+    if ($scope.anagrafeForm.$valid) {
+      alert("xxxxxxxx")
+      debugger;
+      anagrafeServices.save($scope.datiAssistito, CallBackSalva);
+    }
+  };
+
+  function CallBackSalva(onOff) {
+    debugger;
+    if (onOff) {
+      swal({
+        title: "Dati Salvati!",
+        text: "I dati sono stati correttamente memorizzati!",
+        icon: "success",
+        button: "conferma!"
+      });
+    } else {
+      swal("Errore", "Utente non riconosciuto.", "error");
+    }
+  }
 
   $scope.salvaModulo = function() {
     swal({

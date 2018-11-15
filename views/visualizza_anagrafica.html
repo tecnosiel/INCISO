@@ -1,1385 +1,1677 @@
 <div class="row wrapper border-bottom white-bg page-heading">
+  <header-component
+    ng-if="inserimentoAnagrafe"
+    tipo="'Dettaglio'"
+    titolo="'INSERIMENTO_DATI_ANAGRAFICI'"
+    paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_anagrafica.html',descrizione:'INSERIMENTO_DATI_ANAGRAFICI'}]"
+    active="{{datiAssistito.Nome}} {{datiAssistito.Cognome}}"
+  >
+  </header-component>
+  <header-component
+    ng-if="!inserimentoAnagrafe"
+    tipo="'Dettaglio'"
+    titolo="'VISUALIZZA_DATI_ANAGRAFICI'"
+    paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_anagrafica.html',descrizione:'RICERCA_DATI_ANAGRAFICI'}]"
+    active="{{datiAssistito.Nome}} {{datiAssistito.Cognome}}"
+  ></header-component>
 
-    <header-component ng-if="inserimentoAnagrafe" tipo="'Dettaglio'" titolo="'INSERIMENTO_DATI_ANAGRAFICI'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_anagrafica.html',descrizione:'INSERIMENTO_DATI_ANAGRAFICI'}]"
-        active="{{datiAssistito.Nome}} {{datiAssistito.Cognome}}"></header-component>
-    <header-component ng-if="!inserimentoAnagrafe" tipo="'Dettaglio'" titolo="'VISUALIZZA_DATI_ANAGRAFICI'" paths="[{href:'index.html',descrizione:'HOME'}, {href:'ricerca_anagrafica.html',descrizione:'RICERCA_DATI_ANAGRAFICI'}]"
-        active="{{datiAssistito.Nome}} {{datiAssistito.Cognome}}"></header-component>
-
-    <div class="col-lg-2">
-    </div>
+  <div class="col-lg-2"></div>
 </div>
 
 <!-- INIZIO VALIDAZIONE FORM -->
-<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
-
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div ng-if="!inserimentoAnagrafe" class="row">
-            <dati-assistito-component dati-assistito="datiAssistito"></dati-assistito-component>
-        </div>
-
-        <!-- PULSANTE BLOCCA SBLOCCA -->
-        <div ng-if="visShowPulsanti" class="row text-left">
-            <div ng-if="!visDatiAssistito" class="col-sm-12">
-                <button class="btn btn-danger btnToggleBlock" ng-click="visDatiAssistitoToggle()">{{
-                    'BLOCCA_CAMPI' | translate }}</button>
-            </div>
-            <div ng-if="visDatiAssistito" class="col-sm-12">
-                <button class="btn btn-primary btnToggleBlock" ng-click="visDatiAssistitoToggle()">{{
-                    'SBLOCCA_CAMPI' | translate }}</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="panels" class="col-lg-12">
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseDatiGenerali">
-                        {{ "DATI_GENERALI" | translate}} {{asteriscoInserimento}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseDatiGenerali" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-
-                                <!-- --------------------------  -->
-                                <div class="col-md-4 form-group">
-                                    <label>{{'NOME' | translate}} {{asteriscoInserimento}}</label>
-                                    <input type="text" name="nome" ng-model="datiAssistito.Nome" ng-readonly="visDatiAssistito"
-                                        class="form-control" required>
-                                    <p ng-show="userForm.nome.$invalid && !userForm.nome.$pristine" class="help-block">{{'CAMPO_OBBLIGATORIO'
-                                        | translate}}.</p>
-                                </div>
-
-                                <!-- --------------------------  -->
-                                <div class="col-md-4 form-group">
-                                    <label>{{'COGNOME' | translate}} {{asteriscoInserimento}}</label>
-                                    <input type="text" name="cognome" ng-model="datiAssistito.Cognome" ng-readonly="visDatiAssistito"
-                                        class="form-control" required>
-                                    <p ng-show="userForm.cognome.$invalid && !userForm.cognome.$pristine" class="help-block">
-                                        {{'CAMPO_OBBLIGATORIO' | translate}}.</p>
-                                </div>
-
-
-                                <!-- --------------------------  -->
-                                <div class="col-md-4 form-group">
-                                    <label>{{'COGNOME_ACQUISITO' | translate}}</label>
-                                    <input type="text" name="cognomeacquisito" ng-model="datiAssistito.CognomeAcquisito"
-                                        ng-readonly="visDatiAssistito" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <!-- --------------------------  -->
-                                <div class="col-md-4 form-group">
-                                    <label>{{'CODICE_FISCALE' | translate}} {{asteriscoInserimento}}</label>
-                                    <input type="text" name="codicefiscale" ng-model="datiAssistito.CodiceFiscale"
-                                        ng-readonly="visDatiAssistito" class="form-control" ng-minlength="16"
-                                        ng-maxlength="16">
-                                    <p ng-show="userForm.codicefiscale.$error.minlength" class="help-block">{{'CODICE_FISCALE_TROPPO_CORTO'
-                                        | translate}}.</p>
-                                    <p ng-show="userForm.codicefiscale.$error.maxlength" class="help-block">{{'CODICE_FISCALE_TROPPO_LUNGO'
-                                        | translate}}.</p>
-                                </div>
-                                <!-- --------------------------  -->
-                                <div class="col-md-4 form-group">
-                                    <label>{{'SESSO' | translate}} {{asteriscoInserimento}}</label>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Maschile"
-                                                        name="sesso" ng-disabled="visDatiAssistito" class="form-control"
-                                                        ng-checked="datiAssistito.Sesso == 'Maschile'">
-                                                    <i></i>
-                                                    {{'MASCHILE' | translate}}
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="datiAssistito.Sesso" type="radio" value="Femminile"
-                                                        name="sesso" ng-disabled="visDatiAssistito" class="form-control"
-                                                        ng-checked="datiAssistito.Sesso == 'Femminile'">
-                                                    <i></i>
-                                                    {{'FEMMINILE' | translate}}
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <!-- --------------------------  -->
-                                <div class="col-md-4 form-group">
-                                    <label>{{'STATO_CIVILE' | translate}}</label>
-                                    <select class="form-control m-b" name="statocivile" ng-model="datiAssistito.StatoCivile"
-                                        ng-disabled="visDatiAssistito" class="form-control" required>
-                                        <option></option>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                    </select>
-                                </div>
-
-                                <!-- --------------------------  -->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseDataNascita">
-                        {{ "DATI_DI_NASCITA" | translate}} {{asteriscoInserimento}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseDataNascita" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ 'DATA_DI_NASCITA' | translate }} {{asteriscoInserimento}}</label>
-
-                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
-                                        <input type="text" name="datadinascita" ng-model="datiAssistito.DataDiNascita"
-                                            ng-readonly="visDatiAssistito" class="form-control js-date" required>
-                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-
-                                    <p ng-show="userForm.datadinascita.$invalid && !userForm.datadinascita.$pristine"
-                                        class="help-block">{{
-                                        'DATA_DI_NASCITA' | translate }}
-                                        obbligatorio.</p>
-                                </div>
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "LUOGO_DI_NASCITA" | translate}} {{asteriscoInserimento}}</label>
-                                    <!-- <input type="text" name="luogodinascita" ng-model="datiAssistito.LuogoDiNascita"
-                                        ng-readonly="visDatiAssistito" class="form-control" required> -->
-                                    <select name="luogoDiNascita" ng-model="datiAssistito.LuogoDiNascita" ng-disabled="visDatiAssistito"
-                                        ng-options="comune.name for comune in comuni" class="form-control" required>
-                                        <option value="">{{ "SELEZIONA_UN_COMUNE" | translate}}</option>
-                                    </select>
-
-                                    <p ng-show="userForm.luogodinascita.$invalid && !userForm.luogodinascita.$pristine"
-                                        class="help-block">{{ "CAMPO_OBBLIGATORIO" | translate}}.</p>
-                                </div>
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "PROVINCIA" | translate}} {{asteriscoInserimento}}</label>
-                                    <select name="provinciadinascita" ng-model="datiAssistito.ProvinciaDiNascita"
-                                        ng-disabled="visDatiAssistito" ng-options="province.name for province in provinces"
-                                        class="form-control" required>
-                                        <option value="">{{ "SELEZIONA_UNA_PROVINCIA" | translate}}</option>
-                                    </select>
-                                    <p ng-show="userForm.provinciadinascita.$invalid && !userForm.provinciadinascita.$pristine"
-                                        class="help-block">{{ "CAMPO_OBBLIGATORIO" | translate}}.</p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-4 form-group"><label>{{ "NAZIONE" | translate}}
-                                        {{asteriscoInserimento}}</label>
-                                    <!-- <input type="text" ng-model="datiAssistito.NazioneDiNascita" ng-readonly="visDatiAssistito"
-                                        class="form-control"> -->
-
-                                    <select name="nazioneDiNascita" ng-model="datiAssistito.NazioneDiNascita"
-                                        ng-disabled="visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
-                                        class="form-control" required>
-                                        <option value="">{{ "SELEZIONA_UNA_NAZIONE" | translate}}</option>
-                                    </select>
-
-                                </div>
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ 'DATA_DI_DECESSO' | translate }}</label>
-                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
-                                        <input type="text" ng-model="datiAssistito.DataDiDecesso" ng-readonly="visDatiAssistito"
-                                            class="form-control js-date">
-                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello ALTRI DATI -->
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseAltriDati">
-                        {{ "ALTRI_DATI" | translate}} {{asteriscoInserimento}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-
-                    </div>
-
-                    <div id="collapseAltriDati" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "CITTADINANZA" | translate}} {{asteriscoInserimento}}</label>
-                                    <ui-select name="cittadinanza" ng-model="datiAssistito.Cittadinanza" ng-disabled="visDatiAssistito"
-                                        title="{{ 'SELEZIONA_UN_ELEMENTO_NELL_ELENCO' | translate}}">
-                                        <ui-select-match placeholder="{{ 'SELEZIONA_CITTADINANZA' | translate}}">{{$select.selected.nome}}</ui-select-match>
-                                        <ui-select-choices repeat="cittadinanza in cittadinanze | filter: $select.search">
-                                            <span ng-bind-html="cittadinanza.nome | highlight: $select.search"></span>
-                                            <small ng-bind-html="cittadinanza.code | highlight: $select.search"></small>
-                                        </ui-select-choices>
-                                    </ui-select>
-
-                                </div>
-
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "EXTRACOMUNITARIO" | translate}}</label>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="datiAssistito.Extracomunitario" type="radio"
-                                                        name="extracomunitario" ng-disabled="visDatiAssistito" value="Si"
-                                                        ng-checked="datiAssistito.Extracomunitario == 'Si'">
-                                                    <i></i>
-                                                    {{ "SI" | translate}}
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input icheck ng-model="datiAssistito.Extracomunitario" type="radio"
-                                                        name="extracomunitario" ng-disabled="visDatiAssistito" value="No"
-                                                        ng-checked="datiAssistito.Extracomunitario=='No'">
-                                                    <i></i>
-                                                    {{ "NO" | translate}}
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <h3 class="m-t-lg">{{ "PERMESSO_DI_SOGGIORNO" | translate}}</h3>
-                            <div class="row">
-
-                                <!-- <div class="col-md-4 form-group"><label>Tipo permesso</label>
-                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
-                                        ng-readonly="visDatiAssistito" class="form-control">
-                                </div> -->
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "TIPO_PERMESSO" | translate}}</label>
-                                    <ui-select name="permessoDiSoggiornoTipoPermesso" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
-                                        ng-disabled="visDatiAssistito" title="{{ 'SELEZIONA_UN_PERMESSO_DALL_ELENCO' | translate}}">
-                                        <ui-select-match placeholder="Seleziona permesso">{{$select.selected.nome}}</ui-select-match>
-                                        <ui-select-choices repeat="permesso in permessi | filter: $select.search">
-                                            <span ng-bind-html="permesso.nome | highlight: $select.search"></span>
-                                            <small ng-bind-html="permesso.code | highlight: $select.search"></small>
-                                        </ui-select-choices>
-                                    </ui-select>
-
-                                </div>
-
-
-
-                                <!-- <div class="col-md-4 form-group">
-                                    <label>Data rilascio</label>
-                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
-                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div> -->
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "DATA_RILASCIO" | translate}}</label>
-                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
-                                        <input type="text" name="permessoDiSoggiornoDataRilascio" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
-                                            ng-readonly="visDatiAssistito" class="form-control js-date" required>
-                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="col-md-4 form-group">
-                                    <label>Valido fino al</label>
-                                    <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
-                                        ng-readonly="visDatiAssistito" class="form-control js-date"></div> -->
-
-                                <div class="col-md-4 form-group">
-                                    <label>{{ "VALIDO_FINO_AL" | translate}}</label>
-                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
-                                        <input type="text" name="permessoDiSoggiornoValidoFinoAl" ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
-                                            ng-readonly="visDatiAssistito" class="form-control js-date" required>
-                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <h3 class="m-t-lg">{{ "RIFERIMENTI_DI_CONTATTO" | translate}}</h3>
-                            <div class="row">
-                                <div class="col-md-4 form-group"><label>{{ "TELEFONO_PRINCIPALE" | translate}}</label>
-                                    <input type="text" ng-model="datiAssistito.TelefonoPrincipale" ng-readonly="visDatiAssistito"
-                                        class="form-control telefono"></div>
-                                <div class="col-md-4 form-group"><label>{{ "TELEFONO_SECONDARIO" | translate}}</label>
-                                    <input type="text" ng-model="datiAssistito.TelefonoSecondario" ng-readonly="visDatiAssistito"
-                                        class="form-control telefono"></div>
-                                <div class="col-md-4 form-group"><label>Email</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" ng-model="datiAssistito.Email"
-                                        class="form-control"></div>
-                                <div class="col-md-4 form-group"><label>PEC</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" ng-model="datiAssistito.Pec"
-                                        class="form-control"></div>
-                                <div class="col-md-12 form-group"><label>{{ "NOTE" | translate}}</label>
-                                    <textarea ng-model="datiAssistito.Note" ng-readonly="visDatiAssistito" class="form-control"></textarea></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello ELENCO INDIRIZZI -->
-                <div class="panel panel-default m-t-lg">
-
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseIndirizzi">
-                        {{ "ELENCO_INDIRIZZI" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseIndirizzi" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-2">{{ "TIPO" | translate}}</th>
-                                        <th class="col-md-3">{{ "INDIRIZZO" | translate}}</th>
-                                        <th class="col-md-2">{{ "VALIDITA" | translate}}</th>
-                                        <th class="col-md-3">{{ "NOTE" | translate}}</th>
-                                        <th class="col-md-1"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in datiAssistito.Indirizzi">
-                                        <td>{{item.Tipo}}</td>
-                                        <td>
-                                            {{item.Indirizzo}}
-                                        </td>
-                                        <td>{{item.Validita}}</td>
-                                        <td>{{item.Note}}</td>
-                                        <td style="font-size: 18px; text-align: center">
-                                            <a ng-click="creaNuovoIndirizzo($index)" ng-class="{anchorDisabled : visDatiAssistito}"><i
-                                                    class="fa fa-pencil"></i></a>
-                                            <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="cancellaIndirizzo()"><i
-                                                    class="fa fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="row text-right">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visDatiAssistito"
-                                        ng-click="creaNuovoIndirizzo(-1)">{{
-                                        'CREA_NUOVO_INDIRIZZO'
-                                        | translate }}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ------------------------------------------------------------------------- -->
-
-                </div>
-
-                <!-- Pannello Elenco Posizioni -->
-                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseElencoPos">
-                        {{ "ELENCO_POSIZIONI" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseElencoPos" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-4">{{ "NUMERO_POSIZIONE" | translate}}</th>
-                                        <th class="col-md-4"></th>
-                                        <th class="col-md-4"></th>
-                                    </tr>
-                                </thead>
-                                <tbody ng-if="datiAssistito.CodiceFiscale">
-                                    <tr>
-                                        <td class="text-right">778767</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">{{
-                                                "VISUALIZZA_POSIZIONE" | translate}}</a></td>
-                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">{{
-                                                "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate}}</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right">885963</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">{{
-                                                "VISUALIZZA_POSIZIONE" | translate}}</a></td>
-                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">{{
-                                                "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate}}</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right">993423</td>
-                                        <td><a ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})">{{
-                                                "VISUALIZZA_POSIZIONE" | translate}}</a></td>
-                                        <td><a data-toggle="modal" data-target="#modalDocumentiPerFascicolo">{{
-                                                "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate}}</a></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello ELENCO POSIZIONI  -->
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapsePensioni">
-                        {{ "PENSIONI" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <!-- <div id="collapsePensioni" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12 form-group"><label>{{
-                                        "ALTRE_PENSIONI" | translate}}</label> <input type="text" ng-readonly="visDatiAssistito"
-                                        class="form-control" value="Invalidità, infortunio"></div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <div id="collapsePensioni" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-2">{{ "TIPO" | translate}}</th>
-                                        <th class="col-md-3">{{ "TIPO_ASSISTENZA" | translate}}</th>
-                                        <th class="col-md-2">{{ "DATA_FINE_COMPATIBILITA" | translate}}</th>
-                                        <th class="col-md-3">{{ "NOTE" | translate}}</th>
-                                        <th class="col-md-1"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in datiAssistito.Pensioni">
-                                        <td>{{item.Tipo}}</td>
-                                        <td class="text-center">
-                                            {{item.TipologiaDiAssistenza}}
-                                        </td>
-                                        <td>{{item.DataFineCompatibilita}}</td>
-                                        <td>{{item.Note}}</td>
-                                        <td style="font-size: 18px; text-align: center">
-                                            <a ng-click="creaNuovaPensione($index)" ng-class="{anchorDisabled : visDatiAssistito}"><i
-                                                    class="fa fa-pencil"></i></a>
-                                            <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="cancellaPensione()"><i
-                                                    class="fa fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="row text-right">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visDatiAssistito"
-                                        ng-click="creaNuovaPensione(-1)">{{
-                                        'CREA_NUOVA_PENSIONE'
-                                        | translate }}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <!-- Pannello DECESSO  -->
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseDecesso">
-                        {{ "DECESSO" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseDecesso" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-4 form-group">
-                                    <label>{{
-                                        "DATA_DECESSO" | translate}}</label>
-
-                                    <div ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group date">
-                                        <input type="text" name="dataDiDecesso" ng-model="datiAssistito.DataDiDecesso"
-                                            ng-readonly="visDatiAssistito" class="form-control js-date text-center">
-                                        <span ng-class="{datePicherDisabled : visDatiAssistito}" class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4 form-group ">
-                                    <label>{{
-                                        "NUMERO_FALDONE" | translate}}</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control intero text-center"
-                                        value="{{datiAssistito.Eredita.NumeroFaldone}}">
-                                </div>
-                                <div class="col-md-4 form-group">
-                                    <label>{{
-                                        "ANNO_DI_SCARTO_INCISO" | translate}}</label>
-                                    <input type="text" ng-readonly="visDatiAssistito" class="form-control anno text-center"
-                                        value="{{datiAssistito.Eredita.AnnoDiScartoINCISO}}">
-                                </div>
-                            </div>
-                            <div ng-if="!inserimentoAnagrafe" class="panel panel-default">
-                                <div class="panel-heading pointer" data-toggle="collapse" href="#collapseLiquEredi">
-                                    {{
-                                    "SIMULAZIONE_LIQUIDAZIONE_EREDI" | translate}}
-                                    <div class="panel-toolbox">
-                                        <i class="fa fa-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <div id="collapseLiquEredi" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <table class="table table-bordered table-striped dataTables-paged">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="col-md-3">
-                                                                {{"DATA_CALCOLO_SIMULAZIONE" | translate}}
-                                                            </th>
-                                                            <th class="col-md-3">
-                                                                {{"IMPORTO_SPETTANTE" | translate}}
-                                                            </th>
-                                                            <th class="col-md-4"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center">{{datiAssistito.Eredita.DataCalcoloSimulazione}}</td>
-                                                            <td class="text-center">{{datiAssistito.Eredita.ImportoSpettante
-                                                                | currency}}</td>
-                                                            <td class="text-center">
-                                                                <a href="visualizza_liquidazione.html">
-                                                                    {{"VISUALIZZA_DETTAGLIO_SIMULAZIONE" | translate}}
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div ng-if="datiAssistito.DataDecesso!='-'" class="panel panel-default">
-                                <div class="panel-heading pointer" data-toggle="collapse" href="#collapseEredi">
-                                    {{'ELENCO_EREDI'|translate}}
-                                    <div class="panel-toolbox">
-                                        <i class="fa fa-chevron-down"></i>
-                                    </div>
-                                </div>
-
-                                <div id="collapseEredi" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <table class="table table-bordered table-striped dataTables-paged">
-
-                                                    <thead class="price">
-                                                        <tr>
-                                                            <th>{{'COGNOME_NOME'|translate}}</th>
-                                                            <th>{{'CODICE_FISCALE'|translate}}</th>
-                                                            <th>{{'PERC_DI_EREDITA'|translate}}</th>
-                                                            <th>{{'LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA'|translate}}</th>
-                                                            <th>{{'LIQUIDAZIONE'|translate}}</th>
-                                                            <th></th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr ng-repeat="item in datiAssistito.Eredita.Eredi">
-                                                            <td>{{item.CognomeNome}}</td>
-                                                            <td>{{item.CodiceFiscale}}</td>
-                                                            <td class="text-center">{{item.PercDiEredita }}</td>
-                                                            <td class="text-right">{{item.LiquidatoInBaseAllaPercDiEredita
-                                                                | currency}}</td>
-                                                            <td class="text-center">{{item.Liquidato}}</td>
-                                                            <td class="text-center">
-                                                                <a>
-                                                                    {{'VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO' |
-                                                                    translate}}
-                                                                </a>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a ng-class="{anchorDisabled : visDatiAssistito}"
-                                                                    ng-click="editLiquidazione()" title="modifica">
-                                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="text-right col-md-12">
-                                                <a class="btn btn-primary btn-sm" ng-disabled="visDatiAssistito"
-                                                    data-toggle="modal" data-target="#modalAnagrafica">
-                                                    {{'AGGIUNGI_EREDE' | translate}}
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello ELENCO REDDITI  -->
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseElencoRedditi">
-                        {{ "ELENCO_REDDITI" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseElencoRedditi" class="panel-collapse collapse">
-                        <div class="panel-body">
-
-                            <div class="row">
-                                <div class="col-md-12">
-
-
-                                    <table datatable="ng" dt-column-defs="colonneTabElencoRedditi" dt-options="dtOptions"
-                                        class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>{{'ANNO' | translate}} </th>
-                                                <th>{{'REDDITO_ASSISTITO' | translate}} </th>
-                                                <th>{{'REDDITO_CONIUGE' | translate}} </th>
-                                                <th>{{ 'VALIDO_PER_GLI_ANNI_SUCCESSIVI' | translate }}</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr ng-repeat="item in datiAssistito.Redditi">
-                                                <td width="10%">{{item.Anno}}</td>
-                                                <td width="28%" class="text-right">{{item.RedditoAssistito | currency :
-                                                    "€"}}</td>
-                                                <td width="28%" class="text-right">{{item.RedditoConiuge | currency :
-                                                    "€" }}</td>
-                                                <td width="28%" class="text-center">
-                                                    <div class="checkbox">
-                                                        <input icheck ng-model="item.ValidoPerGliAnniSuccessivi" type="checkbox"
-                                                            ng-disabled="visDatiAssistito" value="Si" ng-checked="item.ValidoPerGliAnniSuccessivi=='Si'">
-                                                        <i></i>
-                                                    </div>
-                                                </td>
-
-                                                <td width="6%" style="font-size: 18px; text-align: center">
-                                                    <a ng-class="{anchorDisabled : visDatiAssistito}" ng-click="creaNuovoReddito($index)"><i
-                                                            class="fa fa-pencil"></i></a>
-                                                </td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div class="row text-right">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-primary" id="anagSearch" ng-disabled="visDatiAssistito"
-                                        ng-click="creaNuovoReddito(0)">
-                                        {{'INSERISCI_REDDITO' | translate }}
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA  -->
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseAss">
-                        {{ "ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseAss" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-bordered table-striped dataTables-paged">
-                                        <thead>
-                                            <tr>
-                                                <th class="col-md-1">{{ 'NUM_POSIZIONE' | translate }}</th>
-                                                <th class="col-md-2">{{ 'DATA_DOMANDA' | translate }}</th>
-                                                <th class="col-md-2">{{ 'TIPO_ASSOCIAZIONE' | translate }}</th>
-                                                <th class="col-md-2">{{ 'INIZIO_ISCRIZIONE' | translate }}</th>
-                                                <th class="col-md-2">{{ 'FINE_ISCRIZIONE' | translate }}</th>
-                                                <th class="col-md-3">{{ 'ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE' |
-                                                    translate }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="item in datiAssistito.Associazioni">
-                                                <td>{{item.NumPosizione}}</td>
-                                                <td>
-                                                    {{item.DataDomanda}}
-                                                </td>
-                                                <td>
-                                                    {{item.TipoAssociazione}}
-                                                </td>
-                                                <td>
-                                                    {{item.InizioIscrizione}}
-                                                </td>
-                                                <td>
-                                                    {{item.FineIscrizione}}
-                                                </td>
-                                                <td>
-                                                    <div ng-repeat="itemChild in item.ElencoRitenuteDiCategoriaRecuperate">
-                                                        <div>
-                                                            <label>Data recupero</label>
-                                                            {{itemChild.DataRecupero}}
-                                                        </div>
-                                                        <div>
-                                                            <label>Importo recuperato</label>
-                                                            {{itemChild.ImportoRecuperato | currency}}
-                                                        </div>
-                                                        <!-- <a title="note" data-toggle="popover" data-placement="top"
-                                                            data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">
-                                                            Note
-                                                        </a> -->
-                                                        <a angular-popover direction="top" template="{{itemChild.Note}}"
-                                                            style="position: relative;">Note</A>
-
-                                                    </div>
-
-                                                </td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello Posizioni Contabili  -->
-                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapsePosContabili">
-                        {{ "POSIZIONI_CONTABILI" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapsePosContabili" class="panel-collapse collapse">
-                        <div class="panel-body">
-
-
-                            <!-- <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#ElencoLiquidazioni" role="tab" data-toggle="tab">
-                                        {{ ELENCO_LIQUIDAZIONI | translate}}
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#ElencoRiaccreditati" role="tab" data-toggle="tab">
-                                        {{ ELENCO_IMPORTI_RIACCREDITATI | translate}}
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#ImportiRecup" role="tab" data-toggle="tab">
-                                        {{ ELENCO_IMPORTI_DA_RECUPERARE | translate}}
-                                    </a>
-                                </li>
-                            </ul> -->
-
-                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
-
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" ng-class="{ active: !selTabPosContabili}">
-                                    <a role="tab" ng-click="selTabPosContabili = 0">
-                                        {{ 'ELENCO_LIQUIDAZIONI' | translate}}
-                                    </a>
-                                </li>
-                                <li role="presentation" ng-class="{ active: selTabPosContabili == 1 }">
-                                    <a role="tab" ng-click="selTabPosContabili = 1">
-                                        {{ 'ELENCO_IMPORTI_RIACCREDITATI' | translate}}
-                                    </a>
-                                </li>
-                                <li role="presentation" ng-class="{ active: selTabPosContabili == 2 }">
-                                    <a role="tab" ng-click="selTabPosContabili = 2">
-                                        {{ 'ELENCO_IMPORTI_DA_RECUPERARE' | translate}}
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
-
-                            <!-- <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="ElencoLiquidazioni">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table class="table table-bordered table-striped dataTables-paged">
-                                                <thead class="price">
-                                                    <tr>
-                                                        <th class="col-md-1">{{ 'DATA_CALCOLO' | translate }}</th>
-                                                        <th class="col-md-1">{{ 'LIQUIDATO' | translate }}</th>
-                                                        <th class="col-md-1">{{ 'RIACCREDITO' | translate }}</th>
-                                                        <th class="col-md-1">{{ 'TRATTENUTA_DI_CATEGORIA' | translate
-                                                            }}</th>
-                                                        <th class="col-md-2">{{ 'IMPORTO_RECUPERATO_PER_COMPENSAZIONE'
-                                                            | translate }}</th>
-                                                        <th class="col-md-4">{{ 'NR_TRASFERIMENTO_FLUMO' | translate }}</th>
-                                                        <th class="col-md-1">{{ 'TOT_MESE' | translate }}</th>
-                                                        <th class="col-md-1">{{ 'TOT_ANNO' | translate }}</th>
-                                                    </tr>
-                                                </thead>
-                                                
-                                                <tbody ng-if="datiAssistito.CodiceFiscale">
-                                                    <tr>
-                                                        <td>01/01/2016</td>
-                                                        <td class="text-center">
-                                                            <div class="text-center">€ 864,00</div>
-                                                            <a href="visualizza_liquidazione.html">{{'DETTAGLIO' |
-                                                                translate}}</a>
-                                                        </td>
-                                                        <td class="text-right">€ 864,00</td>
-                                                        <td class="negative text-right">€ 6,00</td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div><label>{{ 'NR_MANDATO' | translate}}</label> 32985432</div>
-                                                            <label>{{ 'DATA' | translate}}</label> 12/07/2013
-                                                        </td>
-                                                        <td class="text-right">€ 1.728,00</td>
-                                                        <td class="text-right">€ 1.728,00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>01/02/2016</td>
-                                                        <td class="text-center">
-                                                            <div class="text-center">€ 864,00</div>
-                                                            <a href="visualizza_liquidazione.html">{{'DETTAGLIO' |
-                                                                translate}}</a>
-                                                        </td>
-                                                        <td></td>
-                                                        <td class="negative text-right">€ 6,00</td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div><label>{{ 'NR_MANDATO' | translate}}</label> 32985432</div>
-                                                            <label>{{ 'DATA' | translate}}</label> 12/07/2013
-                                                        </td>
-                                                        <td class="text-right">€ 864,00</td>
-                                                        <td class="text-right">€ 2.592,00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>01/03/2016</td>
-                                                        <td class="text-center">
-                                                            <div class="text-center">€ 320,25</div>
-                                                            <a href="visualizza_liquidazione.html">{{'DETTAGLIO' |
-                                                                translate}}</a>
-                                                        </td>
-                                                        <td></td>
-                                                        <td class="negative text-right">€ 6,00</td>
-                                                        <td class="negative text-right">€ 108,75</td>
-                                                        <td>
-                                                            <div><label>{{ 'NR_MANDATO' | translate}}</label> 32985432</div>
-                                                            <label>{{ 'DATA' | translate}}</label> 12/07/2013
-                                                        </td>
-                                                        <td class="text-right">€ 320,25</td>
-                                                        <td class="text-right">€ 2.912,25</td>
-                                                    </tr>
-                                                </tbody>
-
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="ElencoRiaccreditati">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table class="table table-bordered table-striped dataTables-paged">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="col-md-4">Data riaccredito</th>
-                                                        <th class="col-md-4">Importo riaccreditato</th>
-                                                        <th class="col-md-4">Data liquidazione arretrato</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>18/11/2015</td>
-                                                        <td class="text-right">€ 864,00</td>
-                                                        <td>01/01/2016</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="col-sm-12 text-right">
-                                            <a type="button" class="btn btn-primary btn-sm" href="modifica_riaccredito.html">Predisponi
-                                                importo riaccreditato</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="ImportiRecup">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table class="table table-bordered table-striped dataTables-paged">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="col-md-2">Data (ultima modifica)</th>
-                                                        <th class="col-md-2">Tipo di recupero</th>
-                                                        <th class="col-md-2">Tot. da recuperare</th>
-                                                        <th class="col-md-2">Recuperato</th>
-                                                        <th class="col-md-1">Restituito</th>
-                                                        <th class="col-md-2">Rimanente da recuperare</th>
-                                                        <th class="col-md-1"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>23/02/2016</td>
-                                                        <td>compensazione</td>
-                                                        <td>
-                                                            <div><label>Capitale</label> € 435,00</div>
-                                                            <div><label>Interessi legali</label> € 8,7</div>
-                                                            <label>Interessi di rateizzazione</label> € 4,35
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <div class="text-right">€ 108,75</div>
-                                                            <a data-toggle="modal" data-target="#modalImportiRecuperati">Dettaglio</a>
-                                                        </td>
-                                                        <td></td>
-                                                        <td class="text-right">€ 339,30</td>
-                                                        <td>
-                                                            <a title="note" data-toggle="popover" data-placement="top"
-                                                                data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Note</a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="col-sm-12 text-right">
-                                            <a type="button" class="btn btn-primary btn-sm" href="modifica_importo_da_recuperare.html">Predisponi
-                                                importo da recuperare</a>
-                                            <a type="button" class="btn btn-primary btn-sm" href="modifica_restituito.html">Predisponi
-                                                importo restituito</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
-
-                            <div class="tab-content">
-
-                                <!-- pannello 1 : elenco liquidazioni -->
-                                <div role="tabpanel" class="tab-pane" ng-class="{ active: !selTabPosContabili }"
-                                    ng-show="!selTabPosContabili">
-
-                                    <table datatable="ng" dt-column-defs="dtColumnTabElencoLiquidazioni" dt-options="dtOptionsTabElencoLiquidazioni"
-                                        class="table table-bordered dataTables-paged order-desc" dt-instance="vm.dtInstance">
-
-                                        <thead>
-                                            <tr>
-                                                <th>{{ 'DATA_CALCOLO' | translate }}</th>
-                                                <th>{{ 'LIQUIDATO' | translate }}</th>
-                                                <th>{{ 'RIACCREDITO' | translate }}</th>
-                                                <th>{{ 'TRATTENUTA_DI_CATEGORIA' | translate }}</th>
-                                                <th>{{ 'IMPORTO_RECUPERATO_PER_COMPENSAZIONE' | translate }}</th>
-                                                <th>{{ 'NR_TRASFERIMENTO_FLUMO' | translate }}</th>
-                                                <th>{{ 'TOT_MESE' | translate }}</th>
-                                                <th>{{ 'TOT_ANNO' | translate }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="item in datiAssistito.Liquidazioni">
-
-
-                                                <td width="10%">{{item.DataCalcolo}}</td>
-                                                <td width="10%" class="text-right">{{item.Liquidato | currency : "€" }}</td>
-                                                <td width="10%" class="text-right">{{item.Riaccredito | currency : "€"
-                                                    }}</td>
-                                                <td width="10%" class="negative text-right">{{
-                                                    item.TrattenutaDiCategoria |
-                                                    currency : "€" }}</td>
-                                                <td width="15%" class="negative text-right">{{
-                                                    item.ImportoRecuperatoPerCompensazione | currency : "€" }}</td>
-                                                <td width="15%">
-                                                    <div><label>{{ 'NR_MANDATO' | translate}}</label> {{
-                                                        item.NrTrasferimentoFlumo.NrMandato }}</div>
-                                                    <label>{{ 'DATA' | translate}}</label> {{
-                                                    item.NrTrasferimentoFlumo.Data }}
-
-                                                </td>
-                                                <td width="10%" class="text-right">{{ item.TotMese | currency : "€" }}</td>
-                                                <td width="10%" class="text-right">{{ item.TotAnno | currency : "€" }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <!-- pannello 2 : elenco importi riaccreditati -->
-                                <div role="tabpanel" class="tab-pane" ng-class="{ active: selTabPosContabili == 1 }"
-                                    ng-show="selTabPosContabili == 1">
-
-                                    <div>
-
-                                        <table datatable="ng" dt-column-defs="dtColumnTabElencoImportiRiaccreditati"
-                                            dt-options="dtOptionsTabElencoImportiRiaccreditati" class="table table-bordered dataTables-paged order-desc"
-                                            dt-instance="vm.dtInstanceTabElencoImportiRiaccreditati">
-
-                                            <thead>
-                                                <tr>
-                                                    <th>{{ 'DATA_CALCOLO' | translate }}</th>
-                                                    <th>{{ 'IMPORTO_RIACCREDITATO' | translate }}</th>
-                                                    <th>{{ 'DATA_LIQUIDAZIONE_ARRETRATO' | translate }}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="item in datiAssistito.ElencoImportiRiaccreditati">
-
-
-                                                    <td width="33%">{{item.DataRiaccredito}}</td>
-                                                    <td width="33%" class="text-right">{{item.ImportoRiaccreditato |
-                                                        currency : "€" }}</td>
-                                                    <td width="34%" class="text-right">{{item.DataLiquidazioneArretrato
-                                                        }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-12 text-right">
-                                        <a type="button" class="btn btn-primary btn-sm" ui-sref="anagrafica.modifica_importo_riaccreditato({datiAssistito: datiAssistito})">
-                                            {{ 'PREDISPONI_IMPORTO_RIACCREDITATO' | translate }}
-                                        </a>
-                                    </div>
-
-                                </div>
-
-                                <!-- pannello 3 : elenco importi da recuperare -->
-                                <div role="tabpanel" class="tab-pane" ng-class="{ active: selTabPosContabili == 2 }"
-                                    ng-show="selTabPosContabili == 2">
-
-                                    <div>
-
-
-                                        <table datatable="ng" dt-column-defs="dtColumnTabElencoImportiRiaccreditati"
-                                            dt-options="dtOptionsTabElencoImportiRiaccreditati" class="table table-bordered dataTables-paged order-desc"
-                                            dt-instance="vm.dtInstanceTabElencoImportiRiaccreditati">
-
-                                            <thead>
-                                                <tr>
-                                                    <th>{{ 'DATA_ULTIMA_MODIFICA' | translate }}</th>
-                                                    <th>{{ 'TIPO_DI_RECUPERO' | translate }}</th>
-                                                    <th>{{ 'TOT_DA_RECUPERARE' | translate }}</th>
-                                                    <th>{{ 'RECUPERATO' | translate }}</th>
-                                                    <th>{{ 'RESTITUTO' | translate }}</th>
-                                                    <th>{{ 'RIMANENTE_DA_RECUPERARE' | translate }}</th>
-                                                    <th>{{ 'NOTE' | translate }}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="item in datiAssistito.ElencoImportiDaRecuperare">
-
-
-                                                    <td width="15%">{{ item.DataUltimaModifica}}</td>
-                                                    <td width="15%" class="text-right">{{ item.TipoDiRecupero }}</td>
-                                                    <td width="20%">
-
-                                                        <div>
-                                                            <label>{{ 'CAPITALE' | translate }}</label>
-                                                            {{ item.TotDaRecuperare.Capitale | currency : "€" }}
-                                                        </div>
-                                                        <div>
-                                                            <label>{{ 'INTERESSI_LEGALI' | translate }}</label>
-                                                            {{ item.TotDaRecuperare.InteressiLegali | currency : "€" }}
-                                                        </div>
-                                                        <label>{{ 'INTERESSI_DI_RATEIZZAZIONE' | translate }}</label>{{
-                                                        item.TotDaRecuperare.InteressiDiRateizzazione | currency : "€"
-                                                        }}
-
-                                                    </td>
-                                                    <td width="15%" class="text-right">{{ item.Recuperato }}</td>
-                                                    <td width="15%" class="text-right">{{ item.Restituito }}</td>
-                                                    <td width="10%" class="text-right">{{ item.RimanenteDaRecuperare }}</td>
-                                                    <td width="10%" class="text-right">{{ item.Note }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-12 text-right">
-                                        <a type="button" class="btn btn-primary btn-sm" ui-sref="anagrafica.modifica_importo_da_recuperare({datiAssistito: datiAssistito})">
-                                            {{ 'PREDISPONI_IMPORTO_DA_RECUPERARE' | translate }}
-                                        </a>
-
-                                        <a type="button" class="btn btn-primary btn-sm" ui-sref="anagrafica.modifica_importo_restituito({datiAssistito: datiAssistito})">
-                                            {{ 'PREDISPONI_IMPORTO_RESTITUITO' | translate }}
-                                        </a>
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-
-
-
-                            <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello Elenco Evidenze  -->
-                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseEvidenze">
-                        {{ "ELENCO_EVIDENZE_UPPERCASE" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapseEvidenze" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <evidenze-component></evidenze-component>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello Posizione Espro   -->
-                <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapsePosEspro">
-                        {{ "POSIZIONE_ESPRO" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div id="collapsePosEspro" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-3">{{'DECORRENZA_ASSEGNO_DI_CURA' | translate}}</th>
-                                        <th class="col-md-3">{{'TERMINE_DECORRENZA_ASSEGNO_DI_CURA' | translate}}</th>
-                                        <th class="col-md-3">{{'DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA' |
-                                            translate}}</th>
-                                        <th class="col-md-3">{{'TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA' | translate}}</th>
-                                    </tr>
-                                </thead>
-                                <tbody ng-if="datiAssistito.CodiceFiscale">
-                                    <tr>
-                                        <td>21/01/2016</td>
-                                        <td>21/02/2016</td>
-                                        <td>21/03/2016</td>
-                                        <td>21/04/2016</td>
-                                    </tr>
-                                    <tr>
-                                        <td>21/01/2016</td>
-                                        <td>21/02/2016</td>
-                                        <td>21/03/2016</td>
-                                        <td>21/04/2016</td>
-                                    </tr>
-                                    <tr>
-                                        <td>21/01/2016</td>
-                                        <td>21/02/2016</td>
-                                        <td>21/03/2016</td>
-                                        <td>21/04/2016</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pannello Storico operazioni   -->
-                <div class="panel panel-default m-t-lg">
-                    <div class="panel-heading pointer collapsed" data-toggle="collapse" href="#collapseStoricoOperazioni">
-                        {{ "STORICO_OPERAZIONI" | translate}}
-                        <div class="panel-toolbox">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-
-
-
-                    <div id="collapseStoricoOperazioni" class="panel-collapse collapse">
-                        <div class="panel-body">
-
-                            <logs-component></logs-component>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SUBMIT BUTTON -->
-                <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Invia</button> -->
-                <div class="row text-right">
-                    <div ng-if="inserimentoAnagrafe || !visDatiAssistito" class="col-sm-12" style="margin-top:5px;margin-bottom:15px">
-                        <button type="submit" class="btn btn-primary" ng-click="salvaModulo()" ng-disabled="userForm.$invalid">{{
-                            'SALVA' | translate }}</button>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-
+<form name="anagrafeForm" ng-submit="onFormAnagrafeSubmit()" novalidate>
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <div ng-if="!inserimentoAnagrafe" class="row">
+      <dati-assistito-component
+        dati-assistito="datiAssistito"
+      ></dati-assistito-component>
     </div>
 
-    <div class="modal inmodal" id="modalImportiRecuperati">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title">Dettaglio importi recuperati</h4>
+    <!-- PULSANTE BLOCCA SBLOCCA -->
+    <div ng-if="visShowPulsanti" class="row text-left">
+      <div ng-if="!visDatiAssistito" class="col-sm-12">
+        <button
+          class="btn btn-danger btnToggleBlock"
+          ng-click="visDatiAssistitoToggle()"
+        >
+          {{ "BLOCCA_CAMPI" | translate }}
+        </button>
+      </div>
+      <div ng-if="visDatiAssistito" class="col-sm-12">
+        <button
+          class="btn btn-primary btnToggleBlock"
+          ng-click="visDatiAssistitoToggle()"
+        >
+          {{ "SBLOCCA_CAMPI" | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="panels" class="col-lg-12">
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseDatiGenerali"
+          >
+            {{ "DATI_GENERALI" | translate }} {{ asteriscoInserimento }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseDatiGenerali" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <!-- -------------------------- -->
+                <div class="col-md-4 form-group">
+                  <label
+                    >{{ "NOME" | translate }} {{ asteriscoInserimento }}</label
+                  >
+                  <input
+                    type="text"
+                    name="nome"
+                    ng-model="datiAssistito.Nome"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control"
+                    required
+                  />
+                  <p
+                    ng-show="anagrafeForm.nome.$invalid && !anagrafeForm.nome.$pristine"
+                    class="help-block"
+                  >
+                    {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                  </p>
                 </div>
-                <div class="modal-body">
-                    <h3 class="m-t-md">Elenco importi recuperati per compensazione</h3>
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="col-md-3">Data</th>
-                                <th class="col-md-3">Importo recuperato</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01/03/2016</td>
-                                <td class="text-right">€ 108,75</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <!-- -------------------------- -->
+                <div class="col-md-4 form-group">
+                  <label
+                    >{{ "COGNOME" | translate }}
+                    {{ asteriscoInserimento }}</label
+                  >
+                  <input
+                    type="text"
+                    name="cognome"
+                    ng-model="datiAssistito.Cognome"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control"
+                    required
+                  />
+                  <p
+                    ng-show="anagrafeForm.cognome.$invalid && !anagrafeForm.cognome.$pristine"
+                    class="help-block"
+                  >
+                    {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                  </p>
+                </div>
+
+                <!-- -------------------------- -->
+                <div class="col-md-4 form-group">
+                  <label>{{ "COGNOME_ACQUISITO" | translate }}</label>
+                  <input
+                    type="text"
+                    name="cognomeacquisito"
+                    ng-model="datiAssistito.CognomeAcquisito"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <!-- -------------------------- -->
+                <div class="col-md-4 form-group">
+                  <label
+                    >{{ "CODICE_FISCALE" | translate }}
+                    {{ asteriscoInserimento }}</label
+                  >
+                  <input
+                    type="text"
+                    name="codicefiscale"
+                    ng-model="datiAssistito.CodiceFiscale"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control"
+                    ng-minlength="16"
+                    ng-maxlength="16"
+                  />
+
+                  <p
+                    ng-show="anagrafeForm.codicefiscale.$error.minlength"
+                    class="help-block"
+                  >
+                    {{ "CODICE_FISCALE_TROPPO_CORTO" | translate }}.
+                  </p>
+                  <p
+                    ng-show="anagrafeForm.codicefiscale.$error.maxlength"
+                    class="help-block"
+                  >
+                    {{ "CODICE_FISCALE_TROPPO_LUNGO" | translate }}.
+                  </p>
+                </div>
+                <!-- -------------------------- -->
+                <div class="col-md-4 form-group">
+                  <label>
+                    {{ "SESSO" | translate }} {{ asteriscoInserimento }}
+                  </label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="checkbox">
+                        <label>
+                          <input
+                            icheck
+                            ng-model="datiAssistito.Sesso"
+                            type="radio"
+                            value="Maschile"
+                            name="sesso"
+                            ng-disabled="visDatiAssistito"
+                            class="form-control"
+                            ng-checked="datiAssistito.Sesso == 'Maschile'"
+                            required
+                          />
+                          <i></i> {{ "MASCHILE" | translate }}
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="checkbox">
+                        <label>
+                          <input
+                            icheck
+                            ng-model="datiAssistito.Sesso"
+                            type="radio"
+                            value="Femminile"
+                            name="sesso"
+                            ng-disabled="visDatiAssistito"
+                            class="form-control"
+                            ng-checked="datiAssistito.Sesso == 'Femminile'"
+                          />
+                          <i></i> {{ "FEMMINILE" | translate }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- -------------------------- -->
+                <div class="col-md-4 form-group">
+                  <label>{{ "STATO_CIVILE" | translate }}</label>
+                  <select
+                    class="form-control m-b"
+                    name="statocivile"
+                    ng-model="datiAssistito.StatoCivile"
+                    ng-disabled="visDatiAssistito"
+                    class="form-control"
+                  >
+                    <option></option>
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                  </select>
+                </div>
+
+                <!-- -------------------------- -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseDataNascita"
+          >
+            {{ "DATI_DI_NASCITA" | translate }} {{ asteriscoInserimento }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseDataNascita" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label>
+                    {{ "DATA_DI_NASCITA" | translate }}
+                    {{ asteriscoInserimento }}
+                  </label>
+
+                  <div
+                    ng-class="{datePicherDisabled : visDatiAssistito}"
+                    class="input-group date"
+                  >
+                    <input
+                      type="text"
+                      name="datadinascita"
+                      ng-model="datiAssistito.DataDiNascita"
+                      ng-readonly="visDatiAssistito"
+                      class="form-control js-date"
+                      required
+                    />
+                    <span
+                      ng-class="{datePicherDisabled : visDatiAssistito}"
+                      class="input-group-addon"
+                    >
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+
+                  <p
+                    ng-show="anagrafeForm.datadinascita.$invalid && !anagrafeForm.datadinascita.$pristine"
+                    class="help-block"
+                  >
+                  {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                  </p>
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label
+                    >{{ "LUOGO_DI_NASCITA" | translate }}
+                    {{ asteriscoInserimento }}</label
+                  >
+                  <select
+                    name="luogoDiNascita"
+                    ng-model="datiAssistito.LuogoDiNascita"
+                    ng-disabled="visDatiAssistito"
+                    ng-options="comune.name for comune in comuni"
+                    class="form-control"
+                    required
+                  >
+                    <option value="">{{
+                      "SELEZIONA_UN_COMUNE" | translate
+                    }}</option>
+                  </select>
+
+                  <p
+                    ng-show="anagrafeForm.luogodinascita.$invalid && !anagrafeForm.luogodinascita.$pristine"
+                    class="help-block"
+                  >
+                    {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                  </p>
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label
+                    >{{ "PROVINCIA" | translate }}
+                    {{ asteriscoInserimento }}</label
+                  >
+                  <select
+                    name="provinciadinascita"
+                    ng-model="datiAssistito.ProvinciaDiNascita"
+                    ng-disabled="visDatiAssistito"
+                    ng-options="province.name for province in provinces"
+                    class="form-control"
+                    required
+                  >
+                    <option value="">{{
+                      "SELEZIONA_UNA_PROVINCIA" | translate
+                    }}</option>
+                  </select>
+                  <p
+                    ng-show="anagrafeForm.provinciadinascita.$invalid && !anagrafeForm.provinciadinascita.$pristine"
+                    class="help-block"
+                  >
+                    {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label>
+                    {{ "NAZIONE" | translate }} {{ asteriscoInserimento }}
+                  </label>
+
+                  <select
+                    name="nazioneDiNascita"
+                    ng-model="datiAssistito.NazioneDiNascita"
+                    ng-disabled="visDatiAssistito"
+                    ng-options="nazione.name for nazione in nazioni"
+                    class="form-control"
+                    required
+                  >
+                    <option value="">{{
+                      "SELEZIONA_UNA_NAZIONE" | translate
+                    }}</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>{{ "DATA_DI_DECESSO" | translate }}</label>
+                  <div
+                    ng-class="{datePicherDisabled : visDatiAssistito}"
+                    class="input-group date"
+                  >
+                    <input
+                      type="text"
+                      ng-model="datiAssistito.DataDiDecesso"
+                      ng-readonly="visDatiAssistito"
+                      class="form-control js-date"
+                    />
+                    <span
+                      ng-class="{datePicherDisabled : visDatiAssistito}"
+                      class="input-group-addon"
+                    >
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello ALTRI DATI -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseAltriDati"
+          >
+            {{ "ALTRI_DATI" | translate }} {{ asteriscoInserimento }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+
+          <div id="collapseAltriDati" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label
+                    >{{ "CITTADINANZA" | translate }}
+                    {{ asteriscoInserimento }}</label
+                  >
+                  <ui-select
+                    name="cittadinanza"
+                    ng-model="datiAssistito.Cittadinanza"
+                    ng-disabled="visDatiAssistito"
+                    title="{{ 'SELEZIONA_UN_ELEMENTO_NELL_ELENCO' | translate}}"
+                    required
+                  >
+                    <ui-select-match
+                      placeholder="{{ 'SELEZIONA_CITTADINANZA' | translate}}"
+                      >{{ $select.selected.nome }}</ui-select-match
+                    >
+                    <ui-select-choices
+                      repeat="cittadinanza in cittadinanze | filter: $select.search"
+                    >
+                      <span
+                        ng-bind-html="cittadinanza.nome | highlight: $select.search"
+                      ></span>
+                      <small
+                        ng-bind-html="cittadinanza.code | highlight: $select.search"
+                      ></small>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>{{ "EXTRACOMUNITARIO" | translate }}</label>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="checkbox">
+                        <label>
+                          <input
+                            icheck
+                            ng-model="datiAssistito.Extracomunitario"
+                            type="radio"
+                            name="extracomunitario"
+                            ng-disabled="visDatiAssistito"
+                            value="Si"
+                            ng-checked="datiAssistito.Extracomunitario == 'Si'"
+                          />
+                          <i></i> {{ "SI" | translate }}
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="checkbox">
+                        <label>
+                          <input
+                            icheck
+                            ng-model="datiAssistito.Extracomunitario"
+                            type="radio"
+                            name="extracomunitario"
+                            ng-disabled="visDatiAssistito"
+                            value="No"
+                            ng-checked="datiAssistito.Extracomunitario=='No'"
+                          />
+                          <i></i> {{ "NO" | translate }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3 class="m-t-lg">{{ "PERMESSO_DI_SOGGIORNO" | translate }}</h3>
+              <div class="row">
+                <!--
+                  <div class="col-md-4 form-group"><label>Tipo permesso</label>
+                      <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
+                          ng-readonly="visDatiAssistito" class="form-control">
+                  </div>
+                -->
+
+                <div class="col-md-4 form-group">
+                  <label>{{ "TIPO_PERMESSO" | translate }}</label>
+                  <ui-select
+                    name="permessoDiSoggiornoTipoPermesso"
+                    ng-model="datiAssistito.PermessoDiSoggiornoTipoPermesso"
+                    ng-disabled="visDatiAssistito"
+                    title="{{ 'SELEZIONA_UN_PERMESSO_DALL_ELENCO' | translate}}"
+                  >
+                    <ui-select-match placeholder="Seleziona permesso">{{
+                      $select.selected.nome
+                    }}</ui-select-match>
+                    <ui-select-choices
+                      repeat="permesso in permessi | filter: $select.search"
+                    >
+                      <span
+                        ng-bind-html="permesso.nome | highlight: $select.search"
+                      ></span>
+                      <small
+                        ng-bind-html="permesso.code | highlight: $select.search"
+                      ></small>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+
+                <!--
+                  <div class="col-md-4 form-group">
+                  <label>Data rilascio</label>
+                  <input type="text" ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
+                      ng-readonly="visDatiAssistito" class="form-control js-date"></div>
+                -->
+
+                <div class="col-md-4 form-group">
+                  <label>{{ "DATA_RILASCIO" | translate }}</label>
+                  <div
+                    ng-class="{datePicherDisabled : visDatiAssistito}"
+                    class="input-group date"
+                  >
+                    <input
+                      type="text"
+                      name="permessoDiSoggiornoDataRilascio"
+                      ng-model="datiAssistito.PermessoDiSoggiornoDataRilascio"
+                      ng-readonly="visDatiAssistito"
+                      class="form-control js-date"
+                    />
+                    <span
+                      ng-class="{datePicherDisabled : visDatiAssistito}"
+                      class="input-group-addon"
+                    >
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>{{ "VALIDO_FINO_AL" | translate }}</label>
+                  <div
+                    ng-class="{datePicherDisabled : visDatiAssistito}"
+                    class="input-group date"
+                  >
+                    <input
+                      type="text"
+                      name="permessoDiSoggiornoValidoFinoAl"
+                      ng-model="datiAssistito.PermessoDiSoggiornoValidoFinoAl"
+                      ng-readonly="visDatiAssistito"
+                      class="form-control js-date"
+                    />
+                    <span
+                      ng-class="{datePicherDisabled : visDatiAssistito}"
+                      class="input-group-addon"
+                    >
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <h3 class="m-t-lg">
+                {{ "RIFERIMENTI_DI_CONTATTO" | translate }}
+              </h3>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label>{{ "TELEFONO_PRINCIPALE" | translate }}</label>
+                  <input
+                    type="text"
+                    ng-model="datiAssistito.TelefonoPrincipale"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control telefono"
+                  />
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>{{ "TELEFONO_SECONDARIO" | translate }}</label>
+                  <input
+                    type="text"
+                    ng-model="datiAssistito.TelefonoSecondario"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control telefono"
+                  />
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>Email</label>
+                  <input
+                    type="text"
+                    ng-readonly="visDatiAssistito"
+                    ng-model="datiAssistito.Email"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>PEC</label>
+                  <input
+                    type="text"
+                    ng-readonly="visDatiAssistito"
+                    ng-model="datiAssistito.Pec"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="col-md-12 form-group">
+                  <label>{{ "NOTE" | translate }}</label>
+                  <textarea
+                    ng-model="datiAssistito.Note"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello ELENCO INDIRIZZI -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseIndirizzi"
+          >
+            {{ "ELENCO_INDIRIZZI" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseIndirizzi" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-md-2">{{ "TIPO" | translate }}</th>
+                    <th class="col-md-3">{{ "INDIRIZZO" | translate }}</th>
+                    <th class="col-md-2">{{ "VALIDITA" | translate }}</th>
+                    <th class="col-md-3">{{ "NOTE" | translate }}</th>
+                    <th class="col-md-1"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in datiAssistito.Indirizzi">
+                    <td>{{ item.Tipo }}</td>
+                    <td>{{ item.Indirizzo }}</td>
+                    <td>{{ item.Validita }}</td>
+                    <td>{{ item.Note }}</td>
+                    <td style="font-size: 18px; text-align: center">
+                      <a
+                        ng-click="creaNuovoIndirizzo($index)"
+                        ng-class="{anchorDisabled : visDatiAssistito}"
+                        ><i class="fa fa-pencil"></i
+                      ></a>
+                      <a
+                        ng-class="{anchorDisabled : visDatiAssistito}"
+                        ng-click="cancellaIndirizzo()"
+                        ><i class="fa fa-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row text-right">
+                <div class="col-sm-12">
+                  <button
+                    class="btn btn-primary"
+                    id="anagSearch"
+                    ng-disabled="visDatiAssistito"
+                    ng-click="creaNuovoIndirizzo(-1)"
+                  >
+                    {{ "CREA_NUOVO_INDIRIZZO" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--
+            -------------------------------------------------------------------------
+          -->
+        </div>
+
+        <!-- Pannello Elenco Posizioni -->
+        <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseElencoPos"
+          >
+            {{ "ELENCO_POSIZIONI" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseElencoPos" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-md-4">
+                      {{ "NUMERO_POSIZIONE" | translate }}
+                    </th>
+                    <th class="col-md-4"></th>
+                    <th class="col-md-4"></th>
+                  </tr>
+                </thead>
+                <tbody ng-if="datiAssistito.CodiceFiscale">
+                  <tr>
+                    <td class="text-right">778767</td>
+                    <td>
+                      <a
+                        ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})"
+                        >{{ "VISUALIZZA_POSIZIONE" | translate }}</a
+                      >
+                    </td>
+                    <td>
+                      <a
+                        data-toggle="modal"
+                        data-target="#modalDocumentiPerFascicolo"
+                        >{{ "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate }}</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-right">885963</td>
+                    <td>
+                      <a
+                        ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})"
+                        >{{ "VISUALIZZA_POSIZIONE" | translate }}</a
+                      >
+                    </td>
+                    <td>
+                      <a
+                        data-toggle="modal"
+                        data-target="#modalDocumentiPerFascicolo"
+                        >{{ "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate }}</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-right">993423</td>
+                    <td>
+                      <a
+                        ui-sref="posizione.visualizza_posizione({datiAssistito: datiAssistito})"
+                        >{{ "VISUALIZZA_POSIZIONE" | translate }}</a
+                      >
+                    </td>
+                    <td>
+                      <a
+                        data-toggle="modal"
+                        data-target="#modalDocumentiPerFascicolo"
+                        >{{ "ELENCO_DOCUMENTI_PER_FASCICOLO" | translate }}</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello ELENCO POSIZIONI -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapsePensioni"
+          >
+            {{ "PENSIONI" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <!--
+            <div id="collapsePensioni" class="panel-collapse collapse">
+                <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-12 form-separator"></div>
+                        <div class="col-md-12 form-group"><label>{{
+                                "ALTRE_PENSIONI" | translate}}</label> <input type="text" ng-readonly="visDatiAssistito"
+                                class="form-control" value="Invalidità, infortunio"></div>
                     </div>
-                    <h3 class="m-t-lg">Elenco importi restituiti</h3>
-                    <h4 class="warning">Nessun importo restituito</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
                 </div>
             </div>
-        </div>
-    </div>
+          -->
 
-    <div class="modal inmodal" id="modalDocumentiPerFascicolo">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title">Documenti per fascicolo</h4>
+          <div id="collapsePensioni" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-md-2">{{ "TIPO" | translate }}</th>
+                    <th class="col-md-3">
+                      {{ "TIPO_ASSISTENZA" | translate }}
+                    </th>
+                    <th class="col-md-2">
+                      {{ "DATA_FINE_COMPATIBILITA" | translate }}
+                    </th>
+                    <th class="col-md-3">{{ "NOTE" | translate }}</th>
+                    <th class="col-md-1"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in datiAssistito.Pensioni">
+                    <td>{{ item.Tipo }}</td>
+                    <td class="text-center">
+                      {{ item.TipologiaDiAssistenza }}
+                    </td>
+                    <td>{{ item.DataFineCompatibilita }}</td>
+                    <td>{{ item.Note }}</td>
+                    <td style="font-size: 18px; text-align: center">
+                      <a
+                        ng-click="creaNuovaPensione($index)"
+                        ng-class="{anchorDisabled : visDatiAssistito}"
+                        ><i class="fa fa-pencil"></i
+                      ></a>
+                      <a
+                        ng-class="{anchorDisabled : visDatiAssistito}"
+                        ng-click="cancellaPensione()"
+                        ><i class="fa fa-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row text-right">
+                <div class="col-sm-12">
+                  <button
+                    class="btn btn-primary"
+                    id="anagSearch"
+                    ng-disabled="visDatiAssistito"
+                    ng-click="creaNuovaPensione(-1)"
+                  >
+                    {{ "CREA_NUOVA_PENSIONE" | translate }}
+                  </button>
                 </div>
-                <div class="modal-body">
-                    <documenti-component></documenti-component>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="modal inmodal" id="modalAnagrafica" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title"><i class="fa fa-search"></i> {{ 'RICERCA_DATI_ANAGRAFICI' | translate
-                        }}</h4>
-                    <small class="font-bold">Inserisci i dati e avvia la ricerca</small>
+        <!-- Pannello DECESSO -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseDecesso"
+          >
+            {{ "DECESSO" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseDecesso" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label>{{ "DATA_DECESSO" | translate }}</label>
+
+                  <div
+                    ng-class="{datePicherDisabled : visDatiAssistito}"
+                    class="input-group date"
+                  >
+                    <input
+                      type="text"
+                      name="dataDiDecesso"
+                      ng-model="datiAssistito.DataDiDecesso"
+                      ng-readonly="visDatiAssistito"
+                      class="form-control js-date text-center"
+                    />
+                    <span
+                      ng-class="{datePicherDisabled : visDatiAssistito}"
+                      class="input-group-addon"
+                    >
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
                 </div>
-                <div class="modal-body">
-                    <%- partial("_ricerca_anagrafica", { url: "modifica_erede.html"}) %>
+                <div class="col-md-4 form-group ">
+                  <label>{{ "NUMERO_FALDONE" | translate }}</label>
+                  <input
+                    type="text"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control intero text-center"
+                    value="{{datiAssistito.Eredita.NumeroFaldone}}"
+                  />
                 </div>
-                <div class="modal-footer">
-                    <a type="button" class="btn btn-primary" data-dismiss="modal">{{ 'INSERISCI_NUOVA_ANAGRAFICA' |
-                        translate
-                        }}
+                <div class="col-md-4 form-group">
+                  <label>{{ "ANNO_DI_SCARTO_INCISO" | translate }}</label>
+                  <input
+                    type="text"
+                    ng-readonly="visDatiAssistito"
+                    class="form-control anno text-center"
+                    value="{{datiAssistito.Eredita.AnnoDiScartoINCISO}}"
+                  />
+                </div>
+              </div>
+              <div ng-if="!inserimentoAnagrafe" class="panel panel-default">
+                <div
+                  class="panel-heading pointer"
+                  data-toggle="collapse"
+                  href="#collapseLiquEredi"
+                >
+                  {{ "SIMULAZIONE_LIQUIDAZIONE_EREDI" | translate }}
+                  <div class="panel-toolbox">
+                    <i class="fa fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div id="collapseLiquEredi" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <table
+                          class="table table-bordered table-striped dataTables-paged"
+                        >
+                          <thead>
+                            <tr>
+                              <th class="col-md-3">
+                                {{ "DATA_CALCOLO_SIMULAZIONE" | translate }}
+                              </th>
+                              <th class="col-md-3">
+                                {{ "IMPORTO_SPETTANTE" | translate }}
+                              </th>
+                              <th class="col-md-4"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="text-center">
+                                {{
+                                  datiAssistito.Eredita.DataCalcoloSimulazione
+                                }}
+                              </td>
+                              <td class="text-center">
+                                {{
+                                  datiAssistito.Eredita.ImportoSpettante
+                                    | currency
+                                }}
+                              </td>
+                              <td class="text-center">
+                                <a href="visualizza_liquidazione.html">
+                                  {{
+                                    "VISUALIZZA_DETTAGLIO_SIMULAZIONE"
+                                      | translate
+                                  }}
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                ng-if="datiAssistito.DataDecesso!='-'"
+                class="panel panel-default"
+              >
+                <div
+                  class="panel-heading pointer"
+                  data-toggle="collapse"
+                  href="#collapseEredi"
+                >
+                  {{ "ELENCO_EREDI" | translate }}
+                  <div class="panel-toolbox">
+                    <i class="fa fa-chevron-down"></i>
+                  </div>
+                </div>
+
+                <div id="collapseEredi" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <table
+                          class="table table-bordered table-striped dataTables-paged"
+                        >
+                          <thead class="price">
+                            <tr>
+                              <th>{{ "COGNOME_NOME" | translate }}</th>
+                              <th>{{ "CODICE_FISCALE" | translate }}</th>
+                              <th>{{ "PERC_DI_EREDITA" | translate }}</th>
+                              <th>
+                                {{
+                                  "LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA"
+                                    | translate
+                                }}
+                              </th>
+                              <th>{{ "LIQUIDAZIONE" | translate }}</th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="item in datiAssistito.Eredita.Eredi">
+                              <td>{{ item.CognomeNome }}</td>
+                              <td>{{ item.CodiceFiscale }}</td>
+                              <td class="text-center">
+                                {{ item.PercDiEredita }}
+                              </td>
+                              <td class="text-right">
+                                {{
+                                  item.LiquidatoInBaseAllaPercDiEredita
+                                    | currency
+                                }}
+                              </td>
+                              <td class="text-center">{{ item.Liquidato }}</td>
+                              <td class="text-center">
+                                <a>
+                                  {{
+                                    "VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO"
+                                      | translate
+                                  }}
+                                </a>
+                              </td>
+                              <td class="text-center">
+                                <a
+                                  ng-class="{anchorDisabled : visDatiAssistito}"
+                                  ng-click="editLiquidazione()"
+                                  title="modifica"
+                                >
+                                  <i
+                                    class="fa fa-pencil"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="text-right col-md-12">
+                        <a
+                          class="btn btn-primary btn-sm"
+                          ng-disabled="visDatiAssistito"
+                          data-toggle="modal"
+                          data-target="#modalAnagrafica"
+                        >
+                          {{ "AGGIUNGI_EREDE" | translate }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello ELENCO REDDITI -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseElencoRedditi"
+          >
+            {{ "ELENCO_REDDITI" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseElencoRedditi" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <table
+                    datatable="ng"
+                    dt-column-defs="colonneTabElencoRedditi"
+                    dt-options="dtOptions"
+                    class="table table-bordered table-striped"
+                  >
+                    <thead>
+                      <tr>
+                        <th>{{ "ANNO" | translate }}</th>
+                        <th>{{ "REDDITO_ASSISTITO" | translate }}</th>
+                        <th>{{ "REDDITO_CONIUGE" | translate }}</th>
+                        <th>
+                          {{ "VALIDO_PER_GLI_ANNI_SUCCESSIVI" | translate }}
+                        </th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in datiAssistito.Redditi">
+                        <td width="10%">{{ item.Anno }}</td>
+                        <td width="28%" class="text-right">
+                          {{ item.RedditoAssistito | currency: "€" }}
+                        </td>
+                        <td width="28%" class="text-right">
+                          {{ item.RedditoConiuge | currency: "€" }}
+                        </td>
+                        <td width="28%" class="text-center">
+                          <div class="checkbox">
+                            <input
+                              icheck
+                              ng-model="item.ValidoPerGliAnniSuccessivi"
+                              type="checkbox"
+                              ng-disabled="visDatiAssistito"
+                              value="Si"
+                              ng-checked="item.ValidoPerGliAnniSuccessivi=='Si'"
+                            />
+                            <i></i>
+                          </div>
+                        </td>
+
+                        <td
+                          width="6%"
+                          style="font-size: 18px; text-align: center"
+                        >
+                          <a
+                            ng-class="{anchorDisabled : visDatiAssistito}"
+                            ng-click="creaNuovoReddito($index)"
+                            ><i class="fa fa-pencil"></i
+                          ></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="row text-right">
+                <div class="col-sm-12">
+                  <button
+                    class="btn btn-primary"
+                    id="anagSearch"
+                    ng-disabled="visDatiAssistito"
+                    ng-click="creaNuovoReddito(0)"
+                  >
+                    {{ "INSERISCI_REDDITO" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseAss"
+          >
+            {{ "ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseAss" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <table
+                    class="table table-bordered table-striped dataTables-paged"
+                  >
+                    <thead>
+                      <tr>
+                        <th class="col-md-1">
+                          {{ "NUM_POSIZIONE" | translate }}
+                        </th>
+                        <th class="col-md-2">
+                          {{ "DATA_DOMANDA" | translate }}
+                        </th>
+                        <th class="col-md-2">
+                          {{ "TIPO_ASSOCIAZIONE" | translate }}
+                        </th>
+                        <th class="col-md-2">
+                          {{ "INIZIO_ISCRIZIONE" | translate }}
+                        </th>
+                        <th class="col-md-2">
+                          {{ "FINE_ISCRIZIONE" | translate }}
+                        </th>
+                        <th class="col-md-3">
+                          {{
+                            "ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE"
+                              | translate
+                          }}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in datiAssistito.Associazioni">
+                        <td>{{ item.NumPosizione }}</td>
+                        <td>{{ item.DataDomanda }}</td>
+                        <td>{{ item.TipoAssociazione }}</td>
+                        <td>{{ item.InizioIscrizione }}</td>
+                        <td>{{ item.FineIscrizione }}</td>
+                        <td>
+                          <div
+                            ng-repeat="itemChild in item.ElencoRitenuteDiCategoriaRecuperate"
+                          >
+                            <div>
+                              <label>Data recupero</label>
+                              {{ itemChild.DataRecupero }}
+                            </div>
+                            <div>
+                              <label>Importo recuperato</label>
+                              {{ itemChild.ImportoRecuperato | currency }}
+                            </div>
+                            <!--
+                              <a title="note" data-toggle="popover" data-placement="top"
+                                  data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">
+                                  Note
+                              </a>
+                            -->
+                            <a
+                              angular-popover
+                              direction="top"
+                              template="{{itemChild.Note}}"
+                              style="position: relative;"
+                              >Note</a
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello Posizioni Contabili -->
+        <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapsePosContabili"
+          >
+            {{ "POSIZIONI_CONTABILI" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapsePosContabili" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul class="nav nav-tabs" role="tablist">
+                <li
+                  role="presentation"
+                  ng-class="{ active: !selTabPosContabili}"
+                >
+                  <a role="tab" ng-click="selTabPosContabili = 0">
+                    {{ "ELENCO_LIQUIDAZIONI" | translate }}
+                  </a>
+                </li>
+                <li
+                  role="presentation"
+                  ng-class="{ active: selTabPosContabili == 1 }"
+                >
+                  <a role="tab" ng-click="selTabPosContabili = 1">
+                    {{ "ELENCO_IMPORTI_RIACCREDITATI" | translate }}
+                  </a>
+                </li>
+                <li
+                  role="presentation"
+                  ng-class="{ active: selTabPosContabili == 2 }"
+                >
+                  <a role="tab" ng-click="selTabPosContabili = 2">
+                    {{ "ELENCO_IMPORTI_DA_RECUPERARE" | translate }}
+                  </a>
+                </li>
+              </ul>
+
+              <div class="tab-content">
+                <!-- pannello 1 : elenco liquidazioni -->
+                <div
+                  role="tabpanel"
+                  class="tab-pane"
+                  ng-class="{ active: !selTabPosContabili }"
+                  ng-show="!selTabPosContabili"
+                >
+                  <table
+                    datatable="ng"
+                    dt-column-defs="dtColumnTabElencoLiquidazioni"
+                    dt-options="dtOptionsTabElencoLiquidazioni"
+                    class="table table-bordered dataTables-paged order-desc"
+                    dt-instance="vm.dtInstance"
+                  >
+                    <thead>
+                      <tr>
+                        <th>{{ "DATA_CALCOLO" | translate }}</th>
+                        <th>{{ "LIQUIDATO" | translate }}</th>
+                        <th>{{ "RIACCREDITO" | translate }}</th>
+                        <th>{{ "TRATTENUTA_DI_CATEGORIA" | translate }}</th>
+                        <th>
+                          {{
+                            "IMPORTO_RECUPERATO_PER_COMPENSAZIONE" | translate
+                          }}
+                        </th>
+                        <th>{{ "NR_TRASFERIMENTO_FLUMO" | translate }}</th>
+                        <th>{{ "TOT_MESE" | translate }}</th>
+                        <th>{{ "TOT_ANNO" | translate }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in datiAssistito.Liquidazioni">
+                        <td width="10%">{{ item.DataCalcolo }}</td>
+                        <td width="10%" class="text-right">
+                          {{ item.Liquidato | currency: "€" }}
+                        </td>
+                        <td width="10%" class="text-right">
+                          {{ item.Riaccredito | currency: "€" }}
+                        </td>
+                        <td width="10%" class="negative text-right">
+                          {{ item.TrattenutaDiCategoria | currency: "€" }}
+                        </td>
+                        <td width="15%" class="negative text-right">
+                          {{
+                            item.ImportoRecuperatoPerCompensazione
+                              | currency: "€"
+                          }}
+                        </td>
+                        <td width="15%">
+                          <div>
+                            <label>{{ "NR_MANDATO" | translate }}</label>
+                            {{ item.NrTrasferimentoFlumo.NrMandato }}
+                          </div>
+                          <label>{{ "DATA" | translate }}</label>
+                          {{ item.NrTrasferimentoFlumo.Data }}
+                        </td>
+                        <td width="10%" class="text-right">
+                          {{ item.TotMese | currency: "€" }}
+                        </td>
+                        <td width="10%" class="text-right">
+                          {{ item.TotAnno | currency: "€" }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- pannello 2 : elenco importi riaccreditati -->
+                <div
+                  role="tabpanel"
+                  class="tab-pane"
+                  ng-class="{ active: selTabPosContabili == 1 }"
+                  ng-show="selTabPosContabili == 1"
+                >
+                  <div>
+                    <table
+                      datatable="ng"
+                      dt-column-defs="dtColumnTabElencoImportiRiaccreditati"
+                      dt-options="dtOptionsTabElencoImportiRiaccreditati"
+                      class="table table-bordered dataTables-paged order-desc"
+                      dt-instance="vm.dtInstanceTabElencoImportiRiaccreditati"
+                    >
+                      <thead>
+                        <tr>
+                          <th>{{ "DATA_CALCOLO" | translate }}</th>
+                          <th>{{ "IMPORTO_RIACCREDITATO" | translate }}</th>
+                          <th>
+                            {{ "DATA_LIQUIDAZIONE_ARRETRATO" | translate }}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          ng-repeat="item in datiAssistito.ElencoImportiRiaccreditati"
+                        >
+                          <td width="33%">{{ item.DataRiaccredito }}</td>
+                          <td width="33%" class="text-right">
+                            {{ item.ImportoRiaccreditato | currency: "€" }}
+                          </td>
+                          <td width="34%" class="text-right">
+                            {{ item.DataLiquidazioneArretrato }}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="col-sm-12 text-right">
+                    <a
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                      ui-sref="anagrafica.modifica_importo_riaccreditato({datiAssistito: datiAssistito})"
+                    >
+                      {{ "PREDISPONI_IMPORTO_RIACCREDITATO" | translate }}
                     </a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
                 </div>
+
+                <!-- pannello 3 : elenco importi da recuperare -->
+                <div
+                  role="tabpanel"
+                  class="tab-pane"
+                  ng-class="{ active: selTabPosContabili == 2 }"
+                  ng-show="selTabPosContabili == 2"
+                >
+                  <div>
+                    <table
+                      datatable="ng"
+                      dt-column-defs="dtColumnTabElencoImportiRiaccreditati"
+                      dt-options="dtOptionsTabElencoImportiRiaccreditati"
+                      class="table table-bordered dataTables-paged order-desc"
+                      dt-instance="vm.dtInstanceTabElencoImportiRiaccreditati"
+                    >
+                      <thead>
+                        <tr>
+                          <th>{{ "DATA_ULTIMA_MODIFICA" | translate }}</th>
+                          <th>{{ "TIPO_DI_RECUPERO" | translate }}</th>
+                          <th>{{ "TOT_DA_RECUPERARE" | translate }}</th>
+                          <th>{{ "RECUPERATO" | translate }}</th>
+                          <th>{{ "RESTITUTO" | translate }}</th>
+                          <th>{{ "RIMANENTE_DA_RECUPERARE" | translate }}</th>
+                          <th>{{ "NOTE" | translate }}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          ng-repeat="item in datiAssistito.ElencoImportiDaRecuperare"
+                        >
+                          <td width="15%">{{ item.DataUltimaModifica }}</td>
+                          <td width="15%" class="text-right">
+                            {{ item.TipoDiRecupero }}
+                          </td>
+                          <td width="20%">
+                            <div>
+                              <label>{{ "CAPITALE" | translate }}</label>
+                              {{
+                                item.TotDaRecuperare.Capitale | currency: "€"
+                              }}
+                            </div>
+                            <div>
+                              <label>{{
+                                "INTERESSI_LEGALI" | translate
+                              }}</label>
+                              {{
+                                item.TotDaRecuperare.InteressiLegali
+                                  | currency: "€"
+                              }}
+                            </div>
+                            <label>{{
+                              "INTERESSI_DI_RATEIZZAZIONE" | translate
+                            }}</label
+                            >{{
+                              item.TotDaRecuperare.InteressiDiRateizzazione
+                                | currency: "€"
+                            }}
+                          </td>
+                          <td width="15%" class="text-right">
+                            {{ item.Recuperato }}
+                          </td>
+                          <td width="15%" class="text-right">
+                            {{ item.Restituito }}
+                          </td>
+                          <td width="10%" class="text-right">
+                            {{ item.RimanenteDaRecuperare }}
+                          </td>
+                          <td width="10%" class="text-right">
+                            {{ item.Note }}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="col-sm-12 text-right">
+                    <a
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                      ui-sref="anagrafica.modifica_importo_da_recuperare({datiAssistito: datiAssistito})"
+                    >
+                      {{ "PREDISPONI_IMPORTO_DA_RECUPERARE" | translate }}
+                    </a>
+
+                    <a
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                      ui-sref="anagrafica.modifica_importo_restituito({datiAssistito: datiAssistito})"
+                    >
+                      {{ "PREDISPONI_IMPORTO_RESTITUITO" | translate }}
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Pannello Elenco Evidenze -->
+        <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseEvidenze"
+          >
+            {{ "ELENCO_EVIDENZE_UPPERCASE" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapseEvidenze" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <evidenze-component></evidenze-component>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello Posizione Espro -->
+        <div ng-if="!inserimentoAnagrafe" class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapsePosEspro"
+          >
+            {{ "POSIZIONE_ESPRO" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+          <div id="collapsePosEspro" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-md-3">
+                      {{ "DECORRENZA_ASSEGNO_DI_CURA" | translate }}
+                    </th>
+                    <th class="col-md-3">
+                      {{ "TERMINE_DECORRENZA_ASSEGNO_DI_CURA" | translate }}
+                    </th>
+                    <th class="col-md-3">
+                      {{
+                        "DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA" | translate
+                      }}
+                    </th>
+                    <th class="col-md-3">
+                      {{
+                        "TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA" | translate
+                      }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody ng-if="datiAssistito.CodiceFiscale">
+                  <tr>
+                    <td>21/01/2016</td>
+                    <td>21/02/2016</td>
+                    <td>21/03/2016</td>
+                    <td>21/04/2016</td>
+                  </tr>
+                  <tr>
+                    <td>21/01/2016</td>
+                    <td>21/02/2016</td>
+                    <td>21/03/2016</td>
+                    <td>21/04/2016</td>
+                  </tr>
+                  <tr>
+                    <td>21/01/2016</td>
+                    <td>21/02/2016</td>
+                    <td>21/03/2016</td>
+                    <td>21/04/2016</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pannello Storico operazioni -->
+        <div class="panel panel-default m-t-lg">
+          <div
+            class="panel-heading pointer collapsed"
+            data-toggle="collapse"
+            href="#collapseStoricoOperazioni"
+          >
+            {{ "STORICO_OPERAZIONI" | translate }}
+            <div class="panel-toolbox"><i class="fa fa-chevron-down"></i></div>
+          </div>
+
+          <div id="collapseStoricoOperazioni" class="panel-collapse collapse">
+            <div class="panel-body"><logs-component></logs-component></div>
+          </div>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <!--
+          <button type="submit" class="btn btn-primary" ng-disabled="anagrafeForm.$invalid">Invia</button>
+        -->
+        <div class="row text-right">
+          <div
+            ng-if="inserimentoAnagrafe || !visDatiAssistito"
+            class="col-sm-12"
+            style="margin-top:5px;margin-bottom:15px"
+          >
+            <button
+              type="submit"
+              class="btn btn-primary"
+              ng-disabled="anagrafeForm.$invalid"
+            >
+              {{ "SALVA" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="modal inmodal" id="modalImportiRecuperati">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">Dettaglio importi recuperati</h4>
+        </div>
+        <div class="modal-body">
+          <h3 class="m-t-md">Elenco importi recuperati per compensazione</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th class="col-md-3">Data</th>
+                <th class="col-md-3">Importo recuperato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01/03/2016</td>
+                <td class="text-right">€ 108,75</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row"><div class="col-md-12 form-separator"></div></div>
+          <h3 class="m-t-lg">Elenco importi restituiti</h3>
+          <h4 class="warning">Nessun importo restituito</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal inmodal" id="modalDocumentiPerFascicolo">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">Documenti per fascicolo</h4>
+        </div>
+        <div class="modal-body">
+          <documenti-component></documenti-component>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal inmodal"
+    id="modalAnagrafica"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">
+            <i class="fa fa-search"></i>
+            {{ "RICERCA_DATI_ANAGRAFICI" | translate }}
+          </h4>
+          <small class="font-bold">Inserisci i dati e avvia la ricerca</small>
+        </div>
+        <div class="modal-body">
+          <%- partial("_ricerca_anagrafica", { url: "modifica_erede.html"}) %>
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-primary" data-dismiss="modal"
+            >{{ "INSERISCI_NUOVA_ANAGRAFICA" | translate }}
+          </a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 
 <script>
-    // Custom scripts
-    $(document).ready(function () {
+  // Custom scripts
+  $(document).ready(function() {
+    $(".panel").click(function() {
+      var cl = $(this).find(".panel-heading");
+      var ibox = cl.closest("div.panel-toolbox");
+      var button = cl.find("i");
+      var content = ibox.find("div.panel-collapse");
+      content.slideToggle(200);
+      button.toggleClass("fa-chevron-up").toggleClass("fa-chevron-down");
+      ibox.toggleClass("").toggleClass("border-bottom");
+      setTimeout(function() {
+        ibox.resize();
+        ibox.find("[id^=map-]").resize();
+      }, 50);
+    });
 
-        $('.panel').click(function () {
-            var cl = $(this).find('.panel-heading');
-            var ibox = cl.closest('div.panel-toolbox');
-            var button = cl.find('i');
-            var content = ibox.find('div.panel-collapse');
-            content.slideToggle(200);
-            button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-            ibox.toggleClass('').toggleClass('border-bottom');
-            setTimeout(function () {
-                ibox.resize();
-                ibox.find('[id^=map-]').resize();
-            }, 50);
-        });
-
-        setTimeout(function () {
-            $('.input-group.date').datepicker({
-                todayBtn: "linked",
-                format: 'dd/mm/yyyy',
-                keyboardNavigation: false,
-                forceParse: true,
-                calendarWeeks: true,
-                autoclose: true
-                //orientation: 'bottom left'
-            });
-        }, 500);
-
-    })
+    setTimeout(function() {
+      $(".input-group.date").datepicker({
+        todayBtn: "linked",
+        format: "dd/mm/yyyy",
+        keyboardNavigation: false,
+        forceParse: true,
+        calendarWeeks: true,
+        autoclose: true
+        //orientation: 'bottom left'
+      });
+    }, 500);
+  });
 </script>
