@@ -14,11 +14,10 @@ function anagrafeCtrl(
       "mockUrl",
       cCodFis
     );
+  };
 
-    $scope.onSaveCar = function(childDatiAssistito) {
-      $scope.datiAssistito = childDatiAssistito;
-    };
-    
+  $scope.onSaveCar = function(childDatiAssistito) {
+    $scope.datiAssistito = childDatiAssistito;
   };
 
   $scope.dtOptions = DTOptionsBuilder.newOptions()
@@ -26,7 +25,6 @@ function anagrafeCtrl(
     .withOption("lengthChange", false);
 
   $scope.colonneTabElencoRedditi = [
-    
     DTColumnDefBuilder.newColumnDef(3).notSortable(),
     DTColumnDefBuilder.newColumnDef(4).notSortable()
   ];

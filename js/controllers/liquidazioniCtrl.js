@@ -6,14 +6,57 @@
 function liquidazioniCtrl(
   $scope,
   httpServices,
+  liquidazioniServices,
   $state,
   $stateParams,
   DTOptionsBuilder,
   DTColumnDefBuilder,
   $compile
 ) {
+  // $scope.find = function() {
+  //   $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
+  // };
+
+  $scope.mesediriferimento = null;
+
+  $scope.elencoLiquidazioni = [];
+  $scope.datiAssistito = [];
+  
   $scope.find = function() {
-    $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
+    // $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
+    var tableSort = $("#resultRicercaLiquidazioniDataTable").dataTable();
+    var tablePage = $("#resultRicercaLiquidazioniDataTable").DataTable();
+    $scope.elencoLiquidazioni = [];
+
+    debugger;
+    $scope.info = {
+      // informazioni ordinamento
+      sort: {
+        column: tableSort.fnSettings().aaSorting[0][0],
+        direction: tableSort.fnSettings().aaSorting[0][1],
+        titleColumn: tableSort.fnSettings().aoColumns[
+          tableSort.fnSettings().aaSorting[0][0]
+        ].sTitle
+      },
+
+      // informazioni pagina
+      page: tablePage.page.info(),
+
+      // informazioni ricerca
+      find: {
+        meseDiRiferimento: $scope.meseDiRiferimento
+      }
+    };
+
+    // ------------------
+
+    // $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
+     
+    liquidazioniServices.find($scope.info, result => {
+      $scope.elencoLiquidazioni = result;
+    });
+
+
   };
 
   $scope.findCodFis = function(cCodFis) {
@@ -157,7 +200,6 @@ function liquidazioniCtrl(
       RecuperiDaCompensazione: -335,
       TotaleMensileDaLiquidare: 12455
     }
-
   ];
 
   // --------------------------------
@@ -631,10 +673,12 @@ function liquidazioniCtrl(
   // --------------------------------------------------------------------------
 
   // -------- Tabella Ricerca Liquidazione
+  // https://stackoverflow.com/questions/45846039/cannot-reinitialise-datatable-angularjs-with-datatable
 
   $scope.dtOptionsTabRicercaLiquidazioni = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
-    .withOption("lengthChange", false);
+    .withOption("lengthChange", false)
+    .withOption("retrieve", true);
 
   $scope.colonneTabRicercaLiquidazioni = [
     DTColumnDefBuilder.newColumnDef(8).notSortable()
@@ -694,13 +738,20 @@ function liquidazioniCtrl(
 
   $scope.findPosizione = function(cCodFis) {
     debugger;
-    this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
+    // $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+    //   "mockUrl",
+    //   cCodFis
+    // );
+
+    $scope.findCodFis = function(cCodFis) {
+      anagrafeServices.findCodFis(cCodFis, resultData => {
+        $scope.datiAssistito = resultData;
+      });
+    };
+  
 
     $state.go("posizione.visualizza_posizione", {
-      datiAssistito: this.datiAssistito
+      datiAssistito: $scope.datiAssistito
     });
   };
 }

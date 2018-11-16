@@ -81,8 +81,12 @@
 <script src="js/plugins/iCheck/icheck.min.js"></script>
 
 <!-- Data picker -->
+<!-- Custom scripts -->
 <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 <script src="js/plugins/datapicker/bootstrap-datepicker.it.js"></script>
+
+<script src="js/plugins/datapicker/language/bootstrap-datepicker.it.js"></script>
+<script src="js/plugins/datapicker/language/bootstrap-datepicker.de.js"></script>
 
 <!-- Data Tables -->
 <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
@@ -147,6 +151,7 @@
 
 <!-- load servizi  -->
 <script src="js/services/httpServices.js"></script>
+<script src="js/services/liquidazioniServices.js"></script>
 <script src="js/services/anagrafeServices.js"></script>
 <script src="js/services/logServices.js"></script>
 <script src="js/services/loginServices.js"></script>
@@ -268,7 +273,8 @@
             keyboardNavigation: false,
             forceParse: true,
             calendarWeeks: true,
-            autoclose: true
+            autoclose: true,
+            language: window.language
             //orientation: 'bottom left'
         });
     }, 500);

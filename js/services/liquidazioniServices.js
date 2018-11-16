@@ -1,4 +1,4 @@
-function anagrafeServices($http, $rootScope) {
+function liquidazioniServices($http, $rootScope) {
   var service = {};
 
   service.find = find;
@@ -10,7 +10,7 @@ function anagrafeServices($http, $rootScope) {
 
   function find(dataFind, callBack) {
     $http
-      .get($rootScope.urlAnagrafe + "/find", { data: dataFind })
+      .get($rootScope.urlLiquidazioni + "/find", { data: dataFind })
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -26,7 +26,7 @@ function anagrafeServices($http, $rootScope) {
 
   function findCodFis(cCodFis, callBack) {
     $http
-      .get($rootScope.urlAnagrafe + "/findcodfis", { data: cCodFis }, config)
+      .get($rootScope.urlLiquidazioni + "/findcodfis", { data: cCodFis }, config)
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -41,7 +41,7 @@ function anagrafeServices($http, $rootScope) {
 
   function findPosizioni(dataFind, callBack) {
     $http
-      .get($rootScope.urlAnagrafe + "/findPosizioni", { data: dataFind })
+      .get($rootScope.urlLiquidazioni + "/findPosizioni", { data: dataFind })
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -59,7 +59,7 @@ function anagrafeServices($http, $rootScope) {
 
   function save(dataSave, callBack) {
     $http
-      .post($rootScope.urlAnagrafe + "/save", { data: dataSave })
+      .post($rootScope.urlLiquidazioni + "/save", { data: dataSave })
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -77,4 +77,4 @@ function anagrafeServices($http, $rootScope) {
 
 }
 
-angular.module("inciso").factory("anagrafeServices", anagrafeServices);
+angular.module("inciso").factory("liquidazioniServices", liquidazioniServices);

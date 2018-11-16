@@ -1,109 +1,194 @@
-<header-component tipo="'Generico'" titolo="'RICERCA_LIQUIDAZIONE'"></header-component>
+<header-component
+    tipo="'Generico'"
+    titolo="'RICERCA_LIQUIDAZIONE'"
+></header-component>
 
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5> {{ 'RICERCA_LIQUIDAZIONE' | translate }}</h5>
-                </div>
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-md-4 form-group">
-                            <label> {{ 'MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE' | translate }} (*):</label>
-                            <div>
+<form
+    name="ricercaLiquidazioneForm"
+    novalidate="novalidate"
+>
+    <div class="wrapper wrapper-content animated fadeInRight" ng-controller="liquidazioniCtrl as $ctrl">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            {{ 'RICERCA_LIQUIDAZIONE' | translate }}
+                        </h5>
+                    </div>
+
+                    <div class="ibox-content">
+                        <div class="row">
+
+                            <div class="col-md-4 form-group">
+                                <label>
+                                    {{ 'MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE' | translate }} (*):
+                                </label>
+
+                                {{ asteriscoInserimento }} 
                                 <div class="input-group date m-t-xs">
-                                    <input type="text" class="form-control" value="Gennaio 2015"><span class="input-group-addon"><i
-                                            class="fa fa-calendar"></i></span>
+                                    <input
+                                        type="text"
+                                        name="meseDiRiferimento"
+                                        class="form-control js-date"
+                                        ng-model="meseDiRiferimento"
+                                        required
+                                    ></input>
+
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
                                 </div>
+
+                                <p
+                                    ng-show="ricercaLiquidazioneForm.meseDiRiferimento.$invalid && !ricercaLiquidazioneForm.meseDiRiferimento.$pristine"
+                                    class="help-block"
+                                >
+                                    {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                                </p>
                             </div>
                         </div>
-                        <!-- <div class="pull-left m-t-lg">
-                            <button class="btn btn-primary btn-sm" id="posSearch">Cerca</button>
-                        </div> -->
-                    </div>
-                    <div class="text-right">
 
-                    </div>
-                    <div class="text-right">
-                        <button class="btn btn-primary btn-sm" ng-click="find()" id="posSearch">{{ "CERCA" |
-                            translate}}</button>
-                    </div>
+                        <div class="text-right"></div>
 
-                    <div id="posResults" style="display:none;">
+                        <div class="text-right">
+                            <button
+                                ng-click="find()"
+                                class="btn btn-primary btn-sm"
+                                id="posSearch"
+                                ng-disabled="ricercaLiquidazioneForm.$invalid"
+                            >
+                                {{ "CERCA" |
+                            translate}}
+                            </button>
+                        </div>
 
-                        <table datatable="ng" dt-column-defs="colonneTabRicercaLiquidazioni" dt-options="dtOptionsTabRicercaLiquidazioni"
-                            class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
+                        <div
+                            id="posResults"
+                            style="display:none;"
+                        >
+                            <table
+                                id="resultRicercaLiquidazioniDataTable"
+                                datatable="ng"
+                                dt-column-defs="colonneTabRicercaLiquidazioni"
+                                dt-options="dtOptionsTabRicercaLiquidazioni"
+                                class="table table-bordered table-striped"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            {{ 'NOMINATIVO_ASSISTITO' | translate }}
+                                        </th>
 
-                                    <th>{{ 'NOMINATIVO_ASSISTITO' | translate }}</th>
-                                    <th>{{ 'IMPORTO_PRESTAZIONI_LIQUIDATO' | translate }}</th>
-                                    <th>{{ 'TREDICESIMA' | translate }}</th>
-                                    <th>{{ 'IMPORTO_CONGUAGLIO' | translate }}</th>
-                                    <th>{{ 'RITENUTE_DI_CATEGORIA' | translate }}</th>
-                                    <th>{{ 'RIACCREDITI' | translate }}</th>
-                                    <th>{{ 'RECUPERI_DA_COMPENSAZIONE' | translate }}</th>
-                                    <th>{{ 'TOTALE_MENSILE_DA_LIQUIDARE' | translate }}</th>
-                                    <th></th>
+                                        <th>
+                                            {{ 'IMPORTO_PRESTAZIONI_LIQUIDATO' | translate }}
+                                        </th>
 
+                                        <th>
+                                            {{ 'TREDICESIMA' | translate }}
+                                        </th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="item in elencoLiquidazioni">
-                                    <td>{{item.NominativoAssistito}}</td>
-                                    <td class="text-right">{{item.ImportoPrestazioniLiquidato | currency}}</td>
-                                    <td class="text-right">{{item.Tredicesima | currency}}</td>
-                                    <td class="text-right">{{item.ImportoConguaglio | currency}}</td>
-                                    <td class="text-right">{{item.RitenuteDiCategoria | currency}}</td>
-                                    <td class="text-right">{{item.Riaccrediti | currency}}</td>
-                                    <td class="text-right">{{item.RecuperiDaCompensazione | currency}}</td>
-                                    <td class="text-right">{{item.TotaleMensileDaLiquidare | currency}}</td>
-                                    <td class="text-center">
-                                        <a ui-sref="liquidazioni.visualizza_liquidazione" ng-click="findCodFis(item.CodiceFiscale)">
-                                            <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>
-                                        </a>
-                                    </td>
+                                        <th>
+                                            {{ 'IMPORTO_CONGUAGLIO' | translate }}
+                                        </th>
 
-                                </tr>
-                            </tbody>
-                        </table>
+                                        <th>
+                                            {{ 'RITENUTE_DI_CATEGORIA' | translate }}
+                                        </th>
 
-                        <div class="text-right m-t-md">
-                            <button class="btn btn-sm btn-primary">Annullamento ultima liquidazione mensile</div>
+                                        <th>
+                                            {{ 'RIACCREDITI' | translate }}
+                                        </th>
 
+                                        <th>
+                                            {{ 'RECUPERI_DA_COMPENSAZIONE' | translate }}
+                                        </th>
 
+                                        <th>
+                                            {{ 'TOTALE_MENSILE_DA_LIQUIDARE' | translate }}
+                                        </th>
+
+                                        <th></th>
+                                    </tr>
+         
+         
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="item in elencoLiquidazioni">
+                                        <td>{{item.NominativoAssistito}}</td>
+
+                                        <td class="text-right">
+                                            {{item.ImportoPrestazioniLiquidato | currency}}
+                                        </td>
+
+                                        <td class="text-right">
+                                            {{item.Tredicesima | currency}}
+                                        </td>
+
+                                        <td class="text-right">
+                                            {{item.ImportoConguaglio | currency}}
+                                        </td>
+
+                                        <td class="text-right">
+                                            {{item.RitenuteDiCategoria | currency}}
+                                        </td>
+
+                                        <td class="text-right">
+                                            {{item.Riaccrediti | currency}}
+                                        </td>
+
+                                        <td class="text-right">
+                                            {{item.RecuperiDaCompensazione | currency}}
+                                        </td>
+
+                                        <td class="text-right">
+                                            {{item.TotaleMensileDaLiquidare | currency}}
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a
+                                                ui-sref="liquidazioni.visualizza_liquidazione"
+                                                ng-click="findCodFis(item.CodiceFiscale)"
+                                            >
+                                                <i
+                                                    class="fa fa-arrow-circle-right"
+                                                    aria-hidden="true"
+                                                    style="font-size:17px"
+                                                ></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="text-right m-t-md">
+                                <button class="btn btn-sm btn-primary">
+                                        {{'ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE' | translate}}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-</div>
+</form>
 
-<!-- Custom scripts -->
 <script>
-
     $(document).ready(function () {
 
         $('#posSearch').click(function () {
             $("#posResults").show();
         });
 
-
-        $('.input-group.date').datepicker({
-            todayBtn: "linked",
-            format: 'dd/mm/yyyy',
-            keyboardNavigation: false,
-            forceParse: true,
-            calendarWeeks: true,
-            autoclose: true
-            //orientation: 'bottom left'
-        });
-
+        $(".input-group.date").datepicker( {
+           format: "MM yyyy",
+           changeMonth: true,
+           viewMode: "months", 
+           minViewMode: "months",
+           language: window.language
+         });
 
     });
-
-
 </script>

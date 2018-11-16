@@ -15,82 +15,68 @@ function ricercaController(
 ) {
   $scope.dtInstanceTabResultRicerca = {};
 
-  this.findSort = "-1";
-  this.findCurrentPage = "";
-  this.findTotalPage = "";
   this.findCognome = "";
   this.findNome = "";
   this.findCodiceFiscale = "";
   this.findDataDiNascita = "";
+  this.findNumeroFascicolo = "";
   this.findNumeroFaldoneArchiviazione = "";
   this.findAnnoDiScarto = "";
+
   this.elencoAssistiti = [];
 
   this.find = function() {
+    var tableSort = $("#resultRicercaDataTable").dataTable();
+    var tablePage = $("#resultRicercaDataTable").DataTable();
+
+    this.info = {
+      // informazioni ordinamento
+      sort: {
+        column: tableSort.fnSettings().aaSorting[0][0],
+        direction: tableSort.fnSettings().aaSorting[0][1],
+        titleColumn: tableSort.fnSettings().aoColumns[
+          tableSort.fnSettings().aaSorting[0][0]
+        ].sTitle
+      },
+
+      // informazioni pagina
+      page: tablePage.page.info(),
+
+      // informazioni ricerca
+      find: {
+        findCognome: this.findCognome,
+        findNome: this.findNome,
+        findCodiceFiscale: this.findCodiceFiscale,
+        findDataDiNascita: this.findDataDiNascita,
+        findNumeroFascicolo: this.findNumeroFascicolo,
+        findNumeroFaldoneArchiviazione: this.findNumeroFaldoneArchiviazione,
+        findAnnoDiScarto: this.findAnnoDiScarto
+      }
+    };
+
+    // ------------------
+
     if (this.tipoRicerca == "Anagrafe") {
-      // https://datatables.net/forums/discussion/11390/how-to-get-values-of-the-current-sort-column-index-and-direction-from-aodata
-
-      // var table = angular
-      //   .element(document.querySelector("#resultRicercaDataTable"))
-      //   .dataTable();
-
-      var tableSort = $("#resultRicercaDataTable").dataTable();
-      var tablePage = $("#resultRicercaDataTable").DataTable();
-
-      this.info = {
-        sort: {
-          column: tableSort.fnSettings().aaSorting[0][0],
-          direction: tableSort.fnSettings().aaSorting[0][1],
-          titleColumn: tableSort.fnSettings().aoColumns[
-            tableSort.fnSettings().aaSorting[0][0]
-          ].sTitle
-        },
-
-        page: tablePage.page.info(),
-
-        find: {
-          findCognome: this.findCognome,
-          findNome: this.findNome,
-          findCodiceFiscale: this.findCodiceFiscale,
-          findDataDiNascita: this.findDataDiNascita,
-          findNumeroFaldoneArchiviazione: this.findNumeroFaldoneArchiviazione,
-          findAnnoDiScarto: this.findAnnoDiScarto
-        }
-      };
-
-      this.elencoAssistiti = [];
-
-      anagrafeServices.find(this.info, resultData => {
-        this.elencoAssistiti = resultData;
+      anagrafeServices.find(this.info, result => {
+        this.elencoAssistiti = result;
       });
-
-      debugger;
     } else {
-      this.elencoAssistiti = httpServices._ricercaPosizioniRicerca.get(
-        "mockUrl"
-      );
+      anagrafeServices.findPosizioni(this.info, result => {
+        this.elencoAssistiti = result;
+      });
     }
+    // ------------------
   };
 
   this.findCodFis = function(cCodFis) {
-    alert("posizione")
-    // this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-    //   "mockUrl",
-    //   cCodFis
-    // );
     anagrafeServices.findCodFis(cCodFis, resultData => {
       this.datiAssistito = resultData;
     });
   };
 
   this.findPosizione = function(cCodFis) {
-    // this.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-    //   "mockUrl",
-    //   cCodFis
-    // );
-
-    anagrafeServices.findCodFis(cCodFis, resultData => {
-      this.datiAssistito = resultData;
+    anagrafeServices.findCodFis(cCodFis, result => {
+      this.datiAssistito = result;
     });
 
     $state.go("posizione.visualizza_posizione", {

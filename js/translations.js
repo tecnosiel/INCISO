@@ -6,6 +6,8 @@ function config($translateProvider) {
   $translateProvider
     .translations("it", {
       // -------------------------------------------------------------------------------
+      ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE:
+        "Annullamento ultima liquidazione mensile",
       ASSISTITO: "Assistito",
       PRESTAZIONI_DA_LIQUIDARE: "Prestazioni da liquidare",
 
@@ -699,6 +701,9 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE:
+        "Annullamento ultima liquidazione mensile DE",
+
       ASSISTITO: "Assistito DE",
       PRESTAZIONI_DA_LIQUIDARE: "Prestazioni da liquidare DE",
 
@@ -1402,7 +1407,7 @@ function config($translateProvider) {
         "Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-"
     });
 
-  $translateProvider.preferredLanguage("en");
+  $translateProvider.preferredLanguage("it");
 }
 
 angular.module("inciso").config(config);

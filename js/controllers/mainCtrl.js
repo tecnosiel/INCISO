@@ -6,9 +6,13 @@
 function MainCtrl($scope, $rootScope, $translate, httpServices) {
   
   $rootScope.server = "wwwroot-dev/inciso.prov.bz.it/api/";
+  
   $rootScope.urlLogin ="/api/autenticazione"
   $rootScope.urlAnagrafe = "/api/anagrafe";
+  $rootScope.urlLiquidazioni = "/api/liquidazioni"
   
+  window.language = "it"
+    
   $rootScope.CustomStyle = {
     "background-color": null,
     "font-size": null

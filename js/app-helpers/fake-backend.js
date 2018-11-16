@@ -81,6 +81,19 @@ function setupFakeBackend($httpBackend) {
     });
 
   $httpBackend
+    .whenGET("/api/anagrafe/findPosizioni")
+    .respond(function(method, url, data, headers) {
+      alert(data);
+      debugger;
+      // legge parametri
+      var params = angular.fromJson(data);
+      var response = tabella("POSIZIONI");
+      alert("find");
+      debugger;
+      return [200, response, {}];
+    });
+
+  $httpBackend
     .whenGET("/api/anagrafe/findcodfis")
     .respond(function(method, url, data, headers) {
       alert(data);
@@ -105,6 +118,64 @@ function setupFakeBackend($httpBackend) {
 
       var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
+      alert("save");
+      debugger;
+      return [200, response, {}];
+    });
+
+  // ------------------------- LIQUIDAZIONI
+
+  $httpBackend
+    .whenGET("/api/liquidazioni/find")
+    .respond(function(method, url, data, headers) {
+      alert(data);
+      debugger;
+      // legge parametri
+      var params = angular.fromJson(data);
+      var response = tabella("LIQUIDAZIONI");
+      alert("find");
+      debugger;
+      return [200, response, {}];
+    });
+
+  $httpBackend
+    .whenGET("/api/liquidazioni/findPosizioni")
+    .respond(function(method, url, data, headers) {
+      alert(data);
+      debugger;
+      // legge parametri
+      var params = angular.fromJson(data);
+      var response = tabella("POSIZIONI");
+      alert("find");
+      debugger;
+      return [200, response, {}];
+    });
+
+  $httpBackend
+    .whenGET("/api/liquidazioni/findcodfis")
+    .respond(function(method, url, data, headers) {
+      alert(data);
+      debugger;
+      // legge parametri
+      var response = tabella("LIQUIDAZIONI");
+      var response2 = response.find(obj => {
+        return obj.CodiceFiscale === data;
+      });
+
+      alert("findCodFis");
+      debugger;
+      return [200, response2, {}];
+    });
+
+  $httpBackend
+    .whenPOST("/api/liquidazioni/save")
+    .respond(function(method, url, data, headers) {
+      debugger;
+      // get parameters from post request
+      var params = angular.fromJson(data);
+
+      var params = angular.fromJson(data);
+      var response = tabella("LIQUIDAZIONI");
       alert("save");
       debugger;
       return [200, response, {}];
@@ -4523,6 +4594,244 @@ function setupFakeBackend($httpBackend) {
       ];
 
       return tabAnagrafe;
+    }
+    // ----------------------------
+
+    if (cTipoTabella.toUpperCase() === "POSIZIONI") {
+      let tabPosizioni = [
+        {
+          Posizione: "123456",
+          CodiceFiscale: "LFNCLL60D03E026T",
+          Cognome: "Alfano",
+          Nome: "Camillo",
+          DataDiNascita: "03/04/1960",
+          DataDiDecesso: "03/01/2014",
+          AnnoDiScarto: "1234",
+          NumeroFaldone: "1111",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          CodiceFiscale: "LFNCLL60D03E026T",
+          Cognome: "Alfano",
+          Nome: "Camillo",
+          DataDiNascita: "03/04/1960",
+          DataDiDecesso: "03/01/2014",
+          AnnoDiScarto: "12534",
+          NumeroFaldone: "1111",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        },
+        {
+          Posizione: "771723",
+          CodiceFiscale: "QTGSRO60A11Q2055",
+          Cognome: "Hammond",
+          Nome: "John",
+          DataDiNascita: "01/01/1970",
+          DataDiDecesso: "-",
+          AnnoDiScarto: "127534",
+          NumeroFaldone: "2222222",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "125688",
+          CodiceFiscale: "QTGSRO60A11Q2055",
+          Cognome: "Hammond",
+          Nome: "John",
+          DataDiNascita: "01/01/1970",
+          DataDiDecesso: "-",
+          AnnoDiScarto: "1267634",
+          NumeroFaldone: "2222222",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          CodiceFiscale: "QTGSRO60A11Q2055",
+          Cognome: "Hammond",
+          Nome: "John",
+          DataDiNascita: "01/01/1970",
+          DataDiDecesso: "-",
+          AnnoDiScarto: "123664",
+          NumeroFaldone: "2222222",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        },
+        {
+          Posizione: "771723",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataDiNascita: "01/02/1650",
+          DataDiDecesso: "01/01/1930",
+          AnnoDiScarto: "16234",
+          NumeroFaldone: "3333333",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "12366",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataDiNascita: "01/02/1650",
+          DataDiDecesso: "01/01/1930",
+          AnnoDiScarto: "1234",
+          NumeroFaldone: "3333333",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "5765",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataDiNascita: "01/02/1650",
+          DataDiDecesso: "01/01/1930",
+          AnnoDiScarto: "1234",
+          NumeroFaldone: "3333333",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        },
+
+        {
+          Posizione: "771723",
+          CodiceFiscale: "VSYFRO70A10E2652",
+          Cognome: "Mathews",
+          Nome: "Suzanne",
+          DataDiNascita: "01/01/1966",
+          DataDiDecesso: "-",
+          AnnoDiScarto: "1994",
+          NumeroFaldone: "444444",
+          Fascicolo: "236"
+        },
+
+        {
+          Posizione: "771723",
+          CodiceFiscale: "VSYFRO70A10E2652",
+          Cognome: "Mathews",
+          Nome: "Suzanne",
+          DataDiNascita: "01/01/1966",
+          DataDiDecesso: "-",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+
+        {
+          Posizione: "771723",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataDiNascita: "01/02/1650",
+          DataDiDecesso: "01/01/1930",
+          AnnoDiScarto: "12246",
+          NumeroFaldone: "1113451",
+          Fascicolo: "236",
+          StatoDomanda: "Concessa"
+        },
+        {
+          Posizione: "673456",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataDiNascita: "01/02/1650",
+          DataDiDecesso: "01/01/1930",
+          AnnoDiScarto: "775634",
+          NumeroFaldone: "1113451",
+          Fascicolo: "634",
+          StatoDomanda: "Revocata"
+        },
+        {
+          Posizione: "345765",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataDiNascita: "01/02/1650",
+          DataDiDecesso: "01/01/1930",
+          AnnoDiScarto: "7464",
+          NumeroFaldone: "1113451",
+          Fascicolo: "123",
+          StatoDomanda: "Negata"
+        }
+      ];
+
+      return tabPosizioni;
+    }
+    // ----------------------------
+
+    if (cTipoTabella.toUpperCase() === "LIQUIDAZIONI") {
+      let tabLiquidazioni = [
+        {
+          CodiceFiscale: "1111111111111111",
+          NominativoAssistito: "111-Mario Rossi",
+          ImportoPrestazioniLiquidato: "232.00",
+          Tredicesima: "1325.00",
+          ImportoConguaglio: "2188.00",
+          RitenuteDiCategoria: "562.00",
+          Riaccrediti: "",
+          RecuperiDaCompensazione: "512.00",
+          TotaleMensileDaLiquidare: "1232.00"
+        },
+        {
+          CodiceFiscale: "2222222222222222",
+          NominativoAssistito: "2222-Andrea Ramilii",
+          ImportoPrestazioniLiquidato: "132.00",
+          Tredicesima: "1115.00",
+          ImportoConguaglio: "2000.00",
+          RitenuteDiCategoria: "",
+          Riaccrediti: "",
+          RecuperiDaCompensazione: "512.00",
+          TotaleMensileDaLiquidare: "1232.00"
+        },
+        {
+          CodiceFiscale: "3333333333333333",
+          NominativoAssistito: "3333-Pino Amabile",
+          ImportoPrestazioniLiquidato: "2.00",
+          Tredicesima: "325.00",
+          ImportoConguaglio: "17.00",
+          RitenuteDiCategoria: "",
+          Riaccrediti: "",
+          RecuperiDaCompensazione: "512.00",
+          TotaleMensileDaLiquidare: "1232.00"
+        },
+        {
+          CodiceFiscale: "4444444444444444",
+          NominativoAssistito: "4444-Karin Biondi",
+          ImportoPrestazioniLiquidato: "23.00",
+          Tredicesima: "25.00",
+          ImportoConguaglio: "42.53",
+          RitenuteDiCategoria: "430.00",
+          Riaccrediti: "",
+          RecuperiDaCompensazione: "52.00",
+          TotaleMensileDaLiquidare: "12.00"
+        },
+        {
+          CodiceFiscale: "5555555555555555",
+          NominativoAssistito: "55555-Ighli Vanoni",
+          ImportoPrestazioniLiquidato: "176.00",
+          Tredicesima: "725.00",
+          ImportoConguaglio: "18.53",
+          RitenuteDiCategoria: "",
+          Riaccrediti: "",
+          RecuperiDaCompensazione: "112.00",
+          TotaleMensileDaLiquidare: "2.00"
+        },
+        {
+          CodiceFiscale: "666666666666666666",
+          NominativoAssistito: "55555-Ighli Vanoni",
+          ImportoPrestazioniLiquidato: "176.00",
+          Tredicesima: "725.00",
+          ImportoConguaglio: "18.53",
+          RitenuteDiCategoria: "",
+          Riaccrediti: "",
+          RecuperiDaCompensazione: "112.00",
+          TotaleMensileDaLiquidare: "2.00"
+        }
+      ];
+
+      return tabLiquidazioni;
     }
   }
 }

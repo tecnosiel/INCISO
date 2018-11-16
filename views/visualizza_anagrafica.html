@@ -256,7 +256,7 @@
                     ng-show="anagrafeForm.datadinascita.$invalid && !anagrafeForm.datadinascita.$pristine"
                     class="help-block"
                   >
-                  {{ "CAMPO_OBBLIGATORIO" | translate }}.
+                    {{ "CAMPO_OBBLIGATORIO" | translate }}.
                   </p>
                 </div>
 
@@ -1669,7 +1669,8 @@
         keyboardNavigation: false,
         forceParse: true,
         calendarWeeks: true,
-        autoclose: true
+        autoclose: true,
+        language: window.language
         //orientation: 'bottom left'
       });
     }, 500);

@@ -468,7 +468,8 @@
           keyboardNavigation: false,
           forceParse: true,
           calendarWeeks: true,
-          autoclose: true
+          autoclose: true,
+          language: window.language
           //orientation: 'bottom left'
         });
       }
