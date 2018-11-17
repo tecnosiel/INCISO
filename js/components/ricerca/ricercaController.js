@@ -15,44 +15,26 @@ function ricercaController(
 ) {
   $scope.dtInstanceTabResultRicerca = {};
 
-  this.findCognome = "";
-  this.findNome = "";
-  this.findCodiceFiscale = "";
-  this.findDataDiNascita = "";
-  this.findNumeroFascicolo = "";
-  this.findNumeroFaldoneArchiviazione = "";
-  this.findAnnoDiScarto = "";
-
   this.elencoAssistiti = [];
+  this.datiAssistito = [];
+  this.info = {};
+  this.info.find = {};
 
   this.find = function() {
     var tableSort = $("#resultRicercaDataTable").dataTable();
     var tablePage = $("#resultRicercaDataTable").DataTable();
 
-    this.info = {
-      // informazioni ordinamento
-      sort: {
-        column: tableSort.fnSettings().aaSorting[0][0],
-        direction: tableSort.fnSettings().aaSorting[0][1],
-        titleColumn: tableSort.fnSettings().aoColumns[
-          tableSort.fnSettings().aaSorting[0][0]
-        ].sTitle
-      },
-
-      // informazioni pagina
-      page: tablePage.page.info(),
-
-      // informazioni ricerca
-      find: {
-        findCognome: this.findCognome,
-        findNome: this.findNome,
-        findCodiceFiscale: this.findCodiceFiscale,
-        findDataDiNascita: this.findDataDiNascita,
-        findNumeroFascicolo: this.findNumeroFascicolo,
-        findNumeroFaldoneArchiviazione: this.findNumeroFaldoneArchiviazione,
-        findAnnoDiScarto: this.findAnnoDiScarto
-      }
+    // informazioni ordinamento
+    this.info.sort = {
+      column: tableSort.fnSettings().aaSorting[0][0],
+      direction: tableSort.fnSettings().aaSorting[0][1],
+      titleColumn: tableSort.fnSettings().aoColumns[
+        tableSort.fnSettings().aaSorting[0][0]
+      ].sTitle
     };
+
+    // informazioni pagina
+    this.info.page = tablePage.page.info();
 
     // ------------------
 
@@ -69,18 +51,19 @@ function ricercaController(
   };
 
   this.findCodFis = function(cCodFis) {
-    anagrafeServices.findCodFis(cCodFis, resultData => {
-      this.datiAssistito = resultData;
+    anagrafeServices.findCodFis(cCodFis, result => {
+      this.datiAssistito = result;
     });
   };
 
   this.findPosizione = function(cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
-      this.datiAssistito = result;
-    });
-
-    $state.go("posizione.visualizza_posizione", {
-      datiAssistito: this.datiAssistito
+      alert("problema");
+      debugger;
+      var x = this.elencoAssistiti;
+      $state.go("posizione.visualizza_posizione", {
+        datiAssistito: result
+      });
     });
   };
 

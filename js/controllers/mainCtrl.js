@@ -10,6 +10,8 @@ function MainCtrl($scope, $rootScope, $translate, httpServices) {
   $rootScope.urlLogin ="/api/autenticazione"
   $rootScope.urlAnagrafe = "/api/anagrafe";
   $rootScope.urlLiquidazioni = "/api/liquidazioni"
+  $rootScope.urlDomande = "/api/domande"
+  $rootScope.urlEvidenze = "/api/evidenze"
   
   window.language = "it"
     
@@ -110,12 +112,20 @@ function MainCtrl($scope, $rootScope, $translate, httpServices) {
   // impostiamo la provincia selezionata
   $scope.currentProvince = $scope.provinces[0];
 
+  // $scope.findCodFis = function(cCodFis) {
+  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+  //     "mockUrl",
+  //     cCodFis
+  //   );
+  // };
+
+  $scope.datiAssistito = [];
   $scope.findCodFis = function(cCodFis) {
-    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
+    anagrafeServices.findCodFis(cCodFis, result => {
+      $scope.datiAssistito = result;
+    });
   };
+
 
   $rootScope.resetUser();
 

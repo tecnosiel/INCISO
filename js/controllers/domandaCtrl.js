@@ -3,17 +3,31 @@
  * Controller Principale di gestione delle domande
  *
  */
-function domandaCtrl($scope, $state, httpServices, $stateParams) {
+function domandaCtrl(
+  $scope,
+  $state,
+  httpServices,
+  domandeServices,
+  $stateParams
+) {
   // ----
-
+  $scope.elencoDomande = [];
   $scope.visualizzaDomanda = function() {
-    $scope.elencoDomande = httpServices.domande.find("mockUrl");
-    debugger;
-    $state.go("domande.visualizza_domanda", {
-      datiAssistito: $scope.datiAssistito,
-
-      domanda: $scope.elencoDomande[1].DomandePresentate[1]
+    alert("domandeServices11111111111111111111111");
+    domandeServices.find(this.info, result => {
+      $scope.elencoDomande = result;
+      $state.go("domande.visualizza_domanda", {
+        datiAssistito: $scope.datiAssistito,
+        domanda: $scope.elencoDomande[1].DomandePresentate[1]
+      });
     });
+
+    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
+    // debugger;
+    // $state.go("domande.visualizza_domanda", {
+    //   datiAssistito: $scope.datiAssistito,
+    //   domanda: $scope.elencoDomande[1].DomandePresentate[1]
+    // });
   };
 }
 

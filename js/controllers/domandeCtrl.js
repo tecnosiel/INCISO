@@ -7,7 +7,9 @@ function domandeCtrl(
   $scope,
   DTOptionsBuilder,
   DTColumnDefBuilder,
-  httpServices
+  httpServices,
+  domandeServices,
+  anagrafeServices
 ) {
   // https://www.datatables.net/reference/option/
   $scope.dtOptionsTabElencoEvidenze = DTOptionsBuilder.newOptions()
@@ -28,11 +30,17 @@ function domandeCtrl(
   $scope.findDataDiNascita = null;
   $scope.domanda = { OperazioneInCorso: "NUOVA_DOMANDA" };
 
+  // $scope.findCodFis = function(cCodFis) {
+  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+  //     "mockUrl",
+  //     cCodFis
+  //   );
+  // };
+  $scope.datiAssistito = [];
   $scope.findCodFis = function(cCodFis) {
-    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
+    anagrafeServices.findCodFis(cCodFis, result => {
+      $scope.datiAssistito = result;
+    });
   };
 
   $scope.DomandaVuota = {
@@ -63,7 +71,7 @@ function domandeCtrl(
       DataDecreto: "",
       TipoDecreto: "",
       ScadenzaDecreto: ""
-    },
+    }
 
     // i campi sotto sono stati eliminati di proposito segnalazione di errore del 15/10
     // ----
@@ -233,8 +241,14 @@ function domandeCtrl(
     swal("Qui va inserita una ricerca ma non ho capito cosa cercare!");
   };
 
+  $scope.elencoDomande = [];
   $scope.findDomande = function() {
-    $scope.elencoDomande = httpServices.domande.find("mockUrl");
+    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
+    alert("domandeServices2222222222222")
+
+    domandeServices.find(this.info, result => {
+      $scope.elencoDomande = result;
+    });
   };
 
   $scope.inserisciNuovaDomanda = function(cCodFis) {

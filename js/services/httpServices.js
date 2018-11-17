@@ -1496,120 +1496,120 @@ domande = function($http) {
  *
  */
 
-_ricercaAnagraficaRicerca = function($http) {
-  return {
-    //----------------------------------
-    // Chiamata Get Standard
-    //----------------------------------
-    get: function(url, data) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("anagrafe");
-        return response;
-      }
+// _ricercaAnagraficaRicerca = function($http) {
+//   return {
+//     //----------------------------------
+//     // Chiamata Get Standard
+//     //----------------------------------
+//     get: function(url, data) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("anagrafe");
+//         return response;
+//       }
 
-      $http
-        .post(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    },
+//       $http
+//         .post(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     },
 
-    //----------------------------------
-    // Chiamata Post Standard
-    //----------------------------------
-    post: function(url, data) {
-      if (url == "mockUrl") {
-        //dati mock attesi
-        alert("Post Mock 1111111111111");
-        return;
-      }
+//     //----------------------------------
+//     // Chiamata Post Standard
+//     //----------------------------------
+//     post: function(url, data) {
+//       if (url == "mockUrl") {
+//         //dati mock attesi
+//         alert("Post Mock 1111111111111");
+//         return;
+//       }
 
-      $http
-        .post(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("Post Regular 2222222222");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("Post Regular 3333333333333");
-        });
-    },
+//       $http
+//         .post(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("Post Regular 2222222222");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("Post Regular 3333333333333");
+//         });
+//     },
 
-    //----------------------------------
-    // Chiamata Put Standard
-    //----------------------------------
-    put: function(url, data, mock) {
-      if (url == "mockUrl") {
-        //dati mock attesi
-        alert("Put Mock 1111111111111");
-        return;
-      }
+//     //----------------------------------
+//     // Chiamata Put Standard
+//     //----------------------------------
+//     put: function(url, data, mock) {
+//       if (url == "mockUrl") {
+//         //dati mock attesi
+//         alert("Put Mock 1111111111111");
+//         return;
+//       }
 
-      $http
-        .put(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("Put Regular 2222222222");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("Put Regular 3333333333333");
-        });
-    },
+//       $http
+//         .put(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("Put Regular 2222222222");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("Put Regular 3333333333333");
+//         });
+//     },
 
-    //----------------------------------
-    // Chiamata Put Standard
-    //----------------------------------
-    delete: function(url, data, mock) {
-      if (url == "mockUrl") {
-        //dati mock attesi
-        alert("Delete Mock 1111111111111");
-        return;
-      }
+//     //----------------------------------
+//     // Chiamata Put Standard
+//     //----------------------------------
+//     delete: function(url, data, mock) {
+//       if (url == "mockUrl") {
+//         //dati mock attesi
+//         alert("Delete Mock 1111111111111");
+//         return;
+//       }
 
-      $http
-        .delete(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("Delete Regular 2222222222");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("Delete Regular 3333333333333");
-        });
-    },
+//       $http
+//         .delete(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("Delete Regular 2222222222");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("Delete Regular 3333333333333");
+//         });
+//     },
 
-    //----------------------------------
-    // Ricerca in Base Dati per Codice Fiscale
-    //----------------------------------
-    findCodFis: function(url, cCodFis) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("anagrafe");
+//     //----------------------------------
+//     // Ricerca in Base Dati per Codice Fiscale
+//     //----------------------------------
+//     findCodFis: function(url, cCodFis) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("anagrafe");
 
-        return response.find(function(obj) {
-          return obj.CodiceFiscale === cCodFis;
-        });
-      }
+//         return response.find(function(obj) {
+//           return obj.CodiceFiscale === cCodFis;
+//         });
+//       }
 
-      $http
-        .get(url, cCodFis, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    }
-  };
-};
+//       $http
+//         .get(url, cCodFis, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     }
+//   };
+// };
 
 // -----------------------------------------------------
 

@@ -1,4 +1,4 @@
-function liquidazioniServices($http, $rootScope) {
+function domandeServices($http, $rootScope) {
   var service = {};
 
   service.find = find;
@@ -10,7 +10,7 @@ function liquidazioniServices($http, $rootScope) {
 
   function find(dataFind, callBack) {
     $http
-      .get($rootScope.urlLiquidazioni + "/find", { data: dataFind })
+      .get($rootScope.urlDomande + "/find", { data: dataFind })
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -26,7 +26,7 @@ function liquidazioniServices($http, $rootScope) {
 
   function findCodFis(cCodFis, callBack) {
     $http
-      .get($rootScope.urlLiquidazioni + "/findcodfis", { data: cCodFis }, config)
+      .get($rootScope.urlDomande + "/findcodfis", { data: cCodFis }, config)
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -41,7 +41,7 @@ function liquidazioniServices($http, $rootScope) {
 
   function findPosizioni(dataFind, callBack) {
     $http
-      .get($rootScope.urlLiquidazioni + "/findPosizioni", { data: dataFind })
+      .get($rootScope.urlDomande + "/findPosizioni", { data: dataFind })
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -59,7 +59,7 @@ function liquidazioniServices($http, $rootScope) {
 
   function save(dataSave, callBack) {
     $http
-      .post($rootScope.urlLiquidazioni + "/save", { data: dataSave })
+      .post($rootScope.urlDomande + "/save", { data: dataSave })
       .success(function(data, status, headers, config) {
         //formattazione dei dati secondo mock
         alert("successo nella chiamata ");
@@ -77,4 +77,4 @@ function liquidazioniServices($http, $rootScope) {
 
 }
 
-angular.module("inciso").factory("liquidazioniServices", liquidazioniServices);
+angular.module("inciso").factory("domandeServices", domandeServices);

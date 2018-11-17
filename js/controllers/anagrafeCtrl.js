@@ -6,15 +6,24 @@
 function anagrafeCtrl(
   $scope,
   httpServices,
+  anagrafeServices,
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
+  // $scope.findCodFis = function(cCodFis) {
+  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
+  //     "mockUrl",
+  //     cCodFis
+  //   );
+  // };
+
+  $scope.datiAssistito = [];
   $scope.findCodFis = function(cCodFis) {
-    $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
+    anagrafeServices.findCodFis(cCodFis, result => {
+      $scope.datiAssistito = result;
+    });
   };
+
 
   $scope.onSaveCar = function(childDatiAssistito) {
     $scope.datiAssistito = childDatiAssistito;

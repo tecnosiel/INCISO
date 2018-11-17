@@ -19,7 +19,7 @@ function anagrafeServices($http, $rootScope) {
       })
       .error(function(data, status, header, config) {
         //messaggio di errore per questo get
-        alert("errore nella chiamata ");
+        alert("errore nella chiamata : " + status);
         debugger;
       });
   }
@@ -34,7 +34,7 @@ function anagrafeServices($http, $rootScope) {
       })
       .error(function(data, status, header, config) {
         //messaggio di errore per questo post
-        alert("errore nella chiamata ");
+        alert("errore nella chiamata : " + status);
         debugger;
       });
   }
@@ -50,7 +50,7 @@ function anagrafeServices($http, $rootScope) {
       })
       .error(function(data, status, header, config) {
         //messaggio di errore per questo get
-        alert("errore nella chiamata ");
+        alert("errore nella chiamata : " + status);
         debugger;
       });
   }
@@ -68,12 +68,10 @@ function anagrafeServices($http, $rootScope) {
       })
       .error(function(data, status, header, config) {
         //messaggio di errore per questo get
-        alert("errore nella chiamata ");
+        alert("errore nella chiamata : " + status);
         debugger;
       });
   }
-
-
 
 }
 

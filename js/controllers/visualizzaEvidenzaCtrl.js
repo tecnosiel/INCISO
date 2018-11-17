@@ -11,6 +11,7 @@ function visualizzaEvidenzaCtrl(
   runMode,
   $state,
   httpServices,
+  domandeServices,
   $stateParams
 ) {
   // https://stackoverflow.com/questions/25647454/how-to-pass-parameters-using-ui-sref-in-ui-router-to-controller/25647714
@@ -76,13 +77,22 @@ function visualizzaEvidenzaCtrl(
   //   $scope.elencoDomande = httpServices.domande.find("mockUrl");
   // };
 
+  $scope.elencoDomande = [];
   $scope.visualizzaDomanda = function() {
-    $scope.elencoDomande = httpServices.domande.find("mockUrl");
-    debugger;
-    $state.go("domande.visualizza_domanda", {
-      datiAssistito: $scope.datiAssistito,
-      
-      domanda:$scope.elencoDomande[1].DomandePresentate[1]
+    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
+    // debugger;
+    // $state.go("domande.visualizza_domanda", {
+    //   datiAssistito: $scope.datiAssistito,
+    //   domanda:$scope.elencoDomande[1].DomandePresentate[1]
+    // });
+    alert("domandeServices444444444444444444444444")
+
+    domandeServices.find(this.info, result => {
+      $scope.elencoDomande = result;
+      $state.go("domande.visualizza_domanda", {
+        datiAssistito: $scope.datiAssistito,
+        domanda: $scope.elencoDomande[1].DomandePresentate[1]
+      });
     });
   };
 }
