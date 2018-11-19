@@ -12,7 +12,8 @@ function MainCtrl($scope, $rootScope, $translate, httpServices) {
   $rootScope.urlLiquidazioni = "/api/liquidazioni"
   $rootScope.urlDomande = "/api/domande"
   $rootScope.urlEvidenze = "/api/evidenze"
-  
+  $rootScope.urlAssociazioni = "/api/associazioni"
+  $rootScope.showSpinner = false;
   window.language = "it"
     
   $rootScope.CustomStyle = {
@@ -111,13 +112,6 @@ function MainCtrl($scope, $rootScope, $translate, httpServices) {
 
   // impostiamo la provincia selezionata
   $scope.currentProvince = $scope.provinces[0];
-
-  // $scope.findCodFis = function(cCodFis) {
-  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-  //     "mockUrl",
-  //     cCodFis
-  //   );
-  // };
 
   $scope.datiAssistito = [];
   $scope.findCodFis = function(cCodFis) {

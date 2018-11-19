@@ -1,5 +1,6 @@
-function anagrafeServices($http, $rootScope, $timeout) {
+function associazioniServices($http, $rootScope, $timeout) {
   var service = {};
+
   service.find = find;
   service.findPosizioni = findPosizioni;
   service.findCodFis = findCodFis;
@@ -9,19 +10,15 @@ function anagrafeServices($http, $rootScope, $timeout) {
 
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
-
     $timeout(function() {
       $http
-        .get($rootScope.urlAnagrafe + "/find", { data: dataFind })
+        .get($rootScope.urlAssociazioni + "/find", { data: dataFind })
         .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
           callBack(data);
           $rootScope.showSpinner = false;
         })
         .error(function(data, status, header, config) {
-          //messaggio di errore per questo get
           alert("errore nella chiamata : " + status);
-          debugger;
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -31,17 +28,18 @@ function anagrafeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function() {
       $http
-        .get($rootScope.urlAnagrafe + "/findcodfis", { data: cCodFis }, config)
+        .get(
+          $rootScope.urlAssociazioni + "/findcodfis",
+          { data: cCodFis },
+          config
+        )
         .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
           callBack(data);
           $rootScope.showSpinner = false;
         })
         .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
           alert("errore nella chiamata : " + status);
-          debugger;
-          $rootScope.showSpinner = false;
+          $rootScope.showSpinner = true;
         });
     }, 300);
   }
@@ -50,16 +48,13 @@ function anagrafeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function() {
       $http
-        .get($rootScope.urlAnagrafe + "/findPosizioni", { data: dataFind })
+        .get($rootScope.urlAssociazioni + "/findPosizioni", { data: dataFind })
         .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
           callBack(data);
           $rootScope.showSpinner = false;
         })
         .error(function(data, status, header, config) {
-          //messaggio di errore per questo get
           alert("errore nella chiamata : " + status);
-          debugger;
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -69,20 +64,17 @@ function anagrafeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function() {
       $http
-        .post($rootScope.urlAnagrafe + "/save", { data: dataSave })
+        .post($rootScope.urlAssociazioni + "/save", { data: dataSave })
         .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
           callBack(data);
           $rootScope.showSpinner = false;
         })
         .error(function(data, status, header, config) {
-          //messaggio di errore per questo get
           alert("errore nella chiamata : " + status);
-          debugger;
           $rootScope.showSpinner = false;
         });
     }, 300);
   }
 }
 
-angular.module("inciso").factory("anagrafeServices", anagrafeServices);
+angular.module("inciso").factory("associazioniServices", associazioniServices);

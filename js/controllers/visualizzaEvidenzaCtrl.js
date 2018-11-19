@@ -73,20 +73,8 @@ function visualizzaEvidenzaCtrl(
     }
   };
 
-  // $scope.findDomande = function() {
-  //   $scope.elencoDomande = httpServices.domande.find("mockUrl");
-  // };
-
   $scope.elencoDomande = [];
   $scope.visualizzaDomanda = function() {
-    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
-    // debugger;
-    // $state.go("domande.visualizza_domanda", {
-    //   datiAssistito: $scope.datiAssistito,
-    //   domanda:$scope.elencoDomande[1].DomandePresentate[1]
-    // });
-    alert("domandeServices444444444444444444444444")
-
     domandeServices.find(this.info, result => {
       $scope.elencoDomande = result;
       $state.go("domande.visualizza_domanda", {

@@ -30,9 +30,7 @@ function evidenzeCtrl(
   $scope.find = function() {
     var tableSort = $("#resultRicercaEvidenzeDataTable").dataTable();
     var tablePage = $("#resultRicercaEvidenzeDataTable").DataTable();
-    $scope.elencoLiquidazioni = [];
-
-    debugger;
+    
     // informazioni ordinamento
     $scope.info.sort = {
       column: tableSort.fnSettings().aaSorting[0][0],
@@ -41,10 +39,9 @@ function evidenzeCtrl(
         tableSort.fnSettings().aaSorting[0][0]
       ].sTitle
     };
+    
     // informazioni paginazione
     $scope.info.page = tablePage.page.info();
-
-    // ------------------
 
     evidenzeServices.find($scope.info, result => {
       $scope.elencoEvidenze = result;

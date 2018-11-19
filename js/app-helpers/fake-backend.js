@@ -8,7 +8,7 @@ function setupFakeBackend($httpBackend) {
   // ------------------------- LOGIN
   $httpBackend
     .whenPOST("/api/autenticazione/login")
-    .respond(function(method, url, data, headers) {
+    .respond(function (method, url, data, headers) {
       debugger;
       // get parameters from post request
       var params = angular.fromJson(data);
@@ -56,7 +56,7 @@ function setupFakeBackend($httpBackend) {
 
   $httpBackend
     .whenPOST("/api/autenticazione/logout")
-    .respond(function(method, url, data, headers) {
+    .respond(function (method, url, data, headers) {
       debugger;
       // get parameters from post request
       var params = angular.fromJson(data);
@@ -65,135 +65,110 @@ function setupFakeBackend($httpBackend) {
       return [200, {}, {}];
     });
 
-  // ------------------------- ANAGRAFE
-
+  // ------------------------- ANAGRAFE e POSIZIONI
+  // data = {
+  //   Cognome: "text",
+  //   Nome: "text",
+  //   CodiceFiscale: "text",
+  //   DataDiNascita: "gg/mm/aaaa",
+  //   NumeroFascicolo:"text"
+  //   NumeroFaldoneArchiviazione:"text"
+  //   AnnoDiScarto:""text"
+  // }
   $httpBackend
     .whenGET("/api/anagrafe/find")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
-      alert("find");
-      debugger;
       return [200, response, {}];
     });
 
   $httpBackend
     .whenGET("/api/anagrafe/findPosizioni")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("POSIZIONI");
-      alert("find posizioni");
-      debugger;
       return [200, response, {}];
     });
 
+  // data = {
+  //   CodiceFiscale: "text",
+  // }
   $httpBackend
     .whenGET("/api/anagrafe/findcodfis")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var response = tabella("ANAGRAFE");
       var response2 = response.find(obj => {
         return obj.CodiceFiscale === data;
       });
-
-      alert("findCodFis");
-      debugger;
       return [200, response2, {}];
     });
 
   $httpBackend
     .whenPOST("/api/anagrafe/save")
-    .respond(function(method, url, data, headers) {
-      debugger;
-      // get parameters from post request
-      var params = angular.fromJson(data);
-
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
-      alert("save");
-      debugger;
       return [200, response, {}];
     });
 
   // ------------------------- DOMANDE
 
+  // data = {
+  //   TipoAssistenzaRichiesta:"text 77/88/99"
+  //   Cognome: "text",
+  //   Nome: "text",
+  //   CodiceFiscale: "text",
+  //   DataDiNascita: "gg/mm/aaaa",
+  //   IncludiDeceduti:"text Si/No "
+  // }
   $httpBackend
     .whenGET("/api/domande/find")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
-      debugger;
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("DOMANDE");
-      alert("find domande");
-      debugger;
       return [200, response, {}];
     });
 
   // ------------------------- LIQUIDAZIONI
+  // data = {
+  //   MeseDiRiferimentoLiquidazione: "nome-mese-in italiano o tedesco anno",
+  // }
 
   $httpBackend
     .whenGET("/api/liquidazioni/find")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("LIQUIDAZIONI");
-      alert("find liquidazioni");
-      debugger;
       return [200, response, {}];
     });
 
   $httpBackend
     .whenGET("/api/liquidazioni/findPosizioni")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("POSIZIONI");
-      alert("find posizioni");
-      debugger;
       return [200, response, {}];
     });
 
+  // data = {
+  //   CodiceFiscale: "text",
+  // }
   $httpBackend
     .whenGET("/api/liquidazioni/findcodfis")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var response = tabella("LIQUIDAZIONI");
       var response2 = response.find(obj => {
         return obj.CodiceFiscale === data;
       });
-
-      alert("findCodFis");
-      debugger;
       return [200, response2, {}];
     });
 
   $httpBackend
     .whenPOST("/api/liquidazioni/save")
-    .respond(function(method, url, data, headers) {
-      debugger;
-      // get parameters from post request
-      var params = angular.fromJson(data);
-
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("LIQUIDAZIONI");
-      alert("save");
-      debugger;
       return [200, response, {}];
     });
 
@@ -201,57 +176,81 @@ function setupFakeBackend($httpBackend) {
 
   $httpBackend
     .whenGET("/api/evidenze/find")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("EVIDENZE");
-      alert("find evidenze");
-      debugger;
       return [200, response, {}];
     });
 
   $httpBackend
     .whenGET("/api/evidenze/findPosizioni")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("POSIZIONI");
-      alert("find Posizione");
-      debugger;
       return [200, response, {}];
     });
 
+  // data = {
+  //   CodiceFiscale: "text",
+  // }
   $httpBackend
     .whenGET("/api/evidenze/findcodfis")
-    .respond(function(method, url, data, headers) {
-      alert(data);
-      debugger;
-      // legge parametri
+    .respond(function (method, url, data, headers) {
       var response = tabella("EVIDENZE");
       var response2 = response.find(obj => {
         return obj.CodiceFiscale === data;
       });
-
-      alert("findCodFis");
-      debugger;
       return [200, response2, {}];
     });
 
   $httpBackend
     .whenPOST("/api/evidenze/save")
-    .respond(function(method, url, data, headers) {
-      debugger;
-      // get parameters from post request
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
+      var response = tabella("EVIDENZE");
+      return [200, response, {}];
+    });
 
+  // ------------------------- ASSOCIAZIONI
+  // data = {
+  //   CodiceFiscale: "text",
+  //   NomeAssociazione: "text",
+  //   TipologiaDiAssistenza: "text"
+  // }
+  $httpBackend
+    .whenGET("/api/associazioni/find")
+    .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
-      var response = tabella("LIQUIDAZIONI");
-      alert("save");
-      debugger;
+      var response = tabella("ASSOCIAZIONI");
+      return [200, response, {}];
+    });
+
+  $httpBackend
+    .whenGET("/api/associazioni/findPosizioni")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("POSIZIONI");
+      return [200, response, {}];
+    });
+
+  // data = {
+  //   CodiceFiscale: "text",
+  // }
+  $httpBackend
+    .whenGET("/api/associazioni/findcodfis")
+    .respond(function (method, url, data, headers) {
+      var response = tabella("ASSOCIAZIONI");
+      var response2 = response.find(obj => {
+        return obj.CodiceFiscale === data;
+      });
+      return [200, response2, {}];
+    });
+
+  $httpBackend
+    .whenPOST("/api/associazioni/save")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("ASSOCIAZIONI");
       return [200, response, {}];
     });
 
@@ -259,8 +258,7 @@ function setupFakeBackend($httpBackend) {
 
   function tabella(cTipoTabella) {
     if (cTipoTabella.toUpperCase() === "ANAGRAFE") {
-      var tabAnagrafe = [
-        {
+      var tabAnagrafe = [{
           CodiceFiscale: "LFNCLL60D03E026T",
           Cognome: "Alfano",
           Nome: "Camillo",
@@ -278,8 +276,7 @@ function setupFakeBackend($httpBackend) {
             AnnoDiScartoINCISO: "2018",
             DataCalcoloSimulazione: "01/01/2020",
             ImportoSpettante: "580000.39",
-            Eredi: [
-              {
+            Eredi: [{
                 CognomeNome: "Paolo Bianchi",
                 CodiceFiscale: "RSSMRA53A36Q2357",
                 PercDiEredita: "50%",
@@ -302,8 +299,7 @@ function setupFakeBackend($httpBackend) {
               }
             ]
           },
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -314,15 +310,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -343,15 +336,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -372,15 +362,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -401,15 +388,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -430,15 +414,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -459,15 +440,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -488,15 +466,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -517,15 +492,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -546,15 +518,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -564,8 +533,7 @@ function setupFakeBackend($httpBackend) {
               ]
             }
           ],
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -585,8 +553,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -629,8 +596,7 @@ function setupFakeBackend($httpBackend) {
               Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "111-778767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -644,14 +610,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "1111111111111-Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "1111111111111-Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "1111-376899",
@@ -659,18 +622,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "07/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "1111111.00",
-                  Note:
-                    "111111111111111111 Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "1111111.00",
+                Note: "111111111111111111 Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -711,8 +670,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -724,21 +682,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -754,8 +710,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "RSSARO70A10F2052",
@@ -772,8 +727,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           Eredita: null,
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -785,15 +739,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -814,15 +765,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -843,15 +791,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -872,15 +817,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -901,15 +843,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -930,15 +869,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -959,15 +895,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -988,15 +921,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1017,15 +947,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1036,8 +963,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -1057,8 +983,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -1101,8 +1026,7 @@ function setupFakeBackend($httpBackend) {
               Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "222-778767",
               DataDomanda: "22/03/2011",
               TipoAssociazione: "222-ANMIC",
@@ -1116,13 +1040,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "222-UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "22/03/2014",
-                  ImportoRecuperato: "22222.00",
-                  Note: "22222222222222222a quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "22/03/2014",
+                ImportoRecuperato: "22222.00",
+                Note: "22222222222222222a quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "222222",
@@ -1130,18 +1052,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "2-2ULMM",
               InizioIscrizione: "27/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "222222222lòkjòkljòlkjS leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "12349.00",
+                Note: "222222222lòkjòkljòlkjS leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -1182,8 +1100,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -1195,21 +1112,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -1225,8 +1140,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "QTGSRO60A11Q2055",
@@ -1248,8 +1162,7 @@ function setupFakeBackend($httpBackend) {
 
             DataCalcoloSimulazione: "01/01/2020",
             ImportoSpettante: "580000.39",
-            Eredi: [
-              {
+            Eredi: [{
                 CognomeNome: "Paolo Bianchi",
                 CodiceFiscale: "RSSMRA53A36Q2357",
                 PercDiEredita: "50%",
@@ -1273,8 +1186,7 @@ function setupFakeBackend($httpBackend) {
             ]
           },
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -1286,15 +1198,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -1315,15 +1224,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -1344,15 +1250,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1373,15 +1276,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1402,15 +1302,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1431,15 +1328,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1460,15 +1354,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1489,15 +1380,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1518,15 +1406,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1537,8 +1422,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -1558,8 +1442,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -1571,8 +1454,7 @@ function setupFakeBackend($httpBackend) {
               Via: "111111111111",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo lavoro",
@@ -1586,8 +1468,7 @@ function setupFakeBackend($httpBackend) {
               Via: "22222222222222",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo secondario",
@@ -1601,12 +1482,10 @@ function setupFakeBackend($httpBackend) {
               Via: "3333333333333333",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "333333",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "3333ANMIC",
@@ -1620,14 +1499,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "33333UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "33333.00",
-                  Note:
-                    "3333333333333hlkjhlkjhlkjhlkjh. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "33333.00",
+                Note: "3333333333333hlkjhlkjhlkjhlkjh. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "345467",
@@ -1635,17 +1511,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "07/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "33312349.00",
-                  Note: "3333333333333333acinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "33312349.00",
+                Note: "3333333333333333acinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -1686,8 +1559,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -1699,21 +1571,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -1729,8 +1599,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "RTSDRO70A10W2056",
@@ -1751,8 +1620,7 @@ function setupFakeBackend($httpBackend) {
 
             DataCalcoloSimulazione: "11/11/2021",
             ImportoSpettante: "580000.39",
-            Eredi: [
-              {
+            Eredi: [{
                 CognomeNome: "gIUSEPPE Bianchi-4444",
                 CodiceFiscale: "RSSMRA53A36Q2357",
                 PercDiEredita: "50%",
@@ -1776,8 +1644,7 @@ function setupFakeBackend($httpBackend) {
             ]
           },
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -1789,15 +1656,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -1818,15 +1682,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -1847,15 +1708,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1876,15 +1734,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1905,15 +1760,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1934,15 +1786,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1963,15 +1812,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -1992,15 +1838,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2021,15 +1864,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2040,8 +1880,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -2061,8 +1900,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -2074,8 +1912,7 @@ function setupFakeBackend($httpBackend) {
               Via: "41234232",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo lavoro",
@@ -2089,8 +1926,7 @@ function setupFakeBackend($httpBackend) {
               Via: "12313413",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo secondario",
@@ -2104,12 +1940,10 @@ function setupFakeBackend($httpBackend) {
               Via: "xxx223242121x",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "778767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -2123,14 +1957,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "444444444",
@@ -2138,18 +1969,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "04/08/2014",
               FineIscrizione: "04/08/2014",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "444444.00",
-                  Note:
-                    "44444444 kjòlkjòlkjòlkjl   u leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "444444.00",
+                Note: "44444444 kjòlkjòlkjòlkjl   u leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -2190,8 +2017,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -2203,21 +2029,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -2233,8 +2057,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi111@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "VSYFRO70A10E2652",
@@ -2251,8 +2074,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           Eredita: null,
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -2264,15 +2086,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -2293,15 +2112,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -2322,15 +2138,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2351,15 +2164,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2380,15 +2190,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2409,15 +2216,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2438,15 +2242,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2467,15 +2268,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2496,15 +2294,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2515,8 +2310,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -2536,8 +2330,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -2549,8 +2342,7 @@ function setupFakeBackend($httpBackend) {
               Via: "33xxxxxxxxx",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo lavoro",
@@ -2564,8 +2356,7 @@ function setupFakeBackend($httpBackend) {
               Via: "x241342xxx",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo secondario",
@@ -2579,12 +2370,10 @@ function setupFakeBackend($httpBackend) {
               Via: "2232xxxxxxx",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "555767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -2598,14 +2387,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere co5555555555555        esque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere co5555555555555        esque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "555555",
@@ -2613,18 +2399,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "5555-ULMM",
               InizioIscrizione: "05/05/2014",
               FineIscrizione: "05/05/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "05/05/2015",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere co5555555555555 nsectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "05/05/2015",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere co5555555555555 nsectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -2665,8 +2447,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -2678,21 +2459,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -2708,8 +2487,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi111@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "WSSGRO70A10T2066",
@@ -2730,8 +2508,7 @@ function setupFakeBackend($httpBackend) {
 
             DataCalcoloSimulazione: "01/01/2020",
             ImportoSpettanteEredita: "480000.39",
-            Eredi: [
-              {
+            Eredi: [{
                 CognomeNome: "Paolo Bianchi-1111",
                 CodiceFiscale: "RSSMRA53A36Q2357",
                 PercDiEredita: "5%",
@@ -2755,8 +2532,7 @@ function setupFakeBackend($httpBackend) {
             ]
           },
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -2768,15 +2544,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -2797,15 +2570,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -2826,15 +2596,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2855,15 +2622,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2884,15 +2648,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2913,15 +2674,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2942,15 +2700,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -2971,15 +2726,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3000,15 +2752,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3019,8 +2768,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -3040,8 +2788,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -3053,8 +2800,7 @@ function setupFakeBackend($httpBackend) {
               Via: "2222222222",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo lavoro",
@@ -3068,8 +2814,7 @@ function setupFakeBackend($httpBackend) {
               Via: "xxxxx444444444",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo secondario",
@@ -3083,12 +2828,10 @@ function setupFakeBackend($httpBackend) {
               Via: "xx555555555",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "666666778767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -3102,14 +2845,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere cons6666666666ectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere cons6666666666ectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "376899",
@@ -3117,18 +2857,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "07/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "12666666.00",
-                  Note:
-                    "Sed posuere consectetur e6666 66666 66666 66666 6666 inia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "12666666.00",
+                Note: "Sed posuere consectetur e6666 66666 66666 66666 6666 inia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -3169,8 +2905,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -3182,21 +2917,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -3212,8 +2945,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0123 456789",
           Email: "mrossi222@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "1234567890123456",
@@ -3229,8 +2961,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           Eredita: null,
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -3242,15 +2973,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -3271,15 +2999,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -3300,15 +3025,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3329,15 +3051,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3358,15 +3077,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3387,15 +3103,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3416,15 +3129,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3445,15 +3155,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3474,15 +3181,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3493,8 +3197,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -3514,8 +3217,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -3558,8 +3260,7 @@ function setupFakeBackend($httpBackend) {
               Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "778767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -3573,14 +3274,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "376899",
@@ -3588,18 +3286,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "07/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -3640,8 +3334,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -3653,21 +3346,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -3683,8 +3374,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi333@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "3456735790GHJDAE",
@@ -3701,8 +3391,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           Eredita: null,
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -3714,15 +3403,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -3743,15 +3429,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -3772,15 +3455,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3801,15 +3481,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3830,15 +3507,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3859,15 +3533,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3888,15 +3559,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3917,15 +3585,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3946,15 +3611,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -3965,8 +3627,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -3986,8 +3647,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -3999,8 +3659,7 @@ function setupFakeBackend($httpBackend) {
               Via: "111111111111",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo lavoro",
@@ -4014,8 +3673,7 @@ function setupFakeBackend($httpBackend) {
               Via: "22222222222222",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo secondario",
@@ -4029,12 +3687,10 @@ function setupFakeBackend($httpBackend) {
               Via: "3333333333333333",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "778767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -4048,14 +3704,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "376899",
@@ -4063,18 +3716,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "07/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -4115,8 +3764,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -4128,21 +3776,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -4158,8 +3804,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi444@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
           CodiceFiscale: "RTSDRO70A10W2056",
@@ -4174,8 +3819,7 @@ function setupFakeBackend($httpBackend) {
           AntriIndirizzi: "indirizzo austriaco qòlwekrjòlqwekjròlqwkjer",
 
           DataDiDecesso: "01/01/1930",
-          Eredita: [
-            {
+          Eredita: [{
               CognomeNome: "Paolwwwo Biawdjkònchi",
               CodiceFiscale: "RSSMRA53A36Q2357",
               PercDiEredita: "50%",
@@ -4205,8 +3849,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Redditi: [
-            {
+          Redditi: [{
               Anno: "2018",
               RedditoAssistito: "111111.45",
               RedditoConiuge: "6578.88",
@@ -4218,15 +3861,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88268.00"
                 },
                 {
-                  Tipologia:
-                    "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -4247,15 +3887,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "88628.00"
                 },
                 {
-                  Tipologia:
-                    "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "112000.00"
                 },
                 {
@@ -4276,15 +3913,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4305,15 +3939,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4334,15 +3965,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4363,15 +3991,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4392,15 +4017,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4421,15 +4043,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4450,15 +4069,12 @@ function setupFakeBackend($httpBackend) {
               NoteAssistito: "note anno 2018 bla bla bla",
 
               DettagliConiuge: [],
-              DettagliAssistito: [
-                {
-                  Tipologia:
-                    "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+              DettagliAssistito: [{
+                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
                   Valore: "8868.00"
                 },
                 {
-                  Tipologia:
-                    "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
                   Valore: "11000.00"
                 },
                 {
@@ -4469,8 +4085,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Pensioni: [
-            {
+          Pensioni: [{
               Tipo: "xxxxx xxxxxxx",
               TipologiaDiAssistenza: "77",
               DataFineCompatibilita: "01/01/01",
@@ -4490,8 +4105,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Indirizzi: [
-            {
+          Indirizzi: [{
               Tipo: "Indirizzo abitazione",
               Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               Validita: "dal 01/01/2010 al 02/02/2011",
@@ -4503,8 +4117,7 @@ function setupFakeBackend($httpBackend) {
               Via: "41234232",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo lavoro",
@@ -4518,8 +4131,7 @@ function setupFakeBackend($httpBackend) {
               Via: "12313413",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
               Tipo: "Indirizzo secondario",
@@ -4533,12 +4145,10 @@ function setupFakeBackend($httpBackend) {
               Via: "xxx223242121x",
               Civico: "6",
               UsaIndirizzo: "No",
-              Note:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [
-            {
+          Associazioni: [{
               NumPosizione: "778767",
               DataDomanda: "05/03/2011",
               TipoAssociazione: "ANMIC",
@@ -4552,14 +4162,11 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "UICI",
               InizioIscrizione: "07/08/2012",
               FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "15/03/2014",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "15/03/2014",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             },
             {
               NumPosizione: "376899",
@@ -4567,18 +4174,14 @@ function setupFakeBackend($httpBackend) {
               TipoAssociazione: "ULMM",
               InizioIscrizione: "07/08/2014",
               FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [
-                {
-                  DataRecupero: "01/03/2015",
-                  ImportoRecuperato: "12349.00",
-                  Note:
-                    "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                }
-              ]
+              ElencoRitenuteDiCategoriaRecuperate: [{
+                DataRecupero: "01/03/2015",
+                ImportoRecuperato: "12349.00",
+                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
             }
           ],
-          Liquidazioni: [
-            {
+          Liquidazioni: [{
               DataCalcolo: "01/01/2016",
               Liquidato: "864.00",
               Riaccredito: "864.00",
@@ -4619,8 +4222,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          ElencoImportiRiaccreditati: [
-            {
+          ElencoImportiRiaccreditati: [{
               DataRiaccredito: "18/11/2015",
               ImportoRiaccreditato: "864",
               DataLiquidazioneArretrato: "01/01/2016"
@@ -4632,21 +4234,19 @@ function setupFakeBackend($httpBackend) {
               DataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [
-            {
-              DataUltimaModifica: "23/02/2016",
-              TipoDiRecupero: "compensazione",
-              TotDaRecuperare: {
-                Capitale: "435.00",
-                InteressiLegali: "8.7",
-                InteressiDiRateizzazione: "4.35"
-              },
-              Recuperato: "108.75",
-              Restituito: null,
-              RimanenteDaRecuperare: "339.30",
-              Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-            }
-          ],
+          ElencoImportiDaRecuperare: [{
+            DataUltimaModifica: "23/02/2016",
+            TipoDiRecupero: "compensazione",
+            TotDaRecuperare: {
+              Capitale: "435.00",
+              InteressiLegali: "8.7",
+              InteressiDiRateizzazione: "4.35"
+            },
+            Recuperato: "108.75",
+            Restituito: null,
+            RimanenteDaRecuperare: "339.30",
+            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
 
           CognomeAcquisito: "Alfano Acquisito",
           StatoCivile: "Coniugata",
@@ -4662,8 +4262,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           Email: "mrossi555@gmail.com",
           Pec: "mrossi@gmail.com",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         }
       ];
 
@@ -4672,8 +4271,7 @@ function setupFakeBackend($httpBackend) {
     // ----------------------------
 
     if (cTipoTabella.toUpperCase() === "POSIZIONI") {
-      let tabPosizioni = [
-        {
+      let tabPosizioni = [{
           Posizione: "123456",
           CodiceFiscale: "LFNCLL60D03E026T",
           Cognome: "Alfano",
@@ -4836,8 +4434,7 @@ function setupFakeBackend($httpBackend) {
     // ----------------------------
 
     if (cTipoTabella.toUpperCase() === "DOMANDE") {
-      let tabDomande = [
-        {
+      let tabDomande = [{
           CodiceFiscale: "LFNCLL60D03E026T",
           Cognome: "Alfano",
           Nome: "Camillo",
@@ -4846,8 +4443,7 @@ function setupFakeBackend($httpBackend) {
           AnnoDiScarto: "1234",
           NumeroFaldone: "1111",
 
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa",
@@ -4862,14 +4458,12 @@ function setupFakeBackend($httpBackend) {
 
               Comunicazioni: "",
               ModalitaDiPagamento: "",
-              AssociazioniDiCategoria: [
-                {
-                  TipoAssociazione: "ANMIC",
-                  DataInizioIscrizione: "10/04/1986",
-                  DataFineIscrizione: "",
-                  QuotaMensile: "103.32"
-                }
-              ],
+              AssociazioniDiCategoria: [{
+                TipoAssociazione: "ANMIC",
+                DataInizioIscrizione: "10/04/1986",
+                DataFineIscrizione: "",
+                QuotaMensile: "103.32"
+              }],
               Note: "",
               AziendaSanitaria: {
                 NumeroProtocollo: "",
@@ -4924,8 +4518,7 @@ function setupFakeBackend($httpBackend) {
             ScadenzaDecreto: ""
           },
 
-          Verbali: [
-            {
+          Verbali: [{
               NumeroProtocollo: "111-442524223",
               DataProtocollo: "01/01/2010",
               PercentualeDiInvalidita: "60",
@@ -4973,8 +4566,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           AnnoDiScarto: "1234",
           NumeroFaldone: "2222222",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -4990,8 +4582,7 @@ function setupFakeBackend($httpBackend) {
               StatoDomanda: "Negata"
             }
           ],
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "222-442524223",
               PercentualeDiInvalidita: "60",
@@ -5030,8 +4621,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "01/01/1930",
           AnnoDiScarto: "1234",
           NumeroFaldone: "3333333",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -5047,8 +4637,7 @@ function setupFakeBackend($httpBackend) {
               StatoDomanda: "Negata"
             }
           ],
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "333-442524223",
               PercentualeDiInvalidita: "60",
@@ -5087,8 +4676,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           AnnoDiScarto: "1234",
           NumeroFaldone: "444444",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -5104,8 +4692,7 @@ function setupFakeBackend($httpBackend) {
               StatoDomanda: "Negata"
             }
           ],
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "444-442524223",
               PercentualeDiInvalidita: "60",
@@ -5144,8 +4731,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "01/01/1930",
           AnnoDiScarto: "1234",
           NumeroFaldone: "567890",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -5162,8 +4748,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "555-442524223",
               PercentualeDiInvalidita: "60",
@@ -5203,8 +4788,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           AnnoDiScarto: "1234",
           NumeroFaldone: "43170238",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -5220,8 +4804,7 @@ function setupFakeBackend($httpBackend) {
               StatoDomanda: "Negata"
             }
           ],
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "666-442524223",
               PercentualeDiInvalidita: "60",
@@ -5260,8 +4843,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "-",
           AnnoDiScarto: "1234",
           NumeroFaldone: "1251161",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -5277,8 +4859,7 @@ function setupFakeBackend($httpBackend) {
               StatoDomanda: "Negata"
             }
           ],
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "777-442524223",
               PercentualeDiInvalidita: "60",
@@ -5317,8 +4898,7 @@ function setupFakeBackend($httpBackend) {
           DataDiDecesso: "01/01/1930",
           AnnoDiScarto: "1234",
           NumeroFaldone: "1113451",
-          DomandePresentate: [
-            {
+          DomandePresentate: [{
               Posizione: "771723",
               Fascicolo: "236",
               StatoDomanda: "Concessa"
@@ -5334,8 +4914,7 @@ function setupFakeBackend($httpBackend) {
               StatoDomanda: "Negata"
             }
           ],
-          Verbali: [
-            {
+          Verbali: [{
               DataProtocollo: "01/01/2010",
               NumeroProtocollo: "888-442524223",
               PercentualeDiInvalidita: "60",
@@ -5373,8 +4952,7 @@ function setupFakeBackend($httpBackend) {
     // ----------------------------
 
     if (cTipoTabella.toUpperCase() === "LIQUIDAZIONI") {
-      let tabLiquidazioni = [
-        {
+      let tabLiquidazioni = [{
           CodiceFiscale: "1111111111111111",
           NominativoAssistito: "111-Mario Rossi",
           ImportoPrestazioniLiquidato: "232.00",
@@ -5446,8 +5024,7 @@ function setupFakeBackend($httpBackend) {
     }
 
     if (cTipoTabella.toUpperCase() === "EVIDENZE") {
-      let tabEvidenze = [
-        {
+      let tabEvidenze = [{
           DataDecorrenza: "12/05/2015",
           TipoEvidenza: "Controllo reddito - xxxxxx",
           Descrizione: "Controllo reddito – anno successivo - xxxxxxx",
@@ -5456,8 +5033,7 @@ function setupFakeBackend($httpBackend) {
           Cognome: "Rossi",
           Nome: "Mario",
           CodiceFiscale: "RSSMRA70A41F2052",
-          Dettaglio:
-            "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
           PrestazioneDiRiferimento: "xxxxx",
           DataDomandaDiRiferimento: "xxx",
           DataChiusura: "01/03/2001",
@@ -5475,8 +5051,7 @@ function setupFakeBackend($httpBackend) {
           Cognome: "Verde",
           Nome: "Mario",
           CodiceFiscale: "RSSMRA70A41F2052",
-          Dettaglio:
-            "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
           PrestazioneDiRiferimento: "",
           DataDellaDomandaDiRiferimento: "",
           DataChiusura: "01/03/2011",
@@ -5494,8 +5069,7 @@ function setupFakeBackend($httpBackend) {
           Cognome: "Alfano",
           Nome: "Camillo",
           CodiceFiscale: "LFNCLL60D03E026T",
-          Dettaglio:
-            "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
           PrestazioneDiRiferimento: "",
           DataDellaDomandaDiRiferimento: "",
           DataChiusura: "",
@@ -5513,8 +5087,7 @@ function setupFakeBackend($httpBackend) {
           Cognome: "Alfano",
           Nome: "Camillo",
           CodiceFiscale: "LFNCLL60D03E026T",
-          Dettaglio:
-            "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
           PrestazioneDiRiferimento: "",
           DataDellaDomandaDiRiferimento: "",
           DataChiusura: "",
@@ -5526,6 +5099,556 @@ function setupFakeBackend($httpBackend) {
       ];
 
       return tabEvidenze;
+    }
+
+    if (cTipoTabella.toUpperCase() === "ASSOCIAZIONI") {
+      let tabAssociazioni = [{
+          NomeAssociazione: "Confartigianato",
+          CodiceFiscale: "012345678955",
+          TipologiaDiAssistenza: "77",
+
+          Responsabile: "Mario Rossi",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          IBAN: "IT40 S054 2811 1010 0000 0123 456",
+          Email: "mrossi555@gmail.com",
+          PEC: "mrossi@gmail.com",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+          Indirizzi: [{
+              Tipo: "Indirizzo abitazione",
+              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaxxxxxxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo lavoro",
+              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              Validita: "dal 01/01/2010 al 02/02/2014",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaaaaaaxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo secondario",
+              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "xxxxxx",
+              Via: "aaaaaxxxxxddxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+
+          ImportoRitenutaDiCategoria: "100.15",
+
+          LiquidazioniMensili: [{
+              DataPagamento: "12/04/2014",
+              ImportoTotale: "238.00",
+              NroAssistiti: "15"
+            },
+            {
+              DataPagamento: "12/05/2014",
+              ImportoTotale: "258.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/06/2014",
+              ImportoTotale: "338.00",
+              NroAssistiti: "18"
+            },
+            {
+              DataPagamento: "12/07/2014",
+              ImportoTotale: "438.00",
+              NroAssistiti: "16"
+            },
+            {
+              DataPagamento: "12/08/2014",
+              ImportoTotale: "38.00",
+              NroAssistiti: "10"
+            },
+            {
+              DataPagamento: "12/09/2014",
+              ImportoTotale: "278.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/10/2014",
+              ImportoTotale: "299.00",
+              NroAssistiti: "19"
+            }
+          ]
+        },
+
+        {
+          NomeAssociazione: "Confcommercio",
+          CodiceFiscale: "123450089022",
+          TipologiaDiAssistenza: "99",
+
+          Responsabile: "Giovanni Moscato",
+          TelefonoPrincipale: "0366 768798",
+          TelefonoSecondario: "0433 922451",
+          IBAN: "IT40 S054 2811 1010 0000 0123 456",
+          Email: "giovanni6666@tin.it",
+          PEC: "mgiovanni@gmail.com",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+          Indirizzi: [{
+              Tipo: "Indirizzo abitazione",
+              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaxxxxxxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo lavoro",
+              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              Validita: "dal 01/01/2010 al 02/02/2014",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaaaaaaxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo secondario",
+              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "xxxxxx",
+              Via: "aaaaaxxxxxddxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+
+          ImportoRitenutaDiCategoria: "234.15"
+        },
+
+        {
+          NomeAssociazione: "Cral",
+          CodiceFiscale: "122226789011",
+          TipologiaDiAssistenza: "99",
+
+          Responsabile: "Giuseppe Garibaldi",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          IBAN: "IT40 S054 2811 1010 0000 0123 456",
+          Email: "ggaribaldi444@gmail.com",
+          PEC: "ggaribaldi@gmail.com",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+          Indirizzi: [{
+              Tipo: "Indirizzo abitazione",
+              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaxxxxxxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo lavoro",
+              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              Validita: "dal 01/01/2010 al 02/02/2014",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaaaaaaxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo secondario",
+              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "xxxxxx",
+              Via: "aaaaaxxxxxddxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+
+          ImportoRitenutaDiCategoria: "222.15",
+
+          LiquidazioniMensili: [{
+              DataPagamento: "12/04/2014",
+              ImportoTotale: "238.00",
+              NroAssistiti: "15"
+            },
+            {
+              DataPagamento: "12/05/2014",
+              ImportoTotale: "258.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/06/2014",
+              ImportoTotale: "338.00",
+              NroAssistiti: "18"
+            },
+            {
+              DataPagamento: "12/07/2014",
+              ImportoTotale: "438.00",
+              NroAssistiti: "16"
+            },
+            {
+              DataPagamento: "12/08/2014",
+              ImportoTotale: "38.00",
+              NroAssistiti: "10"
+            },
+            {
+              DataPagamento: "12/09/2014",
+              ImportoTotale: "278.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/10/2014",
+              ImportoTotale: "299.00",
+              NroAssistiti: "19"
+            }
+          ]
+        },
+
+        {
+          NomeAssociazione: "AICS",
+          CodiceFiscale: "123345324890",
+          TipologiaDiAssistenza: "88",
+
+          Responsabile: "Tal dei tali ",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          IBAN: "IT40 S054 2811 1010 0000 0123 456",
+          Email: "ttali444@gmail.com",
+          PEC: "ttali@gmail.com",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+          Indirizzi: [{
+              Tipo: "Indirizzo abitazione",
+              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaxxxxxxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo lavoro",
+              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              Validita: "dal 01/01/2010 al 02/02/2014",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaaaaaaxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo secondario",
+              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "xxxxxx",
+              Via: "aaaaaxxxxxddxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+
+          ImportoRitenutaDiCategoria: "122.15",
+
+          LiquidazioniMensili: [{
+              DataPagamento: "12/04/2014",
+              ImportoTotale: "238.00",
+              NroAssistiti: "15"
+            },
+            {
+              DataPagamento: "12/05/2014",
+              ImportoTotale: "258.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/06/2014",
+              ImportoTotale: "338.00",
+              NroAssistiti: "18"
+            },
+            {
+              DataPagamento: "12/07/2014",
+              ImportoTotale: "438.00",
+              NroAssistiti: "16"
+            },
+            {
+              DataPagamento: "12/08/2014",
+              ImportoTotale: "38.00",
+              NroAssistiti: "10"
+            },
+            {
+              DataPagamento: "12/09/2014",
+              ImportoTotale: "278.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/10/2014",
+              ImportoTotale: "299.00",
+              NroAssistiti: "19"
+            }
+          ]
+        },
+
+        {
+          NomeAssociazione: "UIL",
+          CodiceFiscale: "123456789078",
+          TipologiaDiAssistenza: "77",
+
+          Responsabile: "Carlo Gimondi",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          IBAN: "IT40 S054 2811 1010 0000 0123 456",
+          Email: "gimondi444@gmail.com",
+          PEC: "gimondi@gmail.com",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+          Indirizzi: [{
+              Tipo: "Indirizzo abitazione",
+              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaxxxxxxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo lavoro",
+              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              Validita: "dal 01/01/2010 al 02/02/2014",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaaaaaaxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo secondario",
+              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "xxxxxx",
+              Via: "aaaaaxxxxxddxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+
+          ImportoRitenutaDiCategoria: "130.15",
+
+          LiquidazioniMensili: [{
+              DataPagamento: "12/04/2014",
+              ImportoTotale: "238.00",
+              NroAssistiti: "15"
+            },
+            {
+              DataPagamento: "12/05/2014",
+              ImportoTotale: "258.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/06/2014",
+              ImportoTotale: "338.00",
+              NroAssistiti: "18"
+            },
+            {
+              DataPagamento: "12/07/2014",
+              ImportoTotale: "438.00",
+              NroAssistiti: "16"
+            },
+            {
+              DataPagamento: "12/08/2014",
+              ImportoTotale: "38.00",
+              NroAssistiti: "10"
+            },
+            {
+              DataPagamento: "12/09/2014",
+              ImportoTotale: "278.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/10/2014",
+              ImportoTotale: "299.00",
+              NroAssistiti: "19"
+            }
+          ]
+        },
+
+        {
+          NomeAssociazione: "CGHL",
+          CodiceFiscale: "123456789087",
+          TipologiaDiAssistenza: "88",
+
+          Responsabile: "Vittorio Emanuele",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          IBAN: "IT40 S054 2811 1010 0000 0123 456",
+          Email: "vemanuele555@gmail.com",
+          PEC: "vemanuele@gmail.com",
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+
+          Indirizzi: [{
+              Tipo: "Indirizzo abitazione",
+              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaxxxxxxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo lavoro",
+              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              Validita: "dal 01/01/2010 al 02/02/2014",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "aaaaa",
+              Via: "aaaaaaaaaaxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              Tipo: "Indirizzo secondario",
+              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              Validita: "dal 01/01/2010 al 02/02/2011",
+
+              Nazione: "Italia",
+              Comune: "Napoli",
+              Cap: "84092",
+              Frazione: "xxxxxx",
+              Via: "aaaaaxxxxxddxxxxx",
+              Civico: "6",
+              UsaIndirizzo: "No",
+              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+
+          ImportoRitenutaDiCategoria: "200.15",
+
+          LiquidazioniMensili: [{
+              DataPagamento: "12/04/2014",
+              ImportoTotale: "238.00",
+              NroAssistiti: "15"
+            },
+            {
+              DataPagamento: "12/05/2014",
+              ImportoTotale: "258.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/06/2014",
+              ImportoTotale: "338.00",
+              NroAssistiti: "18"
+            },
+            {
+              DataPagamento: "12/07/2014",
+              ImportoTotale: "438.00",
+              NroAssistiti: "16"
+            },
+            {
+              DataPagamento: "12/08/2014",
+              ImportoTotale: "38.00",
+              NroAssistiti: "10"
+            },
+            {
+              DataPagamento: "12/09/2014",
+              ImportoTotale: "278.00",
+              NroAssistiti: "17"
+            },
+            {
+              DataPagamento: "12/10/2014",
+              ImportoTotale: "299.00",
+              NroAssistiti: "19"
+            }
+          ]
+        }
+      ];
+
+      return tabAssociazioni;
     }
   }
 }

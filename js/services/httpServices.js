@@ -1282,215 +1282,215 @@ mochDbTable = function(table) {
  *
  */
 
-evidenze = function($http) {
-  return {
-    //----------------------------------
-    // Chiamata Get Standard
-    //----------------------------------
-    find: function(url, data) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("evidenze");
-        return response;
-      }
+// evidenze = function($http) {
+//   return {
+//     //----------------------------------
+//     // Chiamata Get Standard
+//     //----------------------------------
+//     find: function(url, data) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("evidenze");
+//         return response;
+//       }
 
-      $http
-        .get(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    },
+//       $http
+//         .get(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     },
 
-    //----------------------------------
-    // Ricerca in Base Dati per Codice Fiscale
-    //----------------------------------
-    findCodFis: function(url, cCodFis) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("evidenze");
+//     //----------------------------------
+//     // Ricerca in Base Dati per Codice Fiscale
+//     //----------------------------------
+//     findCodFis: function(url, cCodFis) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("evidenze");
 
-        return response.find(function(obj) {
-          return obj.CodiceFiscale === cCodFis;
-        });
-      }
+//         return response.find(function(obj) {
+//           return obj.CodiceFiscale === cCodFis;
+//         });
+//       }
 
-      $http
-        .get(url, cCodFis, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    }
-  };
-};
+//       $http
+//         .get(url, cCodFis, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     }
+//   };
+// };
 
 /**
  * liquidazioni - i servizi http per la gestione delle liquidazioni
  *
  */
 
-liquidazioni = function($http) {
-  return {
-    //----------------------------------
-    // Chiamata Get Standard
-    //----------------------------------
-    find: function(url, data) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("liquidazioni");
-        return response;
-      }
+// liquidazioni = function($http) {
+//   return {
+//     //----------------------------------
+//     // Chiamata Get Standard
+//     //----------------------------------
+//     find: function(url, data) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("liquidazioni");
+//         return response;
+//       }
 
-      $http
-        .get(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    },
+//       $http
+//         .get(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     },
 
-    //----------------------------------
-    // Ricerca in Base Dati per Codice Fiscale
-    //----------------------------------
-    findCodFis: function(url, cCodFis) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("associazioni");
+//     //----------------------------------
+//     // Ricerca in Base Dati per Codice Fiscale
+//     //----------------------------------
+//     findCodFis: function(url, cCodFis) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("associazioni");
 
-        return response.find(function(obj) {
-          return obj.CodiceFiscale === cCodFis;
-        });
-      }
+//         return response.find(function(obj) {
+//           return obj.CodiceFiscale === cCodFis;
+//         });
+//       }
 
-      $http
-        .get(url, cCodFis, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    }
-  };
-};
+//       $http
+//         .get(url, cCodFis, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     }
+//   };
+// };
 
 /**
  * associazioni - i servizi http per la gestione delle associazioni
  *
  */
 
-associazioni = function($http) {
-  return {
-    //----------------------------------
-    // Chiamata Get Standard
-    //----------------------------------
-    find: function(url, data) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("associazioni");
-        return response;
-      }
+// associazioni = function($http) {
+//   return {
+//     //----------------------------------
+//     // Chiamata Get Standard
+//     //----------------------------------
+//     find: function(url, data) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("associazioni");
+//         return response;
+//       }
 
-      $http
-        .get(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    },
+//       $http
+//         .get(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     },
 
-    //----------------------------------
-    // Ricerca in Base Dati per Codice Fiscale
-    //----------------------------------
-    findCodFis: function(url, cCodFis) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("associazioni");
+//     //----------------------------------
+//     // Ricerca in Base Dati per Codice Fiscale
+//     //----------------------------------
+//     findCodFis: function(url, cCodFis) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("associazioni");
 
-        return response.find(function(obj) {
-          return obj.CodiceFiscale === cCodFis;
-        });
-      }
+//         return response.find(function(obj) {
+//           return obj.CodiceFiscale === cCodFis;
+//         });
+//       }
 
-      $http
-        .get(url, cCodFis, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    }
-  };
-};
+//       $http
+//         .get(url, cCodFis, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     }
+//   };
+// };
 
 /**
  * domande - i servizi http per la gestione delle domande
  *
  */
 
-domande = function($http) {
-  return {
-    //----------------------------------
-    // Chiamata Get Standard
-    //----------------------------------
-    find: function(url, data) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("domande");
-        return response;
-      }
+// domande = function($http) {
+//   return {
+//     //----------------------------------
+//     // Chiamata Get Standard
+//     //----------------------------------
+//     find: function(url, data) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("domande");
+//         return response;
+//       }
 
-      $http
-        .get(url, data, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    },
-    //----------------------------------
-    // Ricerca in Base Dati per Codice Fiscale
-    //----------------------------------
-    findCodFis: function(url, cCodFis) {
-      if (url == "mockUrl") {
-        let response = mochDbTable("domande");
+//       $http
+//         .get(url, data, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     },
+//     //----------------------------------
+//     // Ricerca in Base Dati per Codice Fiscale
+//     //----------------------------------
+//     findCodFis: function(url, cCodFis) {
+//       if (url == "mockUrl") {
+//         let response = mochDbTable("domande");
 
-        return response.find(function(obj) {
-          return obj.CodiceFiscale === cCodFis;
-        });
-      }
+//         return response.find(function(obj) {
+//           return obj.CodiceFiscale === cCodFis;
+//         });
+//       }
 
-      $http
-        .get(url, cCodFis, config)
-        .success(function(data, status, headers, config) {
-          //formattazione dei dati secondo mock
-          alert("CallBack su successo di chiamata ");
-        })
-        .error(function(data, status, header, config) {
-          //messaggio di errore per questo post
-          alert("CallBack su errore di chiamata ");
-        });
-    }
-  };
-};
+//       $http
+//         .get(url, cCodFis, config)
+//         .success(function(data, status, headers, config) {
+//           //formattazione dei dati secondo mock
+//           alert("CallBack su successo di chiamata ");
+//         })
+//         .error(function(data, status, header, config) {
+//           //messaggio di errore per questo post
+//           alert("CallBack su errore di chiamata ");
+//         });
+//     }
+//   };
+// };
 /**
  * anagrafica - i servizi http per l'anagrafe
  *
@@ -1615,10 +1615,7 @@ domande = function($http) {
 
 function httpServices($http) {
   return {
-    evidenze: evidenze($http),
-    liquidazioni: liquidazioni($http),
-    associazioni: associazioni($http),
-    domande: domande($http),
+    // associazioni: associazioni($http),
   };
 }
 

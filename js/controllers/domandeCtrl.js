@@ -30,12 +30,6 @@ function domandeCtrl(
   $scope.findDataDiNascita = null;
   $scope.domanda = { OperazioneInCorso: "NUOVA_DOMANDA" };
 
-  // $scope.findCodFis = function(cCodFis) {
-  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-  //     "mockUrl",
-  //     cCodFis
-  //   );
-  // };
   $scope.datiAssistito = [];
   $scope.findCodFis = function(cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
@@ -243,9 +237,6 @@ function domandeCtrl(
 
   $scope.elencoDomande = [];
   $scope.findDomande = function() {
-    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
-    alert("domandeServices2222222222222")
-
     domandeServices.find(this.info, result => {
       $scope.elencoDomande = result;
     });

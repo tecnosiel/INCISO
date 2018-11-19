@@ -21,13 +21,6 @@ function domandaCtrl(
         domanda: $scope.elencoDomande[1].DomandePresentate[1]
       });
     });
-
-    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
-    // debugger;
-    // $state.go("domande.visualizza_domanda", {
-    //   datiAssistito: $scope.datiAssistito,
-    //   domanda: $scope.elencoDomande[1].DomandePresentate[1]
-    // });
   };
 }
 

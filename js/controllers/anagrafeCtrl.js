@@ -10,12 +10,6 @@ function anagrafeCtrl(
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
-  // $scope.findCodFis = function(cCodFis) {
-  //   $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-  //     "mockUrl",
-  //     cCodFis
-  //   );
-  // };
 
   $scope.datiAssistito = [];
   $scope.findCodFis = function(cCodFis) {

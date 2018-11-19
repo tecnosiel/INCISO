@@ -6,6 +6,7 @@
 function associazioniCtrl(
   $scope,
   httpServices,
+  associazioniServices,
   DTOptionsBuilder,
   DTColumnDefBuilder
 ) {
@@ -18,17 +19,50 @@ function associazioniCtrl(
     DTColumnDefBuilder.newColumnDef(3).notSortable()
   ];
 
+  // $scope.find = function() {
+  //   $scope.elencoAssociazioni = httpServices.associazioni.find("mockUrl");
+  // };
+
+  // $scope.findCodFis = function(cCodFis) {
+  //   $scope.datiAssociazione = httpServices.associazioni.findCodFis(
+  //     "mockUrl",
+  //     cCodFis
+  //   );
+  // };
+
+  $scope.info = {};
+  $scope.info.find = {};
+
+  $scope.elencoAssociazioni = [];
   $scope.find = function() {
-    $scope.elencoAssociazioni = httpServices.associazioni.find("mockUrl");
+    var tableSort = $("#resultRicercaAssociazioniDataTable").dataTable();
+    var tablePage = $("#resultRicercaAssociazioniDataTable").DataTable();
+
+    // informazioni ordinamento
+    $scope.info.sort = {
+      column: tableSort.fnSettings().aaSorting[0][0],
+      direction: tableSort.fnSettings().aaSorting[0][1],
+      titleColumn: tableSort.fnSettings().aoColumns[
+        tableSort.fnSettings().aaSorting[0][0]
+      ].sTitle
+    };
+
+    // informazioni pagina
+    $scope.info.page = tablePage.page.info();
+
+    // ------------------
+
+    associazioniServices.find($scope.info, result => {
+      $scope.elencoAssociazioni = result;
+    });
   };
 
+  $scope.datiAssociazione = [];
   $scope.findCodFis = function(cCodFis) {
-    $scope.datiAssociazione = httpServices.associazioni.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
+    associazioniServices.findCodFis(cCodFis, result => {
+      $scope.datiAssociazione = result;
+    });
   };
-
 }
 
 /**

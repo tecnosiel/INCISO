@@ -13,57 +13,39 @@ function liquidazioniCtrl(
   DTColumnDefBuilder,
   $compile
 ) {
-  // $scope.find = function() {
-  //   $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
-  // };
+  $scope.datiAssistito = [];
 
-  $scope.mesediriferimento = null;
+  // informazioni ricerca
+  $scope.info = {};
+  $scope.info.find = {};
 
   $scope.elencoLiquidazioni = [];
-  $scope.datiAssistito = [];
-  
   $scope.find = function() {
-    // $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
     var tableSort = $("#resultRicercaLiquidazioniDataTable").dataTable();
     var tablePage = $("#resultRicercaLiquidazioniDataTable").DataTable();
-    $scope.elencoLiquidazioni = [];
-
-    debugger;
-    $scope.info = {
-      // informazioni ordinamento
-      sort: {
-        column: tableSort.fnSettings().aaSorting[0][0],
-        direction: tableSort.fnSettings().aaSorting[0][1],
-        titleColumn: tableSort.fnSettings().aoColumns[
-          tableSort.fnSettings().aaSorting[0][0]
-        ].sTitle
-      },
-
-      // informazioni pagina
-      page: tablePage.page.info(),
-
-      // informazioni ricerca
-      find: {
-        meseDiRiferimento: $scope.meseDiRiferimento
-      }
+    
+    // informazioni ordinamento
+    $scope.info.sort = {
+      column: tableSort.fnSettings().aaSorting[0][0],
+      direction: tableSort.fnSettings().aaSorting[0][1],
+      titleColumn: tableSort.fnSettings().aoColumns[
+        tableSort.fnSettings().aaSorting[0][0]
+      ].sTitle
     };
+    
+    // informazioni pagina
+    $scope.info.page = tablePage.page.info();
 
-    // ------------------
-
-    // $scope.elencoLiquidazioni = httpServices.liquidazioni.find("mockUrl");
-     
     liquidazioniServices.find($scope.info, result => {
       $scope.elencoLiquidazioni = result;
     });
-
-
   };
 
+  $scope.datiLiquidazione = [];
   $scope.findCodFis = function(cCodFis) {
-    $scope.datiAssociazione = httpServices.liquidazioni.findCodFis(
-      "mockUrl",
-      cCodFis
-    );
+    liquidazioniServices.findCodFis(cCodFis, result => {
+      $scope.datiLiquidazione = result;
+    });
   };
 
   $scope.liquidazione = {
@@ -737,22 +719,14 @@ function liquidazioniCtrl(
   // --------------------------------------------------------------------------
 
   $scope.findPosizione = function(cCodFis) {
-    debugger;
-    // $scope.datiAssistito = httpServices._ricercaAnagraficaRicerca.findCodFis(
-    //   "mockUrl",
-    //   cCodFis
-    // );
-
     $scope.findCodFis = function(cCodFis) {
-      anagrafeServices.findCodFis(cCodFis, resultData => {
-        $scope.datiAssistito = resultData;
+      anagrafeServices.findCodFis(cCodFis, result => {
+        $scope.datiAssistito = result;
+        $state.go("posizione.visualizza_posizione", {
+          datiAssistito: $scope.datiAssistito
+        });
       });
     };
-  
-
-    $state.go("posizione.visualizza_posizione", {
-      datiAssistito: $scope.datiAssistito
-    });
   };
 }
 

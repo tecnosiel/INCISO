@@ -14,6 +14,7 @@ function ricercaController(
   $timeout
 ) {
   $scope.dtInstanceTabResultRicerca = {};
+  debugger;
 
   this.elencoAssistiti = [];
   this.datiAssistito = [];

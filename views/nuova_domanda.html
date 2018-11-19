@@ -6,6 +6,8 @@
     <div class="col-lg-2"></div>
 </div>
 
+<div ng-include="'views/common/spinner.html'" class="centered"></div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
 
     <div class="row">
@@ -24,16 +26,16 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
-                                            value="77" type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='77'">
+                                <div class="checkbox-inline"><label> <input icheck ng-model="info.find.TipoAssistenzaRichiesta"
+                                            value="77" type="radio" ng-checked="info.find.TipoAssistenzaRichiesta=='77'">
                                         <i></i>
                                         77 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
-                                            value="88" type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='88'">
+                                <div class="checkbox-inline"><label> <input icheck ng-model="info.find.TipoAssistenzaRichiesta"
+                                            value="88" type="radio" ng-checked="info.find.TipoAssistenzaRichiesta=='88'">
                                         <i></i>
                                         88 </label></div>
-                                <div class="checkbox-inline"><label> <input icheck ng-model="findTipoAssistenzaRichiesta"
-                                            value="99" type="radio" name="tipoAssistenzaRichiesta" ng-checked="findTipoAssistenzaRichiesta=='99'">
+                                <div class="checkbox-inline"><label> <input icheck ng-model="info.find.TipoAssistenzaRichiesta"
+                                            value="99" type="radio" ng-checked="info.find.TipoAssistenzaRichiesta=='99'">
                                         <i></i>
                                         99 </label></div>
                             </div>
@@ -47,23 +49,6 @@
                         <small>{{'INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA' |
                             translate }}</small>
                     </h5>
-                    <!--<div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#">Config option 1</a>
-                            </li>
-                            <li><a href="#">Config option 2</a>
-                            </li>
-                        </ul>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>-->
                 </div>
                 <div class="ibox-content">
                     <div class="row">
@@ -73,30 +58,30 @@
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'NOME' | translate }} (*)</label>
                                         <input type="text" placeholder="{{'NOME_DA_RICERCARE' | translate}}" class="form-control"
-                                            ng-model="findNome"></div>
+                                            ng-model="info.find.Nome"></div>
 
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'COGNOME' | translate }} (*)</label>
                                         <input type="text" placeholder="{{'COGNOME_DA_RICERCARE' | translate}}" class="form-control"
-                                            ng-model="findCognome"></div>
+                                            ng-model="info.find.Cognome"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'CODICE_FISCALE' | translate }}</label>
                                         <input type="text" placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}"
-                                            class="form-control" ng-model="findCodiceFiscale"></div>
+                                            class="form-control" ng-model="info.find.CodiceFiscale"></div>
                                     <div class="col-md-6 form-group">
                                         <label>{{ 'DATA_DI_NASCITA' | translate }}</label>
                                         <input type="text" placeholder="{{'DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY'  | translate}}"
-                                            class="form-control js-date" ng-model="findDataDiNascita">
+                                            class="form-control js-date" ng-model="info.find.DataDiNascita">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="checkbox">
                                             <label>
-                                                <input icheck ng-model="findIncludiDeceduti" type="checkbox" value="Si"
-                                                    ng-checked="findIncludiDeceduti=='Si'">
+                                                <input icheck ng-model="info.find.IncludiDeceduti" type="checkbox"
+                                                    ng-checked="info.find.IncludiDeceduti=='Si'">
                                                 <i></i>
                                                 {{ 'INCLUDI_DECEDUTI' | translate }}
                                             </label>
@@ -209,7 +194,7 @@
                                                 <div class="col-md-3">
                                                     <strong>{{ 'DECEDUTO_IL' | translate }} {{ item.DataDiDecesso }}</strong>
                                                 </div>
-                                                <div class="col-md-3 intero text-right" >
+                                                <div class="col-md-3 intero text-right">
                                                     <strong>{{ 'NUMERO_FALDONE' | translate }}: {{ item.NumeroFaldone
                                                         }}</strong>
                                                 </div>
@@ -273,7 +258,6 @@
     </div>
 </div>
 <script>
-
     $("#btnSearch").click(function () {
         $("#searchResults").show();
     });

@@ -98,17 +98,7 @@ function visualizzaPosizioneCtrl(
     }
   };
 
-  // alert("ssssssssssss");
-  // debugger;
-  // $scope.elencoDomande = [];
   $scope.visualizzaDomanda = function(nDomanda) {
-    // $scope.elencoDomande = httpServices.domande.find("mockUrl");
-    // $state.go("domande.visualizza_domanda", {
-    //   datiAssistito: $scope.datiAssistito,
-    //   domanda:$scope.elencoDomande[1].DomandePresentate[1]
-    // });
-    alert("domandeServices555555555555555555");
-    debugger;
     domandeServices.find(this.info, result => {
       $scope.elencoDomande = result;
       debugger;

@@ -4,6 +4,7 @@
     cursor: not-allowed;
     background-color: #EEEEEE
 }
+
 .euroDisabled {
     pointer-events: none;
     cursor: not-allowed;
@@ -75,4 +76,52 @@ table.dataTable thead .sorting:after {
 
 li.activeCustom {
     background: #293846;
+}
+
+
+/* SPINNER */
+
+.glyphicon-refresh-animate {
+    -animation: spin 0.7s infinite linear;
+    -webkit-animation: spin2 0.7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+
+/* FINE SPINNER */
+
+
+/* CENTRATURA */
+
+.centered {
+    position: fixed;
+    top: 49%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    /* font-size: 20px;
+    background-color: cyan;
+    border: darkgreen 5px solid;
+    padding: 5px; */
+    z-index: 100;
 }

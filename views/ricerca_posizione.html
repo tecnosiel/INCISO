@@ -1,29 +1,39 @@
-<header-component tipo = "'Generico'" titolo = "'RICERCA_POSIZIONE'"></header-component>
+<header-component
+  tipo="'Generico'"
+  titolo="'RICERCA_POSIZIONE'"
+></header-component>
+
+<div ng-include="'views/common/spinner.html'"></div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5> {{ 'RICERCA_POSIZIONE' | translate }} </h5>
-                </div>
-                <div class="ibox-content">
-                   
-                    <ricerca-component tipo-ricerca = "'Posizione'"  on-save="onSaveCar($ctrl.datiAssistito)"  dati-assistito = "$ctrl.datiAssistito"></ricerca-component>
-
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>{{ "RICERCA_POSIZIONE" | translate }}</h5>
         </div>
+        <div class="ibox-content">
+          <ricerca-component
+            tipo-ricerca="'Posizione'"
+            on-save="onSaveCar($ctrl.datiAssistito)"
+            dati-assistito="$ctrl.datiAssistito"
+          ></ricerca-component>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <script>
+  $(".dataTables-example").dataTable({
+    searching: false,
+    responsive: true,
+    lengthChange: false
+  });
 
-    $('.dataTables-example').dataTable({ searching: false, responsive: true, lengthChange: false });
-
-    $('#posSearch').click(function () {
-        $("#posResults").show();
-    });
+  $("#posSearch").click(function() {
+    $("#posResults").show();
+  });
 </script>
 
-<!-- End wrapper-->
+<!-- End wrapper -->

@@ -1,4 +1,6 @@
-<header-component tipo = "'Generico'" titolo = "'RICERCA_DATI_ANAGRAFICI'"></header-component>
+<header-component tipo="'Generico'" titolo="'RICERCA_DATI_ANAGRAFICI'"></header-component>
+
+<div ng-include="'views/common/spinner.html'" class="centered"></div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -8,7 +10,8 @@
                     <h5> {{ 'RICERCA_DATI_ANAGRAFICI' | translate }} </h5>
                 </div>
                 <div class="ibox-content">
-                    <ricerca-component tipo-ricerca = "'Anagrafe'"  on-save="onSaveCar($ctrl.datiAssistito)"  dati-assistito = "$ctrl.datiAssistito"></ricerca-component>
+                    <ricerca-component tipo-ricerca="'Anagrafe'" on-save="onSaveCar($ctrl.datiAssistito)"
+                        dati-assistito="$ctrl.datiAssistito"></ricerca-component>
                 </div>
             </div>
         </div>
