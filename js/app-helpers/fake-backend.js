@@ -4,7 +4,12 @@ function setupFakeBackend($httpBackend) {
   // le views verranno servite senza elaborazione. Se i elimina la riga si hanno interferenze con gli stati di UI-ROUTER
   $httpBackend.whenGET(/views\/.*/).passThrough();
   $httpBackend.whenGET(/js\/.*/).passThrough();
-
+  
+  $httpBackend.whenGET('http://www.omdbapi.com/?s=terminator').passThrough();
+  $httpBackend.whenGET('/iamauth/user/current').passThrough();
+  $httpBackend.whenPOST('http://www.omdbapi.com/?s=terminator').passThrough();
+  $httpBackend.whenPOST('/iamauth/user/current').passThrough();
+  
   // ------------------------- LOGIN
   $httpBackend
     .whenPOST("/api/autenticazione/login")
@@ -143,14 +148,6 @@ function setupFakeBackend($httpBackend) {
       return [200, response, {}];
     });
 
-  $httpBackend
-    .whenGET("/api/liquidazioni/findPosizioni")
-    .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("POSIZIONI");
-      return [200, response, {}];
-    });
-
   // data = {
   //   CodiceFiscale: "text",
   // }
@@ -174,19 +171,26 @@ function setupFakeBackend($httpBackend) {
 
   // ------------------------- EVIDENZE
 
+  // data = {
+  //   TipoEvidenza: "text",
+  //   Posizione: "text"
+  //   TipoPrestazione:"text"
+  //   DataDecorrenzaDal:"dd/MM/yyyy"
+  //   DataDecorrenzaAl :"dd/MM/yyyy"
+  //   DataScadenzaDal:"dd/MM/yyyy"
+  //   DataScadenzaAl :"dd/MM/yyyy"
+  //   DataChiusuraDal:"dd/MM/yyyy"
+  //   DataChiusuraAl :"dd/MM/yyyy"
+  //   Cognome: "text",
+  //   Nome: "text",
+  //   CodiceFiscale: "text",
+  //   DataDiNascita: "gg/mm/aaaa",
+  // }
   $httpBackend
     .whenGET("/api/evidenze/find")
     .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("EVIDENZE");
-      return [200, response, {}];
-    });
-
-  $httpBackend
-    .whenGET("/api/evidenze/findPosizioni")
-    .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("POSIZIONI");
       return [200, response, {}];
     });
 
@@ -222,14 +226,6 @@ function setupFakeBackend($httpBackend) {
     .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("ASSOCIAZIONI");
-      return [200, response, {}];
-    });
-
-  $httpBackend
-    .whenGET("/api/associazioni/findPosizioni")
-    .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("POSIZIONI");
       return [200, response, {}];
     });
 

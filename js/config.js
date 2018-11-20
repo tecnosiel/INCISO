@@ -6,11 +6,12 @@
  *
  */
 
+
 // -------------------------------------------------------------------------
 //  FUNZIONE DI CONFIGURAZIONE DEGLI STATI
 // -------------------------------------------------------------------------
 
-(function() {
+(function () {
   function configStates(
     $stateProvider,
     $urlRouterProvider,
@@ -42,14 +43,20 @@
         url: "/login",
         controller: "loginCtrl",
         templateUrl: "/views/login.html",
-        data: { pageTitle: "Login", specialClass: "gray-bg" }
+        data: {
+          pageTitle: "Login",
+          specialClass: "gray-bg"
+        }
       })
 
       // lockscreen --------------------------------------------------------------
       .state("lockscreen", {
         url: "/lockscreen",
         templateUrl: "/views/lockscreen.html",
-        data: { pageTitle: "Lockscreen", specialClass: "gray-bg" }
+        data: {
+          pageTitle: "Lockscreen",
+          specialClass: "gray-bg"
+        }
       })
 
       // home --------------------------------------------------------------
@@ -79,7 +86,7 @@
           datiAssistito: null
         },
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "NUOVOINSERIMENTO";
           }
         }
@@ -94,7 +101,7 @@
           visShowPulsanti: null
         },
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "VISUALIZZA";
           }
         }
@@ -142,7 +149,7 @@
         templateUrl: "/views/visualizza_anagrafica.html",
         controller: "visualizzaAnagrafeCtrl",
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "NUOVOINSERIMENTO";
           }
         }
@@ -157,7 +164,7 @@
           visShowPulsanti: null
         },
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "VISUALIZZA";
           }
         }
@@ -169,7 +176,7 @@
         templateUrl: "/views/visualizza_posizione.html",
         controller: "visualizzaPosizioneCtrl",
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "NUOVOINSERIMENTO";
           }
         }
@@ -182,7 +189,7 @@
           datiAssistito: null
         },
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "VISUALIZZA";
           }
         }
@@ -198,18 +205,18 @@
       .state("domande.nuova_domanda", {
         url: "/nuova_domanda",
         templateUrl: "/views/nuova_domanda.html",
-        data: { pageTitle: "Nuova domanda" },
+        data: {
+          pageTitle: "Nuova domanda"
+        },
         resolve: {
-          loadPlugin: function($ocLazyLoad) {
+          loadPlugin: function ($ocLazyLoad) {
             // da verificare
-            return $ocLazyLoad.load([
-              {
-                files: [
-                  "/css/plugins/iCheck/custom.css",
-                  "/js/plugins/iCheck/icheck.min.js"
-                ]
-              }
-            ]);
+            return $ocLazyLoad.load([{
+              files: [
+                "/css/plugins/iCheck/custom.css",
+                "/js/plugins/iCheck/icheck.min.js"
+              ]
+            }]);
           }
         }
       })
@@ -218,22 +225,22 @@
         url: "/visualizza_domanda",
         templateUrl: "/views/visualizza_domanda.html",
         controller: "visualizzaDomandaCtrl",
-        data: { pageTitle: "Visualizza Domanda" },
+        data: {
+          pageTitle: "Visualizza Domanda"
+        },
         params: {
           datiAssistito: null,
           domanda: null
         },
         resolve: {
-          loadPlugin: function($ocLazyLoad) {
+          loadPlugin: function ($ocLazyLoad) {
             // da verificare
-            return $ocLazyLoad.load([
-              {
-                files: [
-                  "/css/plugins/iCheck/custom.css",
-                  "/js/plugins/iCheck/icheck.min.js"
-                ]
-              }
-            ]);
+            return $ocLazyLoad.load([{
+              files: [
+                "/css/plugins/iCheck/custom.css",
+                "/js/plugins/iCheck/icheck.min.js"
+              ]
+            }]);
           }
         }
       })
@@ -241,7 +248,9 @@
         url: "/domanda",
         templateUrl: "/views/domanda.html",
         controller: "domandaCtrl",
-        data: { pageTitle: "Domanda" }
+        data: {
+          pageTitle: "Domanda"
+        }
       })
       // evidenze --------------------------------------------------------------
       .state("evidenze", {
@@ -263,7 +272,7 @@
           evidenza: null
         },
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "VISUALIZZA";
           }
         }
@@ -273,7 +282,7 @@
         templateUrl: "/views/visualizza_evidenza.html",
         controller: "visualizzaEvidenzaCtrl",
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "NUOVOINSERIMENTO";
           }
         }
@@ -322,7 +331,7 @@
           datiAssistito: null
         },
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "VISUALIZZA";
           }
         }
@@ -332,7 +341,7 @@
         templateUrl: "/views/visualizza_associazione.html",
         controller: "visualizzaAssociazioneCtrl",
         resolve: {
-          runMode: function() {
+          runMode: function () {
             return "NUOVOINSERIMENTO";
           }
         }
@@ -390,29 +399,35 @@
       .state("app.contacts", {
         url: "/contacts",
         templateUrl: "/views/contacts.html",
-        data: { pageTitle: "Contacts" }
+        data: {
+          pageTitle: "Contacts"
+        }
       })
       .state("app.contacts_2", {
         url: "/contacts_2",
         templateUrl: "/views/contacts_2.html",
-        data: { pageTitle: "Contacts 2" }
+        data: {
+          pageTitle: "Contacts 2"
+        }
       })
       .state("app.profile", {
         url: "/profile",
         templateUrl: "/views/profile.html",
-        data: { pageTitle: "Profile" }
+        data: {
+          pageTitle: "Profile"
+        }
       })
       .state("app.profile_2", {
         url: "/profile_2",
         templateUrl: "/views/profile_2.html",
-        data: { pageTitle: "Profile_2" },
+        data: {
+          pageTitle: "Profile_2"
+        },
         resolve: {
-          loadPlugin: function($ocLazyLoad) {
-            return $ocLazyLoad.load([
-              {
-                files: ["/js/plugins/sparkline/jquery.sparkline.min.js"]
-              }
-            ]);
+          loadPlugin: function ($ocLazyLoad) {
+            return $ocLazyLoad.load([{
+              files: ["/js/plugins/sparkline/jquery.sparkline.min.js"]
+            }]);
           }
         }
       });
@@ -421,33 +436,74 @@
   // -------------------------------------------------------------------------
   //  FUNZIONE DI CONFIGURAZIONE DEGLI INTERCETTORI
   // -------------------------------------------------------------------------
-  function configIntercetors($httpProvider, jwtOptionsProvider) {
-    // Please note we're annotating the function so that the $injector works when the file is minified
-    jwtOptionsProvider.config({
-      tokenGetter: [
-        "logServices",
-        function(logServices) {
-          logServices.faiQualcosa();
-          return sessionStorage.getItem("token");
-        }
-      ],
-      whiteListedDomains: [
-        "api.myapp.com",
-        "api/authenticate",
-        "localhost",
-        "127.0.0.1"
-      ]
-    });
+  // function configIntercetors($httpProvider, jwtOptionsProvider) {
+  //   // Please note we're annotating the function so that the $injector works when the file is minified
+  //   jwtOptionsProvider.config({
+  //     tokenGetter: [
+  //       "logServices",
+  //       function (logServices) {
+  //         logServices.faiQualcosa();
+  //         return sessionStorage.getItem("token");
+  //       }
+  //     ],
+  //     whiteListedDomains: [
+  //       "api.myapp.com",
+  //       "api/authenticate",
+  //       "localhost",
+  //       "127.0.0.1"
+  //     ]
+  //   });
 
-    $httpProvider.interceptors.push("jwtInterceptor");
-  }
+  //   $httpProvider.interceptors.push("jwtInterceptor");
+  // }
+
+  // https://git.services.siag.it/siag/js-egov-authentication/blob/master/docs/index.md
 
   angular
     .module("inciso")
+    .factory('httpInterceptor', function ($q) {
+      return {
+        response: function (response) {
+
+          if (EGovJSBase.Authentication.authSession) {
+            EGovJSBase.Authentication.authSession.handleAjaxResponse({
+                status: response.status,
+                getResponseHeader: function (headerName) {
+                  return response.headers(headerName);
+                }
+              },
+              response.config.url
+            );
+          }
+
+
+          return response;
+        },
+        responseError: function (response) {
+
+          if (EGovJSBase.Authentication.authSession) {
+            EGovJSBase.Authentication.authSession.handleAjaxResponse({
+                status: response.status,
+                getResponseHeader: function (headerName) {
+                  return response.headers(headerName);
+                }
+              },
+              response.config.url
+            );
+          }
+
+          return $q.reject(response);
+        }
+      }
+    })
+    .config(function ($httpProvider) {
+      $httpProvider.interceptors.push('httpInterceptor');
+    })
     .config(configStates)
-    .config(configIntercetors)
+    // .config(configIntercetors)
     .run(setupFakeBackend)
-    .run(function($rootScope, $state) {
+    .run(function ($rootScope, $state) {
       $rootScope.$state = $state;
     });
+
 })();

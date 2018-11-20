@@ -154,7 +154,7 @@
                                                     <i ng-if="item.DataDiDecesso != '-'" title="deceduto" class="fa fa-cross"></i>
                                                     <a ng-class="{'secondary': item.Duplicato}" ng-click="findCodFis(item.CodiceFiscale)"
                                                         angular-popover direction="top" template-url="views/partials/_popover_anagrafica2"
-                                                        style="position: relative; z-index: 100;">
+                                                        close-on-click="true" style="position: relative; z-index: 100;">
                                                         {{item.Nome}} {{ item.Cognome }}
                                                     </a>
                                                 </h4>

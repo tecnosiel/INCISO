@@ -2,7 +2,7 @@
  * INCISO - Responsive Admin Theme
  *
  */
-(function() {
+(function () {
   angular.module("inciso", [
     "ui.router", // Routing
     "oc.lazyLoad", // ocLazyLoad
@@ -16,6 +16,8 @@
     "ui.select", //ui-select
     "colorpicker.module", //colorpicher
     "angular-jwt", // json web token
-    "ngMockE2E"
+    "ngMockE2E",
+    EgovauthModule.name
   ]);
+
 })();

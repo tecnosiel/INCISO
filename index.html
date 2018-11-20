@@ -110,6 +110,17 @@
 <script src="js/angular/angular-mocks.js"></script>
 <script src="js/app-helpers/fake-backend.js"></script>
 
+<!-- autentificazione Siag -->
+<script src="/js/plugins/authentication/js-egov-authentication/bundles/js-egov-authentication.umd.js"></script>
+<script src="/js/plugins/authentication/jsui-egov-authentication/bundles/jsui-egov-authentication.umd.js"></script>
+
+<script src="/js/plugins/authentication/ng1-egov-authentication/bundles/ng1-egov-authentication.umd.js"></script>
+
+<!-- <script src="/js/plugins/authentication/js-egov-authentication/bundles/js-egov-authentication.umd.js.map"></script> -->
+<!-- <script src="/js/plugins/authentication/jsui-egov-authentication/bundles/jsui-egov-authentication.umd.js.map"></script> -->
+<!-- <script src="/js/plugins/authentication/ng1-egov-authentication/bundles/ng1-egov-authentication.umd.js.map"></script> -->
+
+
 <!-- materiale vario -->
 <script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
 <script src="js/angular-translate/angular-translate.min.js"></script>
@@ -263,7 +274,8 @@
     $('body').on('click', function (e) {
         $('[data-toggle=popover]').each(function () {
             // hide any open popovers when the anywhere else in the body is clicked
-            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target)
+                .length === 0) {
                 $(this).popover('hide');
             }
         });
@@ -305,7 +317,8 @@
         $('.dataTables-filtered tfoot th').each(function () {
             var title = $(this).text();
             if (!$(this).hasClass("no-filter")) {
-                $(this).html('<input type="text" class="column-filter" placeholder="Search ' + title + '" />');
+                $(this).html('<input type="text" class="column-filter" placeholder="Search ' + title +
+                    '" />');
             }
         });
 
@@ -335,18 +348,15 @@
         $('.floating-menu-box').on('click', function () {
             if ($(this).hasClass("show")) {
                 $(this).removeClass('show');
-            }
-            else {
+            } else {
                 $(this).addClass('show');
             }
         });
 
     });
-
 </script>
 
 <script>
-
     // Procedure Custom per la gestione dati
     // Queste procedure sono state sviluppate da 
     // camillo alfano
@@ -536,7 +546,6 @@
         });
 
     });
-
 </script>
 
 </html>

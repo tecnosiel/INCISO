@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    ...
+    <ul id="service_nav">
+        ...
+        <li><a href="javascript:;" id="js-userwidget"></a></li>
+        ...
+    </ul>
+    ...
+    <script src="/js/plugins/authentication/js-egov-authentication/bundles/js-egov-authentication.umd.min.js"></script>
+    <script src="/js/plugins/authentication/jsui-egov-authentication/bundles/jsui-egov-authentication.umd.min.js"></script>
+    <script type="text/javascript">
+        // inject http headers for backend API (example for jQuery)
+        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+            if (EGovJSBase.Authentication.getAuthSession()) {
+                EGovJSBase.Authentication.getAuthSession().handleAjaxRequest({
+                    url: options.url,
+                    setRequestHeader: jqXHR.setRequestHeader
+                });
+            }
+        });
+
+        // intercept responses (example for jQuery)
+        $(document).ajaxComplete(function (e, xhr, settings) {
+            EGovJSBase.Authentication.handleAjaxResponse({
+                url: settings.url,
+                status: xhr.status,
+                getResponseHeader: xhr.getResponseHeader,
+                getResponseBody: function () {
+                    var json = '';
+                    try {
+                        json = JSON.parse(xhr.responseText);
+                    } catch (e) {
+                        // if it isn't json, ignore
+                    }
+
+                    return json;
+                }
+            });
+        });
+
+        var userwidget = new EGovJSUI.EgovUserwidget(document.getElementById('js-userwidget'), {
+            allowDelegationChange: true,
+            //environment: 'test',
+            //environment: '', // for PROD
+            httpLibrary: $.ajax //for example
+        });
+        userwidget.render();
+    </script>
+</body>
+
+</html>

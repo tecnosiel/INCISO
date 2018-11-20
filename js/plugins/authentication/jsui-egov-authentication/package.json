@@ -1,0 +1,95 @@
+{
+  "_from": "@siag/jsui-egov-authentication",
+  "_id": "@siag/jsui-egov-authentication@3.2.4",
+  "_inBundle": false,
+  "_integrity": "sha512-6H0iN9ijNfkw33wIevIlxw5IHd4oqZa5o9uqvBQHdFrWHfpq5YA8k1+Qv/Zr6td2Uul6z+OHsjNnQ4/zmE6qLA==",
+  "_location": "/@siag/jsui-egov-authentication",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@siag/jsui-egov-authentication",
+    "name": "@siag/jsui-egov-authentication",
+    "escapedName": "@siag%2fjsui-egov-authentication",
+    "scope": "@siag",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://repo.services.siag.it/repository/npm-public/@siag/jsui-egov-authentication/-/jsui-egov-authentication-3.2.4.tgz",
+  "_shasum": "b7511a0ab85c53fb0f04988ea7f18f09d1dd73cf",
+  "_spec": "@siag/jsui-egov-authentication",
+  "_where": "C:\\Users\\Albino-Scalet",
+  "author": {
+    "name": "Juri Strumpflohner",
+    "email": "juri.strumpflohner@siag.it"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@siag/js-egov-authentication": "^3.2.4",
+    "ejs": "2.5.5"
+  },
+  "deprecated": false,
+  "description": "JavaScript, framework agnostic Egov user widget",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.40",
+    "@types/node": "^7.0.0",
+    "awesome-typescript-loader": "^3.0.4-rc.2",
+    "css-loader": "^0.28.1",
+    "ejs": "^2.5.5",
+    "jasmine-core": "^2.5.2",
+    "jquery": "^2.1.4",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^2.0.1",
+    "node-sass": "^4.5.2",
+    "raw-loader": "^0.5.1",
+    "rollup": "^0.45.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-scss": "^0.3.0",
+    "rollup-plugin-string": "^2.0.2",
+    "sass-loader": "^6.0.3",
+    "source-map-loader": "^0.1.6",
+    "style-loader": "^0.17.0",
+    "ts-loader": "^2.3.2",
+    "tslint": "^4.3.1",
+    "tslint-loader": "^3.3.0",
+    "typescript": "2.4.2",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "2.2.0"
+  },
+  "keywords": [
+    "Authentication",
+    "Egov",
+    "typescript"
+  ],
+  "license": "ISC",
+  "main": "bundles/jsui-egov-authentication.umd.js",
+  "module": "./jsui-egov-authentication.js",
+  "name": "@siag/jsui-egov-authentication",
+  "repository": {
+    "type": "git",
+    "url": "git@git.services.siag.it:iam/js-authentication.git"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build.copyResources": "cp src/*.html src/*.scss ../../dist/jsui-egov-authentication/src",
+    "build.prod": "npm run clean && tsc && webpack --config webpack.config.js",
+    "build.rollup": "rollup -c rollup.config.js",
+    "build.ts": "tsc",
+    "build.umd": "npm run build",
+    "clean": "find src -name \"*.d.ts\" -type f -delete && find src -name \"*.js\" -type f -delete && rm -rf bundles",
+    "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base examples/",
+    "test": "karma start karma.config.js",
+    "test.watch": "karma start karma.config.js --auto-watch --no-single-run"
+  },
+  "typings": "jsui-egov-authentication.d.ts",
+  "version": "3.2.4"
+}

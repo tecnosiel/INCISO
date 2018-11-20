@@ -74,7 +74,7 @@ function prestazioniController(
     { nome: "Motivo sospensione 11", code: "11" }
   ];
 
-  this.predisponi = function(cTipo) {
+  this.callPredisponi = function(cTipo) {
     $scope.tipoPredisposizione = cTipo;
 
     // http://www.marcorpsa.com/ee/t1891.html

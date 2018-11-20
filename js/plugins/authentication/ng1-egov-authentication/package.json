@@ -1,0 +1,102 @@
+{
+  "_from": "@siag/ng1-egov-authentication",
+  "_id": "@siag/ng1-egov-authentication@3.2.4",
+  "_inBundle": false,
+  "_integrity": "sha512-nwJH7OUsHUD09ndmWMWrc//4ixJcT9n87NGu27cKKCloH1bmBa3fTdmBT8wcqAJFj1TN+aFfwlK8EtWI7jiHQQ==",
+  "_location": "/@siag/ng1-egov-authentication",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@siag/ng1-egov-authentication",
+    "name": "@siag/ng1-egov-authentication",
+    "escapedName": "@siag%2fng1-egov-authentication",
+    "scope": "@siag",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://repo.services.siag.it/repository/npm-public/@siag/ng1-egov-authentication/-/ng1-egov-authentication-3.2.4.tgz",
+  "_shasum": "7ceb9b63bf7588e55c57fd4a5dfd02d4bd65d70e",
+  "_spec": "@siag/ng1-egov-authentication",
+  "_where": "C:\\Users\\Albino-Scalet",
+  "author": {
+    "name": "Juri Strumpflohner",
+    "email": "juri.strumpflohner@siag.it"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@siag/js-egov-authentication": "^3.2.4",
+    "@siag/jsui-egov-authentication": "^3.2.4"
+  },
+  "deprecated": false,
+  "description": "Angular 1 adapter for the eGov authentication library",
+  "devDependencies": {
+    "@types/angular": "1.5.16",
+    "@types/angular-translate": "2.4.33",
+    "@types/jquery": "^2.0.47",
+    "angular": "1.5.0",
+    "angular-mocks": "1.5.0",
+    "angular-scenario": "1.5.0",
+    "awesome-typescript-loader": "^3.0.4-rc.2",
+    "compression-webpack-plugin": "^0.3.1",
+    "conventional-changelog": "^0.5.1",
+    "css-loader": "^0.28.4",
+    "jasmine-core": "^2.3.4",
+    "jquery": "2.1.4",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "live-server": "^0.8.2",
+    "ng-annotate-webpack-plugin": "^0.1.2",
+    "node-sass": "^4.5.3",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "0.1.6",
+    "strip-loader": "^0.1.2",
+    "style-loader": "^0.18.2",
+    "typescript": "2.4.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "2.2.1",
+    "webpack-md5-hash": "0.0.5"
+  },
+  "keywords": [
+    "IDManagement",
+    "EGov",
+    "Authentication",
+    "users",
+    "Angular 1"
+  ],
+  "license": "MIT",
+  "main": "bundles/ng1-egov-authentication.umd.js",
+  "module": "./ng1-egov-authentication.js",
+  "name": "@siag/ng1-egov-authentication",
+  "repository": {
+    "type": "git",
+    "url": "git@git.services.siag.it:iam/js-authentication.git"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build.all": "rimraf dist && npm run clean && tsc && webpack --config webpack.all.js  --progress --profile --colors --display-error-details --display-cached --bail",
+    "build.prod": "rimraf dist && npm run clean && tsc && webpack --config webpack.prod.js  --progress --profile --colors --display-error-details --display-cached --bail",
+    "build.ts": "tsc",
+    "build.umd": "npm run build",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "clean": "find src -name \"*.d.ts\" -type f -delete && find src -name \"*.js\" -type f -delete && find src -name \"*.map\" -type f -delete && rm -rf dist",
+    "server": "webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached",
+    "start": "npm run server",
+    "test": "node node_modules/karma/bin/karma start karma.conf.js --browsers Chrome",
+    "test-watch": "karma start karma.conf.js --auto-watch --no-single-run"
+  },
+  "typings": "ng1-egov-authentication.d.ts",
+  "version": "3.2.4"
+}

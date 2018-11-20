@@ -24,7 +24,7 @@ function dettagliSingolaPrestazioneCtrl($scope) {
         comunicazione12: "Importo tredicesima eredi: 100,00",
         comunicazione22: "Liquidato ad eredi: in parte",
         comunicazione13: "Importo mensile conguaglio ad eredi: 0,00",
-        comunicazione23: "no"
+        comunicazione23: "Liquidato ad eredi: no"
       },
       {
         Tipo: 1,
@@ -41,7 +41,7 @@ function dettagliSingolaPrestazioneCtrl($scope) {
         comunicazione12: "Importo tredicesima eredi: 1435,00",
         comunicazione22: "Liquidato ad eredi: si",
         comunicazione13: "Importo mensile conguaglio ad eredi: 20,00",
-        comunicazione23: "no"
+        comunicazione23: "Liquidato ad eredi: no"
       },
       {
         Tipo: 1,
@@ -140,7 +140,7 @@ function dettagliSingolaPrestazioneCtrl($scope) {
         comunicazione12: "Importo tredicesima eredi: 100,00",
         comunicazione22: "Liquidato ad eredi: in parte",
         comunicazione13: "Importo mensile conguaglio ad eredi: 0,00",
-        comunicazione23: "no"
+        comunicazione23: "Liquidato ad eredi: no"
       },
       {
         Tipo: 1,
@@ -157,7 +157,7 @@ function dettagliSingolaPrestazioneCtrl($scope) {
         comunicazione12: "Importo tredicesima eredi: 1435,00",
         comunicazione22: "Liquidato ad eredi: si",
         comunicazione13: "Importo mensile conguaglio ad eredi: 20,00",
-        comunicazione23: "no"
+        comunicazione23: "Liquidato ad eredi: no"
       },
       {
         Tipo: 1,
@@ -256,7 +256,7 @@ function dettagliSingolaPrestazioneCtrl($scope) {
         comunicazione12: "Importo tredicesima eredi: 100,00",
         comunicazione22: "Liquidato ad eredi: in parte",
         comunicazione13: "Importo mensile conguaglio ad eredi: 0,00",
-        comunicazione23: "no"
+        comunicazione23: "Liquidato ad eredi: no"
       },
       {
         Tipo: 1,
@@ -289,7 +289,7 @@ function dettagliSingolaPrestazioneCtrl($scope) {
         comunicazione12: "Importo tredicesima eredi: 1435,00",
         comunicazione22: "Liquidato ad eredi: si",
         comunicazione13: "Importo mensile conguaglio ad eredi: 20,00",
-        comunicazione23: "no"
+        comunicazione23: "Liquidato ad eredi: no"
       },
       {
         Tipo: 1,

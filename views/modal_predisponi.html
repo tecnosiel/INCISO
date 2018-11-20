@@ -47,9 +47,9 @@
 
                     <ui-select name="motivoRevoca" ng-model="$ctrl.prestazione.motivoRevoca" title="Seleziona un elemento nell'elenco">
                         <ui-select-match placeholder="Seleziona motivo revoca">{{$select.selected.nome}}</ui-select-match>
-                        <ui-select-choices repeat="nazione in motiviRevoca | filter: $select.search">
-                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
-                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                        <ui-select-choices repeat="item in $ctrl.motiviRevoca | filter: $select.search">
+                            <span ng-bind-html="item.nome | highlight: $select.search"></span>
+                            <small ng-bind-html="item.code | highlight: $select.search"></small>
                         </ui-select-choices>
                     </ui-select>
 

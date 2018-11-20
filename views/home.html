@@ -2,10 +2,10 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <div ng-include="'views/common/navigation.html'"></div>
+    <div ng-include="'views/common/navigation.html'" style="position:absolute; z-index:0"></div>
     <!-- Page wraper -->
     <!-- ng-class with current state name give you the ability to extended customization your view -->
-    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}" style="position:absolute; z-index:0">
 
         <!-- Page wrapper -->
         <div ng-include="'views/common/topnavbar.html'"></div>

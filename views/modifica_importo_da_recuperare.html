@@ -65,14 +65,14 @@
 
                         <div class="col-md-4 form-group">
                             <label>Tipo di recupero (*)</label>
-                            <select class="form-control">
+                            <select class="form-control" ng-model="TipoDiRecupero">
                                 <option>Seleziona</option>
                                 <option>Compensazione</option>
                                 <option>Recupero esterno</option>
                                 <option>ESPRO</option>
                             </select>
                         </div>
-                        <div class="col-md-4 form-group">
+                        <div ng-if="TipoDiRecupero!= 'Recupero esterno'" class="col-md-4 form-group">
                             <label>{{ 'DATA_SCADENZA_RESTITUZIONE' |translate }} (*)</label>
                             <div>
                                 <div class="input-group date m-t-xs">

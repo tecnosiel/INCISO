@@ -1,0 +1,159 @@
+<% if (isAuthenticated()) { %>
+    <div class="userwidget-container">
+        <div class="js-userwidget-dropdowncontainer userwidget-dropdown">
+            <% if(allowDelegationChange()) { %>
+                <% if (hasActiveDelegation()) { %>
+                    <div class="active-delegation">
+                        <div class="userwidget-dropdown-section">
+                            <div class="userwidget-dropdown-sectiontitle">
+                                <%= getActiveDelegation().displayName %>
+                                    <span class="userwidget-usermeta">
+                                        <%= getFiscalCode(user.activeDelegation) %>
+                                    </span>
+                            </div>
+                            <ul class="userwidget-list">
+                                <li>
+                                    <a href="<%= getActiveDelegation().profileLink %>">
+                                        <i class="fa fa-user"></i>&nbsp;
+                                        <%= translate("My Profile") %>
+                                    </a>
+                                </li>
+                                <% if(getActiveDelegation().accessDataLink) { %>
+                                    <li>
+                                        <a href="<%= getActiveDelegation().accessDataLink %>">
+                                            <i class="fa fa-lock"></i>&nbsp;
+                                            <%= translate("AccessData") %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                                        <% if(getActiveDelegation().delegationsLink) { %>
+                                            <li>
+                                                <a href="<%= getActiveDelegation().delegationsLink %>">
+                                                    <i class="fa fa-users"></i>&nbsp;
+                                                    <%= translate("Delegations") %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                                <% if(getActiveDelegation().representativesLink) { %>
+                                                    <li>
+                                                        <a href="<%= getActiveDelegation().representativesLink %>">
+                                                            <i class="fa fa-users"></i>&nbsp;
+                                                            <%= translate("MyRepresentatives") %>
+                                                        </a>
+                                                    </li>
+                                                    <% } %>
+                            </ul>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="userwidget-dropdown-section">
+                            <ul class="userwidget-list">
+                                <li>
+                                    <a href="javascript:;" class="js-work-someone-else">
+                                        <span class="fa fa-users"></span>
+                                        <%= translate("Work for someone else") %>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="js-delegation-list-container userwidget-delegationlist-container">
+                                <div class="userwidget-dropdown-sectiontitle small">
+                                    <%= translate("PossibleDelegations") %>
+                                </div>
+                                <% if(delegations() && delegations().length > 0) { %>
+                                    <ul class="userwidget-list userwidget-dropdown-delegationlist js-delegation-list">
+                                        <% for(var i=0;i<delegations().length; i++) { %>
+                                            <li <%=( !delegations()[i].availableInCurrentService) ? 'class=disabled' : '' %>>
+                                                <% if(delegations()[i].represented.id === user.sessionInfo.currentRepresentedId || !delegations()[i].availableInCurrentService) { %>
+                                                    <span>
+                                                        <%= resolveDelegationLinkText(delegations()[i]) %>
+                                                            <br/>
+                                                            <% if(!delegations()[i].availableInCurrentService) { %>
+                                                                <small>(
+                                                                    <%= translate("DelegationNotAvailableInService") %>)</small>
+                                                                <% } %>
+                                                    </span>
+                                                    <% } else { %>
+                                                        <a href="javascript:;" class="js-changedelegation-link" data-represented-id="<%= delegations()[i].represented.id %>">
+                                                            <span class="userwidget-delegationlist-entryname">
+                                                                <%= resolveDelegationLinkText(delegations()[i]) %>
+                                                            </span>
+                                                            <span class="userwidget-usermeta">
+                                                                <%= getFiscalCode(delegations()[i]) %>
+                                                            </span>
+                                                        </a>
+                                                        <% } %>
+                                            </li>
+                                            <% } %>
+                                    </ul>
+                                    <% } else { %>
+                                        <ul class="userwidget-list">
+                                            <li class="nodelegation">
+                                                <small>
+                                                    <%= translate("NoDelegations") %>
+                                                </small>
+                                            </li>
+                                        </ul>
+                                        <% } %>
+                                            <% if(newDelegationUrl) { %>
+                                                <ul class="userwidget-list">
+                                                    <li>
+                                                        <a class="js-delenew" href="<%= newDelegationUrl %>">
+                                                            <i class="fa fa-plus"></i>&nbsp;
+                                                            <%= translate("NewDelegationLinkText") %>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% } %>
+                            <% if(getActiveDelegation() && (getActiveDelegation().isOwner === false || allowDelegationChange() === false)) { %>
+                                <div class="userwidget-dropdown-section">
+                                    <div class="userwidget-dropdown-sectiontitle">
+                                        <%= getDisplayName() %>
+                                            <div>
+                                                <a href="javascript:;" class="js-workforme userwidget-forworkme-action">
+                                                    <span class="fa fa-arrow-right"></span>
+                                                    <%= translate("WorkForMe") %>
+                                                </a>
+                                                <span class="userwidget-usermeta">
+                                                    <%= user.owner.fiscalCode %>
+                                                </span>
+                                            </div>
+                                    </div>
+                                    <ul class="userwidget-list">
+                                        <li>
+                                            <a href="<%= myProfileUrl %>">
+                                                <i class="fa fa-user"></i>&nbsp;
+                                                <%= translate("My Profile") %>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<%= myAccessDataUrl %>">
+                                                <i class="fa fa-lock"></i>&nbsp;
+                                                <%= translate("AccessData") %>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<%= myDelegationsUrl %>">
+                                                <i class="fa fa-users"></i>&nbsp;
+                                                <%= translate("Delegations") %>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="divider"></div>
+                                <% } %>
+                                    <div class="userwidget-dropdown-section">
+                                        <ul class="userwidget-list">
+                                            <li>
+                                                <a href="<%= logoutUrl %>" class="js-logout">
+                                                    <i class="fa fa-sign-out"></i> Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+        </div>
+    </div>
+    <% } %>

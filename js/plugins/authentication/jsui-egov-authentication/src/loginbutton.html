@@ -1,0 +1,15 @@
+<% if (!isAuthenticated()) { %>
+    Login
+<% } %>
+
+<% if (isAuthenticated()) { %>
+    <span class="userwidget-username">
+        <span class="userwidget-username--displayname"><%= getDisplayName() %>&nbsp;<i class="fa fa-sort-desc"></i></span>
+        <% if (getActiveDelegation() && getActiveDelegation().isOwner === false) { %>
+            <span class="userwidget-username--delegationinfo">
+                <%= translate('wordFor') %>:
+                <span class="userwidget-username--delegationtext"><%= getDelegationDisplayText() %></span>
+            </span>
+        <% } %>
+    </span>
+<% } %>

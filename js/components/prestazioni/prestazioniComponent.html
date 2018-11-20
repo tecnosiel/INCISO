@@ -1,7 +1,7 @@
 <style>
     input:focus {
-    outline:none !important;
-}
+       outline:none !important;
+    }
 </style>
 <div ng-form name="prestazioneForm" ng-submit="submitForm($ctrl.prestazioneForm.$valid)" novalidate>
 
@@ -40,6 +40,7 @@
                 </div>
             </div>
         </div>
+        
         <div id="collapse{{$ctrl.index}}" class="panel-collapse collapse">
             <div class="panel-body">
                 <ul class="nav nav-tabs" role="tablist">
@@ -77,6 +78,7 @@
                         </a>
                     </li>
                 </ul>
+
                 <div class="tab-content">
 
                     <!-- start pannelli -->
@@ -116,15 +118,7 @@
                     </div>
                     <!-- pannello 2 : stato prestazioni -->
                     <div role="tabpanel" class="tab-pane" ng-class="{ active: selTabPrestazioni == 1 }" ng-show="selTabPrestazioni == 1">
-
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
                         <div ng-if="$ctrl.prestazione.stato == 'Revocata'">
-
                             <div class="m-b-lg">
                                 <h3>
                                     <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
@@ -132,7 +126,6 @@
                                 </h3>
                             </div>
                             <div class="row">
-
                                 <div class="col-md-4 form-group">
                                     <label>{{ "DATA_REVOCA" | translate}} (*)</label>
                                     <div ng-class="{datePicherDisabled : !onOffModificaRevoca}" class="input-group date">
@@ -145,32 +138,19 @@
                                         <p ng-show="prestazioneForm.dataRevoca.$invalid && !prestazioneForm.dataRevoca.$pristine"
                                             class="help-block">{{
                                             'CAMPO_OBBLIGATORIO' | translate }}.</p>
-
                                     </div>
                                 </div>
-
-                                <!-- <div class="col-md-4 form-group">
-                                    <label>{{'MOTIVO_REVOCA' | translate }} (*)</label>
-                                    <input type="text" ng-readonly="!onOffModificaRevoca" class="form-control" ng-model="$ctrl.prestazione.motivoRevoca">
-                                </div> -->
-
                                 <div class="col-md-4 form-group">
                                     <label>{{'MOTIVO_REVOCA' | translate }} (*)</label>
-
                                     <ui-select name="motivoRevoca" ng-model="$ctrl.prestazione.motivoRevoca"
                                         ng-disabled="!onOffModificaRevoca" title="Seleziona un elemento nell'elenco">
                                         <ui-select-match placeholder="Seleziona motivo revoca">{{$select.selected.nome}}</ui-select-match>
-                                        <ui-select-choices repeat="nazione in $ctrl.motiviRevoca | filter: $select.search">
-                                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
-                                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                                        <ui-select-choices repeat="item in $ctrl.motiviRevoca | filter: $select.search">
+                                            <span ng-bind-html="item.nome | highlight: $select.search"></span>
+                                            <small ng-bind-html="item.code | highlight: $select.search"></small>
                                         </ui-select-choices>
                                     </ui-select>
-
-
                                 </div>
-
-
-
                                 <div class="col-md-4 form-group">
                                     <label>{{'IMPORTO_DA_RECUPERARE' | translate }}</label>
                                     <input type="text" ng-readonly="!onOffModificaRevoca" class="form-control text-right"
@@ -183,15 +163,14 @@
                                         class="form-control"></textarea>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="button-bar text-right">
-                                        <button ng-click="$ctrl.predisponi('Sospensione')" class="btn btn-sm btn-primary">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE'
+                                        <button ng-click="$ctrl.callPredisponi('Sospensione')" class="btn btn-sm btn-primary">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE'
                                             | translate
                                             }}
                                         </button>
-                                        <button ng-click="$ctrl.predisponi('Negazione')" class="btn btn-sm btn-primary">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE'
+                                        <button ng-click="$ctrl.callPredisponi('Negazione')" class="btn btn-sm btn-primary">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE'
                                             | translate }}</button>
                                         <button class="btn btn-sm" ng-class="{'btn-primary': !onOffModificaRevoca, 'btn-danger': onOffModificaRevoca}"
                                             ng-click="onOffModificaRevoca =!onOffModificaRevoca">{{'MODIFICA_REVOCA_PRESTAZIONE'
@@ -200,13 +179,9 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
                         <div ng-if="$ctrl.prestazione.stato == 'Sospesa'">
-
                             <div class="m-b-lg">
                                 <h3>
                                     <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
@@ -214,7 +189,6 @@
                                 </h3>
                             </div>
                             <div class="row">
-
                                 <div class="col-md-4 form-group">
                                     <label>{{ "DATA_SOSPENSIONE" | translate}} (*)</label>
                                     <div ng-class="{datePicherDisabled : !onOffModificaSospensione}" class="input-group date">
@@ -227,36 +201,21 @@
                                         <p ng-show="prestazioneForm.dataSospensione.$invalid && !prestazioneForm.dataNegazione.$pristine"
                                             class="help-block">{{
                                             'CAMPO_OBBLIGATORIO' | translate }}.</p>
-
                                     </div>
                                 </div>
-
-
-                                <!-- <div class="col-md-4 form-group">
-                                    <label>{{'MOTIVO_SOSPENSIONE' | translate }} (*)</label>
-                                    <input type="text" ng-readonly="!onOffModificaSospensione" class="form-control"
-                                        name="motivoNegazione" ng-model="$ctrl.prestazione.motivoSospensione">
-                                </div> -->
-
                                 <div class="col-md-4 form-group">
                                     <label>{{'MOTIVO_SOSPENSIONE' | translate }} (*)</label>
 
                                     <ui-select name="motivoSospensione" ng-model="$ctrl.prestazione.motivoSospensione"
                                         ng-disabled="!onOffModificaSospensione" title="Seleziona un elemento nell'elenco">
                                         <ui-select-match placeholder="Seleziona motivo sospensione">{{$select.selected.nome}}</ui-select-match>
-                                        <ui-select-choices repeat="nazione in $ctrl.motiviSospensione | filter: $select.search">
-                                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
-                                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                                        <ui-select-choices repeat="item in $ctrl.motiviSospensione | filter: $select.search">
+                                            <span ng-bind-html="item.nome | highlight: $select.search"></span>
+                                            <small ng-bind-html="item.code | highlight: $select.search"></small>
                                         </ui-select-choices>
                                     </ui-select>
 
-
                                 </div>
-
-
-
-
-
                                 <div class="col-md-4 form-group">
                                     <label>{{ "DATA_FINE_SOSPENSIONE" | translate}}</label>
                                     <div ng-class="{datePicherDisabled : !onOffModificaSospension}" class="input-group date">
@@ -268,12 +227,7 @@
                                         </span>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label>{{'NOTE' | translate }}</label>
@@ -281,15 +235,14 @@
                                         ng-readonly="!onOffModificaSospensione" class="form-control"></textarea>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="button-bar text-right">
-                                        <button ng-click="$ctrl.predisponi('negazione')" class="btn btn-sm btn-primary">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE'
+                                        <button ng-click="$ctrl.callPredisponi('Negazione')" class="btn btn-sm btn-primary">{{'PREDISPONI_NEGAZIONE_PRESTAZIONE'
                                             | translate
                                             }}
                                         </button>
-                                        <button ng-click="$ctrl.predisponi('revoca')" class="btn btn-sm btn-primary">{{'PREDISPONI_REVOCA_PRESTAZIONE'
+                                        <button ng-click="$ctrl.callPredisponi('Revoca')" class="btn btn-sm btn-primary">{{'PREDISPONI_REVOCA_PRESTAZIONE'
                                             | translate }}</button>
                                         <button class="btn btn-sm" ng-class="{'btn-primary': !onOffModificaSospensione, 'btn-danger': onOffModificaSospensione}"
                                             ng-click="onOffModificaSospensione =!onOffModificaSospensione">{{'MODIFICA_SOSPENSIONE_PRESTAZIONE'
@@ -298,13 +251,9 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
                         <div ng-if="$ctrl.prestazione.stato == 'Negazione'">
-
                             <div class="m-b-lg">
                                 <h3>
                                     <span><i class="fa fa-circle-o text-warning m-r-xs" aria-hidden="true"></i>
@@ -312,7 +261,6 @@
                                 </h3>
                             </div>
                             <div class="row">
-
                                 <div class="col-md-4 form-group">
                                     <label>{{ "DATA_NEGAZIONE" | translate}} (*)</label>
                                     <div ng-class="{datePicherDisabled : !onOffModificaNegazione}" class="input-group date">
@@ -325,14 +273,10 @@
                                         <p ng-show="prestazioneForm.dataNegazione.$invalid && !prestazioneForm.dataNegazione.$pristine"
                                             class="help-block">{{
                                             'CAMPO_OBBLIGATORIO' | translate }}.</p>
-
                                     </div>
                                 </div>
-
-
                                 <div class="col-md-4 form-group">
                                     <label>{{'MOTIVO_NEGAZIONE' | translate }} (*)</label>
-
                                     <ui-select name="motivoNegazione" ng-model="$ctrl.prestazione.motivoNegazione"
                                         ng-disabled="!onOffModificaNegazione" title="Seleziona un elemento nell'elenco">
                                         <ui-select-match placeholder="Seleziona motivo negazione">{{$select.selected.nome}}</ui-select-match>
@@ -341,12 +285,7 @@
                                             <small ng-bind-html="nazione.code | highlight: $select.search"></small>
                                         </ui-select-choices>
                                     </ui-select>
-
                                 </div>
-
-
-
-
                                 <div class="col-md-4 form-group">
                                     <label>{{ "DATA_FINE_NEGAZIONE" | translate}}</label>
                                     <div ng-class="{datePicherDisabled : !onOffModificaNegazione}" class="input-group date">
@@ -358,12 +297,7 @@
                                         </span>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label>{{'NOTE' | translate }}</label>
@@ -371,15 +305,14 @@
                                         ng-readonly="!onOffModificaNegazione" class="form-control"></textarea>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="button-bar text-right">
-                                        <button ng-click="$ctrl.predisponi('Sospensione')" class="btn btn-sm btn-primary">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE'
+                                        <button ng-click="$ctrl.callPredisponi('Sospensione')" class="btn btn-sm btn-primary">{{'PREDISPONI_SOSPENSIONE_PRESTAZIONE'
                                             | translate
                                             }}
                                         </button>
-                                        <button ng-click="$ctrl.predisponi('Revoca')" class="btn btn-sm btn-primary">{{'PREDISPONI_REVOCA_PRESTAZIONE'
+                                        <button ng-click="$ctrl.callPredisponi('Revoca')" class="btn btn-sm btn-primary">{{'PREDISPONI_REVOCA_PRESTAZIONE'
                                             | translate }}
                                         </button>
                                         <button class="btn btn-sm" ng-class="{'btn-primary': !onOffModificaNegazione, 'btn-danger': onOffModificaNegazione}"
@@ -389,14 +322,7 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
                     </div>
                     <!-- pannello 3 : elenco evidenze -->
                     <div role="tabpanel" class="tab-pane" ng-class="{ active: selTabPrestazioni == 2 }" ng-show="selTabPrestazioni == 2">

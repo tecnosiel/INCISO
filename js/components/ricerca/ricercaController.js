@@ -59,9 +59,6 @@ function ricercaController(
 
   this.findPosizione = function(cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
-      alert("problema");
-      debugger;
-      var x = this.elencoAssistiti;
       $state.go("posizione.visualizza_posizione", {
         datiAssistito: result
       });

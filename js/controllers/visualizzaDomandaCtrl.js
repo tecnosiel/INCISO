@@ -29,8 +29,7 @@ function visualizzaDomandaCtrl(
       Provenienza: "",
       DelegaPatronato: "",
 
-      DomandePresentate: [
-        {
+      DomandePresentate: [{
           Posizione: "771723",
           Fascicolo: "236",
           StatoDomanda: "Concessa",
@@ -45,14 +44,12 @@ function visualizzaDomandaCtrl(
 
           Comunicazioni: "",
           ModalitaDiPagamento: "",
-          AssociazioniDiCategoria: [
-            {
-              TipoAssociazione: "ANMIC",
-              DataInizioIscrizione: "10/04/1986",
-              DataFineIscrizione: "",
-              QuotaMensile: "103.32"
-            }
-          ],
+          AssociazioniDiCategoria: [{
+            TipoAssociazione: "ANMIC",
+            DataInizioIscrizione: "10/04/1986",
+            DataFineIscrizione: "",
+            QuotaMensile: "103.32"
+          }],
           Note: "",
           AziendaSanitaria: {
             NumeroProtocollo: "",
@@ -109,14 +106,12 @@ function visualizzaDomandaCtrl(
 
       Comunicazioni: "",
       ModalitaDiPagamento: "",
-      AssociazioniDiCategoria: [
-        {
-          TipoAssociazione: "ANMIC",
-          DataInizioIscrizione: "10/04/1986",
-          DataFineIscrizione: "",
-          QuotaMensile: "103.32"
-        }
-      ],
+      AssociazioniDiCategoria: [{
+        TipoAssociazione: "ANMIC",
+        DataInizioIscrizione: "10/04/1986",
+        DataFineIscrizione: "",
+        QuotaMensile: "103.32"
+      }],
       Note: "",
       AziendaSanitaria: {
         NumeroProtocollo: "",
@@ -138,15 +133,15 @@ function visualizzaDomandaCtrl(
 
   // gestione tabs
   $scope.tab = 1;
-  $scope.setTab = function(newTab) {
+  $scope.setTab = function (newTab) {
     $scope.tab = newTab;
   };
 
-  $scope.isSet = function(tabNum) {
+  $scope.isSet = function (tabNum) {
     return $scope.tab === tabNum;
   };
 
-  $scope.visualizzaLiquidazione = function($index) {
+  $scope.visualizzaLiquidazione = function ($index) {
     alert("aaaaaaaaaaaaaaaaaaaa");
     // if ($index) {
     //   $scope.tmpRedditiAssistito = $scope.datiAssistito.Redditi[$index];
@@ -158,11 +153,11 @@ function visualizzaDomandaCtrl(
     // quindi è sufficiente moltiplicarlo per il massimo numero che si vuole ottenere
     // e poi arrotondarne il risultato.
 
-    $scope.sospendiDomanda = function() {
+    $scope.sospendiDomanda = function () {
       alert("qqqqqqqqqqqqqqqqq");
     };
 
-    this.randomMove = function() {
+    this.randomMove = function () {
       let risultato = null;
 
       // clsPopup
@@ -200,42 +195,63 @@ function visualizzaDomandaCtrl(
 
   //--------- prestazioni start
 
-  $scope.totaleDellePrestazioniLiquidatePerAnno = [
-    {
+  $scope.totaleDellePrestazioniLiquidatePerAnno = [{
       Anno: "2014",
       TotalePrestazioniLiquidate: "15150.55",
-      Dettagli: [
-        { NomePrestazione: "aaaaaaaaaaaaa", Totale: 111111 },
-        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 },
-        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 },
-        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 },
-        { NomePrestazione: "bbbbbbbbbbbaaaa", Totale: 22222 }
+      Dettagli: [{
+          NomePrestazione: "aaaaaaaaaaaaa",
+          Totale: 111111
+        },
+        {
+          NomePrestazione: "bbbbbbbbbbbaaaa",
+          Totale: 22222
+        },
+        {
+          NomePrestazione: "bbbbbbbbbbbaaaa",
+          Totale: 22222
+        },
+        {
+          NomePrestazione: "bbbbbbbbbbbaaaa",
+          Totale: 22222
+        },
+        {
+          NomePrestazione: "bbbbbbbbbbbaaaa",
+          Totale: 22222
+        }
       ]
     },
     {
       Anno: "2015",
       TotalePrestazioniLiquidate: "17999.55",
-      Dettagli: [
-        { NomePrestazione: "Nome prestazione 1", Totale: 111111 },
-        { NomePrestazione: "Nome prestazione 2", Totale: 222222 },
-        { NomePrestazione: "Nome prestazione 3", Totale: 333333 }
+      Dettagli: [{
+          NomePrestazione: "Nome prestazione 1",
+          Totale: 111111
+        },
+        {
+          NomePrestazione: "Nome prestazione 2",
+          Totale: 222222
+        },
+        {
+          NomePrestazione: "Nome prestazione 3",
+          Totale: 333333
+        }
       ]
     },
     {
       Anno: "2016",
       TotalePrestazioniLiquidate: "13999.55",
-      Dettagli: [
-        {
-          NomePrestazione:
-            "Assegno mensile per invalidi civili parziali minorenni",
+      Dettagli: [{
+          NomePrestazione: "Assegno mensile per invalidi civili parziali minorenni",
           Totale: 111111
         },
         {
-          NomePrestazione:
-            "Indennità di accompagnamento per invalidi civili totalmente inabili",
+          NomePrestazione: "Indennità di accompagnamento per invalidi civili totalmente inabili",
           Totale: 22222
         },
-        { NomePrestazione: "Indennità di prova", Totale: 22222 }
+        {
+          NomePrestazione: "Indennità di prova",
+          Totale: 22222
+        }
       ]
     }
   ];
@@ -243,27 +259,29 @@ function visualizzaDomandaCtrl(
   $scope.elencoPrestazioni = [
     // primo
     {
-      descrizionePrestazione:
-        "Assegno mensile per invalidi civili parziali minorenni (descrizione prestazione)",
+      descrizionePrestazione: "Assegno mensile per invalidi civili parziali minorenni (descrizione prestazione)",
       dataDecorrenzaPrestazione: "01/01/1111",
       dataScadenzaPrestazione: "01/01/2222",
       notePrestazione: "prima prestazione jsdlkjfdlòaskjdflòkjdslòk",
 
       stato: "Revocata",
+      
       dataRevoca: "01/01/1111",
       motivoRevoca: "fkajsdfkjdsòlk",
       importoDaRecuperareRevoca: "12000.00",
-      noteRevoca:
-        "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+      noteRevoca: "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+
+      dataSospensione: null,
+      motivoSospensione: null,
+      dataFineSospensione: null,
+      noteSospensione: "Note relative alla sospensione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       dataNegazione: null,
       motivoNegazione: null,
       dataFineNegazione: null,
-      noteNegazione:
-        "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      noteNegazione: "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
-      importiSpettanti: [
-        {
+      importiSpettanti: [{
           Anno: 2014,
           TotaleSpettante: 111.0,
           TotaleLiquidato: 111111.0
@@ -279,18 +297,15 @@ function visualizzaDomandaCtrl(
           TotaleLiquidato: 333333.0
         }
       ],
-      elencoEvidenze: [
-        {
+      elencoEvidenze: [{
           Decorrenza: "01/01/2020",
           Scadenza: "01/01/2017",
           Tipo: "Prestazione da ripristinare – assegno di cura",
-          Descrizione:
-            "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
+          Descrizione: "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -300,32 +315,27 @@ function visualizzaDomandaCtrl(
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
           Scadenza: "01/01/2018",
           Tipo: "Prestazione da ripristinare – casa di lungodegenza",
-          Descrizione:
-            "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
+          Descrizione: "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
           Scadenza: "01/01/2018",
           Tipo: "Prestazione da revocare - soglia di reddito",
-          Descrizione:
-            "Prestazione da recocare per superamento soglia di reddito",
+          Descrizione: "Prestazione da recocare per superamento soglia di reddito",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -339,8 +349,7 @@ function visualizzaDomandaCtrl(
             NoteDiChiusura: "no anomalie",
             LetteraInviata: "no"
           },
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -354,12 +363,10 @@ function visualizzaDomandaCtrl(
             NoteDiChiusura: "-",
             LetteraInviata: "sì"
           },
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         }
       ],
-      elencoDatiRelativiAlReddito: [
-        {
+      elencoDatiRelativiAlReddito: [{
           Anno: 2016,
           Soglia: 4805.19,
           Reddito: 3500.0,
@@ -400,14 +407,12 @@ function visualizzaDomandaCtrl(
           ImportoAnnualeDellAssegnoIntegrativoCiechi: 1389.72
         }
       ],
-      elencoSospensioni: [
-        {
+      elencoSospensioni: [{
           Data: "01/01/2021",
           Motivo: "Soggiorno presso struttura di lungodegenza-11111",
           Scadenza: "01/03/2020",
           Fine: "01/03/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
           Data: "01/01/2020",
@@ -421,42 +426,42 @@ function visualizzaDomandaCtrl(
           Motivo: "Percepisce assegno di cura-111111",
           Scadenza: "01/01/2020",
           Fine: "01/01/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           Data: "01/01/2020",
           Motivo: "Percepisce assegno di cura-55555",
           Scadenza: "01/01/2020",
           Fine: "01/01/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]
     },
     // secondo
     {
-      descrizionePrestazione:
-        "Indennità di accompagnamento per invalidi civili totalmente inabili",
+      descrizionePrestazione: "Indennità di accompagnamento per invalidi civili totalmente inabili",
       dataDecorrenzaPrestazione: "02/02/1111",
       dataScadenzaPrestazione: "02/02/2222",
       notePrestazione: "seconda jsdlkjfdlòaskjdflòkjdslòk",
 
       stato: "Negazione",
+
       dataRevoca: "01/01/1111",
       motivoRevoca: "fkajsdfkjdsòlk",
       importoDaRecuperareRevoca: "12000.00",
-      noteRevoca:
-        "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+      noteRevoca: "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+
+      dataSospensione: null,
+      motivoSospensione: null,
+      dataFineSospensione: null,
+      noteSospensione: "Note relative alla sospensione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       dataNegazione: "02/02/2012",
       motivoNegazione: null,
       dataFineNegazione: "02/02/2012",
-      noteNegazione:
-        "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      noteNegazione: "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
-      importiSpettanti: [
-        {
+      importiSpettanti: [{
           Anno: 2014,
           TotaleSpettante: 22111.0,
           TotaleLiquidato: 11111.0
@@ -472,18 +477,15 @@ function visualizzaDomandaCtrl(
           TotaleLiquidato: 1234.0
         }
       ],
-      elencoEvidenze: [
-        {
+      elencoEvidenze: [{
           Decorrenza: "01/01/2020",
           Scadenza: "01/01/2017",
           Tipo: "Prestazione da ripristinare – assegno di cura",
-          Descrizione:
-            "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
+          Descrizione: "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -493,32 +495,27 @@ function visualizzaDomandaCtrl(
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
           Scadenza: "01/01/2018",
           Tipo: "Prestazione da ripristinare – casa di lungodegenza",
-          Descrizione:
-            "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
+          Descrizione: "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
           Scadenza: "01/01/2018",
           Tipo: "Prestazione da revocare - soglia di reddito",
-          Descrizione:
-            "Prestazione da recocare per superamento soglia di reddito",
+          Descrizione: "Prestazione da recocare per superamento soglia di reddito",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -532,8 +529,7 @@ function visualizzaDomandaCtrl(
             NoteDiChiusura: "no anomalie",
             LetteraInviata: "no"
           },
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -547,12 +543,10 @@ function visualizzaDomandaCtrl(
             NoteDiChiusura: "-",
             LetteraInviata: "sì"
           },
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         }
       ],
-      elencoDatiRelativiAlReddito: [
-        {
+      elencoDatiRelativiAlReddito: [{
           Anno: 2016,
           Soglia: 4805.19,
           Reddito: 3500.0,
@@ -593,14 +587,12 @@ function visualizzaDomandaCtrl(
           ImportoAnnualeDellAssegnoIntegrativoCiechi: 1389.72
         }
       ],
-      elencoSospensioni: [
-        {
+      elencoSospensioni: [{
           Data: "01/01/2021",
           Motivo: "Soggiorno presso struttura di lungodegenza-11111",
           Scadenza: "01/03/2020",
           Fine: "01/03/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
           Data: "01/01/2020",
@@ -614,48 +606,47 @@ function visualizzaDomandaCtrl(
           Motivo: "Percepisce assegno di cura-111111",
           Scadenza: "01/01/2020",
           Fine: "01/01/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           Data: "01/01/2020",
           Motivo: "Percepisce assegno di cura-55555",
           Scadenza: "01/01/2020",
           Fine: "01/01/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]
     },
     // terzo
     {
-      descrizionePrestazione:
-        "Prova Prova Prova possiamo inserire quante prestazioni vogliamo",
+      descrizionePrestazione: "Prova Prova Prova possiamo inserire quante prestazioni vogliamo",
       dataDecorrenzaPrestazione: "11/11/1111",
       dataScadenzaPrestazione: "03/03/2013",
       notePrestazione: "terzo jsdlkjfdlòaskjdflòkjdslòk",
 
       stato: "Sospesa",
+
       dataRevoca: "01/01/1111",
       motivoRevoca: "fkajsdfkjdsòlk",
       importoDaRecuperareRevoca: "12000.00",
-      noteRevoca:
-        "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+      noteRevoca: "Note relative alla revoca....... Questi sono dati finti caricati dal controller, sempre visibili per comodità di debug",
+
+      dataSospensione: null,
+      motivoSospensione: null,
+      dataFineSospensione: null,
+      noteSospensione: "Note relative alla sospensione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       dataNegazione: null,
       motivoNegazione: null,
       dataFineNegazione: null,
-      noteNegazione:
-        "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      noteNegazione: "Note relative alla negazione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
       dataSospensione: "11/11/1111",
       motivoSospensione: "1111111111111111111",
       dataFineSospensione: "11/11/1111",
-      noteSospensione:
-        "Note relative alla sospensione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
+      noteSospensione: "Note relative alla sospensione...... Questi sono dati finti caricati dal controller, perciò sempre visibili x comodità di debug",
 
-      importiSpettanti: [
-        {
+      importiSpettanti: [{
           Anno: 2014,
           TotaleSpettante: 221.0,
           TotaleLiquidato: 111.0
@@ -672,18 +663,15 @@ function visualizzaDomandaCtrl(
         }
       ],
 
-      elencoEvidenze: [
-        {
+      elencoEvidenze: [{
           Decorrenza: "01/01/2020",
           Scadenza: "01/01/2017",
           Tipo: "Prestazione da ripristinare – assegno di cura",
-          Descrizione:
-            "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
+          Descrizione: "Prestazione da ripristinare, assistito non percepisce più l’assegno di cura",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -693,32 +681,27 @@ function visualizzaDomandaCtrl(
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
           Scadenza: "01/01/2018",
           Tipo: "Prestazione da ripristinare – casa di lungodegenza",
-          Descrizione:
-            "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
+          Descrizione: "Prestazione da ripristinare, assistito non soggiorna più in una casa di lungodegenza",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
           Scadenza: "01/01/2018",
           Tipo: "Prestazione da revocare - soglia di reddito",
-          Descrizione:
-            "Prestazione da recocare per superamento soglia di reddito",
+          Descrizione: "Prestazione da recocare per superamento soglia di reddito",
           Posizione: "777232",
           Prestazione: "Pensione per invalidi civili parziali",
           Chiusura: null,
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -732,8 +715,7 @@ function visualizzaDomandaCtrl(
             NoteDiChiusura: "no anomalie",
             LetteraInviata: "no"
           },
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         },
         {
           Decorrenza: "01/01/2022",
@@ -747,12 +729,10 @@ function visualizzaDomandaCtrl(
             NoteDiChiusura: "-",
             LetteraInviata: "sì"
           },
-          Note:
-            "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+          Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         }
       ],
-      elencoDatiRelativiAlReddito: [
-        {
+      elencoDatiRelativiAlReddito: [{
           Anno: 2016,
           Soglia: 1111.19,
           Reddito: 11111.0,
@@ -793,14 +773,12 @@ function visualizzaDomandaCtrl(
           ImportoAnnualeDellAssegnoIntegrativoCiechi: 4444.72
         }
       ],
-      elencoSospensioni: [
-        {
+      elencoSospensioni: [{
           Data: "01/01/2021",
           Motivo: "Soggiorno presso struttura di lungodegenza-11111",
           Scadenza: "01/03/2020",
           Fine: "01/03/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
           Data: "01/01/2020",
@@ -814,16 +792,14 @@ function visualizzaDomandaCtrl(
           Motivo: "Percepisce assegno di cura-111111",
           Scadenza: "01/01/2020",
           Fine: "01/01/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           Data: "01/01/2020",
           Motivo: "Percepisce assegno di cura-55555",
           Scadenza: "01/01/2020",
           Fine: "01/01/2020",
-          Note:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]
     }
@@ -841,7 +817,7 @@ function visualizzaDomandaCtrl(
   $scope.vm = {};
   $scope.vm.dtInstance = {};
 
-  $scope.detailInfoPrestazioniLiquidate = function(dettagliJson, event, url) {
+  $scope.detailInfoPrestazioniLiquidate = function (dettagliJson, event, url) {
     var scope = $scope.$new(true);
     scope.dettagliJson = dettagliJson;
     scope.url = url;
@@ -864,8 +840,8 @@ function visualizzaDomandaCtrl(
         .child(
           $compile(
             "<dettaglio-prestazioni parameter = 'dettagliJson' url = '" +
-              scope.url +
-              "' ></dettaglio-prestazioni>"
+            scope.url +
+            "' ></dettaglio-prestazioni>"
           )(scope)
         )
         .show();
@@ -876,7 +852,7 @@ function visualizzaDomandaCtrl(
 
   //--------- prestazioni end
 
-  $scope.modificaDomanda = function() {
+  $scope.modificaDomanda = function () {
     debugger;
     $scope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
     swal({
@@ -886,18 +862,17 @@ function visualizzaDomandaCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(function(willDelete) {
+    }).then(function (willDelete) {
       if (willDelete) {
         $scope.$state.go("domande.domanda");
-      } else {
-      }
+      } else {}
     });
   };
 
   self = this;
 
-  $scope.showModal = function(win) {
-    this.randomMove = function() {
+  $scope.showModal = function (win) {
+    this.randomMove = function () {
       let risultato = null;
 
       // clsPopup
@@ -937,7 +912,7 @@ function visualizzaDomandaCtrl(
   };
 
   // ------------------------
-  $scope.sospendiDomanda = function() {
+  $scope.sospendiDomanda = function () {
     $scope.domanda.StatoDomanda = "Sospesa";
     var self = this;
     swal({
@@ -947,7 +922,7 @@ function visualizzaDomandaCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(function(willDelete) {
+    }).then(function (willDelete) {
       if (willDelete) {
         self.showModal({
           template: "./../views/modal_sospensione_domanda.html",
@@ -965,7 +940,7 @@ function visualizzaDomandaCtrl(
     });
   };
   // ------------------------
-  $scope.revocaDomanda = function(cType) {
+  $scope.revocaDomanda = function (cType) {
     $scope.Type = cType;
 
     $scope.domanda.StatoDomanda = "Revocata";
@@ -979,7 +954,7 @@ function visualizzaDomandaCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(function(willDelete) {
+    }).then(function (willDelete) {
       if (willDelete) {
         self.showModal({
           template: "./../views/modal_revoca_domanda.html",
@@ -997,7 +972,7 @@ function visualizzaDomandaCtrl(
     });
   };
 
-  $scope.negaDomanda = function(cType) {
+  $scope.negaDomanda = function (cType) {
     $scope.Type = cType;
 
     $scope.domanda.StatoDomanda = "Negata";
@@ -1011,7 +986,7 @@ function visualizzaDomandaCtrl(
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(function(willDelete) {
+    }).then(function (willDelete) {
       if (willDelete) {
         self.showModal({
           template: "./../views/modal_negazione_domanda.html",
@@ -1029,27 +1004,27 @@ function visualizzaDomandaCtrl(
       }
     });
   };
-  $scope.inserisciNuovoVerbale = function() {
+  $scope.inserisciNuovoVerbale = function () {
     swal("Inserimento verbale!", "...individuare procedura da chiamare!");
   };
-  $scope.inserisciNuovaEvidenza = function() {
+  $scope.inserisciNuovaEvidenza = function () {
     swal("Inserimento evidenza!", "...individuare procedura da chiamare!");
   };
 
-  $scope.creaSospensione = function() {
+  $scope.creaSospensione = function () {
     swal(
       "Creazione nuova sospensione!",
       "...individuare procedura da chiamare!"
     );
   };
-  $scope.cancellaDomanda = function() {
+  $scope.cancellaDomanda = function () {
     swal({
       title: "Desideri cancellare la domanda?",
       text: "Ricorda: potrà sempre essere recuperata!",
       icon: "warning",
       buttons: true,
       dangerMode: true
-    }).then(function(willDelete) {
+    }).then(function (willDelete) {
       if (willDelete) {
         $scope.domanda.StatoDomanda = "Cancellata";
         $scope.$apply();

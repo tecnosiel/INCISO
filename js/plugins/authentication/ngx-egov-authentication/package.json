@@ -1,0 +1,94 @@
+{
+  "_from": "@siag/ngx-egov-authentication",
+  "_id": "@siag/ngx-egov-authentication@3.2.4",
+  "_inBundle": false,
+  "_integrity": "sha512-AoRdh5EEjhAYkSSOqWcJBHpFFujRtRDYwCYoKCy/dCn/VPsxCnf7HuwDVxIPTiGowGEqkmA5lMyxq8rYY7YxFA==",
+  "_location": "/@siag/ngx-egov-authentication",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@siag/ngx-egov-authentication",
+    "name": "@siag/ngx-egov-authentication",
+    "escapedName": "@siag%2fngx-egov-authentication",
+    "scope": "@siag",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://repo.services.siag.it/repository/npm-public/@siag/ngx-egov-authentication/-/ngx-egov-authentication-3.2.4.tgz",
+  "_shasum": "8763a2c2bfb63d1c55b67df61d40829a94217609",
+  "_spec": "@siag/ngx-egov-authentication",
+  "_where": "C:\\Users\\Albino-Scalet",
+  "author": {
+    "name": "Juri Strumpflohner",
+    "email": "juri.strumpflohner@siag.it"
+  },
+  "bugs": {
+    "url": "https://github.com/username/repo/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "ngx-egov-authentication\r ---",
+  "devDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@compodoc/compodoc": "^1.0.0-beta.10",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "~6.0.60",
+    "codelyzer": "~2.0.0",
+    "core-js": "^2.4.1",
+    "node-sass": "^4.5.2",
+    "node-sass-tilde-importer": "^1.0.0",
+    "node-watch": "^0.5.2",
+    "protractor": "~5.1.0",
+    "rollup": "^0.45.2",
+    "run-sequence": "^1.2.2",
+    "rxjs": "^5.0.0",
+    "ts-node": "~2.0.0",
+    "typescript": "^2.4.0",
+    "zone.js": "^0.8.4"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "es2015": "@siag/ngx-egov-authentication.js",
+  "homepage": "https://github.com/username/repo#readme",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "main": "bundles/ngx-egov-authentication.umd.js",
+  "module": "@siag/ngx-egov-authentication.es5.js",
+  "name": "@siag/ngx-egov-authentication",
+  "peerDependencies": {
+    "@angular/core": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@siag/js-egov-authentication": "^3.2.4",
+    "@siag/jsui-egov-authentication": "^3.2.4",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/repo.git"
+  },
+  "scripts": {
+    "build.es5": "tsc ../../dist/ngx-egov-authentication/@siag/ngx-egov-authentication.es5.ts --target es5 --module es2015 --noLib --sourceMap",
+    "build.fesm": "rollup -i ../../dist/packages/ngx-egov-authentication/index.js -o ../../dist/ngx-egov-authentication/@siag/ngx-egov-authentication.js --sourcemap",
+    "build.ngc": "ngc -p ./tsconfig.json",
+    "build.ts": "",
+    "build.umd": "rollup -c rollup.config.js --sourcemap"
+  },
+  "typings": "ngx-egov-authentication.d.ts",
+  "version": "3.2.4"
+}
