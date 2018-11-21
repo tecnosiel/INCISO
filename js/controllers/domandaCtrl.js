@@ -13,7 +13,6 @@ function domandaCtrl(
   // ----
   $scope.elencoDomande = [];
   $scope.visualizzaDomanda = function() {
-    alert("domandeServices11111111111111111111111");
     domandeServices.find(this.info, result => {
       $scope.elencoDomande = result;
       $state.go("domande.visualizza_domanda", {

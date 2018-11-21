@@ -156,8 +156,6 @@ function visualizzaAnagrafeCtrl(
 
   $scope.onFormAnagrafeSubmit = function() {
     if ($scope.anagrafeForm.$valid) {
-      alert("xxxxxxxx")
-      debugger;
       anagrafeServices.save($scope.datiAssistito, CallBackSalva);
     }
   };

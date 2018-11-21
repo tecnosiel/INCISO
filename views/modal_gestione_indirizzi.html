@@ -27,7 +27,7 @@
         <!-- --------- -->
         <div ng-if="Indirizzi">
 
-            <table class="table table-bordered table-striped scroll-x" >
+            <table class="table table-bordered table-striped scroll-x">
                 <thead>
                     <tr>
                         <th></th>
@@ -58,7 +58,7 @@
                         <td text-right>{{item.Cap}}</td>
                         <td>{{item.Frazione}}</td>
                         <td>{{item.Via}}</td>
-                        <td >{{item.Civico}}</td>
+                        <td>{{item.Civico}}</td>
                         <td>{{item.Localita}}</td>
                         <td>{{item.Maso}}</td>
                         <td>{{item.IndirizzoCompleto}}</td>
@@ -311,11 +311,16 @@
                             </select> -->
 
                         </div>
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-8 form-group">
                             <label>{{ "INDIRIZZO_COMPLETO" | translate}}</label>
                             <input name="indirizzoNonCodificatoIndirizzoCompleto" type="text" ng-model="Tmp.IndirizzoNonCodificato.IndirizzoCompleto"
                                 ng-readonly="visDatiAssistito" class="form-control">
 
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{{ "N_CIVICO" | translate}}</label>
+                            <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" placeholder="Seleziona civico"
+                                ng-readonly="visDatiAssistito" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -325,11 +330,6 @@
         <!-- --------- -->
 
         <div class="row">
-            <div class="col-md-4 form-group">
-                <label>{{ "N_CIVICO" | translate}}</label>
-                <input name="datiAssistito.NroCivico" type="text" ng-model="Tmp.NroCivico" placeholder="Seleziona civico"
-                    ng-readonly="visDatiAssistito" class="form-control">
-            </div>
             <!-- <div class="col-md-4 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>
                 <input name="datiAssistito.InizioValidita" type="text" ng-model="Tmp.InizioValidita" ng-readonly="visDatiAssistito"
@@ -338,7 +338,7 @@
             </div> -->
 
 
-            <div class="col-md-4 form-group">
+            <div class="col-md-6 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>
                 <div class="input-group date">
                     <input type="text" class="form-control js-date" ng-model="Tmp.InizioValidita" placeholder="Seleziona inizio validità">
@@ -355,7 +355,7 @@
                     class="form-control js-date">
             </div> -->
 
-            <div class="col-md-4 form-group">
+            <div class="col-md-6 form-group">
                 <label>{{ "FINE_VALIDITA" | translate}}</label>
                 <div class="input-group date">
                     <input type="text" class="form-control js-date" ng-model="Tmp.FineValidita" placeholder="Seleziona fine validità">

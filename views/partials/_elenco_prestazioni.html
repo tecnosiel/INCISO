@@ -283,8 +283,6 @@
     });
     // Add event listener for opening and closing details
     function expandTable(tableId, tableRoot, tr) {
-        alert(1111)
-        debugger;
         var row = tableRoot.row(tr);
         if (row.length < 1) {
             $('#' + tableId + ' table').each(function (index) {

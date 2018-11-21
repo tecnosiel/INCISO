@@ -11,24 +11,31 @@
 
             <div ng-if="$ctrl.prestazione.stato=='Revocata'" class="pull-right">
                 <label>{{'DATA_DECORRENZA' | translate}}: {{$ctrl.prestazione.dataDecorrenzaPrestazione}}</label>
-                <span class="label label-warning" data-toggle="popover" data-container="body" data-trigger="hover"
-                    data-html="true" data-content="<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
-                    data-placement="left">
-                    <i class="fa fa-circle-o"></i> revocata </span>
+                <span custom-popover popover-trigger="hover" popover-html="<div>Stato: <label class='text-warning'>Revocata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
+                    popover-placement="left" popover-class="label label-warning" popover-label="revocata">
+                </span>
             </div>
+
             <div ng-if="$ctrl.prestazione.stato=='Negazione'" class="pull-right">
                 <label>{{'DATA_DECORRENZA' | translate}}: {{$ctrl.prestazione.dataDecorrenzaPrestazione}}</label>
-                <span class="label label-warning" style="background-color:red" data-toggle="popover" data-container="body"
-                    data-trigger="hover" data-html="true" data-content="<div>Stato: <label class='text-warning'>Negata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
-                    data-placement="left">
-                    <i class="fa fa-circle-o"></i> negata </span>
+
+                <span custom-popover popover-trigger="hover" popover-html="<div>Stato: <label class='text-warning'>Negata</label></div><div>Data negazione: <label>03/12/2013</label></div>"
+                    popover-placement="left" popover-class="label label-danger" popover-label="negata" style="background-color:red">
+                </span>
+
+
             </div>
             <div ng-if="$ctrl.prestazione.stato=='Sospesa'" class="pull-right">
                 <label>{{'DATA_DECORRENZA' | translate}}: {{$ctrl.prestazione.dataDecorrenzaPrestazione}}</label>
-                <span class="label label-warning" style="background-color:grey" data-toggle="popover" data-container="body"
+                <span custom-popover popover-trigger="hover" popover-html="<div>Stato: <label class='text-warning'>Sospesa</label></div><div>Data sospensione: <label>03/12/2013</label></div>"
+                    popover-placement="left" popover-class="label label--default" popover-label="sospesa">
+                </span>
+
+                <!-- <span class="label label-warning" style="background-color:grey" data-toggle="popover" data-container="body"
                     data-trigger="hover" data-html="true" data-content="<div>Stato: <label class='text-warning'>Negata</label></div><div>Data revoca: <label>03/12/2013</label></div>"
                     data-placement="left">
-                    <i class="fa fa-circle-o"></i> sospesa </span>
+                    <i class="fa fa-circle-o"></i> sospesa
+                </span> -->
             </div>
 
             <div class="row">
@@ -40,7 +47,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="collapse{{$ctrl.index}}" class="panel-collapse collapse">
             <div class="panel-body">
                 <ul class="nav nav-tabs" role="tablist">
@@ -465,3 +472,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        // inizializzazione popover
+        $('[data-toggle="popover"]').popover();
+
+    });
+</script>

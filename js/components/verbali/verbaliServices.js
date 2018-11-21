@@ -7,7 +7,7 @@ mochTableVerbali = function(table) {
   let tabVerbali = [
     {
       DataProtocollo: "01/01/2010",
-      NumeroProtocollo: "111-442524223",
+      NumeroProtocollo: "442524223",
       PercentualeDiInvalidita: "60",
       IndennitaDiAccompagnamento: "Si",
       PatologiaUditiva: "Si",
@@ -16,7 +16,7 @@ mochTableVerbali = function(table) {
     },
     {
       DataProtocollo: "01/01/2011",
-      NumeroProtocollo: "111-2345223211",
+      NumeroProtocollo: "2345223211",
       PercentualeDiInvalidita: "100",
       IndennitaDiAccompagnamento: "Si",
       PatologiaUditiva: "Si",
@@ -25,7 +25,7 @@ mochTableVerbali = function(table) {
     },
     {
       DataProtocollo: "01/01/2012",
-      NumeroProtocollo: "111-2345223211",
+      NumeroProtocollo: "2345223211",
       PercentualeDiInvalidita: "100",
       IndennitaDiAccompagnamento: "Si",
       PatologiaUditiva: "Si",
