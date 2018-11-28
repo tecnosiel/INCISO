@@ -4,19 +4,33 @@
  *
  */
 function settingCtrl($scope, $rootScope) {
-  $scope.tmp = null;
 
-  $scope.resetStyle = function() {
+  $scope.tmp = {
+    fontfamily: "open sans",
+    fontsize: 13,
+    lineheight: 18.57,
+    color: "rgb(51, 51, 51)",
+    serverbackend:""
+
+  };
+
+  $scope.resetParameters = function () {
     $scope.tmp = {
       fontfamily: "open sans",
       fontsize: 13,
       lineheight: 18.57,
-      color: "rgb(51, 51, 51)"
+      color: "rgb(51, 51, 51)",
+      serverbackend:""
     };
-    $scope.setStyle();
+    localStorage.setItem('fontfamily', 'open sans');
+    localStorage.setItem('fontsize', '13');
+    localStorage.setItem('lineheight', '18.57');
+    localStorage.setItem('color', 'rgb(51, 51, 51)');
+    localStorage.setItem('serverbackend', '');
+    $scope.setParameters();
   };
 
-  $scope.setStyle = function() {
+  $scope.setParameters = function (cTipo) {
     if ($scope.tmp.fontfamily) {
       $rootScope.CustomStyle["font-family"] = $scope.tmp.fontfamily;
     }
@@ -30,11 +44,51 @@ function settingCtrl($scope, $rootScope) {
     if ($scope.tmp.color) {
       $rootScope.CustomStyle["color"] = $scope.tmp.color;
     }
+    if ($scope.tmp.serverbackend) {
+      $rootScope.serverbackend = $scope.tmp.serverbackend;
+    }else{
+      $rootScope.serverbackend = "";
+    }
+    if (cTipo == "memorizza") {
 
-    // $scope.$apply();
+      localStorage.setItem('fontfamily', $scope.tmp.fontfamily);
+      localStorage.setItem('fontsize', $scope.tmp.fontsize);
+      localStorage.setItem('lineheight', $scope.tmp.lineheight);
+      localStorage.setItem('color', $scope.tmp.color);
+      localStorage.setItem('serverbackend', $scope.tmp.serverbackend);
+    }
   };
 
-  $scope.resetStyle();
+  debugger;
+  buffer = localStorage.getItem('fontfamily');
+  if (buffer) {
+    $scope.tmp.fontfamily = buffer;
+  }
+  // ---
+  buffer = localStorage.getItem('fontsize');
+  if (buffer) {
+    $scope.tmp.fontsize = buffer;
+  }
+  // ---
+  buffer = localStorage.getItem('lineheight');
+  if (buffer) {
+    $scope.tmp.lineheight = buffer;
+  }
+  // ---
+  buffer = localStorage.getItem('color');
+  if (buffer) {
+    $scope.tmp.color = buffer;
+  }
+  // ---
+  buffer = localStorage.getItem('serverbackend');
+  if (buffer) {
+    $scope.tmp.serverbackend = buffer;
+  }
+
+  debugger;
+
+  $scope.setParameters();
+
 }
 
 /**

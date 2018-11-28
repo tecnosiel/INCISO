@@ -5,6 +5,12 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      SERVER_BACKEND:"Server backend",
+      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto per fake-backend) ",
+
+
+      END_POINTS:"EndPoints",
+      INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE:"Indicare indirizzi RestFul da adoperare",
       INSERISCI_NUOVA_EVIDENZA:"Inserisci nuova evidenza",
       SALVA_EVIDENZA :"Salva evidenza",
       // -------------------------------------------------------------------------------
@@ -125,8 +131,9 @@ function config($translateProvider) {
       MAIL: "Mail",
       LOGOUT: "Logout",
 
-      SET_NEW_STYLE: "Applica nuovo style",
-      RESET_DEFAULT_STYLE: "Reset default style",
+      SET_NEW_PARAMETERS: "Applica nuovi parametri",
+      RESET_DEFAULT_PARAMETERS: "Reset parametri di default",
+
       TEXT_COLOR: "Colore testo",
 
       DIMENSIONE_CARATTERE: "Dimensione fonts",
@@ -704,6 +711,11 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      SERVER_BACKEND:"Server backend DE",
+      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto per fake-backend) DE",
+      END_POINTS:"EndPoints DE",
+      INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE:"Indicare indirizzi RestFul da adoperare DE",
+
       INSERISCI_NUOVA_EVIDENZA:"Inserisci nuova evidenza DE",
 
       SALVA_EVIDENZA :"Salva evidenza DE",
@@ -830,8 +842,9 @@ function config($translateProvider) {
       MAIL: "Mail DE",
       LOGOUT: "Logout DE",
 
-      SET_NEW_STYLE: "Applica nuovo style DE",
-      RESET_DEFAULT_STYLE: "Reset default style DE",
+      SET_NEW_PARAMETERS: "Applica nuovi parametri DE",
+      RESET_DEFAULT_PARAMETERS: "Reset parametri di default DE",
+      
       TEXT_COLOR: "Colore testo DE",
 
       DIMENSIONE_CARATTERE: "Dimensione fonts DE",

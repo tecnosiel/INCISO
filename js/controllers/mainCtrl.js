@@ -18,9 +18,41 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
 
 
   $rootScope.CustomStyle = {
-    "background-color": null,
-    "font-size": null
+    // "background-color": null,
+    // "font-size": null
   };
+
+  debugger;
+  buffer = localStorage.getItem('fontfamily');
+  if (buffer) {
+    $rootScope.CustomStyle["font-family"] = buffer;
+  }
+  // ---
+  buffer = localStorage.getItem('fontsize');
+  if (buffer) {
+    $rootScope.CustomStyle["font-size"] = buffer  + "px";
+  }
+  // ---
+  buffer = localStorage.getItem('lineheight');
+  if (buffer) {
+    $rootScope.CustomStyle["line-height"] = (buffer * 1).toFixed(2) + "px";;
+  }
+  // ---
+  buffer = localStorage.getItem('color');
+  if (buffer) {
+    $rootScope.CustomStyle["color"] = buffer;
+  }
+  // ---
+  debugger;
+  buffer = localStorage.getItem('serverbackend');
+  if (buffer) {
+    $rootScope.serverbackend = buffer;
+  }else{
+    $rootScope.serverbackend = buffer;
+  }
+
+
+
 
   $rootScope.inserisciEvidenza = function (cCodFis) {
     $scope.modale = true;
