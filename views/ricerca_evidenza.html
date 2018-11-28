@@ -1,7 +1,4 @@
-<header-component
-  tipo="'Generico'"
-  titolo="'RICERCA_EVIDENZA'"
-></header-component>
+<header-component tipo="'Generico'" titolo="'RICERCA_EVIDENZA'"></header-component>
 
 <div ng-include="'views/common/spinner.html'" class="centered"></div>
 
@@ -17,11 +14,7 @@
             <div class="row">
               <div class="col-md-4 form-group">
                 <label>{{ "TIPO_EVIDENZA" | translate }}</label>
-                <select
-                  class="form-control"
-                  name="account"
-                  ng-model="info.find.TipoEvidenza"
-                >
+                <select class="form-control" name="account" ng-model="info.find.TipoEvidenza">
                   <option>Permesso di soggiorno</option>
                   <option>Trasferimento - cambio residenza</option>
                   <option>Controllo reddito</option>
@@ -37,33 +30,21 @@
                   <option>Prestazione da revocare - soglia incremento</option>
                   <option>Prestazione da ripristinare - dati reddito</option>
                   <option>Prestazione da ripristinare – assegno di cura</option>
-                  <option
-                    >Prestazione da ripristinare – casa di lungodegenza</option
-                  >
+                  <option>Prestazione da ripristinare – casa di lungodegenza</option>
                   <option>Prestazione da concedere – fascia di età</option>
                   <option>Importo da recuperare eredi</option>
                   <option>Importo da recuperare</option>
-                  <option
-                    >Importo da recuperare – Procura della Repubblica</option
-                  >
+                  <option>Importo da recuperare – Procura della Repubblica</option>
                   <option>...</option>
                 </select>
               </div>
               <div class="col-md-4 form-group">
                 <label>{{ "POSIZIONE" | translate }}</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  ng-model="info.find.Posizione"
-                />
+                <input type="text" class="form-control" ng-model="info.find.Posizione" />
               </div>
               <div class="col-md-4 form-group">
                 <label>{{ "TIPO_PRESTAZIONE" | translate }}</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  ng-model="info.find.TipoPrestazione"
-                />
+                <input type="text" class="form-control" ng-model="info.find.TipoPrestazione" />
               </div>
             </div>
 
@@ -75,26 +56,16 @@
                 <div class="input-group fullwidth">
                   <span class="input-group-custom">{{
                     "DAL" | translate
-                  }}</span>
+                    }}</span>
                   <div class="input-group date">
-                    <input
-                      type="text"
-                      class="form-control js-date"
-                      ng-model="info.find.DataDecorrenzaDal"
-                      placeholder="dd/MM/yyyy"
-                    />
+                    <input type="text" class="form-control js-date" ng-model="info.find.DataDecorrenzaDal" placeholder="dd/MM/yyyy" />
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
                   </div>
                   <span class="input-group-custom">{{ "AL" | translate }}</span>
                   <div class="input-group date">
-                    <input
-                      type="text"
-                      class="form-control js-date"
-                      ng-model="info.find.DataDecorrenzaAl"
-                      placeholder="dd/MM/yyyy"
-                    />
+                    <input type="text" class="form-control js-date" ng-model="info.find.DataDecorrenzaAl" placeholder="dd/MM/yyyy" />
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
@@ -109,26 +80,16 @@
                 <div class="input-group fullwidth">
                   <span class="input-group-custom">{{
                     "DAL" | translate
-                  }}</span>
+                    }}</span>
                   <div class="input-group date">
-                    <input
-                      type="text"
-                      class="form-control js-date"
-                      ng-model="info.find.DataScadenzaDal"
-                      placeholder="dd/MM/yyyy"
-                    />
+                    <input type="text" class="form-control js-date" ng-model="info.find.DataScadenzaDal" placeholder="dd/MM/yyyy" />
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
                   </div>
                   <span class="input-group-custom">{{ "AL" | translate }}</span>
                   <div class="input-group date">
-                    <input
-                      type="text"
-                      class="form-control js-date"
-                      ng-model="info.find.DataScadenzaAl"
-                      placeholder="dd/MM/yyyy"
-                    />
+                    <input type="text" class="form-control js-date" ng-model="info.find.DataScadenzaAl" placeholder="dd/MM/yyyy" />
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
@@ -142,26 +103,16 @@
                 <div class="input-group fullwidth">
                   <span class="input-group-custom">{{
                     "DAL" | translate
-                  }}</span>
+                    }}</span>
                   <div class="input-group date">
-                    <input
-                      type="text"
-                      class="form-control js-date"
-                      ng-model="info.find.DataChiusuraDal"
-                      placeholder="dd/MM/yyyy"
-                    />
+                    <input type="text" class="form-control js-date" ng-model="info.find.DataChiusuraDal" placeholder="dd/MM/yyyy" />
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
                   </div>
                   <span class="input-group-custom">{{ "AL" | translate }}</span>
                   <div class="input-group date">
-                    <input
-                      type="text"
-                      class="form-control js-date"
-                      ng-model="info.find.DataChiusuraAl"
-                      placeholder="dd/MM/yyyy"
-                    />
+                    <input type="text" class="form-control js-date" ng-model="info.find.DataChiusuraAl" placeholder="dd/MM/yyyy" />
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
@@ -175,40 +126,20 @@
             <div class="row">
               <div class="col-md-4 form-group">
                 <label>{{ "COGNOME" | translate }}</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  ng-model="info.find.Cognome"
-                  placeholder="{{ 'COGNOME_DA_RICERCARE' |translate }}"
-                />
+                <input type="text" class="form-control" ng-model="info.find.Cognome" placeholder="{{ 'COGNOME_DA_RICERCARE' |translate }}" />
               </div>
               <div class="col-md-4 form-group">
                 <label>{{ "NOME" | translate }}</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  ng-model="info.find.Nome"
-                  placeholder="{{ 'NOME_DA_RICERCARE' |translate }}"
-                />
+                <input type="text" class="form-control" ng-model="info.find.Nome" placeholder="{{ 'NOME_DA_RICERCARE' |translate }}" />
               </div>
               <div class="col-md-4 form-group">
                 <label>{{ "CODICE_FISCALE" | translate }}</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  ng-model="info.find.Cognome"
-                  placeholder="{{ 'CODICE_FISCALE_DA_RICERCARE' |translate }}"
-                />
+                <input type="text" class="form-control" ng-model="info.find.CodiceFiscale" placeholder="{{ 'CODICE_FISCALE_DA_RICERCARE' |translate }}" />
               </div>
               <div class="col-md-4 form-group">
                 <label>{{ "DATA_DI_NASCITA" | translate }}</label>
                 <div class="input-group date">
-                  <input
-                    type="text"
-                    class="form-control js-date"
-                    ng-model="info.find.DataDiNascita"
-                    placeholder="{{ 'DATA_NASCITA_DA_RICERCARE' |translate }}"
-                  />
+                  <input type="text" class="form-control js-date" ng-model="info.find.DataDiNascita" placeholder="{{ 'DATA_NASCITA_DA_RICERCARE' |translate }}" />
                   <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </span>
@@ -216,11 +147,7 @@
               </div>
             </div>
             <div class="text-right">
-              <button
-                class="btn btn-primary btn-sm"
-                id="posSearch"
-                ng-click="find()"
-              >
+              <button class="btn btn-primary btn-sm" id="posSearch" ng-click="find()">
                 {{ "CERCA" | translate }}
               </button>
             </div>
@@ -232,13 +159,8 @@
                 <table class="table table-striped table-bordered" id="ricerca-evidenze">
               -->
 
-              <table
-                id="resultRicercaEvidenzeDataTable"
-                datatable="ng"
-                class="table table-striped table-bordered"
-                dt-options="dtOptionsTabRicercaEvidenze"
-                dt-column-defs="colonneTabRicercaEvidenze"
-              >
+              <table id="resultRicercaEvidenzeDataTable" datatable="ng" class="table table-striped table-bordered"
+                dt-options="dtOptionsTabRicercaEvidenze" dt-column-defs="colonneTabRicercaEvidenze">
                 <thead>
                   <tr>
                     <th>{{ "DATA_DECORRENZA" | translate }}</th>
@@ -274,22 +196,14 @@
                     <td width="9%">{{ item.CodiceFiscale }}</td>
 
                     <td width="9%" class="text-center" style="font-size:18px">
-                      <a
-                        data-toggle="popover"
-                        data-trigger="hover"
-                        title="Dettaglio evidenza"
-                        data-placement="top"
-                        data-html="true"
-                        data-content="{{item.Dettaglio}}"
-                        tooltip-append-to-body="true"
-                      >
+                      <a data-toggle="popover" data-trigger="hover" title="Dettaglio evidenza" data-placement="top"
+                        data-html="true" data-content="{{item.Dettaglio}}" tooltip-append-to-body="true">
                         <i class="fa fa-info-circle"></i>
                       </a>
                     </td>
 
                     <td width="5%" class="text-center" style="font-size:18px">
-                      <a ng-click="visualizzaEvidenza(item.CodiceFiscale)"
-                        ><i class="fa fa-eye"></i>
+                      <a ng-click="visualizzaEvidenza(item)"><i class="fa fa-eye"></i>
                       </a>
                     </td>
 
@@ -304,12 +218,9 @@
               </table>
             </div>
             <div class="text-right m-t-lg">
-              <a class="btn btn-sm btn-primary">{{
-                "INSERISCI_NUOVA_EVIDENZA" | translate
-              }}</a>
-              <a class="btn btn-sm btn-primary">{{
-                "GENERA_COMUNICAZIONE" | translate
-              }}</a>
+              <a  ng-click="inserisciEvidenza(null)" class="btn btn-sm btn-primary">{{ 'INSERISCI_NUOVA_EVIDENZA' |
+                translate }}</a>
+              <a class="btn btn-sm btn-primary">{{"GENERA_COMUNICAZIONE" | translate }}</a>
             </div>
           </div>
         </div>
@@ -319,11 +230,11 @@
 </div>
 
 <script>
-  $("#posSearch").click(function() {
+  $("#posSearch").click(function () {
     $("#posResults").show();
 
     // ogni volta che si effettua una ricerca è necessario reinizializzare i popup
-    setTimeout(function() {
+    setTimeout(function () {
       $('[data-toggle="popover"]').popover();
     }, 500);
   });

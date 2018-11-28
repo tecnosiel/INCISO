@@ -14,14 +14,13 @@ function ricercaController(
   $timeout
 ) {
   $scope.dtInstanceTabResultRicerca = {};
-  debugger;
 
   this.elencoAssistiti = [];
   this.datiAssistito = [];
   this.info = {};
   this.info.find = {};
 
-  this.find = function() {
+  this.find = function () {
     var tableSort = $("#resultRicercaDataTable").dataTable();
     var tablePage = $("#resultRicercaDataTable").DataTable();
 
@@ -41,23 +40,28 @@ function ricercaController(
 
     if (this.tipoRicerca == "Anagrafe") {
       anagrafeServices.find(this.info, result => {
-        this.elencoAssistiti = result;
+        this.elencoAssistiti = httpServices.fromDb(result, 'anagrafe')
+        // this.elencoAssistiti = result;
       });
     } else {
       anagrafeServices.findPosizioni(this.info, result => {
-        this.elencoAssistiti = result;
+        this.elencoAssistiti = httpServices.fromDb(result, 'posizione')
+        // this.elencoAssistiti = result;
       });
     }
     // ------------------
   };
 
-  this.findCodFis = function(cCodFis) {
+  this.findCodFis = function (cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
-      this.datiAssistito = result;
+      alert("azzzzzzz");
+      debugger;
+      this.datiAssistito = httpServices.jsonFromDb(result, 'anagrafe')
+      // this.datiAssistito = result;
     });
   };
 
-  this.findPosizione = function(cCodFis) {
+  this.findPosizione = function (cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
       $state.go("posizione.visualizza_posizione", {
         datiAssistito: result
@@ -65,7 +69,7 @@ function ricercaController(
     });
   };
 
-  this.creaNuovaAnagrafica = function($index) {
+  this.creaNuovaAnagrafica = function ($index) {
     $scope.NuovaAnagrafica = null;
 
     // http://www.marcorpsa.com/ee/t1891.html

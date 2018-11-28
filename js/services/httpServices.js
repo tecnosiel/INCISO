@@ -1,1623 +1,1046 @@
-//==========================================================
-// camilloelviraVERO
-//==========================================================
-this.server = "wwwroot-dev/inciso.prov.bz.it/api";
-//==========================================================
-
-/**
- * Tabelle BASE DATI MOCK
- *
- */
-mochDbTable = function(table) {
-  // // ---------------------------------------------------
-  // LIQUIDAZIONI
-  // ---------------------------------------------------
-  let tabLiquidazioni = [
-    {
-      CodiceFiscale: "1111111111111111",
-      NominativoAssistito: "111-Mario Rossi",
-      ImportoPrestazioniLiquidato: "232.00",
-      Tredicesima: "1325.00",
-      ImportoConguaglio: "2188.00",
-      RitenuteDiCategoria: "562.00",
-      Riaccrediti: "",
-      RecuperiDaCompensazione: "512.00",
-      TotaleMensileDaLiquidare: "1232.00"
-    },
-    {
-      CodiceFiscale: "2222222222222222",
-      NominativoAssistito: "2222-Andrea Ramilii",
-      ImportoPrestazioniLiquidato: "132.00",
-      Tredicesima: "1115.00",
-      ImportoConguaglio: "2000.00",
-      RitenuteDiCategoria: "",
-      Riaccrediti: "",
-      RecuperiDaCompensazione: "512.00",
-      TotaleMensileDaLiquidare: "1232.00"
-    },
-    {
-      CodiceFiscale: "3333333333333333",
-      NominativoAssistito: "3333-Pino Amabile",
-      ImportoPrestazioniLiquidato: "2.00",
-      Tredicesima: "325.00",
-      ImportoConguaglio: "17.00",
-      RitenuteDiCategoria: "",
-      Riaccrediti: "",
-      RecuperiDaCompensazione: "512.00",
-      TotaleMensileDaLiquidare: "1232.00"
-    },
-    {
-      CodiceFiscale: "4444444444444444",
-      NominativoAssistito: "4444-Karin Biondi",
-      ImportoPrestazioniLiquidato: "23.00",
-      Tredicesima: "25.00",
-      ImportoConguaglio: "42.53",
-      RitenuteDiCategoria: "430.00",
-      Riaccrediti: "",
-      RecuperiDaCompensazione: "52.00",
-      TotaleMensileDaLiquidare: "12.00"
-    },
-    {
-      CodiceFiscale: "5555555555555555",
-      NominativoAssistito: "55555-Ighli Vanoni",
-      ImportoPrestazioniLiquidato: "176.00",
-      Tredicesima: "725.00",
-      ImportoConguaglio: "18.53",
-      RitenuteDiCategoria: "",
-      Riaccrediti: "",
-      RecuperiDaCompensazione: "112.00",
-      TotaleMensileDaLiquidare: "2.00"
-    }
-  ];
-
-  // ---------------------------------------------------
-  // EVIDENZE
-  // ---------------------------------------------------
-  let tabEvidenze = [
-    {
-      DataDecorrenza: "12/05/2015",
-      TipoEvidenza: "Controllo reddito - xxxxxx",
-      Descrizione: "Controllo reddito – anno successivo - xxxxxxx",
-      DataScadenza: "12/07/2013",
-      Posizione: "8798548",
-      Cognome: "Rossi",
-      Nome: "Mario",
-      CodiceFiscale: "RSSMRA70A41F2052",
-      Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-      PrestazioneDiRiferimento: "xxxxx",
-      DataDomandaDiRiferimento: "xxx",
-      DataChiusura: "01/03/2001",
-      Utente: "",
-      NoteDiChiusura: "eqflkqwòelkòlqekqòàl",
-      LetteraInviata: "Si",
-      Note: "ek qwlòekàq  òlwkeòlqweòàlkq àòwlkeàòq lkweòàl"
-    },
-    {
-      DataDecorrenza: "30/06/2015",
-      TipoEvidenza: "Importo da recuperare-xxxxx",
-      Descrizione: "Importo da recuperare – liquidazione-xxxxxxx",
-      DataScadenza: "31/12/2015",
-      Posizione: "1258745",
-      Cognome: "Verde",
-      Nome: "Mario",
-      CodiceFiscale: "RSSMRA70A41F2052",
-      Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-      PrestazioneDiRiferimento: "",
-      DataDellaDomandaDiRiferimento: "",
-      DataChiusura: "01/03/2011",
-      Utente: "",
-      NoteDiChiusura: "welkràqwelkàl 02/02/2002",
-      LetteraInviata: "Si",
-      Note: "gkkggkgkgkgkgkgkkgkgkgkg"
-    },
-    {
-      DataDecorrenza: "03/07/2018",
-      TipoEvidenza: "Importo da recuperare",
-      Descrizione: "Importo da recuperare – liquidazione",
-      DataScadenza: "31/12/2015",
-      Posizione: "1258745",
-      Cognome: "Alfano",
-      Nome: "Camillo",
-      CodiceFiscale: "LFNCLL60D03E026T",
-      Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-      PrestazioneDiRiferimento: "",
-      DataDellaDomandaDiRiferimento: "",
-      DataChiusura: "",
-      Utente: "xxxxxxx",
-      NoteDiChiusura: "wlwqkràqòwelrkàòqelrà",
-      LetteraInviata: "Si",
-      Note: "11111111111111111111"
-    },
-    {
-      DataDecorrenza: "03/07/2018",
-      TipoEvidenza: "Importo da recuperare",
-      Descrizione: "Importo da recuperare – liquidazione",
-      DataScadenza: "31/12/2015",
-      Posizione: "1258745",
-      Cognome: "Alfano",
-      Nome: "Camillo",
-      CodiceFiscale: "LFNCLL60D03E026T",
-      Dettaglio:
-        "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-      PrestazioneDiRiferimento: "",
-      DataDellaDomandaDiRiferimento: "",
-      DataChiusura: "",
-      Utente: "yyyyyyyy",
-      NoteDiChiusura: "io sono una nota di chiusura",
-      LetteraInviata: "",
-      Note: "11111111144444444444411111111111"
-    }
-  ];
-  // ---------------------------------------------------
-  // ASSOCIAZIONI
-  // ---------------------------------------------------
-  let tabAssociazioni = [
-    {
-      NomeAssociazione: "Confartigianato",
-      CodiceFiscale: "012345678955",
-      TipologiaDiAssistenza: "77",
-
-      Responsabile: "Mario Rossi",
-      TelefonoPrincipale: "0461 912585",
-      TelefonoSecondario: "0461 923452",
-      IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "mrossi555@gmail.com",
-      PEC: "mrossi@gmail.com",
-      Note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
-
-      Indirizzi: [
-        {
-          Tipo: "Indirizzo abitazione",
-          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaxxxxxxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo lavoro",
-          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-          Validita: "dal 01/01/2010 al 02/02/2014",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaaaaaaxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo secondario",
-          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "xxxxxx",
-          Via: "aaaaaxxxxxddxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        }
-      ],
-
-      ImportoRitenutaDiCategoria: "100.15",
-
-      LiquidazioniMensili: [
-        {
-          DataPagamento: "12/04/2014",
-          ImportoTotale: "238.00",
-          NroAssistiti: "15"
-        },
-        {
-          DataPagamento: "12/05/2014",
-          ImportoTotale: "258.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/06/2014",
-          ImportoTotale: "338.00",
-          NroAssistiti: "18"
-        },
-        {
-          DataPagamento: "12/07/2014",
-          ImportoTotale: "438.00",
-          NroAssistiti: "16"
-        },
-        {
-          DataPagamento: "12/08/2014",
-          ImportoTotale: "38.00",
-          NroAssistiti: "10"
-        },
-        {
-          DataPagamento: "12/09/2014",
-          ImportoTotale: "278.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/10/2014",
-          ImportoTotale: "299.00",
-          NroAssistiti: "19"
-        }
-      ]
-    },
-
-    {
-      NomeAssociazione: "Confcommercio",
-      CodiceFiscale: "123450089022",
-      TipologiaDiAssistenza: "99",
-
-      Responsabile: "Giovanni Moscato",
-      TelefonoPrincipale: "0366 768798",
-      TelefonoSecondario: "0433 922451",
-      IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "giovanni6666@tin.it",
-      PEC: "mgiovanni@gmail.com",
-      Note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
-
-      Indirizzi: [
-        {
-          Tipo: "Indirizzo abitazione",
-          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaxxxxxxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo lavoro",
-          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-          Validita: "dal 01/01/2010 al 02/02/2014",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaaaaaaxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo secondario",
-          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "xxxxxx",
-          Via: "aaaaaxxxxxddxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        }
-      ],
-
-      ImportoRitenutaDiCategoria: "234.15"
-    },
-
-    {
-      NomeAssociazione: "Cral",
-      CodiceFiscale: "122226789011",
-      TipologiaDiAssistenza: "99",
-
-      Responsabile: "Giuseppe Garibaldi",
-      TelefonoPrincipale: "0461 912585",
-      TelefonoSecondario: "0461 923452",
-      IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "ggaribaldi444@gmail.com",
-      PEC: "ggaribaldi@gmail.com",
-      Note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
-
-      Indirizzi: [
-        {
-          Tipo: "Indirizzo abitazione",
-          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaxxxxxxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo lavoro",
-          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-          Validita: "dal 01/01/2010 al 02/02/2014",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaaaaaaxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo secondario",
-          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "xxxxxx",
-          Via: "aaaaaxxxxxddxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        }
-      ],
-
-      ImportoRitenutaDiCategoria: "222.15",
-
-      LiquidazioniMensili: [
-        {
-          DataPagamento: "12/04/2014",
-          ImportoTotale: "238.00",
-          NroAssistiti: "15"
-        },
-        {
-          DataPagamento: "12/05/2014",
-          ImportoTotale: "258.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/06/2014",
-          ImportoTotale: "338.00",
-          NroAssistiti: "18"
-        },
-        {
-          DataPagamento: "12/07/2014",
-          ImportoTotale: "438.00",
-          NroAssistiti: "16"
-        },
-        {
-          DataPagamento: "12/08/2014",
-          ImportoTotale: "38.00",
-          NroAssistiti: "10"
-        },
-        {
-          DataPagamento: "12/09/2014",
-          ImportoTotale: "278.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/10/2014",
-          ImportoTotale: "299.00",
-          NroAssistiti: "19"
-        }
-      ]
-    },
-
-    {
-      NomeAssociazione: "AICS",
-      CodiceFiscale: "123345324890",
-      TipologiaDiAssistenza: "88",
-
-      Responsabile: "Tal dei tali ",
-      TelefonoPrincipale: "0461 912585",
-      TelefonoSecondario: "0461 923452",
-      IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "ttali444@gmail.com",
-      PEC: "ttali@gmail.com",
-      Note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
-
-      Indirizzi: [
-        {
-          Tipo: "Indirizzo abitazione",
-          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaxxxxxxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo lavoro",
-          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-          Validita: "dal 01/01/2010 al 02/02/2014",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaaaaaaxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo secondario",
-          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "xxxxxx",
-          Via: "aaaaaxxxxxddxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        }
-      ],
-
-      ImportoRitenutaDiCategoria: "122.15",
-
-      LiquidazioniMensili: [
-        {
-          DataPagamento: "12/04/2014",
-          ImportoTotale: "238.00",
-          NroAssistiti: "15"
-        },
-        {
-          DataPagamento: "12/05/2014",
-          ImportoTotale: "258.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/06/2014",
-          ImportoTotale: "338.00",
-          NroAssistiti: "18"
-        },
-        {
-          DataPagamento: "12/07/2014",
-          ImportoTotale: "438.00",
-          NroAssistiti: "16"
-        },
-        {
-          DataPagamento: "12/08/2014",
-          ImportoTotale: "38.00",
-          NroAssistiti: "10"
-        },
-        {
-          DataPagamento: "12/09/2014",
-          ImportoTotale: "278.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/10/2014",
-          ImportoTotale: "299.00",
-          NroAssistiti: "19"
-        }
-      ]
-    },
-
-    {
-      NomeAssociazione: "UIL",
-      CodiceFiscale: "123456789078",
-      TipologiaDiAssistenza: "77",
-
-      Responsabile: "Carlo Gimondi",
-      TelefonoPrincipale: "0461 912585",
-      TelefonoSecondario: "0461 923452",
-      IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "gimondi444@gmail.com",
-      PEC: "gimondi@gmail.com",
-      Note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
-
-      Indirizzi: [
-        {
-          Tipo: "Indirizzo abitazione",
-          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaxxxxxxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo lavoro",
-          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-          Validita: "dal 01/01/2010 al 02/02/2014",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaaaaaaxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo secondario",
-          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "xxxxxx",
-          Via: "aaaaaxxxxxddxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        }
-      ],
-
-      ImportoRitenutaDiCategoria: "130.15",
-
-      LiquidazioniMensili: [
-        {
-          DataPagamento: "12/04/2014",
-          ImportoTotale: "238.00",
-          NroAssistiti: "15"
-        },
-        {
-          DataPagamento: "12/05/2014",
-          ImportoTotale: "258.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/06/2014",
-          ImportoTotale: "338.00",
-          NroAssistiti: "18"
-        },
-        {
-          DataPagamento: "12/07/2014",
-          ImportoTotale: "438.00",
-          NroAssistiti: "16"
-        },
-        {
-          DataPagamento: "12/08/2014",
-          ImportoTotale: "38.00",
-          NroAssistiti: "10"
-        },
-        {
-          DataPagamento: "12/09/2014",
-          ImportoTotale: "278.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/10/2014",
-          ImportoTotale: "299.00",
-          NroAssistiti: "19"
-        }
-      ]
-    },
-
-    {
-      NomeAssociazione: "CGHL",
-      CodiceFiscale: "123456789087",
-      TipologiaDiAssistenza: "88",
-
-      Responsabile: "Vittorio Emanuele",
-      TelefonoPrincipale: "0461 912585",
-      TelefonoSecondario: "0461 923452",
-      IBAN: "IT40 S054 2811 1010 0000 0123 456",
-      Email: "vemanuele555@gmail.com",
-      PEC: "vemanuele@gmail.com",
-      Note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
-
-      Indirizzi: [
-        {
-          Tipo: "Indirizzo abitazione",
-          Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaxxxxxxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo lavoro",
-          Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-          Validita: "dal 01/01/2010 al 02/02/2014",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "aaaaa",
-          Via: "aaaaaaaaaaxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        },
-        {
-          Tipo: "Indirizzo secondario",
-          Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-          Validita: "dal 01/01/2010 al 02/02/2011",
-
-          Nazione: "Italia",
-          Comune: "Napoli",
-          Cap: "84092",
-          Frazione: "xxxxxx",
-          Via: "aaaaaxxxxxddxxxxx",
-          Civico: "6",
-          UsaIndirizzo: "No",
-          Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-        }
-      ],
-
-      ImportoRitenutaDiCategoria: "200.15",
-
-      LiquidazioniMensili: [
-        {
-          DataPagamento: "12/04/2014",
-          ImportoTotale: "238.00",
-          NroAssistiti: "15"
-        },
-        {
-          DataPagamento: "12/05/2014",
-          ImportoTotale: "258.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/06/2014",
-          ImportoTotale: "338.00",
-          NroAssistiti: "18"
-        },
-        {
-          DataPagamento: "12/07/2014",
-          ImportoTotale: "438.00",
-          NroAssistiti: "16"
-        },
-        {
-          DataPagamento: "12/08/2014",
-          ImportoTotale: "38.00",
-          NroAssistiti: "10"
-        },
-        {
-          DataPagamento: "12/09/2014",
-          ImportoTotale: "278.00",
-          NroAssistiti: "17"
-        },
-        {
-          DataPagamento: "12/10/2014",
-          ImportoTotale: "299.00",
-          NroAssistiti: "19"
-        }
-      ]
-    }
-  ];
-  // ---------------------------------------------------
-  // DOMANDE
-  // ---------------------------------------------------
-  let tabDomande = [
-    {
-      CodiceFiscale: "LFNCLL60D03E026T",
-      Cognome: "Alfano",
-      Nome: "Camillo",
-      DataDiNascita: "03/04/1960",
-      DataDiDecesso: "03/01/2014",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "1111",
-
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa",
-          // ----
-          TipoDomanda: "77",
-          DataDomanda: "",
-          EmailDomanda: "",
-          NumeroProtocollo: "",
-          DataProtocollo: "",
-          Provenienza: "",
-          DelegaPatronato: "",
-
-          Comunicazioni: "",
-          ModalitaDiPagamento: "",
-          AssociazioniDiCategoria: [
-            {
-              TipoAssociazione: "ANMIC",
-              DataInizioIscrizione: "10/04/1986",
-              DataFineIscrizione: "",
-              QuotaMensile: "103.32"
-            }
-          ],
-          Note: "",
-          AziendaSanitaria: {
-            NumeroProtocollo: "",
-            DataProtocollo: "",
-            PercentualeDiInvalidita: "",
-            IndennitaDiAccompagnamento: "",
-            PatologiaUditiva: "",
-            RiduzioneDelVisus: "",
-            NoteVerbale: "",
-            DataDecorenzaDelDirittoAlPagamento: ""
-          }
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-          // ----
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-          // ----
-        }
-      ],
-
-      LegaleRappresentante: {
-        Nome: "Mario-1",
-        Cognome: "Rossi-1",
-        CodiceFiscale: "RSSMRO70A10F2052",
-        NumeroDecreto: "",
-        DataDecreto: "",
-        TipoDecreto: "",
-        ScadenzaDecreto: ""
-      },
-      AltroLegaleRappresentante: {
-        Nome: "Mario-2",
-        Cognome: "Rossi-2",
-        CodiceFiscale: "RSSMRO70A10F2052",
-        NumeroDecreto: "",
-        DataDecreto: "",
-        TipoDecreto: "",
-        ScadenzaDecreto: ""
-      },
-      Curatore: {
-        Nome: "Mario-3",
-        Cognome: "Rossi-3",
-        CodiceFiscale: "RSSMRO70A10F2052",
-        NumeroDecreto: "",
-        DataDecreto: "",
-        TipoDecreto: "",
-        ScadenzaDecreto: ""
-      },
-
-      Verbali: [
-        {
-          NumeroProtocollo: "442524223",
-          DataProtocollo: "01/01/2010",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-
-          //   NumeroProtocollo: "12345",
-          //   DataProtocollo: "12/34/5678",
-          //   PercentualeDiInvalidita: "66%",
-          //   IndennitaDiAccompagnamento: "No",
-          //   PatologiaUditiva: "No",
-          //   RiduzioneDelVisus: "No",
-          //   NoteVerbale: "Io sono la nota a verbale",
-          //   DataDecorrenzaPagamento: "11/11/1234"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: true
-    },
-    {
-      CodiceFiscale: "QTGSRO60A11Q2055",
-      Cognome: "Hammond",
-      Nome: "John",
-      DataDiNascita: "01/01/1970",
-      DataDiDecesso: "-",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "2222222",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "222-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "222-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "222-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: true
-    },
-    {
-      CodiceFiscale: "RTSDRO70A10W2056",
-      Cognome: "Mudassar",
-      Nome: "Khan",
-      DataDiNascita: "01/02/1650",
-      DataDiDecesso: "01/01/1930",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "3333333",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "333-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "333-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "333-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: false
-    },
-    {
-      CodiceFiscale: "VSYFRO70A10E2652",
-      Cognome: "Mathews",
-      Nome: "Suzanne",
-      DataDiNascita: "01/01/1966",
-      DataDiDecesso: "-",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "444444",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "444-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "444-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "444-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: false
-    },
-    {
-      CodiceFiscale: "WSSGRO70A10T2066",
-      Cognome: "Schidner",
-      Nome: "Robert",
-      DataDiNascita: "01/04/1950",
-      DataDiDecesso: "01/01/1930",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "567890",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "555-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "555-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "555-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: false
-    },
-
-    {
-      CodiceFiscale: "1234567890123456",
-      Cognome: "Alfano-1111",
-      Nome: "Camillo-1111",
-      DataDiNascita: "01/01/1930",
-      DataDiDecesso: "-",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "43170238",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "666-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "666-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "666-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: false
-    },
-    {
-      CodiceFiscale: "3456735790GHJDAE",
-      Cognome: "Hammond222222",
-      Nome: "John22",
-      DataDiNascita: "01/01/1970",
-      DataDiDecesso: "-",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "1251161",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "777-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "777-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "777-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: false
-    },
-    {
-      CodiceFiscale: "RTSDRO70A10W2056",
-      Cognome: "Mudassar",
-      Nome: "Khan",
-      DataDiNascita: "01/02/1650",
-      DataDiDecesso: "01/01/1930",
-      AnnoDiScarto: "1234",
-      NumeroFaldone: "1113451",
-      DomandePresentate: [
-        {
-          Posizione: "771723",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
-        },
-        {
-          Posizione: "123456",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
-        },
-        {
-          Posizione: "345765",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        }
-      ],
-      Verbali: [
-        {
-          DataProtocollo: "01/01/2010",
-          NumeroProtocollo: "888-442524223",
-          PercentualeDiInvalidita: "60",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2011",
-          NumeroProtocollo: "888-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        },
-        {
-          DataProtocollo: "01/01/2012",
-          NumeroProtocollo: "888-2345223211",
-          PercentualeDiInvalidita: "100",
-          IndennitaDiAccompagnamento: "Si",
-          PatologiaUditiva: "Si",
-          RiduzioneDelVisus: "Si",
-          Note: "2222222222222222222222222 11111111111111111"
-        }
-      ],
-
-      Duplicato: false
-    }
-  ];
-
-  switch (table) {
+function httpServices() {
+  var service = {};
+  service.readStructure = readStructure;
+  service.fromDb = fromDb;
+  service.jsonFromDb = jsonFromDb;
+  service.toDb = toDb;
+  service.convDateAmgGma = convDateAmgGma;
+  service.convDateGmaAmg = convDateGmaAmg;
+  service.today = today;
+  service.yyyymmdd = yyyymmdd;
+  return service;
+}
+
+//------------------------------------------
+// FUNZIONI SULLE STRUCTURE
+//------------------------------------------
+function readStructure(cStructure) {
+  switch (cStructure) {
+    case "assistito":
+      return assistitoStructure();
+    case "posizione":
+      return posizioneStructure();
     case "anagrafe":
-      return tabAnagrafe;
-      break;
-    case "domande":
-      return tabDomande;
-      break;
+      return anagrafeStructure();
+    case "eredita":
+      return ereditaStructure();
+    case "eredi":
+      return erediStructure();
+    case "redditi":
+      return redditiStructure();
+    case "pensioni":
+      return pensioniStructure();
+    case "indirizzi":
+      return indirizziStructure();
     case "associazioni":
-      return tabAssociazioni;
-      break;
-    case "evidenze":
-      return tabEvidenze;
-      break;
+      return associazioniStructure();
     case "liquidazioni":
-      return tabLiquidazioni;
-      break;
-    case "posizioni":
-      return tabPosizioni;
-      break;
+      return liquidazioniStructure();
+    case "importiriaccreditati":
+      return importiriaccreditatiStructure();
+    case "importidarecuperare":
+      return importidarecuperareStructure();
+    case "ritenutedicategoriarecuperate":
+      return ritenutedicategoriarecuperateStructure();
+    case "totdarecuperare":
+      return totDaRecuperareStructure();
+    case "nrtrasferimentoflumo":
+      return nrtrasferimentoflumoStructure();
+    case "dettagliassistito":
+      return dettagliassistitoStructure();
+    case "dettagliconiuge":
+      return dettagliconiugeStructure();
+
     default:
-      alert("Tabella In MochDb HTTP inesistente");
-      break;
+      swal("Manca definizione Struttura " + cStructure, "Bisogna ancora implementarla", "error")
+  }
+}
+
+function fromDb(objDb, cStructure) {
+
+  var objMem = {};
+  var objStru = this.readStructure(cStructure.trim());
+
+  for (let i in objDb) {
+    objMem[i] = jsonFromDb(objDb[i], objStru)
+  };
+  return objMem;
+};
+
+
+function jsonFromDb(jsonDb, objStru) {
+
+  if (typeof objStru === 'string')
+    objStru = this.readStructure(objStru);
+
+  let jsonResult = {};
+
+  for (let j in objStru) {
+
+    // Lettura j colonna Db
+    let cFormat = objStru[j].Tipo.toUpperCase();
+    let cDbName = objStru[j].DbName;
+    let cMemName = objStru[j].MemName;
+    let cStruttura = objStru[j].Struttura;
+
+    // Lettura dato da trasferire
+    // let DbContent = jsonDb[cDbName]
+    let DbContent = ""
+    if (jsonDb) {
+      if (jsonDb || jsonDb.hasOwnProperty(cDbName)) {
+        DbContent = jsonDb[cDbName]
+      }
+    }
+    // Scrittura dato da trasferire in funzione del tipo
+    switch (cFormat) {
+
+      case "JSON":
+        jsonResult[cMemName] = jsonFromDb(DbContent, this.readStructure(cStruttura)) //arrayJsonFromDb(DbContent, cStruttura )
+        break;
+      case "ARRAY-JSON":
+        //array-json
+        jsonResult[cMemName] = fromDb(DbContent, cStruttura) //arrayJsonFromDb(DbContent, cStruttura )
+        break;
+      case "K":
+        //key
+        jsonResult[cMemName] = DbContent;
+        break;
+      case "C":
+        //stringa
+        jsonResult[cMemName] = DbContent;
+        break;
+      case "K":
+        //key
+        jsonResult[cMemName] = DbContent * 1;
+        break;
+      case "B":
+        //boolean
+        if (DbContent === "1") {
+          jsonResult[cMemName] = true
+        } else {
+          jsonResult[cMemName] = false
+        }
+        break;
+      case "I":
+        //Intero
+        jsonResult[cMemName] = DbContent * 1;
+        break;
+      case "N":
+        //numerico
+        jsonResult[cMemName] = DbContent * 1;
+        break;
+      case "D":
+        //data
+        jsonResult[cMemName] = DbContent;
+        break;
+      case "%":
+        //percentuale
+        if (typeof (DbContent) != 'undefined' && DbContent != null && DbContent != "") {
+          let perc = (DbContent / 100).toFixed(2);
+          jsonResult[cMemName] = (perc * 1).toLocaleString('de-DE', {
+            minimumFractionDigits: 2
+          });
+        } else {
+          jsonResult[cMemName] = "0.00";
+        }
+        break;
+      default:
+        jsonResult[cMemName] = DbContent;
+    }
+  }
+
+  return jsonResult
+}
+
+function toDb(objMem, cStructure) {
+
+  let objDb = {};
+  let objStru = this.readStructure(cStructure.trim());
+
+  for (let i in objMem) {
+
+    objDb[i] = {};
+
+    for (let j in objStru) {
+
+      // Lettura j colonna Db
+      let cFormat = objStru[j].Tipo.toUpperCase();
+      let cDbName = objStru[j].DbName;
+      let cMemName = objStru[j].MemName;
+      let cNote = objStru[j].Note;
+
+      // Lettura dato da trasferire
+      let DbContent = objMem[i][cMemName]
+
+      // Scrittura dato da trasferire in funzione del tipo
+      switch (cFormat.substr(0, 1)) {
+        case "C":
+          //stringa
+          objDb[i][cDbName] = DbContent;
+          break;
+        case "K":
+          //key
+          objDb[i][cDbName] = DbContent * 1;
+          break;
+        case "B":
+          //boolean
+          if (DbContent === "1") {
+            objDb[i][cDbName] = true
+          } else {
+            objDb[i][cDbName] = false
+          }
+          break;
+        case "I":
+          //Intero
+          objDb[i][cDbName] = DbContent * 1;
+          break;
+        case "N":
+          //numerico
+          objDb[i][cDbName] = DbContent * 1;
+          break;
+        case "D":
+          //data
+          objDb[i][cDbName] = DbContent;
+          break;
+        case "%":
+          //percentuale
+          if (typeof (DbContent) != 'undefined' && DbContent != null && DbContent != "") {
+            let perc = (DbContent / 100).toFixed(2);
+            objDb[i][cDbName] = (perc * 1).toLocaleString('de-DE', {
+              minimumFractionDigits: 2
+            });
+          } else {
+            objDb[i][cDbName] = "0.00";
+          }
+          break;
+        default:
+          objDb[i][cDbName] = DbContent;
+      }
+    }
+  };
+
+  return objDb;
+
+};
+
+//------------------------------------------
+// Funzioni Locali Non Esposte 
+//------------------------------------------
+
+function arrayJsonFromDb(objDb, cStructure) {
+
+}
+//------------------------------------------
+// Conversione DATE 
+//------------------------------------------
+
+function convDateAmgGma(cAmg) {
+
+  if (typeof (cAmg) != 'undefined' && cAmg != null) {
+    cAmg = cAmg.replace("-", "").replace("-", "");
+    cAmg = cAmg.replace("/", "").replace("/", "");
+    var aa = cAmg.substr(0, 4);
+    aa = ("0000" + aa.trim()).slice(-4);
+    var mm = cAmg.substr(4, 2);
+    mm = ("00" + mm.trim()).slice(-2);
+    var gg = cAmg.substr(6, 2);
+    gg = ("00" + gg.trim()).slice(-2);
+    return gg + "/" + mm + "/" + aa;
+  } else {
+    return "";
+  }
+
+};
+
+function convDateGmaAmg(cGma) {
+
+  if (typeof (cGma != 'undefined' && cGma != null)) {
+    cGma = cGma.split("/").join("");
+    cGma = cGma.split("-").join("");
+    var gg = cGma.substr(0, 2);
+    gg = ("00" + gg.trim()).slice(-2);
+    var mm = cGma.substr(2, 2);
+    mm = ("00" + mm.trim()).slice(-2);
+    var aa = cGma.substr(4, 4);
+    aa = ("0000" + aa.trim()).slice(-4);
+    return aa + "-" + mm + "-" + gg;
+  } else {
+    return "";
   }
 };
 
-/**
- * evidenze - i servizi http per la gestione delle evidenze
- *
- */
+//------------------------------------------
+// TODAY() FORMATO EUROPEO
+//------------------------------------------
 
-// evidenze = function($http) {
-//   return {
-//     //----------------------------------
-//     // Chiamata Get Standard
-//     //----------------------------------
-//     find: function(url, data) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("evidenze");
-//         return response;
-//       }
+function today() {
 
-//       $http
-//         .get(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     },
+  let data = new Date();
+  let dd = data.getDate();
+  let mm = data.getMonth() + 1; //January is 0!
 
-//     //----------------------------------
-//     // Ricerca in Base Dati per Codice Fiscale
-//     //----------------------------------
-//     findCodFis: function(url, cCodFis) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("evidenze");
+  var yyyy = data.getFullYear();
 
-//         return response.find(function(obj) {
-//           return obj.CodiceFiscale === cCodFis;
-//         });
-//       }
+  if (dd < 10) {
+    this.dd = '0' + dd;
+  }
+  if (mm < 10) {
+    this.mm = '0' + mm;
+  }
+  return dd + '/' + mm + '/' + yyyy;
+};
 
-//       $http
-//         .get(url, cCodFis, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     }
-//   };
-// };
+function yyyymmdd(data) {
 
-/**
- * liquidazioni - i servizi http per la gestione delle liquidazioni
- *
- */
+  if (typeof data == "string")
+    return data;
 
-// liquidazioni = function($http) {
-//   return {
-//     //----------------------------------
-//     // Chiamata Get Standard
-//     //----------------------------------
-//     find: function(url, data) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("liquidazioni");
-//         return response;
-//       }
+  var yyyy = data.getFullYear().toString();
+  var mm = (data.getMonth() + 1).toString(); // getMonth() is zero-based
+  var dd = data.getDate().toString();
+  if (isNaN(yyyy)) {
+    yyyy = "    ";
+    mm = "  ";
+    dd = "  ";
+  }
+  return yyyy + "-" + (mm[1] ? mm : "0" + mm[0]) + "-" + (dd[1] ? dd : "0" + dd[0]); // padding
+};
 
-//       $http
-//         .get(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     },
 
-//     //----------------------------------
-//     // Ricerca in Base Dati per Codice Fiscale
-//     //----------------------------------
-//     findCodFis: function(url, cCodFis) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("associazioni");
+//------------------------------------------
+// FUNZIONI SULLE STRUCTURE
+//------------------------------------------
 
-//         return response.find(function(obj) {
-//           return obj.CodiceFiscale === cCodFis;
-//         });
-//       }
-
-//       $http
-//         .get(url, cCodFis, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     }
-//   };
-// };
-
-/**
- * associazioni - i servizi http per la gestione delle associazioni
- *
- */
-
-// associazioni = function($http) {
-//   return {
-//     //----------------------------------
-//     // Chiamata Get Standard
-//     //----------------------------------
-//     find: function(url, data) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("associazioni");
-//         return response;
-//       }
-
-//       $http
-//         .get(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     },
-
-//     //----------------------------------
-//     // Ricerca in Base Dati per Codice Fiscale
-//     //----------------------------------
-//     findCodFis: function(url, cCodFis) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("associazioni");
-
-//         return response.find(function(obj) {
-//           return obj.CodiceFiscale === cCodFis;
-//         });
-//       }
-
-//       $http
-//         .get(url, cCodFis, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     }
-//   };
-// };
-
-/**
- * domande - i servizi http per la gestione delle domande
- *
- */
-
-// domande = function($http) {
-//   return {
-//     //----------------------------------
-//     // Chiamata Get Standard
-//     //----------------------------------
-//     find: function(url, data) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("domande");
-//         return response;
-//       }
-
-//       $http
-//         .get(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     },
-//     //----------------------------------
-//     // Ricerca in Base Dati per Codice Fiscale
-//     //----------------------------------
-//     findCodFis: function(url, cCodFis) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("domande");
-
-//         return response.find(function(obj) {
-//           return obj.CodiceFiscale === cCodFis;
-//         });
-//       }
-
-//       $http
-//         .get(url, cCodFis, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     }
-//   };
-// };
-/**
- * anagrafica - i servizi http per l'anagrafe
- *
- */
-
-// _ricercaAnagraficaRicerca = function($http) {
-//   return {
-//     //----------------------------------
-//     // Chiamata Get Standard
-//     //----------------------------------
-//     get: function(url, data) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("anagrafe");
-//         return response;
-//       }
-
-//       $http
-//         .post(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     },
-
-//     //----------------------------------
-//     // Chiamata Post Standard
-//     //----------------------------------
-//     post: function(url, data) {
-//       if (url == "mockUrl") {
-//         //dati mock attesi
-//         alert("Post Mock 1111111111111");
-//         return;
-//       }
-
-//       $http
-//         .post(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("Post Regular 2222222222");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("Post Regular 3333333333333");
-//         });
-//     },
-
-//     //----------------------------------
-//     // Chiamata Put Standard
-//     //----------------------------------
-//     put: function(url, data, mock) {
-//       if (url == "mockUrl") {
-//         //dati mock attesi
-//         alert("Put Mock 1111111111111");
-//         return;
-//       }
-
-//       $http
-//         .put(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("Put Regular 2222222222");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("Put Regular 3333333333333");
-//         });
-//     },
-
-//     //----------------------------------
-//     // Chiamata Put Standard
-//     //----------------------------------
-//     delete: function(url, data, mock) {
-//       if (url == "mockUrl") {
-//         //dati mock attesi
-//         alert("Delete Mock 1111111111111");
-//         return;
-//       }
-
-//       $http
-//         .delete(url, data, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("Delete Regular 2222222222");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("Delete Regular 3333333333333");
-//         });
-//     },
-
-//     //----------------------------------
-//     // Ricerca in Base Dati per Codice Fiscale
-//     //----------------------------------
-//     findCodFis: function(url, cCodFis) {
-//       if (url == "mockUrl") {
-//         let response = mochDbTable("anagrafe");
-
-//         return response.find(function(obj) {
-//           return obj.CodiceFiscale === cCodFis;
-//         });
-//       }
-
-//       $http
-//         .get(url, cCodFis, config)
-//         .success(function(data, status, headers, config) {
-//           //formattazione dei dati secondo mock
-//           alert("CallBack su successo di chiamata ");
-//         })
-//         .error(function(data, status, header, config) {
-//           //messaggio di errore per questo post
-//           alert("CallBack su errore di chiamata ");
-//         });
-//     }
-//   };
-// };
-
-// -----------------------------------------------------
-
-function httpServices($http) {
-  return {
-    // associazioni: associazioni($http),
-  };
+function esempioStructure() {
+  return [{
+    DbName: "nomeCampo nel Db",
+    MemName: "nomeCampo in Memoria",
+    Tipo: "tipo campo",
+  }]
 }
+
+function posizioneStructure() {
+  return [{
+      DbName: "DbPosizione",
+      MemName: "Posizione",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbCognome",
+      MemName: "Cognome",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbNome",
+      MemName: "Nome",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbDataDiNascita",
+      MemName: "DataDiNascita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbDataDiDecesso",
+      MemName: "DataDiDecesso",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbAnnoDiScarto",
+      MemName: "AnnoDiScarto",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbNumeroFaldone",
+      MemName: "NumeroFaldone",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbFascicolo",
+      MemName: "Fascicolo",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbStatoDomanda",
+      MemName: "StatoDomanda",
+      Tipo: "C",
+    }
+  ]
+}
+
+function anagrafeStructure() {
+  return [{
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbCognome",
+      MemName: "Cognome",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbNome",
+      MemName: "Nome",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbDataDiNascita",
+      MemName: "DataDiNascita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbSesso",
+      MemName: "Sesso",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbLuogoDiNascita",
+      MemName: "LuogoDiNascita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbNazionalita",
+      MemName: "Nazionalita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbResidenza",
+      MemName: "Residenza",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbDomicilio",
+      MemName: "Domicilio",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbAltriIndirizzi",
+      MemName: "AltriIndirizzi",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbDataDiDecesso",
+      MemName: "DataDiDecesso",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbEredita",
+      MemName: "Eredita",
+      Struttura: "eredita",
+      Tipo: "JSON",
+    },
+    {
+      DbName: "DbRedditi",
+      MemName: "Redditi",
+      Struttura: "redditi",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbPensioni",
+      MemName: "Pensioni",
+      Struttura: "pensioni",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbIndirizzi",
+      MemName: "Indirizzi",
+      Struttura: "indirizzi",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbAssociazioni",
+      MemName: "Associazioni",
+      Struttura: "associazioni",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbLiquidazioni",
+      MemName: "Liquidazioni",
+      Struttura: "liquidazioni",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbElencoImportiRiaccreditati",
+      MemName: "ElencoImportiRiaccreditati",
+      Struttura: "importiriaccreditati",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbElencoImportiDaRecuperare",
+      MemName: "ElencoImportiDaRecuperare",
+      Struttura: "importidarecuperare",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbCognomeAcquisito",
+      MemName: "CognomeAcquisito",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbStatoCivile",
+      MemName: "StatoCivile",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbProvinciaDiNascita",
+      MemName: "ProvinciaDiNascita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbNazioneDiNascita",
+      MemName: "NazioneDiNascita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbCittadinanza",
+      MemName: "Cittadinanza",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbExtracomunitario",
+      MemName: "Extracomunitario",
+      Tipo: "BSiNo",
+    },
+    {
+      DbName: "DbPermessoDiSoggiornoTipoPermesso",
+      MemName: "PermessoDiSoggiornoTipoPermesso",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbPermessoDiSoggiornoDataRilascio",
+      MemName: "PermessoDiSoggiornoDataRilascio",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbPermessoDiSoggiornoValidoFinoAl",
+      MemName: "PermessoDiSoggiornoValidoFinoAl",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbTelefonoPrincipale",
+      MemName: "TelefonoPrincipale",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbTelefonoSecondario",
+      MemName: "TelefonoSecondario",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbEmail",
+      MemName: "Email",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbPec",
+      MemName: "Pec",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C",
+    }
+  ]
+}
+
+function ereditaStructure() {
+  return [{
+      DbName: "DbNumeroFaldone",
+      MemName: "NumeroFaldone",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbAnnoDiScartoINCISO",
+      MemName: "AnnoDiScartoINCISO",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbDataCalcoloSimulazione",
+      MemName: "DataCalcoloSimulazione",
+      Tipo: "D",
+    },
+    {
+      DbName: "DbImportoSpettante",
+      MemName: "ImportoSpettante",
+      Tipo: "N",
+    },
+    {
+      DbName: "DbEredi",
+      MemName: "Eredi",
+      Struttura: "eredi",
+      Tipo: "ARRAY-JSON",
+    },
+  ]
+}
+
+function erediStructure() {
+  return [{
+      DbName: "DbCognomeNome",
+      MemName: "CognomeNome",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbPercDiEredita",
+      MemName: "PercDiEredita",
+      Tipo: "C",
+    },
+    {
+      DbName: "DbLiquidatoInBaseAllaPercDiEredita",
+      MemName: "LiquidatoInBaseAllaPercDiEredita",
+      Tipo: "N",
+    },
+    {
+      DbName: "DbLiquidazione",
+      MemName: "Liquidazione",
+      Tipo: "D",
+    },
+
+  ]
+}
+
+function redditiStructure() {
+  return [{
+      DbName: "DbAnno",
+      MemName: "Anno",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbRedditoAssistito",
+      MemName: "RedditoAssistito",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRedditoConiuge",
+      MemName: "RedditoConiuge",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbValidoPerGliAnniSuccessivi",
+      MemName: "ValidoPerGliAnniSuccessivi",
+      Tipo: "B"
+    },
+    {
+      DbName: "DbNessunRedditoPercepito",
+      MemName: "NessunRedditoPercepito",
+      Tipo: "B"
+    },
+    {
+      DbName: "DbTotaleValoreRedditoAssistito",
+      MemName: "TotaleValoreRedditoAssistito",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbEstremiPensioneAssistito",
+      MemName: "EstremiPensioneAssistito",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNoteAssistito",
+      MemName: "NoteAssistito",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDettagliConiuge",
+      MemName: "DettagliConiuge",
+      Struttura: "dettagliconiuge",
+      Tipo: "ARRAY-JSON"
+    },
+    {
+      DbName: "DbDettagliAssistito",
+      MemName: "DettagliAssistito",
+      Struttura: "dettagliassistito",
+      Tipo: "ARRAY-JSON"
+    },
+
+  ]
+}
+
+function dettagliconiugeStructure() {
+  return [{
+      DbName: "DbTipologia:",
+      MemName: "Tipologia:",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbValore",
+      MemName: "Valore",
+      Tipo: "N"
+    },
+
+  ]
+}
+
+function dettagliassistitoStructure() {
+  return [{
+      DbName: "DbTipologia:",
+      MemName: "Tipologia:",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbValore",
+      MemName: "Valore",
+      Tipo: "N"
+    },
+
+  ]
+}
+
+function indirizziStructure() {
+  return [{
+      DbName: "DbTipo",
+      MemName: "Tipo",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbIndirizzo",
+      MemName: "Indirizzo",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbValidita",
+      MemName: "Validita",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNazione",
+      MemName: "Nazione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbComune",
+      MemName: "Comune",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbCap",
+      MemName: "Cap",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbFrazione",
+      MemName: "Frazione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbVia",
+      MemName: "Via",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbCivico",
+      MemName: "Civico",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbUsaIndirizzo",
+      MemName: "UsaIndirizzo",
+      Tipo: "BSiNo"
+    },
+    {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C"
+    },
+  ]
+}
+
+function associazioniStructure() {
+  return [{
+      DbName: "DbNumPosizione",
+      MemName: "NumPosizione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDataDomanda",
+      MemName: "DataDomanda",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbTipoAssociazione",
+      MemName: "TipoAssociazione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbInizioIscrizione",
+      MemName: "InizioIscrizione",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbFineIscrizione",
+      MemName: "FineIscrizione",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbElencoRitenuteDiCategoriaRecuperate",
+      MemName: "ElencoRitenuteDiCategoriaRecuperate",
+      Struttura: "ritenutedicategoriarecuperate",
+      Tipo: "ARRAY-JSON"
+    },
+
+  ]
+}
+
+function ritenutedicategoriarecuperateStructure() {
+  return [{
+      DbName: "DbDataRecupero",
+      MemName: "DataRecupero",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbImportoRecuperato",
+      MemName: "ImportoRecuperato",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C"
+    },
+  ]
+}
+
+function liquidazioniStructure() {
+  return [{
+      DbName: "DbDataCalcolo",
+      MemName: "DataCalcolo",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbLiquidato",
+      MemName: "Liquidato",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRiaccredito",
+      MemName: "Riaccredito",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbTrattenutaDiCategoria",
+      MemName: "TrattenutaDiCategoria",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbImportoRecuperatoPerCompensazione",
+      MemName: "ImportoRecuperatoPerCompensazione",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbNrTrasferimentoFlumo",
+      MemName: "NrTrasferimentoFlumo",
+      Struttura: "nrtrasferimentoflumo",
+      Tipo: "JSON"
+    },
+    {
+      DbName: "DbTotMese",
+      MemName: "TotMese",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbTotAnno",
+      MemName: "TotAnno",
+      Tipo: "N"
+    },
+
+  ]
+}
+
+function pensioniStructure() {
+  return [{
+      DbName: "DbTipo",
+      MemName: "Tipo",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbTipologiaDiAssistenza",
+      MemName: "TipologiaDiAssistenza",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDataFineCompatibilita",
+      MemName: "DataFineCompatibilita",
+      Tipo: "D"
+    }, {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C"
+    },
+  ]
+}
+
+
+function nrtrasferimentoflumoStructure() {
+  return [{
+      DbName: "DbNrTrasferimentoFlumo",
+      MemName: "NrTrasferimentoFlumo",
+      Tipo: "I"
+    },
+    {
+      DbName: "DbData",
+      MemName: "Data",
+      Tipo: "D"
+    },
+  ]
+}
+
+
+function importiriaccreditatiStructure() {
+  return [{
+      DbName: "DbDataRiaccredito",
+      MemName: "DataRiaccredito",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbImportoRiaccreditato",
+      MemName: "ImportoRiaccreditato",
+      Tipo: "I"
+    },
+    {
+      DbName: "DbDataLiquidazioneArretrato",
+      MemName: "DataLiquidazioneArretrato",
+      Tipo: "D"
+    },
+  ]
+}
+
+function importidarecuperareStructure() {
+  return [{
+      DbName: "DbDataUltimaModifica",
+      MemName: "DataUltimaModifica",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbTipoDiRecupero",
+      MemName: "TipoDiRecupero",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbTotDaRecuperare",
+      MemName: "TotDaRecuperare",
+      Struttura: "totdarecuperare",
+      Tipo: "JSON"
+    },
+    {
+      DbName: "DbRecuperato",
+      MemName: "Recuperato",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRestituito",
+      MemName: "Restituito",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRimanenteDaRecuperare",
+      MemName: "RimanenteDaRecuperare",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C"
+    },
+  ]
+}
+
+function totDaRecuperareStructure() {
+  return [{
+      DbName: "DbCapitale",
+      MemName: "Capitale",
+      Tipo: "N",
+    },
+    {
+      DbName: "DbInteressiLegali",
+      MemName: "InteressiLegali",
+      Tipo: "N",
+    },
+    {
+      DbName: "DbInteressiDiRateizzazione",
+      MemName: "InteressiDiRateizzazione",
+      Tipo: "N",
+    },
+  ]
+}
+
+
+function posizioneStructure() {
+  return [{
+      DbName: "DbPosizione",
+      MemName: "Posizione",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbCognome",
+      MemName: "Cognome",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbNome",
+      MemName: "Nome",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbDataDiNascita",
+      MemName: "DataDiNascita",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbDataDiDecesso",
+      MemName: "DataDiDecesso",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbAnnoDiScarto",
+      MemName: "AnnoDiScarto",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbNumeroFaldone",
+      MemName: "NumeroFaldone",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbFascicolo",
+      MemName: "Fascicolo",
+      Tipo: "C",
+      Note: ""
+    },
+    {
+      DbName: "DbStatoDomanda",
+      MemName: "StatoDomanda",
+      Tipo: "C",
+      Note: ""
+    }
+  ]
+}
+
+
+
 
 /**
  *

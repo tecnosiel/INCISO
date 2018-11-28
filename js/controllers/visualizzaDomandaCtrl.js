@@ -1007,9 +1007,6 @@ function visualizzaDomandaCtrl(
   $scope.inserisciNuovoVerbale = function () {
     swal("Inserimento verbale!", "...individuare procedura da chiamare!");
   };
-  $scope.inserisciNuovaEvidenza = function () {
-    swal("Inserimento evidenza!", "...individuare procedura da chiamare!");
-  };
 
   $scope.creaSospensione = function () {
     swal(

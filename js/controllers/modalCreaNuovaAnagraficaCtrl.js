@@ -168,7 +168,7 @@ function modalCreaNuovaAnagraficaCtrl($scope, $state, $stateParams) {
     Nazionalita: "Italiana",
     Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
     Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
-    AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+    AltriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
     Redditi: [
       {
         Anno: "2018",

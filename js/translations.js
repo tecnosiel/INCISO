@@ -5,6 +5,8 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
+      INSERISCI_NUOVA_EVIDENZA:"Inserisci nuova evidenza",
+      SALVA_EVIDENZA :"Salva evidenza",
       // -------------------------------------------------------------------------------
       ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE:
         "Annullamento ultima liquidazione mensile",
@@ -156,7 +158,8 @@ function config($translateProvider) {
       ELIMINA_POSIZIONE: "Elimina posizione",
 
       VISUALIZZA_EVIDENZA: "Visualizza evidenza",
-
+      INSERIMENTO_EVIDENZA:"Inserimento evidenza",
+     
       DAL: "dal",
       AL: "al",
 
@@ -701,6 +704,11 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      INSERISCI_NUOVA_EVIDENZA:"Inserisci nuova evidenza DE",
+
+      SALVA_EVIDENZA :"Salva evidenza DE",
+
+
       ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE:
         "Annullamento ultima liquidazione mensile DE",
 
@@ -856,6 +864,7 @@ function config($translateProvider) {
       DATI_EVIDENZA: "Dati evidenza DE",
       ELIMINA_POSIZIONE: "Elimina posizione DE",
       VISUALIZZA_EVIDENZA: "Visualizza evidenza DE",
+      INSERIMENTO_EVIDENZA:"Inserimento evidenza DE",
 
       DAL: "dal DE",
       AL: "al DE",

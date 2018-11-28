@@ -4,12 +4,12 @@ function setupFakeBackend($httpBackend) {
   // le views verranno servite senza elaborazione. Se i elimina la riga si hanno interferenze con gli stati di UI-ROUTER
   $httpBackend.whenGET(/views\/.*/).passThrough();
   $httpBackend.whenGET(/js\/.*/).passThrough();
-  
+
   $httpBackend.whenGET('http://www.omdbapi.com/?s=terminator').passThrough();
   $httpBackend.whenGET('/iamauth/user/current').passThrough();
   $httpBackend.whenPOST('http://www.omdbapi.com/?s=terminator').passThrough();
   $httpBackend.whenPOST('/iamauth/user/current').passThrough();
-  
+
   // ------------------------- LOGIN
   $httpBackend
     .whenPOST("/api/autenticazione/login")
@@ -23,8 +23,8 @@ function setupFakeBackend($httpBackend) {
           200,
           {
             immagineUtente: "profile1",
-            nome: "Camillo",
-            cognome: "Alfano",
+            DbNome: "Camillo",
+            DbCognome: "Alfano",
             ruolo: "Consulente",
             token: "token-di-Camillo"
           },
@@ -35,8 +35,8 @@ function setupFakeBackend($httpBackend) {
           200,
           {
             immagineUtente: "profile2",
-            nome: "Mario",
-            cognome: "Petta",
+            DbNome: "Mario",
+            DbCognome: "Petta",
             ruolo: "Capo Progetto",
             token: "token-di-Mario"
           },
@@ -47,8 +47,8 @@ function setupFakeBackend($httpBackend) {
           200,
           {
             immagineUtente: "profile3",
-            nome: "Danilo",
-            cognome: "Romano",
+            DbNome: "Danilo",
+            DbCognome: "Romano",
             ruolo: "Analista",
             token: "token-di-Danilo"
           },
@@ -72,10 +72,10 @@ function setupFakeBackend($httpBackend) {
 
   // ------------------------- ANAGRAFE e POSIZIONI
   // data = {
-  //   Cognome: "text",
-  //   Nome: "text",
-  //   CodiceFiscale: "text",
-  //   DataDiNascita: "gg/mm/aaaa",
+  //   DbCognome: "text",
+  //   DbNome: "text",
+  //   DbCodiceFiscale: "text",
+  //   DbDataDiNascita: "gg/mm/aaaa",
   //   NumeroFascicolo:"text"
   //   NumeroFaldoneArchiviazione:"text"
   //   AnnoDiScarto:""text"
@@ -97,14 +97,15 @@ function setupFakeBackend($httpBackend) {
     });
 
   // data = {
-  //   CodiceFiscale: "text",
+  //   DbCodiceFiscale: "text",
   // }
   $httpBackend
     .whenGET("/api/anagrafe/findcodfis")
     .respond(function (method, url, data, headers) {
+      debugger
       var response = tabella("ANAGRAFE");
       var response2 = response.find(obj => {
-        return obj.CodiceFiscale === data;
+        return obj.DbCodiceFiscale === data;
       });
       return [200, response2, {}];
     });
@@ -121,10 +122,10 @@ function setupFakeBackend($httpBackend) {
 
   // data = {
   //   TipoAssistenzaRichiesta:"text 77/88/99"
-  //   Cognome: "text",
-  //   Nome: "text",
-  //   CodiceFiscale: "text",
-  //   DataDiNascita: "gg/mm/aaaa",
+  //   DbCognome: "text",
+  //   DbNome: "text",
+  //   DbCodiceFiscale: "text",
+  //   DbDataDiNascita: "gg/mm/aaaa",
   //   IncludiDeceduti:"text Si/No "
   // }
   $httpBackend
@@ -149,7 +150,7 @@ function setupFakeBackend($httpBackend) {
     });
 
   // data = {
-  //   CodiceFiscale: "text",
+  //   DbCodiceFiscale: "text",
   // }
   $httpBackend
     .whenGET("/api/liquidazioni/findcodfis")
@@ -181,10 +182,10 @@ function setupFakeBackend($httpBackend) {
   //   DataScadenzaAl :"dd/MM/yyyy"
   //   DataChiusuraDal:"dd/MM/yyyy"
   //   DataChiusuraAl :"dd/MM/yyyy"
-  //   Cognome: "text",
-  //   Nome: "text",
-  //   CodiceFiscale: "text",
-  //   DataDiNascita: "gg/mm/aaaa",
+  //   DbCognome: "text",
+  //   DbNome: "text",
+  //   DbCodiceFiscale: "text",
+  //   DbDataDiNascita: "gg/mm/aaaa",
   // }
   $httpBackend
     .whenGET("/api/evidenze/find")
@@ -195,7 +196,7 @@ function setupFakeBackend($httpBackend) {
     });
 
   // data = {
-  //   CodiceFiscale: "text",
+  //   DbCodiceFiscale: "text",
   // }
   $httpBackend
     .whenGET("/api/evidenze/findcodfis")
@@ -217,9 +218,9 @@ function setupFakeBackend($httpBackend) {
 
   // ------------------------- ASSOCIAZIONI
   // data = {
-  //   CodiceFiscale: "text",
+  //   DbCodiceFiscale: "text",
   //   NomeAssociazione: "text",
-  //   TipologiaDiAssistenza: "text"
+  //   DbTipologiaDiAssistenza: "text"
   // }
   $httpBackend
     .whenGET("/api/associazioni/find")
@@ -230,7 +231,7 @@ function setupFakeBackend($httpBackend) {
     });
 
   // data = {
-  //   CodiceFiscale: "text",
+  //   DbCodiceFiscale: "text",
   // }
   $httpBackend
     .whenGET("/api/associazioni/findcodfis")
@@ -255,4010 +256,4009 @@ function setupFakeBackend($httpBackend) {
   function tabella(cTipoTabella) {
     if (cTipoTabella.toUpperCase() === "ANAGRAFE") {
       var tabAnagrafe = [{
-          CodiceFiscale: "LFNCLL60D03E026T",
-          Cognome: "Alfano",
-          Nome: "Camillo",
-          DataDiNascita: "01/01/1930",
-          Sesso: "F",
-          LuogoDiNascita: "Bologna",
-          Nazionalita: "Italiana",
-          Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
-          Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
-          AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+          DbCodiceFiscale: "LFNCLL60D03E026T",
+          DbCognome: "Alfano",
+          DbNome: "Camillo",
+          DbDataDiNascita: "01/01/1930",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bologna",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
+          DbDomicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
+          DbAltriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
 
-          DataDiDecesso: "01/01/2010",
-          Eredita: {
-            NumeroFaldone: "3333333",
-            AnnoDiScartoINCISO: "2018",
-            DataCalcoloSimulazione: "01/01/2020",
+          DbDataDiDecesso: "01/01/2010",
+          DbEredita: {
+            DbNumeroFaldone: "3333333",
+            DbAnnoDiScartoINCISO: "2018",
+            DbDataCalcoloSimulazione: "01/01/2020",
+            DbImportoSpettante: "580000.39",
+            DbEredi: [{
+                DbCognomeNome: "Paolo Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "50%",
+                DbLiquidatoInBaseAllaPercDiEredita: "28400.00",
+                DbLiquidazione: "30/06/2016"
+              },
+              {
+                DbCognomeNome: "Marco Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "25%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
+              },
+              {
+                DbCognomeNome: "Sara Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q5372",
+                DbPercDiEredita: "15%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
+              }
+            ]
+          },
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
+                },
+                {
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
+                },
+                {
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
+                },
+                {
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
+                },
+                {
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            }
+          ],
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            },
+            {
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            },
+            {
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            }
+          ],
+
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+          DbAssociazioni: [{
+              DbNumPosizione: "111-778767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
+            },
+            {
+              DbNumPosizione: "111-993423",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "1111111111111-Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
+            },
+            {
+              DbNumPosizione: "1111-376899",
+              DbDataDomanda: "07/08/2011",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "07/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "1111111.00",
+                DbNote: "111111111111111111 Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
+            }
+          ],
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
+            },
+            {
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
+            },
+            {
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
+            }
+          ],
+
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
+            },
+            {
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
+            }
+          ],
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
+            },
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
+
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
+
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbDbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+        },
+        {
+          DbCodiceFiscale: "RSSARO70A10F2052",
+          DbCognome: "Alfano",
+          DbNome: "Camillo",
+          DbDataDiNascita: "01/01/1930",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bologna",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
+          DbDomicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
+          DbAltriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+
+          DbDataDiDecesso: "-",
+          DbEredita: null,
+
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
+                },
+                {
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
+                },
+                {
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
+                },
+                {
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
+                },
+                {
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            }
+          ],
+
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            },
+            {
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            },
+            {
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            }
+          ],
+
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            },
+            {
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+            }
+          ],
+          DbAssociazioni: [{
+              DbNumPosizione: "222-778767",
+              DbDataDomanda: "22/03/2011",
+              DbTipoAssociazione: "222-ANMIC",
+              DbInizioIscrizione: "22/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
+            },
+            {
+              DbNumPosizione: "2222-993423",
+              DbDataDomanda: "22/08/2012",
+              DbTipoAssociazione: "222-UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "22/03/2014",
+                DbImportoRecuperato: "22222.00",
+                DbNote: "22222222222222222a quam venenatis vestibulum."
+              }]
+            },
+            {
+              DbNumPosizione: "222222",
+              DbDataDomanda: "07/08/2011",
+              DbTipoAssociazione: "2-2ULMM",
+              DbInizioIscrizione: "27/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "222222222lòkjòkljòlkjS leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
+            }
+          ],
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
+            },
+            {
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
+            },
+            {
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
+            }
+          ],
+
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
+            },
+
+            {
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
+            }
+          ],
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
+            },
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
+
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
+
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+        },
+        {
+          DbCodiceFiscale: "QTGSRO60A11Q2055",
+          DbCognome: "Hammond",
+          DbNome: "John",
+          DbDataDiNascita: "01/01/1970",
+
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bologna",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
+          DbDomicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
+          DbAltriIndirizzi: "indirizzo di prova qòlwekrjòlqwekjròlqwkjer",
+
+          DbDataDiDecesso: "01/01/1990",
+          DbEredita: {
+            DbNumeroFaldone: "3333333",
+            DbAnnoDiScartoINCISO: "2018",
+
+            DbDataCalcoloSimulazione: "01/01/2020",
             ImportoSpettante: "580000.39",
-            Eredi: [{
-                CognomeNome: "Paolo Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "50%",
-                LiquidatoInBaseAllaPercDiEredita: "28400.00",
-                Liquidazione: "30/06/2016"
+            DbEredi: [{
+                DbCognomeNome: "Paolo Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "50%",
+                DbLiquidatoInBaseAllaPercDiEredita: "28400.00",
+                DbLiquidazione: "30/06/2016"
               },
               {
-                CognomeNome: "Marco Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "25%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
+                DbCognomeNome: "Marco Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "25%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
               },
               {
-                CognomeNome: "Sara Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q5372",
-                PercDiEredita: "15%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
+                DbCognomeNome: "Sara Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q5372",
+                DbPercDiEredita: "15%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
               }
             ]
           },
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
                 },
                 {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
                 },
                 {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
                 }
               ]
             },
             {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             }
           ],
-          Pensioni: [{
+
+          DbPensioni: [{
               Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             }
           ],
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "11111111",
+              DbVia: "111111111111",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "2222222",
+              DbVia: "22222222222222",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "3333333",
+              DbVia: "3333333333333333",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [{
-              NumPosizione: "111-778767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
+          DbAssociazioni: [{
+              DbNumPosizione: "333333",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "3333ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
             },
             {
-              NumPosizione: "111-993423",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "1111111111111-Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "333333",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "33333UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "33333.00",
+                DbNote: "3333333333333hlkjhlkjhlkjhlkjh. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             },
             {
-              NumPosizione: "1111-376899",
-              DataDomanda: "07/08/2011",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "07/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "1111111.00",
-                Note: "111111111111111111 Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "345467",
+              DbDataDomanda: "07/09/2019",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "07/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "33312349.00",
+                DbNote: "3333333333333333acinia quam venenatis vestibulum."
               }]
             }
           ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
             },
             {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
             },
             {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
             }
           ],
 
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             },
 
             {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
             },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
 
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          CodiceFiscale: "RSSARO70A10F2052",
-          Cognome: "Alfano",
-          Nome: "Camillo",
-          DataDiNascita: "01/01/1930",
-          Sesso: "F",
-          LuogoDiNascita: "Bologna",
-          Nazionalita: "Italiana",
-          Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
-          Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
-          AntriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bolzano",
+          DbNazionalita: "Inglese",
+          DbResidenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
+          DbDomicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
+          DbAltriIndirizzi: "qò lwe k rj ò lqwekjròlqwkjer",
 
-          DataDiDecesso: "-",
-          Eredita: null,
+          DbDataDiDecesso: "01/01/1930",
+          DbEredita: {
+            DbNumeroFaldone: "333313454",
+            DbAnnoDiScartoINCISO: "2015",
 
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
-                },
-                {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
-                },
-                {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
-                },
-                {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
-                },
-                {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            }
-          ],
-
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            },
-            {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            },
-            {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            }
-          ],
-
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-            },
-            {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-            },
-            {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
-            }
-          ],
-          Associazioni: [{
-              NumPosizione: "222-778767",
-              DataDomanda: "22/03/2011",
-              TipoAssociazione: "222-ANMIC",
-              InizioIscrizione: "22/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
-            },
-            {
-              NumPosizione: "2222-993423",
-              DataDomanda: "22/08/2012",
-              TipoAssociazione: "222-UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "22/03/2014",
-                ImportoRecuperato: "22222.00",
-                Note: "22222222222222222a quam venenatis vestibulum."
-              }]
-            },
-            {
-              NumPosizione: "222222",
-              DataDomanda: "07/08/2011",
-              TipoAssociazione: "2-2ULMM",
-              InizioIscrizione: "27/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "12349.00",
-                Note: "222222222lòkjòkljòlkjS leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-              }]
-            }
-          ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
-            },
-            {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
-            },
-            {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
-            }
-          ],
-
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
-            },
-
-            {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
-            }
-          ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
-            },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-          }],
-
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
-
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
-        },
-        {
-          CodiceFiscale: "QTGSRO60A11Q2055",
-          Cognome: "Hammond",
-          Nome: "John",
-          DataDiNascita: "01/01/1970",
-
-          Sesso: "F",
-          LuogoDiNascita: "Bologna",
-          Nazionalita: "Italiana",
-          Residenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
-          Domicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
-          AntriIndirizzi: "indirizzo di prova qòlwekrjòlqwekjròlqwkjer",
-
-          DataDiDecesso: "01/01/1990",
-          Eredita: {
-            NumeroFaldone: "3333333",
-            AnnoDiScartoINCISO: "2018",
-
-            DataCalcoloSimulazione: "01/01/2020",
+            DbDataCalcoloSimulazione: "11/11/2021",
             ImportoSpettante: "580000.39",
-            Eredi: [{
-                CognomeNome: "Paolo Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "50%",
-                LiquidatoInBaseAllaPercDiEredita: "28400.00",
-                Liquidazione: "30/06/2016"
+            DbEredi: [{
+                DbCognomeNome: "gIUSEPPE Bianchi-4444",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "50%",
+                DbLiquidatoInBaseAllaPercDiEredita: "28400.00",
+                DbLiquidazione: "30/06/2017"
               },
               {
-                CognomeNome: "Marco Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "25%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
+                DbCognomeNome: "Marco Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "5%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
               },
               {
-                CognomeNome: "Sara Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q5372",
-                PercDiEredita: "15%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
+                DbCognomeNome: "SaSSSSra Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q5372",
+                DbPercDiEredita: "5%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
               }
             ]
           },
 
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
                 },
                 {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
                 },
                 {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
                 }
               ]
             },
             {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             }
           ],
 
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             }
           ],
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "11111111",
-              Via: "111111111111",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "12132",
+              DbVia: "41234232",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "2222222",
-              Via: "22222222222222",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "333333",
+              DbVia: "12313413",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "3333333",
-              Via: "3333333333333333",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxx222",
+              DbVia: "xxx223242121x",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [{
-              NumPosizione: "333333",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "3333ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
+          DbAssociazioni: [{
+              DbNumPosizione: "778767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
             },
             {
-              NumPosizione: "333333",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "33333UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "33333.00",
-                Note: "3333333333333hlkjhlkjhlkjhlkjh. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "993423",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             },
             {
-              NumPosizione: "345467",
-              DataDomanda: "07/09/2019",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "07/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "33312349.00",
-                Note: "3333333333333333acinia quam venenatis vestibulum."
+              DbNumPosizione: "444444444",
+              DbDataDomanda: "04/08/2014",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "04/08/2014",
+              DbFineIscrizione: "04/08/2014",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "444444.00",
+                DbNote: "44444444 kjòlkjòlkjòlkjl   u leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             }
           ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
             },
             {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
             },
             {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
             }
           ],
 
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             },
 
             {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
             },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
 
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi111@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          Sesso: "F",
-          LuogoDiNascita: "Bolzano",
-          Nazionalita: "Inglese",
-          Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
-          Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
-          AntriIndirizzi: "qò lwe k rj ò lqwekjròlqwkjer",
+          DbCodiceFiscale: "VSYFRO70A10E2652",
+          DbCognome: "Mathews",
+          DbNome: "Suzanne",
+          DbDataDiNascita: "01/01/1966",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bologna",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
+          DbDomicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
+          DbAltriIndirizzi: "qòlwek rjòlq wekjròlqwkjer",
 
-          DataDiDecesso: "01/01/1930",
-          Eredita: {
-            NumeroFaldone: "333313454",
-            AnnoDiScartoINCISO: "2015",
+          DbDataDiDecesso: "-",
+          Eredita: null,
 
-            DataCalcoloSimulazione: "11/11/2021",
-            ImportoSpettante: "580000.39",
-            Eredi: [{
-                CognomeNome: "gIUSEPPE Bianchi-4444",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "50%",
-                LiquidatoInBaseAllaPercDiEredita: "28400.00",
-                Liquidazione: "30/06/2017"
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
+                },
+                {
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
+                },
+                {
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
+                },
+                {
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
+                },
+                {
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            },
+            {
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
+
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
+
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
+                },
+                {
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
+                },
+                {
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
+                }
+              ]
+            }
+          ],
+
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            },
+            {
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            },
+            {
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
+            }
+          ],
+
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "33333333",
+              DbVia: "33xxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            },
+            {
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "x23421xxxxx",
+              DbVia: "x241342xxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            },
+            {
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
+
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "x212xxxxx",
+              DbVia: "2232xxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            }
+          ],
+          DbAssociazioni: [{
+              DbNumPosizione: "555767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
+            },
+            {
+              DbNumPosizione: "993555",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere co5555555555555        esque ornare sem lacinia quam venenatis vestibulum."
+              }]
+            },
+            {
+              DbNumPosizione: "555555",
+              DbDataDomanda: "07/08/2015",
+              DbTipoAssociazione: "5555-ULMM",
+              DbInizioIscrizione: "05/05/2014",
+              DbFineIscrizione: "05/05/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "05/05/2015",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere co5555555555555 nsectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              }]
+            }
+          ],
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
+            },
+            {
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
+            },
+            {
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
+              },
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
+            }
+          ],
+
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
+            },
+
+            {
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
+            }
+          ],
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
+            },
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+          }],
+
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
+
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi111@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+        },
+        {
+          DbCodiceFiscale: "WSSGRO70A10T2066",
+          DbCognome: "Schidner",
+          DbNome: "Robert",
+          DbDataDiNascita: "01/04/1950",
+          DbSesso: "M",
+          DbLuogoDiNascita: "Roma",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via dell'Albergo Murat, 53 - 89112 Roma RM",
+          DbDomicilio: "via Bellini Diaz, 2 - 84094 Roma RM",
+          DbAltriIndirizzi: "qòlwekrjòlqw ekjròl qwkjer",
+
+          DbDataDiDecesso: "01/01/1930",
+          DbEredita: {
+            DbNumeroFaldone: "3345333333",
+            DbAnnoDiScartoINCISO: "2016",
+
+            DbDataCalcoloSimulazione: "01/01/2020",
+            DbImportoSpettanteEredita: "480000.39",
+            DbEredi: [{
+                DbCognomeNome: "Paolo Bianchi-1111",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "5%",
+                DbLiquidatoInBaseAllaPercDiEredita: "2118400.00",
+                DbLiquidazione: "30/06/2014"
               },
               {
-                CognomeNome: "Marco Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "5%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
+                DbCognomeNome: "Marc00o Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q2357",
+                DbPercDiEredita: "5%",
+                DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+                DbLiquidazione: "30/06/2016"
               },
               {
-                CognomeNome: "SaSSSSra Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q5372",
-                PercDiEredita: "5%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
+                DbCognomeNome: "SaAAAra Bianchi",
+                DbCodiceFiscale: "RSSMRA53A36Q5372",
+                DbPercDiEredita: "15%",
+                DbLiquidatoInBaseAllaPercDiEredita: "114200.00",
+                DbLiquidazione: "30/06/2016"
               }
             ]
           },
 
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
                 },
                 {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
                 },
                 {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
                 }
               ]
             },
             {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             }
           ],
 
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             }
           ],
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "12132",
-              Via: "41234232",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "11111",
+              DbVia: "2222222222",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "333333",
-              Via: "12313413",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "444444",
+              DbVia: "xxxxx444444444",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxx222",
-              Via: "xxx223242121x",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xx5555x",
+              DbVia: "xx555555555",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [{
-              NumPosizione: "778767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
+          DbAssociazioni: [{
+              DbNumPosizione: "666666778767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
             },
             {
-              NumPosizione: "993423",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "99366666423",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere cons6666666666ectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             },
             {
-              NumPosizione: "444444444",
-              DataDomanda: "04/08/2014",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "04/08/2014",
-              FineIscrizione: "04/08/2014",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "444444.00",
-                Note: "44444444 kjòlkjòlkjòlkjl   u leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "376899",
+              DbDataDomanda: "07/08/2011",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "07/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "12666666.00",
+                DbNote: "Sed posuere consectetur e6666 66666 66666 66666 6666 inia quam venenatis vestibulum."
               }]
             }
           ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
             },
             {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
             },
             {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
             }
           ],
 
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             },
 
             {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
             },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
 
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi111@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0123 456789",
+          DbEmail: "mrossi222@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          CodiceFiscale: "VSYFRO70A10E2652",
-          Cognome: "Mathews",
-          Nome: "Suzanne",
-          DataDiNascita: "01/01/1966",
-          Sesso: "F",
-          LuogoDiNascita: "Bologna",
-          Nazionalita: "Italiana",
-          Residenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
-          Domicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
-          AntriIndirizzi: "qòlwek rjòlq wekjròlqwkjer",
-
-          DataDiDecesso: "-",
+          DbCodiceFiscale: "1234567890123456",
+          DbCognome: "Alfano-1111",
+          DbNome: "Camillo-1111",
+          DbDataDiNascita: "01/01/1930",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bolzano-11",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via Giocchino Murat, 53 - 89112 Roma RM",
+          DbDomicilio: "via Armando Diaz, 2 - 84094 Roma RM",
+          DbAltriIndirizzi: "indirizzo straniero 1 wekjròlqwkjer",
+          DbDataDiDecesso: "-",
           Eredita: null,
 
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
                 },
                 {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
                 },
                 {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
                 }
               ]
             },
             {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             }
           ],
 
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             }
           ],
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "33333333",
-              Via: "33xxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "xxxxxxxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "x23421xxxxx",
-              Via: "x241342xxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "xxxxxxaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "x212xxxxx",
-              Via: "2232xxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "xxxxxxxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
-          Associazioni: [{
-              NumPosizione: "555767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
+          DbAssociazioni: [{
+              DbNumPosizione: "778767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
             },
             {
-              NumPosizione: "993555",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere co5555555555555        esque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "993423",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             },
             {
-              NumPosizione: "555555",
-              DataDomanda: "07/08/2015",
-              TipoAssociazione: "5555-ULMM",
-              InizioIscrizione: "05/05/2014",
-              FineIscrizione: "05/05/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "05/05/2015",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere co5555555555555 nsectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "376899",
+              DbDataDomanda: "07/08/2011",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "07/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             }
           ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
             },
             {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
             },
             {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
             }
           ],
 
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             },
 
             {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
             },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
 
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi111@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi333@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          CodiceFiscale: "WSSGRO70A10T2066",
-          Cognome: "Schidner",
-          Nome: "Robert",
-          DataDiNascita: "01/04/1950",
-          Sesso: "M",
-          LuogoDiNascita: "Roma",
-          Nazionalita: "Italiana",
-          Residenza: "via dell'Albergo Murat, 53 - 89112 Roma RM",
-          Domicilio: "via Bellini Diaz, 2 - 84094 Roma RM",
-          AntriIndirizzi: "qòlwekrjòlqw ekjròl qwkjer",
+          DbCodiceFiscale: "RSSMRA70A41F2052",
+          DbCognome: "Hammond",
+          DbNome: "John22",
+          DbDataDiNascita: "01/01/1970",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bologna 2",
+          DbNazionalita: "Italiana",
+          DbResidenza: "via Luigi Belli, 53 - 39100 Bolzano BZ",
+          DbDomicilio: "via Diaz Armandino, 2 - 39100 Bolzano BZ",
+          DbAltriIndirizzi: "indirizzo belga qòlwekrjòlqwekjròlqwkjer",
 
-          DataDiDecesso: "01/01/1930",
-          Eredita: {
-            NumeroFaldone: "3345333333",
-            AnnoDiScartoINCISO: "2016",
-
-            DataCalcoloSimulazione: "01/01/2020",
-            ImportoSpettanteEredita: "480000.39",
-            Eredi: [{
-                CognomeNome: "Paolo Bianchi-1111",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "5%",
-                LiquidatoInBaseAllaPercDiEredita: "2118400.00",
-                Liquidazione: "30/06/2014"
-              },
-              {
-                CognomeNome: "Marc00o Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q2357",
-                PercDiEredita: "5%",
-                LiquidatoInBaseAllaPercDiEredita: "14200.00",
-                Liquidazione: "30/06/2016"
-              },
-              {
-                CognomeNome: "SaAAAra Bianchi",
-                CodiceFiscale: "RSSMRA53A36Q5372",
-                PercDiEredita: "15%",
-                LiquidatoInBaseAllaPercDiEredita: "114200.00",
-                Liquidazione: "30/06/2016"
-              }
-            ]
-          },
-
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
-                },
-                {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
-                },
-                {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
-                },
-                {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
-                },
-                {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            }
-          ],
-
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            },
-            {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            },
-            {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            }
-          ],
-
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "11111",
-              Via: "2222222222",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            },
-            {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "444444",
-              Via: "xxxxx444444444",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            },
-            {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xx5555x",
-              Via: "xx555555555",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            }
-          ],
-          Associazioni: [{
-              NumPosizione: "666666778767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
-            },
-            {
-              NumPosizione: "99366666423",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere cons6666666666ectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-              }]
-            },
-            {
-              NumPosizione: "376899",
-              DataDomanda: "07/08/2011",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "07/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "12666666.00",
-                Note: "Sed posuere consectetur e6666 66666 66666 66666 6666 inia quam venenatis vestibulum."
-              }]
-            }
-          ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
-            },
-            {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
-            },
-            {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
-            }
-          ],
-
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
-            },
-
-            {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
-            }
-          ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
-            },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-          }],
-
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
-
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0123 456789",
-          Email: "mrossi222@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
-        },
-        {
-          CodiceFiscale: "1234567890123456",
-          Cognome: "Alfano-1111",
-          Nome: "Camillo-1111",
-          DataDiNascita: "01/01/1930",
-          Sesso: "F",
-          LuogoDiNascita: "Bolzano-11",
-          Nazionalita: "Italiana",
-          Residenza: "via Giocchino Murat, 53 - 89112 Roma RM",
-          Domicilio: "via Armando Diaz, 2 - 84094 Roma RM",
-          AntriIndirizzi: "indirizzo straniero 1 wekjròlqwkjer",
-          DataDiDecesso: "-",
+          DbDataDiDecesso: "-",
           Eredita: null,
 
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
                 },
                 {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
                 },
                 {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
                 }
               ]
             },
             {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             }
           ],
 
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             }
           ],
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "xxxxxxxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "11111111",
+              DbVia: "111111111111",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "xxxxxxaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "2222222",
+              DbVia: "22222222222222",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "xxxxxxxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "3333333",
+              DbVia: "3333333333333333",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [{
-              NumPosizione: "778767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
+          DbAssociazioni: [{
+              DbNumPosizione: "778767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
             },
             {
-              NumPosizione: "993423",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "993423",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             },
             {
-              NumPosizione: "376899",
-              DataDomanda: "07/08/2011",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "07/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "376899",
+              DbDataDomanda: "07/08/2011",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "07/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             }
           ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
             },
             {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
             },
             {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
             }
           ],
 
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             },
 
             {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
             },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
 
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi333@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi444@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          CodiceFiscale: "3456735790GHJDAE",
-          Cognome: "Hammond222222",
-          Nome: "John22",
-          DataDiNascita: "01/01/1970",
-          Sesso: "F",
-          LuogoDiNascita: "Bologna 2",
-          Nazionalita: "Italiana",
-          Residenza: "via Luigi Belli, 53 - 39100 Bolzano BZ",
-          Domicilio: "via Diaz Armandino, 2 - 39100 Bolzano BZ",
-          AntriIndirizzi: "indirizzo belga qòlwekrjòlqwekjròlqwkjer",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbSesso: "F",
+          DbLuogoDiNascita: "Bolzano",
+          DbNazionalita: "Inglese",
+          DbResidenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
+          DbDomicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
+          DbAltriIndirizzi: "indirizzo austriaco qòlwekrjòlqwekjròlqwkjer",
 
-          DataDiDecesso: "-",
-          Eredita: null,
+          DbDataDiDecesso: "01/01/1930",
+          DbEredita: [{
+              DbCognomeNome: "Paolwwwo Biawdjkònchi",
+              DbCodiceFiscale: "RSSMRA53A36Q2357",
+              DbPercDiEredita: "50%",
+              DbLiquidatoInBaseAllaPercDiEredita: "28400.00",
+              DbLiquidazione: "30/06/2016"
+            },
+            {
+              DbCognomeNome: "Marcwwwo Biancwwwhi",
+              DbCodiceFiscale: "RSSMRA53A36Q2357",
+              DbPercDiEredita: "25%",
+              DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+              DbLiquidazione: "30/06/2016"
+            },
+            {
+              DbCognomeNome: "Sarwa Biancwi",
+              DbCodiceFiscale: "RSSMRA53A36Q5372",
+              DbPercDiEredita: "15%",
+              DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+              DbLiquidazione: "30/06/2016"
+            },
+            {
+              DbCognomeNome: "Sarwa Biancwi",
+              DbCodiceFiscale: "RSSMRA53A36Q5372",
+              DbPercDiEredita: "15%",
+              DbLiquidatoInBaseAllaPercDiEredita: "14200.00",
+              DbLiquidazione: "30/06/2016"
+            }
+          ],
 
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
+          DbRedditi: [{
+              DbAnno: "2018",
+              DbRedditoAssistito: "111111.45",
+              DbRedditoConiuge: "6578.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88268.00"
                 },
                 {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "111Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2017",
+              DbRedditoAssistito: "22222225.45",
+              DbRedditoConiuge: "222222228.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "88628.00"
                 },
                 {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
+                  DbTipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "112000.00"
                 },
                 {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
+                  DbTipologia: "2222Altri redditi da fabbricati",
+                  DbValore: "2763.00"
                 }
               ]
             },
             {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2016",
+              DbRedditoAssistito: "33333333.45",
+              DbRedditoConiuge: "33333333.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "333Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2015",
+              DbRedditoAssistito: "44444444.45",
+              DbRedditoConiuge: "44444444.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "4444Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2014",
+              DbRedditoAssistito: "555555555.45",
+              DbRedditoConiuge: "5555555.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
+                  DbTipologia: "5555Altri redditi da fabbricati",
+                  DbValore: "555763.00"
                 }
               ]
             },
             {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2013",
+              DbRedditoAssistito: "666666666.45",
+              DbRedditoConiuge: "6666666.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2012",
+              DbRedditoAssistito: "77777777.45",
+              DbRedditoConiuge: "7777777.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "66666Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2011",
+              DbRedditoAssistito: "88888888.45",
+              DbRedditoConiuge: "88888888.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "7777Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             },
             {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
+              DbAnno: "2010",
+              DbRedditoAssistito: "9999999.45",
+              DbRedditoConiuge: "999999.88",
+              DbValidoPerGliAnniSuccessivi: true,
 
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
+              DbNessunRedditoPercepito: "No",
+              DbTotaleValoreRedditoAssistito: "999999.00",
+              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
+              DbNoteAssistito: "note anno 2018 bla bla bla",
 
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
+              DbDettagliConiuge: [],
+              DbDettagliAssistito: [{
+                  DbTipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
+                  DbValore: "8868.00"
                 },
                 {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
+                  DbTipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
+                  DbValore: "11000.00"
                 },
                 {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
+                  DbTipologia: "88888Altri redditi da fabbricati",
+                  DbValore: "763.00"
                 }
               ]
             }
           ],
 
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+          DbPensioni: [{
+              DbTipo: "xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             },
             {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
+              DbTipo: "yyyy xxxxx xxxxxxx",
+              DbTipologiaDiAssistenza: "77",
+              DbDataFineCompatibilita: "01/01/01",
+              DbNote: "eeqrtwtyre"
             }
           ],
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "11111111",
-              Via: "111111111111",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "12132",
+              DbVia: "41234232",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "2222222",
-              Via: "22222222222222",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "333333",
+              DbVia: "12313413",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "3333333",
-              Via: "3333333333333333",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxx222",
+              DbVia: "xxx223242121x",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
           ],
-          Associazioni: [{
-              NumPosizione: "778767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
+          DbAssociazioni: [{
+              DbNumPosizione: "778767",
+              DbDataDomanda: "05/03/2011",
+              DbTipoAssociazione: "ANMIC",
+              DbInizioIscrizione: "02/04/2013",
+              DbFineIscrizione: "",
+              DbElencoRitenuteDiCategoriaRecuperate: []
             },
             {
-              NumPosizione: "993423",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "993423",
+              DbDataDomanda: "07/08/2012",
+              DbTipoAssociazione: "UICI",
+              DbInizioIscrizione: "07/08/2012",
+              DbFineIscrizione: "07/08/2016",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "15/03/2014",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             },
             {
-              NumPosizione: "376899",
-              DataDomanda: "07/08/2011",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "07/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+              DbNumPosizione: "376899",
+              DbDataDomanda: "07/08/2011",
+              DbTipoAssociazione: "ULMM",
+              DbInizioIscrizione: "07/08/2014",
+              DbFineIscrizione: "07/08/2017",
+              DbElencoRitenuteDiCategoriaRecuperate: [{
+                DbDataRecupero: "01/03/2015",
+                DbImportoRecuperato: "12349.00",
+                DbNote: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
               }]
             }
           ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+          DbLiquidazioni: [{
+              DbDataCalcolo: "01/01/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: "864.00",
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
+              DbTotMese: "1728.00",
+              DbTotAnno: "1728.00"
             },
             {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/02/2016",
+              DbLiquidato: "864.00",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: null,
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
+              DbTotMese: "864.00",
+              DbTotAnno: "2592.00"
             },
             {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
+              DbDataCalcolo: "01/03/2016",
+              DbLiquidato: "320.25",
+              DbRiaccredito: null,
+              DbTrattenutaDiCategoria: "6.00",
+              DbImportoRecuperatoPerCompensazione: "108.75",
+              DbNrTrasferimentoFlumo: {
+                DbNrMandato: "32985432",
+                DbData: "12/07/2013"
               },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
+              DbTotMese: "320.25",
+              DbTotAnno: "2912.25"
             }
           ],
 
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
+          DbElencoImportiRiaccreditati: [{
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "864",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             },
 
             {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
+              DbDataRiaccredito: "18/11/2015",
+              DbImportoRiaccreditato: "111",
+              DbDataLiquidazioneArretrato: "01/01/2016"
             }
           ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
+          DbElencoImportiDaRecuperare: [{
+            DbDataUltimaModifica: "23/02/2016",
+            DbTipoDiRecupero: "compensazione",
+            DbTotDaRecuperare: {
+              DbCapitale: "435.00",
+              DbInteressiLegali: "8.7",
+              DbInteressiDiRateizzazione: "4.35"
             },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
+            DbRecuperato: "108.75",
+            DbRestituito: null,
+            DbRimanenteDaRecuperare: "339.30",
+            DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
+          DbCognomeAcquisito: "Alfano Acquisito",
+          DbStatoCivile: "Coniugata",
+          DbProvinciaDiNascita: "Milano",
+          DbNazioneDiNascita: "Italia",
+          DbCittadinanza: "Italiana",
+          DbExtracomunitario: "Si",
 
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi444@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
-        },
-        {
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          Sesso: "F",
-          LuogoDiNascita: "Bolzano",
-          Nazionalita: "Inglese",
-          Residenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
-          Domicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
-          AntriIndirizzi: "indirizzo austriaco qòlwekrjòlqwekjròlqwkjer",
-
-          DataDiDecesso: "01/01/1930",
-          Eredita: [{
-              CognomeNome: "Paolwwwo Biawdjkònchi",
-              CodiceFiscale: "RSSMRA53A36Q2357",
-              PercDiEredita: "50%",
-              LiquidatoInBaseAllaPercDiEredita: "28400.00",
-              Liquidazione: "30/06/2016"
-            },
-            {
-              CognomeNome: "Marcwwwo Biancwwwhi",
-              CodiceFiscale: "RSSMRA53A36Q2357",
-              PercDiEredita: "25%",
-              LiquidatoInBaseAllaPercDiEredita: "14200.00",
-              Liquidazione: "30/06/2016"
-            },
-            {
-              CognomeNome: "Sarwa Biancwi",
-              CodiceFiscale: "RSSMRA53A36Q5372",
-              PercDiEredita: "15%",
-              LiquidatoInBaseAllaPercDiEredita: "14200.00",
-              Liquidazione: "30/06/2016"
-            },
-            {
-              CognomeNome: "Sarwa Biancwi",
-              CodiceFiscale: "RSSMRA53A36Q5372",
-              PercDiEredita: "15%",
-              LiquidatoInBaseAllaPercDiEredita: "14200.00",
-              Liquidazione: "30/06/2016"
-            }
-          ],
-
-          Redditi: [{
-              Anno: "2018",
-              RedditoAssistito: "111111.45",
-              RedditoConiuge: "6578.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "111Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88268.00"
-                },
-                {
-                  Tipologia: "111Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
-                },
-                {
-                  Tipologia: "111Altri redditi da fabbricati",
-                  Valore: "2763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2017",
-              RedditoAssistito: "22222225.45",
-              RedditoConiuge: "222222228.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "222Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "88628.00"
-                },
-                {
-                  Tipologia: "222Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "112000.00"
-                },
-                {
-                  Tipologia: "2222Altri redditi da fabbricati",
-                  Valore: "2763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2016",
-              RedditoAssistito: "33333333.45",
-              RedditoConiuge: "33333333.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "333Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "333Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "333Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2015",
-              RedditoAssistito: "44444444.45",
-              RedditoConiuge: "44444444.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "4444Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "4444Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "4444Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2014",
-              RedditoAssistito: "555555555.45",
-              RedditoConiuge: "5555555.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "5555Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "5555Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "5555Altri redditi da fabbricati",
-                  Valore: "555763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2013",
-              RedditoAssistito: "666666666.45",
-              RedditoConiuge: "6666666.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2012",
-              RedditoAssistito: "77777777.45",
-              RedditoConiuge: "7777777.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "66666Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "666666Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "66666Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2011",
-              RedditoAssistito: "88888888.45",
-              RedditoConiuge: "88888888.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "77777Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "77777Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "7777Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            },
-            {
-              Anno: "2010",
-              RedditoAssistito: "9999999.45",
-              RedditoConiuge: "999999.88",
-              ValidoPerGliAnniSuccessivi: true,
-
-              NessunRedditoPercepito: "No",
-              TotaleValoreRedditoAssistito: "999999.00",
-              EstremiPensioneAssistito: "qqqqqqqqqqqq",
-              NoteAssistito: "note anno 2018 bla bla bla",
-
-              DettagliConiuge: [],
-              DettagliAssistito: [{
-                  Tipologia: "88888Reddito da lavoro dipendente,lavoro autonomo,di impresa",
-                  Valore: "8868.00"
-                },
-                {
-                  Tipologia: "88888Rendita catastale da fabbricati relativa alla prima casa d'abitazione",
-                  Valore: "11000.00"
-                },
-                {
-                  Tipologia: "88888Altri redditi da fabbricati",
-                  Valore: "763.00"
-                }
-              ]
-            }
-          ],
-
-          Pensioni: [{
-              Tipo: "xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            },
-            {
-              Tipo: "yyyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            },
-            {
-              Tipo: "yyyy xxxxx xxxxxxx",
-              TipologiaDiAssistenza: "77",
-              DataFineCompatibilita: "01/01/01",
-              Note: "eeqrtwtyre"
-            }
-          ],
-
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "12132",
-              Via: "41234232",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            },
-            {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "333333",
-              Via: "12313413",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            },
-            {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
-
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxx222",
-              Via: "xxx223242121x",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            }
-          ],
-          Associazioni: [{
-              NumPosizione: "778767",
-              DataDomanda: "05/03/2011",
-              TipoAssociazione: "ANMIC",
-              InizioIscrizione: "02/04/2013",
-              FineIscrizione: "",
-              ElencoRitenuteDiCategoriaRecuperate: []
-            },
-            {
-              NumPosizione: "993423",
-              DataDomanda: "07/08/2012",
-              TipoAssociazione: "UICI",
-              InizioIscrizione: "07/08/2012",
-              FineIscrizione: "07/08/2016",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "15/03/2014",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-              }]
-            },
-            {
-              NumPosizione: "376899",
-              DataDomanda: "07/08/2011",
-              TipoAssociazione: "ULMM",
-              InizioIscrizione: "07/08/2014",
-              FineIscrizione: "07/08/2017",
-              ElencoRitenuteDiCategoriaRecuperate: [{
-                DataRecupero: "01/03/2015",
-                ImportoRecuperato: "12349.00",
-                Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-              }]
-            }
-          ],
-          Liquidazioni: [{
-              DataCalcolo: "01/01/2016",
-              Liquidato: "864.00",
-              Riaccredito: "864.00",
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "1728.00",
-              TotAnno: "1728.00"
-            },
-            {
-              DataCalcolo: "01/02/2016",
-              Liquidato: "864.00",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: null,
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "864.00",
-              TotAnno: "2592.00"
-            },
-            {
-              DataCalcolo: "01/03/2016",
-              Liquidato: "320.25",
-              Riaccredito: null,
-              TrattenutaDiCategoria: "6.00",
-              ImportoRecuperatoPerCompensazione: "108.75",
-              NrTrasferimentoFlumo: {
-                NrMandato: "32985432",
-                Data: "12/07/2013"
-              },
-              TotMese: "320.25",
-              TotAnno: "2912.25"
-            }
-          ],
-
-          ElencoImportiRiaccreditati: [{
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "864",
-              DataLiquidazioneArretrato: "01/01/2016"
-            },
-
-            {
-              DataRiaccredito: "18/11/2015",
-              ImportoRiaccreditato: "111",
-              DataLiquidazioneArretrato: "01/01/2016"
-            }
-          ],
-          ElencoImportiDaRecuperare: [{
-            DataUltimaModifica: "23/02/2016",
-            TipoDiRecupero: "compensazione",
-            TotDaRecuperare: {
-              Capitale: "435.00",
-              InteressiLegali: "8.7",
-              InteressiDiRateizzazione: "4.35"
-            },
-            Recuperato: "108.75",
-            Restituito: null,
-            RimanenteDaRecuperare: "339.30",
-            Note: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
-          }],
-
-          CognomeAcquisito: "Alfano Acquisito",
-          StatoCivile: "Coniugata",
-          ProvinciaDiNascita: "Milano",
-          NazioneDiNascita: "Italia",
-          Cittadinanza: "Italiana",
-          Extracomunitario: "Si",
-
-          PermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
-          PermessoDiSoggiornoDataRilascio: "01/01/2020",
-          PermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          Email: "mrossi555@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
+          DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
+          DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
+          DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbEmail: "mrossi555@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         }
       ];
 
@@ -4268,160 +4268,160 @@ function setupFakeBackend($httpBackend) {
 
     if (cTipoTabella.toUpperCase() === "POSIZIONI") {
       let tabPosizioni = [{
-          Posizione: "123456",
-          CodiceFiscale: "LFNCLL60D03E026T",
-          Cognome: "Alfano",
-          Nome: "Camillo",
-          DataDiNascita: "03/04/1960",
-          DataDiDecesso: "03/01/2014",
-          AnnoDiScarto: "1234",
-          NumeroFaldone: "1111",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
+          DbPosizione: "123456",
+          DbCodiceFiscale: "LFNCLL60D03E026T",
+          DbCognome: "Alfano",
+          DbNome: "Camillo",
+          DbDataDiNascita: "03/04/1960",
+          DbDataDiDecesso: "03/01/2014",
+          DbAnnoDiScarto: "1234",
+          DbNumeroFaldone: "1111",
+          DbFascicolo: "634",
+          DbStatoDomanda: "Revocata"
         },
         {
-          Posizione: "345765",
-          CodiceFiscale: "LFNCLL60D03E026T",
-          Cognome: "Alfano",
-          Nome: "Camillo",
-          DataDiNascita: "03/04/1960",
-          DataDiDecesso: "03/01/2014",
-          AnnoDiScarto: "12534",
-          NumeroFaldone: "1111",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
+          DbPosizione: "345765",
+          DbCodiceFiscale: "LFNCLL60D03E026T",
+          DbCognome: "Alfano",
+          DbNome: "Camillo",
+          DbDataDiNascita: "03/04/1960",
+          DbDataDiDecesso: "03/01/2014",
+          DbAnnoDiScarto: "12534",
+          DbNumeroFaldone: "1111",
+          DbFascicolo: "123",
+          DbStatoDomanda: "Negata"
         },
         {
-          Posizione: "771723",
-          CodiceFiscale: "QTGSRO60A11Q2055",
-          Cognome: "Hammond",
-          Nome: "John",
-          DataDiNascita: "01/01/1970",
-          DataDiDecesso: "-",
-          AnnoDiScarto: "127534",
-          NumeroFaldone: "2222222",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
+          DbPosizione: "771723",
+          DbCodiceFiscale: "QTGSRO60A11Q2055",
+          DbCognome: "Hammond",
+          DbNome: "John",
+          DbDataDiNascita: "01/01/1970",
+          DbDataDiDecesso: "-",
+          DbAnnoDiScarto: "127534",
+          DbNumeroFaldone: "2222222",
+          DbFascicolo: "236",
+          DbStatoDomanda: "Concessa"
         },
         {
-          Posizione: "125688",
-          CodiceFiscale: "QTGSRO60A11Q2055",
-          Cognome: "Hammond",
-          Nome: "John",
-          DataDiNascita: "01/01/1970",
-          DataDiDecesso: "-",
-          AnnoDiScarto: "1267634",
-          NumeroFaldone: "2222222",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
+          DbPosizione: "125688",
+          DbCodiceFiscale: "QTGSRO60A11Q2055",
+          DbCognome: "Hammond",
+          DbNome: "John",
+          DbDataDiNascita: "01/01/1970",
+          DbDataDiDecesso: "-",
+          DbAnnoDiScarto: "1267634",
+          DbNumeroFaldone: "2222222",
+          DbFascicolo: "634",
+          DbStatoDomanda: "Revocata"
         },
         {
-          Posizione: "345765",
-          CodiceFiscale: "QTGSRO60A11Q2055",
-          Cognome: "Hammond",
-          Nome: "John",
-          DataDiNascita: "01/01/1970",
-          DataDiDecesso: "-",
-          AnnoDiScarto: "123664",
-          NumeroFaldone: "2222222",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
+          DbPosizione: "345765",
+          DbCodiceFiscale: "QTGSRO60A11Q2055",
+          DbCognome: "Hammond",
+          DbNome: "John",
+          DbDataDiNascita: "01/01/1970",
+          DbDataDiDecesso: "-",
+          DbAnnoDiScarto: "123664",
+          DbNumeroFaldone: "2222222",
+          DbFascicolo: "123",
+          DbStatoDomanda: "Negata"
         },
         {
-          Posizione: "771723",
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          DataDiDecesso: "01/01/1930",
-          AnnoDiScarto: "16234",
-          NumeroFaldone: "3333333",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
+          DbPosizione: "771723",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbDataDiDecesso: "01/01/1930",
+          DbAnnoDiScarto: "16234",
+          DbNumeroFaldone: "3333333",
+          DbFascicolo: "236",
+          DbStatoDomanda: "Concessa"
         },
         {
-          Posizione: "12366",
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          DataDiDecesso: "01/01/1930",
-          AnnoDiScarto: "1234",
-          NumeroFaldone: "3333333",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
+          DbPosizione: "12366",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbDataDiDecesso: "01/01/1930",
+          DbAnnoDiScarto: "1234",
+          DbNumeroFaldone: "3333333",
+          DbFascicolo: "634",
+          DbStatoDomanda: "Revocata"
         },
         {
-          Posizione: "5765",
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          DataDiDecesso: "01/01/1930",
-          AnnoDiScarto: "1234",
-          NumeroFaldone: "3333333",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
-        },
-
-        {
-          Posizione: "771723",
-          CodiceFiscale: "VSYFRO70A10E2652",
-          Cognome: "Mathews",
-          Nome: "Suzanne",
-          DataDiNascita: "01/01/1966",
-          DataDiDecesso: "-",
-          AnnoDiScarto: "1994",
-          NumeroFaldone: "444444",
-          Fascicolo: "236"
+          DbPosizione: "5765",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbDataDiDecesso: "01/01/1930",
+          DbAnnoDiScarto: "1234",
+          DbNumeroFaldone: "3333333",
+          DbFascicolo: "123",
+          DbStatoDomanda: "Negata"
         },
 
         {
-          Posizione: "771723",
-          CodiceFiscale: "VSYFRO70A10E2652",
-          Cognome: "Mathews",
-          Nome: "Suzanne",
-          DataDiNascita: "01/01/1966",
-          DataDiDecesso: "-",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
+          DbPosizione: "771723",
+          DbCodiceFiscale: "VSYFRO70A10E2652",
+          DbCognome: "Mathews",
+          DbNome: "Suzanne",
+          DbDataDiNascita: "01/01/1966",
+          DbDataDiDecesso: "-",
+          DbAnnoDiScarto: "1994",
+          DbNumeroFaldone: "444444",
+          DbFascicolo: "236"
         },
 
         {
-          Posizione: "771723",
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          DataDiDecesso: "01/01/1930",
-          AnnoDiScarto: "12246",
-          NumeroFaldone: "1113451",
-          Fascicolo: "236",
-          StatoDomanda: "Concessa"
+          DbPosizione: "771723",
+          DbCodiceFiscale: "VSYFRO70A10E2652",
+          DbCognome: "Mathews",
+          DbNome: "Suzanne",
+          DbDataDiNascita: "01/01/1966",
+          DbDataDiDecesso: "-",
+          DbFascicolo: "236",
+          DbStatoDomanda: "Concessa"
+        },
+
+        {
+          DbPosizione: "771723",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbDataDiDecesso: "01/01/1930",
+          DbAnnoDiScarto: "12246",
+          DbNumeroFaldone: "1113451",
+          DbFascicolo: "236",
+          DbStatoDomanda: "Concessa"
         },
         {
-          Posizione: "673456",
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          DataDiDecesso: "01/01/1930",
-          AnnoDiScarto: "775634",
-          NumeroFaldone: "1113451",
-          Fascicolo: "634",
-          StatoDomanda: "Revocata"
+          DbPosizione: "673456",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbDataDiDecesso: "01/01/1930",
+          DbAnnoDiScarto: "775634",
+          DbNumeroFaldone: "1113451",
+          DbFascicolo: "634",
+          DbStatoDomanda: "Revocata"
         },
         {
-          Posizione: "345765",
-          CodiceFiscale: "RTSDRO70A10W2056",
-          Cognome: "Mudassar",
-          Nome: "Khan",
-          DataDiNascita: "01/02/1650",
-          DataDiDecesso: "01/01/1930",
-          AnnoDiScarto: "7464",
-          NumeroFaldone: "1113451",
-          Fascicolo: "123",
-          StatoDomanda: "Negata"
+          DbPosizione: "345765",
+          DbCodiceFiscale: "RTSDRO70A10W2056",
+          DbCognome: "Mudassar",
+          DbNome: "Khan",
+          DbDataDiNascita: "01/02/1650",
+          DbDataDiDecesso: "01/01/1930",
+          DbAnnoDiScarto: "7464",
+          DbNumeroFaldone: "1113451",
+          DbFascicolo: "123",
+          DbStatoDomanda: "Negata"
         }
       ];
 
@@ -4833,7 +4833,7 @@ function setupFakeBackend($httpBackend) {
         },
         {
           CodiceFiscale: "3456735790GHJDAE",
-          Cognome: "Hammond222222",
+          Cognome: "Hammond",
           Nome: "John22",
           DataDiNascita: "01/01/1970",
           DataDiDecesso: "-",
@@ -5108,7 +5108,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           IBAN: "IT40 S054 2811 1010 0000 0123 456",
           Email: "mrossi555@gmail.com",
-          PEC: "mrossi@gmail.com",
+          Pec: "mrossi@gmail.com",
           Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
           Indirizzi: [{
@@ -5205,7 +5205,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0433 922451",
           IBAN: "IT40 S054 2811 1010 0000 0123 456",
           Email: "giovanni6666@tin.it",
-          PEC: "mgiovanni@gmail.com",
+          Pec: "mgiovanni@gmail.com",
           Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
           Indirizzi: [{
@@ -5265,7 +5265,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           IBAN: "IT40 S054 2811 1010 0000 0123 456",
           Email: "ggaribaldi444@gmail.com",
-          PEC: "ggaribaldi@gmail.com",
+          Pec: "ggaribaldi@gmail.com",
           Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
           Indirizzi: [{
@@ -5362,7 +5362,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           IBAN: "IT40 S054 2811 1010 0000 0123 456",
           Email: "ttali444@gmail.com",
-          PEC: "ttali@gmail.com",
+          Pec: "ttali@gmail.com",
           Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
           Indirizzi: [{
@@ -5459,7 +5459,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           IBAN: "IT40 S054 2811 1010 0000 0123 456",
           Email: "gimondi444@gmail.com",
-          PEC: "gimondi@gmail.com",
+          Pec: "gimondi@gmail.com",
           Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
           Indirizzi: [{
@@ -5556,7 +5556,7 @@ function setupFakeBackend($httpBackend) {
           TelefonoSecondario: "0461 923452",
           IBAN: "IT40 S054 2811 1010 0000 0123 456",
           Email: "vemanuele555@gmail.com",
-          PEC: "vemanuele@gmail.com",
+          Pec: "vemanuele@gmail.com",
           Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
           Indirizzi: [{

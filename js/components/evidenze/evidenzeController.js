@@ -4,12 +4,71 @@
  *
  */
 
-function evidenzeController($scope, DTOptionsBuilder) {
+function evidenzeController($scope, $state, anagrafeServices, evidenzeServices, $uibModal, DTOptionsBuilder) {
   this.dtOptionsTabElencoEvidenze = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
     .withOption("lengthChange", false);
 
+  this.inserisciEvidenzaComponent = function (item) {
+    if (item) {
+
+      $scope.modale = false;
+
+      anagrafeServices.findCodFis(item.CodiceFiscale, result => {
+        evidenzeServices.findCodFis(item.CodiceFiscale, result2 => {
+          debugger;
+          $state.go("evidenze.visualizza_evidenza", {
+            datiAssistito: result,
+            evidenza: result2
+          });
+        });
+      });
+
+
+
+    } else {
+
+      $scope.modale = true;
+
+      // http://www.marcorpsa.com/ee/t1891.html
+
+      $scope.modalInstance = $uibModal.open({
+        templateUrl: "./../views/visualizza_evidenza.html",
+        controller: "evidenzeCtrl",
+        size: "lg",
+        scope: $scope,
+        windowClass: "animated fadeInRightBig"
+      });
+    }
+
+  }
+
+  $scope.cancellaEvidenza = function () {
+    swal({
+      title: "Desideri cancellare l'evidenza?",
+      text: "Ricorda: potrà sempre essere recuperata!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(function (willDelete) {
+      if (willDelete) {
+        swal("L' evidenza è stata cancellata!", {
+          icon: "success"
+        }).then(function () {
+          $state.go("evidenze.ricerca_evidenza", {
+            datiAssistito: $scope.datiAssistito
+          });
+        });
+      } else {
+        swal("L' evidenza non è stata modificata!");
+      }
+    });
+  };
+
+
+
   this.elencoEvidenze = [{
+      CodiceFiscale: "RSSMRA70A41F2052",
       Decorrenza: "01/01/2020",
       Scadenza: "01/01/2017",
       Tipo: "Prestazione da ripristinare – assegno di cura",
@@ -20,6 +79,7 @@ function evidenzeController($scope, DTOptionsBuilder) {
       Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
     },
     {
+      CodiceFiscale: "RSSMRA70A41F2052",
       Decorrenza: "01/01/2022",
       Scadenza: "01/01/2018",
       Tipo: "Importo da recuperare",
@@ -30,6 +90,7 @@ function evidenzeController($scope, DTOptionsBuilder) {
       Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
     },
     {
+      CodiceFiscale: "RSSMRA70A41F2052",
       Decorrenza: "01/01/2022",
       Scadenza: "01/01/2018",
       Tipo: "Prestazione da ripristinare – casa di lungodegenza",
@@ -40,6 +101,7 @@ function evidenzeController($scope, DTOptionsBuilder) {
       Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
     },
     {
+      CodiceFiscale: "RSSMRA70A41F2052",
       Decorrenza: "01/01/2022",
       Scadenza: "01/01/2018",
       Tipo: "Prestazione da revocare - soglia di reddito",
@@ -50,6 +112,7 @@ function evidenzeController($scope, DTOptionsBuilder) {
       Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
     },
     {
+      CodiceFiscale: "RSSMRA70A41F2052",
       Decorrenza: "01/01/2022",
       Scadenza: "01/01/2018",
       Tipo: "Recupero da annullare",
@@ -64,6 +127,7 @@ function evidenzeController($scope, DTOptionsBuilder) {
       Note: "Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
     },
     {
+      CodiceFiscale: "RSSMRA70A41F2052",
       Decorrenza: "01/01/2022",
       Scadenza: "01/01/2018",
       Tipo: "Importo da recuperare",

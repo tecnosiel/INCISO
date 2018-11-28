@@ -261,7 +261,7 @@
       })
       .state("evidenze.ricerca_evidenza", {
         url: "/ricerca_evidenza",
-        templateUrl: "/views/ricerca_evidenza.html"
+        templateUrl: "/views/ricerca_evidenza.html",
       })
       .state("evidenze.visualizza_evidenza", {
         url: "/visualizza_evidenza",
@@ -278,19 +278,20 @@
         }
       })
       .state("evidenze.inserimento_evidenza", {
-        url: "/inserimento_posizione",
+        url: "/inserimento_evidenza",
         templateUrl: "/views/visualizza_evidenza.html",
         controller: "visualizzaEvidenzaCtrl",
         resolve: {
           runMode: function () {
             return "NUOVOINSERIMENTO";
           }
+
         }
       })
-      .state("evidenze.nuova_evidenza", {
-        url: "/nuova_evidenza",
-        templateUrl: "/views/nuova_evidenza.html"
-      })
+      // .state("evidenze.nuova_evidenza", {
+      //   url: "/nuova_evidenza",
+      //   templateUrl: "/views/nuova_evidenza.html"
+      // })
 
       // documenti --------------------------------------------------------------
       .state("documenti", {
