@@ -161,7 +161,7 @@ function visualizzaAnagrafeCtrl(
   };
 
   function CallBackSalva(onOff) {
-    debugger;
+    
     if (onOff) {
       swal({
         title: "Dati Salvati!",

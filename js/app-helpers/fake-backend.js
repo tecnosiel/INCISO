@@ -1,4 +1,6 @@
 function setupFakeBackend($httpBackend) {
+
+  debugger;
   // i file statici verranno serviti senza elaborazione
   $httpBackend.whenGET(/^\w+.*/).passThrough();
   // le views verranno servite senza elaborazione. Se i elimina la riga si hanno interferenze con gli stati di UI-ROUTER
@@ -6,15 +8,19 @@ function setupFakeBackend($httpBackend) {
   $httpBackend.whenGET(/js\/.*/).passThrough();
 
   $httpBackend.whenGET('http://www.omdbapi.com/?s=terminator').passThrough();
+     
   $httpBackend.whenGET('/iamauth/user/current').passThrough();
   $httpBackend.whenPOST('http://www.omdbapi.com/?s=terminator').passThrough();
   $httpBackend.whenPOST('/iamauth/user/current').passThrough();
+
+  $httpBackend.whenPOST('http://www.omdbapi.com/?s=terminator').passThrough();
+
+  $httpBackend.whenPOST('http://www.omdbapi.com/?s=terminator').passThrough();
 
   // ------------------------- LOGIN
   $httpBackend
     .whenPOST("/api/autenticazione/login")
     .respond(function (method, url, data, headers) {
-      debugger;
       // get parameters from post request
       var params = angular.fromJson(data);
 
@@ -62,7 +68,6 @@ function setupFakeBackend($httpBackend) {
   $httpBackend
     .whenPOST("/api/autenticazione/logout")
     .respond(function (method, url, data, headers) {
-      debugger;
       // get parameters from post request
       var params = angular.fromJson(data);
 
@@ -72,16 +77,16 @@ function setupFakeBackend($httpBackend) {
 
   // ------------------------- ANAGRAFE e POSIZIONI
   // data = {
-  //   DbCognome: "text",
-  //   DbNome: "text",
-  //   DbCodiceFiscale: "text",
-  //   DbDataDiNascita: "gg/mm/aaaa",
+  //   Cognome: "text",
+  //   Nome: "text",
+  //   CodiceFiscale: "text",
+  //   DataDiNascita: "gg/mm/aaaa",
   //   NumeroFascicolo:"text"
   //   NumeroFaldoneArchiviazione:"text"
   //   AnnoDiScarto:""text"
   // }
   $httpBackend
-    .whenGET("/api/anagrafe/find")
+    .whenGET("/api/persona/GetByAnagFilter")
     .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
@@ -89,20 +94,15 @@ function setupFakeBackend($httpBackend) {
     });
 
   $httpBackend
-    .whenGET("/api/anagrafe/findPosizioni")
+    .whenGET("/api/persona/findPosizioni")
     .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("POSIZIONI");
       return [200, response, {}];
     });
-
-  // data = {
-  //   DbCodiceFiscale: "text",
-  // }
   $httpBackend
-    .whenGET("/api/anagrafe/findcodfis")
+    .whenGET("/api/persona/findcodfis")
     .respond(function (method, url, data, headers) {
-      debugger
       var response = tabella("ANAGRAFE");
       var response2 = response.find(obj => {
         return obj.DbCodiceFiscale === data;
@@ -111,7 +111,7 @@ function setupFakeBackend($httpBackend) {
     });
 
   $httpBackend
-    .whenPOST("/api/anagrafe/save")
+    .whenPOST("/api/persona/save")
     .respond(function (method, url, data, headers) {
       var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
@@ -250,6 +250,11 @@ function setupFakeBackend($httpBackend) {
       var response = tabella("ASSOCIAZIONI");
       return [200, response, {}];
     });
+
+  // ------------------------- TUTTO QELLO CHE NON é STATO INTERCETTATO VIENE FATTO PASSARE
+
+  $httpBackend.whenGET(/[\s\S]*/).passThrough();
+
 
   // ------------------------- TABELLE
 

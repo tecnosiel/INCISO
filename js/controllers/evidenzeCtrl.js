@@ -76,7 +76,7 @@ function evidenzeCtrl(
   }
 
   $scope.visualizzaEvidenza = function (item) {
-    debugger;
+    
     $scope.modale = false;
     anagrafeServices.findCodFis(item.CodiceFiscale, result => {
       evidenzeServices.findCodFis(item.CodiceFiscale, result2 => {

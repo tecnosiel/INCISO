@@ -101,7 +101,7 @@ function visualizzaPosizioneCtrl(
   $scope.visualizzaDomanda = function(nDomanda) {
     domandeServices.find(this.info, result => {
       $scope.elencoDomande = result;
-      debugger;
+      
       $state.go("domande.visualizza_domanda", {
         datiAssistito: $scope.datiAssistito,
         domanda: $scope.elencoDomande[1].DomandePresentate[nDomanda]

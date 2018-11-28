@@ -54,8 +54,6 @@ function ricercaController(
 
   this.findCodFis = function (cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
-      alert("azzzzzzz");
-      debugger;
       this.datiAssistito = httpServices.jsonFromDb(result, 'anagrafe')
       // this.datiAssistito = result;
     });

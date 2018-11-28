@@ -25,7 +25,6 @@ function loginCtrl($scope, $state, loginServices) {
   };
 
   function CallBackVerificaToken(onOff) {
-    debugger;
     if (onOff) {
       $state.go("home");
     } else {

@@ -4,7 +4,7 @@ function loginServices($http, $rootScope, $timeout) {
   service.login = Login;
   service.logout = Logout;
 
-  debugger;
+  
   var x = this;
   var xx = EGovJSBase;
   var xxx = EGovJSUI;
@@ -100,9 +100,9 @@ function loginServices($http, $rootScope, $timeout) {
 
     $rootScope.showSpinner = true;
     
-    // debugger;
+    // 
     // var xxx = EGovJSBase.AuthenticationUrls.getLoginPageUrl('backUrl')
-    // debugger;
+    // 
 
     $timeout(function () {
       $http

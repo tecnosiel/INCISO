@@ -177,9 +177,9 @@
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>{{ 'END_POINTS' | translate }}
-                        <small>{{'INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE' |
-                                translate }}</small>
-        
+                    <small>{{'INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE' |
+                        translate }}</small>
+
                 </h5>
             </div>
             <div class="ibox-content">
@@ -191,8 +191,36 @@
                                 <!-- ------------------------------- -->
                                 <div class="col-md-6 form-group">
                                     <label>{{ "SERVER_BACKEND" | translate }}</label>
-                                    <input type="text" class="form-control" ng-model="tmp.serverbackend"
-                                        placeholder="{{'INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO' | translate}}" />
+                                    <input type="text" class="form-control" ng-model="tmp.serverbackend" placeholder="{{'INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO' | translate}}" />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <button class="btn btn-danger btn-sm" ng-click="testInternet()" style="margin-top:4%">{{
+                                        'TEST_SERVER' |
+                                        translate }}</button>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <!-- ------------------------------- -->
+                                <div class="col-md-6 form-group">
+                                    <label>{{ "ENDPOINT_ANAGRAFE" | translate }}</label>
+                                    <input type="text" class="form-control" ng-model="tmp.endpointanagrafe" placeholder="{{'ENDPOINT_ANAGRAFE_IN_USO' | translate}}" />
+                                </div>
+                                <!-- ------------------------------- -->
+                                <div class="col-md-6 form-group">
+                                    <label>{{ "ENDPOINT_DOMANDE" | translate }}</label>
+                                    <input type="text" class="form-control" ng-model="tmp.endpointdomande" placeholder="{{'ENDPOINT_DOMANDE_IN_USO' | translate}}" />
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <!-- ------------------------------- -->
+                                <div class="col-md-6 form-group">
+                                    <label>{{ "ENDPOINT_AUTENTIFICAZIONE" | translate }}</label>
+                                    <input type="text" class="form-control" ng-model="tmp.endpointautentificazione"
+                                        placeholder="{{'ENDPOINT_AUTENTIFICAZIONE_IN_USO' | translate}}" />
                                 </div>
 
                             </div>
@@ -207,9 +235,11 @@
 </div>
 <div class="row text-right">
     <div class="col-sm-12">
-        <button class="btn btn-default btn-sm" id="settingSet" ng-click="resetParameters()">{{ 'RESET_DEFAULT_PARAMETERS' |
+        <button class="btn btn-default btn-sm" id="settingSet" ng-click="resetParameters()">{{
+            'RESET_DEFAULT_PARAMETERS' |
             translate }}</button>
-        <button class="btn btn-primary btn-sm" id="settingSet" ng-click="setParameters('memorizza')">{{ 'SET_NEW_PARAMETERS'
+        <button class="btn btn-primary btn-sm" id="settingSet" ng-click="setParameters('memorizza')">{{
+            'SET_NEW_PARAMETERS'
             | translate }}</button>
     </div>
 </div>

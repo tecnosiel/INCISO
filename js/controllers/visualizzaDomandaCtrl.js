@@ -142,7 +142,6 @@ function visualizzaDomandaCtrl(
   };
 
   $scope.visualizzaLiquidazione = function ($index) {
-    alert("aaaaaaaaaaaaaaaaaaaa");
     // if ($index) {
     //   $scope.tmpRedditiAssistito = $scope.datiAssistito.Redditi[$index];
     // }else{
@@ -853,7 +852,7 @@ function visualizzaDomandaCtrl(
   //--------- prestazioni end
 
   $scope.modificaDomanda = function () {
-    debugger;
+    
     $scope.domanda.OperazioneInCorso = "MODIFICA_DOMANDA";
     swal({
       title: "Desideri modificare la domanda?",

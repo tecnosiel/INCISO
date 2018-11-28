@@ -5,8 +5,19 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-      SERVER_BACKEND:"Server backend",
-      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto per fake-backend) ",
+
+      TEST_SERVER:"Test server",
+      SERVER_BACKEND:"Server backend ( http://localhost:53061 )",
+      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto: fake-backend) ",
+
+      ENDPOINT_ANAGRAFE : "Endpoint anagrafiche e posizioni ( /api/persona )",
+      ENDPOINT_ANAGRAFE_IN_USO : "Path relativo accesso anagrafe e posizioni (vuoto: /api/persona )",
+
+      ENDPOINT_DOMANDE  : "Endpoint domande",
+      ENDPOINT_DOMANDE_IN_USO  : "Path relativo accesso domande (vuoto: /api/domande)",
+
+      ENDPOINT_AUTENTIFICAZIONE  : "Endpoint autentificazione",
+      ENDPOINT_AUTENTIFICAZIONE_IN_USO  : "Path relativo accesso autentificazione (vuoto: /api/autenticazione)",
 
 
       END_POINTS:"EndPoints",
@@ -711,8 +722,20 @@ function config($translateProvider) {
     })
 
     .translations("de", {
-      SERVER_BACKEND:"Server backend DE",
+      TEST_SERVER:"Test server DE",
+
+      SERVER_BACKEND:"Server backend DE ( http://localhost:53061 )",
       INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto per fake-backend) DE",
+   
+      ENDPOINT_ANAGRAFE : "Endpoint anagrafiche e posizioni DE ( /api/persona )",
+      ENDPOINT_ANAGRAFE_IN_USO : "Path relativo accesso anagrafe e posizioni DE (vuoto: /api/persona )",
+
+      ENDPOINT_DOMANDE  : "Endpoint domande DE",
+      ENDPOINT_DOMANDE_IN_USO  : "Path relativo accesso domande DE (vuoto: /api/domande)",
+
+      ENDPOINT_AUTENTIFICAZIONE  : "Endpoint autentificazione DE",
+      ENDPOINT_AUTENTIFICAZIONE_IN_USO  : "Path relativo accesso autentificazione DE (vuoto: /api/autenticazione)",
+    
       END_POINTS:"EndPoints DE",
       INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE:"Indicare indirizzi RestFul da adoperare DE",
 

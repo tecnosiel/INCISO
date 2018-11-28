@@ -5,24 +5,12 @@
  */
 function MainCtrl($scope, $rootScope, $translate, $uibModal) {
 
-  $rootScope.server = "wwwroot-dev/inciso.prov.bz.it/api/";
+  /**
+   * Lettura settaggi da localStorage
+   */
+  
+  $rootScope.CustomStyle = {};
 
-  $rootScope.urlLogin = "/api/autenticazione"
-  $rootScope.urlAnagrafe = "/api/anagrafe";
-  $rootScope.urlLiquidazioni = "/api/liquidazioni"
-  $rootScope.urlDomande = "/api/domande"
-  $rootScope.urlEvidenze = "/api/evidenze"
-  $rootScope.urlAssociazioni = "/api/associazioni"
-  $rootScope.showSpinner = false;
-  window.language = "it"
-
-
-  $rootScope.CustomStyle = {
-    // "background-color": null,
-    // "font-size": null
-  };
-
-  debugger;
   buffer = localStorage.getItem('fontfamily');
   if (buffer) {
     $rootScope.CustomStyle["font-family"] = buffer;
@@ -30,29 +18,99 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
   // ---
   buffer = localStorage.getItem('fontsize');
   if (buffer) {
-    $rootScope.CustomStyle["font-size"] = buffer  + "px";
+    $rootScope.CustomStyle["font-size"] = buffer + "px";
   }
   // ---
   buffer = localStorage.getItem('lineheight');
   if (buffer) {
     $rootScope.CustomStyle["line-height"] = (buffer * 1).toFixed(2) + "px";;
   }
-  // ---
+  // ---------------------------------------
+  // EndPoint
+  // ---------------------------------------
   buffer = localStorage.getItem('color');
   if (buffer) {
     $rootScope.CustomStyle["color"] = buffer;
   }
   // ---
-  debugger;
   buffer = localStorage.getItem('serverbackend');
   if (buffer) {
     $rootScope.serverbackend = buffer;
-  }else{
+  } else {
     $rootScope.serverbackend = buffer;
+  }
+  // ---
+  buffer = localStorage.getItem('endpointanagrafe');
+  if (buffer) {
+    $rootScope.urlAnagrafe = $rootScope.serverbackend + buffer;
+  } else {
+    $rootScope.urlAnagrafe = $rootScope.serverbackend + "/api/persona";
+  }
+  // ---
+  buffer = localStorage.getItem('endpointdomande');
+  if (buffer) {
+    $rootScope.urlDomande = $rootScope.serverbackend + buffer;
+  } else {
+    $rootScope.urlDomande = $rootScope.serverbackend + "/api/domande"
+  }
+  // ---
+  buffer = localStorage.getItem('endpointautentificazione');
+  if (buffer) {
+    $rootScope.urlLogin = $rootScope.serverbackend + buffer;
+  } else {
+    $rootScope.urlLogin = $rootScope.serverbackend + "/api/autenticazione"
+  }
+
+  // ---
+  buffer = localStorage.getItem('endpointliquidazioni');
+  if (buffer) {
+    $rootScope.urlLiquidazioni = $rootScope.serverbackend + buffer;
+  } else {
+    $rootScope.urlLiquidazioni = $rootScope.serverbackend + "/api/liquidazioni"
+  }
+
+  buffer = localStorage.getItem('endpointevidenze');
+  if (buffer) {
+    $rootScope.urlevidenze = $rootScope.serverbackend + buffer;
+  } else {
+    $rootScope.urlevidenze = $rootScope.serverbackend + "/api/evidenze"
+  }
+
+  buffer = localStorage.getItem('endpointassociazioni');
+  if (buffer) {
+    $rootScope.urlassociazioni = $rootScope.serverbackend + buffer;
+  } else {
+    $rootScope.urlassociazioni = $rootScope.serverbackend + "/api/associazioni"
   }
 
 
+  /**
+   * Settaggio EndPoints RestFul
+   */
 
+  // $rootScope.server = "wwwroot-dev/inciso.prov.bz.it/api/";
+
+  // $rootScope.urlLogin = $rootScope.serverbackend + "/api/autenticazione"
+  // $rootScope.urlAnagrafe = $rootScope.serverbackend + "/api/persona";
+  // $rootScope.urlDomande = $rootScope.serverbackend + "/api/domande"
+  // $rootScope.urlLiquidazioni = $rootScope.serverbackend + "/api/liquidazioni"
+  // $rootScope.urlEvidenze = $rootScope.serverbackend + "/api/evidenze"
+  // $rootScope.urlAssociazioni = $rootScope.serverbackend + "/api/associazioni"
+
+  $rootScope.showSpinner = false;
+
+  /**
+   * Lingua partenza applicativo
+   */
+
+  window.language = "it"
+  this.$onInit = function () {
+    $translate.use("it");
+  };
+
+  /**
+   * Funzoni Globali
+   */
 
   $rootScope.inserisciEvidenza = function (cCodFis) {
     $scope.modale = true;
@@ -66,14 +124,6 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
     });
   }
 
-
-  /**
-   * Lingua partenza applicativo
-   */
-
-  this.$onInit = function () {
-    $translate.use("it");
-  };
 
   $scope.fumetti = function () {
     if ($("body").hasClass("mini-navbar")) {

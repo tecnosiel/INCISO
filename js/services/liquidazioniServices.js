@@ -10,17 +10,20 @@ function liquidazioniServices($http, $rootScope, $timeout) {
 
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlLiquidazioni + "/find", { data: dataFind })
-        .success(function(data, status, headers, config) {
+        .get($rootScope.urlLiquidazioni + "/find", {
+          data: dataFind
+        })
+        .success(function (data, status, headers, config) {
           //formattazione dei dati secondo mock
           callBack(data);
-          $rootScope.showSpinner = false;
         })
-        .error(function(data, status, header, config) {
+        .error(function (data, status, header, config) {
           //messaggio di errore per questo get
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -28,19 +31,21 @@ function liquidazioniServices($http, $rootScope, $timeout) {
 
   function findCodFis(cCodFis, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
         .get(
-          $rootScope.urlLiquidazioni + "/findcodfis",
-          { data: cCodFis },
+          $rootScope.urlLiquidazioni + "/findcodfis", {
+            data: cCodFis
+          },
           config
         )
-        .success(function(data, status, headers, config) {
+        .success(function (data, status, headers, config) {
           callBack(data);
-          $rootScope.showSpinner = false;
         })
-        .error(function(data, status, header, config) {
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -48,16 +53,19 @@ function liquidazioniServices($http, $rootScope, $timeout) {
 
   function findPosizioni(dataFind, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlLiquidazioni + "/findPosizioni", { data: dataFind })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .get($rootScope.urlLiquidazioni + "/findPosizioni", {
+          data: dataFind
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           //messaggio di errore per questo get
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -65,15 +73,18 @@ function liquidazioniServices($http, $rootScope, $timeout) {
 
   function save(dataSave, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .post($rootScope.urlLiquidazioni + "/save", { data: dataSave })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .post($rootScope.urlLiquidazioni + "/save", {
+          data: dataSave
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);

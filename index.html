@@ -391,7 +391,7 @@
             }
         });
         $(document).on('keyup', '.anno', function (event) {
-            debugger;
+        
             if ($.isNumeric(this.value) === false) {
                 //elimina l'ultimo carattere inserito
                 this.value = this.value.slice(0, -1);
@@ -475,7 +475,7 @@
             }
         });
         $(document).on('keyup', '.reale', function (event) {
-            debugger;
+        
             var v = this.value;
             if (v.split('.').length > 2) {
                 this.value = this.value.slice(0, -1);

@@ -10,15 +10,18 @@ function associazioniServices($http, $rootScope, $timeout) {
 
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlAssociazioni + "/find", { data: dataFind })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .get($rootScope.urlAssociazioni + "/find", {
+          data: dataFind
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -26,35 +29,40 @@ function associazioniServices($http, $rootScope, $timeout) {
 
   function findCodFis(cCodFis, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
         .get(
-          $rootScope.urlAssociazioni + "/findcodfis",
-          { data: cCodFis },
+          $rootScope.urlAssociazioni + "/findcodfis", {
+            data: cCodFis
+          },
           config
         )
-        .success(function(data, status, headers, config) {
+        .success(function (data, status, headers, config) {
           callBack(data);
-          $rootScope.showSpinner = false;
         })
-        .error(function(data, status, header, config) {
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
-          $rootScope.showSpinner = true;
+        })
+        .finally(function () {
+          $rootScope.showSpinner = false;
         });
     }, 300);
   }
 
   function findPosizioni(dataFind, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlAssociazioni + "/findPosizioni", { data: dataFind })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .get($rootScope.urlAssociazioni + "/findPosizioni", {
+          data: dataFind
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -62,15 +70,18 @@ function associazioniServices($http, $rootScope, $timeout) {
 
   function save(dataSave, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .post($rootScope.urlAssociazioni + "/save", { data: dataSave })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .post($rootScope.urlAssociazioni + "/save", {
+          data: dataSave
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);

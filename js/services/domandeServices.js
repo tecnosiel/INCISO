@@ -10,15 +10,18 @@ function domandeServices($http, $rootScope, $timeout) {
 
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlDomande + "/find", { data: dataFind })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .get($rootScope.urlDomande + "/find", {
+          data: dataFind
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -26,15 +29,18 @@ function domandeServices($http, $rootScope, $timeout) {
 
   function findCodFis(cCodFis, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlDomande + "/findcodfis", { data: cCodFis }, config)
-        .success(function(data, status, headers, config) {
+        .get($rootScope.urlDomande + "/findcodfis", {
+          data: cCodFis
+        }, config)
+        .success(function (data, status, headers, config) {
           callBack(data);
-          $rootScope.showSpinner = false;
         })
-        .error(function(data, status, header, config) {
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -42,15 +48,18 @@ function domandeServices($http, $rootScope, $timeout) {
 
   function findPosizioni(dataFind, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .get($rootScope.urlDomande + "/findPosizioni", { data: dataFind })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .get($rootScope.urlDomande + "/findPosizioni", {
+          data: dataFind
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);
@@ -58,15 +67,18 @@ function domandeServices($http, $rootScope, $timeout) {
 
   function save(dataSave, callBack) {
     $rootScope.showSpinner = true;
-    $timeout(function() {
+    $timeout(function () {
       $http
-        .post($rootScope.urlDomande + "/save", { data: dataSave })
-        .success(function(data, status, headers, config) {
-          callBack(data);
-          $rootScope.showSpinner = false;
+        .post($rootScope.urlDomande + "/save", {
+          data: dataSave
         })
-        .error(function(data, status, header, config) {
+        .success(function (data, status, headers, config) {
+          callBack(data);
+        })
+        .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
           $rootScope.showSpinner = false;
         });
     }, 300);

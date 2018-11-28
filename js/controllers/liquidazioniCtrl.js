@@ -584,7 +584,7 @@ function liquidazioniCtrl(
 
   $scope.detailInfoAnniConguaglio = function(event, anni, url) {
     //  definisce la variabile scope che verra ereditata dalla direttiva
-    debugger;
+    
     var scope = $scope.$new(true);
     scope.anni = anni;
     scope.url = url;
@@ -605,12 +605,12 @@ function liquidazioniCtrl(
 
     scope.detailInfoDettagliAnnoConguaglio = function(event, dettagli, url) {
       //  definisce la variabile scope che verra ereditata dalla direttiva
-      debugger;
+      
       var scope2 = scope.$new(true);
       scope2.dettagli = dettagli;
       scope2.url = url;
 
-      debugger;
+      
       var link = angular.element(event.currentTarget),
         icon = link.find(".fa"),
         tr = link.parent().parent(),
@@ -630,7 +630,7 @@ function liquidazioniCtrl(
       }
     };
 
-    debugger;
+    
     var link = angular.element(event.currentTarget),
       icon = link.find(".fa"),
       tr = link.parent().parent(),

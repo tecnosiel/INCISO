@@ -92,7 +92,7 @@
             parent_width = element[0].clientWidth;
             popover = element[0].querySelector(".angular-popover");
             triangle = element[0].querySelector(".angular-popover-triangle");
-            debugger;
+            
             if (mode == "click" && closeOnClick) {
               popover.classList.remove("openFlag");
               triangle.classList.remove("openFlagTriangolo");

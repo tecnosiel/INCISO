@@ -16,7 +16,6 @@ function evidenzeController($scope, $state, anagrafeServices, evidenzeServices, 
 
       anagrafeServices.findCodFis(item.CodiceFiscale, result => {
         evidenzeServices.findCodFis(item.CodiceFiscale, result2 => {
-          debugger;
           $state.go("evidenze.visualizza_evidenza", {
             datiAssistito: result,
             evidenza: result2

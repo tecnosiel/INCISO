@@ -99,7 +99,7 @@ function modalCreaNuovaAnagraficaCtrl($scope, $state, $stateParams) {
           //   });
           // });
         } else {
-          debugger;
+          
           $scope.creaNuovaAnagrafica($scope.Tmp.CodiceFiscale)
           // swal(
           //   "Non Trovato",
