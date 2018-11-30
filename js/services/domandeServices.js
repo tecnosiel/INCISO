@@ -1,5 +1,11 @@
 function domandeServices($http, $rootScope, $timeout) {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
 
   service.find = find;
   service.findPosizioni = findPosizioni;
@@ -12,10 +18,11 @@ function domandeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlDomande + "/find", {
+        .get($rootScope.urlDomande + "/find"  + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
+          if ($rootScope.isJsonString)
           callBack(data);
         })
         .error(function (data, status, header, config) {
@@ -31,10 +38,11 @@ function domandeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlDomande + "/findcodfis", {
+        .get($rootScope.urlDomande + "/findcodfis"  + $rootScope.testquerystring, {
           data: cCodFis
         }, config)
         .success(function (data, status, headers, config) {
+          if ($rootScope.isJsonString)
           callBack(data);
         })
         .error(function (data, status, header, config) {
@@ -50,10 +58,11 @@ function domandeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlDomande + "/findPosizioni", {
+        .get($rootScope.urlDomande + "/findPosizioni"  + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
+          if ($rootScope.isJsonString)
           callBack(data);
         })
         .error(function (data, status, header, config) {
@@ -73,6 +82,7 @@ function domandeServices($http, $rootScope, $timeout) {
           data: dataSave
         })
         .success(function (data, status, headers, config) {
+          if ($rootScope.isJsonString)
           callBack(data);
         })
         .error(function (data, status, header, config) {

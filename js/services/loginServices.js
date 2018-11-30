@@ -1,10 +1,16 @@
 function loginServices($http, $rootScope, $timeout) {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
 
   service.login = Login;
   service.logout = Logout;
 
-  
+
   var x = this;
   var xx = EGovJSBase;
   var xxx = EGovJSUI;
@@ -99,7 +105,7 @@ function loginServices($http, $rootScope, $timeout) {
   function Login(username, password, callback) {
 
     $rootScope.showSpinner = true;
-    
+
     // 
     // var xxx = EGovJSBase.AuthenticationUrls.getLoginPageUrl('backUrl')
     // 

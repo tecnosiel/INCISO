@@ -8,7 +8,7 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
   /**
    * Lettura settaggi da localStorage
    */
-  
+
   $rootScope.CustomStyle = {};
 
   buffer = localStorage.getItem('fontfamily');
@@ -25,6 +25,23 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
   if (buffer) {
     $rootScope.CustomStyle["line-height"] = (buffer * 1).toFixed(2) + "px";;
   }
+
+  // ---
+  buffer = localStorage.getItem('httpautenticazione');
+  if (buffer == "true") {
+    $rootScope.httpautenticazione = true;
+  } else {
+    $rootScope.httpautenticazione = false;
+  }
+  // ---
+  buffer = localStorage.getItem('testquerystring');
+  if (buffer) {
+    $rootScope.testquerystring = buffer;
+  } else {
+    $rootScope.testquerystring = "";
+  }
+
+
   // ---------------------------------------
   // EndPoint
   // ---------------------------------------
@@ -111,6 +128,28 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
   /**
    * Funzoni Globali
    */
+
+
+
+  $rootScope.isJsonString = function (jsonString, bType) {
+    try {
+      var o = JSON.parse(jsonString);
+      // Handle non-exception-throwing cases:
+      // Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
+      // but... JSON.parse(null) returns null, and typeof null === "object", 
+      // so we must check for that, too. Thankfully, null is falsey, so this suffices:
+      if (o && typeof o === "object") {
+        if (bType) {
+          return o;
+        } else {
+          return true;
+        }
+      }
+    } catch (e) {
+      return false;
+    }
+
+  }
 
   $rootScope.inserisciEvidenza = function (cCodFis) {
     $scope.modale = true;

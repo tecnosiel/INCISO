@@ -5,7 +5,10 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-
+      TEST_QUERY_STRING:"Query string opzionale ( ?Principal-ID=3&AuthType=UP&CurrentDelegation=1%3b0 )",
+      INFO_TEST_QUERY_STRING:"Query string opzionale da aggiungere a tutte le  call GET",
+      
+      COMUNICAZIONI_HTTP_CON_CREDENZIALI :"Comunicazioni http con credenziali",
       TEST_SERVER:"Test server",
       SERVER_BACKEND:"Server backend ( http://localhost:53061 )",
       INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto: fake-backend) ",
@@ -722,6 +725,11 @@ function config($translateProvider) {
     })
 
     .translations("de", {
+      TEST_QUERY_STRING:"Query string opzionale DE ( ?Principal-ID=3&AuthType=UP&CurrentDelegation=1%3b0 )",
+      INFO_TEST_QUERY_STRING:"Query string opzionale da aggiungere a tutte le  call GET DE",
+
+      COMUNICAZIONI_HTTP_CON_CREDENZIALI :"Comunicazioni http con credenziali DE",
+
       TEST_SERVER:"Test server DE",
 
       SERVER_BACKEND:"Server backend DE ( http://localhost:53061 )",

@@ -1,5 +1,11 @@
 function evidenzeServices($http, $rootScope, $timeout) {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
 
   service.find = find;
   service.findPosizioni = findPosizioni;
@@ -12,11 +18,12 @@ function evidenzeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlEvidenze + "/find", {
+        .get($rootScope.urlEvidenze + "/find" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -31,11 +38,12 @@ function evidenzeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlEvidenze + "/findcodfis", {
+        .get($rootScope.urlEvidenze + "/findcodfis" + $rootScope.testquerystring, {
           data: cCodFis
         }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -50,11 +58,12 @@ function evidenzeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlEvidenze + "/findPosizioni", {
+        .get($rootScope.urlEvidenze + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -73,7 +82,8 @@ function evidenzeServices($http, $rootScope, $timeout) {
           data: dataSave
         })
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);

@@ -1,5 +1,11 @@
 function associazioniServices($http, $rootScope, $timeout) {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
 
   service.find = find;
   service.findPosizioni = findPosizioni;
@@ -12,11 +18,12 @@ function associazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAssociazioni + "/find", {
+        .get($rootScope.urlAssociazioni + "/find" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -32,13 +39,12 @@ function associazioniServices($http, $rootScope, $timeout) {
     $timeout(function () {
       $http
         .get(
-          $rootScope.urlAssociazioni + "/findcodfis", {
+          $rootScope.urlAssociazioni + "/findcodfis" + $rootScope.testquerystring, {
             data: cCodFis
-          },
-          config
-        )
+          }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -53,11 +59,12 @@ function associazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAssociazioni + "/findPosizioni", {
+        .get($rootScope.urlAssociazioni + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -74,9 +81,10 @@ function associazioniServices($http, $rootScope, $timeout) {
       $http
         .post($rootScope.urlAssociazioni + "/save", {
           data: dataSave
-        })
+        }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);

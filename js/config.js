@@ -501,6 +501,9 @@
       $httpProvider.interceptors.push('httpInterceptor');
     })
     .config(configStates)
+    // .config(['$httpProvider', function($httpProvider) {
+    //   $httpProvider.defaults.withCredentials = true;
+    // }])
     // .config(configIntercetors)
     .run(setupFakeBackend)
     .run(function ($rootScope, $state) {

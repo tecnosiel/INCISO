@@ -193,14 +193,29 @@
                                     <label>{{ "SERVER_BACKEND" | translate }}</label>
                                     <input type="text" class="form-control" ng-model="tmp.serverbackend" placeholder="{{'INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO' | translate}}" />
                                 </div>
-                                <div class="col-md-6 form-group">
-                                    <button class="btn btn-danger btn-sm" ng-click="testInternet()" style="margin-top:4%">{{
+                                <div class="col-md-3 form-group"><label>{{ "COMUNICAZIONI_HTTP_CON_CREDENZIALI" | translate}}</label>
+                                    <div class="checkbox">
+                                        <input icheck type="checkbox" ng-change="attenzioneRefresh()" ng-model="tmp.httpautenticazione" >
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <button class="btn btn-danger btn-sm" ng-click="testInternet()" style="margin-top:10%">{{
                                         'TEST_SERVER' |
                                         translate }}</button>
                                 </div>
-
+                    
                             </div>
                             <div class="row">
+
+                                    <!-- ------------------------------- -->
+                                    <div class="col-md-6 form-group">
+                                        <label>{{ "TEST_QUERY_STRING" | translate }}</label>
+                                        <input type="text" class="form-control" ng-model="tmp.testquerystring" placeholder="{{'INFO_TEST_QUERY_STRING' | translate}}" />
+                                    </div>
+    
+                                </div>
+                                <div class="row">
 
                                 <!-- ------------------------------- -->
                                 <div class="col-md-6 form-group">

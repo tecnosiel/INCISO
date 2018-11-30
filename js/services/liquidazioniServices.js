@@ -1,5 +1,11 @@
 function liquidazioniServices($http, $rootScope, $timeout) {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
 
   service.find = find;
   service.findPosizioni = findPosizioni;
@@ -12,12 +18,13 @@ function liquidazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlLiquidazioni + "/find", {
+        .get($rootScope.urlLiquidazioni + "/find" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
           //formattazione dei dati secondo mock
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           //messaggio di errore per questo get
@@ -34,13 +41,12 @@ function liquidazioniServices($http, $rootScope, $timeout) {
     $timeout(function () {
       $http
         .get(
-          $rootScope.urlLiquidazioni + "/findcodfis", {
+          $rootScope.urlLiquidazioni + "/findcodfis" + $rootScope.testquerystring, {
             data: cCodFis
-          },
-          config
-        )
+          }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);
@@ -55,11 +61,12 @@ function liquidazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlLiquidazioni + "/findPosizioni", {
+        .get($rootScope.urlLiquidazioni + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           //messaggio di errore per questo get
@@ -79,7 +86,8 @@ function liquidazioniServices($http, $rootScope, $timeout) {
           data: dataSave
         })
         .success(function (data, status, headers, config) {
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           alert("errore nella chiamata : " + status);

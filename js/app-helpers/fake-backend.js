@@ -1,6 +1,5 @@
 function setupFakeBackend($httpBackend) {
 
-  debugger;
   // i file statici verranno serviti senza elaborazione
   $httpBackend.whenGET(/^\w+.*/).passThrough();
   // le views verranno servite senza elaborazione. Se i elimina la riga si hanno interferenze con gli stati di UI-ROUTER
@@ -8,7 +7,7 @@ function setupFakeBackend($httpBackend) {
   $httpBackend.whenGET(/js\/.*/).passThrough();
 
   $httpBackend.whenGET('http://www.omdbapi.com/?s=terminator').passThrough();
-     
+
   $httpBackend.whenGET('/iamauth/user/current').passThrough();
   $httpBackend.whenPOST('http://www.omdbapi.com/?s=terminator').passThrough();
   $httpBackend.whenPOST('/iamauth/user/current').passThrough();
@@ -105,7 +104,7 @@ function setupFakeBackend($httpBackend) {
     .respond(function (method, url, data, headers) {
       var response = tabella("ANAGRAFE");
       var response2 = response.find(obj => {
-        return obj.DbCodiceFiscale === data;
+        return obj.CodiceFiscale === data;
       });
       return [200, response2, {}];
     });
@@ -182,10 +181,10 @@ function setupFakeBackend($httpBackend) {
   //   DataScadenzaAl :"dd/MM/yyyy"
   //   DataChiusuraDal:"dd/MM/yyyy"
   //   DataChiusuraAl :"dd/MM/yyyy"
-  //   DbCognome: "text",
-  //   DbNome: "text",
-  //   DbCodiceFiscale: "text",
-  //   DbDataDiNascita: "gg/mm/aaaa",
+  //   Cognome "text",
+  //   Nome: "text",
+  //   CodiceFiscale: "text",
+  //   DataDiNascita: "gg/mm/aaaa",
   // }
   $httpBackend
     .whenGET("/api/evidenze/find")
@@ -261,18 +260,19 @@ function setupFakeBackend($httpBackend) {
   function tabella(cTipoTabella) {
     if (cTipoTabella.toUpperCase() === "ANAGRAFE") {
       var tabAnagrafe = [{
-          DbCodiceFiscale: "LFNCLL60D03E026T",
-          DbCognome: "Alfano",
-          DbNome: "Camillo",
-          DbDataDiNascita: "01/01/1930",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bologna",
+          Id: "1",
+          CodiceFiscale: "LFNCLL60D03E026T",
+          Cognome: "Alfano",
+          Nome: "Camillo",
+          DataNascita: "01/01/1930",
+          Sesso: "F",
+          IdComuneNascita: "Bologna",
           DbNazionalita: "Italiana",
           DbResidenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
           DbDomicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
           DbAltriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
 
-          DbDataDiDecesso: "01/01/2010",
+          DataDecesso: "01/01/2010",
           DbEredita: {
             DbNumeroFaldone: "3333333",
             DbAnnoDiScartoINCISO: "2018",
@@ -301,15 +301,16 @@ function setupFakeBackend($httpBackend) {
               }
             ]
           },
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -327,15 +328,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -353,15 +354,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -379,15 +380,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -405,15 +406,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -431,15 +432,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -457,15 +458,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -483,15 +484,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -509,15 +510,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -697,47 +698,49 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdIdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbDbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "RSSARO70A10F2052",
-          DbCognome: "Alfano",
-          DbNome: "Camillo",
-          DbDataDiNascita: "01/01/1930",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bologna",
+          Id: "2",
+          CodiceFiscale: "RSSARO70A10F2052",
+          Cognome: "Alfano",
+          Nome: "Camillo",
+          DataNascita: "01/01/1930",
+          Sesso: "F",
+          IdComuneNascita: "Bologna",
           DbNazionalita: "Italiana",
           DbResidenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
           DbDomicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
           DbAltriIndirizzi: "atro indirizzo qòlwekrjòlqwekjròlqwkjer",
 
-          DbDataDiDecesso: "-",
+          DataDecesso: "-",
           DbEredita: null,
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -755,15 +758,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -781,15 +784,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -807,15 +810,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -833,15 +836,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -859,15 +862,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -885,15 +888,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -911,15 +914,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -937,15 +940,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1127,36 +1130,37 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "QTGSRO60A11Q2055",
-          DbCognome: "Hammond",
-          DbNome: "John",
-          DbDataDiNascita: "01/01/1970",
+          Id: "3",
+          CodiceFiscale: "QTGSRO60A11Q2055",
+          Cognome: "Hammond",
+          Nome: "John",
+          DataNascita: "01/01/1970",
 
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bologna",
+          Sesso: "F",
+          IdComuneNascita: "Bologna",
           DbNazionalita: "Italiana",
           DbResidenza: "via Luigi Cadorna, 53 - 39100 Bolzano BZ",
           DbDomicilio: "via Armando Diaz, 2 - 39100 Bolzano BZ",
           DbAltriIndirizzi: "indirizzo di prova qòlwekrjòlqwekjròlqwkjer",
 
-          DbDataDiDecesso: "01/01/1990",
+          DataDecesso: "01/01/1990",
           DbEredita: {
             DbNumeroFaldone: "3333333",
             DbAnnoDiScartoINCISO: "2018",
@@ -1187,16 +1191,17 @@ function setupFakeBackend($httpBackend) {
             ]
           },
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1214,15 +1219,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1240,15 +1245,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1266,15 +1271,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1292,15 +1297,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1318,15 +1323,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1344,15 +1349,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1370,15 +1375,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1396,15 +1401,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1586,35 +1591,36 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "RTSDRO70A10W2056",
-          DbCognome: "Mudassar",
-          DbNome: "Khan",
-          DbDataDiNascita: "01/02/1650",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bolzano",
+          Id: "4",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataNascita: "01/02/1650",
+          Sesso: "F",
+          IdComuneNascita: "Bolzano",
           DbNazionalita: "Inglese",
           DbResidenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
           DbDomicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
           DbAltriIndirizzi: "qò lwe k rj ò lqwekjròlqwkjer",
 
-          DbDataDiDecesso: "01/01/1930",
+          DataDecesso: "01/01/1930",
           DbEredita: {
             DbNumeroFaldone: "333313454",
             DbAnnoDiScartoINCISO: "2015",
@@ -1645,16 +1651,17 @@ function setupFakeBackend($httpBackend) {
             ]
           },
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1672,15 +1679,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1698,15 +1705,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1724,15 +1731,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1750,15 +1757,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1776,15 +1783,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1802,15 +1809,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1828,15 +1835,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -1854,15 +1861,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2044,47 +2051,50 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi111@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi111@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "VSYFRO70A10E2652",
-          DbCognome: "Mathews",
-          DbNome: "Suzanne",
-          DbDataDiNascita: "01/01/1966",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bologna",
+          Id: "5",
+          CodiceFiscale: "VSYFRO70A10E2652",
+          Cognome: "Mathews",
+          Nome: "Suzanne",
+          DataNascita: "01/01/1966",
+          Sesso: "F",
+          IdComuneNascita: "Bologna",
           DbNazionalita: "Italiana",
           DbResidenza: "via Luigi Venezia, 53 - 39100 Bolzano CT",
           DbDomicilio: "via Venezia Diaz, 2 - 39100 Bolzano VE",
           DbAltriIndirizzi: "qòlwek rjòlq wekjròlqwkjer",
 
-          DbDataDiDecesso: "-",
+          DataDecesso: "-",
           Eredita: null,
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2102,15 +2112,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2128,15 +2138,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2154,15 +2164,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2180,15 +2190,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2206,15 +2216,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2232,15 +2242,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2258,15 +2268,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2284,15 +2294,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2474,35 +2484,36 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi111@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi111@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "WSSGRO70A10T2066",
-          DbCognome: "Schidner",
-          DbNome: "Robert",
-          DbDataDiNascita: "01/04/1950",
-          DbSesso: "M",
-          DbLuogoDiNascita: "Roma",
+          Id: "6",
+          CodiceFiscale: "WSSGRO70A10T2066",
+          Cognome: "Schidner",
+          Nome: "Robert",
+          DataNascita: "01/04/1950",
+          Sesso: "M",
+          IdComuneNascita: "Roma",
           DbNazionalita: "Italiana",
           DbResidenza: "via dell'Albergo Murat, 53 - 89112 Roma RM",
           DbDomicilio: "via Bellini Diaz, 2 - 84094 Roma RM",
           DbAltriIndirizzi: "qòlwekrjòlqw ekjròl qwkjer",
 
-          DbDataDiDecesso: "01/01/1930",
+          DataDecesso: "01/01/1930",
           DbEredita: {
             DbNumeroFaldone: "3345333333",
             DbAnnoDiScartoINCISO: "2016",
@@ -2533,16 +2544,17 @@ function setupFakeBackend($httpBackend) {
             ]
           },
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2560,15 +2572,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2586,15 +2598,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2612,15 +2624,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2638,15 +2650,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2664,15 +2676,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2690,15 +2702,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2716,15 +2728,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2742,15 +2754,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2932,46 +2944,48 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0123 456789",
-          DbEmail: "mrossi222@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0123 456789",
+          Email: "mrossi222@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "1234567890123456",
-          DbCognome: "Alfano-1111",
-          DbNome: "Camillo-1111",
-          DbDataDiNascita: "01/01/1930",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bolzano-11",
+          Id: "7",
+          CodiceFiscale: "1234567890123456",
+          Cognome: "Alfano-1111",
+          Nome: "Camillo-1111",
+          DataNascita: "01/01/1930",
+          Sesso: "F",
+          IdComuneNascita: "Bolzano-11",
           DbNazionalita: "Italiana",
           DbResidenza: "via Giocchino Murat, 53 - 89112 Roma RM",
           DbDomicilio: "via Armando Diaz, 2 - 84094 Roma RM",
           DbAltriIndirizzi: "indirizzo straniero 1 wekjròlqwkjer",
-          DbDataDiDecesso: "-",
+          DataDecesso: "-",
           Eredita: null,
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -2989,15 +3003,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3015,15 +3029,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3041,15 +3055,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3067,15 +3081,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3093,15 +3107,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3119,15 +3133,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3145,15 +3159,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3171,15 +3185,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3361,47 +3375,49 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi333@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi333@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "RSSMRA70A41F2052",
-          DbCognome: "Hammond",
-          DbNome: "John22",
-          DbDataDiNascita: "01/01/1970",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bologna 2",
+          Id: "8",
+          CodiceFiscale: "RSSMRA70A41F2052",
+          Cognome: "Hammond",
+          Nome: "John22",
+          DataNascita: "01/01/1970",
+          Sesso: "F",
+          IdComuneNascita: "Bologna 2",
           DbNazionalita: "Italiana",
           DbResidenza: "via Luigi Belli, 53 - 39100 Bolzano BZ",
           DbDomicilio: "via Diaz Armandino, 2 - 39100 Bolzano BZ",
           DbAltriIndirizzi: "indirizzo belga qòlwekrjòlqwekjròlqwkjer",
 
-          DbDataDiDecesso: "-",
+          DataDecesso: "-",
           Eredita: null,
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3419,15 +3435,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3445,15 +3461,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3471,15 +3487,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3497,15 +3513,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3523,15 +3539,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3549,15 +3565,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3575,15 +3591,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3601,15 +3617,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3791,35 +3807,36 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi444@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi444@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         },
         {
-          DbCodiceFiscale: "RTSDRO70A10W2056",
-          DbCognome: "Mudassar",
-          DbNome: "Khan",
-          DbDataDiNascita: "01/02/1650",
-          DbSesso: "F",
-          DbLuogoDiNascita: "Bolzano",
+          Id: "9",
+          CodiceFiscale: "RTSDRO70A10W2056",
+          Cognome: "Mudassar",
+          Nome: "Khan",
+          DataNascita: "01/02/1650",
+          Sesso: "F",
+          IdComuneNascita: "Bolzano",
           DbNazionalita: "Inglese",
           DbResidenza: "via Carlo Alberto della Chiesa, 53 - 39100 Milano BZ",
           DbDomicilio: "via Giocchino Diaz, 2 - 39100 Bolzano BZ",
           DbAltriIndirizzi: "indirizzo austriaco qòlwekrjòlqwekjròlqwkjer",
 
-          DbDataDiDecesso: "01/01/1930",
+          DataDecesso: "01/01/1930",
           DbEredita: [{
               DbCognomeNome: "Paolwwwo Biawdjkònchi",
               DbCodiceFiscale: "RSSMRA53A36Q2357",
@@ -3850,16 +3867,17 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbRedditi: [{
-              DbAnno: "2018",
+          PersonaRedditi: [{
+              IdPersona: 7,
+              Anno: "2018",
               DbRedditoAssistito: "111111.45",
               DbRedditoConiuge: "6578.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3877,15 +3895,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2017",
+              Anno: "2017",
               DbRedditoAssistito: "22222225.45",
               DbRedditoConiuge: "222222228.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3903,15 +3921,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2016",
+              Anno: "2016",
               DbRedditoAssistito: "33333333.45",
               DbRedditoConiuge: "33333333.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3929,15 +3947,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2015",
+              Anno: "2015",
               DbRedditoAssistito: "44444444.45",
               DbRedditoConiuge: "44444444.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3955,15 +3973,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2014",
+              Anno: "2014",
               DbRedditoAssistito: "555555555.45",
               DbRedditoConiuge: "5555555.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -3981,15 +3999,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2013",
+              Anno: "2013",
               DbRedditoAssistito: "666666666.45",
               DbRedditoConiuge: "6666666.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -4007,15 +4025,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2012",
+              Anno: "2012",
               DbRedditoAssistito: "77777777.45",
               DbRedditoConiuge: "7777777.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -4033,15 +4051,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2011",
+              Anno: "2011",
               DbRedditoAssistito: "88888888.45",
               DbRedditoConiuge: "88888888.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -4059,15 +4077,15 @@ function setupFakeBackend($httpBackend) {
               ]
             },
             {
-              DbAnno: "2010",
+              Anno: "2010",
               DbRedditoAssistito: "9999999.45",
               DbRedditoConiuge: "999999.88",
               DbValidoPerGliAnniSuccessivi: true,
 
-              DbNessunRedditoPercepito: "No",
+              NessunReddito: 0,
               DbTotaleValoreRedditoAssistito: "999999.00",
-              DbEstremiPensioneAssistito: "qqqqqqqqqqqq",
-              DbNoteAssistito: "note anno 2018 bla bla bla",
+              EstremiPensione: "qqqqqqqqqqqq",
+              Note: "note anno 2018 bla bla bla",
 
               DbDettagliConiuge: [],
               DbDettagliAssistito: [{
@@ -4249,20 +4267,20 @@ function setupFakeBackend($httpBackend) {
             DbNote: "sda kpopoi pèoipèo dfhaklsdj lasdòlaf"
           }],
 
-          DbCognomeAcquisito: "Alfano Acquisito",
-          DbStatoCivile: "Coniugata",
-          DbProvinciaDiNascita: "Milano",
-          DbNazioneDiNascita: "Italia",
-          DbCittadinanza: "Italiana",
+          CognomeAcquisito: "Alfano Acquisito",
+          IdStatoCivile: "Coniugata",
+          IdProvinciaNascita: "Milano",
+          IdNazioneNascita: "Italia",
+          IdCittadinanza: "Italiana",
           DbExtracomunitario: "Si",
 
           DbPermessoDiSoggiornoTipoPermesso: "Lorem ipsum dolor",
           DbPermessoDiSoggiornoDataRilascio: "01/01/2020",
           DbPermessoDiSoggiornoValidoFinoAl: "01/01/2020",
-          DbTelefonoPrincipale: "0461 912585",
-          DbTelefonoSecondario: "0461 923452",
-          DbEmail: "mrossi555@gmail.com",
-          DbPec: "mrossi@gmail.com",
+          TelefonoPrincipale: "0461 912585",
+          TelefonoSecondario: "0461 923452",
+          Email: "mrossi555@gmail.com",
+          Pec: "mrossi@gmail.com",
           DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat"
         }
       ];

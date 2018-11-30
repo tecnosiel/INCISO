@@ -40,12 +40,12 @@ function ricercaController(
 
     if (this.tipoRicerca == "Anagrafe") {
       anagrafeServices.find(this.info, result => {
-        this.elencoAssistiti = httpServices.fromDb(result, 'anagrafe')
+        this.elencoAssistiti = httpServices.arrayFromDb(result, 'anagrafe')
         // this.elencoAssistiti = result;
       });
     } else {
       anagrafeServices.findPosizioni(this.info, result => {
-        this.elencoAssistiti = httpServices.fromDb(result, 'posizione')
+        this.elencoAssistiti = httpServices.arrayFromDb(result, 'posizione')
         // this.elencoAssistiti = result;
       });
     }

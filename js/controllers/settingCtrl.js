@@ -8,17 +8,20 @@ function settingCtrl($scope, $rootScope, $http) {
   // ------------------------------------
   // Copiamo in scope i parametri in uso
   // ------------------------------------
-
   $scope.tmp = {
     fontfamily: "open sans",
     fontsize: 13,
     lineheight: 18.57,
     color: "rgb(51, 51, 51)",
+    httpautenticazione: false,
+    testquerystring: "",
     serverbackend: "",
     endpointanagrafe: "",
     endpointdomande: "",
-    endpointautentificazione: ""
+    endpointautentificazione: "",
+    httpconcredenziali: ""
   };
+  $scope.tmp.camillo = true;
 
   buffer = localStorage.getItem('fontfamily');
   if (buffer) {
@@ -40,10 +43,23 @@ function settingCtrl($scope, $rootScope, $http) {
     $scope.tmp.color = buffer;
   }
   // ---
+  buffer = localStorage.getItem('httpautenticazione');
+  if (buffer == "true") {
+    $scope.tmp.httpautenticazione = true;
+  } else {
+    $scope.tmp.httpautenticazione = false;
+  }
+  // ---
+  buffer = localStorage.getItem('testquerystring');
+  if (buffer) {
+    $scope.tmp.testquerystring = buffer;
+  }
+  // ---
   buffer = localStorage.getItem('serverbackend');
   if (buffer) {
     $scope.tmp.serverbackend = buffer;
   }
+
 
   // ---
   buffer = localStorage.getItem('endpointanagrafe');
@@ -73,6 +89,8 @@ function settingCtrl($scope, $rootScope, $http) {
       color: "rgb(51, 51, 51)",
       serverbackend: "",
       endpointanagrafe: "",
+      httpautenticazione: false,
+      testquerystring:"",
       endpointdomande: "",
       endpointautentificazione: ""
     };
@@ -80,6 +98,8 @@ function settingCtrl($scope, $rootScope, $http) {
     localStorage.setItem('fontsize', '13');
     localStorage.setItem('lineheight', '18.57');
     localStorage.setItem('color', 'rgb(51, 51, 51)');
+    localStorage.setItem('httpautenticazione', false);
+    localStorage.setItem('testquerystring', "");
     localStorage.setItem('serverbackend', '');
     localStorage.setItem('endpointanagrafe', '');
     localStorage.setItem('endpointdomande', '');
@@ -103,6 +123,12 @@ function settingCtrl($scope, $rootScope, $http) {
     if ($scope.tmp.color) {
       $rootScope.CustomStyle["color"] = $scope.tmp.color;
     }
+    if ($scope.tmp.httpautenticazione) {
+      $rootScope.httpautenticazione = $scope.tmp.httpautenticazione;
+    }
+    if ($scope.tmp.testquerystring) {
+      $rootScope.testquerystring = $scope.tmp.testquerystring;
+    }
     if ($scope.tmp.serverbackend) {
       $rootScope.serverbackend = $scope.tmp.serverbackend;
     } else {
@@ -118,7 +144,7 @@ function settingCtrl($scope, $rootScope, $http) {
     } else {
       $rootScope.urlDomande = $scope.tmp.serverbackend + "/api/domande"
     }
-    if ($scope.tmp.endpointdomande) {
+    if ($scope.tmp.endpointautenticazione) {
       $rootScope.urlLogin = $scope.tmp.serverbackend + $scope.tmp.endpointautenticazione.toLowerCase();
     } else {
       $rootScope.urlLogin = $scope.tmp.serverbackend + "/api/autenticazione"
@@ -126,11 +152,12 @@ function settingCtrl($scope, $rootScope, $http) {
 
 
     if (cTipo == "memorizza") {
-
       localStorage.setItem('fontfamily', $scope.tmp.fontfamily);
       localStorage.setItem('fontsize', $scope.tmp.fontsize);
       localStorage.setItem('lineheight', $scope.tmp.lineheight);
       localStorage.setItem('color', $scope.tmp.color);
+      localStorage.setItem('httpautenticazione', $scope.tmp.httpautenticazione);
+      localStorage.setItem('testquerystring', $scope.tmp.testquerystring);
       localStorage.setItem('serverbackend', $scope.tmp.serverbackend.toLowerCase());
       localStorage.setItem('endpointanagrafe', $scope.tmp.endpointanagrafe.toLowerCase());
       localStorage.setItem('endpointdomande', $scope.tmp.endpointdomande.toLowerCase());
@@ -141,8 +168,19 @@ function settingCtrl($scope, $rootScope, $http) {
 
   $scope.testInternet = function () {
     $rootScope.showSpinner = true;
+    var config = {
+      headers: {
+        'Content-Type': 'application/json;'
+      }
+      // ,
+      // withCredentials: true
+    }
 
-    $http.get('https://api.github.com/users/peterbe/gists')
+    if ($rootScope.httpautenticazione) {
+      config.withCredentials = true;
+    }
+
+    $http.get('https://api.github.com/users/peterbe/gists', config)
       .success(function (data) {
         $scope.gists = data;
         swal("Rete OK", "Accedo correttamente ad internet e a ricevere dati", "success")
@@ -155,8 +193,11 @@ function settingCtrl($scope, $rootScope, $http) {
         $rootScope.showSpinner = false;
       });
   }
-}
 
+  $scope.attenzioneRefresh = function () {
+    swal("RICORDATI IL REFRESH!", "Dopo aver salvato la modifica affinche essa abbia effetto è necessario effettuare il refresh del browser.");
+  }
+}
 /**
  * Collega il controller al modulo inciso
  **/

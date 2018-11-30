@@ -1,5 +1,15 @@
 function anagrafeServices($http, $rootScope, $timeout) {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
+  if ($rootScope.httpautenticazione) {
+    config.withCredentials = true;
+  }
+
   service.find = find;
   service.findPosizioni = findPosizioni;
   service.findCodFis = findCodFis;
@@ -13,12 +23,13 @@ function anagrafeServices($http, $rootScope, $timeout) {
 
     $timeout(function () {
       $http
-        .get($rootScope.urlAnagrafe + "/GetByAnagFilter", {
+        .get($rootScope.urlAnagrafe + "/GetByAnagFilter" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
           //formattazione dei dati secondo mock
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           //messaggio di errore per questo get
@@ -34,12 +45,13 @@ function anagrafeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAnagrafe + "/findcodfis", {
+        .get($rootScope.urlAnagrafe + "/findcodfis" + $rootScope.testquerystring, {
           data: cCodFis
         }, config)
         .success(function (data, status, headers, config) {
           //formattazione dei dati secondo mock
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           //messaggio di errore per questo post
@@ -52,16 +64,16 @@ function anagrafeServices($http, $rootScope, $timeout) {
   }
 
   function findPosizioni(dataFind, callBack) {
-    debugger;
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAnagrafe + "/findPosizioni", {
+        .get($rootScope.urlAnagrafe + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
-        })
+        }, config)
         .success(function (data, status, headers, config) {
           //formattazione dei dati secondo mock
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           //messaggio di errore per questo get
@@ -79,10 +91,11 @@ function anagrafeServices($http, $rootScope, $timeout) {
       $http
         .post($rootScope.urlAnagrafe + "/save", {
           data: dataSave
-        })
+        }, config)
         .success(function (data, status, headers, config) {
           //formattazione dei dati secondo mock
-          callBack(data);
+          if ($rootScope.isJsonString)
+            callBack(data);
         })
         .error(function (data, status, header, config) {
           //messaggio di errore per questo get

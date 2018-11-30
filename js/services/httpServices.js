@@ -1,7 +1,14 @@
 function httpServices() {
   var service = {};
+  var config = {
+    headers: {
+      'Content-Type': 'application/json;'
+    }
+  }
+
+
   service.readStructure = readStructure;
-  service.fromDb = fromDb;
+  service.arrayFromDb = arrayFromDb;
   service.jsonFromDb = jsonFromDb;
   service.toDb = toDb;
   service.convDateAmgGma = convDateAmgGma;
@@ -56,17 +63,16 @@ function readStructure(cStructure) {
   }
 }
 
-function fromDb(objDb, cStructure) {
+function arrayFromDb(objDb, cStructure) {
 
-  var objMem = {};
-  var objStru = this.readStructure(cStructure.trim());
+  let objMem = {};
+  let objStru = this.readStructure(cStructure.trim());
 
   for (let i in objDb) {
     objMem[i] = jsonFromDb(objDb[i], objStru)
   };
   return objMem;
 };
-
 
 function jsonFromDb(jsonDb, objStru) {
 
@@ -87,19 +93,19 @@ function jsonFromDb(jsonDb, objStru) {
     // let DbContent = jsonDb[cDbName]
     let DbContent = ""
     if (jsonDb) {
-      if (jsonDb || jsonDb.hasOwnProperty(cDbName)) {
+      if (jsonDb.hasOwnProperty(cDbName)) {
         DbContent = jsonDb[cDbName]
       }
     }
     // Scrittura dato da trasferire in funzione del tipo
     switch (cFormat) {
 
-      case "JSON":
-        jsonResult[cMemName] = jsonFromDb(DbContent, this.readStructure(cStruttura)) //arrayJsonFromDb(DbContent, cStruttura )
-        break;
       case "ARRAY-JSON":
         //array-json
-        jsonResult[cMemName] = fromDb(DbContent, cStruttura) //arrayJsonFromDb(DbContent, cStruttura )
+        jsonResult[cMemName] = arrayFromDb(DbContent, cStruttura)
+        break;
+      case "JSON":
+        jsonResult[cMemName] = jsonFromDb(DbContent, this.readStructure(cStruttura))
         break;
       case "K":
         //key
@@ -159,7 +165,7 @@ function toDb(objMem, cStructure) {
 
   for (let i in objMem) {
 
-    objDb[i] = {};
+    letobjDb[i] = {};
 
     for (let j in objStru) {
 
@@ -227,9 +233,6 @@ function toDb(objMem, cStructure) {
 // Funzioni Locali Non Esposte 
 //------------------------------------------
 
-function arrayJsonFromDb(objDb, cStructure) {
-
-}
 //------------------------------------------
 // Conversione DATE 
 //------------------------------------------
@@ -375,32 +378,37 @@ function posizioneStructure() {
 
 function anagrafeStructure() {
   return [{
-      DbName: "DbCodiceFiscale",
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I",
+    },
+    {
+      DbName: "CodiceFiscale",
       MemName: "CodiceFiscale",
       Tipo: "C",
     },
     {
-      DbName: "DbCognome",
+      DbName: "Cognome",
       MemName: "Cognome",
       Tipo: "C",
     },
     {
-      DbName: "DbNome",
+      DbName: "Nome",
       MemName: "Nome",
       Tipo: "C",
     },
     {
-      DbName: "DbDataDiNascita",
+      DbName: "DataNascita",
       MemName: "DataDiNascita",
       Tipo: "C",
     },
     {
-      DbName: "DbSesso",
+      DbName: "Sesso",
       MemName: "Sesso",
       Tipo: "C",
     },
     {
-      DbName: "DbLuogoDiNascita",
+      DbName: "IdComuneNascita",
       MemName: "LuogoDiNascita",
       Tipo: "C",
     },
@@ -425,7 +433,7 @@ function anagrafeStructure() {
       Tipo: "C",
     },
     {
-      DbName: "DbDataDiDecesso",
+      DbName: "DataDecesso",
       MemName: "DataDiDecesso",
       Tipo: "C",
     },
@@ -436,7 +444,7 @@ function anagrafeStructure() {
       Tipo: "JSON",
     },
     {
-      DbName: "DbRedditi",
+      DbName: "PersonaRedditi",
       MemName: "Redditi",
       Struttura: "redditi",
       Tipo: "ARRAY-JSON",
@@ -478,27 +486,27 @@ function anagrafeStructure() {
       Tipo: "ARRAY-JSON",
     },
     {
-      DbName: "DbCognomeAcquisito",
+      DbName: "CognomeAcquisito",
       MemName: "CognomeAcquisito",
       Tipo: "C",
     },
     {
-      DbName: "DbStatoCivile",
+      DbName: "IdStatoCivile",
       MemName: "StatoCivile",
       Tipo: "C",
     },
     {
-      DbName: "DbProvinciaDiNascita",
+      DbName: "IdProvinciaNascita",
       MemName: "ProvinciaDiNascita",
       Tipo: "C",
     },
     {
-      DbName: "DbNazioneDiNascita",
+      DbName: "IdNazioneNascita",
       MemName: "NazioneDiNascita",
       Tipo: "C",
     },
     {
-      DbName: "DbCittadinanza",
+      DbName: "IdCittadinanza",
       MemName: "Cittadinanza",
       Tipo: "C",
     },
@@ -523,22 +531,22 @@ function anagrafeStructure() {
       Tipo: "C",
     },
     {
-      DbName: "DbTelefonoPrincipale",
+      DbName: "TelefonoPrincipale",
       MemName: "TelefonoPrincipale",
       Tipo: "C",
     },
     {
-      DbName: "DbTelefonoSecondario",
+      DbName: "TelefonoSecondario",
       MemName: "TelefonoSecondario",
       Tipo: "C",
     },
     {
-      DbName: "DbEmail",
+      DbName: "Email",
       MemName: "Email",
       Tipo: "C",
     },
     {
-      DbName: "DbPec",
+      DbName: "Pec",
       MemName: "Pec",
       Tipo: "C",
     },
@@ -612,7 +620,11 @@ function erediStructure() {
 
 function redditiStructure() {
   return [{
-      DbName: "DbAnno",
+      DbName: "IdPersona",
+      MemName: "IdPersona",
+      Tipo: "N"
+    }, {
+      DbName: "Anno",
       MemName: "Anno",
       Tipo: "C"
     },
@@ -632,7 +644,7 @@ function redditiStructure() {
       Tipo: "B"
     },
     {
-      DbName: "DbNessunRedditoPercepito",
+      DbName: "NessunReddito",
       MemName: "NessunRedditoPercepito",
       Tipo: "B"
     },
@@ -642,12 +654,12 @@ function redditiStructure() {
       Tipo: "N"
     },
     {
-      DbName: "DbEstremiPensioneAssistito",
+      DbName: "EstremiPensione",
       MemName: "EstremiPensioneAssistito",
       Tipo: "C"
     },
     {
-      DbName: "DbNoteAssistito",
+      DbName: "Note",
       MemName: "NoteAssistito",
       Tipo: "C"
     },
