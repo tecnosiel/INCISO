@@ -74,6 +74,63 @@ function setupFakeBackend($httpBackend) {
       return [200, {}, {}];
     });
 
+  // ------------------------- INDIRIZZI
+  $httpBackend
+    .whenGET("/api/Nazione/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("NAZIONI");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/Provincia/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("PROVINCE");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/Comune/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("COMUNI");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/Strada/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("VIE");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/Frazione/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("FRAZIONI");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/Cap/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("CAP");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/StatoCivile/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("STATOCIVILE");
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenGET("/api/TipoIndirizzo/getAll?enabled=true")
+    .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
+      var response = tabella("TIPOINDIRIZZO");
+      return [200, response, {}];
+    });
   // ------------------------- ANAGRAFE e POSIZIONI
   // data = {
   //   Cognome: "text",
@@ -556,7 +613,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -987,7 +1044,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -1448,7 +1505,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -1908,7 +1965,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -2341,7 +2398,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -2801,7 +2858,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -3232,7 +3289,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -3664,7 +3721,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -4124,7 +4181,7 @@ function setupFakeBackend($httpBackend) {
             }
           ],
 
-          DbIndirizzi: [{
+          PersonaIndirizzi: [{
               DbTipo: "Indirizzo abitazione",
               DbIndirizo: "viale Giusti Antonia, 53 - 39100 Milano MI",
               DbValidita: "dal 01/01/2010 al 02/02/2011",
@@ -5669,5 +5726,1940 @@ function setupFakeBackend($httpBackend) {
 
       return tabAssociazioni;
     }
+
+    if (cTipoTabella.toUpperCase() === "NAZIONI") {
+      let tabNazioni = [{
+          Id: 1,
+          Description: "Afghanistan",
+          Code: "AF"
+        },
+        {
+          Id: 1,
+          Description: "Åland Islands",
+          Code: "AX"
+        },
+        {
+          Id: 1,
+          Description: "Albania",
+          Code: "AL"
+        },
+        {
+          Id: 1,
+          Description: "Algeria",
+          Code: "DZ"
+        },
+        {
+          Id: 1,
+          Description: "American Samoa",
+          Code: "AS"
+        },
+        {
+          Id: 1,
+          Description: "Andorra",
+          Code: "AD"
+        },
+        {
+          Id: 1,
+          Description: "Angola",
+          Code: "AO"
+        },
+        {
+          Id: 1,
+          Description: "Anguilla",
+          Code: "AI"
+        },
+        {
+          Id: 1,
+          Description: "Antarctica",
+          Code: "AQ"
+        },
+        {
+          Id: 1,
+          Description: "Antigua and Barbuda",
+          Code: "AG"
+        },
+        {
+          Id: 1,
+          Description: "Argentina",
+          Code: "AR"
+        },
+        {
+          Id: 1,
+          Description: "Armenia",
+          Code: "AM"
+        },
+        {
+          Id: 1,
+          Description: "Aruba",
+          Code: "AW"
+        },
+        {
+          Id: 1,
+          Description: "Australia",
+          Code: "AU"
+        },
+        {
+          Id: 1,
+          Description: "Austria",
+          Code: "AT"
+        },
+        {
+          Id: 1,
+          Description: "Azerbaijan",
+          Code: "AZ"
+        },
+        {
+          Id: 1,
+          Description: "Bahamas",
+          Code: "BS"
+        },
+        {
+          Id: 1,
+          Description: "Bahrain",
+          Code: "BH"
+        },
+        {
+          Id: 1,
+          Description: "Bangladesh",
+          Code: "BD"
+        },
+        {
+          Id: 1,
+          Description: "Barbados",
+          Code: "BB"
+        },
+        {
+          Id: 1,
+          Description: "Belarus",
+          Code: "BY"
+        },
+        {
+          Id: 1,
+          Description: "Belgium",
+          Code: "BE"
+        },
+        {
+          Id: 1,
+          Description: "Belize",
+          Code: "BZ"
+        },
+        {
+          Id: 1,
+          Description: "Benin",
+          Code: "BJ"
+        },
+        {
+          Id: 1,
+          Description: "Bermuda",
+          Code: "BM"
+        },
+        {
+          Id: 1,
+          Description: "Bhutan",
+          Code: "BT"
+        },
+        {
+          Id: 1,
+          Description: "Bolivia",
+          Code: "BO"
+        },
+        {
+          Id: 1,
+          Description: "Bosnia and Herzegovina",
+          Code: "BA"
+        },
+        {
+          Id: 1,
+          Description: "Botswana",
+          Code: "BW"
+        },
+        {
+          Id: 1,
+          Description: "Bouvet Island",
+          Code: "BV"
+        },
+        {
+          Id: 1,
+          Description: "Brazil",
+          Code: "BR"
+        },
+        {
+          Id: 1,
+          Description: "British Indian Ocean Territory",
+          Code: "IO"
+        },
+        {
+          Id: 1,
+          Description: "Brunei Darussalam",
+          Code: "BN"
+        },
+        {
+          Id: 1,
+          Description: "Bulgaria",
+          Code: "BG"
+        },
+        {
+          Id: 1,
+          Description: "Burkina Faso",
+          Code: "BF"
+        },
+        {
+          Id: 1,
+          Description: "Burundi",
+          Code: "BI"
+        },
+        {
+          Id: 1,
+          Description: "Cambodia",
+          Code: "KH"
+        },
+        {
+          Id: 1,
+          Description: "Cameroon",
+          Code: "CM"
+        },
+        {
+          Id: 1,
+          Description: "Canada",
+          Code: "CA"
+        },
+        {
+          Id: 1,
+          Description: "Cape Verde",
+          Code: "CV"
+        },
+        {
+          Id: 1,
+          Description: "Cayman Islands",
+          Code: "KY"
+        },
+        {
+          Id: 1,
+          Description: "Central African Republic",
+          Code: "CF"
+        },
+        {
+          Id: 1,
+          Description: "Chad",
+          Code: "TD"
+        },
+        {
+          Id: 1,
+          Description: "Chile",
+          Code: "CL"
+        },
+        {
+          Id: 1,
+          Description: "China",
+          Code: "CN"
+        },
+        {
+          Id: 1,
+          Description: "Christmas Island",
+          Code: "CX"
+        },
+        {
+          Id: 1,
+          Description: "Cocos (Keeling) Islands",
+          Code: "CC"
+        },
+        {
+          Id: 1,
+          Description: "Colombia",
+          Code: "CO"
+        },
+        {
+          Id: 1,
+          Description: "Comoros",
+          Code: "KM"
+        },
+        {
+          Id: 1,
+          Description: "Congo",
+          Code: "CG"
+        },
+        {
+          Id: 1,
+          Description: "Congo, The Democratic Republic of the",
+          Code: "CD"
+        },
+        {
+          Id: 1,
+          Description: "Cook Islands",
+          Code: "CK"
+        },
+        {
+          Id: 1,
+          Description: "Costa Rica",
+          Code: "CR"
+        },
+        {
+          Id: 1,
+          Description: "Cote D'Ivoire",
+          Code: "CI"
+        },
+        {
+          Id: 1,
+          Description: "Croatia",
+          Code: "HR"
+        },
+        {
+          Id: 1,
+          Description: "Cuba",
+          Code: "CU"
+        },
+        {
+          Id: 1,
+          Description: "Cyprus",
+          Code: "CY"
+        },
+        {
+          Id: 1,
+          Description: "Czech Republic",
+          Code: "CZ"
+        },
+        {
+          Id: 1,
+          Description: "Denmark",
+          Code: "DK"
+        },
+        {
+          Id: 1,
+          Description: "Djibouti",
+          Code: "DJ"
+        },
+        {
+          Id: 1,
+          Description: "Dominica",
+          Code: "DM"
+        },
+        {
+          Id: 1,
+          Description: "Dominican Republic",
+          Code: "DO"
+        },
+        {
+          Id: 1,
+          Description: "Ecuador",
+          Code: "EC"
+        },
+        {
+          Id: 1,
+          Description: "Egypt",
+          Code: "EG"
+        },
+        {
+          Id: 1,
+          Description: "El Salvador",
+          Code: "SV"
+        },
+        {
+          Id: 1,
+          Description: "Equatorial Guinea",
+          Code: "GQ"
+        },
+        {
+          Id: 1,
+          Description: "Eritrea",
+          Code: "ER"
+        },
+        {
+          Id: 1,
+          Description: "Estonia",
+          Code: "EE"
+        },
+        {
+          Id: 1,
+          Description: "Ethiopia",
+          Code: "ET"
+        },
+        {
+          Id: 1,
+          Description: "Falkland Islands (Malvinas)",
+          Code: "FK"
+        },
+        {
+          Id: 1,
+          Description: "Faroe Islands",
+          Code: "FO"
+        },
+        {
+          Id: 1,
+          Description: "Fiji",
+          Code: "FJ"
+        },
+        {
+          Id: 1,
+          Description: "Finland",
+          Code: "FI"
+        },
+        {
+          Id: 1,
+          Description: "France",
+          Code: "FR"
+        },
+        {
+          Id: 1,
+          Description: "French Guiana",
+          Code: "GF"
+        },
+        {
+          Id: 1,
+          Description: "French Polynesia",
+          Code: "PF"
+        },
+        {
+          Id: 1,
+          Description: "French Southern Territories",
+          Code: "TF"
+        },
+        {
+          Id: 1,
+          Description: "Gabon",
+          Code: "GA"
+        },
+        {
+          Id: 1,
+          Description: "Gambia",
+          Code: "GM"
+        },
+        {
+          Id: 1,
+          Description: "Georgia",
+          Code: "GE"
+        },
+        {
+          Id: 1,
+          Description: "Germany",
+          Code: "DE"
+        },
+        {
+          Id: 1,
+          Description: "Ghana",
+          Code: "GH"
+        },
+        {
+          Id: 1,
+          Description: "Gibraltar",
+          Code: "GI"
+        },
+        {
+          Id: 1,
+          Description: "Greece",
+          Code: "GR"
+        },
+        {
+          Id: 1,
+          Description: "Greenland",
+          Code: "GL"
+        },
+        {
+          Id: 1,
+          Description: "Grenada",
+          Code: "GD"
+        },
+        {
+          Id: 1,
+          Description: "Guadeloupe",
+          Code: "GP"
+        },
+        {
+          Id: 1,
+          Description: "Guam",
+          Code: "GU"
+        },
+        {
+          Id: 1,
+          Description: "Guatemala",
+          Code: "GT"
+        },
+        {
+          Id: 1,
+          Description: "Guernsey",
+          Code: "GG"
+        },
+        {
+          Id: 1,
+          Description: "Guinea",
+          Code: "GN"
+        },
+        {
+          Id: 1,
+          Description: "Guinea-Bissau",
+          Code: "GW"
+        },
+        {
+          Id: 1,
+          Description: "Guyana",
+          Code: "GY"
+        },
+        {
+          Id: 1,
+          Description: "Haiti",
+          Code: "HT"
+        },
+        {
+          Id: 1,
+          Description: "Heard Island and Mcdonald Islands",
+          Code: "HM"
+        },
+        {
+          Id: 1,
+          Description: "Holy See (Vatican City State)",
+          Code: "VA"
+        },
+        {
+          Id: 1,
+          Description: "Honduras",
+          Code: "HN"
+        },
+        {
+          Id: 1,
+          Description: "Hong Kong",
+          Code: "HK"
+        },
+        {
+          Id: 1,
+          Description: "Hungary",
+          Code: "HU"
+        },
+        {
+          Id: 1,
+          Description: "Iceland",
+          Code: "IS"
+        },
+        {
+          Id: 1,
+          Description: "India",
+          Code: "IN"
+        },
+        {
+          Id: 1,
+          Description: "Indonesia",
+          Code: "ID"
+        },
+        {
+          Id: 1,
+          Description: "Iran, Islamic Republic Of",
+          Code: "IR"
+        },
+        {
+          Id: 1,
+          Description: "Iraq",
+          Code: "IQ"
+        },
+        {
+          Id: 1,
+          Description: "Ireland",
+          Code: "IE"
+        },
+        {
+          Id: 1,
+          Description: "Isle of Man",
+          Code: "IM"
+        },
+        {
+          Id: 1,
+          Description: "Israel",
+          Code: "IL"
+        },
+        {
+          Id: 1,
+          Description: "Italy",
+          Code: "IT"
+        },
+        {
+          Id: 1,
+          Description: "Jamaica",
+          Code: "JM"
+        },
+        {
+          Id: 1,
+          Description: "Japan",
+          Code: "JP"
+        },
+        {
+          Id: 1,
+          Description: "Jersey",
+          Code: "JE"
+        },
+        {
+          Id: 1,
+          Description: "Jordan",
+          Code: "JO"
+        },
+        {
+          Id: 1,
+          Description: "Kazakhstan",
+          Code: "KZ"
+        },
+        {
+          Id: 1,
+          Description: "Kenya",
+          Code: "KE"
+        },
+        {
+          Id: 1,
+          Description: "Kiribati",
+          Code: "KI"
+        },
+        {
+          Id: 1,
+          Description: "Korea, Democratic People's Republic of",
+          Code: "KP"
+        },
+        {
+          Id: 1,
+          Description: "Korea, Republic of",
+          Code: "KR"
+        },
+        {
+          Id: 1,
+          Description: "Kuwait",
+          Code: "KW"
+        },
+        {
+          Id: 1,
+          Description: "Kyrgyzstan",
+          Code: "KG"
+        },
+        {
+          Id: 1,
+          Description: "Lao People's Democratic Republic",
+          Code: "LA"
+        },
+        {
+          Id: 1,
+          Description: "Latvia",
+          Code: "LV"
+        },
+        {
+          Id: 1,
+          Description: "Lebanon",
+          Code: "LB"
+        },
+        {
+          Id: 1,
+          Description: "Lesotho",
+          Code: "LS"
+        },
+        {
+          Id: 1,
+          Description: "Liberia",
+          Code: "LR"
+        },
+        {
+          Id: 1,
+          Description: "Libyan Arab Jamahiriya",
+          Code: "LY"
+        },
+        {
+          Id: 1,
+          Description: "Liechtenstein",
+          Code: "LI"
+        },
+        {
+          Id: 1,
+          Description: "Lithuania",
+          Code: "LT"
+        },
+        {
+          Id: 1,
+          Description: "Luxembourg",
+          Code: "LU"
+        },
+        {
+          Id: 1,
+          Description: "Macao",
+          Code: "MO"
+        },
+        {
+          Id: 1,
+          Description: "Macedonia, The Former Yugoslav Republic of",
+          Code: "MK"
+        },
+        {
+          Id: 1,
+          Description: "Madagascar",
+          Code: "MG"
+        },
+        {
+          Id: 1,
+          Description: "Malawi",
+          Code: "MW"
+        },
+        {
+          Id: 1,
+          Description: "Malaysia",
+          Code: "MY"
+        },
+        {
+          Id: 1,
+          Description: "Maldives",
+          Code: "MV"
+        },
+        {
+          Id: 1,
+          Description: "Mali",
+          Code: "ML"
+        },
+        {
+          Id: 1,
+          Description: "Malta",
+          Code: "MT"
+        },
+        {
+          Id: 1,
+          Description: "Marshall Islands",
+          Code: "MH"
+        },
+        {
+          Id: 1,
+          Description: "Martinique",
+          Code: "MQ"
+        },
+        {
+          Id: 1,
+          Description: "Mauritania",
+          Code: "MR"
+        },
+        {
+          Id: 1,
+          Description: "Mauritius",
+          Code: "MU"
+        },
+        {
+          Id: 1,
+          Description: "Mayotte",
+          Code: "YT"
+        },
+        {
+          Id: 1,
+          Description: "Mexico",
+          Code: "MX"
+        },
+        {
+          Id: 1,
+          Description: "Micronesia, Federated States of",
+          Code: "FM"
+        },
+        {
+          Id: 1,
+          Description: "Moldova, Republic of",
+          Code: "MD"
+        },
+        {
+          Id: 1,
+          Description: "Monaco",
+          Code: "MC"
+        },
+        {
+          Id: 1,
+          Description: "Mongolia",
+          Code: "MN"
+        },
+        {
+          Id: 1,
+          Description: "Montserrat",
+          Code: "MS"
+        },
+        {
+          Id: 1,
+          Description: "Morocco",
+          Code: "MA"
+        },
+        {
+          Id: 1,
+          Description: "Mozambique",
+          Code: "MZ"
+        },
+        {
+          Id: 1,
+          Description: "Myanmar",
+          Code: "MM"
+        },
+        {
+          Id: 1,
+          Description: "Namibia",
+          Code: "NA"
+        },
+        {
+          Id: 1,
+          Description: "Nauru",
+          Code: "NR"
+        },
+        {
+          Id: 1,
+          Description: "Nepal",
+          Code: "NP"
+        },
+        {
+          Id: 1,
+          Description: "Netherlands",
+          Code: "NL"
+        },
+        {
+          Id: 1,
+          Description: "Netherlands Antilles",
+          Code: "AN"
+        },
+        {
+          Id: 1,
+          Description: "New Caledonia",
+          Code: "NC"
+        },
+        {
+          Id: 1,
+          Description: "New Zealand",
+          Code: "NZ"
+        },
+        {
+          Id: 1,
+          Description: "Nicaragua",
+          Code: "NI"
+        },
+        {
+          Id: 1,
+          Description: "Niger",
+          Code: "NE"
+        },
+        {
+          Id: 1,
+          Description: "Nigeria",
+          Code: "NG"
+        },
+        {
+          Id: 1,
+          Description: "Niue",
+          Code: "NU"
+        },
+        {
+          Id: 1,
+          Description: "Norfolk Island",
+          Code: "NF"
+        },
+        {
+          Id: 1,
+          Description: "Northern Mariana Islands",
+          Code: "MP"
+        },
+        {
+          Id: 1,
+          Description: "Norway",
+          Code: "NO"
+        },
+        {
+          Id: 1,
+          Description: "Oman",
+          Code: "OM"
+        },
+        {
+          Id: 1,
+          Description: "Pakistan",
+          Code: "PK"
+        },
+        {
+          Id: 1,
+          Description: "Palau",
+          Code: "PW"
+        },
+        {
+          Id: 1,
+          Description: "Palestinian Territory, Occupied",
+          Code: "PS"
+        },
+        {
+          Id: 1,
+          Description: "Panama",
+          Code: "PA"
+        },
+        {
+          Id: 1,
+          Description: "Papua New Guinea",
+          Code: "PG"
+        },
+        {
+          Id: 1,
+          Description: "Paraguay",
+          Code: "PY"
+        },
+        {
+          Id: 1,
+          Description: "Peru",
+          Code: "PE"
+        },
+        {
+          Id: 1,
+          Description: "Philippines",
+          Code: "PH"
+        },
+        {
+          Id: 1,
+          Description: "Pitcairn",
+          Code: "PN"
+        },
+        {
+          Id: 1,
+          Description: "Poland",
+          Code: "PL"
+        },
+        {
+          Id: 1,
+          Description: "Portugal",
+          Code: "PT"
+        },
+        {
+          Id: 1,
+          Description: "Puerto Rico",
+          Code: "PR"
+        },
+        {
+          Id: 1,
+          Description: "Qatar",
+          Code: "QA"
+        },
+        {
+          Id: 1,
+          Description: "Reunion",
+          Code: "RE"
+        },
+        {
+          Id: 1,
+          Description: "Romania",
+          Code: "RO"
+        },
+        {
+          Id: 1,
+          Description: "Russian Federation",
+          Code: "RU"
+        },
+        {
+          Id: 1,
+          Description: "Rwanda",
+          Code: "RW"
+        },
+        {
+          Id: 1,
+          Description: "Saint Helena",
+          Code: "SH"
+        },
+        {
+          Id: 1,
+          Description: "Saint Kitts and Nevis",
+          Code: "KN"
+        },
+        {
+          Id: 1,
+          Description: "Saint Lucia",
+          Code: "LC"
+        },
+        {
+          Id: 1,
+          Description: "Saint Pierre and Miquelon",
+          Code: "PM"
+        },
+        {
+          Id: 1,
+          Description: "Saint Vincent and the Grenadines",
+          Code: "VC"
+        },
+        {
+          Id: 1,
+          Description: "Samoa",
+          Code: "WS"
+        },
+        {
+          Id: 1,
+          Description: "San Marino",
+          Code: "SM"
+        },
+        {
+          Id: 1,
+          Description: "Sao Tome and Principe",
+          Code: "ST"
+        },
+        {
+          Id: 1,
+          Description: "Saudi Arabia",
+          Code: "SA"
+        },
+        {
+          Id: 1,
+          Description: "Senegal",
+          Code: "SN"
+        },
+        {
+          Id: 1,
+          Description: "Serbia and Montenegro",
+          Code: "CS"
+        },
+        {
+          Id: 1,
+          Description: "Seychelles",
+          Code: "SC"
+        },
+        {
+          Id: 1,
+          Description: "Sierra Leone",
+          Code: "SL"
+        },
+        {
+          Id: 1,
+          Description: "Singapore",
+          Code: "SG"
+        },
+        {
+          Id: 1,
+          Description: "Slovakia",
+          Code: "SK"
+        },
+        {
+          Id: 1,
+          Description: "Slovenia",
+          Code: "SI"
+        },
+        {
+          Id: 1,
+          Description: "Solomon Islands",
+          Code: "SB"
+        },
+        {
+          Id: 1,
+          Description: "Somalia",
+          Code: "SO"
+        },
+        {
+          Id: 1,
+          Description: "South Africa",
+          Code: "ZA"
+        },
+        {
+          Id: 1,
+          Description: "South Georgia and the South Sandwich Islands",
+          Code: "GS"
+        },
+        {
+          Id: 1,
+          Description: "Spain",
+          Code: "ES"
+        },
+        {
+          Id: 1,
+          Description: "Sri Lanka",
+          Code: "LK"
+        },
+        {
+          Id: 1,
+          Description: "Sudan",
+          Code: "SD"
+        },
+        {
+          Id: 1,
+          Description: "Surinome",
+          Code: "SR"
+        },
+        {
+          Id: 1,
+          Description: "Svalbard and Jan Mayen",
+          Code: "SJ"
+        },
+        {
+          Id: 1,
+          Description: "Swaziland",
+          Code: "SZ"
+        },
+        {
+          Id: 1,
+          Description: "Sweden",
+          Code: "SE"
+        },
+        {
+          Id: 1,
+          Description: "Switzerland",
+          Code: "CH"
+        },
+        {
+          Id: 1,
+          Description: "Syrian Arab Republic",
+          Code: "SY"
+        },
+        {
+          Id: 1,
+          Description: "Taiwan, Province of China",
+          Code: "TW"
+        },
+        {
+          Id: 1,
+          Description: "Tajikistan",
+          Code: "TJ"
+        },
+        {
+          Id: 1,
+          Description: "Tanzania, United Republic of",
+          Code: "TZ"
+        },
+        {
+          Id: 1,
+          Description: "Thailand",
+          Code: "TH"
+        },
+        {
+          Id: 1,
+          Description: "Timor-Leste",
+          Code: "TL"
+        },
+        {
+          Id: 1,
+          Description: "Togo",
+          Code: "TG"
+        },
+        {
+          Id: 1,
+          Description: "Tokelau",
+          Code: "TK"
+        },
+        {
+          Id: 1,
+          Description: "Tonga",
+          Code: "TO"
+        },
+        {
+          Id: 1,
+          Description: "Trinidad and Tobago",
+          Code: "TT"
+        },
+        {
+          Id: 1,
+          Description: "Tunisia",
+          Code: "TN"
+        },
+        {
+          Id: 1,
+          Description: "Turkey",
+          Code: "TR"
+        },
+        {
+          Id: 1,
+          Description: "Turkmenistan",
+          Code: "TM"
+        },
+        {
+          Id: 1,
+          Description: "Turks and Caicos Islands",
+          Code: "TC"
+        },
+        {
+          Id: 1,
+          Description: "Tuvalu",
+          Code: "TV"
+        },
+        {
+          Id: 1,
+          Description: "Uganda",
+          Code: "UG"
+        },
+        {
+          Id: 1,
+          Description: "Ukraine",
+          Code: "UA"
+        },
+        {
+          Id: 1,
+          Description: "United Arab Emirates",
+          Code: "AE"
+        },
+        {
+          Id: 1,
+          Description: "United Kingdom",
+          Code: "GB"
+        },
+        {
+          Id: 1,
+          Description: "United States",
+          Code: "US"
+        },
+        {
+          Id: 1,
+          Description: "United States Minor Outlying Islands",
+          Code: "UM"
+        },
+        {
+          Id: 1,
+          Description: "Uruguay",
+          Code: "UY"
+        },
+        {
+          Id: 1,
+          Description: "Uzbekistan",
+          Code: "UZ"
+        },
+        {
+          Id: 1,
+          Description: "Vanuatu",
+          Code: "VU"
+        },
+        {
+          Id: 1,
+          Description: "Venezuela",
+          Code: "VE"
+        },
+        {
+          Id: 1,
+          Description: "Vietnam",
+          Code: "VN"
+        },
+        {
+          Id: 1,
+          Description: "Virgin Islands, British",
+          Code: "VG"
+        },
+        {
+          Id: 1,
+          Description: "Virgin Islands, U.S.",
+          Code: "VI"
+        },
+        {
+          Id: 1,
+          Description: "Wallis and Futuna",
+          Code: "WF"
+        },
+        {
+          Id: 1,
+          Description: "Western Sahara",
+          Code: "EH"
+        },
+        {
+          Id: 1,
+          Description: "Yemen",
+          Code: "YE"
+        },
+        {
+          Id: 1,
+          Description: "Zambia",
+          Code: "ZM"
+        },
+        {
+          Id: 1,
+          Description: "Zimbabwe",
+          Code: "ZW"
+        }
+      ];
+
+      return tabNazioni;
+    }
+    if (cTipoTabella.toUpperCase() === "PROVINCE") {
+      let tabProvince =
+
+        [{
+            Id: 1,
+            Description: "Milano",
+            Area: "Nord",
+            IdNazione: 1,
+            IdRegione: 1,
+            Code: "01",
+            Disabled: false
+          },
+          {
+            Id: 1,
+            Description: "Torino",
+            Area: "Nord",
+            IdNazione: 1,
+            IdRegione: 1,
+            Code: "01",
+            Disabled: false
+          },
+          {
+            Id: 1,
+            Description: "Roma",
+            Area: "Nord",
+            IdNazione: 1,
+            IdRegione: 1,
+            Code: "01",
+            Disabled: true
+          },
+          {
+            Id: 1,
+            Description: "Bologna",
+            Area: "Centro",
+            IdNazione: 1,
+            IdRegione: 1,
+            Code: "01",
+            Disabled: false
+          },
+          {
+            Id: 1,
+            Description: "Napoli",
+            Area: "Sud",
+            IdNazione: 1,
+            IdRegione: 1,
+            Code: "01",
+            Disabled: false
+          },
+          {
+            Id: 1,
+            Description: "Palermo",
+            Area: "Sud",
+            IdNazione: 1,
+            IdRegione: 1,
+            Code: "01",
+            Disabled: false
+          }
+        ];
+
+      return tabProvince;
+    }
+    if (cTipoTabella.toUpperCase() === "COMUNI") {
+      let tabComuni = [{
+          Id: 1,
+          Description: "Comune pippoqw",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "wefewfefw1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune ccccccc1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune dddddd1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune eeeeee1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune fffffff1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "eklfàlòkwàlfkComune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune eee1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comuneee 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune eee1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comeeeeune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comuneeeee 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        },
+        {
+          Id: 1,
+          Description: "Comune 1",
+          Code: "AF",
+          IdNazione: 1,
+          IdRegione: 1,
+          IdProvincia: 1
+        }
+      ];
+      return tabComuni;
+    }
+    if (cTipoTabella.toUpperCase() === "FRAZIONI") {
+      let tabFrazioni = [{
+          Id: 1,
+          Description: "Frazione gdkqhgkjqw",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione wefewfefw1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione ccccccc1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "ddddd d1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "eeee ee1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "ffff fff1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "eklfàl òkwàlfk Comune 1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione eee1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione 1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione tal dei tali eee1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione tal dei tali",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Frazione  aa a a a e rrrr eeeee 1",
+          Code: "AF",
+          IdComune: 1
+        }
+      ];
+      return tabFrazioni;
+    }
+    if (cTipoTabella.toUpperCase() === "VIE") {
+      let tabVie = [{
+          Id: 1,
+          Description: "Via gdkqhgkjqw",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Via wefewfefw1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Via  ccccccc1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "ddddd d1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "eeee ee1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "ffff fff1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "eklfàl òkwàlfk Via 1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Piazza  eee1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Viale 1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Via tal dei tali eee1",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Via tal dei tali",
+          Code: "AF",
+          IdComune: 1
+        },
+        {
+          Id: 1,
+          Description: "Via  aa a a a e rrrr eeeee 1",
+          Code: "AF",
+          IdComune: 1
+        }
+      ];
+
+      return tabVie;
+    }
+    if (cTipoTabella.toUpperCase() === "STATOCIVILE") {
+      let tabStatoCivile = [{
+          Id: 1,
+          Description: "Coniugato",
+          Code: "01"
+        },
+        {
+          Id: 2,
+          Description: "Separato",
+          Code: "02"
+        },
+        {
+          Id: 3,
+          Description: "Celibe",
+          Code: "03"
+        }, {
+          Id: 4,
+          Description: "Nubile",
+          Code: "04"
+        },
+        {
+          Id: 5,
+          Description: "Vedovo/a",
+          Code: "05"
+        },
+        {
+          Id: 6,
+          Description: "Convivente",
+          Code: "06"
+        },
+      ];
+
+      return tabStatoCivile;
+    }
+    if (cTipoTabella.toUpperCase() === "CAP") {
+      let tabCAP = [{
+          Id: 1,
+          CapValue: "84100",
+          Code: "84100",
+          Principale: 1,
+          IdComune: 1,
+          IdFrazione: 1
+        },
+        {
+          Id: 2,
+          CapValue: "84110",
+          Code: "84110",
+          Principale: 1,
+          IdComune: 1,
+          IdFrazione: 1
+        },
+        {
+          Id: 3,
+          CapValue: "85100",
+          Code: "85100",
+          Principale: 1,
+          IdComune: 1,
+          IdFrazione: 1
+        },
+      ];
+
+      return tabCAP;
+    }
+    if (cTipoTabella.toUpperCase() === "TIPOINDIRIZZO") {
+      let tabTipoIndirizzo = [{
+          Id: 1,
+          Description: "Domicilio",
+          Code: "DO",
+        },
+        {
+          Id: 2,
+          Description: "Residenza",
+          Code: "RE",
+        },
+        {
+          Id: 3,
+          Description: "Indirizzo Principale",
+          Code: "IP",
+        },
+        {
+          Id: 4,
+          Description: "Indirizzo Secondario",
+          Code: "IS",
+        },
+        {
+          Id: 5,
+          Description: "Altro Indirizzo",
+          Code: "AI",
+        },
+      ];
+
+      return tabTipoIndirizzo;
+    }
+
+    // -----------------------------------------------
+
   }
 }

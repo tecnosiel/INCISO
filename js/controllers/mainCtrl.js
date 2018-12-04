@@ -3,7 +3,7 @@
  * Contiene dati globali usati in differenti view
  *
  */
-function MainCtrl($scope, $rootScope, $translate, $uibModal) {
+function MainCtrl($scope, $rootScope, $translate, $uibModal, startUpServices, httpServices) {
 
   /**
    * Lettura settaggi da localStorage
@@ -114,6 +114,16 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
   // $rootScope.urlEvidenze = $rootScope.serverbackend + "/api/evidenze"
   // $rootScope.urlAssociazioni = $rootScope.serverbackend + "/api/associazioni"
 
+  $rootScope.urlNazione = $rootScope.serverbackend + "/api/Nazione/getAll?enabled=true"
+  $rootScope.urlRegione = $rootScope.serverbackend + "/api/Regione/getAll?enabled=true"
+  $rootScope.urlProvincia = $rootScope.serverbackend + "/api/Provincia/getAll?enabled=true"
+  $rootScope.urlComune = $rootScope.serverbackend + "/api/Comune/getAll?enabled=true"
+  $rootScope.urlFrazione = $rootScope.serverbackend + "/api/Frazione/getAll?enabled=true"
+  $rootScope.urlVie = $rootScope.serverbackend + "/api/Strada/getAll?enabled=true"
+  $rootScope.urlCAP = $rootScope.serverbackend + "/api/Cap/getAll?enabled=true"
+  $rootScope.urlStatoCivile = $rootScope.serverbackend + "/api/StatoCivile/getAll?enabled=true"
+  $rootScope.urlTipoIndirizzo = $rootScope.serverbackend + "/api/TipoIndirizzo/getAll?enabled=true"
+
   $rootScope.showSpinner = false;
 
   /**
@@ -182,232 +192,50 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
   /**
    * variabili da sostituire con chiamate http
    */
-  $scope.provinces = [{
-      name: "Milano",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Torino",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Roma",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Bologna",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Napoli",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Palermo",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.nazioni = [];
+  startUpServices.findNazione(null, result => {
+    $scope.nazioni = httpServices.arrayFromDb(result, 'nazioni')
+  });
 
-  $scope.comuni = [{
-      name: "Comune1",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Comune2",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Comune3",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Comune4",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Comune5",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Comune6",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.province = [];
+  startUpServices.findProvincia(null, result => {
+    $scope.province = httpServices.arrayFromDb(result, 'province')
+  });
 
-  $scope.nazioni = [{
-      name: "Italia",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Germania",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Finlandia",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Inghilterra",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Francia",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Belgio",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.comuni = [];
+  startUpServices.findComune(null, result => {
+    $scope.comuni = httpServices.arrayFromDb(result, 'comuni')
+  });
 
-  $scope.cittadinanze = [{
-      name: "Cittadinanza 1",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Cittadinanza 2",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Cittadinanza 3",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Cittadinanza 4",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Cittadinanza 5",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Cittadinanza 6",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.vie = [];
+  startUpServices.findVie(null, result => {
+    $scope.vie = httpServices.arrayFromDb(result, 'vie')
+  });
 
-  $scope.frazioni = [{
-      name: "Frazione 1",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Frazione 2",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Frazione 3",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Frazione 4",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Frazione 5",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Frazione 6",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.frazioni = [];
+  startUpServices.findFrazione(null, result => {
+    $scope.frazioni = httpServices.arrayFromDb(result, 'frazioni')
+  });
 
-  $scope.vie = [{
-      name: "Via tal dei tali 1",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Via tal dei tali 2",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Via tal dei tali 3",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Via tal dei tali 4",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Via tal dei tali 5",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Via tal dei tali 6",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.CAP = [];
+  startUpServices.findCAP(null, result => {
+    $scope.CAP = httpServices.arrayFromDb(result, 'cap')
+  });
 
-  $scope.località = [{
-      name: "Località 1",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Località 2",
-      area: "Nord",
-      disabled: false
-    },
-    {
-      name: "Località 3",
-      area: "Centro",
-      disabled: true
-    },
-    {
-      name: "Località 4",
-      area: "Centro",
-      disabled: false
-    },
-    {
-      name: "Località 5",
-      area: "Sud",
-      disabled: false
-    },
-    {
-      name: "Località 6",
-      area: "Sud",
-      disabled: false
-    }
-  ];
+  $scope.statoCivile = [];
+  startUpServices.findStatoCivile(null, result => {
+    $scope.statoCivile = httpServices.arrayFromDb(result, 'statocivile')
+  });
+ 
+  $scope.tipoIndirizzo = [];
+  startUpServices.findTipoIndirizzo(null, result => {
+    debugger
+    $scope.tipoIndirizzo = httpServices.arrayFromDb(result, 'tipoindirizzo')
+  });
+
 
   // impostiamo la provincia selezionata
-  $scope.currentProvince = $scope.provinces[0];
+  // $scope.currentProvince = $scope.province[0];
 
   $scope.datiAssistito = [];
   $scope.findCodFis = function (cCodFis) {
@@ -416,9 +244,7 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal) {
     });
   };
 
-
   $rootScope.resetUser();
-
 
 }
 

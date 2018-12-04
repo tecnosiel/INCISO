@@ -24,6 +24,8 @@
         <!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> -->
     </div>
     <div class="modal-body">
+
+
         <!-- --------- -->
         <div ng-if="Indirizzi">
 
@@ -90,7 +92,7 @@
 
             <div class="col-md-4 form-group">
                 <label>{{ "TIPO_INDIRIZZO" | translate}}</label>
-                <select class="form-control m-b" name="TipoIndirizzo" ng-model="Tmp.TipoIndirizzo" ng-disabled="visDatiAssistito"
+                <!-- <select class="form-control m-b" name="TipoIndirizzo" ng-model="Tmp.TipoIndirizzo" ng-disabled="visDatiAssistito"
                     class="form-control">
                     <option></option>
                     <option>Domicilio</option>
@@ -98,7 +100,16 @@
                     <option>Indirizzo principale (società)</option>
                     <option>Indirizzo secondario (società)</option>
                     <option>Altro indirizzo</option>
-                </select>
+                </select> -->
+                <ui-select name="tipoIndirizzo" ng-model="Tmp.TipoIndirizzo" ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                    <ui-select-match placeholder="Seleziona tipo indirizzo">{{$select.selected.Description}}</ui-select-match>
+                    <ui-select-choices repeat="item in tipoIndirizzo | filter: $select.search">
+                        <span ng-bind-html="item.Description | highlight: $select.search"></span>
+                        <small ng-bind-html="item.Code | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+
+
             </div>
 
             <!-- ---------------- -->
@@ -180,18 +191,12 @@
 
                             <label>{{ "NAZIONE" | translate}}</label>
 
-                            <!-- <select name="indirizzoCodificatoNazione" ng-model="Tmp.IndirizzoCodificato.Nazione"
-                                ng-disabled="visDatiAssistito" ng-options="nazione.name for nazione in nazioni"
-                                class="form-control" required>
-                                <option value="">Seleziona nazione</option>
-                            </select> -->
-
                             <ui-select name="indirizzoCodificatoNazione" ng-model="Tmp.IndirizzoCodificato.Nazione"
                                 ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
-                                <ui-select-match placeholder="Seleziona nazione">{{$select.selected.nome}}</ui-select-match>
-                                <ui-select-choices repeat="nazione in nazioni | filter: $select.search">
-                                    <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
-                                    <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                                <ui-select-match placeholder="Seleziona nazione">{{$select.selected.Description}}</ui-select-match>
+                                <ui-select-choices repeat="item in nazioni | filter: $select.search">
+                                    <span ng-bind-html="item.Description | highlight: $select.search"></span>
+                                    <small ng-bind-html="item.Code | highlight: $select.search"></small>
                                 </ui-select-choices>
                             </ui-select>
 
@@ -201,18 +206,12 @@
 
                             <label>{{ "COMUNE" | translate}}</label>
 
-                            <!-- <select name="indirizzoCodificatoComune" ng-model="Tmp.IndirizzoCodificato.Comune"
-                                ng-disabled="visDatiAssistito" ng-options="comune.name for comune in comuni"
-                                class="form-control" required>
-                                <option value="">Seleziona comune</option>
-                            </select> -->
-
                             <ui-select name="indirizzoCodificatoComune" ng-model="Tmp.IndirizzoCodificato.Comune"
                                 ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
-                                <ui-select-match placeholder="Seleziona comune">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-match placeholder="Seleziona comune">{{$select.selected.Description}}</ui-select-match>
                                 <ui-select-choices repeat="comune in comuni | filter: $select.search">
-                                    <span ng-bind-html="comune.nome | highlight: $select.search"></span>
-                                    <small ng-bind-html="comune.code | highlight: $select.search"></small>
+                                    <span ng-bind-html="comune.Description | highlight: $select.search"></span>
+                                    <small ng-bind-html="comune.Code | highlight: $select.search"></small>
                                 </ui-select-choices>
                             </ui-select>
 
@@ -220,26 +219,31 @@
 
                         <div class="col-md-4 form-group">
                             <label>{{ "CAP" | translate}}</label>
-                            <input name="indirizzoCodificatoCap" type="text" ng-model="Tmp.IndirizzoCodificato.Cap"
-                                ng-readonly="visDatiAssistito" class="form-control intero">
+
+                            <!-- <input name="indirizzoCodificatoCap" type="text" ng-model="Tmp.IndirizzoCodificato.Cap"
+                                ng-readonly="visDatiAssistito" class="form-control intero"> -->
+
+                            <ui-select name="indirizzoCodificatoCap" ng-model="Tmp.IndirizzoCodificato.Cap"
+                                ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
+                                <ui-select-match placeholder="Seleziona C.A.P.">{{$select.selected.CapValue}}</ui-select-match>
+                                <ui-select-choices repeat="item in CAP | filter: $select.search">
+                                    <span ng-bind-html="item.CapValue | highlight: $select.search"></span>
+                                    <small ng-bind-html="item.Code | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+
                         </div>
 
                         <div class="col-md-4 form-group">
 
                             <label>{{ "FRAZIONE" | translate}}</label>
 
-                            <!-- <select name="indirizzoCodificatoFrazione" ng-model="Tmp.IndirizzoCodificato.Frazione"
-                                ng-disabled="visDatiAssistito" ng-options="frazione.name for frazione in frazioni"
-                                class="form-control" required>
-                                <option value="">Seleziona frazione</option>
-                            </select> -->
-
                             <ui-select name="indirizzoCodificatoFrazione" ng-model="Tmp.IndirizzoCodificato.Frazione"
                                 ng-disabled="visDatiAssistito" title="Seleziona un elemento nell'elenco">
-                                <ui-select-match placeholder="Seleziona frazione">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-match placeholder="Seleziona frazione">{{$select.selected.Description}}</ui-select-match>
                                 <ui-select-choices repeat="frazione in frazioni | filter: $select.search">
-                                    <span ng-bind-html="frazione.nome | highlight: $select.search"></span>
-                                    <small ng-bind-html="frazione.code | highlight: $select.search"></small>
+                                    <span ng-bind-html="frazione.Description | highlight: $select.search"></span>
+                                    <small ng-bind-html="frazione.Code | highlight: $select.search"></small>
                                 </ui-select-choices>
                             </ui-select>
 
@@ -249,19 +253,15 @@
 
                             <label>{{ "VIA" | translate}}</label>
 
-                            <!-- <select name="indirizzoCodificatoVia" ng-model="Tmp.IndirizzoCodificato.Via" ng-disabled="visDatiAssistito"
-                                ng-options="via.name for via in vie" class="form-control" required>
-                                <option value="">Seleziona via</option>
-                            </select> -->
-
                             <ui-select name="indirizzoCodificatoVia" ng-model="Tmp.IndirizzoCodificato.Via" ng-disabled="visDatiAssistito"
                                 title="Seleziona un elemento nell'elenco">
-                                <ui-select-match placeholder="Seleziona via">{{$select.selected.nome}}</ui-select-match>
+                                <ui-select-match placeholder="Seleziona via">{{$select.selected.Description}}</ui-select-match>
                                 <ui-select-choices repeat="via in vie | filter: $select.search">
-                                    <span ng-bind-html="via.nome | highlight: $select.search"></span>
-                                    <small ng-bind-html="via.code | highlight: $select.search"></small>
+                                    <span ng-bind-html="via.Description | highlight: $select.search"></span>
+                                    <small ng-bind-html="via.Code | highlight: $select.search"></small>
                                 </ui-select-choices>
                             </ui-select>
+
 
                         </div>
                     </div>
@@ -304,12 +304,6 @@
                             <input name="indirizzoNonCodificatoVia" type="text" ng-model="Tmp.IndirizzoNonCodificato.Via"
                                 ng-readonly="visDatiAssistito" class="form-control">
 
-                            <!-- <select name="indirizzoNonCodificatoVia" ng-model="Tmp.IndirizzoNonCodificato.Via"
-                                ng-disabled="visDatiAssistito" ng-options="via.name for via in vie" class="form-control"
-                                required>
-                                <option value="">Seleziona via</option>
-                            </select> -->
-
                         </div>
                         <div class="col-md-8 form-group">
                             <label>{{ "INDIRIZZO_COMPLETO" | translate}}</label>
@@ -330,13 +324,6 @@
         <!-- --------- -->
 
         <div class="row">
-            <!-- <div class="col-md-4 form-group">
-                <label>{{ "INIZIO_VALIDITA" | translate}}</label>
-                <input name="datiAssistito.InizioValidita" type="text" ng-model="Tmp.InizioValidita" ng-readonly="visDatiAssistito"
-                    class="form-control js-date">
-
-            </div> -->
-
 
             <div class="col-md-6 form-group">
                 <label>{{ "INIZIO_VALIDITA" | translate}}</label>
@@ -348,13 +335,6 @@
                 </div>
             </div>
 
-
-            <!-- <div class="col-md-4 form-group">
-                <label>{{ "FINE_VALIDITA" | translate}}</label>
-                <input name="datiAssistito.FineValidita" type="text" ng-model="Tmp.FineValidita" ng-readonly="visDatiAssistito"
-                    class="form-control js-date">
-            </div> -->
-
             <div class="col-md-6 form-group">
                 <label>{{ "FINE_VALIDITA" | translate}}</label>
                 <div class="input-group date">
@@ -364,8 +344,6 @@
                     </span>
                 </div>
             </div>
-
-
 
         </div>
 

@@ -56,7 +56,38 @@ function readStructure(cStructure) {
     case "dettagliassistito":
       return dettagliassistitoStructure();
     case "dettagliconiuge":
-      return dettagliconiugeStructure();
+      return nazioniStructure();
+    case "nazioni":
+      return nazioniStructure();
+    case "regioni":
+      return regioniStructure();
+    case "province":
+      return provinceStructure();
+    case "comuni":
+      return comuniStructure();
+    case "frazioni":
+      return frazioniStructure();
+    case "cap":
+      return capStructure();
+    case "vie":
+      return vieStructure();
+    case "statocivile":
+      return statocivileStructure();
+    case "tipoindirizzo":
+      return tipoindirizzoStructure();
+
+
+      $rootScope.urlNazione = $rootScope.serverbackend + "/api/Nazione/getAll?enabled=true"
+      $rootScope.urlRegione = $rootScope.serverbackend + "/api/Regione/getAll?enabled=true"
+      $rootScope.urlProvincia = $rootScope.serverbackend + "/api/Provincia/getAll?enabled=true"
+      $rootScope.urlComune = $rootScope.serverbackend + "/api/Comune/getAll?enabled=true"
+      $rootScope.urlFrazione = $rootScope.serverbackend + "/api/Frazione/getAll?enabled=true"
+      $rootScope.urlVie = $rootScope.serverbackend + "/api/Strada/getAll?enabled=true"
+      $rootScope.urlStatoCivile = $rootScope.serverbackend + "/api/StatoCivile/getAll?enabled=true"
+      $rootScope.urlTipoIndirizzo = $rootScope.serverbackend + "/api/TipoIndirizzo/getAll?enabled=true"
+
+
+
 
     default:
       swal("Manca definizione Struttura " + cStructure, "Bisogna ancora implementarla", "error")
@@ -65,7 +96,7 @@ function readStructure(cStructure) {
 
 function arrayFromDb(objDb, cStructure) {
 
-  let objMem = {};
+  let objMem = [];
   let objStru = this.readStructure(cStructure.trim());
 
   for (let i in objDb) {
@@ -456,7 +487,7 @@ function anagrafeStructure() {
       Tipo: "ARRAY-JSON",
     },
     {
-      DbName: "DbIndirizzi",
+      DbName: "PersonaIndirizzi",
       MemName: "Indirizzi",
       Struttura: "indirizzi",
       Tipo: "ARRAY-JSON",
@@ -991,63 +1022,256 @@ function posizioneStructure() {
   return [{
       DbName: "DbPosizione",
       MemName: "Posizione",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbCodiceFiscale",
       MemName: "CodiceFiscale",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbCognome",
       MemName: "Cognome",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbNome",
       MemName: "Nome",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbDataDiNascita",
       MemName: "DataDiNascita",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbDataDiDecesso",
       MemName: "DataDiDecesso",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbAnnoDiScarto",
       MemName: "AnnoDiScarto",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbNumeroFaldone",
       MemName: "NumeroFaldone",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbFascicolo",
       MemName: "Fascicolo",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     },
     {
       DbName: "DbStatoDomanda",
       MemName: "StatoDomanda",
-      Tipo: "C",
-      Note: ""
+      Tipo: "C"
     }
+  ]
+}
+
+function nazioniStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function regioniStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function provinceStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "IdNazione",
+      MemName: "IdNazione",
+      Tipo: "I"
+    },
+    {
+      DbName: "IdRegione",
+      MemName: "IdRegione",
+      Tipo: "I"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function comuniStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function frazioniStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "IdComune",
+      MemName: "IdComune",
+      Tipo: "I"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function vieStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function capStructure() {
+
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "CapValue",
+      MemName: "CapValue",
+      Tipo: "I"
+    },
+    {
+      DbName: "Principale",
+      MemName: "Principale",
+      Tipo: "I"
+    },
+    {
+      DbName: "IdComune",
+      MemName: "IdComune",
+      Tipo: "I"
+    },
+    {
+      DbName: "IdFrazione",
+      MemName: "IdFrazione",
+      Tipo: "I"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function statocivileStructure() {
+
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    }, {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    },
+  ]
+}
+
+function tipoindirizzoStructure() {
+  return [{
+      DbName: "Id",
+      MemName: "Id",
+      Tipo: "I"
+    },
+    {
+      DbName: "Description",
+      MemName: "Description",
+      Tipo: "C"
+    },
+    {
+      DbName: "Id",
+      MemName: "Code",
+      Tipo: "I"
+    }
+
   ]
 }
 

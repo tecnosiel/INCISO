@@ -60,7 +60,6 @@
     landing-scrollspy id="page-top">
     <div ui-view></div>
 </body>
-
 <!-- Mainly scripts -->
 <script src="js/jquery/jquery-2.1.1.js"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
@@ -129,6 +128,8 @@
 <script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
 <script src="js/plugins/angular-idle/angular-idle.js"></script>
 
+<!-- libreria rxjs -->
+<script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script>
 
 <!-- Color Picher -->
 <link rel="stylesheet" href="http://web.hostdmk.net/github/colorpicker_v3/css/colorpicker.css" />
@@ -163,6 +164,7 @@
 
 <!-- load servizi  -->
 <script src="js/services/httpServices.js"></script>
+<script src="js/services/startUpServices.js"></script>
 <script src="js/services/associazioniServices.js"></script>
 <script src="js/services/evidenzeServices.js"></script>
 <script src="js/services/liquidazioniServices.js"></script>
@@ -283,6 +285,12 @@
     });
 
     setTimeout(function () {
+
+
+        const observable = Rx.Observable.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+        observable.subscribe((x) => console.log(x))
+
+
         $('.input-group.date').datepicker({
             todayBtn: "linked",
             format: 'dd/mm/yyyy',
@@ -391,7 +399,7 @@
             }
         });
         $(document).on('keyup', '.anno', function (event) {
-        
+
             if ($.isNumeric(this.value) === false) {
                 //elimina l'ultimo carattere inserito
                 this.value = this.value.slice(0, -1);
@@ -475,7 +483,7 @@
             }
         });
         $(document).on('keyup', '.reale', function (event) {
-        
+
             var v = this.value;
             if (v.split('.').length > 2) {
                 this.value = this.value.slice(0, -1);

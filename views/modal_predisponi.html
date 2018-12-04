@@ -96,9 +96,9 @@
 
                     <ui-select name="motivoSospensione" ng-model="$ctrl.prestazione.motivoSospensione" title="Seleziona un elemento nell'elenco">
                         <ui-select-match placeholder="Seleziona motivo sospensione">{{$select.selected.nome}}</ui-select-match>
-                        <ui-select-choices repeat="nazione in $ctrl.motiviSospensione | filter: $select.search">
-                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
-                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                        <ui-select-choices repeat="item in $ctrl.motiviSospensione | filter: $select.search">
+                            <span ng-bind-html="item.nome | highlight: $select.search"></span>
+                            <small ng-bind-html="item.code | highlight: $select.search"></small>
                         </ui-select-choices>
                     </ui-select>
 
@@ -154,9 +154,9 @@
 
                     <ui-select name="motivoNegazione" ng-model="$ctrl.prestazione.motivoNegazione" title="Seleziona un elemento nell'elenco">
                         <ui-select-match placeholder="Seleziona motivo negazione">{{$select.selected.nome}}</ui-select-match>
-                        <ui-select-choices repeat="nazione in $ctrl.motiviNegazione | filter: $select.search">
-                            <span ng-bind-html="nazione.nome | highlight: $select.search"></span>
-                            <small ng-bind-html="nazione.code | highlight: $select.search"></small>
+                        <ui-select-choices repeat="item in $ctrl.motiviNegazione | filter: $select.search">
+                            <span ng-bind-html="item.nome | highlight: $select.search"></span>
+                            <small ng-bind-html="item.code | highlight: $select.search"></small>
                         </ui-select-choices>
                     </ui-select>
 

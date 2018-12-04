@@ -193,8 +193,8 @@ xxx = {
     Stato: "A",
     Description: "111"
   },
-  PermessoSoggiorno: null,
-  PersonaIndirizzi: [
+  PermessoSoggiorno: null, // approfondire TipoPermesso DataRilascio ValidoFino
+  PersonaIndirizzi: [      //ok
     {
       Id: 5,
       IdPersona: 7,
