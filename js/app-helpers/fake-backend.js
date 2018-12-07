@@ -131,6 +131,57 @@ function setupFakeBackend($httpBackend) {
       var response = tabella("TIPOINDIRIZZO");
       return [200, response, {}];
     });
+
+
+
+
+  // ------------------------- TOTALI TABELLE
+  // data = {
+  //   Cognome: "text",
+  //   Nome: "text",
+  //   CodiceFiscale: "text",
+  //   DataDiNascita: "gg/mm/aaaa",
+  //   NumeroFascicolo:"text"
+  //   NumeroFaldoneArchiviazione:"text"
+  //   AnnoDiScarto:""text"
+  // }
+
+  $httpBackend
+    .whenPOST("/api/persona/GetTotalsByAnagFilter")
+    .respond(function (method, url, data, headers) {
+      debugger;
+      var params = angular.fromJson(data);
+      var response = tabella("ANAGRAFE").length;
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenPOST("/api/associazioni/GetTotalsByAnagFilter")
+    .respond(function (method, url, data, headers) {
+      debugger;
+      var params = angular.fromJson(data);
+      var response = tabella("ASSOCIAZIONI").length;
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenPOST("/api/evidenze/GetTotalsByAnagFilter")
+    .respond(function (method, url, data, headers) {
+      debugger;
+      var params = angular.fromJson(data);
+      var response = tabella("EVIDENZE").length;
+      return [200, response, {}];
+    });
+  $httpBackend
+    .whenPOST("/api/liquidazioni/GetTotalsByAnagFilter")
+    .respond(function (method, url, data, headers) {
+      debugger;
+      var params = angular.fromJson(data);
+      var response = tabella("LIQUIDAZIONI").length;
+      return [200, response, {}];
+    });
+
+
+
+
   // ------------------------- ANAGRAFE e POSIZIONI
   // data = {
   //   Cognome: "text",
@@ -141,27 +192,33 @@ function setupFakeBackend($httpBackend) {
   //   NumeroFaldoneArchiviazione:"text"
   //   AnnoDiScarto:""text"
   // }
+
   $httpBackend
-    .whenGET("/api/persona/GetByAnagFilter")
+    .whenPOST("/api/persona/GetByAnagFilter")
     .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("ANAGRAFE");
+      let params = angular.fromJson(data);
+      let nFirst = params.data.pages.page * params.data.pages.length;
+      let nLast = nFirst + params.data.pages.length;
+      let response = tabella("ANAGRAFE").slice(nFirst, nLast);;
       return [200, response, {}];
     });
 
   $httpBackend
-    .whenGET("/api/persona/findPosizioni")
+    .whenPOST("/api/persona/findPosizioni")
     .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("POSIZIONI");
+      let params = angular.fromJson(data);
+      let nFirst = params.data.pages.page * params.data.pages.length;
+      let nLast = nFirst + params.data.pages.length;
+      let response = tabella("POSIZIONI").slice(nFirst, nLast);;
       return [200, response, {}];
     });
   $httpBackend
-    .whenGET("/api/persona/findcodfis")
+    .whenPOST("/api/persona/findcodfis")
     .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
       var response = tabella("ANAGRAFE");
       var response2 = response.find(obj => {
-        return obj.CodiceFiscale === data;
+        return obj.CodiceFiscale == params.data;
       });
       return [200, response2, {}];
     });
@@ -185,10 +242,12 @@ function setupFakeBackend($httpBackend) {
   //   IncludiDeceduti:"text Si/No "
   // }
   $httpBackend
-    .whenGET("/api/domande/find")
+    .whenPOST("/api/domande/find")
     .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("DOMANDE");
+      let params = angular.fromJson(data);
+      let nFirst = params.data.pages.page * params.data.pages.length;
+      let nLast = nFirst + params.data.pages.length;
+      let response = tabella("DOMANDE").slice(nFirst, nLast);;
       return [200, response, {}];
     });
 
@@ -198,10 +257,12 @@ function setupFakeBackend($httpBackend) {
   // }
 
   $httpBackend
-    .whenGET("/api/liquidazioni/find")
+    .whenPOST("/api/liquidazioni/find")
     .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("LIQUIDAZIONI");
+      let params = angular.fromJson(data);
+      let nFirst = params.data.pages.page * params.data.pages.length;
+      let nLast = nFirst + params.data.pages.length;
+      let response = tabella("LIQUIDAZIONI").slice(nFirst, nLast);;
       return [200, response, {}];
     });
 
@@ -209,12 +270,14 @@ function setupFakeBackend($httpBackend) {
   //   DbCodiceFiscale: "text",
   // }
   $httpBackend
-    .whenGET("/api/liquidazioni/findcodfis")
+    .whenPOST("/api/liquidazioni/findcodfis")
     .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
       var response = tabella("LIQUIDAZIONI");
       var response2 = response.find(obj => {
-        return obj.CodiceFiscale === data;
+        return obj.CodiceFiscale == params.data;
       });
+
       return [200, response2, {}];
     });
 
@@ -244,10 +307,12 @@ function setupFakeBackend($httpBackend) {
   //   DataDiNascita: "gg/mm/aaaa",
   // }
   $httpBackend
-    .whenGET("/api/evidenze/find")
+    .whenPOST("/api/evidenze/find")
     .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("EVIDENZE");
+      let params = angular.fromJson(data);
+      let nFirst = params.data.pages.page * params.data.pages.length;
+      let nLast = nFirst + params.data.pages.length;
+      let response = tabella("EVIDENZE").slice(nFirst, nLast);;
       return [200, response, {}];
     });
 
@@ -255,12 +320,14 @@ function setupFakeBackend($httpBackend) {
   //   DbCodiceFiscale: "text",
   // }
   $httpBackend
-    .whenGET("/api/evidenze/findcodfis")
+    .whenPOST("/api/evidenze/findcodfis")
     .respond(function (method, url, data, headers) {
+      var params = angular.fromJson(data);
       var response = tabella("EVIDENZE");
       var response2 = response.find(obj => {
-        return obj.CodiceFiscale === data;
+        return obj.CodiceFiscale == params.data;
       });
+
       return [200, response2, {}];
     });
 
@@ -279,10 +346,12 @@ function setupFakeBackend($httpBackend) {
   //   DbTipologiaDiAssistenza: "text"
   // }
   $httpBackend
-    .whenGET("/api/associazioni/find")
+    .whenPOST("/api/associazioni/find")
     .respond(function (method, url, data, headers) {
-      var params = angular.fromJson(data);
-      var response = tabella("ASSOCIAZIONI");
+      let params = angular.fromJson(data);
+      let nFirst = params.data.pages.page * params.data.pages.length;
+      let nLast = nFirst + params.data.pages.length;
+      let response = tabella("ASSOCIAZIONI").slice(nFirst, nLast);;
       return [200, response, {}];
     });
 
@@ -290,12 +359,15 @@ function setupFakeBackend($httpBackend) {
   //   DbCodiceFiscale: "text",
   // }
   $httpBackend
-    .whenGET("/api/associazioni/findcodfis")
+    .whenPOST("/api/associazioni/findcodfis")
     .respond(function (method, url, data, headers) {
+
+      var params = angular.fromJson(data);
       var response = tabella("ASSOCIAZIONI");
       var response2 = response.find(obj => {
-        return obj.CodiceFiscale === data;
+        return obj.CodiceFiscale == params.data;
       });
+
       return [200, response2, {}];
     });
 
@@ -310,6 +382,7 @@ function setupFakeBackend($httpBackend) {
   // ------------------------- TUTTO QELLO CHE NON é STATO INTERCETTATO VIENE FATTO PASSARE
 
   $httpBackend.whenGET(/[\s\S]*/).passThrough();
+  $httpBackend.whenPOST(/[\s\S]*/).passThrough();
 
 
   // ------------------------- TABELLE
@@ -5101,76 +5174,76 @@ function setupFakeBackend($httpBackend) {
 
     if (cTipoTabella.toUpperCase() === "EVIDENZE") {
       let tabEvidenze = [{
-          DataDecorrenza: "12/05/2015",
-          TipoEvidenza: "Controllo reddito - xxxxxx",
-          Descrizione: "Controllo reddito – anno successivo - xxxxxxx",
-          DataScadenza: "12/07/2013",
-          Posizione: "8798548",
-          Cognome: "Rossi",
-          Nome: "Mario",
-          CodiceFiscale: "RSSMRA70A41F2052",
-          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-          PrestazioneDiRiferimento: "xxxxx",
-          DataDomandaDiRiferimento: "xxx",
-          DataChiusura: "01/03/2001",
-          Utente: "",
-          NoteDiChiusura: "eqflkqwòelkòlqekqòàl",
-          LetteraInviata: "Si",
-          Note: "ek qwlòekàq  òlwkeòlqweòàlkq àòwlkeàòq lkweòàl"
+          DbDataDecorrenza: "12/05/2015",
+          DbTipoEvidenza: "Controllo reddito - xxxxxx",
+          DbDescrizione: "Controllo reddito – anno successivo - xxxxxxx",
+          DbDataScadenza: "12/07/2013",
+          DbPosizione: "8798548",
+          DbCognome: "Rossi",
+          DbNome: "Mario",
+          DbCodiceFiscale: "RSSMRA70A41F2052",
+          DbDettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          DbPrestazioneDiRiferimento: "xxxxx",
+          DbDataDomandaDiRiferimento: "xxx",
+          DbDataChiusura: "01/03/2001",
+          DbUtente: "",
+          DbNoteDiChiusura: "eqflkqwòelkòlqekqòàl",
+          DbLetteraInviata: "Si",
+          DbNote: "ek qwlòekàq  òlwkeòlqweòàlkq àòwlkeàòq lkweòàl"
         },
         {
-          DataDecorrenza: "30/06/2015",
-          TipoEvidenza: "Importo da recuperare-xxxxx",
-          Descrizione: "Importo da recuperare – liquidazione-xxxxxxx",
-          DataScadenza: "31/12/2015",
-          Posizione: "1258745",
-          Cognome: "Verde",
-          Nome: "Mario",
-          CodiceFiscale: "RSSMRA70A41F2052",
-          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-          PrestazioneDiRiferimento: "",
-          DataDellaDomandaDiRiferimento: "",
-          DataChiusura: "01/03/2011",
-          Utente: "",
-          NoteDiChiusura: "welkràqwelkàl 02/02/2002",
-          LetteraInviata: "Si",
-          Note: "gkkggkgkgkgkgkgkkgkgkgkg"
+          DbDataDecorrenza: "30/06/2015",
+          DbTipoEvidenza: "Importo da recuperare-xxxxx",
+          DbDescrizione: "Importo da recuperare – liquidazione-xxxxxxx",
+          DbDataScadenza: "31/12/2015",
+          DbPosizione: "1258745",
+          DbCognome: "Verde",
+          DbNome: "Mario",
+          DbCodiceFiscale: "RSSMRA70A41F2052",
+          DbDettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          DbPrestazioneDiRiferimento: "",
+          DbDataDellaDomandaDiRiferimento: "",
+          DbDataChiusura: "01/03/2011",
+          DbUtente: "",
+          DbNoteDiChiusura: "welkràqwelkàl 02/02/2002",
+          DbLetteraInviata: "Si",
+          DbNote: "gkkggkgkgkgkgkgkkgkgkgkg"
         },
         {
-          DataDecorrenza: "03/07/2018",
-          TipoEvidenza: "Importo da recuperare",
-          Descrizione: "Importo da recuperare – liquidazione",
-          DataScadenza: "31/12/2015",
-          Posizione: "1258745",
-          Cognome: "Alfano",
-          Nome: "Camillo",
-          CodiceFiscale: "LFNCLL60D03E026T",
-          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-          PrestazioneDiRiferimento: "",
-          DataDellaDomandaDiRiferimento: "",
-          DataChiusura: "",
-          Utente: "xxxxxxx",
-          NoteDiChiusura: "wlwqkràqòwelrkàòqelrà",
-          LetteraInviata: "Si",
-          Note: "11111111111111111111"
+          DbDataDecorrenza: "03/07/2018",
+          DbTipoEvidenza: "Importo da recuperare",
+          DbDescrizione: "Importo da recuperare – liquidazione",
+          DbDataScadenza: "31/12/2015",
+          DbPosizione: "1258745",
+          DbCognome: "Alfano",
+          DbNome: "Camillo",
+          DbCodiceFiscale: "LFNCLL60D03E026T",
+          DbDettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          DbPrestazioneDiRiferimento: "",
+          DbDataDellaDomandaDiRiferimento: "",
+          DbDataChiusura: "",
+          DbUtente: "xxxxxxx",
+          DbNoteDiChiusura: "wlwqkràqòwelrkàòqelrà",
+          DbLetteraInviata: "Si",
+          DbNote: "11111111111111111111"
         },
         {
-          DataDecorrenza: "03/07/2018",
-          TipoEvidenza: "Importo da recuperare",
-          Descrizione: "Importo da recuperare – liquidazione",
-          DataScadenza: "31/12/2015",
-          Posizione: "1258745",
-          Cognome: "Alfano",
-          Nome: "Camillo",
-          CodiceFiscale: "LFNCLL60D03E026T",
-          Dettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
-          PrestazioneDiRiferimento: "",
-          DataDellaDomandaDiRiferimento: "",
-          DataChiusura: "",
-          Utente: "yyyyyyyy",
-          NoteDiChiusura: "io sono una nota di chiusura",
-          LetteraInviata: "",
-          Note: "11111111144444444444411111111111"
+          DbDataDecorrenza: "03/07/2018",
+          DbTipoEvidenza: "Importo da recuperare",
+          DbDescrizione: "Importo da recuperare – liquidazione",
+          DbDataScadenza: "31/12/2015",
+          DbPosizione: "1258745",
+          DbCognome: "Alfano",
+          DbNome: "Camillo",
+          DbCodiceFiscale: "LFNCLL60D03E026T",
+          DbDettaglio: "<div><label>Tipo prestazione:</label> Lorem ipsum</div><div><label>Data chiusure:</label> 05/12/2010</div><div><label>Note:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>",
+          DbPrestazioneDiRiferimento: "",
+          DbDataDellaDomandaDiRiferimento: "",
+          DbDataChiusura: "",
+          DbUtente: "yyyyyyyy",
+          DbNoteDiChiusura: "io sono una nota di chiusura",
+          DbLetteraInviata: "",
+          DbNote: "11111111144444444444411111111111"
         }
       ];
 
@@ -5179,546 +5252,546 @@ function setupFakeBackend($httpBackend) {
 
     if (cTipoTabella.toUpperCase() === "ASSOCIAZIONI") {
       let tabAssociazioni = [{
-          NomeAssociazione: "Confartigianato",
-          CodiceFiscale: "012345678955",
-          TipologiaDiAssistenza: "77",
+          DbNomeAssociazione: "Confartigianato",
+          DbCodiceFiscale: "012345678955",
+          DbTipologiaDiAssistenza: "77",
 
-          Responsabile: "Mario Rossi",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          IBAN: "IT40 S054 2811 1010 0000 0123 456",
-          Email: "mrossi555@gmail.com",
-          Pec: "mrossi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+          DbResponsabile: "Mario Rossi",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbIBAN: "IT40 S054 2811 1010 0000 0123 456",
+          DbEmail: "mrossi555@gmail.com",
+          DbPec: "mrossi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
 
-          ImportoRitenutaDiCategoria: "100.15",
+          DbImportoRitenutaDiCategoria: "100.15",
 
-          LiquidazioniMensili: [{
-              DataPagamento: "12/04/2014",
-              ImportoTotale: "238.00",
-              NroAssistiti: "15"
+          DbLiquidazioniMensili: [{
+              DbDataPagamento: "12/04/2014",
+              DbImportoTotale: "238.00",
+              DbNroAssistiti: "15"
             },
             {
-              DataPagamento: "12/05/2014",
-              ImportoTotale: "258.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/05/2014",
+              DbImportoTotale: "258.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/06/2014",
-              ImportoTotale: "338.00",
-              NroAssistiti: "18"
+              DbDataPagamento: "12/06/2014",
+              DbImportoTotale: "338.00",
+              DbNroAssistiti: "18"
             },
             {
-              DataPagamento: "12/07/2014",
-              ImportoTotale: "438.00",
-              NroAssistiti: "16"
+              DbDataPagamento: "12/07/2014",
+              DbImportoTotale: "438.00",
+              DbNroAssistiti: "16"
             },
             {
-              DataPagamento: "12/08/2014",
-              ImportoTotale: "38.00",
-              NroAssistiti: "10"
+              DbDataPagamento: "12/08/2014",
+              DbImportoTotale: "38.00",
+              DbNroAssistiti: "10"
             },
             {
-              DataPagamento: "12/09/2014",
-              ImportoTotale: "278.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/09/2014",
+              DbImportoTotale: "278.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/10/2014",
-              ImportoTotale: "299.00",
-              NroAssistiti: "19"
+              DbDataPagamento: "12/10/2014",
+              DbImportoTotale: "299.00",
+              DbNroAssistiti: "19"
             }
           ]
         },
 
         {
-          NomeAssociazione: "Confcommercio",
-          CodiceFiscale: "123450089022",
-          TipologiaDiAssistenza: "99",
+          DbNomeAssociazione: "Confcommercio",
+          DbCodiceFiscale: "123450089022",
+          DbTipologiaDiAssistenza: "99",
 
-          Responsabile: "Giovanni Moscato",
-          TelefonoPrincipale: "0366 768798",
-          TelefonoSecondario: "0433 922451",
-          IBAN: "IT40 S054 2811 1010 0000 0123 456",
-          Email: "giovanni6666@tin.it",
-          Pec: "mgiovanni@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+          DbResponsabile: "Giovanni Moscato",
+          DbTelefonoPrincipale: "0366 768798",
+          DbTelefonoSecondario: "0433 922451",
+          DbIBAN: "IT40 S054 2811 1010 0000 0123 456",
+          DbEmail: "giovanni6666@tin.it",
+          DbPec: "mgiovanni@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
 
-          ImportoRitenutaDiCategoria: "234.15"
+          DbImportoRitenutaDiCategoria: "234.15"
         },
 
         {
-          NomeAssociazione: "Cral",
-          CodiceFiscale: "122226789011",
-          TipologiaDiAssistenza: "99",
+          DbNomeAssociazione: "Cral",
+          DbCodiceFiscale: "122226789011",
+          DbTipologiaDiAssistenza: "99",
 
-          Responsabile: "Giuseppe Garibaldi",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          IBAN: "IT40 S054 2811 1010 0000 0123 456",
-          Email: "ggaribaldi444@gmail.com",
-          Pec: "ggaribaldi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+          DbResponsabile: "Giuseppe Garibaldi",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbIBAN: "IT40 S054 2811 1010 0000 0123 456",
+          DbEmail: "ggaribaldi444@gmail.com",
+          DbPec: "ggaribaldi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
 
-          ImportoRitenutaDiCategoria: "222.15",
+          DbImportoRitenutaDiCategoria: "222.15",
 
-          LiquidazioniMensili: [{
-              DataPagamento: "12/04/2014",
-              ImportoTotale: "238.00",
-              NroAssistiti: "15"
+          DbLiquidazioniMensili: [{
+              DbDataPagamento: "12/04/2014",
+              DbImportoTotale: "238.00",
+              DbNroAssistiti: "15"
             },
             {
-              DataPagamento: "12/05/2014",
-              ImportoTotale: "258.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/05/2014",
+              DbImportoTotale: "258.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/06/2014",
-              ImportoTotale: "338.00",
-              NroAssistiti: "18"
+              DbDataPagamento: "12/06/2014",
+              DbImportoTotale: "338.00",
+              DbNroAssistiti: "18"
             },
             {
-              DataPagamento: "12/07/2014",
-              ImportoTotale: "438.00",
-              NroAssistiti: "16"
+              DbDataPagamento: "12/07/2014",
+              DbImportoTotale: "438.00",
+              DbNroAssistiti: "16"
             },
             {
-              DataPagamento: "12/08/2014",
-              ImportoTotale: "38.00",
-              NroAssistiti: "10"
+              DbDataPagamento: "12/08/2014",
+              DbImportoTotale: "38.00",
+              DbNroAssistiti: "10"
             },
             {
-              DataPagamento: "12/09/2014",
-              ImportoTotale: "278.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/09/2014",
+              DbImportoTotale: "278.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/10/2014",
-              ImportoTotale: "299.00",
-              NroAssistiti: "19"
+              DbDataPagamento: "12/10/2014",
+              DbImportoTotale: "299.00",
+              DbNroAssistiti: "19"
             }
           ]
         },
 
         {
-          NomeAssociazione: "AICS",
-          CodiceFiscale: "123345324890",
-          TipologiaDiAssistenza: "88",
+          DbNomeAssociazione: "AICS",
+          DbCodiceFiscale: "123345324890",
+          DbTipologiaDiAssistenza: "88",
 
-          Responsabile: "Tal dei tali ",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          IBAN: "IT40 S054 2811 1010 0000 0123 456",
-          Email: "ttali444@gmail.com",
-          Pec: "ttali@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+          DbResponsabile: "Tal dei tali ",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbIBAN: "IT40 S054 2811 1010 0000 0123 456",
+          DbEmail: "ttali444@gmail.com",
+          DbPec: "ttali@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
 
-          ImportoRitenutaDiCategoria: "122.15",
+          DbImportoRitenutaDiCategoria: "122.15",
 
-          LiquidazioniMensili: [{
-              DataPagamento: "12/04/2014",
-              ImportoTotale: "238.00",
-              NroAssistiti: "15"
+          DbLiquidazioniMensili: [{
+              DbDataPagamento: "12/04/2014",
+              DbImportoTotale: "238.00",
+              DbNroAssistiti: "15"
             },
             {
-              DataPagamento: "12/05/2014",
-              ImportoTotale: "258.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/05/2014",
+              DbImportoTotale: "258.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/06/2014",
-              ImportoTotale: "338.00",
-              NroAssistiti: "18"
+              DbDataPagamento: "12/06/2014",
+              DbImportoTotale: "338.00",
+              DbNroAssistiti: "18"
             },
             {
-              DataPagamento: "12/07/2014",
-              ImportoTotale: "438.00",
-              NroAssistiti: "16"
+              DbDataPagamento: "12/07/2014",
+              DbImportoTotale: "438.00",
+              DbNroAssistiti: "16"
             },
             {
-              DataPagamento: "12/08/2014",
-              ImportoTotale: "38.00",
-              NroAssistiti: "10"
+              DbDataPagamento: "12/08/2014",
+              DbImportoTotale: "38.00",
+              DbNroAssistiti: "10"
             },
             {
-              DataPagamento: "12/09/2014",
-              ImportoTotale: "278.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/09/2014",
+              DbImportoTotale: "278.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/10/2014",
-              ImportoTotale: "299.00",
-              NroAssistiti: "19"
+              DbDataPagamento: "12/10/2014",
+              DbImportoTotale: "299.00",
+              DbNroAssistiti: "19"
             }
           ]
         },
 
         {
-          NomeAssociazione: "UIL",
-          CodiceFiscale: "123456789078",
-          TipologiaDiAssistenza: "77",
+          DbNomeAssociazione: "UIL",
+          DbCodiceFiscale: "123456789078",
+          DbTipologiaDiAssistenza: "77",
 
-          Responsabile: "Carlo Gimondi",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          IBAN: "IT40 S054 2811 1010 0000 0123 456",
-          Email: "gimondi444@gmail.com",
-          Pec: "gimondi@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+          DbResponsabile: "Carlo Gimondi",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbIBAN: "IT40 S054 2811 1010 0000 0123 456",
+          DbEmail: "gimondi444@gmail.com",
+          DbPec: "gimondi@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
 
-          ImportoRitenutaDiCategoria: "130.15",
+          DbImportoRitenutaDiCategoria: "130.15",
 
-          LiquidazioniMensili: [{
-              DataPagamento: "12/04/2014",
-              ImportoTotale: "238.00",
-              NroAssistiti: "15"
+          DbLiquidazioniMensili: [{
+              DbDataPagamento: "12/04/2014",
+              DbImportoTotale: "238.00",
+              DbNroAssistiti: "15"
             },
             {
-              DataPagamento: "12/05/2014",
-              ImportoTotale: "258.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/05/2014",
+              DbImportoTotale: "258.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/06/2014",
-              ImportoTotale: "338.00",
-              NroAssistiti: "18"
+              DbDataPagamento: "12/06/2014",
+              DbImportoTotale: "338.00",
+              DbNroAssistiti: "18"
             },
             {
-              DataPagamento: "12/07/2014",
-              ImportoTotale: "438.00",
-              NroAssistiti: "16"
+              DbDataPagamento: "12/07/2014",
+              DbImportoTotale: "438.00",
+              DbNroAssistiti: "16"
             },
             {
-              DataPagamento: "12/08/2014",
-              ImportoTotale: "38.00",
-              NroAssistiti: "10"
+              DbDataPagamento: "12/08/2014",
+              DbImportoTotale: "38.00",
+              DbNroAssistiti: "10"
             },
             {
-              DataPagamento: "12/09/2014",
-              ImportoTotale: "278.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/09/2014",
+              DbImportoTotale: "278.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/10/2014",
-              ImportoTotale: "299.00",
-              NroAssistiti: "19"
+              DbDataPagamento: "12/10/2014",
+              DbImportoTotale: "299.00",
+              DbNroAssistiti: "19"
             }
           ]
         },
 
         {
-          NomeAssociazione: "CGHL",
-          CodiceFiscale: "123456789087",
-          TipologiaDiAssistenza: "88",
+          DbNomeAssociazione: "CGHL",
+          DbCodiceFiscale: "123456789087",
+          DbTipologiaDiAssistenza: "88",
 
-          Responsabile: "Vittorio Emanuele",
-          TelefonoPrincipale: "0461 912585",
-          TelefonoSecondario: "0461 923452",
-          IBAN: "IT40 S054 2811 1010 0000 0123 456",
-          Email: "vemanuele555@gmail.com",
-          Pec: "vemanuele@gmail.com",
-          Note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
+          DbResponsabile: "Vittorio Emanuele",
+          DbTelefonoPrincipale: "0461 912585",
+          DbTelefonoSecondario: "0461 923452",
+          DbIBAN: "IT40 S054 2811 1010 0000 0123 456",
+          DbEmail: "vemanuele555@gmail.com",
+          DbPec: "vemanuele@gmail.com",
+          DbNote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius purus tellus, ac auctor nibh dictum consequat",
 
-          Indirizzi: [{
-              Tipo: "Indirizzo abitazione",
-              Indirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+          DbIndirizzi: [{
+              DbTipo: "Indirizzo abitazione",
+              DbIndirizzo: "viale Giusti Antonia, 53 - 39100 Milano MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaxxxxxxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaxxxxxxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo lavoro",
-              Indirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
-              Validita: "dal 01/01/2010 al 02/02/2014",
+              DbTipo: "Indirizzo lavoro",
+              DbIndirizzo: "viale Lavoro, 53 - 39100 Lavoro MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2014",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "aaaaa",
-              Via: "aaaaaaaaaaxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "aaaaa",
+              DbVia: "aaaaaaaaaaxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             },
             {
-              Tipo: "Indirizzo secondario",
-              Indirizzo: "viale Secondario, 53 - 39100 Secondo MI",
-              Validita: "dal 01/01/2010 al 02/02/2011",
+              DbTipo: "Indirizzo secondario",
+              DbIndirizzo: "viale Secondario, 53 - 39100 Secondo MI",
+              DbValidita: "dal 01/01/2010 al 02/02/2011",
 
-              Nazione: "Italia",
-              Comune: "Napoli",
-              Cap: "84092",
-              Frazione: "xxxxxx",
-              Via: "aaaaaxxxxxddxxxxx",
-              Civico: "6",
-              UsaIndirizzo: "No",
-              Note: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
+              DbNazione: "Italia",
+              DbComune: "Napoli",
+              DbCap: "84092",
+              DbFrazione: "xxxxxx",
+              DbVia: "aaaaaxxxxxddxxxxx",
+              DbCivico: "6",
+              DbUsaIndirizzo: "No",
+              DbNote: "fkjsaòldfkjasòkdfjaòkjòaldskjf"
             }
           ],
 
-          ImportoRitenutaDiCategoria: "200.15",
+          DbImportoRitenutaDiCategoria: "200.15",
 
-          LiquidazioniMensili: [{
-              DataPagamento: "12/04/2014",
-              ImportoTotale: "238.00",
-              NroAssistiti: "15"
+          DbLiquidazioniMensili: [{
+              DbDataPagamento: "12/04/2014",
+              DbImportoTotale: "238.00",
+              DbNroAssistiti: "15"
             },
             {
-              DataPagamento: "12/05/2014",
-              ImportoTotale: "258.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/05/2014",
+              DbImportoTotale: "258.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/06/2014",
-              ImportoTotale: "338.00",
-              NroAssistiti: "18"
+              DbDataPagamento: "12/06/2014",
+              DbImportoTotale: "338.00",
+              DbNroAssistiti: "18"
             },
             {
-              DataPagamento: "12/07/2014",
-              ImportoTotale: "438.00",
-              NroAssistiti: "16"
+              DbDataPagamento: "12/07/2014",
+              DbImportoTotale: "438.00",
+              DbNroAssistiti: "16"
             },
             {
-              DataPagamento: "12/08/2014",
-              ImportoTotale: "38.00",
-              NroAssistiti: "10"
+              DbDataPagamento: "12/08/2014",
+              DbImportoTotale: "38.00",
+              DbNroAssistiti: "10"
             },
             {
-              DataPagamento: "12/09/2014",
-              ImportoTotale: "278.00",
-              NroAssistiti: "17"
+              DbDataPagamento: "12/09/2014",
+              DbImportoTotale: "278.00",
+              DbNroAssistiti: "17"
             },
             {
-              DataPagamento: "12/10/2014",
-              ImportoTotale: "299.00",
-              NroAssistiti: "19"
+              DbDataPagamento: "12/10/2014",
+              DbImportoTotale: "299.00",
+              DbNroAssistiti: "19"
             }
           ]
         }

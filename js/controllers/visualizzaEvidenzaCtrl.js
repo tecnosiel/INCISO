@@ -36,7 +36,6 @@ function visualizzaEvidenzaCtrl(
   // serve per le modali
   $scope.self = this;
 
-
   // function to submit the form after all validation has occurred
   $scope.submitForm = function (isValid) {
     // check to make sure the form is completely valid
@@ -44,7 +43,6 @@ function visualizzaEvidenzaCtrl(
       // alert("la tua Form è valida");
     }
   };
-
 
 }
 

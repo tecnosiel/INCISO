@@ -2,41 +2,21 @@
 <div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="row">
   <div class="col-md-4 form-group">
     <label>{{ "CODICE_FISCALE" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="$ctrl.info.find.CodiceFiscale"
-      placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control" ng-model="$ctrl.info.find.CodiceFiscale" placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-4 form-group">
     <label>{{ "COGNOME" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="$ctrl.info.find.Cognome"
-      placeholder="{{'COGNOME_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control" ng-model="$ctrl.info.find.Cognome" placeholder="{{'COGNOME_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-4 form-group">
     <label>{{ "NOME" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="$ctrl.info.find.Nome"
-      placeholder="{{'NOME_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control" ng-model="$ctrl.info.find.Nome" placeholder="{{'NOME_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-4 form-group">
     <label>{{ "DATA_DI_NASCITA" | translate }}</label>
     <div class="input-group date">
-      <input
-        type="text"
-        class="form-control js-date"
-        ng-model="$ctrl.info.find.DataDiNascita"
-        placeholder="{{'DATA_NASCITA_DA_RICERCARE' | translate}}"
-        placeholder="Data nascita da ricercare formato dd/MM/yyyy"
-      />
+      <input type="text" class="form-control js-date" ng-model="$ctrl.info.find.DataDiNascita" placeholder="{{'DATA_NASCITA_DA_RICERCARE' | translate}}"
+        placeholder="Data nascita da ricercare formato dd/MM/yyyy" />
       <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
     </div>
   </div>
@@ -48,30 +28,15 @@
   -->
   <div class="col-md-4 form-group">
     <label>{{ "NUMERO_FASCICOLO" | translate }}</label>
-    <input
-      type="text"
-      class="form-control intero"
-      ng-model="$ctrl.info.find.NumeroFascicolo"
-      placeholder="{{'NUMERO_FASCICOLO_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control intero" ng-model="$ctrl.info.find.NumeroFascicolo" placeholder="{{'NUMERO_FASCICOLO_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-4 form-group">
     <label>{{ "NUMERO_FALDONE_ARCHIVIAZIONE" | translate }}</label>
-    <input
-      type="text"
-      class="form-control intero"
-      ng-model="$ctrl.info.find.NumeroFaldoneArchiviazione"
-      placeholder="Numero faldone archiviazione da ricercare"
-    />
+    <input type="text" class="form-control intero" ng-model="$ctrl.info.find.NumeroFaldoneArchiviazione" placeholder="Numero faldone archiviazione da ricercare" />
   </div>
   <div class="col-md-4 form-group">
     <label>{{ "ANNO_DI_SCARTO" | translate }}</label>
-    <input
-      type="text"
-      class="form-control anno"
-      ng-model="$ctrl.info.find.AnnoDiScarto"
-      placeholder="{{'ANNO_DI_SCARTO_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control anno" ng-model="$ctrl.info.find.AnnoDiScarto" placeholder="{{'ANNO_DI_SCARTO_DA_RICERCARE' | translate}}" />
   </div>
 </div>
 
@@ -80,87 +45,48 @@
 <div ng-if="$ctrl.tipoRicerca.includes('Anagrafe')" class="row">
   <div class="col-md-6 form-group">
     <label>{{ "COGNOME" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="$ctrl.info.find.Cognome"
-      placeholder="{{'COGNOME_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control" ng-model="$ctrl.info.find.Cognome" placeholder="{{'COGNOME_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-6 form-group">
     <label>{{ "NOME" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="$ctrl.info.find.Nome"
-      placeholder="{{'NOME_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control" ng-model="$ctrl.info.find.Nome" placeholder="{{'NOME_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-6 form-group">
     <label>{{ "CODICE_FISCALE" | translate }}</label>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="$ctrl.info.find.CodiceFiscale"
-      placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}"
-    />
+    <input type="text" class="form-control" ng-model="$ctrl.info.find.CodiceFiscale" placeholder="{{'CODICE_FISCALE_DA_RICERCARE' | translate}}" />
   </div>
   <div class="col-md-6 form-group">
     <label>{{ "DATA_DI_NASCITA" | translate }}</label>
     <div class="input-group date">
-      <input
-        type="text"
-        class="form-control js-date"
-        ng-model="$ctrl.info.find.DataDiNascita"
-        placeholder="{{'DATA_NASCITA_DA_RICERCARE' | translate}}"
-      />
+      <input type="text" class="form-control js-date" ng-model="$ctrl.info.find.DataDiNascita" placeholder="{{'DATA_NASCITA_DA_RICERCARE' | translate}}" />
       <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
     </div>
   </div>
   <div ng-if="!$ctrl.tipoRicerca.includes('Curatore')" id="filtri_deceduto">
     <div class="col-md-6 form-group">
       <label>{{ "NUMERO_FALDONE_ARCHIVIAZIONE" | translate }}</label>
-      <input
-        type="text"
-        class="form-control intero"
-        ng-model="$ctrl.info.find.NumeroFaldoneArchiviazione"
-        placeholder="{{'NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE' | translate}}"
-      />
+      <input type="text" class="form-control intero" ng-model="$ctrl.info.find.NumeroFaldoneArchiviazione" placeholder="{{'NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE' | translate}}" />
     </div>
     <div class="col-md-6 form-group">
       <label>{{ "ANNO_DI_SCARTO" | translate }}</label>
-      <input
-        type="text"
-        class="form-control anno"
-        ng-model="$ctrl.info.find.AnnoDiScarto"
-        placeholder="{{'ANNO_DI_SCARTO_DA_RICERCARE' | translate}}"
-      />
+      <input type="text" class="form-control anno" ng-model="$ctrl.info.find.AnnoDiScarto" placeholder="{{'ANNO_DI_SCARTO_DA_RICERCARE' | translate}}" />
     </div>
   </div>
 </div>
 
 <div class="row text-right">
   <div class="col-sm-12">
-    <button
-      class="btn btn-primary btn-sm"
-      id="anagSearch"
-      ng-click="$ctrl.find()"
-    >
+    <button class="btn btn-primary btn-sm" id="anagSearch" ng-click="$ctrl.findStart()">
       {{ "CERCA" | translate }}
     </button>
   </div>
 </div>
+<br>
 <!-- risultati ricerca -->
 <div class="row" id="anagResults" style="display:none;margin-top:10px">
   <!-- ng-if="true" è stato inserito x ie -->
-  <table
-    id="resultRicercaDataTable"
-    ng-if="true"
-    datatable="ng"
-    dt-options="$ctrl.dtOptions"
-    class="table table-bordered table-striped"
-    dt-instance="dtInstanceTabRisultatiRicerca"
-  >
+  <table id="resultRicercaDataTable" ng-if="true" datatable="ng" dt-options="$ctrl.dtOptions" class="table table-bordered table-striped"
+    dt-instance="dtInstanceTabRisultatiRicerca">
     <thead>
       <tr>
         <th ng-if="$ctrl.tipoRicerca == 'Posizione'">
@@ -179,64 +105,56 @@
         <td ng-if="$ctrl.tipoRicerca == 'Posizione'" class="text-right">
           <a ng-click="$ctrl.findPosizione(item.CodiceFiscale)">{{
             item.Posizione
-          }}</a>
+            }}</a>
         </td>
         <td>{{ item.Cognome }}</td>
         <td>{{ item.Nome }}</td>
         <td>
-          <a
-            ng-click="$ctrl.findCodFis(item.CodiceFiscale)"
-            angular-popover
-            direction="top"
-            close-on-click="true"
-            template-url="/views/partials/_popover_anagrafica"
-            style="position: relative; z-index: 100;"
-            >{{ item.CodiceFiscale }}</a
-          >
-
-          <!--
-            <a uib-popover-template="'/views/partials/_popover_anagrafica'" >{{item.CodiceFiscale}}</a>
-          -->
+          <a ng-click="$ctrl.findCodFis(item.CodiceFiscale)" angular-popover direction="top" close-on-click="true"
+            template-url="/views/partials/_popover_anagrafica" style="position: relative; z-index: 100;">{{
+            item.CodiceFiscale }}</a>
         </td>
         <td>{{ item.DataDiNascita }}</td>
         <td>{{ item.DataDiDecesso }}</td>
-        <td
-          ng-if="$ctrl.tipoRicerca == 'Anagrafe-Curatore'"
-          class="text-center modal-select"
-        >
-          <a
-            ui-sref="associazioni.visualizza_associazione"
-            ng-click="findCodFis(item.CodiceFiscale)"
-          >
-            <i
-              class="fa fa-arrow-circle-right"
-              aria-hidden="true"
-              style="font-size:17px"
-            ></i>
+        <td ng-if="$ctrl.tipoRicerca == 'Anagrafe-Curatore'" class="text-center modal-select">
+          <a ui-sref="associazioni.visualizza_associazione" ng-click="findCodFis(item.CodiceFiscale)">
+            <i class="fa fa-arrow-circle-right" aria-hidden="true" style="font-size:17px"></i>
           </a>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <!-- paginatore -->
+  <div ng-if="$ctrl.table.totalRecord" class="row">
+    <div class="col-sm-6">
+      <div class="dataTables_info" id="resultRicercaDataTable_info" > {{ "RECORD_DA" | translate }} {{ (($ctrl.table.page - 1) * $ctrl.table.pageSize) +  1 }} {{ "A" | translate }} {{($ctrl.table.page * $ctrl.table.pageSize < $ctrl.table.totalRecord) ? $ctrl.table.page * $ctrl.table.pageSize : $ctrl.table.totalRecord }} {{ "DI" | translate }} {{$ctrl.table.totalRecord}}</div>
+    </div>
+    <div class="col-sm-6 text-right" paging page="$ctrl.table.page" page-size="$ctrl.table.pageSize" total="$ctrl.table.totalRecord"
+      show-prev-next="true" show-first-last="true" paging-action="$ctrl.findPaginazione(page, pageSize, total)">
+    </div>
+  </div>
+
+  <!-- comandi -->
   <div ng-if="$ctrl.tipoRicerca == 'Posizione'" class="text-right m-t-lg">
     <a class="btn btn-sm btn-primary" ui-sref="domande.nuova_domanda">{{
       "INSERISCI_NUOVA_POSIZIONE" | translate
-    }}</a>
+      }}</a>
   </div>
   <div ng-if="$ctrl.tipoRicerca == 'Anagrafe'" class="text-right m-t-lg">
     <a class="btn btn-sm btn-primary" ng-click="$ctrl.creaNuovaAnagrafica()">{{
       "INSERISCI_NUOVA_ANAGRAFICA" | translate
-    }}</a>
+      }}</a>
   </div>
 </div>
 
 <script>
-  $(document).ready(function() {
-    $("#anagSearch").click(function() {
+  $(document).ready(function () {
+    $("#anagSearch").click(function () {
       $("#anagResults").show();
     });
 
-    setTimeout(function() {
+    setTimeout(function () {
       $(".input-group.date").datepicker({
         todayBtn: "linked",
         format: "dd/mm/yyyy",

@@ -3,7 +3,7 @@
  * Contiene dati globali usati in differenti view
  *
  */
-function MainCtrl($scope, $rootScope, $translate, $uibModal, startUpServices, httpServices) {
+function MainCtrl($scope, $rootScope, $http, $translate, $uibModal, startUpServices, httpServices) {
 
   /**
    * Lettura settaggi da localStorage
@@ -88,16 +88,16 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal, startUpServices, ht
 
   buffer = localStorage.getItem('endpointevidenze');
   if (buffer) {
-    $rootScope.urlevidenze = $rootScope.serverbackend + buffer;
+    $rootScope.urlEvidenze = $rootScope.serverbackend + buffer;
   } else {
-    $rootScope.urlevidenze = $rootScope.serverbackend + "/api/evidenze"
+    $rootScope.urlEvidenze = $rootScope.serverbackend + "/api/evidenze"
   }
 
   buffer = localStorage.getItem('endpointassociazioni');
   if (buffer) {
-    $rootScope.urlassociazioni = $rootScope.serverbackend + buffer;
+    $rootScope.urlAssociazioni = $rootScope.serverbackend + buffer;
   } else {
-    $rootScope.urlassociazioni = $rootScope.serverbackend + "/api/associazioni"
+    $rootScope.urlAssociazioni = $rootScope.serverbackend + "/api/associazioni"
   }
 
 
@@ -138,6 +138,46 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal, startUpServices, ht
   /**
    * Funzoni Globali
    */
+  window.infoDataTable = function (cTable, jsonFind, jsonPaginatore) {
+
+    let tableSort = $("#" + cTable).dataTable();
+    let tablePage = $("#" + cTable).DataTable();
+
+    let info = {
+      pages: {},
+      sort: {},
+      find: {}
+    };
+    if (Object.keys(jsonFind).length > 0) {
+      info.find = jsonFind
+    }
+
+    // informazioni pagina
+    info.pages = tablePage.page.info();
+
+    // aggiornamentoinformazioni pagina con paginatore custom
+    if (jsonPaginatore) {
+      if (Object.keys(jsonPaginatore).length > 0) {
+        info.pages.page = jsonPaginatore.page
+        info.pages.pages = jsonPaginatore.pageSize
+        info.pages.recordsTotal = jsonPaginatore.totalRecord
+        // info.find = jsonPaginatore
+      }
+    }
+
+
+
+    // informazioni ordinamento
+    info.sort = {
+      column: tableSort.fnSettings().aaSorting[0][0],
+      direction: tableSort.fnSettings().aaSorting[0][1],
+      titleColumn: tableSort.fnSettings().aoColumns[
+        tableSort.fnSettings().aaSorting[0][0]
+      ].sTitle
+    };
+
+    return info;
+  }
 
 
 
@@ -226,10 +266,9 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal, startUpServices, ht
   startUpServices.findStatoCivile(null, result => {
     $scope.statoCivile = httpServices.arrayFromDb(result, 'statocivile')
   });
- 
+
   $scope.tipoIndirizzo = [];
   startUpServices.findTipoIndirizzo(null, result => {
-    debugger
     $scope.tipoIndirizzo = httpServices.arrayFromDb(result, 'tipoindirizzo')
   });
 
@@ -243,6 +282,17 @@ function MainCtrl($scope, $rootScope, $translate, $uibModal, startUpServices, ht
       $scope.datiAssistito = result;
     });
   };
+
+  // -----------------------------------
+  // camillo = function () {
+  //   alert("ddddddddddddddd")
+  //   return $http.get('https://api.github.com/users/peterbe/gists')
+  // };
+
+  // obs = Rx.Observable.fromPromise($http.get('https://api.github.com/users/peterbe/gists'))
+  // obs.map(x =>{console.log(x.data); return x;}).subscribe(data => {debugger;console.log("dataxxxxxxxxxxxxxxxxxxxxxxxxxxxx")})
+
+  // -----------------------------------
 
   $rootScope.resetUser();
 

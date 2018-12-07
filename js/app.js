@@ -17,6 +17,7 @@
     "colorpicker.module", //colorpicher
     "angular-jwt", // json web token
     "ngMockE2E",
+    "bw.paging",
     EgovauthModule.name
   ]);
 

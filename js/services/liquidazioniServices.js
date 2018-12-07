@@ -7,6 +7,7 @@ function liquidazioniServices($http, $rootScope, $timeout) {
   }
 
 
+  service.getTotalRows = getTotalRows;
   service.find = find;
   service.findPosizioni = findPosizioni;
   service.findCodFis = findCodFis;
@@ -14,11 +15,36 @@ function liquidazioniServices($http, $rootScope, $timeout) {
 
   return service;
 
+  function getTotalRows(dataFind, callBack) {
+
+    $rootScope.showSpinner = true;
+
+    $timeout(function () {
+      $http
+        .post($rootScope.urlLiquidazioni + "/GetTotalsByAnagFilter" + $rootScope.testquerystring, {
+          data: dataFind
+        }, config)
+        .success(function (data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          if ($rootScope.isJsonString)
+            callBack(data);
+        })
+        .error(function (data, status, header, config) {
+          //messaggio di errore per questo get
+          $rootScope.showSpinner = false;
+          alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
+          // $rootScope.showSpinner = false;
+        });
+    }, 300);
+  }
+
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlLiquidazioni + "/find" + $rootScope.testquerystring, {
+        .post($rootScope.urlLiquidazioni + "/find" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {
@@ -40,7 +66,7 @@ function liquidazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get(
+        .post(
           $rootScope.urlLiquidazioni + "/findcodfis" + $rootScope.testquerystring, {
             data: cCodFis
           }, config)
@@ -61,7 +87,7 @@ function liquidazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlLiquidazioni + "/findPosizioni" + $rootScope.testquerystring, {
+        .post($rootScope.urlLiquidazioni + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {

@@ -23,8 +23,8 @@
 
                                 {{ asteriscoInserimento }}
                                 <div class="input-group date m-t-xs">
-                                    <input type="text" name="MeseDiRiferimentoLiquidazione" class="form-control js-date" ng-model="info.find.MeseDiRiferimentoLiquidazione"
-                                        required></input>
+                                    <input type="text" name="MeseDiRiferimentoLiquidazione" class="form-control js-date"
+                                        ng-model="info.find.MeseDiRiferimentoLiquidazione" required></input>
 
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
@@ -41,12 +41,13 @@
                         <div class="text-right"></div>
 
                         <div class="text-right">
-                            <button ng-click="find()" class="btn btn-primary btn-sm" id="posSearch" ng-disabled="ricercaLiquidazioneForm.$invalid">
+                            <button ng-click="findStart()" class="btn btn-primary btn-sm" id="posSearch" ng-disabled="ricercaLiquidazioneForm.$invalid">
                                 {{ "CERCA" | translate}}
                             </button>
                         </div>
 
                         <div id="posResults" style="display:none;">
+
                             <table id="resultRicercaLiquidazioniDataTable" datatable="ng" dt-column-defs="colonneTabRicercaLiquidazioni"
                                 dt-options="dtOptionsTabRicercaLiquidazioni" class="table table-bordered table-striped">
                                 <thead>
@@ -94,12 +95,27 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            
+                            <div ng-if="table.totalRecord" class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="resultRicercaEvidenzeDataTable_info"> {{
+                                        "RECORD_DA" | translate }} {{
+                                        ((table.page - 1) * table.pageSize) + 1 }} {{ "A" | translate }} {{(table.page
+                                        * table.pageSize < table.totalRecord) ? table.page * table.pageSize :
+                                            table.totalRecord }} {{ "DI" | translate }} {{table.totalRecord}} </div> </div>
+                                            <div class="col-sm-6 text-right" paging page="table.page" page-size="table.pageSize"
+                                            total="table.totalRecord" show-prev-next="true" show-first-last="true"
+                                            paging-action="findPaginazione(page, pageSize, total)">
+                                    </div>
+                                </div>
 
-                            <div class="text-right m-t-md">
-                                <button class="btn btn-sm btn-primary">
-                                    {{'ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE' | translate}}
-                                </button>
+                                <div class="text-right m-t-md">
+                                    <button class="btn btn-sm btn-primary">
+                                        {{'ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE' | translate}}
+                                    </button>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

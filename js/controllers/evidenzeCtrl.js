@@ -7,7 +7,7 @@ function evidenzeCtrl(
   $scope,
   anagrafeServices,
   evidenzeServices,
-  $uibModal,
+  httpServices,
   DTOptionsBuilder,
   DTColumnDefBuilder,
   $state
@@ -16,6 +16,8 @@ function evidenzeCtrl(
   // https://www.datatables.net/reference/option/
   $scope.dtOptionsTabRicercaEvidenze = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
+    .withOption("bInfo", false)
+    .withOption("paging", false)
     .withOption("lengthChange", false);
 
   $scope.colonneTabRicercaEvidenze = [
@@ -25,47 +27,67 @@ function evidenzeCtrl(
 
   $scope.elencoEvidenze = [];
   $scope.datiAssistito = [];
+
+  // -----------------------
+
   $scope.info = {};
   $scope.info.find = {};
 
-  $scope.find = function () {
-    var tableSort = $("#resultRicercaEvidenzeDataTable").dataTable();
-    var tablePage = $("#resultRicercaEvidenzeDataTable").DataTable();
+  $scope.table = {};
+  $scope.table.page = 1;
+  $scope.table.pageSize = 5;
+  $scope.table.totalRecord = 0;
 
-    // informazioni ordinamento
-    $scope.info.sort = {
-      column: tableSort.fnSettings().aaSorting[0][0],
-      direction: tableSort.fnSettings().aaSorting[0][1],
-      titleColumn: tableSort.fnSettings().aoColumns[
-        tableSort.fnSettings().aaSorting[0][0]
-      ].sTitle
-    };
+  $scope.findStart = function () {
+    evidenzeServices.getTotalRows($scope.info.find, result => {
+      $scope.table.totalRecord = result;
+      $scope.find(window.infoDataTable('resultRicercaEvidenzeDataTable', $scope.info.find));
+    });
+  }
 
-    // informazioni paginazione
-    $scope.info.page = tablePage.page.info();
+  $scope.findPaginazione = function (pageClicked) {
+    $scope.table.page = pageClicked - 1;
+    $scope.find(window.infoDataTable('resultRicercaEvidenzeDataTable', $scope.info.find, $scope.table));
+  }
 
-    evidenzeServices.find($scope.info, result => {
-      $scope.elencoEvidenze = result;
+  $scope.find = function (infoTable) {
+    evidenzeServices.find(infoTable, result => {
+      $scope.elencoEvidenze = httpServices.arrayFromDb(result, 'evidenze')
     });
   };
 
+  // -----------------------
+
   $scope.datiAssistito = [];
   $scope.evidenza = [];
-  $scope.tipoEvidenza = [
-    {
+  $scope.tipoEvidenza = [{
       descrizione: "Tipo Evidenza 1",
       code: "AF"
     },
     {
-      descrizione:
-        "Tipo Evidenza 2",
+      descrizione: "Tipo Evidenza 2",
       code: "AF"
     },
-    { descrizione: "Tipo Evidenza 3", code: "AF" },
-    { descrizione: "Tipo Evidenza 4", code: "AF" },
-    { descrizione: "Tipo Evidenza 5", code: "AF" },
-    { descrizione: "Tipo Evidenza 6", code: "AF" },
-    { descrizione: "Tipo Evidenza 7", code: "AF" }
+    {
+      descrizione: "Tipo Evidenza 3",
+      code: "AF"
+    },
+    {
+      descrizione: "Tipo Evidenza 4",
+      code: "AF"
+    },
+    {
+      descrizione: "Tipo Evidenza 5",
+      code: "AF"
+    },
+    {
+      descrizione: "Tipo Evidenza 6",
+      code: "AF"
+    },
+    {
+      descrizione: "Tipo Evidenza 7",
+      code: "AF"
+    }
   ];
 
   $scope.salvaEvidenza = function (bCloseModal, self) {
@@ -76,7 +98,7 @@ function evidenzeCtrl(
   }
 
   $scope.visualizzaEvidenza = function (item) {
-    
+
     $scope.modale = false;
     anagrafeServices.findCodFis(item.CodiceFiscale, result => {
       evidenzeServices.findCodFis(item.CodiceFiscale, result2 => {

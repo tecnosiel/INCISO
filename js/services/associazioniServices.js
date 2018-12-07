@@ -7,6 +7,7 @@ function associazioniServices($http, $rootScope, $timeout) {
   }
 
 
+  service.getTotalRows = getTotalRows;
   service.find = find;
   service.findPosizioni = findPosizioni;
   service.findCodFis = findCodFis;
@@ -14,11 +15,38 @@ function associazioniServices($http, $rootScope, $timeout) {
 
   return service;
 
+
+  function getTotalRows(dataFind, callBack) {
+
+    $rootScope.showSpinner = true;
+
+    $timeout(function () {
+      $http
+        .post($rootScope.urlAssociazioni + "/GetTotalsByAnagFilter" + $rootScope.testquerystring, {
+          data: dataFind
+        }, config)
+        .success(function (data, status, headers, config) {
+          
+          //formattazione dei dati secondo mock
+          if ($rootScope.isJsonString)
+            callBack(data);
+        })
+        .error(function (data, status, header, config) {
+          //messaggio di errore per questo get
+          $rootScope.showSpinner = false;
+          alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
+          // $rootScope.showSpinner = false;
+        });
+    }, 300);
+  }
+
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAssociazioni + "/find" + $rootScope.testquerystring, {
+        .post($rootScope.urlAssociazioni + "/find" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {
@@ -38,7 +66,7 @@ function associazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get(
+        .post(
           $rootScope.urlAssociazioni + "/findcodfis" + $rootScope.testquerystring, {
             data: cCodFis
           }, config)
@@ -59,7 +87,7 @@ function associazioniServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAssociazioni + "/findPosizioni" + $rootScope.testquerystring, {
+        .post($rootScope.urlAssociazioni + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {

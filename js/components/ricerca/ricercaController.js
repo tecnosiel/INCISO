@@ -5,6 +5,7 @@
  */
 
 function ricercaController(
+  $rootScope,
   $scope,
   $uibModal,
   DTOptionsBuilder,
@@ -17,36 +18,38 @@ function ricercaController(
 
   this.elencoAssistiti = [];
   this.datiAssistito = [];
+  self = this;
+
   this.info = {};
   this.info.find = {};
 
-  this.find = function () {
-    var tableSort = $("#resultRicercaDataTable").dataTable();
-    var tablePage = $("#resultRicercaDataTable").DataTable();
+  this.table = {};
+  this.table.page = 1;
+  this.table.pageSize = 5;
+  this.table.totalRecord = 0;
 
-    // informazioni ordinamento
-    this.info.sort = {
-      column: tableSort.fnSettings().aaSorting[0][0],
-      direction: tableSort.fnSettings().aaSorting[0][1],
-      titleColumn: tableSort.fnSettings().aoColumns[
-        tableSort.fnSettings().aaSorting[0][0]
-      ].sTitle
-    };
+  this.findStart = function () {
+    anagrafeServices.getTotalRows(this.info.find, result => {
+      this.table.totalRecord = result;
+      this.find(window.infoDataTable('resultRicercaDataTable', self.info.find));
+    });
+  }
 
-    // informazioni pagina
-    this.info.page = tablePage.page.info();
+  this.findPaginazione = function (pageClicked) {
+    this.table.page = pageClicked - 1;
+    // let buffer = window.infoDataTable('resultRicercaDataTable', self.info.find, self.table);
+    // window.infoDataTable('resultRicercaDataTable', self.info.find, self.table)
+    this.find(window.infoDataTable('resultRicercaDataTable', self.info.find, self.table));
+  }
 
-    // ------------------
-
+  this.find = function (infoTable) {
     if (this.tipoRicerca == "Anagrafe") {
-      anagrafeServices.find(this.info, result => {
+      anagrafeServices.find(infoTable, result => {
         this.elencoAssistiti = httpServices.arrayFromDb(result, 'anagrafe')
-        // this.elencoAssistiti = result;
       });
     } else {
-      anagrafeServices.findPosizioni(this.info, result => {
+      anagrafeServices.findPosizioni(infoTable, result => {
         this.elencoAssistiti = httpServices.arrayFromDb(result, 'posizione')
-        // this.elencoAssistiti = result;
       });
     }
     // ------------------
@@ -55,7 +58,6 @@ function ricercaController(
   this.findCodFis = function (cCodFis) {
     anagrafeServices.findCodFis(cCodFis, result => {
       this.datiAssistito = httpServices.jsonFromDb(result, 'anagrafe')
-      // this.datiAssistito = result;
     });
   };
 
@@ -83,5 +85,38 @@ function ricercaController(
   // https://www.datatables.net/reference/option/
   this.dtOptions = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
-    .withOption("lengthChange", false);
+    .withOption("bInfo", false)
+    .withOption("paging", false)
+  // .withOption("lengthMenu", [
+  //   [5, 10, 20, 30, -1],
+  //   [5, 10, 20, 30, 'Tutti']
+  // ])
+  // .withOption("drawCallback", function (settings) {
+  //   debugger;
+  //   let buffer = window.infoDataTable('resultRicercaDataTable', self.info.find);
+  //   alert(JSON.stringify(buffer));
+  // })
+  // .withOption("lengthChange", false);
+
+
+
+
+  // https://www.datatables.net/reference/option/
+  // http://www.dotnetawesome.com/2016/01/datatables-server-side-paging-sorting-filtering-angularjs.html
+  // this.dtOptions = DTOptionsBuilder.newOptions()
+  //   .withOption('ajax', {
+  //     dataSrc: "data",
+  //     url: $rootScope.urlAnagrafe + "/GetByAnagFilter" + $rootScope.testquerystring,
+  //     type: "GET"
+  //   })
+  //   .withOption("pageLength", 5)
+  //   .withOption("lengthMenu", [[5, 10, 20, 30, -1], [5, 10, 20, 30, 'Tutti']])
+  //   .withOption("serverSide", true)
+  //   .withPaginationType("full_numbers")
+  //   .withOption('aaSorting',[0,'asc']) 
+  //   .withOption('processing', false);
+  //   // .withDisplayLength(10)
+  //   // .withOption("lengthChange", false);
+
+
 }

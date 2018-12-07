@@ -7,6 +7,7 @@ function evidenzeServices($http, $rootScope, $timeout) {
   }
 
 
+  service.getTotalRows = getTotalRows;
   service.find = find;
   service.findPosizioni = findPosizioni;
   service.findCodFis = findCodFis;
@@ -14,11 +15,33 @@ function evidenzeServices($http, $rootScope, $timeout) {
 
   return service;
 
+  function getTotalRows(dataFind, callBack) {
+
+    $rootScope.showSpinner = true;
+
+    $timeout(function () {
+      $http
+        .post($rootScope.urlEvidenze + "/GetTotalsByAnagFilter" + $rootScope.testquerystring, {
+          data: dataFind
+        }, config)
+        .success(function (data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          if ($rootScope.isJsonString)
+            callBack(data);
+        })
+        .error(function (data, status, header, config) {
+          //messaggio di errore per questo get
+          $rootScope.showSpinner = false;
+          alert("errore nella chiamata : " + status);
+        })
+    }, 300);
+  }
+
   function find(dataFind, callBack) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlEvidenze + "/find" + $rootScope.testquerystring, {
+        .post($rootScope.urlEvidenze + "/find" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {
@@ -38,7 +61,7 @@ function evidenzeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlEvidenze + "/findcodfis" + $rootScope.testquerystring, {
+        .post($rootScope.urlEvidenze + "/findcodfis" + $rootScope.testquerystring, {
           data: cCodFis
         }, config)
         .success(function (data, status, headers, config) {
@@ -58,7 +81,7 @@ function evidenzeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlEvidenze + "/findPosizioni" + $rootScope.testquerystring, {
+        .post($rootScope.urlEvidenze + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {

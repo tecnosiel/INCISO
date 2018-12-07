@@ -43,6 +43,12 @@ function readStructure(cStructure) {
       return associazioniStructure();
     case "liquidazioni":
       return liquidazioniStructure();
+    case "liquidazionimensili":
+      return liquidazionimensiliStructure(); 
+    case "evidenze":
+      return evidenzeStructure();
+    case "associazioni":
+      return associazioniStructure();
     case "importiriaccreditati":
       return importiriaccreditatiStructure();
     case "importidarecuperare":
@@ -899,6 +905,189 @@ function liquidazioniStructure() {
 
   ]
 }
+
+function evidenzeStructure() {
+  return [{
+      DbName: "DbDataDecorrenza",
+      MemName: "DataDecorrenza",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbTipoEvidenza",
+      MemName: "TipoEvidenza",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDescrizione",
+      MemName: "Descrizione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDataScadenza",
+      MemName: "DataScadenza",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbPosizione",
+      MemName: "Posizione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbCognome",
+      MemName: "DbCognome",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNome",
+      MemName: "Nome",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDettaglio",
+      MemName: "Dettaglio",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbPrestazioneDiRiferimento",
+      MemName: "PrestazioneDiRiferimento",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDataDellaDomandaDiRiferimento",
+      MemName: "DataDellaDomandaDiRiferimento",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbDataChiusura",
+      MemName: "DataChiusura",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbUtente",
+      MemName: "Utente",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNoteDiChiusura",
+      MemName: "NoteDiChiusura",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbLetteraInviata",
+      MemName: "LetteraInviata",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C"
+    }
+
+  ]
+}
+
+function associazioniStructure() {
+  return [{
+      DbName: "DbNomeAssociazione",
+      MemName: "NomeAssociazione",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbTipologiaDiAssistenza",
+      MemName: "TipologiaDiAssistenza",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbResponsabile",
+      MemName: "Responsabile",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbTelefonoPrincipale",
+      MemName: "TelefonoPrincipale",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbTelefonoSecondario",
+      MemName: "TelefonoSecondario",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbIBAN",
+      MemName: "IBAN",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbEmail",
+      MemName: "Email",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbPec",
+      MemName: "Pec",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbEmail",
+      MemName: "Email",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNote",
+      MemName: "Note",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbIndirizzi",
+      MemName: "Indirizzi",
+      Struttura: "indirizzi",
+      Tipo: "ARRAY-JSON",
+    },
+    {
+      DbName: "DbImportoRitenutaDiCategoria",
+      MemName: "ImportoRitenutaDiCategoria",
+      Tipo: "N",
+    },
+    {
+      DbName: "DbLiquidazioniMensili",
+      MemName: "LiquidazioniMensili",
+      Struttura: "liquidazionimensili",
+      Tipo: "ARRAY-JSON",
+    },
+  
+  ]
+}
+
+
+function liquidazionimensiliStructure() {
+  return [{
+      DbName: "DbDataPagamento",
+      MemName: "DataPagamento",
+      Tipo: "D"
+    },
+    {
+      DbName: "DbImportoTotale",
+      MemName: "ImportoTotale",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbNroAssistiti",
+      MemName: "NroAssistiti",
+      Tipo: "I"
+    },
+  ]
+}
+
 
 function pensioniStructure() {
   return [{

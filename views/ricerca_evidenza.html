@@ -147,106 +147,113 @@
               </div>
             </div>
             <div class="text-right">
-              <button class="btn btn-primary btn-sm" id="posSearch" ng-click="find()">
+              <button class="btn btn-primary btn-sm" id="posSearch" ng-click="findStart()">
                 {{ "CERCA" | translate }}
               </button>
             </div>
           </div>
 
           <div id="posResults" style="display:none;" class="m-t-lg">
-            <div>
-              <!--
-                <table class="table table-striped table-bordered" id="ricerca-evidenze">
-              -->
 
-              <table id="resultRicercaEvidenzeDataTable" datatable="ng" class="table table-striped table-bordered"
-                dt-options="dtOptionsTabRicercaEvidenze" dt-column-defs="colonneTabRicercaEvidenze">
-                <thead>
-                  <tr>
-                    <th>{{ "DATA_DECORRENZA" | translate }}</th>
-                    <th>{{ "TIPO_EVIDENZA" | translate }}</th>
-                    <th>{{ "DESCRIZIONE" | translate }}</th>
-                    <th>{{ "DATA_SCADENZA" | translate }}</th>
-                    <th>{{ "POSIZIONE" | translate }}</th>
-                    <th>{{ "COGNOME" | translate }}</th>
-                    <th>{{ "NOME" | translate }}</th>
-                    <th>{{ "CODICE_FISCALE" | translate }}</th>
-                    <th>{{ "DETTAGLIO" | translate }}</th>
-                    <th></th>
-                    <th class="text-center">
-                      <div class="checkbox">
-                        <div class="checkbox">
-                          <input icheck type="checkbox" ng-model="tmp.xxx" />
-                          <i></i>
-                        </div>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr ng-repeat="item in elencoEvidenze">
-                    <td width="9%">{{ item.DataDecorrenza }}</td>
-                    <td width="9%">{{ item.TipoEvidenza }}</td>
-                    <td width="18%">{{ item.Descrizione }}</td>
-                    <td width="9%">{{ item.DataScadenza }}</td>
-                    <td width="9%" class="text-right">{{ item.Posizione }}</td>
-                    <td width="9%">{{ item.Cognome }}</td>
-                    <td width="9%">{{ item.Nome }}</td>
-                    <td width="9%">{{ item.CodiceFiscale }}</td>
-
-                    <td width="9%" class="text-center" style="font-size:18px">
-                      <a data-toggle="popover" data-trigger="hover" title="Dettaglio evidenza" data-placement="top"
-                        data-html="true" data-content="{{item.Dettaglio}}" tooltip-append-to-body="true">
-                        <i class="fa fa-info-circle"></i>
-                      </a>
-                    </td>
-
-                    <td width="5%" class="text-center" style="font-size:18px">
-                      <a ng-click="visualizzaEvidenza(item)"><i class="fa fa-eye"></i>
-                      </a>
-                    </td>
-
-                    <td width="5%" class="text-center">
+            <table id="resultRicercaEvidenzeDataTable" datatable="ng" class="table table-striped table-bordered"
+              dt-options="dtOptionsTabRicercaEvidenze" dt-column-defs="colonneTabRicercaEvidenze">
+              <thead>
+                <tr>
+                  <th>{{ "DATA_DECORRENZA" | translate }}</th>
+                  <th>{{ "TIPO_EVIDENZA" | translate }}</th>
+                  <th>{{ "DESCRIZIONE" | translate }}</th>
+                  <th>{{ "DATA_SCADENZA" | translate }}</th>
+                  <th>{{ "POSIZIONE" | translate }}</th>
+                  <th>{{ "COGNOME" | translate }}</th>
+                  <th>{{ "NOME" | translate }}</th>
+                  <th>{{ "CODICE_FISCALE" | translate }}</th>
+                  <th>{{ "DETTAGLIO" | translate }}</th>
+                  <th></th>
+                  <th class="text-center">
+                    <div class="checkbox">
                       <div class="checkbox">
                         <input icheck type="checkbox" ng-model="tmp.xxx" />
                         <i></i>
                       </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="text-right m-t-lg">
-              <a  ng-click="inserisciEvidenza(null)" class="btn btn-sm btn-primary">{{ 'INSERISCI_NUOVA_EVIDENZA' |
-                translate }}</a>
-              <a class="btn btn-sm btn-primary">{{"GENERA_COMUNICAZIONE" | translate }}</a>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="item in elencoEvidenze">
+                  <td width="9%">{{ item.DataDecorrenza }}</td>
+                  <td width="9%">{{ item.TipoEvidenza }}</td>
+                  <td width="18%">{{ item.Descrizione }}</td>
+                  <td width="9%">{{ item.DataScadenza }}</td>
+                  <td width="9%" class="text-right">{{ item.Posizione }}</td>
+                  <td width="9%">{{ item.Cognome }}</td>
+                  <td width="9%">{{ item.Nome }}</td>
+                  <td width="9%">{{ item.CodiceFiscale }}</td>
+
+                  <td width="9%" class="text-center" style="font-size:18px">
+                    <a data-toggle="popover" data-trigger="hover" title="Dettaglio evidenza" data-placement="top"
+                      data-html="true" data-content="{{item.Dettaglio}}" tooltip-append-to-body="true">
+                      <i class="fa fa-info-circle"></i>
+                    </a>
+                  </td>
+
+                  <td width="5%" class="text-center" style="font-size:18px">
+                    <a ng-click="visualizzaEvidenza(item)"><i class="fa fa-eye"></i>
+                    </a>
+                  </td>
+
+                  <td width="5%" class="text-center">
+                    <div class="checkbox">
+                      <input icheck type="checkbox" ng-model="tmp.xxx" />
+                      <i></i>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div ng-if="table.totalRecord" class="row">
+              <div class="col-sm-6">
+                <div class="dataTables_info" id="resultRicercaEvidenzeDataTable_info"> {{ "RECORD_DA" | translate }} {{
+                  ((table.page - 1) * table.pageSize) + 1 }} {{ "A" | translate }} {{(table.page * table.pageSize <
+                    table.totalRecord) ? table.page * table.pageSize : table.totalRecord }} {{ "DI" | translate }}
+                    {{table.totalRecord}} </div> </div> <div class="col-sm-6 text-right" paging page="table.page"
+                    page-size="table.pageSize" total="table.totalRecord" show-prev-next="true" show-first-last="true"
+                    paging-action="findPaginazione(page, pageSize, total)">
+                </div>
+              </div>
+
+              <div class="text-right m-t-lg">
+                <a ng-click="inserisciEvidenza(null)" class="btn btn-sm btn-primary">{{ 'INSERISCI_NUOVA_EVIDENZA' |
+                  translate }}</a>
+                <a class="btn btn-sm btn-primary">{{"GENERA_COMUNICAZIONE" | translate }}</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  $("#posSearch").click(function () {
-    $("#posResults").show();
+  <script>
+    $("#posSearch").click(function () {
+      $("#posResults").show();
 
-    // ogni volta che si effettua una ricerca è necessario reinizializzare i popup
-    setTimeout(function () {
-      $('[data-toggle="popover"]').popover();
-    }, 500);
-  });
-  $(".input-group.date").datepicker({
-    todayBtn: "linked",
-    format: "dd/mm/yyyy",
-    keyboardNavigation: false,
-    forceParse: true,
-    calendarWeeks: true,
-    autoclose: true,
-    language: window.language
+      // ogni volta che si effettua una ricerca è necessario reinizializzare i popup
+      setTimeout(function () {
+        $('[data-toggle="popover"]').popover();
+      }, 500);
+    });
+    $(".input-group.date").datepicker({
+      todayBtn: "linked",
+      format: "dd/mm/yyyy",
+      keyboardNavigation: false,
+      forceParse: true,
+      calendarWeeks: true,
+      autoclose: true,
+      language: window.language
 
-    //orientation: 'bottom left'
-  });
-</script>
+      //orientation: 'bottom left'
+    });
+  </script>

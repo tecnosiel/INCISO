@@ -10,6 +10,7 @@ function anagrafeServices($http, $rootScope, $timeout) {
     config.withCredentials = true;
   }
 
+  service.getTotalRows = getTotalRows;
   service.find = find;
   service.findPosizioni = findPosizioni;
   service.findCodFis = findCodFis;
@@ -17,13 +18,36 @@ function anagrafeServices($http, $rootScope, $timeout) {
 
   return service;
 
-  function find(dataFind, callBack) {
+  function getTotalRows(dataFind, callBack) {
 
     $rootScope.showSpinner = true;
 
     $timeout(function () {
       $http
-        .get($rootScope.urlAnagrafe + "/GetByAnagFilter" + $rootScope.testquerystring, {
+        .post($rootScope.urlAnagrafe + "/GetTotalsByAnagFilter" + $rootScope.testquerystring, {
+          data: dataFind
+        }, config)
+        .success(function (data, status, headers, config) {
+          //formattazione dei dati secondo mock
+          if ($rootScope.isJsonString)
+            callBack(data);
+        })
+        .error(function (data, status, header, config) {
+          //messaggio di errore per questo get
+          $rootScope.showSpinner = false;
+          alert("errore nella chiamata : " + status);
+        })
+        .finally(function () {
+          // $rootScope.showSpinner = false;
+        });
+    }, 300);
+  }
+
+  function find(dataFind, callBack) {
+    $rootScope.showSpinner = true;
+    $timeout(function () {
+      $http
+        .post($rootScope.urlAnagrafe + "/GetByAnagFilter" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {
@@ -44,8 +68,9 @@ function anagrafeServices($http, $rootScope, $timeout) {
   function findCodFis(cCodFis, callBack) {
     $rootScope.showSpinner = true;
     $timeout(function () {
+      debugger;
       $http
-        .get($rootScope.urlAnagrafe + "/findcodfis" + $rootScope.testquerystring, {
+        .post($rootScope.urlAnagrafe + "/findcodfis" + $rootScope.testquerystring, {
           data: cCodFis
         }, config)
         .success(function (data, status, headers, config) {
@@ -67,7 +92,7 @@ function anagrafeServices($http, $rootScope, $timeout) {
     $rootScope.showSpinner = true;
     $timeout(function () {
       $http
-        .get($rootScope.urlAnagrafe + "/findPosizioni" + $rootScope.testquerystring, {
+        .post($rootScope.urlAnagrafe + "/findPosizioni" + $rootScope.testquerystring, {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {

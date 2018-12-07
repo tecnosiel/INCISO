@@ -13,36 +13,64 @@ function liquidazioniCtrl(
   DTColumnDefBuilder,
   $compile
 ) {
-  $scope.datiAssistito = [];
 
-  // informazioni ricerca
+  $scope.elencoLiquidazioni = [];
+  $scope.datiAssistito = [];
+  $scope.datiLiquidazione = [];
+
+  // -----------------------
+
   $scope.info = {};
   $scope.info.find = {};
 
-  $scope.elencoLiquidazioni = [];
-  $scope.find = function() {
-    var tableSort = $("#resultRicercaLiquidazioniDataTable").dataTable();
-    var tablePage = $("#resultRicercaLiquidazioniDataTable").DataTable();
-    
-    // informazioni ordinamento
-    $scope.info.sort = {
-      column: tableSort.fnSettings().aaSorting[0][0],
-      direction: tableSort.fnSettings().aaSorting[0][1],
-      titleColumn: tableSort.fnSettings().aoColumns[
-        tableSort.fnSettings().aaSorting[0][0]
-      ].sTitle
-    };
-    
-    // informazioni pagina
-    $scope.info.page = tablePage.page.info();
+  $scope.table = {};
+  $scope.table.page = 1;
+  $scope.table.pageSize = 5;
+  $scope.table.totalRecord = 0;
 
-    liquidazioniServices.find($scope.info, result => {
-      $scope.elencoLiquidazioni = result;
+  $scope.findStart = function () {
+    liquidazioniServices.getTotalRows($scope.info.find, result => {
+      $scope.table.totalRecord = result;
+      $scope.find(window.infoDataTable('resultRicercaLiquidazioniDataTable', $scope.info.find));
+    });
+  }
+
+  $scope.findPaginazione = function (pageClicked) {
+    $scope.table.page = pageClicked - 1;
+    $scope.find(window.infoDataTable('resultRicercaLiquidazioniDataTable', $scope.info.find, $scope.table));
+  }
+
+  $scope.find = function (infoTable) {
+    liquidazioniServices.find(infoTable, result => {
+      $scope.elencoLiquidazioni = httpServices.arrayFromDb(result, 'liquidazioni')
     });
   };
 
-  $scope.datiLiquidazione = [];
-  $scope.findCodFis = function(cCodFis) {
+  // -----------------------
+
+
+  // $scope.find = function () {
+  //   var tableSort = $("#resultRicercaLiquidazioniDataTable").dataTable();
+  //   var tablePage = $("#resultRicercaLiquidazioniDataTable").DataTable();
+
+  //   // informazioni ordinamento
+  //   $scope.info.sort = {
+  //     column: tableSort.fnSettings().aaSorting[0][0],
+  //     direction: tableSort.fnSettings().aaSorting[0][1],
+  //     titleColumn: tableSort.fnSettings().aoColumns[
+  //       tableSort.fnSettings().aaSorting[0][0]
+  //     ].sTitle
+  //   };
+
+  // informazioni pagina
+  // $scope.info.page = tablePage.page.info();
+
+  //   liquidazioniServices.find($scope.info, result => {
+  //     $scope.elencoLiquidazioni = result;
+  //   });
+  // };
+
+  $scope.findCodFis = function (cCodFis) {
     liquidazioniServices.findCodFis(cCodFis, result => {
       $scope.datiLiquidazione = result;
     });
@@ -83,8 +111,7 @@ function liquidazioniCtrl(
 
     RitenuteDiCategoria: {
       Totale: -12,
-      Associazioni: [
-        {
+      Associazioni: [{
           TipoAssociazione: "prova 1",
           Importo: 6
         },
@@ -98,8 +125,7 @@ function liquidazioniCtrl(
 
   // --------------------------------
 
-  $scope.tabLiquidazioneMensile = [
-    {
+  $scope.tabLiquidazioneMensile = [{
       Posizione: "123456",
       CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
@@ -151,8 +177,7 @@ function liquidazioniCtrl(
   ];
 
   // --------------------------------
-  $scope.tabLiquidazioneMensileDaCalcolare = [
-    {
+  $scope.tabLiquidazioneMensileDaCalcolare = [{
       Assistito: "Maria Rossi",
       PrestazioniDaLiquidare: 1300,
       Tredicesima: +800,
@@ -185,8 +210,7 @@ function liquidazioniCtrl(
   ];
 
   // --------------------------------
-  $scope.tabConguaglio = [
-    {
+  $scope.tabConguaglio = [{
       Posizione: "123456",
       CodiceFiscale: "LFNCLL60D03E026T",
       Cognome: "Alfano",
@@ -238,17 +262,14 @@ function liquidazioniCtrl(
   ];
 
   //  -------------
-  $scope.tabConguaglioRisultati = [
-    {
+  $scope.tabConguaglioRisultati = [{
       Posizione: "123456",
       Cognome: "Alfano",
       Nome: "Camillo",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -270,8 +291,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -292,11 +312,9 @@ function liquidazioniCtrl(
       Cognome: "Alfano",
       Nome: "Camillo",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -318,8 +336,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -340,11 +357,9 @@ function liquidazioniCtrl(
       Cognome: "Hammond",
       Nome: "John",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -366,8 +381,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -388,11 +402,9 @@ function liquidazioniCtrl(
       Cognome: "Hammond",
       Nome: "John",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -414,8 +426,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -436,11 +447,9 @@ function liquidazioniCtrl(
       Cognome: "Hammond",
       Nome: "John",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -462,8 +471,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -484,11 +492,9 @@ function liquidazioniCtrl(
       Cognome: "Mudassar",
       Nome: "Khan",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -510,8 +516,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -532,11 +537,9 @@ function liquidazioniCtrl(
       Cognome: "Alfano-2",
       Nome: "Camillo-2",
       Conguaglio: 1234567,
-      Anni: [
-        {
+      Anni: [{
           Anno: 2016,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 1111,
               ImportMensileConguaglio: 111,
@@ -558,8 +561,7 @@ function liquidazioniCtrl(
         },
         {
           Anno: 2015,
-          Dettagli: [
-            {
+          Dettagli: [{
               Mese: "GENNAIO",
               ImportoMensileSpettanteGiaLiquidato: 4444,
               ImportMensileConguaglio: 444,
@@ -582,9 +584,9 @@ function liquidazioniCtrl(
   $scope.vmAnniConguaglio = {};
   $scope.vmAnniConguaglio.dtInstance = {};
 
-  $scope.detailInfoAnniConguaglio = function(event, anni, url) {
+  $scope.detailInfoAnniConguaglio = function (event, anni, url) {
     //  definisce la variabile scope che verra ereditata dalla direttiva
-    
+
     var scope = $scope.$new(true);
     scope.anni = anni;
     scope.url = url;
@@ -603,14 +605,14 @@ function liquidazioniCtrl(
     scope.vmDettagliAnnoConguaglio = {};
     scope.vmDettagliAnnoConguaglio.dtInstance = {};
 
-    scope.detailInfoDettagliAnnoConguaglio = function(event, dettagli, url) {
+    scope.detailInfoDettagliAnnoConguaglio = function (event, dettagli, url) {
       //  definisce la variabile scope che verra ereditata dalla direttiva
-      
+
       var scope2 = scope.$new(true);
       scope2.dettagli = dettagli;
       scope2.url = url;
 
-      
+
       var link = angular.element(event.currentTarget),
         icon = link.find(".fa"),
         tr = link.parent().parent(),
@@ -630,7 +632,7 @@ function liquidazioniCtrl(
       }
     };
 
-    
+
     var link = angular.element(event.currentTarget),
       icon = link.find(".fa"),
       tr = link.parent().parent(),
@@ -659,12 +661,15 @@ function liquidazioniCtrl(
 
   $scope.dtOptionsTabRicercaLiquidazioni = DTOptionsBuilder.newOptions()
     .withOption("pageLength", 5)
+    .withOption("bInfo", false)
+    .withOption("paging", false)
     .withOption("lengthChange", false)
     .withOption("retrieve", true);
 
   $scope.colonneTabRicercaLiquidazioni = [
     DTColumnDefBuilder.newColumnDef(8).notSortable()
   ];
+
 
   // -------- Tabella Liquidazione Mensile
   $scope.dtOptionsTabLiquidazioneMensile = DTOptionsBuilder.newOptions()
@@ -718,8 +723,8 @@ function liquidazioniCtrl(
   // FINE OPZIONI e COLONNE TABELLE
   // --------------------------------------------------------------------------
 
-  $scope.findPosizione = function(cCodFis) {
-    $scope.findCodFis = function(cCodFis) {
+  $scope.findPosizione = function (cCodFis) {
+    $scope.findCodFis = function (cCodFis) {
       anagrafeServices.findCodFis(cCodFis, result => {
         $scope.datiAssistito = result;
         $state.go("posizione.visualizza_posizione", {

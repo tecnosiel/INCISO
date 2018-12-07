@@ -5,31 +5,34 @@
 function config($translateProvider) {
   $translateProvider
     .translations("it", {
-      TEST_QUERY_STRING:"Query string opzionale ( ?Principal-ID=3&AuthType=UP&CurrentDelegation=1%3b0 )",
-      INFO_TEST_QUERY_STRING:"Query string opzionale da aggiungere a tutte le  call GET",
-      
-      COMUNICAZIONI_HTTP_CON_CREDENZIALI :"Comunicazioni http con credenziali",
-      TEST_SERVER:"Test server",
-      SERVER_BACKEND:"Server backend ( http://localhost:53061 )",
-      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto: fake-backend) ",
+      RECORD_DA: "Record da",
+      A: "a",
+      DI: "di",
 
-      ENDPOINT_ANAGRAFE : "Endpoint anagrafiche e posizioni ( /api/persona )",
-      ENDPOINT_ANAGRAFE_IN_USO : "Path relativo accesso anagrafe e posizioni (vuoto: /api/persona )",
+      TEST_QUERY_STRING: "Query string opzionale ( ?Principal-ID=3&AuthType=UP&CurrentDelegation=1%3b0 )",
+      INFO_TEST_QUERY_STRING: "Query string opzionale da aggiungere a tutte le  call GET",
 
-      ENDPOINT_DOMANDE  : "Endpoint domande",
-      ENDPOINT_DOMANDE_IN_USO  : "Path relativo accesso domande (vuoto: /api/domande)",
+      COMUNICAZIONI_HTTP_CON_CREDENZIALI: "Comunicazioni http con credenziali",
+      TEST_SERVER: "Test server",
+      SERVER_BACKEND: "Server backend ( http://localhost:53061 )",
+      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO: "Indirizzo http server backend da adoperare (vuoto: fake-backend) ",
 
-      ENDPOINT_AUTENTIFICAZIONE  : "Endpoint autentificazione",
-      ENDPOINT_AUTENTIFICAZIONE_IN_USO  : "Path relativo accesso autentificazione (vuoto: /api/autenticazione)",
+      ENDPOINT_ANAGRAFE: "Endpoint anagrafiche e posizioni ( /api/persona )",
+      ENDPOINT_ANAGRAFE_IN_USO: "Path relativo accesso anagrafe e posizioni (vuoto: /api/persona )",
+
+      ENDPOINT_DOMANDE: "Endpoint domande",
+      ENDPOINT_DOMANDE_IN_USO: "Path relativo accesso domande (vuoto: /api/domande)",
+
+      ENDPOINT_AUTENTIFICAZIONE: "Endpoint autentificazione",
+      ENDPOINT_AUTENTIFICAZIONE_IN_USO: "Path relativo accesso autentificazione (vuoto: /api/autenticazione)",
 
 
-      END_POINTS:"EndPoints",
-      INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE:"Indicare indirizzi RestFul da adoperare",
-      INSERISCI_NUOVA_EVIDENZA:"Inserisci nuova evidenza",
-      SALVA_EVIDENZA :"Salva evidenza",
+      END_POINTS: "EndPoints",
+      INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE: "Indicare indirizzi RestFul da adoperare",
+      INSERISCI_NUOVA_EVIDENZA: "Inserisci nuova evidenza",
+      SALVA_EVIDENZA: "Salva evidenza",
       // -------------------------------------------------------------------------------
-      ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE:
-        "Annullamento ultima liquidazione mensile",
+      ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE: "Annullamento ultima liquidazione mensile",
       ASSISTITO: "Assistito",
       PRESTAZIONI_DA_LIQUIDARE: "Prestazioni da liquidare",
 
@@ -37,30 +40,22 @@ function config($translateProvider) {
 
       ESEGUI_LIQUIDAZIONE_MENSILE: "Esegui liquidazione mensile",
 
-      INSERIRE_IL_MESE_DI_RIFERIMENTO_PER_ELABORAZIONE_DELLA_LIQUIDAZIONE:
-        "Inserire il mese di riferimento per elaborazione della liquidazione",
+      INSERIRE_IL_MESE_DI_RIFERIMENTO_PER_ELABORAZIONE_DELLA_LIQUIDAZIONE: "Inserire il mese di riferimento per elaborazione della liquidazione",
 
-      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_LA_LIQUIDAZIONE_MENSILE:
-        "Periodo di riferimento per elaborare la liquidazione mensile",
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_LA_LIQUIDAZIONE_MENSILE: "Periodo di riferimento per elaborare la liquidazione mensile",
 
-      IMPORTO_MENSILE_SPETTANTE_GIA_LIQUIDATO:
-        "Importo mensile spettante già liquidato",
+      IMPORTO_MENSILE_SPETTANTE_GIA_LIQUIDATO: "Importo mensile spettante già liquidato",
       IMPORTO_MENSILE_CONGUAGLIO: "Importo mensile conguaglio",
-      NUOVO_IMPORTO_MENSILE_TREDICESIMA_MATURATA:
-        "Nuovo importo mensile tredicesima maturata",
+      NUOVO_IMPORTO_MENSILE_TREDICESIMA_MATURATA: "Nuovo importo mensile tredicesima maturata",
 
       ESEGUI_CONGUAGLIO: "Esegui conguaglio",
       DAL_AL: "Dal, al",
-      CONGUAGLIO_PER_LE_POSIZIONI_ESTRATTE:
-        "Conguaglio per le posizioni estratte",
+      CONGUAGLIO_PER_LE_POSIZIONI_ESTRATTE: "Conguaglio per le posizioni estratte",
       ELENCO_POSIZIONI_ESTRATTE: "Elenco posizioni estratte",
-      SELEZIONA_UN_PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
-        "Seleziona un periodo di riferimento per elaborare il conguaglio",
-      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
-        "Periodo di riferimento per elaborare il conguaglio",
+      SELEZIONA_UN_PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO: "Seleziona un periodo di riferimento per elaborare il conguaglio",
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO: "Periodo di riferimento per elaborare il conguaglio",
       ELABORA_CONGUAGLIO: "Elabora conguaglio",
-      MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE:
-        "Mese di riferimento per sblocco liquidazione",
+      MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE: "Mese di riferimento per sblocco liquidazione",
       RICERCA_LIQUIDAZIONE: "Ricerca liquidazione",
       LIQUIDATO: "Liquidato",
       ARRETRATI: "Arretrati",
@@ -77,17 +72,14 @@ function config($translateProvider) {
       DETTAGLIO_IMPORTO_LIQUIDATO: "Dettaglio importo liquidato",
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici",
       TOTALE_IMPORTO_LIQUIDATO: "Totale importo liquidato",
-      DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO:
-        "dell'assistito o di eventuale delegato",
+      DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO: "dell'assistito o di eventuale delegato",
 
-      ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO:
-        "Arretrati liquidati nel mese di riferimento",
+      ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO: "Arretrati liquidati nel mese di riferimento",
 
       DETTAGLIO_ARRETRATI: "Dettaglio arretrati",
 
       DATI_DECRETO: "DATI DECRETO",
-      PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE:
-        "Predisponi/modifica importo da recuperare",
+      PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE: "Predisponi/modifica importo da recuperare",
       DATA_SCADENZA_RESTITUZIONE: "Data scadenza restituzione",
       CALCOLO_INTERESSI: "Calcolo interessi",
       RATEIZZAZIONE: "Rateizzazione",
@@ -96,8 +88,7 @@ function config($translateProvider) {
       NUMERO_DECRETO: "Numero decreto",
       DATA_DECRETO: "Data decreto",
       IMPORTO_CAPITALE_DA_RECUPERARE: "Importo capitale da recuperare",
-      IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE:
-        "Importo interessi legali da recuperare",
+      IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE: "Importo interessi legali da recuperare",
       IMPORTO_INTERESSI_DI_RATEIZZAZIONE: "Importo interessi di rateizzazione",
 
       CAPITALE: "Capitale",
@@ -108,8 +99,7 @@ function config($translateProvider) {
 
       ELABORA_LIQUIDAZIONE_MENSILE: "Elabora liquidazione mensile",
 
-      PREDISPONI_MODIFICA_IMPORTO_RIACCREDITATO:
-        "Predisponi/modifica importo riaccreditato",
+      PREDISPONI_MODIFICA_IMPORTO_RIACCREDITATO: "Predisponi/modifica importo riaccreditato",
       ESTREMI_DEL_RIACCREDITO: "Estremi del riaccredito",
       IMPORTO_TOTALE_RIACCREDITATO: "Importo totale riaccreditato",
       SI_LIQUIDA_QUALE_ARRETRATO: "Si liquida quale arretrato",
@@ -122,8 +112,7 @@ function config($translateProvider) {
       MOTIVO_ANNULLAMENTO: "Motivo annullamento",
       TIPO_DECRETO: "Tipo decreto",
 
-      PREDISPONI_MODIFICA_IMPORTO_RESTITUITO:
-        "Predisponi/modifica importo restituito",
+      PREDISPONI_MODIFICA_IMPORTO_RESTITUITO: "Predisponi/modifica importo restituito",
 
       ESTREMI_RESTITUZIONE: "Estremi restituzione",
       IMPORTO_CAPITALE_RESTITUITO: "Importo capitale restituito",
@@ -155,14 +144,12 @@ function config($translateProvider) {
       OPZIONE_1: "Opzione 1",
       TIPOGRAFIA: "Tipografia",
 
-      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:
-        "Selezionare i settaggi tipografici desiderati",
+      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI: "Selezionare i settaggi tipografici desiderati",
 
       SETTING: "Setting",
 
       BENVENUTI_IN_INCISO: "Benvenuti in INCISO",
-      BENVENUTI_IN_INCISO_SOTTOTITOLO:
-        "Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi.",
+      BENVENUTI_IN_INCISO_SOTTOTITOLO: "Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi.",
       ENTRA_NELLA_PROCEDURA: "Entra nella procedura",
 
       CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare",
@@ -179,8 +166,8 @@ function config($translateProvider) {
       ELIMINA_POSIZIONE: "Elimina posizione",
 
       VISUALIZZA_EVIDENZA: "Visualizza evidenza",
-      INSERIMENTO_EVIDENZA:"Inserimento evidenza",
-     
+      INSERIMENTO_EVIDENZA: "Inserimento evidenza",
+
       DAL: "dal",
       AL: "al",
 
@@ -225,13 +212,10 @@ function config($translateProvider) {
       ELENCO_DOMANDE: "Elenco domande",
 
       DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura",
-      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
-        "Decorrenza permanenza casa di lungodegenza",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA: "Decorrenza permanenza casa di lungodegenza",
 
-      IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
-        "Importo ritenuta di categoria (quota mensile)",
-      ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI:
-        "Elenco ritenute sulle liquidazioni mensili",
+      IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE: "Importo ritenuta di categoria (quota mensile)",
+      ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI: "Elenco ritenute sulle liquidazioni mensili",
       RESPONSABILE: "Responsabile",
       INDIRIZZO: "Indirizzo",
       VALIDITA: "Validità",
@@ -260,8 +244,7 @@ function config($translateProvider) {
       ELENCO_SOSPENSIONI: "Elenco sospensioni",
 
       TOTALE_PER_ANNO_LIQUIDATO: "Totale per anno liquidato",
-      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:
-        "Totale spettante per anno non ancora liquidato",
+      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO: "Totale spettante per anno non ancora liquidato",
 
       REVOCATA: "Revocata",
       INSERITA: "Inserita",
@@ -293,8 +276,7 @@ function config($translateProvider) {
       IMPORTO_CANCELLATO: "Importo cancellato",
       IMPORTO: "Importo",
 
-      TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO:
-        "Totale delle prestazioni liquidate per anno",
+      TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO: "Totale delle prestazioni liquidate per anno",
       TOTALE_PRESTAZIONI_LIQUIDATE: "Totale prestazioni liquidate",
       ELENCO_DELLE_PRESTAZIONI: "Elenco delle prestazioni",
 
@@ -354,13 +336,10 @@ function config($translateProvider) {
       ASSOCIAZIONI_DI_CATEGORIA: "Associazioni di categoria",
       DATA_INIZIO_ISCRIZIONE: "Data inizio iscrizione",
       DATA_FINE_ISCRIZIONE: "Data fine iscrizione",
-      RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
-        "Ritenuta di categoria (quota mensile)",
-      DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO:
-        "Data decorrenza del diritto al pagamento",
+      RITENUTA_DI_CATEGORIA_QUOTA_MENSILE: "Ritenuta di categoria (quota mensile)",
+      DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO: "Data decorrenza del diritto al pagamento",
       DATI_VERBALE: "Dati verbale",
-      INSERISCI_I_DATI_E_AVVIA_LA_RICERCA:
-        "Inserisci i dati e avvia la ricerca",
+      INSERISCI_I_DATI_E_AVVIA_LA_RICERCA: "Inserisci i dati e avvia la ricerca",
       CLOSE: "Close",
       COMUNICAZIONI: "Comunicazioni",
 
@@ -403,13 +382,11 @@ function config($translateProvider) {
       IMPORTO_SPETTANTE: "Importo spettante",
       VISUALIZZA_DETTAGLIO_SIMULAZIONE: "Visualizzattaglio simulazione",
       PERC_DI_EREDITA: "% di eredità",
-      LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA:
-        "Liquidato in base alla % di eredità",
+      LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA: "Liquidato in base alla % di eredità",
       ELENCO_EREDI: "Elenco eredi",
       COGNOME_NOME: "Cognome Nome",
       LIQUIDAZIONE: "Liquidazione",
-      VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO:
-        "Visualizzattaglio importo liquidato",
+      VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO: "Visualizzattaglio importo liquidato",
       AGGIUNGI_EREDE: "Aggiungi erede",
 
       ELENCO_LIQUIDAZIONI: "Elenco liquidazioni",
@@ -420,13 +397,10 @@ function config($translateProvider) {
 
       CORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura",
       TERMINE_DECORRENZA_ASSEGNO_DI_CURA: "Terminecorrenza assegno di cura",
-      CORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
-        "Decorrenza permanenza casa di lungodegenza",
-      TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA:
-        "Termine permanenza casa di lungodegenza",
+      CORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA: "Decorrenza permanenza casa di lungodegenza",
+      TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA: "Termine permanenza casa di lungodegenza",
 
-      ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE:
-        "Elenco ritenute di categoria recuperate",
+      ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE: "Elenco ritenute di categoria recuperate",
 
       NUM_POSIZIONE: "Num. posizione",
       DATA_DOMANDA: "Data domanda",
@@ -438,8 +412,7 @@ function config($translateProvider) {
       LIQUIDATO: "Liquidato",
       RIACCREDITO: "Riaccredito",
       TRATTENUTA_DI_CATEGORIA: "Trattenuta di categoria",
-      IMPORTO_RECUPERATO_PER_COMPENSAZIONE:
-        "Importo recuperato per compensazione",
+      IMPORTO_RECUPERATO_PER_COMPENSAZIONE: "Importo recuperato per compensazione",
       NR_TRASFERIMENTO_FLUMO: "Nr. trasferimento Flumo",
       TOT_MESE: "Tot. mese",
       TOT_ANNO: "Tot. anno",
@@ -455,10 +428,8 @@ function config($translateProvider) {
       ESITO_REDDITO: "Esito",
       SOGLIA_INCREMENTO: "Soglia incremento",
       ESITO_SOGLIA: "Esito",
-      IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI:
-        "Importo annuale di tutte le pensioni",
-      IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI:
-        "importo annuale dell'assegno integrativo ciechi",
+      IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI: "Importo annuale di tutte le pensioni",
+      IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI: "importo annuale dell'assegno integrativo ciechi",
       DATA: "Data",
       MOTIVO: "Motivo",
       FINE: "Fine",
@@ -547,10 +518,8 @@ function config($translateProvider) {
       // Label Associazioni
       RICERCA_ASSOCIAZIONE: "Ricerca associazione",
 
-      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE:
-        "Visualizza dati anagrafici associazione",
-      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE:
-        "Inserimento dati anagrafici associazione",
+      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE: "Visualizza dati anagrafici associazione",
+      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE: "Inserimento dati anagrafici associazione",
 
       NOME_ASSOCIAZIONE: "Nome associazione",
       TIPOLOGIA_DI_ASSISTENZA: "Tipologia di assistenza",
@@ -572,15 +541,12 @@ function config($translateProvider) {
       AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione",
       RICERCA_ASSISTITO: "Ricerca assistito",
 
-      INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA:
-        "Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta",
+      INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA: "Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta",
       COGNOME_DA_RICERCARE: "Cognome da ricercare",
       NOME_DA_RICERCARE: "Nome da ricercare",
       CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare",
-      DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY:
-        "Data nascita da ricercare formato dd/MM/yyyy",
-      CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA:
-        "Codice fiscale duplicato, verificare anomalia.",
+      DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY: "Data nascita da ricercare formato dd/MM/yyyy",
+      CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA: "Codice fiscale duplicato, verificare anomalia.",
       DECEDUTO_IL: "Deceduto il",
       NUMERO_FALDONE: "Numero faldone",
       ANNO_DI_SCARTO: "Anno di scarto",
@@ -593,8 +559,7 @@ function config($translateProvider) {
       Concessa: "Concessa",
       Revocata: "Revocata",
       Negata: "Negata",
-      NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE:
-        "Numero faldone archiviazione da ricercare",
+      NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE: "Numero faldone archiviazione da ricercare",
 
       // Label Domanda Tabella Evidenze
       DECORRENZA: "Decorrenza",
@@ -661,8 +626,7 @@ function config($translateProvider) {
       PENSIONI: "PENSIONI",
       DECESSO: "DECESSO",
       ELENCO_REDDITI: "ELENCO REDDITI",
-      ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
-        "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA",
+      ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA: "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA",
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO",
       STORICO_OPERAZIONI: "STORICO OPERAZIONI",
@@ -712,48 +676,49 @@ function config($translateProvider) {
       PROCEDURA_DI_SCARTO: "Procedura di scarto (skartierung)",
       // -------
       AMMINISTRAZIONE: "Amministrazione",
-      CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI:
-        "Configurazione regole vs. prestazioni",
+      CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI: "Configurazione regole vs. prestazioni",
 
       // -------
       // Define some custom text
       WELCOME: "Benvenuto Camillo",
       MESSAGEINFO: "hai 42 messaggi e 6 notifiche.",
       SEARCH: "Ricerca qualcosa...",
-      DEMO:
-        "Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-"
+      DEMO: "Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-Italiano-"
     })
 
     .translations("de", {
-      TEST_QUERY_STRING:"Query string opzionale DE ( ?Principal-ID=3&AuthType=UP&CurrentDelegation=1%3b0 )",
-      INFO_TEST_QUERY_STRING:"Query string opzionale da aggiungere a tutte le  call GET DE",
+      RECORD_DA : "Record da DE", 
+      A : "a DE",
+      DI : "di DE",
 
-      COMUNICAZIONI_HTTP_CON_CREDENZIALI :"Comunicazioni http con credenziali DE",
+      TEST_QUERY_STRING: "Query string opzionale DE ( ?Principal-ID=3&AuthType=UP&CurrentDelegation=1%3b0 )",
+      INFO_TEST_QUERY_STRING: "Query string opzionale da aggiungere a tutte le  call GET DE",
 
-      TEST_SERVER:"Test server DE",
+      COMUNICAZIONI_HTTP_CON_CREDENZIALI: "Comunicazioni http con credenziali DE",
 
-      SERVER_BACKEND:"Server backend DE ( http://localhost:53061 )",
-      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO:"Indirizzo http server backend da adoperare (vuoto per fake-backend) DE",
-   
-      ENDPOINT_ANAGRAFE : "Endpoint anagrafiche e posizioni DE ( /api/persona )",
-      ENDPOINT_ANAGRAFE_IN_USO : "Path relativo accesso anagrafe e posizioni DE (vuoto: /api/persona )",
+      TEST_SERVER: "Test server DE",
 
-      ENDPOINT_DOMANDE  : "Endpoint domande DE",
-      ENDPOINT_DOMANDE_IN_USO  : "Path relativo accesso domande DE (vuoto: /api/domande)",
+      SERVER_BACKEND: "Server backend DE ( http://localhost:53061 )",
+      INDIRIZZO_HTTP_SERVER_BACKEND_IN_USO: "Indirizzo http server backend da adoperare (vuoto per fake-backend) DE",
 
-      ENDPOINT_AUTENTIFICAZIONE  : "Endpoint autentificazione DE",
-      ENDPOINT_AUTENTIFICAZIONE_IN_USO  : "Path relativo accesso autentificazione DE (vuoto: /api/autenticazione)",
-    
-      END_POINTS:"EndPoints DE",
-      INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE:"Indicare indirizzi RestFul da adoperare DE",
+      ENDPOINT_ANAGRAFE: "Endpoint anagrafiche e posizioni DE ( /api/persona )",
+      ENDPOINT_ANAGRAFE_IN_USO: "Path relativo accesso anagrafe e posizioni DE (vuoto: /api/persona )",
 
-      INSERISCI_NUOVA_EVIDENZA:"Inserisci nuova evidenza DE",
+      ENDPOINT_DOMANDE: "Endpoint domande DE",
+      ENDPOINT_DOMANDE_IN_USO: "Path relativo accesso domande DE (vuoto: /api/domande)",
 
-      SALVA_EVIDENZA :"Salva evidenza DE",
+      ENDPOINT_AUTENTIFICAZIONE: "Endpoint autentificazione DE",
+      ENDPOINT_AUTENTIFICAZIONE_IN_USO: "Path relativo accesso autentificazione DE (vuoto: /api/autenticazione)",
+
+      END_POINTS: "EndPoints DE",
+      INDICARE_INDIRIZZI_RESTFUL_DA_ADOPERARE: "Indicare indirizzi RestFul da adoperare DE",
+
+      INSERISCI_NUOVA_EVIDENZA: "Inserisci nuova evidenza DE",
+
+      SALVA_EVIDENZA: "Salva evidenza DE",
 
 
-      ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE:
-        "Annullamento ultima liquidazione mensile DE",
+      ANNULLAMENTO_ULTIMA_LIQUIDAZIONE_MENSILE: "Annullamento ultima liquidazione mensile DE",
 
       ASSISTITO: "Assistito DE",
       PRESTAZIONI_DA_LIQUIDARE: "Prestazioni da liquidare DE",
@@ -761,30 +726,22 @@ function config($translateProvider) {
       IMPORTI_DA_LIQUIDARE: "Importi da liquidare DE",
 
       ESEGUI_LIQUIDAZIONE_MENSILE: "Esegui liquidazione mensile DE",
-      INSERIRE_IL_MESE_DI_RIFERIMENTO_PER_ELABORAZIONE_DELLA_LIQUIDAZIONE:
-        "Inserire il mese di riferimento per elaborazione della liquidazione DE",
+      INSERIRE_IL_MESE_DI_RIFERIMENTO_PER_ELABORAZIONE_DELLA_LIQUIDAZIONE: "Inserire il mese di riferimento per elaborazione della liquidazione DE",
 
-      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_LA_LIQUIDAZIONE_MENSILE:
-        "Periodo di riferimento per elaborare la liquidazione mensile DE",
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_LA_LIQUIDAZIONE_MENSILE: "Periodo di riferimento per elaborare la liquidazione mensile DE",
 
-      IMPORTO_MENSILE_SPETTANTE_GIA_LIQUIDATO:
-        "Importo mensile spettante già liquidato DE",
+      IMPORTO_MENSILE_SPETTANTE_GIA_LIQUIDATO: "Importo mensile spettante già liquidato DE",
       IMPORTO_MENSILE_CONGUAGLIO: "Importo mensile conguaglio DE",
-      NUOVO_IMPORTO_MENSILE_TREDICESIMA_MATURATA:
-        "Nuovo importo mensile tredicesima maturata DE",
+      NUOVO_IMPORTO_MENSILE_TREDICESIMA_MATURATA: "Nuovo importo mensile tredicesima maturata DE",
 
       ESEGUI_CONGUAGLIO: "Esegui conguaglio DE",
       DAL_AL: "Dal, al DE",
-      CONGUAGLIO_PER_LE_POSIZIONI_ESTRATTE:
-        "Conguaglio per le posizioni estratte DE",
+      CONGUAGLIO_PER_LE_POSIZIONI_ESTRATTE: "Conguaglio per le posizioni estratte DE",
       ELENCO_POSIZIONI_ESTRATTE: "Elenco posizioni estratte DE",
-      SELEZIONA_UN_PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
-        "Seleziona un periodo di riferimento per elaborare il conguaglio DE",
-      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO:
-        "Periodo di riferimento per elaborare il conguaglio DE",
+      SELEZIONA_UN_PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO: "Seleziona un periodo di riferimento per elaborare il conguaglio DE",
+      PERIODO_DI_RIFERIMENTO_PER_ELABORARE_IL_CONGUAGLIO: "Periodo di riferimento per elaborare il conguaglio DE",
       ELABORA_CONGUAGLIO: "Elabora conguaglio DE",
-      MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE:
-        "Mese di riferimento per sblocco liquidazione DE",
+      MESE_DI_RIFERIMENTO_PER_SBLOCCO_LIQUIDAZIONE: "Mese di riferimento per sblocco liquidazione DE",
       RICERCA_LIQUIDAZIONE: "Ricerca liquidazione DE",
       LIQUIDATO: "Liquidato DE",
       ARRETRATI: "Arretrati DE",
@@ -801,17 +758,14 @@ function config($translateProvider) {
       DETTAGLIO_IMPORTO_LIQUIDATO: "Dettaglio importo liquidato DE",
       VISUALIZZA_DATI_ANAGRAFICI: "Visualizza dati anagrafici DE",
       TOTALE_IMPORTO_LIQUIDATO: "Totale importo liquidato DE",
-      DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO:
-        "dell'assistito o di eventuale delegato DE",
+      DELL_ASSISTITO_O_DI_EVENTUALE_DELEGATO: "dell'assistito o di eventuale delegato DE",
 
-      ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO:
-        "Arretrati liquidati nel mese di riferimento DE",
+      ARRETRATI_LIQUIDATI_NEL_MESE_DI_RIFERIMENTO: "Arretrati liquidati nel mese di riferimento DE",
 
       DETTAGLIO_ARRETRATI: "Dettaglio arretrati DE",
 
       DATI_DECRETO: "DATI DECRETO DE",
-      PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE:
-        "Predisponi/modifica importo da recuperare DE",
+      PREDISPONI_MODIFICA_IMPORTO_DA_RECUPERARE: "Predisponi/modifica importo da recuperare DE",
       DATA_SCADENZA_RESTITUZIONE: "Data scadenza restituzione DE",
       CALCOLO_INTERESSI: "Calcolo interessi DE",
       RATEIZZAZIONE: "Rateizzazione DE",
@@ -820,10 +774,8 @@ function config($translateProvider) {
       NUMERO_DECRETO: "Numero decreto DE",
       DATA_DECRETO: "Data decreto DE",
       IMPORTO_CAPITALE_DA_RECUPERARE: "Importo capitale da recuperare DE",
-      IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE:
-        "Importo interessi legali da recuperare DE",
-      IMPORTO_INTERESSI_DI_RATEIZZAZIONE:
-        "Importo interessi di rateizzazione DE",
+      IMPORTO_INTERESSI_LEGALI_DA_RECUPERARE: "Importo interessi legali da recuperare DE",
+      IMPORTO_INTERESSI_DI_RATEIZZAZIONE: "Importo interessi di rateizzazione DE",
 
       CAPITALE: "Capitale DE",
       INTERESSI_LEGALI: "Interessi legali DE",
@@ -833,8 +785,7 @@ function config($translateProvider) {
 
       ELABORA_LIQUIDAZIONE_MENSILE: "Elabora liquidazione mensile DE",
 
-      PREDISPONI_MODIFICA_IMPORTO_RIACCREDITATO:
-        "Predisponi/modifica importo riaccreditato DE",
+      PREDISPONI_MODIFICA_IMPORTO_RIACCREDITATO: "Predisponi/modifica importo riaccreditato DE",
       ESTREMI_DEL_RIACCREDITO: "Estremi del riaccredito DE",
       IMPORTO_TOTALE_RIACCREDITATO: "Importo totale riaccreditato DE",
       SI_LIQUIDA_QUALE_ARRETRATO: "Si liquida quale arretrato DE",
@@ -842,14 +793,12 @@ function config($translateProvider) {
       PREDISPONI_IMPORTO_DA_RECUPERARE: "Predisponi importo da recuperare DE",
       PREDISPONI_IMPORTO_RESTITUITO: "Predisponi importo restituito DE",
       PREDISPONI_IMPORTO_RIACCREDITATO: "Predisponi importo riaccreditato DE",
-      RINUNCIA_ALLA_RISCOSSIONE_COATTIVA:
-        "Rinuncia alla riscossione coattiva DE",
+      RINUNCIA_ALLA_RISCOSSIONE_COATTIVA: "Rinuncia alla riscossione coattiva DE",
       ANNULLATO: "Annullato DE",
       MOTIVO_ANNULLAMENTO: "Motivo annullamento DE",
       TIPO_DECRETO: "Tipo decreto DE",
 
-      PREDISPONI_MODIFICA_IMPORTO_RESTITUITO:
-        "Predisponi/modifica importo restituito DE",
+      PREDISPONI_MODIFICA_IMPORTO_RESTITUITO: "Predisponi/modifica importo restituito DE",
 
       ESTREMI_RESTITUZIONE: "Estremi restituzione  DE",
       IMPORTO_CAPITALE_RESTITUITO: "Importo capitale restituito DE",
@@ -875,7 +824,7 @@ function config($translateProvider) {
 
       SET_NEW_PARAMETERS: "Applica nuovi parametri DE",
       RESET_DEFAULT_PARAMETERS: "Reset parametri di default DE",
-      
+
       TEXT_COLOR: "Colore testo DE",
 
       DIMENSIONE_CARATTERE: "Dimensione fonts DE",
@@ -883,14 +832,12 @@ function config($translateProvider) {
       OPZIONE_1: "Opzione 1 DE",
       TIPOGRAFIA: "Tipografia DE",
 
-      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI:
-        "Selezionare i settaggi tipografici desiderati DE",
+      SELEZIONARE_I_SETTAGGI_TIPOGRAFICI_DESIDERATI: "Selezionare i settaggi tipografici desiderati DE",
 
       SETTING: "Setting DE",
 
       BENVENUTI_IN_INCISO: "Benvenuti in INCISO DE",
-      BENVENUTI_IN_INCISO_SOTTOTITOLO:
-        "Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi DE.",
+      BENVENUTI_IN_INCISO_SOTTOTITOLO: "Informatizzazione della procedura degli assistiti: invalidi civili, ciechi civili e sordi DE.",
       ENTRA_NELLA_PROCEDURA: "Entra nella procedura DE",
 
       CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare DE",
@@ -908,7 +855,7 @@ function config($translateProvider) {
       DATI_EVIDENZA: "Dati evidenza DE",
       ELIMINA_POSIZIONE: "Elimina posizione DE",
       VISUALIZZA_EVIDENZA: "Visualizza evidenza DE",
-      INSERIMENTO_EVIDENZA:"Inserimento evidenza DE",
+      INSERIMENTO_EVIDENZA: "Inserimento evidenza DE",
 
       DAL: "dal DE",
       AL: "al DE",
@@ -954,13 +901,10 @@ function config($translateProvider) {
       ELENCO_DOMANDE: "Elenco domande DE",
 
       DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura DE",
-      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
-        "Decorrenza permanenza casa di lungodegenza DE",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA: "Decorrenza permanenza casa di lungodegenza DE",
 
-      IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
-        "Importo ritenuta di categoria (quota mensile) DE",
-      ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI:
-        "Elenco ritenute sulle liquidazioni mensili DE",
+      IMPORTO_RITENUTA_DI_CATEGORIA_QUOTA_MENSILE: "Importo ritenuta di categoria (quota mensile) DE",
+      ELENCO_RITENUTE_SULLE_LIQUIDAZIONI_MENSILI: "Elenco ritenute sulle liquidazioni mensili DE",
       RESPONSABILE: "Responsabile DE",
       INDIRIZZO: "Indirizzo DE",
       VALIDITA: "Validità DE",
@@ -979,8 +923,7 @@ function config($translateProvider) {
       DATA_SCADENZA: "Data scadenza DE",
       MODIFICA_PRESTAZIONE: "Modifica prestazione DE",
 
-      PREDISPONI_SOSPENSIONE_PRESTAZIONE:
-        "Predisponi sospensione prestazione DE",
+      PREDISPONI_SOSPENSIONE_PRESTAZIONE: "Predisponi sospensione prestazione DE",
       PREDISPONI_NEGAZIONE_PRESTAZIONE: "Predisponi negazione prestazione DE",
       MODIFICA_REVOCA_PRESTAZIONE: "Modifica revoca prestazione DE",
 
@@ -990,8 +933,7 @@ function config($translateProvider) {
       ELENCO_SOSPENSIONI: "Elenco sospensioni DE",
 
       TOTALE_PER_ANNO_LIQUIDATO: "Totale per anno liquidato DE",
-      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO:
-        "Totale spettante per anno non ancora liquidato DE",
+      TOTALE_SPETTANTE_PER_ANNO_NON_ANCORA_LIQUIDATO: "Totale spettante per anno non ancora liquidato DE",
 
       REVOCATA: "Revocata DE",
       INSERITA: "Inserita DE",
@@ -1023,8 +965,7 @@ function config($translateProvider) {
       IMPORTO_CANCELLATO: "Importo cancellato DE",
       IMPORTO: "Importo DE",
 
-      TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO:
-        "Totale delle prestazioni liquidate per anno DE",
+      TOTALE_DELLE_PRESTAZIONI_LIQUIDATE_PER_ANNO: "Totale delle prestazioni liquidate per anno DE",
       TOTALE_PRESTAZIONI_LIQUIDATE: "Totale prestazioni liquidate DE",
       ELENCO_DELLE_PRESTAZIONI: "Elenco delle prestazioni DE",
 
@@ -1086,13 +1027,10 @@ function config($translateProvider) {
       ASSOCIAZIONI_DI_CATEGORIA: "Associazioni di categoria DE",
       DATA_INIZIO_ISCRIZIONE: "Data inizio iscrizione DE",
       DATA_FINE_ISCRIZIONE: "Data fine iscrizione DE",
-      RITENUTA_DI_CATEGORIA_QUOTA_MENSILE:
-        "Ritenuta di categoria (quota mensile) DE",
-      DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO:
-        "Data decorrenza del diritto al pagamento DE",
+      RITENUTA_DI_CATEGORIA_QUOTA_MENSILE: "Ritenuta di categoria (quota mensile) DE",
+      DATA_DECORRENZA_DEL_DIRITTO_AL_PAGAMENTO: "Data decorrenza del diritto al pagamento DE",
       DATI_VERBALE: "Dati verbale DE",
-      INSERISCI_I_DATI_E_AVVIA_LA_RICERCA:
-        "Inserisci i dati e avvia la ricerca DE",
+      INSERISCI_I_DATI_E_AVVIA_LA_RICERCA: "Inserisci i dati e avvia la ricerca DE",
       CLOSE: "Close DE",
       COMUNICAZIONI: "Comunicazioni DE",
       INSERISCI: "Inserisci DE",
@@ -1137,13 +1075,11 @@ function config($translateProvider) {
       IMPORTO_SPETTANTE: "Importo spettante DE",
       VISUALIZZA_DETTAGLIO_SIMULAZIONE: "Visualizza dettaglio simulazione DE",
       PERC_DI_EREDITA: "% di eredità DE",
-      LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA:
-        "Liquidato in base alla % di eredità DE",
+      LIQUIDATO_IN_BASE_ALLA_PERC_DI_EREDITA: "Liquidato in base alla % di eredità DE",
       ELENCO_EREDI: "Elenco eredi DE",
       COGNOME_NOME: "Cognome Nome DE",
       LIQUIDAZIONE: "Liquidazione DE",
-      VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO:
-        "Visualizza dettaglio importo liquidato DE",
+      VISUALIZZA_DETTAGLIO_IMPORTO_LIQUIDATO: "Visualizza dettaglio importo liquidato DE",
       AGGIUNGI_EREDE: "Aggiungi erede DE",
 
       ELENCO_LIQUIDAZIONI: "Elenco liquidazioni DE",
@@ -1153,15 +1089,11 @@ function config($translateProvider) {
       ENTITA: "Entita DE",
 
       DECORRENZA_ASSEGNO_DI_CURA: "Decorrenza assegno di cura DE",
-      TERMINE_DECORRENZA_ASSEGNO_DI_CURA:
-        "Termine decorrenza assegno di cura DE",
-      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA:
-        "Decorrenza permanenza casa di lungodegenza DE",
-      TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA:
-        "Termine permanenza casa di lungodegenza DE",
+      TERMINE_DECORRENZA_ASSEGNO_DI_CURA: "Termine decorrenza assegno di cura DE",
+      DECORRENZA_PERMANENZA_CASA_DI_LUNGODEGENZA: "Decorrenza permanenza casa di lungodegenza DE",
+      TERMINE_PERMANENZA_CASA_DI_LUNGODEGENZA: "Termine permanenza casa di lungodegenza DE",
 
-      ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE:
-        "Elenco ritenute di categoria recuperate DE",
+      ELENCO_RITENUTE_DI_CATEGORIA_RECUPERATE: "Elenco ritenute di categoria recuperate DE",
 
       NUM_POSIZIONE: "Num. posizione DE",
       DATA_DOMANDA: "Data domanda DE",
@@ -1173,8 +1105,7 @@ function config($translateProvider) {
       LIQUIDATO: "Liquidato DE",
       RIACCREDITO: "Riaccredito DE",
       TRATTENUTA_DI_CATEGORIA: "Trattenuta di categoria DE",
-      IMPORTO_RECUPERATO_PER_COMPENSAZIONE:
-        "Importo recuperato per compensazione DE",
+      IMPORTO_RECUPERATO_PER_COMPENSAZIONE: "Importo recuperato per compensazione DE",
       NR_TRASFERIMENTO_FLUMO: "Nr. trasferimento Flumo DE",
       TOT_MESE: "Tot. mese DE",
       TOT_ANNO: "Tot. anno DE",
@@ -1192,10 +1123,8 @@ function config($translateProvider) {
       ESITO_REDDITO: "Esito DE",
       SOGLIA_INCREMENTO: "Soglia incremento DE",
       ESITO_SOGLIA: "Esito DE",
-      IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI:
-        "Importo annuale di tutte le pensioni DE",
-      IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI:
-        "importo annuale dell'assegno integrativo ciechi DE",
+      IMPORTO_ANNUALE_DI_TUTTE_LE_PENSIONI: "Importo annuale di tutte le pensioni DE",
+      IMPORTO_ANNUALE_DELL_ASSEGNO_INTEGRATIVO_CIECHI: "importo annuale dell'assegno integrativo ciechi DE",
       DATA: "Data DE",
       MOTIVO: "Motivo DE",
       FINE: "Fine DE",
@@ -1285,10 +1214,8 @@ function config($translateProvider) {
       // Label Associazioni
       RICERCA_ASSOCIAZIONE: "Ricerca associazione DE",
 
-      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE:
-        "Visualizza dati anagrafici associazione DE",
-      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE:
-        "Inserimento dati anagrafici associazione",
+      VISUALIZZA_DATI_ANAGRAFICI_ASSOCIAZIONE: "Visualizza dati anagrafici associazione DE",
+      INSERIMENTO_DATI_ANAGRAFICI_ASSOCIAZIONE: "Inserimento dati anagrafici associazione",
 
       NOME_ASSOCIAZIONE: "Nome associazione DE",
       TIPOLOGIA_DI_ASSISTENZA: "Tipologia di assistenza DE",
@@ -1310,15 +1237,12 @@ function config($translateProvider) {
       AGGIUNGI_ISCRIZIONE: "Aggiungi iscrizione DE",
       RICERCA_ASSISTITO: "Ricerca assistito DE",
 
-      INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA:
-        "Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta DE",
+      INSERISCI_I_DATI_DELL_ASSISTITO_PER_VEDERE_SE_ESISTE_GIA_UNA_POSIZIONE_APERTA: "Inserisci i dati dell'assistito per vedere se esiste già una posizione aperta DE",
       COGNOME_DA_RICERCARE: "Cognome da ricercare DE",
       NOME_DA_RICERCARE: "Nome da ricercare DE",
       CODICE_FISCALE_DA_RICERCARE: "Codice fiscale da ricercare DE",
-      DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY:
-        "Data nascita da ricercare formato dd/MM/yyyy DE",
-      CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA:
-        "Codice fiscale duplicato, verificare anomalia DE.",
+      DATA_NASCITA_DA_RICERCARE_FORMATO_DDMMYYY: "Data nascita da ricercare formato dd/MM/yyyy DE",
+      CODICE_FISCALE_DUPLICATO_VERIFICARE_ANOMALIA: "Codice fiscale duplicato, verificare anomalia DE.",
       DECEDUTO_IL: "Deceduto il DE",
       NUMERO_FALDONE: "Numero faldone DE",
       ANNO_DI_SCARTO: "Anno di scarto DE",
@@ -1329,8 +1253,7 @@ function config($translateProvider) {
       Concessa: "Concessa DE",
       Revocata: "Revocata DE",
       Negata: "Negata DE",
-      NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE:
-        "Numero faldone archiviazione da ricercare DE",
+      NUMERO_FALDONE_ARCHIVIAZIONE_DA_RICERCARE: "Numero faldone archiviazione da ricercare DE",
 
       // Label Domanda Tabella Evidenze
       DECORRENZA: "Decorrenza DE",
@@ -1398,8 +1321,7 @@ function config($translateProvider) {
       PENSIONI: "PENSIONI DE",
       DECESSO: "DECESSO DE",
       ELENCO_REDDITI: "ELENCO REDDITI DE",
-      ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA:
-        "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA DE",
+      ELENCO_ISCRIZIONI_ALLE_ASSOCIAZIONI_DI_CATEGORIA: "ELENCO ISCRIZIONI ALLE ASSOCIAZIONI DI CATEGORIA DE",
       POSIZIONI_CONTABILI: "POSIZIONI CONTABILI DE",
       POSIZIONE_ESPRO: "POSIZIONE ESPRO DE",
       STORICO_OPERAZIONI: "STORICO OPERAZIONI DE",
@@ -1449,15 +1371,13 @@ function config($translateProvider) {
 
       // -------
       AMMINISTRAZIONE: "Amministrazione DE",
-      CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI:
-        "Configurazione regole vs. prestazioni DE",
+      CONFIGURAZIONE_REGOLE_VS_PRESTAZIONI: "Configurazione regole vs. prestazioni DE",
 
       // Define some custom text
       WELCOME: "Benvenuto Camillo DE",
       MESSAGEINFO: "hai 42 messaggi e 6 notifiche DE.",
       SEARCH: "Ricerca qualcosa... DE",
-      DEMO:
-        "Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-"
+      DEMO: "Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-Tedesco-"
     });
 
   $translateProvider.preferredLanguage("it");
