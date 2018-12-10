@@ -34,9 +34,6 @@ function liquidazioniServices($http, $rootScope, $timeout) {
           $rootScope.showSpinner = false;
           alert("errore nella chiamata : " + status);
         })
-        .finally(function () {
-          // $rootScope.showSpinner = false;
-        });
     }, 300);
   }
 
@@ -48,12 +45,10 @@ function liquidazioniServices($http, $rootScope, $timeout) {
           data: dataFind
         }, config)
         .success(function (data, status, headers, config) {
-          //formattazione dei dati secondo mock
           if ($rootScope.isJsonString)
             callBack(data);
         })
         .error(function (data, status, header, config) {
-          //messaggio di errore per questo get
           alert("errore nella chiamata : " + status);
         })
         .finally(function () {
@@ -61,6 +56,10 @@ function liquidazioniServices($http, $rootScope, $timeout) {
         });
     }, 300);
   }
+
+
+
+
 
   function findCodFis(cCodFis, callBack) {
     $rootScope.showSpinner = true;

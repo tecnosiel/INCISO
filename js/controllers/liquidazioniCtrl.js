@@ -42,7 +42,7 @@ function liquidazioniCtrl(
 
   $scope.find = function (infoTable) {
     liquidazioniServices.find(infoTable, result => {
-      $scope.elencoLiquidazioni = httpServices.arrayFromDb(result, 'liquidazioni')
+      $scope.elencoLiquidazioni = httpServices.arrayFromDb(result, 'ricercaliquidazioni')
     });
   };
 

@@ -43,8 +43,10 @@ function readStructure(cStructure) {
       return associazioniStructure();
     case "liquidazioni":
       return liquidazioniStructure();
+    case "ricercaliquidazioni":
+      return ricercaliquidazioniStructure();
     case "liquidazionimensili":
-      return liquidazionimensiliStructure(); 
+      return liquidazionimensiliStructure();
     case "evidenze":
       return evidenzeStructure();
     case "associazioni":
@@ -906,6 +908,56 @@ function liquidazioniStructure() {
   ]
 }
 
+function ricercaliquidazioniStructure() {
+  return [{
+      DbName: "DbCodiceFiscale",
+      MemName: "CodiceFiscale",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbNominativoAssistito",
+      MemName: "NominativoAssistito",
+      Tipo: "C"
+    },
+    {
+      DbName: "DbImportoPrestazioniLiquidato",
+      MemName: "ImportoPrestazioniLiquidato",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbTredicesima",
+      MemName: "Tredicesima",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbImportoConguaglio",
+      MemName: "ImportoConguaglio",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRitenuteDiCategoria",
+      MemName: "RitenuteDiCategoria",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRiaccrediti",
+      MemName: "Riaccrediti",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbRecuperiDaCompensazione",
+      MemName: "RecuperiDaCompensazione",
+      Tipo: "N"
+    },
+    {
+      DbName: "DbTotaleMensileDaLiquidare",
+      MemName: "TotaleMensileDaLiquidare",
+      Tipo: "N"
+    },
+  ]
+}
+
+
 function evidenzeStructure() {
   return [{
       DbName: "DbDataDecorrenza",
@@ -1064,7 +1116,7 @@ function associazioniStructure() {
       Struttura: "liquidazionimensili",
       Tipo: "ARRAY-JSON",
     },
-  
+
   ]
 }
 
